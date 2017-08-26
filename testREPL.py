@@ -1,8 +1,10 @@
-age = input("What is your age?")
+age = int(input("What is your age?"))
 myage = age + 5
 
-# The two print below is the same thing
+# 1 two lines print
 print("I am 5 years older than you")
 print("Therefore my age is {0}".format(myage))
-
+# 2 one line command to break to two lines.
 print("I am 5 years older than you\nTherefore my age is {0}".format(myage))
+# 3 try a different expression
+print("I am 5 years older than you, therefore my age is", myage)
