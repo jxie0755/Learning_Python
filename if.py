@@ -9,14 +9,16 @@ while running:
         running = False
     if guess > 100:
         print('Please pick a number between 1-100')
+        continue
     if guess == 24:
-        print('Boom!! Your chance is over!')
+        print('Boom!! It\'s very close, but your chance is over!')
         break
     if guess == 22:
         print('Boom!! It\'s very close, but your chance is over!')
+        break
     if guess > 23:
         print('It is lower than that')
-    else:
+    if guess < 23:
         print('it is higher than that')
 
 else:
