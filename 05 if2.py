@@ -1,3 +1,5 @@
+# 此代码为书中增强版，附加1-100提示(使用continue)，和22，24错误导致break引用
+
 number = 23
 running = True
 
@@ -25,3 +27,4 @@ else:
     print('Good work!\n')
 
 print('Program over')
+
