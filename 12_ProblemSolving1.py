@@ -11,13 +11,13 @@ source = ['~/Documents/Account', '~/Documents/Books/Stocks', '~/Documents/Mind\ 
 target_dir = '/Users/Jxie0755/Resources/Backup'
 # 这里必须要用全称目录!
 
-# 3. 指定文件打包
-# 4. 同时设定zip包名称由日期和时间组成
-target = target_dir + os.sep + time.strftime('%Y%m%d_%a_%X') + '.zip'
-
 # 如果目标目录不存在,则创建目录
 if not os.path.exists(target_dir):
     os.mkdir(target_dir)
+
+# 3. 指定文件打包
+# 4. 同时设定zip包名称由日期和时间组成
+target = target_dir + os.sep + time.strftime('%Y%m%d_%a_%X') + '.zip'
 
 # 5. 使用zip命令打包文件
 zip_command = 'zip -r {0} {1}'.format(target, ' '.join(source))
