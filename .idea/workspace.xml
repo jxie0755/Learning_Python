@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a17d5eb3-7d85-4e40-9aca-6e444ea7021e" name="Default" comment="">
+      <change type="MOVED" beforePath="$PROJECT_DIR$/12_ProblemSolving2.py" afterPath="$PROJECT_DIR$/12_ProblemSolving2b.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Sympy.py" afterPath="$PROJECT_DIR$/Sympy.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -36,6 +36,7 @@
     <SUITE FILE_PATH="coverage/A_Byte_Of_Python$05_if2.coverage" NAME="05 if2 Coverage Results" MODIFIED="1503974580418" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/A_Byte_Of_Python$12_ProblemSolving2.coverage" NAME="12_ProblemSolving2 Coverage Results" MODIFIED="1504546169175" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/A_Byte_Of_Python$testREPL.coverage" NAME="testREPL Coverage Results" MODIFIED="1503865926867" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/A_Byte_Of_Python$12_ProblemSolving2__1_.coverage" NAME="12_ProblemSolving2 (1) Coverage Results" MODIFIED="1504547013990" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/A_Byte_Of_Python$Variable1.coverage" NAME="Variable1 Coverage Results" MODIFIED="1503971598955" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/A_Byte_Of_Python$format1.coverage" NAME="format1 Coverage Results" MODIFIED="1503966464082" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/A_Byte_Of_Python$01_format1.coverage" NAME="01_format1 Coverage Results" MODIFIED="1504226292799" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
@@ -97,8 +98,8 @@
       <file leaf-file-name="12_ProblemSolving1.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/12_ProblemSolving1.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="258">
-              <caret line="28" column="0" lean-forward="false" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="31" />
+            <state relative-caret-position="266">
+              <caret line="28" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
               <folding>
                 <element signature="e#18#27#0" expanded="true" />
               </folding>
@@ -106,13 +107,25 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="12_ProblemSolving2.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="12_ProblemSolving2.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/12_ProblemSolving2.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="17" column="18" lean-forward="true" selection-start-line="17" selection-start-column="18" selection-end-line="17" selection-end-column="18" />
+            <state relative-caret-position="281">
+              <caret line="27" column="18" lean-forward="true" selection-start-line="27" selection-start-column="18" selection-end-line="27" selection-end-column="18" />
               <folding>
-                <element signature="e#15#24#0" expanded="true" />
+                <element signature="e#61#70#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="12_ProblemSolving2b.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/12_ProblemSolving2b.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="170">
+              <caret line="10" column="61" lean-forward="false" selection-start-line="10" selection-start-column="31" selection-end-line="10" selection-end-column="61" />
+              <folding>
+                <element signature="e#43#52#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -138,7 +151,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Variable1.py" />
         <option value="$PROJECT_DIR$/03 Variable2.py" />
         <option value="$PROJECT_DIR$/04 Calculation1.py" />
         <option value="$PROJECT_DIR$/04 Calculation2.py" />
@@ -188,6 +200,7 @@
         <option value="$PROJECT_DIR$/11_DataStructure5.py" />
         <option value="$PROJECT_DIR$/Sympy.py" />
         <option value="$PROJECT_DIR$/12_ProblemSolving1.py" />
+        <option value="$PROJECT_DIR$/12_ProblemSolving2b.py" />
         <option value="$PROJECT_DIR$/12_ProblemSolving2.py" />
       </list>
     </option>
@@ -293,6 +306,11 @@
     <property name="settings.editor.selected.configurable" value="Errors" />
     <property name="full.screen.before.presentation.mode" value="false" />
   </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
+  </component>
   <component name="RunDashboard">
     <option name="ruleStates">
       <list>
@@ -305,26 +323,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.12_ProblemSolving2">
-    <configuration default="false" name="02_Escape2" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="A-Byte-Of-Python" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/02_Escape2.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <method />
-    </configuration>
+  <component name="RunManager" selected="Python.12_ProblemSolving2 (1)">
     <configuration default="false" name="11_DataStructure5" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -383,6 +382,25 @@
       <method />
     </configuration>
     <configuration default="false" name="12_ProblemSolving2" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="A-Byte-Of-Python" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/12_ProblemSolving2b.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="12_ProblemSolving2 (1)" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -550,19 +568,19 @@
       <method />
     </configuration>
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="Python.02_Escape2" />
-      <item index="1" class="java.lang.String" itemvalue="Python.11_DataStructure5" />
-      <item index="2" class="java.lang.String" itemvalue="Python.Sympy" />
-      <item index="3" class="java.lang.String" itemvalue="Python.12_ProblemSolving1" />
-      <item index="4" class="java.lang.String" itemvalue="Python.12_ProblemSolving2" />
+      <item index="0" class="java.lang.String" itemvalue="Python.11_DataStructure5" />
+      <item index="1" class="java.lang.String" itemvalue="Python.Sympy" />
+      <item index="2" class="java.lang.String" itemvalue="Python.12_ProblemSolving1" />
+      <item index="3" class="java.lang.String" itemvalue="Python.12_ProblemSolving2" />
+      <item index="4" class="java.lang.String" itemvalue="Python.12_ProblemSolving2 (1)" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.12_ProblemSolving2" />
-        <item index="1" class="java.lang.String" itemvalue="Python.12_ProblemSolving1" />
-        <item index="2" class="java.lang.String" itemvalue="Python.Sympy" />
-        <item index="3" class="java.lang.String" itemvalue="Python.11_DataStructure5" />
-        <item index="4" class="java.lang.String" itemvalue="Python.02_Escape2" />
+        <item index="0" class="java.lang.String" itemvalue="Python.12_ProblemSolving2 (1)" />
+        <item index="1" class="java.lang.String" itemvalue="Python.12_ProblemSolving2" />
+        <item index="2" class="java.lang.String" itemvalue="Python.12_ProblemSolving1" />
+        <item index="3" class="java.lang.String" itemvalue="Python.Sympy" />
+        <item index="4" class="java.lang.String" itemvalue="Python.11_DataStructure5" />
       </list>
     </recent_temporary>
   </component>
@@ -671,7 +689,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/04 Calculation2.py" />
     <entry file="file://$PROJECT_DIR$/02 Escape2.py" />
     <entry file="file://$PROJECT_DIR$/04 Calculation5.py" />
     <entry file="file://$PROJECT_DIR$/09_function7.py">
@@ -955,8 +972,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/12_ProblemSolving1.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="258">
-          <caret line="28" column="0" lean-forward="false" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="31" />
+        <state relative-caret-position="266">
+          <caret line="28" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
           <folding>
             <element signature="e#18#27#0" expanded="true" />
           </folding>
@@ -965,10 +982,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/12_ProblemSolving2.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="18" lean-forward="true" selection-start-line="17" selection-start-column="18" selection-end-line="17" selection-end-column="18" />
+        <state relative-caret-position="281">
+          <caret line="27" column="18" lean-forward="true" selection-start-line="27" selection-start-column="18" selection-end-line="27" selection-end-column="18" />
           <folding>
-            <element signature="e#15#24#0" expanded="true" />
+            <element signature="e#61#70#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/12_ProblemSolving2b.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="61" lean-forward="false" selection-start-line="10" selection-start-column="31" selection-end-line="10" selection-end-column="61" />
+          <folding>
+            <element signature="e#43#52#0" expanded="true" />
           </folding>
         </state>
       </provider>
