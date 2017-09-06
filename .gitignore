@@ -129,3 +129,7 @@ Temporary Items
 # Sonarlint plugin
 
 # End of https://www.gitignore.io/api/osx,pycharm,jetbrains
+.idea/Learning_Python.iml
+.idea/misc.xml
+.idea/modules.xml
+.idea/vcs.xml
