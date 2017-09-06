@@ -115,3 +115,8 @@ Temporary Items
 *.xml
 *.xml
 *.xml
+Project/
+PythonCrashCourse/
+*.xml
+*.xml
+*.iml
