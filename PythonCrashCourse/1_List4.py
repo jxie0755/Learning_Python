@@ -1,7 +1,8 @@
-# 将一个list中所有item都变成大写/小写
+# 将一个list中所有item都变成大写/小写,并且反向
 
 list_D = ['jack', 'Bob', 'frank', 'Benji', 'cathy', 'illy', 'ben', 'hank', 'billy', 'Adrienne']
-list_D = [element.upper() for element in list_D]
+list_D = [i.upper() for i in list_D]
+list_D.reverse()
 print(list_D)
 
-# 注意使用 element.upper() 和 element.lower()命令来实现
+# 此处使用for in loop在一个list中,使得list能够包括原所有的item
