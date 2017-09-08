@@ -10,10 +10,6 @@ meat_order = ['beef', 'steak', 'chicken']
 vegi_order = ['spinach', 'tomato', 'onion']
 final_order = base_order + cheese_order + meat_order + vegi_order
 
-final_price = []
+print('your choices of toppings are:', end=' ')
 for item in final_order:
-    if item in total_list:
-        final_price.append(total_list[item])
-final_total_price = sum(final_price)
-print(round(final_total_price, 2))
-
+    print(item, end=', ')

@@ -66,9 +66,12 @@ for vegi in vegi_order:
     print(vegi, end=', ')
 print(' very healthy!\n')
 
-print('Thank you, ' + customer_name + '!' ' To summarize, you have ordered:')
+print('Thank you, ' + customer_name + '!' ' To summarize,\nYou have ordered:', end=' ')
 print('a', base_order[0], 'pizza with', cheese_order[0], 'cheese.' )
-print('Your choice of toppings are:', list(meat_order[:]), list(vegi_order[:]))
+topping_order = meat_order + vegi_order
+print('Your choice of toppings are:', end=' ')
+for item in topping_order:
+    print(item, end=', ')
 
 # Merge all the orders into one list
 final_order = base_order + cheese_order + meat_order + vegi_order
@@ -81,5 +84,5 @@ for item in final_order:
 final_total_price = sum(final_price)
 
 # print the final price and end this order.
-print('Your total payment will be: $' + str(round(final_total_price, 2)))
+print('\nYour total payment will be: $' + str(round(final_total_price, 2)))
 print('Enjoy your meal!')
