@@ -1,2 +1,2 @@
-listA = ['A', 'B', 'C', 'D', 'E', 'F']
-print(listA.pop(2))
+listA = ['j', 'b', 'f', 'b', 'c', 'i', 'b', 'h', 'b', 'a']
+print(sorted(listA, reverse=True))
