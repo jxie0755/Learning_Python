@@ -1,2 +1,2 @@
-listA = ['j', 'b', 'f', 'b', 'c', 'i', 'b', 'h', 'b', 'a']
-print(sorted(listA, reverse=True))
+for i in range(1, 3):
+    print(i)
