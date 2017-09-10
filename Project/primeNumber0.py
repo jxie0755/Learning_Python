@@ -23,7 +23,7 @@ for x in pnumber1b:
             break
 print(pnumber1b)
 
-# 由于上一个版本发生list冲突,所以解决办法就是设计两个一样的list,把条件放到list1,执行放到list2
+# 双list法:由于上一个版本发生list冲突,所以解决办法就是设计两个一样的list,把条件放到list1,执行放到list2
 # 这样就实现了当1个x值被remove后,打断第二重迭代,继续第一重x的迭代,测试下个x.这样就不会出现相同的x需要被remove所形成的冲突.
 # 这样做虽然繁琐,但是能达到目的
 pnumber1b_fix = list(range(3, 101))
@@ -35,6 +35,24 @@ for x in pnumber1b_fixB:
             pnumber1b_fix.remove(x)
             break
 print(pnumber1b_fix)
+
+
+# 这个跟上一版本一致(双list法)
+# 上一版本是只要有一个i为有效因数满足就不再试其他i,这个办法显然更笨重
+# 区别就是如果不直接break掉i的迭代,那么设置一个检查如果x已经被除掉,那就继续尝试下一个i,直到所有i被迭代完才终止,然后试下一个x,直到x迭代完.
+
+pnumber1b_fix2 = list(range(2, 101))
+pnumber1b_fix2b = list(range(2, 101))
+for x in pnumber1b_fix2b:
+    for i in range(2, x):
+        if x % i == 0:
+            if x in pnumber1b_fix2:
+                pnumber1b_fix2.remove(x)
+            else:
+                continue
+        else:
+            break
+print(pnumber1b_fix2)
 
 
 
