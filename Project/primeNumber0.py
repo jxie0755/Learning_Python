@@ -1,3 +1,4 @@
+# 寻找prime number
 pnumber1 = []
 for x in range(2, 101):
     for i in range(2, x):
@@ -102,7 +103,7 @@ for x in pnumber1b:
     for i in range(2, x):
         if x % i == 0:
             to_remove.append(x)
-            break
+            break  # 注意这个break只是break第二重,i的循环
 for r in to_remove:
     pnumber1b.remove(r)
 print(pnumber1b)

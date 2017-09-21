@@ -1,4 +1,5 @@
 # V1 allow to find any number in a range defined by user
+# 寻找 prime number
 
 def find_primes(n):
     primeList = []
