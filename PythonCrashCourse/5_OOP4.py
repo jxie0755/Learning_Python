@@ -41,7 +41,7 @@ class Battery():
 class ElectricCar(Car):
     def __init__(self, make, model, year, odometer):
         super().__init__(make, model, year, odometer)
-        self.battery = Battery()
+        self.battery = Battery()  # 此处精髓在于, 在初始化阶段新添一个本来没有的参数,这个参数实际上是Battery类的实例.
         # self.battery_size = battery_size 拆分电池属性出来, 设置容量的99
 
     def get_car_info(self):
@@ -64,4 +64,5 @@ my_tesla.get_car_info()
 my_tesla.battery.battery_info()
 my_tesla.read_odometer()
 my_tesla.gas_tank(40)
+
 
