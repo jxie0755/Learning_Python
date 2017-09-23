@@ -63,8 +63,9 @@ print()
 
 my_tesla = ElectricCar('Tesla', 'Model S', 2017)
 my_tesla.get_car_info()
-my_tesla.battery.battery_info() # 注意引用的时候battery要使用小写!!!在这里,把battery当成一个函数??
+my_tesla.battery.battery_info() # 注意引用的时候battery要使用小写!!!在这里,把battery当成一个函数?? test
 my_tesla.read_odometer()
 my_tesla.gas_tank(40)
+
 
 
