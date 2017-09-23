@@ -3,7 +3,7 @@
 
 class Car():
     '''car information summary'''
-    def __init__(self, make, model, year, odometer):
+    def __init__(self, make, model, year, odometer=5500):
         self.make = make
         self.model = model
         self.year = year
@@ -39,7 +39,7 @@ class Battery():
         print("The battery size is:", self.battery_size)
 
 class ElectricCar(Car):
-    def __init__(self, make, model, year, odometer):
+    def __init__(self, make, model, year, odometer=13500):
         super().__init__(make, model, year, odometer)
         self.battery = Battery()  # 此处精髓在于, 在初始化阶段新添一个本来没有的参数,这个参数实际上是Battery类的实例.
         # 这样做的好处就在于, 每当生成一个ECar的实例(my_tesla), 都会自动生成一个电池属性,但它不属于ECar自身的实参,而是引用了来自Battery类的实例,所以有效的精简了每一个类的复杂程度.
@@ -54,14 +54,14 @@ class ElectricCar(Car):
         print('You don\'t have a gas tank!')
 
 
-my_car = Car('Audi', 'S4', 2016, 0)
+my_car = Car('Audi', 'S4', 2016, 5000)
 print(my_car.get_car_info())
 my_car.read_odometer()
 my_car.gas_tank(40)
 
 print()
 
-my_tesla = ElectricCar('Tesla', 'Model S', 2017, 13500)
+my_tesla = ElectricCar('Tesla', 'Model S', 2017)
 my_tesla.get_car_info()
 my_tesla.battery.battery_info() # 注意引用的时候battery要使用小写!!!在这里,把battery当成一个函数??
 my_tesla.read_odometer()

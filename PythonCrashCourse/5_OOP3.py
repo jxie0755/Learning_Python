@@ -2,7 +2,7 @@
 
 class Car():
     '''car information summary'''
-    def __init__(self, make, model, year, odometer):
+    def __init__(self, make, model, year, odometer=5500):
         self.make = make
         self.model = model
         self.year = year
@@ -32,7 +32,7 @@ class Car():
 
 class ElectricCar(Car):
     # 添加一个电动车独有的属性,电瓶容量(battery_size)
-    def __init__(self, make, model, year, battery_size=99, odometer=13500):  # 此处设置默认值,超类处不再设置默认值
+    def __init__(self, make, model, year, battery_size, odometer=13500):  # 此处设置默认值,超类处的默认值被覆盖
     # 添加ECar的init有一个battery, 调整顺序,默认值odometer在最后.
 
         super().__init__(make, model, year, odometer)  # super中不需要battery
@@ -48,14 +48,14 @@ class ElectricCar(Car):
     def gas_tank(self, tank_size):
         print('You don\'t have a gas tank!')
 
-my_car = Car('Audi', 'S4', 2016, 0)
+my_car = Car('Audi', 'S4', 2016)
 print(my_car.get_car_info())
 my_car.read_odometer()
 my_car.gas_tank(40)
 
 print()
 
-my_tesla = ElectricCar('Tesla', 'Model S', 2017)
+my_tesla = ElectricCar('Tesla', 'Model S', 2017, 99)
 my_tesla.get_car_info()
 my_tesla.read_odometer()
 my_tesla.gas_tank(40)
