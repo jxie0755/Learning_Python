@@ -42,6 +42,7 @@ class ElectricCar(Car):
     def __init__(self, make, model, year, odometer):
         super().__init__(make, model, year, odometer)
         self.battery = Battery()  # 此处精髓在于, 在初始化阶段新添一个本来没有的参数,这个参数实际上是Battery类的实例.
+        # 这样做的好处就在于, 每当生成一个ECar的实例(my_tesla), 都会自动生成一个电池属性,但它不属于ECar自身的实参,而是引用了来自Battery类的实例,所以有效的精简了每一个类的复杂程度.
 
         # self.battery_size = battery_size 取消原有的自带属性
 
