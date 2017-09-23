@@ -1,4 +1,5 @@
 # Inheritance, Parent class, Child class, subclass, super class
+# 讲电动车的电池拆分成一个独立的类, 这样电池的很多属性可以在这个类中细化
 
 class Car():
     '''car information summary'''
@@ -30,23 +31,26 @@ class Car():
     def gas_tank(self, tank_size):
         print('fill up the gas tank', tank_size, 'gallons')
 
-class ElectricCar(Car):
-    # 添加一个电动车独有的属性,电瓶容量(battery_size)
-    def __init__(self, make, model, year, battery_size=99, odometer=13500):  # 此处设置默认值,超类处不再设置默认值
-    # 添加ECar的init有一个battery, 调整顺序,默认值odometer在最后.
-
-        super().__init__(make, model, year, odometer)  # super中不需要battery
-                                                      # 注意超类的odometer不要再给默认值了,不然无法修改子类的odometer
-        # Car.__init__(self, make, model, year, odometer) # also works
-
+class Battery():
+    # 独立battery成为一个类
+    def __init__(self, battery_size=70):
         self.battery_size = battery_size
+    def battery_info(self):
+        print("The battery size is:", self.battery_size)
+
+class ElectricCar(Car):
+    def __init__(self, make, model, year, odometer):
+        super().__init__(make, model, year, odometer)
+        self.battery = Battery()
+        # self.battery_size = battery_size 拆分电池属性出来, 设置容量的99
 
     def get_car_info(self):
         print(Car.get_car_info(self))
-        print('Battery size:', self.battery_size)
+        # print('Battery size: ', self.battery_size)
 
     def gas_tank(self, tank_size):
         print('You don\'t have a gas tank!')
+
 
 my_car = Car('Audi', 'S4', 2016, 0)
 print(my_car.get_car_info())
@@ -55,9 +59,9 @@ my_car.gas_tank(40)
 
 print()
 
-my_tesla = ElectricCar('Tesla', 'Model S', 2017)
+my_tesla = ElectricCar('Tesla', 'Model S', 2017, 13500)
 my_tesla.get_car_info()
+my_tesla.battery.battery_info()
 my_tesla.read_odometer()
 my_tesla.gas_tank(40)
-# 若是父类中的某些方法,对于子类来说不能用,那么就在子类中创造同样名称的方法,然后返回一个不能用的print即可
 
