@@ -33,6 +33,7 @@ class Car():
         print('fill up the gas tank', tank_size, 'gallons')
 
 class ElectricCar(Car):
+    '''Electric car information summary'''
     def __init__(self, make, model, year, odometer=13500):
         super().__init__(make, model, year, odometer)
         self.BBBattery = Battery()  # 此处精髓在于, 在初始化阶段新添一个本来没有的参数,这个参数实际上是Battery类的实例.
@@ -48,6 +49,7 @@ class ElectricCar(Car):
         print('You don\'t have a gas tank!')
 
 class Battery():
+    '''Battery class for ECar to use as attribute'''
     # 独立battery成为一个类
     def __init__(self, battery_size=70):
         self.battery_size = battery_size
@@ -58,22 +60,3 @@ class Battery():
     def get_range(self):
         range = self.battery_size * 3 + 30
         print('The car\'s range is', range, 'miles')
-
-
-my_car = Car('Audi', 'S4', 2016, 5000)
-print(my_car.get_car_info())
-my_car.read_odometer()
-my_car.gas_tank(40)
-
-print()
-
-my_tesla = ElectricCar('Tesla', 'Model S', 2017)
-my_tesla.get_car_info()
-my_tesla.BBBattery.battery_info()
-# 注意这里,BBBattery是来自my_tesla的self.BBBattery属性,而不是Battery这个class的名字!!
-my_tesla.read_odometer()
-my_tesla.gas_tank(40)
-my_tesla.BBBattery.get_range()
-
-
-
