@@ -1,4 +1,5 @@
 # 如果把ecar这个模块导入其超类car, 那么这个ecar的模块就包含全部的类,直接可以从ecar中调用Car和Electric Car
+# 但是逻辑上来说,不建议这么做,还是分别import比较保险
 
 import ecar
 
