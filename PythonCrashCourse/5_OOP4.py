@@ -12,7 +12,7 @@ class Car():
 
     def get_car_info(self):
         long_name = str(self.year) + ' ' + self.make + ' ' + self.model
-        return long_name
+        prnt(long_name)
 
     def read_odometer(self):
         print('The car has been driven: ' + str(self.odometer) + ' miles')
@@ -41,7 +41,7 @@ class ElectricCar(Car):
         # self.battery_size = battery_size 取消原有的自带属性
 
     def get_car_info(self):
-        print(Car.get_car_info(self))
+        Car.get_car_info(self)
         # print('Battery size: ', self.battery_size)
 
     def gas_tank(self, tank_size):
