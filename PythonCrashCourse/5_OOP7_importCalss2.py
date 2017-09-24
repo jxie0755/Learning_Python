@@ -1,3 +1,5 @@
+# 使用import命令,记得如果不是用from...import, 必须要加引用前缀 (car.Car等等)
+
 import car
 
 help(car.Car)

@@ -1,3 +1,5 @@
+# 测试引用Class
+
 from car import Car, ElectricCar, Battery
 
 help(Car)
