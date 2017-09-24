@@ -54,8 +54,9 @@ class Battery():
         print("The battery size is:", self.battery_size)
 
     #增加其他属性,比如续航历程
-    #def get_range(self):
-        #if self.battery_size = 70:
+    def get_range(self):
+        range = self.battery_size * 3 + 30
+        print('The car\'s range is', range, 'miles')
 
 
 my_car = Car('Audi', 'S4', 2016, 5000)
@@ -68,9 +69,10 @@ print()
 my_tesla = ElectricCar('Tesla', 'Model S', 2017)
 my_tesla.get_car_info()
 my_tesla.BBBattery.battery_info()
-# 注意这里,BBBattery是来自my_tesla的BBBattery属性,而不是Battery这个class的名字!!
+# 注意这里,BBBattery是来自my_tesla的self.BBBattery属性,而不是Battery这个class的名字!!
 my_tesla.read_odometer()
 my_tesla.gas_tank(40)
+my_tesla.BBBattery.get_range()
 
 
 
