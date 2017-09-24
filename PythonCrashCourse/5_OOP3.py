@@ -1,4 +1,5 @@
 # Inheritance, Parent class, Child class, subclass, super class
+# 继续使用Car的例子,在下面创建一个electric car的子类
 
 class Car():
     '''car information summary'''
