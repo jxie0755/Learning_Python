@@ -1,4 +1,4 @@
-from car import *
+from car import Car, ElectricCar, Battery
 
 help(Car)
 help(ElectricCar)
