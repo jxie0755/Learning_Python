@@ -10,6 +10,10 @@ pi_string = ''
 for line in lines:
     pi_string += line.strip()
 
-print(pi_string[:22] + '...') # 限制打印到前20个数字
-print('length is', len(pi_string), 'digits') # list长度仍然是全长
+birthday = input('Enter your birthday, in the form of mmddyy: ') # 设立input生日信息
+
+if birthday in pi_string:
+    print('your birthday information is included in 1 million digits of pi')
+else:
+    print('your birthday information is not found in pi')
 
