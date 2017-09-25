@@ -1,7 +1,7 @@
 # 这是很重要的一次尝试,将整个Tank class独立出来,然后使得它能根据car model的不同来给出不同的tank size
 # Link car model to the tank_size
 # 这里是将一个dict放入在Car class类,然后Tank的method可以根据这个dict来给出不同的答案.
-# 还不是完全体,因为tank信息还是存在了Car这个class里. 参见下一个版本5_OOP6.py
+# 还不是完全体,因为tank信息还是存在了Car这个class里. 参见下一个版本5_OOP4c.py
 
 class Car():
     car_tank_sizes = {'Audi': {'A4': '20', 'A6': 25, 'A8': 30}}

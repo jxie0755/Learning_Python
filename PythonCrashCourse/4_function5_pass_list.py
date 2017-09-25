@@ -1,4 +1,5 @@
 # Passing list to function
+# list as arguments
 
 def greet_users(names):    # 提前假定参数是一个list了,随后:
     for name in names:     # 用遍历的方式,来处理这个变量,就是说明这个参数为list

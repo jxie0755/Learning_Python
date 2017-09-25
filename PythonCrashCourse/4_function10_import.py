@@ -1,4 +1,4 @@
-# Then import it in a different file,
+# Then import it in a different file
 # Import a module (pizza)
 
 import pizza as p

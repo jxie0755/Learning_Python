@@ -1,3 +1,5 @@
+# 重点是标记make和model的源头
+
 class Car():
     def __init__(self, make, model):
         self.makeC = make
