@@ -1,7 +1,7 @@
 # 使用读取的文件内容
 # 仍然基于pi_digits.txt做演示 (假设文件有100万位的pi数据)
 
-filename = 'pi_million_digits.txt'
+filename = 'M_M_pi_million_digits.txt'
 with open(filename) as file_object:
     lines = file_object.readlines()
 
