@@ -1,5 +1,5 @@
 # 测试引用Class
-from car0 import Car, ElectricCar, Battery
+from M_car0 import Car, ElectricCar, Battery
 
 help(Car)
 help(ElectricCar)

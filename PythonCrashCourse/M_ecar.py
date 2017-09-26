@@ -1,4 +1,4 @@
-from car import Car
+from M_car import Car
 
 class ElectricCar(Car):
     '''Electric car information summary'''

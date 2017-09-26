@@ -7,14 +7,14 @@ if you wanna make your work also fun:
 '''
 
 # 打开文件以编辑('w'ritting)
-f = open('poem.txt', 'w')
+f = open('M_M_poem.txt', 'w')
 # 编辑
 f.write(poem)
 # 关闭
 f.close()
 
 # 如果没有特别指定,将假定启用阅读模式为默认
-f = open('poem.txt')
+f = open('M_M_poem.txt')
 while True:
     line = f.readline()
     # 零长度指示

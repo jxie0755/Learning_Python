@@ -1,5 +1,4 @@
-# Save a function snippet, as pizza.py
-
+# Save a function snippet, as M_pizza.py
 
 def make_pizza(size, *toppings):
     """Summarize the pizza we are about to make."""

@@ -3,7 +3,7 @@
 # 如果文件不存在,就自己新建.
 # 如果文件存在,则会清空文件,以待写入.
 
-filename = 'M_M_programming.txt'
+filename = 'M_programming.txt'
 with open(filename, 'w') as file_object:
     file_object.write('I love programing.')
 
@@ -21,7 +21,7 @@ with open(filename, 'a') as f_obj:
 
 # r+模式, 覆盖写入,可以定位写入(但仍然是覆盖)
 # 原文件内容为123456789
-filename = 'M_M_alice2.txt'
+filename = 'M_alice2.txt'
 
 with open(filename, 'r+') as f_obj:
     f_obj.seek(2) # 定位到2个字符后
