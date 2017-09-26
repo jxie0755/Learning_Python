@@ -5,7 +5,7 @@
 # 3. Adrienne
 
 # 用只读模式打开,并且逐行读取,存入list
-filename = 'M_olist.txt'
+filename = 'D_olist.txt'
 with open(filename, 'r') as f_obj:
     lines = f_obj.readlines()
 

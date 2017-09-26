@@ -28,7 +28,7 @@ while True:
 
 # 处理FileNotFoundError 异常
 
-filename = 'M_alice.txt'
+filename = 'D_alice.txt'
 
 try:
     with open(filename) as f_obj:
