@@ -15,22 +15,34 @@ customer_name = str(input('please enter your name for the order:'))
 print('Hello! ', customer_name, '! You can order whenever you are ready:)\n')
 
 # when customer is ready, take him to the pizza base options
+base_order = []
 print('Our pizza types are:')
 for base, baseprice in base_list.items():
     print('{}: ${}'.format(base, baseprice))
+
+# 加了一段循环条件,如果输入的内容不在menu里,出现提示
 while True:
-    base_order = [str(input('please choose a base for your pizza:'))]
-    if base_order not in base_list.items():
+    base_input = str(input('please choose a base for your pizza:'))
+    if base_input not in base_list.keys():
         print('Sorry, we don\'t have that')
         continue
     else:
+        base_order.append(base_input)
         break
 
 # show the cheese list and have customer order the cheese
+cheese_order = []
 print('\nPlease how much cheese do you want in the base:')
 for cheese, cheeseprice in cheese_list.items():
     print('{}: ${}'.format(cheese, cheeseprice))
-cheese_order = [str(input('please choose the cheese for your pizza:'))]
+while True:
+    cheese_input = str(input('please choose the cheese for your pizza:'))
+    if cheese_input not in cheese_list.keys():
+        print('Sorry, we don\'t have that')
+        continue
+    else:
+        cheese_order.append(base_input)
+        break
 
 # Summarize the order so far
 print('\nSo far, you ordered a', base_order, 'pizza with', cheese_order, 'amount of cheese.')
@@ -42,12 +54,17 @@ for meat, meatprice in meat_list.items():
 
 meat_order = []
 max_length_list = 5
+# 同理加入输入错误的提示, 同时支持输入done退出,而且不需要再额外remove,代码优化成功
 while len(meat_order) < max_length_list:
     meat_choice = input('\nEnter your meat option. You can choose multiple\nType \'done\' when finish:')
-    meat_order.append(meat_choice)
-    if 'done' in meat_order:
+    if meat_choice == 'done':
         break
-meat_order.remove('done')
+    elif meat_choice not in meat_list.keys():
+        print('Sorry, we don\'t have that')
+        continue
+    else:
+        meat_order.append(meat_choice)
+        continue
 
 print('\nYou ordered:')
 for meat in meat_order:
@@ -63,10 +80,14 @@ vegi_order = []
 max_length_list = 6
 while len(vegi_order) < max_length_list:
     vegi_choice = input('\nEnter your meat option. You can choose multiple\nType \'done\' when you finish:')
-    vegi_order.append(vegi_choice)
-    if 'done' in vegi_order:
+    if vegi_choice == 'done':
         break
-vegi_order.remove('done')
+    elif vegi_choice not in vegi_list.keys():
+        print('Sorry, we don\'t have that')
+        continue
+    else:
+        vegi_order.append(vegi_choice)
+        continue
 
 print('\nYou ordered:')
 for vegi in vegi_order:

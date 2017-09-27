@@ -1,10 +1,10 @@
-pnumber1b = list(range(2, 101))
-pnumber1a = list(range(2, 101))
-for x in pnumber1b:
-    for i in range(2, x):
-        if x % i == 0:
-            if x in pnumber1a:
-                pnumber1a.remove(x)
-    else:
+Dict = {'thin': 7.99, 'regular': 8.99, 'pan': 9.99, 'stuffed': 10.99}
+
+while True:
+    order = input('please input:')
+    if order in Dict.keys():
+        print('in')
+        break
+    if order not in Dict.keys():
+        print('not in')
         continue
-print(pnumber1a)
