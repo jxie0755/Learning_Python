@@ -1,5 +1,6 @@
 # 创立一个用户登录系统,按照用户名创立文件,并记录登录时间
 # 改进部分: 增加一个密码的输入和核对程序
+# 密码表还不完善, 需要独立分割开来,并能update新用户名和密码
 
 import json
 import time
@@ -24,16 +25,15 @@ try:
         else:
             print('log in successfully!')
             break
+    # 欢迎用户后,继续记录本次登录时间
+    with open(filename, 'a') as f_obj:
+        f_obj.write('\n' + log_in_time)
 
 # 若不存在,则为新用户创建一个新用户文件,并记录登录时间
 except FileNotFoundError:
-    # SN = input('Please setup your password:')
-    # UserPassList[username] = SN
+    SN = input('Please setup your password:')
+    UserPassList[username] = SN
     with open(filename, 'w') as f_obj:
         f_obj.write(username)
         f_obj.write('\n' + log_in_time)
     print("Hello," + username + '!')
-# 欢迎用户后,继续记录本次登录时间
-else:
-    with open(filename, 'a') as f_obj:
-        f_obj.write('\n' + log_in_time)
