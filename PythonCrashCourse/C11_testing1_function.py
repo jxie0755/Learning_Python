@@ -3,7 +3,7 @@
 def get_formatted_name(first, last):
     """Generate a neatly formatted full name"""
     full_name = first + ' ' + last
-    return full_name.title()
+    return full_name.title()  # 必须要return一个值,不要print,否则出现None
 
 # import模块
 import unittest
