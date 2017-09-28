@@ -21,7 +21,7 @@ def get_stored_username():
 def get_new_username():
     # 拆分成一个专门用于得到新用户名的函数
     username = input("What's your name:")
-    filename = filename = 'username.json'
+    filename = 'username.json'
     with open(filename, 'w') as f_obj:
         json.dump(username, f_obj)
     return username

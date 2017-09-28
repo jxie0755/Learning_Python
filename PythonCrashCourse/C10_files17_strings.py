@@ -12,7 +12,6 @@ g = ''.join(f)
 h = []
 for i in g:
     h.append(i)
-
 print(a)
 print(b)
 print(c)
