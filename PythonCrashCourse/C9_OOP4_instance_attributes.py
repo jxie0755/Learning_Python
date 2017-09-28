@@ -12,7 +12,7 @@ class Car():
 
     def get_car_info(self):
         long_name = str(self.year) + ' ' + self.make + ' ' + self.model
-        prnt(long_name)
+        print(long_name)
 
     def read_odometer(self):
         print('The car has been driven: ' + str(self.odometer) + ' miles')
