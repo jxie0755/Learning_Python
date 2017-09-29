@@ -61,20 +61,21 @@ except FileNotFoundError:
 
     print('You need to setup your new ID')
     while True:
-        user_name = input('Please input your new user ID: ')
-        if user_name in user_list:
+        new_user_name = input('Please input your new user ID: ')
+        if new_user_name in user_list:
             print('this username has been taken, please input a new one')
             continue
         else:
             break
     new_password = input('Please setup your password:')
+    file_name = 'data/D_' + new_user_name.replace(' ', '') + '.txt'
 
     with open('data/USER.txt', 'a') as f_obj:
-        f_obj.write(str(user_name) + '\n')
+        f_obj.write(str(new_user_name) + '\n')
     with open('data/SN.txt', 'a') as f_obj:
         f_obj.write(str(new_password) + '\n')
 
     with open(file_name, 'w') as f_obj:
-        f_obj.write(str(user_name))
+        f_obj.write(str(new_user_name))
         f_obj.write('\n' + 'logged in: ' + log_in_time)
-    print("Hello," + str(user_name) + '!')
+    print("Hello," + str(new_user_name) + '!')
