@@ -1,7 +1,7 @@
 import time
 
 log_in_time = time.strftime('%Y%m%d_%H:%M:%S')
-user_name = input("What's your name: ")
+user_name = input("Please enter your name: ")
 file_name = 'data/D_' + user_name.replace(' ', '') + '.txt'
 
 # 先读取文件, 如果用户存在就欢迎
@@ -26,9 +26,7 @@ try:
             sn_list.append(v.rstrip())
 
         # 合并两个list到一个dict中
-        if len(user_list) == len(sn_list):  # 加一个检查项
-            # 注意zip函数用法
-            pass_book = dict(zip(user_list, sn_list))
+        pass_book = dict(zip(user_list, sn_list))
 
         if pass_word != pass_book[user_name]:
             print('wrong password')
@@ -59,9 +57,9 @@ except FileNotFoundError:
     # 合并两个list到一个dict中
     pass_book = dict(zip(user_list, sn_list))
 
-    print('You need to setup your new ID')
+    print('Your username are not found in the system')
     while True:
-        new_user_name = input('Please input your new user ID: ')
+        new_user_name = input('If you like, please setup your new user name: ')
         if new_user_name in user_list:
             print('this username has been taken, please input a new one')
             continue
