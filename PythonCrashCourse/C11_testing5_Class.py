@@ -1,6 +1,6 @@
 # 第二版测试,增加一个测试多个response的测试
 
-from testingclass import AnonymousSurvey
+from testingClass import AnonymousSurvey
 import unittest
 
 class TestAnonymousSurvey(unittest.TestCase):
