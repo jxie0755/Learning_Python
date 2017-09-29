@@ -10,26 +10,25 @@ def update_passbook():
     with open('SN.txt', 'a') as f_obj:
         f_obj.write(str(new_password) + '\n')
 
+
 # 读取密码本 函数化
 
 def read_passbook():
     """read the passbook from USER and SN file, create a dict"""
-    user_list = []
-    sn_list = []
     with open('data/USER.txt', 'r') as f_obj:
         listK = f_obj.readlines()
     with open('data/SN.txt', 'r') as f_obj:
         listV = f_obj.readlines()
 
     # 读取内容剥离转义符号, 写入两个list
+    user_list = []
+    sn_list = []
     for k in listK:
         user_list.append(k.rstrip())
     for v in listV:
         sn_list.append(v.rstrip())
 
     # 合并两个list到一个dict中
-    if len(user_list) == len(sn_list):  # 加一个检查项
-        # 注意zip函数用法
-        pass_book = dict(zip(user_list, sn_list))
+    # 注意zip函数用法
+    pass_book = dict(zip(user_list, sn_list))
     return pass_book
-    return user_list
