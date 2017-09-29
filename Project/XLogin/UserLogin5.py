@@ -11,6 +11,19 @@ user_name = input("Please enter your name: ")
 file_name = 'data/' + 'D_' + user_name.replace(' ', '') + '.txt'
 logout_final_name = user_name.replace(' ', '') + '_logout' + '.py'
 
+def write_log_out():
+    with open(logout_final_name, 'w') as f_obj:
+        f_obj.write("import time")
+        f_obj.write("\nfrom os import remove")
+        f_obj.write("\nfrom sys import argv")
+        f_obj.write("\ncurrent_time = time.strftime('%Y%m%d_%H:%M:%S')")
+        f_obj.write("\nuser_name = " + "\'" + user_name + "\'")
+        f_obj.write("\nfile_name = 'D_' + user_name.replace(' ', '') + '.txt'")
+        f_obj.write("\nwith open(file_name, 'a') as f_obj:")
+        f_obj.write("\n" + "    f_obj.write('\\n' + 'logged out: ' + current_time)")
+        f_obj.write("\nprint(user_name, 'successfully logged out!')")
+        f_obj.write("\nremove(argv[0])")
+
 try:
     with open(logout_final_name, 'r') as f_obj:
         f_obj.readlines()
@@ -48,14 +61,8 @@ except FileNotFoundError:
             f_obj.write('\n' + 'logged in:  ' + current_time)
 
         # 新建一个python程序,为本次登录创造一个logout.
-        with open(logout_final_name, 'w') as f_obj:
-            f_obj.write("import time")
-            f_obj.write("\ncurrent_time = time.strftime('%Y%m%d_%H:%M:%S')")
-            f_obj.write("\nuser_name = " + "\'" + user_name + "\'")
-            f_obj.write("\nfile_name = 'D_' + user_name.replace(' ', '') + '.txt'")
-            f_obj.write("\nwith open(file_name, 'a') as f_obj:")
-            f_obj.write("\n" + "    f_obj.write('\\n' + 'logged out: ' + current_time)")
-            f_obj.write("\nprint(user_name, 'successfully logged out!')")
+        write_log_out()
+
     # 若不存在,则为新用户创建一个新用户文件,并记录登录时间
     except FileNotFoundError:
         print('Your username are not found in the system.')
@@ -71,11 +78,6 @@ except FileNotFoundError:
             f_obj.write(str(user_name))
             f_obj.write('\n' + 'logged in:  ' + current_time)
         print("Hello," + str(user_name) + '!')
-        with open(logout_final_name, 'w') as f_obj:
-            f_obj.write("import time")
-            f_obj.write("\ncurrent_time = time.strftime('%Y%m%d_%H:%M:%S')")
-            f_obj.write("\nuser_name = " + "\'" + user_name + "\'")
-            f_obj.write("\nfile_name = 'D_' + user_name.replace(' ', '') + '.txt'")
-            f_obj.write("\nwith open(file_name, 'a') as f_obj:")
-            f_obj.write("\n" + "    f_obj.write('\\n' + 'logged out: ' + current_time)")
-            f_obj.write("\nprint(user_name, 'successfully logged out!')")
+
+        # 不要忘记logout
+        write_log_out()
