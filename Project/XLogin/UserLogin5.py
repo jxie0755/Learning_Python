@@ -3,6 +3,7 @@
 # 密码表设计成两个独立文件,单独存放用户名和密码,在运行时组合成为密码表
 # 同时还要设计一个logout的程序,在新用户和已有用户登录时都会创造一个python程序.
 # 一旦登录成功,记录登录时间,并且生成一个logout文件,将登录用户名和记录登出时间的程序自动写入.
+#  logout文件运行后将自动删除, 设置如果logout文件还在,就不能重复登录
 
 import time
 
@@ -18,8 +19,8 @@ def write_log_out():
         f_obj.write("\nfrom sys import argv")
         f_obj.write("\ncurrent_time = time.strftime('%Y%m%d_%H:%M:%S')")
         f_obj.write("\nuser_name = " + "\'" + user_name + "\'")
-        f_obj.write("\nfile_name = 'D_' + user_name.replace(' ', '') + '.txt'")
-        f_obj.write("\nwith open(file_name, 'a') as f_obj:")
+        f_obj.write("\nfile_name = 'data/D_' + user_name.replace(' ', '') + '.txt'")
+        f_obj.write("\nwith" + " open(file_name, 'a') as f_obj:")
         f_obj.write("\n" + "    f_obj.write('\\n' + 'logged out: ' + current_time)")
         f_obj.write("\nprint(user_name, 'successfully logged out!')")
         f_obj.write("\nremove(argv[0])")
@@ -69,7 +70,7 @@ except FileNotFoundError:
         print('If you like, you can register with this username.')
 
         new_password = input('Please setup your password:')
-        file_name = 'D_' + user_name.replace(' ', '') + '.txt'
+        file_name = 'data/' + 'D_' + user_name.replace(' ', '') + '.txt'
         with open('data/USER.txt', 'a') as f_obj:
             f_obj.write(str(user_name) + '\n')
         with open('data/SN.txt', 'a') as f_obj:
