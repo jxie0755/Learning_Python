@@ -13,9 +13,9 @@ while len(input_list) < max_length_list:
     if input_item in price_list:
         input_list.append(input_item)
     if input_item not in price_list:
-        if 'done' in input_item                   # 使用多重if循环解决问题!
+        if 'done' in input_item:                # 使用多重if循环解决问题!
             break
-        elif:
+        else:
             print('we don\'t have this')
             continue
 
