@@ -60,6 +60,9 @@ print('safe_substitute():', t.safe_substitute(values))
 
 print()
 
+# Constant
+# The string module includes a number of constants related to ASCII and numerical character sets
+
 import inspect
 import string
 
