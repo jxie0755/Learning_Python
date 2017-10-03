@@ -2,7 +2,7 @@
 # setUp中的这一个实例,既能够充当测试中的属性,又成为源代码的一个实例, 这样可以多次引用源代码中的方法和属性
 # 可以有效简化代码,避免重复创造实例和结果.
 
-from testingClass import AnonymousSurvey
+from UnittestClass import AnonymousSurvey
 import unittest
 
 
