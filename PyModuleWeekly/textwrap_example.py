@@ -1,10 +1,11 @@
 import textwrap
 
-sample_text = '''
-        The textwrap module can be used to format text for output in
-        situations where pretty-printing is desired.  It offers
-        programmatic functionality similar to the paragraph wrapping
-        or filling features found in many text editors.
+                 # 这个\很重要!!!!!!!!!!!!
+sample_text = '''\
+    The textwrap module can be used to format text for output in
+    situations where pretty-printing is desired.  It offers
+    programmatic functionality similar to the paragraph wrapping
+    or filling features found in many text editors.
     '''
 
 # 注意or前方没有加indent是因为它输出时刚好是一行的开头,而且不是第一行
@@ -33,4 +34,40 @@ final = textwrap.indent(wrapped, '> ')  # indent这个method允许对目标使�
 print('Quoted block:\n')
 print(final)
 
+print()
 
+# 对于一行中含有偶数字符的前方加'EVEN '
+def should_indent(line):
+    print('Indent {!r}?'.format(line))
+    return len(line.strip()) % 2 == 0
+
+
+dedented_text = textwrap.dedent(sample_text)
+wrapped = textwrap.fill(dedented_text, width=50)
+final = textwrap.indent(wrapped, 'EVEN ', predicate=should_indent)
+
+print('\nQuoted block:\n')
+print(final)
+print()
+
+
+# 了解更多的fill可选参数
+dedented_text = textwrap.dedent(sample_text).strip()
+print(textwrap.fill(dedented_text,
+                    initial_indent='',
+                    subsequent_indent=' ' * 4,
+                    width=50,
+                    ))
+
+# shorten方法: 使用缩略号省略内容
+dedented_text = textwrap.dedent(sample_text)
+original = textwrap.fill(dedented_text, width=50)
+
+print('Original:\n')
+print(original)
+
+shortened = textwrap.shorten(original, 100)
+shortened_wrapped = textwrap.fill(shortened, width=50)
+
+print('\nShortened:\n')
+print(shortened_wrapped)
