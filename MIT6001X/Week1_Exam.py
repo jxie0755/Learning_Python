@@ -46,10 +46,13 @@ listA = []
 while n < len(s):
     for m in range(0, n+1):
         target = (s[m:(len(s)-n+m)])
-        if target == (''.join(i for i in sorted(target))):
+        if target == ''.join(i for i in sorted(target)):
             print('Longest substring in alphabetical order is:', target)
-            n = 1 + len(s)
-            break
-    n += 1
+            n = 1 + len(s)  # 先结束while loop
+            break   # 再结束for loop,这时候,同时也确保了整个loop就此终结
+            # 如果先break for loop,那么n=1+len(s)就永远不会之行,这样就不能有效终止while loop
+    else:
+        n += 1
+
 
 
