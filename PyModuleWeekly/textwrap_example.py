@@ -66,8 +66,9 @@ original = textwrap.fill(dedented_text, width=50)
 print('Original:\n')
 print(original)
 
-shortened = textwrap.shorten(original, 100)
+shortened = textwrap.shorten(original, 100) # 注意最终是要算上[...]后不能超过100个字符.
 shortened_wrapped = textwrap.fill(shortened, width=50)
 
 print('\nShortened:\n')
 print(shortened_wrapped)
+
