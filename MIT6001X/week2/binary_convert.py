@@ -48,5 +48,5 @@ while True:
         biList.append(int_target % 2)
         break
 biList.reverse()
-binumber = int(''.join(str(i) for i in biList))
+binumber = int(''.join(biList))
 print('The binary number of', int(target), "is", binumber)
