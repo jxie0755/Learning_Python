@@ -1,3 +1,5 @@
+# Week 1 exam is about strings, iteration, branch, while loop, for loop
+
 # P1
 # Assume s is a string of lower case characters.
 # Write a program that counts up the number of vowels contained in the string s.
