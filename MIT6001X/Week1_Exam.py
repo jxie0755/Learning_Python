@@ -42,7 +42,6 @@ print('Number of times bob occurs is:', vnum)
 s = 'azcbobobegghakl'
 n = 0
 m = 0
-listA = []
 while n < len(s):
     for m in range(0, n+1):
         target = (s[m:(len(s)-n+m)])
