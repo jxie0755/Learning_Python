@@ -46,7 +46,6 @@ while True:
     int_target = int(int_target / 2)
     if int_target == 1:
         biList.append(int_target % 2)
-        int_target = int(int_target / 2)
         break
 biList.reverse()
 binumber = int(''.join(str(i) for i in biList))

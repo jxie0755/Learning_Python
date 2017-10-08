@@ -1,23 +1,13 @@
-# for string
-seqString = 'Python'
-print(list(seqString))
-print(list(reversed(seqString)))
+target = '302'
+int_target = int(target)
+biList = []
+while True:
+    biList.insert(0, int_target % 2)
+    int_target = int(int_target / 2)
+    if int_target == 1:
+        biList.insert(0, int_target % 2)
+        break
 
-print()
-
-# for tuple
-seqTuple = ('P', 'y', 't', 'h', 'o', 'n')
-print(list(reversed(seqTuple)))
-
-print()
-
-# for range
-seqRange = range(5, 9)
-print(list(reversed(seqRange)))
-
-print()
-
-# for list
-seqList = [1, 2, 4, 3, 5]
-print(list(reversed(seqList)))
-
+print(biList)
+binumber = int(''.join(str(i) for i in biList))
+print('The binary number of', int(target), "is", binumber)
