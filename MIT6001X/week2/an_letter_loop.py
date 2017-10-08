@@ -14,3 +14,17 @@ while i < len(word):
 print("What does that spell?")
 for n in range(times):
     print(word + " !!!")
+
+print()
+
+word = input('Give me a word:')
+times = int(input('Times to repeat:'))
+i = 0
+
+while i < len(word):
+    char = word[i]
+    print("Give me " + char + ": " + char + "!")
+    i += 1
+print("What does that spell?")
+for n in range(times):
+    print(word + " !!!")
