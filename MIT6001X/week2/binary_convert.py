@@ -43,10 +43,31 @@ int_target = int(target)
 biList = []
 while True:
     biList.append(int_target % 2)
-    int_target = int(int_target / 2)
+    int_target = int_target // 2
     if int_target == 1:
-        biList.append(int_target % 2)
+        biList.append(int_target % 2)  # 要么就在创建list的时候把int变成str
         break
 biList.reverse()
-binumber = int(''.join(biList))
+binumber = int(''.join(str(i) for i in biList))  # 要注意join必须是string,不能是int
 print('The binary number of', int(target), "is", binumber)
+
+
+# MIT example, a different way of writing
+
+num = 19
+if num < 0:
+    isNeg = True
+    num = abs(num)
+else:
+    isNeg = False
+
+result = ''  # 定义一个空字符也很关键!
+if num == 0:
+    result = '0'
+while num > 0:
+    result = str(num % 2) + result  # 核心写法: 将result定义为string, 拆解字符为'10011' = '1001' + '1'
+                                    # 1和0来自于余数,但是每一步都是被推后
+    num = num // 2                  # 将num除以2取整后,再次循环,最终将'10011'拆解为'1'+'0'+'0'+'1'+'1'
+if isNeg:
+    result = '-' + result
+print('\nConvert to binary number:', result)
