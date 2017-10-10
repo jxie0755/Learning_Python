@@ -49,7 +49,7 @@ while True:
         break
 biList.reverse()
 binumber = int(''.join(str(i) for i in biList))  # 要注意join必须是string,不能是int
-print('The binary number of', int(target), "is", binumber)
+print('The binary number of', target, "is", binumber)
 
 
 # MIT example, a different way of writing
