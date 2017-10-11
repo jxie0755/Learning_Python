@@ -70,4 +70,3 @@ while n < len(s):
             break
     else:
         n += 1
-
