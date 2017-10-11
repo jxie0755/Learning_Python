@@ -43,7 +43,6 @@ print('Number of times bob occurs is:', vnum)
 
 s = 'azcbobobegghakl'
 n = 0
-m = 0
 while n < len(s):
     for m in range(0, n+1):
         target = (s[m:(len(s)-n+m)])
@@ -56,4 +55,19 @@ while n < len(s):
         n += 1
 
 
+s = 'azcbobobegghakl'
+n = 0
+while n < len(s):
+    for m in range(0, n+1):
+        target = (s[m:(len(s)-n+m)])
+        x = len(target)
+        for i in range(0, x - 1):
+            if target[i] > target[i + 1]:
+                break
+        else:
+            print('Longest substring in alphabetical order is:', target)
+            n = 1 + len(s)
+            break
+    else:
+        n += 1
 
