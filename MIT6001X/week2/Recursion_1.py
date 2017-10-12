@@ -6,8 +6,15 @@ def mult_iter(a, b):
     while b > 0:
         result += a
         b -= 1
-    print(result)
     return result
 
-mult_iter(3, 4)
+print(mult_iter(3, 4))
 
+# Recursion method
+def mult_iter2(a, b):
+    if b == 1:
+        return a
+    else:
+        return a + mult_iter2(a, b-1)
+
+print(mult_iter2(3, 4))
