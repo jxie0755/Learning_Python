@@ -5,8 +5,6 @@
 def is_palindrome(text):
     return text == text[::-1]
 
-print(is_palindrome('exe'))
-
 # Recursion method
 
 # Convert a string to just characters
@@ -20,12 +18,18 @@ def palindrome(raw_text):
     """
     text = raw_text.lower()
     text = text.replace(' ', '')
+
     print('text is now', text)
     print('length of text is', len(text))
+
     if len(text) <= 3:
         return text[0] == text[-1]
     else:
-        return palindrome(text[1:-1])  # DO NOT FORGET TO RECURSE properly, with a return command here!
+        if text[0] == text[-1]:
+            return palindrome(text[1:-1])
+        else:
+            return False
+        # DO NOT FORGET TO RECURSE properly, with a return command here!
 
 raw_text = 'a bca'
 print(palindrome(raw_text))
@@ -35,10 +39,14 @@ print()
 def palindrome2(raw_text):
     text = raw_text.lower()
     text = text.replace(' ', '')
+
+    print('text is now', text)
+    print('length of text is', len(text))
+
     if len(text) <= 3:
         return text[0] == text[-1]
     else:
-        return text[0] == text[-1] and palindrome(text[1:-1])
+        return text[0] == text[-1] and palindrome2(text[1:-1])
 
-raw_text = 'a bcbaa'
-print(palindrome2(raw_text))
+raw_text2 = 'zabcbaz'
+print(palindrome2(raw_text2))
