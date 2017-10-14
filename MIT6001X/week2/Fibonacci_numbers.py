@@ -8,9 +8,10 @@
 # Use recursion to solve this problem
 def fibRecur(i):
     """
-    i: month number
+    Fibonacci function practice
 
-    This returns the number of female at month i
+    :param i: month number
+    :return: returns the number of female at month i
     """
     if i == 0:
         return 1
@@ -24,9 +25,10 @@ print(fibRecur(6))
 
 def sumFemale(i):
     """
-    i: month number
+    Fibonacci function practice
 
-    returns the total number of female rabbits after month i
+    :param i: month number
+    :return: the total number of female rabbits after month i
     """
     sumFem = 0
     while i >= 0:
@@ -35,3 +37,4 @@ def sumFemale(i):
     return sumFem
 
 print(sumFemale(6))
+
