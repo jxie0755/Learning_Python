@@ -17,14 +17,15 @@ def palindrome(raw_text):
     :param text: any string
     :return: True if it is palindrome, else False.
     """
+
     text = raw_text.lower()
     text = text.replace(' ', '')
-    if text[0] == text[-1]:
-        return True
+    print('text is now', text)
+    print('length of text is', len(text))
+    if len(text) <= 3:
+        return text[0] == text[-1]
     else:
-        palindrome(text[1:-1])
+        return palindrome(text[1:-1])  # DO NOT FORGET TO RECURSE properly, with a return command here!
 
-s = 'abcedfg'
-print(s[-1])
-l = ['1', '2', '3', '4']
-print(l[-1])
+raw_text = 'a bca'
+print(palindrome(raw_text))
