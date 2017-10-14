@@ -18,7 +18,6 @@ def palindrome(raw_text):
     :param text: any string
     :return: True if it is palindrome, else False.
     """
-
     text = raw_text.lower()
     text = text.replace(' ', '')
     print('text is now', text)
@@ -30,3 +29,16 @@ def palindrome(raw_text):
 
 raw_text = 'a bca'
 print(palindrome(raw_text))
+
+print()
+# MIT 另解
+def palindrome2(raw_text):
+    text = raw_text.lower()
+    text = text.replace(' ', '')
+    if len(text) <= 3:
+        return text[0] == text[-1]
+    else:
+        return text[0] == text[-1] and palindrome(text[1:-1])
+
+raw_text = 'a bcbaa'
+print(palindrome2(raw_text))
