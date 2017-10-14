@@ -47,6 +47,7 @@ def palindrome2(raw_text):
         return text[0] == text[-1]
     else:
         return text[0] == text[-1] and palindrome2(text[1:-1])
+        # 注意这里巧用and来节省代码数量
 
 raw_text2 = 'zabcbaz'
 print(palindrome2(raw_text2))
