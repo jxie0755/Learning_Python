@@ -8,6 +8,8 @@
 # Use recursion to solve this problem
 def fibRecur(i):
     """
+    i: month number
+
     This returns the number of female at month i
     """
     if i == 0:
@@ -22,7 +24,9 @@ print(fibRecur(6))
 
 def sumFemale(i):
     """
-    This is to calculate the total number of female rabbits after month i
+    i: month number
+
+    returns the total number of female rabbits after month i
     """
     sumFem = 0
     while i >= 0:
