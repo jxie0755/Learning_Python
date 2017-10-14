@@ -10,6 +10,7 @@ print(is_palindrome('exe'))
 # Recursion method
 
 # Convert a string to just characters
+# CAUTION: be careful with return when it involves boolean
 def palindrome(raw_text):
     """
     To tell if a string is palindrome
