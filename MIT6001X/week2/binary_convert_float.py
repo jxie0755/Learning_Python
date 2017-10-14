@@ -52,12 +52,12 @@ biList.insert(0, '0')
 binumber = ''.join(str(i) for i in biList)  # 要注意join必须是string,不能是int
 print('The binary number of', target, "is", binumber)
 
-# reverse convert
-target = 0.011
-temp_target =
-ans = 0
-numlevel = len(target)
-for index in range(0, numlevel):
-    ans += int(target[numlevel - index - 1]) * 2**index
-print(ans)
-print(bin(ans))
+# # reverse convert
+# target = 0.011
+# temp_target = 0.1
+# ans = 0
+# numlevel = len(target)
+# for index in range(0, numlevel):
+#     ans += int(target[numlevel - index - 1]) * 2**index
+# print(ans)
+# print(bin(ans))
