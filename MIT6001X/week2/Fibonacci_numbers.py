@@ -13,9 +13,7 @@ def fibRecur(i):
     :param i: month number
     :return: returns the number of female at month i
     """
-    if i == 0:
-        return 1
-    elif i == 1:
+    if i == 0 or i == 1:
         return 1
     else:
         return fibRecur(i-1) + fibRecur(i-2)
