@@ -1,7 +1,7 @@
 # Write a program to calculate the fixed monthly payment in order to pay off the balance.
-balance = 320000
+balance = 999999
 month = 12
-annualInterestRate = 0.20
+annualInterestRate = 0.18
 monthlyInterestRate = annualInterestRate / 12
 
 running_flag = True
