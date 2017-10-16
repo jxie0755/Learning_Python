@@ -24,7 +24,7 @@ print(x[-1][-1]) # 注意double index,如果是单string,则是继续寻找strin
 # print(x[-1][2]) # 不存在
 # error
 
-print(x[0:1]) # 注意切片和单item查询不同,切片输出tuple
+print(x[0:1]) # 注意切片和单item查询不同,切片输出tuple(即使只是单item的元祖,注意"(x,)"的表示)
 # (1,)
 
 print(x[0:-1]) # 注意!!!!!!切片的[0:-1]不包括最后一项!!!!完整切片请用[:]或[0:]
