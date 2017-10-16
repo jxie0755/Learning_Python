@@ -3,7 +3,7 @@
 # So if test is the tuple ('I', 'am', 'a', 'test', 'tuple')
 # then evaluating oddTuples on this input would return the tuple ('I', 'a', 'tuple').
 
-aTup = ('I', 'am', 'a', 'test', 'tuple')
+Tup = ('I', 'am', 'a', 'test', 'tuple')
 
 def oddTuples(aTup):
     '''
@@ -17,4 +17,4 @@ def oddTuples(aTup):
             odd_tuple = odd_tuple + (aTup[i],)
     return odd_tuple
 
-print(oddTuples(aTup))
+print(oddTuples(Tup))
