@@ -27,3 +27,4 @@ print(x)
 
 
 print('test1')
+print(1, 2, 3)
