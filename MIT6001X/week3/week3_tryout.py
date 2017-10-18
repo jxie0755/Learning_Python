@@ -6,3 +6,11 @@ print(t1[1])
 
 for i in range(0, 4):
     print(i)
+
+
+print(min([5, 10]))
+print(min(5, 10))
+
+print(max(-3))
+
+
