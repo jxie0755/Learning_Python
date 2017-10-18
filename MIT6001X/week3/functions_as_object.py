@@ -11,6 +11,7 @@ print(L)
 applyToEach(L, int)
 print(L)
 
+print()
 # apply a list of function to an argument
 def applyFuns(L, x):
     for f in L:
