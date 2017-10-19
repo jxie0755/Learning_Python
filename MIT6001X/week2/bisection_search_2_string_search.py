@@ -54,8 +54,6 @@ def isIn2(char, aStr):
     guess = sorted_string[guess_index]
     if index <= 1:
         return char == sorted_string[0]
-    if index == 2:
-        return char == sorted_string[0] or char == sorted_string[1]
     elif char == guess:
         return True
     elif char < guess:
@@ -63,4 +61,16 @@ def isIn2(char, aStr):
     else:
         return isIn2(char, sorted_string[guess_index+1:high])
 
-print(isIn2('b', ''))
+
+# suggested version
+def isIn3(char, aStr):
+    mid = len(aStr) // 2
+    if not aStr:
+        return False
+    elif char < aStr[mid]:
+        return isIn3(char, aStr[:mid])
+    elif char > aStr[mid]:
+        return isIn3(char, aStr[mid+1:])
+    else:
+        return True
+
