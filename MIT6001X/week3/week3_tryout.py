@@ -12,5 +12,3 @@ print(min([5, 10]))
 print(min(5, 10))
 
 print(max(-3))
-
-
