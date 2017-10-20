@@ -30,4 +30,3 @@ print(lst2)
 print(chr(97))
 print(chr(122))
 print(chr(126))
-
