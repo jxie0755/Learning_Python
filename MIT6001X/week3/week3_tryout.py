@@ -11,4 +11,9 @@ for i in range(0, 4):
 print(min([5, 10]))
 print(min(5, 10))
 
-print(max(-3))
+
+
+lettersGuessed = ['a', 'i', 'e', 'o']
+
+j = 'x'.join(lettersGuessed)
+print(j)
