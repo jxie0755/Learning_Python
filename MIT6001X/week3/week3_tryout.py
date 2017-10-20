@@ -1,19 +1,14 @@
-# MIT class said that printing t1[1] should out put ('two',)
-# with comma to indicate that it is a tuple
-# but not any more in python 3.6.2
-t1 = (1, 'two', 3, '4', 'five')
-print(t1[1])
+letterGuessed = ['a', 'g', 'x', 'y', 'z']
 
-for i in range(0, 4):
-    print(i)
+letter_list = ['a', 'b', 'c', 'd', 'e', 'f',
+               'g', 'h', 'i', 'j', 'k', 'l',
+               'm', 'n', 'o', 'p', 'q', 'r',
+               's', 't', 'u', 'v', 'w', 'x',
+               'y', 'z']
 
+available_letters = ''
+for i in letter_list:
+    if i not in letterGuessed:
+        available_letters += i
 
-print(min([5, 10]))
-print(min(5, 10))
-
-
-
-lettersGuessed = ['a', 'i', 'e', 'o']
-
-j = 'x'.join(lettersGuessed)
-print(j)
+print(available_letters)
