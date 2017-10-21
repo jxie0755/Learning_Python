@@ -85,7 +85,6 @@ def hangman(secretWord):
     Follows the other limitations detailed in the problem write-up.
     '''
     # show the secret word length
-    # show the secret word length
     print('Welcome to the game Hangman!')
     print('I am thinking of a word that is', len(secretWord), 'letters long')
     show_target = '_ ' * len(secretWord)
