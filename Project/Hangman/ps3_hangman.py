@@ -1,11 +1,4 @@
 # Hangman game
-#
-
-# -----------------------------------
-# Helper code
-# You don't need to understand this helper code,
-# but you will have to know how to use the functions
-# (so be sure to read the docstrings!)
 
 import random
 
@@ -70,27 +63,6 @@ def getGuessedWord(secretWord, lettersGuessed):
         else:
             guess = guess + '_ '
     return guess
-
-
-def getAvailableLetters(lettersGuessed):
-    '''
-    lettersGuessed: list, what letters have been guessed so far
-    returns: string, comprised of letters that represents what letters have not
-      yet been guessed.
-    '''
-    letter_list = ['a', 'b', 'c', 'd', 'e', 'f',
-                   'g', 'h', 'i', 'j', 'k', 'l',
-                   'm', 'n', 'o', 'p', 'q', 'r',
-                   's', 't', 'u', 'v', 'w', 'x',
-                   'y', 'z']
-    available_letters = ''
-
-    for i in letter_list:
-        if i not in lettersGuessed:
-            available_letters += i
-
-    return available_letters
-    
 
 def hangman(secretWord):
     '''
@@ -163,9 +135,6 @@ def hangman(secretWord):
     if guess_count == 9:
         print("Sorry, you ran out of guesses. The word was: " + secretWord.upper())
 
-# When you've completed your hangman function, uncomment these two lines
-# and run this file to test! (hint: you might want to pick your own
-# secretWord while you're testing)
 
 secretWord = chooseWord(wordlist).lower()
 hangman(secretWord)
