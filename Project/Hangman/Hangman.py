@@ -110,7 +110,7 @@ def hangman(secretWord):
                 guess_list.append(letter_guess)
                 break
             else:
-                print("\nYou've already tried that letter!", end = ' ')
+                print("\nYou've already tried that letter!", end=' ')
                 continue
 
         # show the inputted guess
