@@ -99,7 +99,7 @@ def hangman(secretWord):
         # To create an input for guessing the letter
         while True:
             # remind the available letters
-            print('You now have', guess_left, 'guesses left')
+            print('You have', guess_left, 'guesses left')
 
             letter_guess = input('Please guess a letter:')
             letter_guess = letter_guess.lower()
