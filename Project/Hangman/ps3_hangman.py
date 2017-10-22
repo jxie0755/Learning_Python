@@ -134,6 +134,5 @@ def hangman(secretWord):
     if guess_count == 9:
         print("Sorry, you ran out of guesses. The word was: " + secretWord.upper())
 
-
 secretWord = chooseWord(wordlist).lower()
 hangman(secretWord)
