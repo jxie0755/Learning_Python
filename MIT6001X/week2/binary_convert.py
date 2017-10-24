@@ -54,7 +54,7 @@ print('The binary number of', target, "is", binumber)
 
 # MIT example, a different way of writing
 
-num = 19
+num = 3
 if num < 0:
     isNeg = True
     num = abs(num)
