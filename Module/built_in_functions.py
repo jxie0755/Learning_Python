@@ -101,3 +101,29 @@ for i in divmod(7, 2):
 # return a pair of numbers consisting of their quotient and remainder
 
 
+l = ['apple', 'banana', 'pear', 'mango']
+print(list(enumerate(l, start=1)))
+# >>> [(1, 'apple'), (2, 'banana'), (3, 'pear'), (4, 'mango')]
+print(dict(enumerate(l, start=1)))
+# >>> {1: 'apple', 2: 'banana', 3: 'pear', 4: 'mango'}
+# argument: iterable object, default start with 0.
+# return a paired value, but needs a container (list, dict, etc)
+
+
+# eval(expression, globals=None, locals=None)
+# 暂时不理解
+
+
+# exec(object[, globals[, locals]])
+# 暂时不理解
+
+
+print(list(filter(abs, [-1, -2, 3])))
+# is equivalent to the generator expression (item for item in iterable if function(item))
+
+
+print(float(25))  # >>> 25.0
+print(float('-25'))  # >>> -25.0
+# convert an int or number in string to a float number
+
+
