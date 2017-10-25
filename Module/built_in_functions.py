@@ -125,4 +125,3 @@ print(list(filter(abs, [-1, -2, 3])))
 print(float(25))  # >>> 25.0
 print(float('-25'))  # >>> -25.0
 # convert an int or number in string to a float number
-
