@@ -53,3 +53,11 @@ print(l8)  # >>> [4, 1, 3, 2]
 for i in reversed(range(5, 10)):
     print(i)
 # same theory as above
+
+# other use
+seqString = 'Python'
+print(list(reversed(seqString)))  # >>> ['n', 'o', 'h', 't', 'y', 'P']
+
+seqTuple = ('P', 'y', 't', 'h', 'o', 'n')
+print(list(reversed(seqTuple))) # >>> ['n', 'o', 'h', 't', 'y', 'P']
+
