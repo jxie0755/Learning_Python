@@ -50,14 +50,16 @@ for i in reversed(l6):
 print(l8)  # >>> [4, 1, 3, 2]
 # reverse the sequence of l6 in the iteration
 
-for i in reversed(range(5, 10)):
-    print(i)
-# same theory as above
-
 # other use
+seqRange = range(5, 10)  # >>> [9, 8, 7, 6, 5]
+print(list(reversed(seqRange)))
+
 seqString = 'Python'
 print(list(reversed(seqString)))  # >>> ['n', 'o', 'h', 't', 'y', 'P']
 
 seqTuple = ('P', 'y', 't', 'h', 'o', 'n')
-print(list(reversed(seqTuple))) # >>> ['n', 'o', 'h', 't', 'y', 'P']
+print(list(reversed(seqTuple)))  # >>> ['n', 'o', 'h', 't', 'y', 'P']
+
+seqList = [1, 2, 4, 3, 5]
+print(list(reversed(seqList)))  # >>> [5, 3, 4, 2, 1]
 

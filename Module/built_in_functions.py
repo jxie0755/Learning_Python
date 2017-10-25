@@ -117,7 +117,7 @@ print(dict(enumerate(l, start=1)))
 # exec(object[, globals[, locals]])
 # 暂时不理解
 
-
+#
 print(list(filter(abs, [-1, -2, 3])))
 # is equivalent to the generator expression (item for item in iterable if function(item))
 
@@ -127,3 +127,4 @@ print(float('-25'))  # >>> -25.0
 # convert an int or number in string to a float number
 
 
+format()
