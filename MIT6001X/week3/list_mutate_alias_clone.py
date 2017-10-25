@@ -38,4 +38,3 @@ reversedcool = reversed(cool)   #
 
 print(sortedcool)
 print(reversedcool)
-
