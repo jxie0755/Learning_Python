@@ -24,7 +24,7 @@ print(cool)
 cool = ['blue', 'green', 'grey']
 chill = cool[:]
 
-# sort vs sorted
+# sort and sorted
 warm = ['red', 'yellow', 'orange']
 sortedwarm = warm.sort()          # sort() returns None, and change the original list
 reversedwarm = warm.reverse()     # same above
