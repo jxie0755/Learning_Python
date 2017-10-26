@@ -126,3 +126,60 @@ print(float(25))  # >>> 25.0
 print(float('-25'))  # >>> -25.0
 # convert an int or number in string to a float number
 
+
+
+# 'd' for integer
+print(format(123, "d"))  # must be integer
+# 'f' for float arguments
+print(format(123, "f"))  # 总是六位小数
+# 'b' for binary format
+print(format(12, "b"))
+# d, f and b are type
+# integer
+print(format(1234, "*>+7,d"))
+# float number
+print(format(123.4567, "^-09.3f"))
+# 暂时不理解
+
+# print(frozenset([1, 2, 3]))
+# 暂时不理解
+
+class Person:
+    age = 23
+    name = "Adam"
+
+person = Person()
+print('The age is:', getattr(person, "age"))
+print('The age is:', person.age)
+
+
+class Person:
+    age = 23
+    name = "Adam"
+
+person = Person()
+
+# when default value is provided
+print('The sex is:', getattr(person, 'sex', 'Male'))
+# getattr(object, name[, default]), Male is the default value for sex
+
+print(globals())
+# returns the dict of the current module
+
+
+# help() returns the doc str
+help(abs)
+help(list)
+# It's recommenced to try it in your interpreter when you need help to write Python program and use Python modules
+
+
+# like bin, hex() returns an integer to hexadecimal number
+# start with '0x'
+print(hex(123456))
+print(format(123456, 'x'))
+# also use format 'x' to skip the '0x' prefix, use 'X' to upper the letters
+
+
+
+
+
