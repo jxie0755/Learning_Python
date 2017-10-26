@@ -170,7 +170,8 @@ print(globals())
 # help() returns the doc str
 help(abs)
 help(list)
-# It's recommenced to try it in your interpreter when you need help to write Python program and use Python modules
+# It's recommenced to try it in your interpreter when you need help to ~
+# write Python program and use Python modules
 
 
 # like bin, hex() returns an integer to hexadecimal number
@@ -179,6 +180,22 @@ print(hex(123456))
 print(format(123456, 'x'))
 # also use format 'x' to skip the '0x' prefix, use 'X' to upper the letters
 
+
+# Hash values are just integers which are used to ~
+# compare dictionary keys during a dictionary lookup quickly.
+print(hash(181))
+print(hash(181.23))
+print(hash('Python'))
+vowels = ('a', 'e', 'i', 'o', 'u')
+print(hash(vowels))
+
+
+# input()
+# to have user input with a hint as the argument
+
+
+# id is very similar to hash, an identity of an object
+print(id(5))
 
 
 
