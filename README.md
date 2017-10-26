@@ -7,6 +7,7 @@ Thanks!
 I will use a series of study material:
 * A Byte of Python -- finished
 * Python Crash Course -- finished
+* Checkio.org for python practice -- ongoing
 * MIT CS 6.00.1x Introduction to Computer Science and Programming Using Python -- on going
 * Python 3 Module of the week
 * RICE University An Introduction to Interactive Programming in Python P1 & P2
