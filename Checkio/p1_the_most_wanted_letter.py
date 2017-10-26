@@ -1,11 +1,19 @@
 def checkio(text):
+    # raw string process, transfer to lower case and remove spaces
     text = text.lower()
     text = text.replace(' ', '')
+    # raw string process 2, create a list, sort and add an empty string at the end.
     text_list = sorted(text)
-    text_list.append('')
-    text_dict = {}
-    index = len(text_list)
+    for i in text_list:
+        if ord(i) < 97 or ord(i) > 122:
+            text_list.remove(i)
 
+    text_list.append('')
+    # raw string process 3, create a dict for each character and number of occurrence
+    text_dict = {}
+
+    # a loop to add data to the dict
+    index = len(text_list)
     v = 1
     for i in range(0, index - 1):
         if text_list[i] == text_list[i + 1]:
@@ -14,19 +22,12 @@ def checkio(text):
             text_dict[text_list[i]] = v
             v = 1
 
-    text_dict_filtered = {}
-    for k, v in text_dict.items():
-        if ord(k) >= 97 and ord(k) <= 122:
-            text_dict_filtered[k] = v
-
-    v_max = max(list(text_dict_filtered.values()))
-    result_list = []
-    for k in text_dict_filtered.keys():
-        if text_dict_filtered[k] == v_max:
-            result_list.append(k)
-
-    result_list = sorted(result_list)
-    return result_list[0]
+    # generate a list that stores all the values
+    v_max = max(list(text_dict.values()))
+    for k in text_dict.keys():
+        if text_dict[k] == v_max:
+            break
+    return k
 
 print(checkio("Hello World!"))  # == "l", "Hello test"
 print(checkio("How do you do?"))  # == "o", "O is most wanted"
