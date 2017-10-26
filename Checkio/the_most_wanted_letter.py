@@ -1,17 +1,37 @@
 def checkio(text):
-
     text = text.lower()
-    for i in text
-    return 'a'
+    text = text.replace(' ', '')
+    text_list = sorted(text)
+    text_list.append('')
+    text_dict = {}
+    index = len(text_list)
 
-if __name__ == '__main__':
-    #These "asserts" using only for self-checking and not necessary for auto-testing
-    assert checkio("Hello World!") == "l", "Hello test"
-    assert checkio("How do you do?") == "o", "O is most wanted"
-    assert checkio("One") == "e", "All letter only once."
-    assert checkio("Oops!") == "o", "Don't forget about lower case."
-    assert checkio("AAaooo!!!!") == "a", "Only letters."
-    assert checkio("abe") == "a", "The First."
-    print("Start the long test")
-    assert checkio("a" * 9000 + "b" * 1000) == "a", "Long."
-    print("The local tests are done.")
+    v = 1
+    for i in range(0, index - 1):
+        if text_list[i] == text_list[i + 1]:
+            v += 1
+        else:
+            text_dict[text_list[i]] = v
+            v = 1
+
+    text_dict_filtered = {}
+    for k, v in text_dict.items():
+        if ord(k) >= 97 and ord(k) <= 122:
+            text_dict_filtered[k] = v
+
+    v_max = max(list(text_dict_filtered.values()))
+    result_list = []
+    for k in text_dict_filtered.keys():
+        if text_dict_filtered[k] == v_max:
+            result_list.append(k)
+
+    result_list = sorted(result_list)
+    return result_list[0]
+
+print(checkio("Hello World!")) # == "l", "Hello test"
+print(checkio("How do you do?")) # == "o", "O is most wanted"
+print(checkio("One")) # == "e", "All letter only once."
+print(checkio("Oops!")) # == "o", "Don't forget about lower case."
+print(checkio("AAaooo!!!!")) # == "a", "Only letters."
+print(checkio("abe")) # == "a", "The First."
+print(checkio("a" * 9000 + "b" * 1000)) # == "a", "Long."
