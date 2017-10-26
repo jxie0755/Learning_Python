@@ -28,10 +28,12 @@ def checkio(text):
     result_list = sorted(result_list)
     return result_list[0]
 
-print(checkio("Hello World!")) # == "l", "Hello test"
-print(checkio("How do you do?")) # == "o", "O is most wanted"
-print(checkio("One")) # == "e", "All letter only once."
-print(checkio("Oops!")) # == "o", "Don't forget about lower case."
-print(checkio("AAaooo!!!!")) # == "a", "Only letters."
-print(checkio("abe")) # == "a", "The First."
-print(checkio("a" * 9000 + "b" * 1000)) # == "a", "Long."
+print(checkio("Hello World!"))  # == "l", "Hello test"
+print(checkio("How do you do?"))  # == "o", "O is most wanted"
+print(checkio("One"))  # == "e", "All letter only once."
+print(checkio("Oops!"))  # == "o", "Don't forget about lower case."
+print(checkio("AAaooo!!!!"))  # == "a", "Only letters."
+print(checkio("abe"))  # == "a", "The First."
+print(checkio("a" * 9000 + "b" * 1000))  # == "a", "Long."
+
+# Passed
