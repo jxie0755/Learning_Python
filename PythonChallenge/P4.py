@@ -1,5 +1,6 @@
+# http://www.pythonchallenge.com/pc/def/equality.html
 # find the word that is in the AAAaAAA form
-
+import string
 msg = """kAewtloYgcFQaJNhHVGxXDiQmzjfcpYbzxlWrVcqsmUbCunkfxZWDZjUZMiGqhRRiUvGmYmvnJIHEmbT
 MUKLECKdCthezSYBpIElRnZugFAxDRtQPpyeCBgBfaRVvvguRXLvkAdLOeCKxsDUvBBCwdpMMWmuELeG
 ENihrpCLhujoBqPRDPvfzcwadMMMbkmkzCCzoTPfbRlzBqMblmxTxNniNoCufprWXxgHZpldkoLCrHJq
@@ -1251,15 +1252,31 @@ dCdFLtBQPtFQuCdKOrpndJNUFQIDSbetUKylhSUjcDVtbiQrWMRQhAwGUZyPneCGUjGBBTkLqxLAXXtB
 KfErkDaWMFZZeuqDmXKJEGHyToPUhPphfVhgUZgbIuRAtWnroImpJKqqmEZqeNQCKzhjIkKQHURWLXFw
 PBuijeoTSpsVLaOGuLVjMZXkBvVXwUuHfBihziiavGSYofPNeKsTXruMUumRRPQJzvSzJkKbtSipiqBd"""
 
-raw = """aBCDeFGH
-ijKLMnOPQ
-rstuvwxyz"""
-raw = raw.replace('\n', '')
-index = len(raw)
+msg = msg.replace('\n', '')
+index = len(msg)
 raw_list = []
-for i in range(index-6):
-       raw_list.append(raw[i:i+7])
-
+for i in range(index-8):
+       raw_list.append(msg[i:i+9])
 print(raw_list)
-# for i in raw_list:
-#     if
+result = ''
+for word in raw_list:
+    if word[0] in list(string.ascii_lowercase):
+        if word[1] in list(string.ascii_uppercase):
+            if word[2] in list(string.ascii_uppercase):
+                if word[3] in list(string.ascii_uppercase):
+                    if word[4] in list(string.ascii_lowercase):
+                        if word[5] in list(string.ascii_uppercase):
+                            if word[6] in list(string.ascii_uppercase):
+                                if word[7] in list(string.ascii_uppercase):
+                                    if word[8] in list(string.ascii_lowercase):
+                                        result += word[4]
+
+print(result)
+
+
+
+
+
+
+
+
