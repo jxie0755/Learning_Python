@@ -1251,11 +1251,15 @@ dCdFLtBQPtFQuCdKOrpndJNUFQIDSbetUKylhSUjcDVtbiQrWMRQhAwGUZyPneCGUjGBBTkLqxLAXXtB
 KfErkDaWMFZZeuqDmXKJEGHyToPUhPphfVhgUZgbIuRAtWnroImpJKqqmEZqeNQCKzhjIkKQHURWLXFw
 PBuijeoTSpsVLaOGuLVjMZXkBvVXwUuHfBihziiavGSYofPNeKsTXruMUumRRPQJzvSzJkKbtSipiqBd"""
 
-raw = """abcdefgh
-ijklmnopq
+raw = """aBCDeFGH
+ijKLMnOPQ
 rstuvwxyz"""
-
+raw = raw.replace('\n', '')
 index = len(raw)
-for i in range(index):
-    for x in range(i, i+7):
+raw_list = []
+for i in range(index-6):
+       raw_list.append(raw[i:i+7])
 
+print(raw_list)
+# for i in raw_list:
+#     if
