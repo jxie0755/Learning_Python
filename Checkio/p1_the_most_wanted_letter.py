@@ -25,6 +25,20 @@ def checkio(text):
             break
     return keys
 
+# another method
+
+# import string
+#
+# def checkio(text):
+#     """
+#     We iterate through latyn alphabet and count each letter in the text.
+#     Then 'max' selects the most frequent letter.
+#     For the case when we have several equal letter,
+#     'max' selects the first from they.
+#     """
+#     text = text.lower()
+#     return max(string.ascii_lowercase, key=text.count)
+
 print(checkio("Hello World!"))  # == "l", "Hello test"
 print(checkio("How do you do?"))  # == "o", "O is most wanted"
 print(checkio("One"))  # == "e", "All letter only once."
