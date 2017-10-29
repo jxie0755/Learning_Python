@@ -1,3 +1,6 @@
+# Input: A text for analysis as a string.
+# Output: The most frequent letter in lower case as a string.
+
 def checkio(text):
     # raw string process, transfer to lower case and remove spaces
     text = text.lower().replace(' ', '')
@@ -47,6 +50,4 @@ print(checkio("AAaooo!!!!"))  # == "a", "Only letters."
 print(checkio("abe"))  # == "a", "The First."
 print(checkio("a" * 9000 + "b" * 1000))  # == "a", "Long."
 print(checkio('Lorem ipsum dolor sit amet 0000000000000000000!!!'))  # == 'm'
-
-
 # Passed
