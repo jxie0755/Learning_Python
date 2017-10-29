@@ -25,6 +25,3 @@ def silly(n):
         print('No')
 
 silly(2)
-
-
-
