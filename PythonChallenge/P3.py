@@ -1256,12 +1256,14 @@ msg = 'a' + msg.replace('\n', '') + 'a'
 raw_list = []
 for i in range(len(msg)-8):
        raw_list.append(msg[i:i+9])
+
+
 # by now the raw_list contains a string of 9 char in the form of aAAAaAAAa.
 # and we also considered the first and last string because we added 'a' in the beginning and the end.
 
 # Create a function to return the mid char, for a 9 char string, if it fits the form aAAAaAAAa
 
-# Solution 1, use filter
+# Solution 1, use filter + lambda + map
 def f(x):
     return x[0].islower() \
     and x[1:4].isupper() \
@@ -1269,12 +1271,14 @@ def f(x):
     and x[5:8].isupper() \
     and x[8].islower()                  # this return a boolean
 
-result = ''
-for i in list(filter(f, raw_list)):
-    result += i[4]    
-print(result)
+# result = ''
+# for i in list(filter(f, raw_list)):
+#     result += i[4]
+# print(result)
 
-# solution 2, use map + filter + lambda
+print(''.join(map(lambda x: x[4], list(filter(f, raw_list)))))
+
+# solution 2, also use map + lambda + filter
 def f(x):
     if x[0].islower() \
     and x[1:4].isupper() \
