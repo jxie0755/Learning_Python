@@ -1263,12 +1263,11 @@ for i in range(len(msg)-8):
 
 # Solution 1, use filter
 def f(x):
-    if x[0].islower() \
+    return x[0].islower() \
     and x[1:4].isupper() \
     and x[4].islower() \
     and x[5:8].isupper() \
-    and x[8].islower():
-        return True                     # this return a boolean
+    and x[8].islower()                  # this return a boolean
 
 result = ''
 for i in list(filter(f, raw_list)):
