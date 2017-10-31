@@ -1257,7 +1257,7 @@ index = len(msg)
 raw_list = []
 for i in range(index-8):
        raw_list.append(msg[i:i+9])
-print(raw_list)
+# print(raw_list)
 result = ''
 for word in raw_list:
     if word[0] in list(string.ascii_lowercase):
