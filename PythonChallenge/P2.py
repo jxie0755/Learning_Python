@@ -1226,3 +1226,6 @@ for i in msg:
         result += i
 print(result)
 
+import string
+print(''.join(filter(lambda x: x in string.ascii_lowercase, msg)))
+
