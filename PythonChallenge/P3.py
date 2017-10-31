@@ -1252,28 +1252,39 @@ dCdFLtBQPtFQuCdKOrpndJNUFQIDSbetUKylhSUjcDVtbiQrWMRQhAwGUZyPneCGUjGBBTkLqxLAXXtB
 KfErkDaWMFZZeuqDmXKJEGHyToPUhPphfVhgUZgbIuRAtWnroImpJKqqmEZqeNQCKzhjIkKQHURWLXFw
 PBuijeoTSpsVLaOGuLVjMZXkBvVXwUuHfBihziiavGSYofPNeKsTXruMUumRRPQJzvSzJkKbtSipiqBd"""
 
-msg = msg.replace('\n', '')
-index = len(msg)
+msg = 'a' + msg.replace('\n', '') + 'a'
 raw_list = []
-for i in range(index-8):
+for i in range(len(msg)-8):
        raw_list.append(msg[i:i+9])
-# print(raw_list)
-result = ''
-for word in raw_list:
-    if word[0] in list(string.ascii_lowercase):
-        if word[1] in list(string.ascii_uppercase):
-            if word[2] in list(string.ascii_uppercase):
-                if word[3] in list(string.ascii_uppercase):
-                    if word[4] in list(string.ascii_lowercase):
-                        if word[5] in list(string.ascii_uppercase):
-                            if word[6] in list(string.ascii_uppercase):
-                                if word[7] in list(string.ascii_uppercase):
-                                    if word[8] in list(string.ascii_lowercase):
-                                        result += word[4]
+# by now the raw_list contains a string of 9 char in the form of aAAAaAAAa.
+# and we also considered the first and last string because we added 'a' in the beginning and the end.
 
+# Create a function to return the mid char, for a 9 char string, if it fits the form aAAAaAAAa
+
+# Solution 1, use filter
+def f(x):
+    if x[0].islower() \
+    and x[1:4].isupper() \
+    and x[4].islower() \
+    and x[5:8].isupper() \
+    and x[8].islower():
+        return True                     # this return a boolean
+
+result = ''
+for i in list(filter(f, raw_list)):
+    result += i[4]    
 print(result)
 
+# solution 2, use map + filter + lambda
+def f(x):
+    if x[0].islower() \
+    and x[1:4].isupper() \
+    and x[4].islower() \
+    and x[5:8].isupper() \
+    and x[8].islower():
+        return x[4]                     # difference is that it return the value
 
+print(''.join((list(filter(lambda x: x, list(map(f, raw_list)))))))
 
 
 
