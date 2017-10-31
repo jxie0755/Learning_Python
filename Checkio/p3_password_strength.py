@@ -34,7 +34,7 @@ if __name__ == '__main__':
     assert checkio('QwErTy911poqqqq') == True, "6th example"
     print("Coding complete? Click 'Check' to review your tests and earn cool rewards!")
 
-# other solutions:
+# other solutions: 注意这个not
 checkio = lambda s: not(
         len(s) < 10
         or s.isdigit()
