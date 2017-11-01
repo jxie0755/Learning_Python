@@ -108,3 +108,4 @@ for item in mylist:
         del item
 # 优秀解决：filter+lambda
 newlist = list(filter(lambda x: x, mylist))
+
