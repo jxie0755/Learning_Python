@@ -43,7 +43,7 @@
 
 def checkio(text):
     import string
-    text = ''.join(sorted(list(''.join(filter(lambda x: x in string.ascii_lowercase, text.lower())))))
+    text = ''.join(sorted(list(filter(lambda x: x in string.ascii_lowercase, text.lower()))))
     for i in text:
         if text.count(i) == max(map(text.count, string.ascii_lowercase)):
             return i
