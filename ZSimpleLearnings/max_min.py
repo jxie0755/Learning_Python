@@ -9,11 +9,25 @@ b = 'abcdegf'
 print('max char is', max(b))
 print('min char is', min(b))
 
-
 # or just give a few values as argument for max or min value
 print('max value is', max(1, 3, 4, 2))
 print('min value is', min(2, 1, 4, 3))
 
 # Pay attention to the key argument!
+b = 'aabbccccccdddeggfff'
+print(max(b, key=b.count))  # >>> c
+print(min(b, key=b.count))  # >>> e
+# This gives the char occrued most often by using .count()
+# key一般指定一个function,这个function对于interable argument的每一个item进行处理,
+# 然后返回一个function output最大的item.
+
+a = [1, 2, 3, 4, 5]
+# 创造一个函数,求除以4的余数, 对于1,2,3,4,5
+#                     结果分别是1,2,3,0,1
+def func(x):
+    return x % 4
+print(max(a, key=func))  # 注意只要函数名,不要括号和参数
+# >>> 此时返回的是a中除以4,余数最大的那个item, 也就是 3
+
 
 
