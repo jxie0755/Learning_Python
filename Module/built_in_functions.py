@@ -197,6 +197,7 @@ print(hash(vowels))
 # id is very similar to hash, an identity of an object
 print(id(5))
 
+# max() and min() see simple learnings
 
 
 
