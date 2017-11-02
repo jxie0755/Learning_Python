@@ -1,0 +1,47 @@
+def Maximum(iterable, *args, **key):
+    if not key:
+        if not args:
+            Max = 0
+            for item in iterable:
+                if item > Max:
+                    Max = item
+            return Max
+        else:
+            List = [iterable]
+            for i in args:
+              List.append(i)
+            Max = 0
+            for item in List:
+                if item > Max:
+                    Max = item
+            return Max
+    else:
+        if not args:
+            Max = 0
+            result = {}
+            for item in iterable:
+                result[item] = key(item)
+            for v in result.values(): 
+                if v > Max:
+                    Max = v
+            for k in result.keys():
+                if result[k] == Max:
+                    return k
+        else:
+            Max = 0
+            result = {iterable: key(iterable)}
+            for item in args:
+                result[item] = key(item)
+            for v in result.values(): 
+                if v > Max:
+                    Max = v
+            for k in result.keys():
+                if result[k] == Max:
+                    return k
+
+a = [1,5,8,77,24,95]
+print(Maximum(a))
+print(Maximum(1,3,2))
+
+b = [1,5,8,77,24,95]
+print(Maximum(b, key=pow))
