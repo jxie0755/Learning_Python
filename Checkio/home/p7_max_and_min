@@ -43,5 +43,9 @@ a = [1,5,8,77,24,95]
 print(Maximum(a))
 print(Maximum(1,3,2))
 
-b = [1,5,8,77,24,95]
-print(Maximum(b, key=pow))
+a = [1,5,8,77,24,95]
+print(Maximum(a))
+print(Maximum(1,3,2))
+
+b = 'abccba'
+print(Maximum(b, key=b.count))
