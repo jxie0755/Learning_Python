@@ -1,43 +1,89 @@
 # create a max() function
-def Maximum(List, *args):
-    # 做一个函数解决代码重用
+def maxx(iterable, *args, **kwargs):
+    key = kwargs.get("key", None)
     def m(x):
-        if type(List) == int or type(List) == float:
-            Max = List
+        if type(x) == int or type(x) == float:
+            Max = x
         else:
-            Max = List[0]
-
+            x = list(x)
+            Max = x[0]
+        
         for i in x:
             if i > Max:
                 Max = i
         return Max
-
-    def data_process():
-        result = [List, ]
-        result = [List, ] + [i for i in args]
-        return result
-
-    if not args:
-        # just List, and iterable
-        return m(List)
+        
+    if key == None:
+        if not args:
+            return m(iterable)
+        if args:
+            iterable = [iterable] + [i for i in args]
+            return m(iterable)
     else:
-        # multiple argument, each one single item
-        if type(List) == int or type(List) == float:
-            return m(data_process())
+        if not args:
+            temp = dict(enumerate(list(map(key, iterable))))
+            for k, v in temp.items():
+                if v == m(list(temp.values())):
+                    return iterable[k]
+        if args:
+            iterable = [iterable] + [i for i in args]
+            temp = dict(enumerate(list(map(key, iterable))))
+            for k, v in temp.items():
+                if v == m(list(temp.values())):
+                    return iterable[k]
+            
+            
+a = [1, -6, -2]
+print(maxx([1,3,2]))
+print(maxx(1, 4, 2))
+print(maxx(a, key=abs))
+print(maxx(1,-9,2, key=abs))
+num = [15, 300, 2700, 821]
+num1 = [12, 20000000]
+num2 = [34, 567, 78]
+dd = [num, num1, num2]
+# print('Maximum is:', max(num, num1, num2, key=len))
+print('Maximum is:', maxx(dd, key=len))
+bb = 'aggbbbbscd'
+print(maxx(bb))
+print(maxx(bb, key=bb.count))
 
-        # multiple arugments, each one iterable
-        else:
-            v = [m(List), ] + [m(i) for i in args]
-            for i in data_process():
-                if m(v) in i:
-                    return i
+
+#其他优秀解法
+# 注意利用sorted(),然后求第一个值或者最后一个值
+
+def minnn(*args, **kwargs):
+    key = kwargs.get("key", None)
+    if len(args) == 1:
+        args = args[0]
+    return sorted(args,key=key,reverse=False)[0]
+
+def maxxx(*args, **kwargs):
+    key = kwargs.get("key", None)
+    if len(args) == 1:
+        args = args[0]
+    return sorted(args,key=key,reverse=True)[0]
 
 
-a = [10.5, 2.3, 19.7]
-b = [8.1, 10.2, 27.2]
-c = [1.1, 2.0, 10.9]
-print(Maximum([1.5, -2, -3]))
-print(Maximum(1.5, 2.3, -3, -4))
-print(Maximum(a, b, c))
+# 另一个优秀解法
+def min(*args, **kwargs):
+    key = kwargs.get("key", lambda x: x)
+    items = args[0] if len(args) == 1 else args[:]
+    minValue = None
+    for i in items:
+        # 这里设置的lambda x:x起了作用,如果没有key,那key(i)就是i
+        # 如果key=f(),那么key(i)就是f(i)
+        # 这样就不论key的有无,都把代码给统一起来了
+        if minValue is None or key(i) < key(minValue):
+            minValue = i
+    return minValue
 
-# TODO 还剩下Keyword参数
+def max(*args, **kwargs):
+    key = kwargs.get("key", lambda x: x)
+    items = args[0] if len(args) == 1 else args[:]
+    maxValue = None
+    for i in items:
+        if maxValue is None or key(i) > key(maxValue):
+            maxValue = i
+    return maxValue
+
