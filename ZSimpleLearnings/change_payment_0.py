@@ -23,8 +23,6 @@ def pay_change(paid, cost):
     n_one = rest // 1
     result['$1'] = n_one
 
-    # print(result) if you want to check the result dictionary
-
     # present the result, do not show if value is 0
     for k, v in result.items():
         if v != 0:

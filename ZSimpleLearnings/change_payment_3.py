@@ -4,7 +4,7 @@ def pay_change(paid, price):
     change = paid - price
     bills = ['$20', '$10', '$5', '$2', '$1']
 
-    # get the result dictionary values for each bill
+    # get a function to calculate the change, for the number of each bill
     def f(x):
         global change
         result = divmod(change, x)[0]

@@ -3,7 +3,7 @@ def pay_change(paid, price):
     global change
     change = paid - price
     result = {}
-    # get the result dictionary values for each bill
+    # get the result dictionary values for each bill, by a function
     def f(x):
         global change
         result = divmod(change, x)[0]

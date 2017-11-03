@@ -4,7 +4,6 @@ def pay_change(paid, price):
     result = {}
 
     # get the result dictionary values for each bill
-    # get the result dictionary values for each bill
     result['$20'] = divmod(change, 20)[0]
     change = divmod(change, 20)[1]
 
