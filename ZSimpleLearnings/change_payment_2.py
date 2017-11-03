@@ -1,23 +1,19 @@
 def pay_change(paid, price):
     # set up the change and an empty dictionary for result
+    global change
     change = paid - price
     result = {}
-
     # get the result dictionary values for each bill
-    result['$20'] = divmod(change, 20)[0]
-    change = divmod(change, 20)[1]
-
-    result['$10'] = divmod(change, 10)[0]
-    change = divmod(change, 10)[1]
-
-    result['$5'] = divmod(change, 5)[0]
-    change = divmod(change, 5)[1]
-
-    result['$2'] = divmod(change, 2)[0]
-    change = divmod(change, 2)[1]
-
-    result['$1'] = divmod(change, 1)[0]
-    change = divmod(change, 1)[1]
+    def f(x):
+        global change
+        result = divmod(change, x)[0]
+        change = divmod(change, x)[1]
+        return result
+    result['$20'] = f(20)
+    result['$10'] = f(10)
+    result['$5'] = f(5)
+    result['$2'] = f(2)
+    result['s1'] = f(1)
 
     # present the result, do not show if value is 0
     for k, v in result.items():
