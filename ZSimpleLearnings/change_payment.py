@@ -29,3 +29,4 @@ def pay_change(paid, price):
             print('Need', v, 'bills of', k)
 
 pay_change(100, 8)
+# TODO try to use map to simply this
