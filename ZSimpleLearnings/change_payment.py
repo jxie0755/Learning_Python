@@ -4,24 +4,21 @@ def pay_change(paid, price):
     result = {}
 
     # get the result dictionary values for each bill
-    n_twenty = change // 20
-    result['$20'] = n_twenty
-    rest = change % 20
+    # get the result dictionary values for each bill
+    result['$20'] = divmod(change, 20)[0]
+    change = divmod(change, 20)[1]
 
-    n_ten = rest // 10
-    result['$10'] = n_ten
-    rest = rest % 10
+    result['$10'] = divmod(change, 10)[0]
+    change = divmod(change, 10)[1]
 
-    n_five = rest // 5
-    result['$5'] = n_five
-    rest = rest % 5
+    result['$5'] = divmod(change, 5)[0]
+    change = divmod(change, 5)[1]
 
-    n_two = rest // 2
-    result['$2'] = n_two
-    rest = rest % 2
+    result['$2'] = divmod(change, 2)[0]
+    change = divmod(change, 2)[1]
 
-    n_one = rest // 1
-    result['$1'] = n_one
+    result['$1'] = divmod(change, 1)[0]
+    change = divmod(change, 1)[1]
 
     # present the result, do not show if value is 0
     for k, v in result.items():
