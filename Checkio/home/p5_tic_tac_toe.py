@@ -2,12 +2,10 @@ def checkio(game_result):
     def judge(R):
         for i in R:
             if i.count('X') == 3:
-                return 'X'
+                return 'X' 
             if i.count('O') == 3:
-                return 'O'
-    # horizontal line
-    if judge(game_result) != None:
-        return judge(game_result)
+                return 'O' 
+    # Horizontal line, go straight with judge()
     
     # Vertical line
     def f(n):
@@ -15,20 +13,20 @@ def checkio(game_result):
         for i in range(3):
             v.append(game_result[i][n])
         return v
-    if judge(list(map(f, (0, 1, 2)))) != None:
-        return judge(list(map(f, (0, 1, 2))))
     
     # corss line
-    c1 = []
+    c1 = []; c2 = []; cline = [c1, c2]
     for i in list(range(3)):
         c1.append(game_result[i][2-i])
-    c2 = []    
+       
     for i in list(range(3)):
         c2.append(game_result[i][i])
-    cline = [c1, c2]
-    if  judge(cline) != None:
-        return judge(cline)
-    return 'D'
+    
+    # Return result
+    return judge(game_result) \
+    or judge(list(map(f, (0, 1, 2)))) \
+    or judge(cline) \
+    or 'D'
 
 if __name__ == '__main__':
     #These "asserts" using only for self-checking and not necessary for auto-testing
