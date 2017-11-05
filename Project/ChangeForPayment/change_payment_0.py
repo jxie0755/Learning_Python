@@ -27,3 +27,6 @@ def pay_change(paid, cost):
     for k, v in result.items():
         if v != 0:
             print('Need', v, 'bills of', k)
+
+
+pay_change(65, 33)
