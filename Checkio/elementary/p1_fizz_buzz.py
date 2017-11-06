@@ -8,10 +8,14 @@
 # Output: The answer as a string.
 
 def checkio(number):
-
-    return str(number)
-
-
+    if number % 3 == 0 and number % 5 == 0:
+        return 'Fizz Buzz'
+    elif number % 3 == 0:
+        return 'Fizz'
+    elif number % 5 == 0:
+        return 'Buzz'
+    else:
+        return str(number)
 
 #These "asserts" using only for self-checking and not necessary for auto-testing
 if __name__ == '__main__':
