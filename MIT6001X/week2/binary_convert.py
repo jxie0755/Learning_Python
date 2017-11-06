@@ -52,7 +52,7 @@ print('The binary number of', target, "is", binumber)
 
 # MIT example, a different way of writing
 
-num = 3
+num = 11
 if num < 0:
     isNeg = True
     num = abs(num)
@@ -63,9 +63,10 @@ result = ''  # 定义一个空字符也很关键!
 if num == 0:
     result = '0'
 while num > 0:
-    result = str(num % 2) + result  # 核心写法: 将result定义为string, 拆解字符为'10011' = '1001' + '1'
-                                    # 1和0来自于余数,但是每一步都是被推后
-    num = num // 2                  # 将num除以2取整后,再次循环,最终将'10011'拆解为'1'+'0'+'0'+'1'+'1'
+    result = str(num % 2) + result  # 核心写法: 将result定义为string, 拆解字符为'1011' = '1'+'0'+'1'+'1'
+                                    # 1和0来自于余数,但是每次生成余数都被放置在之前的余数的前位
+                                    # 无形中完成了逆序排列
+    num = num // 2                  
 if isNeg:
     result = '-' + result
 print('\nConvert to binary number:', result)
