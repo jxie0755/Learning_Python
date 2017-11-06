@@ -1,5 +1,8 @@
 # this is to convert a binary number to decimal number
 
+# 1011 = 1*2^3 + 0*2^2 + 1*2^1 + 1*2^0
+
+# 引入re来限制输入,只能输入0和1
 import re
 
 while True:
@@ -12,10 +15,18 @@ while True:
 ans = 0
 numlevel = len(target)
 for index in range(0, numlevel):
-    ans += int(target[numlevel - index - 1]) * 2**index
+    ans += int(target[numlevel - index - 1]) * 2**index  
                                                # 此处2,代表2进制.
 print(ans)
 print(bin(ans))
+
+# 先把target反过来,再计算就更简短
+target = target[::-1]
+ans = 0
+for i in range(len(target)):
+    ans += int(target[i]) * 2**i
+print(ans)
+
 
 # this is to convert a decimal number to binary
 # 用2辗转相除至结果为1
