@@ -41,14 +41,10 @@ while True:
         break
 int_target = int(target)
 biList = []
-while True:
+while int_target != 0:
     biList.append(int_target % 2)
     int_target = int_target // 2
-    if int_target == 1:
-        biList.append(int_target % 2)  # 要么就在创建list的时候把int变成str
-        break
-biList.reverse()
-binumber = int(''.join(str(i) for i in biList))  # 要注意join必须是string,不能是int
+binumber = int(''.join(str(i) for i in biList[::-1]))  # 要注意join必须是string,不能是int
 print('The binary number of', target, "is", binumber)
 
 
