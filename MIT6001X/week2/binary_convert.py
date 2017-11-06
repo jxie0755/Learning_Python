@@ -13,6 +13,7 @@ ans = 0
 numlevel = len(target)
 for index in range(0, numlevel):
     ans += int(target[numlevel - index - 1]) * 2**index
+                                               # 此处2,代表2进制.
 print(ans)
 print(bin(ans))
 
