@@ -17,10 +17,8 @@ def safe_pawns(pawns):
         for i in safe_supoort:
             if i in pawns:
                 return x
-    if pawns:
-        return len(list(filter(safecheck, pawns)))
-    else:
-        return 0
+
+    return len(list(filter(safecheck, pawns)))
 
 
 if __name__ == '__main__':
