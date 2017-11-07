@@ -4,8 +4,8 @@
 # The task uses digits and the letters A-Z for the strings.
 # 将其它进制转换为十进制
 
-Input: Two arguments. A number as string and a radix as an integer.
-Output: The converted number as an integer.
+# Input: Two arguments. A number as string and a radix as an integer.
+# Output: The converted number as an integer.
 
 def checkio(str_number, radix):
     import string
