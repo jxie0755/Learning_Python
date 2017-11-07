@@ -14,4 +14,4 @@ if __name__ == '__main__':
 
 # other solutions:
 def find_message(text):
-return "".join([char for char in text if char.isupper()])
+    return "".join([char for char in text if char.isupper()])
