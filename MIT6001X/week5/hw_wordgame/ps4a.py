@@ -193,7 +193,7 @@ def calculateHandlen(hand):
     hand: dictionary (string-> int)
     returns: integer
     """
-    # TO DO... <-- Remove this comment when you code this function
+    return sum(hand.values())
 
 
 
@@ -219,7 +219,31 @@ def playHand(hand, wordList, n):
       n: integer (HAND_SIZE; i.e., hand size required for additional points)
       
     """
-    # BEGIN PSEUDOCODE <-- Remove this comment when you code this function; do your coding within the pseudocode (leaving those comments in-place!)
+    score = 0
+    uhand = hand.copy()
+
+    while calculateHandlen(uhand) > 0:
+        print('Current hand: ', end=' ')
+        displayHand(uhand)
+        word = input('Enter word, or a "." to indicate that you are finished: ')
+        if word == '.':
+            break
+        else:
+            if isValidWord(word, uhand, wordList) == False:
+                print('Invalid word, please try again.')
+                print
+            else:
+                score += getWordScore(word, n)
+                print('"' + str(word) + '" earned ' + str(getWordScore(word, n)) + ' points. Total: ' + str(
+                    score) + ' points.')
+                print
+                uhand = updateHand(uhand, word)
+
+    if calculateHandlen(uhand) > 0:
+        print('Goodbye! Total score: ' + str(score) + ' points.')
+    else:
+        print('Run out of letters. Total score: ' + str(score) + ' points.')
+
     # Keep track of the total score
     
     # As long as there are still letters left in the hand:
