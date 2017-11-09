@@ -244,38 +244,8 @@ def playHand(hand, wordList, n):
     else:
         print('Run out of letters. Total score: ' + str(score) + ' points.')
 
-    # Keep track of the total score
-    
-    # As long as there are still letters left in the hand:
-    
-        # Display the hand
-        
-        # Ask user for input
-        
-        # If the input is a single period:
-        
-            # End the game (break out of the loop)
 
-            
-        # Otherwise (the input is not a single period):
-        
-            # If the word is not valid:
-            
-                # Reject invalid word (print a message followed by a blank line)
-
-            # Otherwise (the word is valid):
-
-                # Tell the user how many points the word earned, and the updated total score, in one line followed by a blank line
-                
-                # Update the hand 
-                
-
-    # Game is over (user entered a '.' or ran out of letters), so tell user the total score
-
-
-#
 # Problem #5: Playing a game
-# 
 
 def playGame(wordList):
     """
