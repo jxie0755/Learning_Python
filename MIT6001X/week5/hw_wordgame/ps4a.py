@@ -87,7 +87,7 @@ def displayHand(hand):
     Displays the letters currently in the hand.
 
     For example:
-    >>> displayHand({'a':1, 'x':2, 'l':3, 'e':1})
+    displayHand({'a':1, 'x':2, 'l':3, 'e':1})
     Should print out something like:
        a x x l l l e
     The order of the letters is unimportant.
@@ -289,15 +289,28 @@ def playGame(wordList):
  
     2) When done playing the hand, repeat from step 1    
     """
-    # TO DO ... <-- Remove this comment when you code this function
-    print("playGame not yet implemented.") # <-- Remove this line when you code the function
-   
-
-
+    player_option = None
+    player_hand = None
+    while player_option != 'e':
+        player_option = input("Enter n to deal a new hand, r to replay the" +
+                              "  last hand, or e to end game: ").lower()
+        if player_option == 'n':
+            player_hand = dealHand(HAND_SIZE)
+            playHand(player_hand.copy(), wordList, HAND_SIZE)
+            print
+        elif player_option == 'r':
+            if player_hand != None:
+                playHand(player_hand.copy(), wordList, HAND_SIZE)
+                print
+            else:
+                print("You ve not played a hand yet. Please play a" +
+                      " new hand first!\n")
+        elif player_option != 'e':
+            print("Invalid command.")
 
 #
 # Build data structures used for entire session and play game
 #
 if __name__ == '__main__':
     wordList = loadWords()
-    uplayGame(wordList)
+    playGame(wordList)
