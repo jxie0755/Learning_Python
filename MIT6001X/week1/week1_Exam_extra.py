@@ -10,6 +10,7 @@ while n < word:
 
 print()
 
+# find all substring (sub-string)
 s = 'abcdefg'
 n = 0
 m = 0
