@@ -20,8 +20,31 @@
 OPERATION_NAMES = ("conjunction", "disjunction", "implication", "exclusive", "equivalence")
 
 def boolean(x, y, operation):
-    return 1 or 0
-
+    if operation == 'conjunction':
+        if x == 1 and y == 1:
+            return 1
+        else:
+            return 0
+    elif operation == 'disjunction':
+        if x == 0 and y == 0:
+            return 0
+        else:
+            return 1
+    elif operation == 'implication':
+        if x == 1 and y == 0:
+            return 0
+        else:
+            return 1
+    elif operation == 'exclusive':
+        if x == y:
+            return 0
+        else:
+            return 1
+    elif operation == 'equivalence':
+        if x == y:
+            return 1
+        else:
+            return 0
 
 
 if __name__ == '__main__':
