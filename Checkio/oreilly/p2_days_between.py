@@ -3,7 +3,6 @@
 # Input: Two dates as tuples of integers.
 # Output: The difference between the dates in days as an integer.
 
-import time
 from datetime import date
 
 def days_diff(date1, date2):
