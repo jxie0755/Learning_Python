@@ -57,3 +57,4 @@ if __name__ == '__main__':
          'rsqx',
          'xqzz',
          'fyzr')) == 'rxqrwsfzxqxzhczy', 'Second example'
+    print('done')
