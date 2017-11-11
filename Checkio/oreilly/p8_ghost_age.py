@@ -14,15 +14,31 @@
 # Output: The age of the ghost as an integer.
 
 def checkio(opacity):
+    # create a list of fibonaci number
+    f_list = [1, 2]
+    while len(f_list) <= 100:
+        new = f_list[-1] + f_list[-2]
+        f_list.append(new)
 
-    return 0
+    # create age calculation
+    if opacity == 10000:
+        return 0
+    else:
+        target = 10000
+        for i in range(1, 5000):
+            if i in f_list:
+                target -= i
+            if i not in f_list:
+                target += 1
+            if target == opacity:
+                return i
 
+if __name__ == '__main__':
+    assert checkio(10000) == 0, "Newborn"
+    assert checkio(9999) == 1, "1 year"
+    assert checkio(9997) == 2, "2 years"
+    assert checkio(9994) == 3, "3 years"
+    assert checkio(9995) == 4, "4 years"
+    assert checkio(9990) == 5, "5 years"
+    print('done')
 
-
-# if __name__ == '__main__':
-#     assert checkio(10000) == 0, "Newborn"
-#     assert checkio(9999) == 1, "1 year"
-#     assert checkio(9997) == 2, "2 years"
-#     assert checkio(9994) == 3, "3 years"
-#     assert checkio(9995) == 4, "4 years"
-#     assert checkio(9990) == 5, "5 years"
