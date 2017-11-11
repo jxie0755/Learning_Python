@@ -29,14 +29,15 @@ def non_repeat(line):
         return True
     try:
         return max(list(filter(check_repeat, substring_list)), key=len)
-    except:
+    except ValueError:
         return ''
 
-# if __name__ == '__main__':
-#     #These "asserts" using only for self-checking and not necessary for auto-testing
-#     assert non_repeat('aaaaa') == 'a', "First"
-#     assert non_repeat('abdjwawk') == 'abdjw', "Second"
-#     assert non_repeat('abcabcffab') == 'abcf', "Third"
-#     print('"Run" is good. How is "Check"?')
+if __name__ == '__main__':
+    #These "asserts" using only for self-checking and not necessary for auto-testing
+    assert non_repeat('aaaaa') == 'a', "First"
+    assert non_repeat('abdjwawk') == 'abdjw', "Second"
+    assert non_repeat('abcabcffab') == 'abcf', "Third"
+    assert non_repeat('fghfrtyfgh') ==  'ghfrty', "extra check"
+    assert non_repeat('') == '', 'empty string'
+    print('"Run" is good. How is "Check"?')
 
-print(non_repeat('fghfrtyfgh'))
