@@ -16,7 +16,3 @@ print(match.string)  # >>> 'Does this text match the pattern?'
 print(match.start())  # >>> 5 --- means starting from text[5]
 print(match.end())    # >>> 9 --- means ends at text [9]
 print(text[s:e])
-
-
-
-
