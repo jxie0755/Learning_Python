@@ -25,3 +25,18 @@ print(target.search(text))  # >>> <_sre.SRE_Match object; span=(15, 20), match='
 
 if target.search(text):
     print('True')  # >>> True
+
+# 结合前两者
+print()
+# Precompile the patterns
+regex = re.compile('this')
+text = 'Does this text match the pattern?'
+print(f'Text: {text!r}')
+if regex.search(text):
+    match = re.search(regex, text)
+    s = match.start()
+    e = match.end()
+    print('you can find it in ' + f'text[{s}:{e}]')
+
+else:
+    print('no match')
