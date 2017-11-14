@@ -1289,7 +1289,18 @@ def f(x):
 
 print(''.join((list(filter(lambda x: x, list(map(f, raw_list)))))))
 
+# use re
+import re
 
+text = '[a-z][A-Z]{3}[a-z][A-Z]{3}[a-z]'
+result = ''
+for match in re.finditer(text, msg):
+    s = match.start()
+    e = match.end()
+    substr = msg[s:e]
+    result += substr[4]
+
+print(result)
 
 
 
