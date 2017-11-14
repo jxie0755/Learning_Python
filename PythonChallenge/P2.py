@@ -1229,3 +1229,8 @@ print(result)
 import string
 print(''.join(filter(lambda x: x in string.ascii_lowercase, msg)))
 
+
+# use re
+import re
+m = re.findall("[A-Za-z]",msg)
+print(''.join(m))
