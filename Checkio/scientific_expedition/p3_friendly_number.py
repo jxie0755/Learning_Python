@@ -18,7 +18,7 @@ def friendly_number(number, base=1000, decimals=0, suffix='',
         i = powers.index(prefix)
         frac = round(number / (base ** i), decimals)
         a_lst = str(frac).split(".")
-        answer = a_lst[0] + "." + a_lst[1].zfills(decimals)
+        answer = a_lst[0] + "." + a_lst[1].zfill(decimals)
     return zn + str(answer) + prefix + suffix
 
 
