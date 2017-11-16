@@ -20,4 +20,10 @@ find_patterns('abbaabbba', 'ab{3}')
 # find 'a' followed by two to three 'b'
 find_patterns('abbaabbba', 'ab{2,3}')
 
+# find 'a' or 'b', equal to [ab]
+find_patterns('asdfjcdbsdf', 'a|b')
+
+# find 'ba' at the end
+find_patterns('abbaabbba', 'ba$')
+
 # output not shown
