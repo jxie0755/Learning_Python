@@ -15,7 +15,6 @@ if __name__ == '__main__':
     assert verify_anagrams("Kyoto", "Tokyo") == True, "The global warming crisis of 3002"
 
 # use re
-
 import re
 def verify_anagrams(first_word, second_word):
     def word_breakdown(word):
