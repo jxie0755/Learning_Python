@@ -28,7 +28,7 @@ def checkio(land_map):
 
 land_map = ([[1, 0, 0, 0, 0],
              [0, 0, 1, 0, 1],
-             [0, 0, 1, 1, 1],
+             [0, 0, 1, 0, 1],
              [0, 1, 0, 0, 0],
              [0, 0, 0, 0, 0]])
 
@@ -41,8 +41,7 @@ for i in range(len(land_map)):
 print(temp_list)
 
 final = []
-for i in temp_list:
-    up, down, left, right = i-10, i+10, i-1, i+1
+temp = []
 
 
 
