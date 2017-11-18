@@ -41,16 +41,16 @@ for i in range(len(land_map)):
 print(temp_list)
 
 final = []
-temp = []
 for i in temp_list:
-    island = [i]
-    left, right = i - 1, i + 1
-    for x in (left, right):
-        if x not in temp:
-            if x in temp_list:
-                island.append(x)
-    final.append(island)
-print(final)
+    up, down, left, right = i-10, i+10, i-1, i+1
+
+
+
+
+
+
+
+
 
 # print(checkio(land_map))
 
