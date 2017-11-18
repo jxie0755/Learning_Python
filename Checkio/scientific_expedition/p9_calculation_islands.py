@@ -26,9 +26,47 @@ def checkio(land_map):
 #     print('done')
 
 
-a = ([[1, 0, 0, 0, 0],
-      [0, 0, 1, 1, 0],
-      [0, 0, 0, 1, 0],
-      [0, 1, 0, 0, 0],
-      [0, 0, 0, 0, 0]])
-print(checkio(a))
+land_map = ([[1, 0, 0, 0, 0],
+             [0, 0, 1, 0, 1],
+             [0, 0, 1, 1, 1],
+             [0, 1, 0, 0, 0],
+             [0, 0, 0, 0, 0]])
+
+temp_list = []
+for i in range(len(land_map)):
+    for x in range(len(land_map)):
+        if land_map[i][x] == 1:
+            collect = int(str(i) + str(x))
+            temp_list.append(collect)
+print(temp_list)
+
+final = []
+temp = []
+for i in temp_list:
+    island = [i]
+    left, right = i - 1, i + 1
+    for x in (left, right):
+        if x not in temp:
+            if x in temp_list:
+                island.append(x)
+    final.append(island)
+print(final)
+
+# for i in final:
+#     for x in final:
+#         if i
+
+# up, down = i - 10, i + 10
+
+
+
+
+
+
+
+
+
+# print(checkio(land_map))
+
+
+
