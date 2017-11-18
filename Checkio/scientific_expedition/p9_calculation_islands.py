@@ -42,18 +42,13 @@ print(temp_list)
 
 final = []
 temp = []
+tempU =[]
+for i in temp_list:
+    up, down, left, right, up_left, upright, down_left, down_right = x-10, x+10, x-1, x+1, x-11, x-9, x+9, x+11
+    neighbors = [up, down, left, right, up_left, upright, down_left, down_right]
 
-
-
-
-
-
-
-
-
-
-
-# print(checkio(land_map))
+# job not done.
+# future work includes finish the check neighbor processing to group the numbers for islands.
 
 
 
