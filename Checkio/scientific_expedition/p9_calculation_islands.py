@@ -52,20 +52,6 @@ for i in temp_list:
     final.append(island)
 print(final)
 
-# for i in final:
-#     for x in final:
-#         if i
-
-# up, down = i - 10, i + 10
-
-
-
-
-
-
-
-
-
 # print(checkio(land_map))
 
 
