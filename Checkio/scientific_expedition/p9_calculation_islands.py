@@ -28,7 +28,7 @@ def checkio(land_map):
 
 land_map = ([[1, 0, 0, 0, 0],
              [0, 0, 1, 0, 1],
-             [0, 0, 1, 0, 1],
+             [0, 0, 1, 1, 1],
              [0, 1, 0, 0, 0],
              [0, 0, 0, 0, 0]])
 
@@ -42,14 +42,8 @@ print(temp_list)
 
 final = []
 temp = []
-def neighbor(x):
-    candi = [x]
-    for i in candi:
-        up, down, left, right = i-10, i+10, i-1, i+1
-        for neighbor in [up, down, left, right]:
-            if neighbor not in temp and neighbor in temp_list:
-                temp.append(neighbor)
-                candi.append(neighbor)
+
+
 
 
 
