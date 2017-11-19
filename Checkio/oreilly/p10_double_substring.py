@@ -3,20 +3,25 @@
 # Output: Int.
 
 def double_substring(line):
-    result = []
-    n = 0
-    m = 0
+    temp = []
+    n, m = 0, 0
     word = len(line)
     while n < word:
         for m in range(0, word):
             if 1 + m + n <= word:
-                result.append(line[m:1 + m + n])
+                temp.append(line[m:1 + m + n])
         else:
             n += 1
-    for i in result:
-        if result.count(i) >=2:
-            print(i)
-    return 0
+    try:
+        str_target = (list(filter(lambda x: temp.count(x) >=2, temp))[-1])
+        print(str_target)
+        if str_target == str_target[0] * len(str_target):
+            return len(str_target)//2 + 1
+        else:
+            return len(str_target)
+    except IndexError:
+        return 0
+
 
 # if __name__ == '__main__':
 #     #These "asserts" using only for self-checking and not necessary for auto-testing
@@ -25,6 +30,5 @@ def double_substring(line):
 #     assert double_substring('aghtfghkofgh') == 3, "Third"
 #     print('"Run" is good. How is "Check"?')
 
-double_substring('aaaa')
-l = ['a', 'b', 'c', 'd', 'a']
-print(l.count('a'))
+print(double_substring('abababaab'))
+
