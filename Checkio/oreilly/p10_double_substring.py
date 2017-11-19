@@ -31,3 +31,13 @@ if __name__ == '__main__':
     assert double_substring('aghtfghkofgh') == 3, "Third"
     print('"Run" is good. How is "Check"?')
 
+# 另解
+def double_substring2(line):
+    result = 0
+    for i in range(len(line)):
+        for j in range(len(line[i:])):
+            if (line.count(line[i:j]) > 1) and (len(line[i:j]) > result):
+                result = len(line[i:j])
+    return result
+
+print(double_substring2('aghtfghkofgh'))
