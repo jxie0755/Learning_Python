@@ -60,7 +60,6 @@ print(list(itertools.repeat(10, 3)))  # >>> [10, 10, 10]
 # 创建的迭代对象返回被计算的sums值或者其它二元函数的结果(通过指定func参数)。func应该是接收两个参数的函数。输入iterable的元素可以是可以作为func的参数接受的任何类型。
 # 如果输入iterable为空，则输出iterable也将为空。
 
-import itertools
 import functools
 
 aa = [1,2,3,4]
