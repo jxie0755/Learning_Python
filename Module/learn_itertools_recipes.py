@@ -17,5 +17,10 @@ x = (tabulate(lambda x:x*2, 0))
 for i in range(8):
     print(next(x) * next(x))  # 注意这不等于 next(x)**2
 
-
+import collections
+def tail(n, iterable):
+    """Return a list over the last n items"""
+    return list(iter(collections.deque(iterable, maxlen=n)))
+lst = [1, 2, 3, 4, 5]
+print(tail(3, lst))  # >>> [3,4,5]
 
