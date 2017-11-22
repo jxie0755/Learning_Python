@@ -4,43 +4,49 @@
 # Output: Whether or not a sequence exists as a boolean.
 
 def checkio(matrix):
-index = len(matrix)
-# obtain veritical result in a list
-ver_result = []
-for i in range(index-3):
-for j in range(index):
-temp = []
-for k in range(4):
-temp.append(matrix[i+k][j])
-ver_result.append(temp)
-# obtain horizontal result in a list
-hor_result = []
-for i in range(index):
-for j in range(index - 3):
-temp = []
-for k in range(4):
-temp.append(matrix[i][j+k])
-hor_result.append(temp)
-# obtain axis start from NE corner
-NE_axis = []
-for i in range(index - 3):
-for j in range(3, index):
-temp = []
-for k in range(4):
-temp.append(matrix[i+k][j-k])
-NE_axis.append(temp)
-# obtain axis start from NW corner
-NW_axis = []
-for i in range(index - 3):
-for j in range(0, index - 3):
-temp = []
-for k in range(4):
-temp.append(matrix[i+k][j+k])
-NW_axis.append(temp)
-def verify(matrix):
-return any(xlist.count(xlist[0]) == len(xlist) for xlist in matrix)
-return verify(hor_result) or verify(ver_result) \
-or verify(NW_axis) or verify(NE_axis)
+    index = len(matrix)
+    
+    # obtain veritical result in a list
+    ver_result = []
+    for i in range(index-3):
+        for j in range(index):
+            temp = []
+            for k in range(4):
+                temp.append(matrix[i+k][j])
+            ver_result.append(temp)
+    
+    # obtain horizontal result in a list
+    hor_result = []
+    for i in range(index):
+        for j in range(index - 3):
+            temp = []
+            for k in range(4):
+                temp.append(matrix[i][j+k])
+            hor_result.append(temp)
+    
+    # obtain axis start from NE corner
+    NE_axis = []
+    for i in range(index - 3):
+        for j in range(3, index):
+            temp = []
+            for k in range(4):
+                temp.append(matrix[i+k][j-k])
+            NE_axis.append(temp)
+    
+    # obtain axis start from NW corner
+    NW_axis = []
+    for i in range(index - 3):
+        for j in range(0, index - 3):
+            temp = []
+            for k in range(4):
+                temp.append(matrix[i+k][j+k])
+            NW_axis.append(temp)
+    
+    def verify(matrix):
+        return any(xlist.count(xlist[0]) == len(xlist) for xlist in matrix)
+        
+    return verify(hor_result) or verify(ver_result) \
+        or verify(NW_axis) or verify(NE_axis)
 
 if __name__ == '__main__':
     assert checkio([
