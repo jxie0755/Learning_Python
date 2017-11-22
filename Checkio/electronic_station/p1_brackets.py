@@ -13,7 +13,6 @@ def checkio(expression):
     for letter in expression:
         if letter in OPEN_BRACKETS:
             occurrences.append(OPEN_BRACKETS[OPEN_BRACKETS.index(letter)])
-            print(occurrences)
         if letter in CLOSE_BRACKETS:
             # If ocurrences of opening brackets is zero
             # it means that we have bad closing brackets. 
