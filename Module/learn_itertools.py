@@ -4,6 +4,11 @@
 a=[1,2,3]
 # print(next(a)) 注意这样不能使用,必须是iterator.而不是iterable
 
+# iter()
+# 把一个iterable变成iterator
+iter_a = iter(a)
+print(next(iter_a))
+# 这个时候,就可以使用很多针对iterator的命令,比如之前的next()
 
 import itertools
 
