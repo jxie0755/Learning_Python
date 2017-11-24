@@ -3,6 +3,7 @@
 # 可以被广泛配合用于itertools
 a=[1,2,3]
 # print(next(a)) 注意这样不能使用,必须是iterator.而不是iterable
+# next() 可以追加一个deault value,如果遍历完所有next(), 不添加default则出现错误StopIteration,或者添加default则可以固定返回一个default值
 
 # iter()
 # 把一个iterable变成iterator
@@ -233,7 +234,9 @@ print(list(itertools.islice('ABCDEFG', 2, 6)))  # means range(2,6), output items
 # >>> ['C', 'D', 'E', 'F']
 print(list(itertools.islice('ABCDEFG', 2, None)))  # means range(2, len(iterable)+1), 'None' means to the end
 # >>> ['C', 'D', 'E', 'F', 'G']
-print(list(itertools.islice('ABCDEFG', 0, None, 2))) # means range(2, len(iterable)+1), step), to the end
+print(list(itertools.islice('ABCDEFG', 0, None, 2)))  # means range(2, len(iterable)+1), step), to the end
+# >>> ['A', 'C', 'E', 'G']
+print(list(itertools.islice('ABCDEFG', 2, 2)))  # means range(2, len(iterable)+1), step), to the end
 # >>> ['A', 'C', 'E', 'G']
 
 

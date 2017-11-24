@@ -25,3 +25,26 @@ def tail(n, iterable):
 lst = [1, 2, 3, 4, 5]
 print(tail(3, lst))  # >>> [3,4,5]
 
+
+def consume(iterator, n):
+    # use functions that consume iterators at C speed
+    if n is None:
+        collections.deque(iterator, maxlen=0)
+    else:
+        next(islice(iterator, n, n), None)
+aa = iter([1,2,3,4])
+print(consume(aa, 2))
+
+
+def nth(iterable, n, default=None):
+    return next(islice(iterable, n, None), default)
+aa = iter([1, 2, 3, 4])
+print(nth(aa, 2, 99))   # >>> 3   由于aa[2]存在一个值=3, 所以返回3
+print(nth(aa, 10))  # >>> 99  由于aa[10]不存在, 所以返回default value=99, 若不指定,则返回None,也不至于StopIteration
+
+
+
+
+
+
+
