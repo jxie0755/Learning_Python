@@ -1,4 +1,5 @@
-# next()
+print()
+print('next()')
 # 一个很有用的funtion,用于获取iterable中的下一个item.
 # 可以被广泛配合用于itertools
 a=[1,2,3]
@@ -12,8 +13,8 @@ print(next(iter_a))
 # 这个时候,就可以使用很多针对iterator的命令,比如之前的next()
 
 import itertools
-
-# itertools.count()
+print()
+print('itertools.count()')
 # 不停的往后计数, 可以选择计数间隔
 result = []
 for i in itertools.count(10):
@@ -30,8 +31,8 @@ for i in itertools.count(10, 2):
 print(result)  # >>> [10, 12, 14, 16, 18, 20]
 
 
-
-# itertools.cycle()
+print()
+print('itertools.cycle()')
 # 不停的循环一个iterable中的每一个element,可以是string也可以是list
 g = itertools.cycle('ABCD')
 print(next(g))  # >>> A
@@ -55,13 +56,13 @@ for i in range(8):
 # Drawing: circle
 
 
-
-# itertools.repeat()
+print()
+print('itertools.repeat()')
 print(list(itertools.repeat(10, 3)))  # >>> [10, 10, 10]
 
 
-
-# itertools.accumulate(iterable[, func])
+print()
+print('itertools.accumulate(iterable[, func])')
 # 创建的迭代对象返回被计算的sums值或者其它二元函数的结果(通过指定func参数)。func应该是接收两个参数的函数。输入iterable的元素可以是可以作为func的参数接受的任何类型。
 # 如果输入iterable为空，则输出iterable也将为空。
 
@@ -88,17 +89,21 @@ print(functools.reduce(mult, aa))
 # 可以看出,reduce只计算了accumlate的最后一项,accumulate范围更大.
 
 
-
-# itertools.chain(*iterables)
+print()
+print('itertools.chain(*iterables)')
 # 创建一个迭代器，从第一个迭代器返回元素，直到它耗尽，然后继续下一个迭代器，直到所有的迭代器都用尽。
 # To merge all the items in lists of a list
 list2d = [[1,2,3],['a','b','c'], [7], [8,9]]
 merged = list(itertools.chain(*list2d))
 print(merged)  # >>> [1, 2, 3, 'a', 'b', 'c', 7, 8, 9]
 
+aa = [1,2,3]
+bb = ['a', 'b', 'c']
+print(list(itertools.chain(aa, bb)))  # >>> [1, 2, 3, 'a', 'b', 'c']
 
 
-# classmethod chain.from_iterable(iterable)
+print()
+print('classmethod chain.from_iterable(iterable)')
 # chain()的替代构造函数。从一个可计算延迟的可迭代参数获取链接的输入。
 print(list(itertools.chain.from_iterable(list2d)))
 
@@ -130,8 +135,8 @@ print(result)  # >>> [0, 1, 0, 1, 2, 0, 1, 2, 3, 0, 1, 2, 3, 4,
 # The key advantage of from_iterables lies in the ability to handle large (potentially infinite) number of iterables since all of them need not be available at the time of the call.
 
 
-
-# itertools.compress(data, selectors)
+print()
+print('itertools.compress(data, selectors)')
 # 创建一个迭代器，用于过滤数据中的元素，只返回在选择器中具有对应元素的元素，其计算结果为True。当数据或选择器迭代可用时停止。
 data = 'ABCDEF'
 selector = [1,0,1,0,1,1,]  # 注意这里0为False,其他1,2,3任何非空都是True
@@ -142,8 +147,8 @@ print(list(d for d, s in zip(data, selector) if s))
 # >>> ['A', 'C', 'E', 'F']
 
 
-
-# itertools.dropwhile(predicate, iterable)
+print()
+print('itertools.dropwhile(predicate, iterable)')
 # 创建一个迭代器，只要谓词为真，就从迭代中删除元素；之后，返回每个元素。
 # 注意，迭代器不会产生任何输出，直到谓词首次变为假，因此它可能有一个冗长的启动时间。
 # 若没有False,则输出空iterable
@@ -151,15 +156,15 @@ print(list(itertools.dropwhile(lambda x: x<5, [1,4,6,7,4,1])))
 # >>> [6, 7, 4, 1]
 
 
-
-# itertools.takewhile(predicate, iterable)
+print()
+print('itertools.takewhile(predicate, iterable)')
 # 创建一个迭代器，只要谓词为真，它就返回可迭代的元素。
 print(list(itertools.takewhile(lambda x: x<5, [1,4,6,7,4,1])))
 # 可以理解为dropwhile()的反函数
 
 
-
-# itertools.filterfalse(predicate, iterable)
+print()
+print('itertools.filterfalse(predicate, iterable)')
 # 创建一个迭代器，过滤可迭代元素，只返回谓词为False的元素。
 # 如果谓词是None，则返回false的项目。
 print(list((itertools.filterfalse(lambda x: x<5, [1,4,6,7,4,1]))))
@@ -169,8 +174,8 @@ print(list((itertools.filterfalse(lambda x: x<5, [1,4,6,7,4,1]))))
 # 注意filter()与之相反,但是不属于itertools范围,而是属于built-in函数
 
 
-
-# itertools.groupby(iterable, key=None)
+print()
+print('itertools.groupby(iterable, key=None)')
 # 创建一个迭代器，从可迭代返回连续的键和组。
 # 键是计算每个元素的键值的函数。如果未指定或None，则键默认为标识函数，并且不更改元素。
 # 通常，迭代需要已经在相同的键函数上排序。
@@ -220,10 +225,22 @@ for k, g in lstg:
 # JP count: 1
 # USA count: 3
 
+for key, value in itertools.groupby(range(12), lambda x: x>6):
+    print(key, list(value))
+# >>> False [0, 1, 2, 3, 4, 5, 6]
+# >>> True [7, 8, 9, 10, 11]
+
+aa = ['a','a','c','d']
+for k, v in groupby(aa):
+    print(k, list(v))
+# >>> a ['a', 'a']
+# >>> c ['c']
+# >>> d ['d']
 
 
-# itertools.islice(iterable, stop)
-# itertools.islice(iterable, start, stop[, step])
+print()
+print('itertools.islice(iterable, stop)')
+print('itertools.islice(iterable, start, stop[, step])')
 # 创建一个迭代器，从迭代器返回选定的元素。如果start不为零，则跳过来自可迭代的元素，直到达到开始。
 # 之后，连续返回元素，除非步骤设置为高于导致项目被跳过的元素。
 # 如果停止是None，则迭代继续，直到迭代器耗尽，如果有的话；否则，它停在指定位置。
@@ -236,12 +253,12 @@ print(list(itertools.islice('ABCDEFG', 2, None)))  # means range(2, len(iterable
 # >>> ['C', 'D', 'E', 'F', 'G']
 print(list(itertools.islice('ABCDEFG', 0, None, 2)))  # means range(2, len(iterable)+1), step), to the end
 # >>> ['A', 'C', 'E', 'G']
-print(list(itertools.islice('ABCDEFG', 2, 2)))  # means range(2, len(iterable)+1), step), to the end
-# >>> ['A', 'C', 'E', 'G']
+print(list(itertools.islice('ABCDEFG', 2, 2)))  # returns empty list
+# >>> []
 
 
-
-# itertools.permutations(iterable, r=None)
+print()
+print('itertools.permutations(iterable, r=None)')
 # 返回可迭代中的元素的连续r长度排列。
 # 如果r未指定或None，则r默认为可迭代的长度，长度排列。
 # 排列按照字典排序顺序排列。因此，如果输入iterable被排序，则排列元组将以排序顺序产生。
@@ -252,8 +269,8 @@ print([str(x) + str(y) + str(z) for x,y,z in itertools.permutations(range(3))])
 # >>> 012 021 102 120 201 210
 
 
-
-# itertools.product(*iterables, repeat=1)
+print()
+print('itertools.product(*iterables, repeat=1)')
 # 输入迭代的笛卡尔乘积。
 # 大致等同于生成器表达式中的嵌套for循环。例如，乘积（A， B）返回与（（x，y） for x in A for y in B）。
 a = [1, 2, 3]
@@ -283,8 +300,8 @@ for i in itertools.product((range(2)), repeat=3):
 # equal to itertools.product(c, d, c, d)
 
 
-
-# itertools.starmap(function,iterable)
+print()
+print('itertools.starmap(function,iterable)')
 # 创建一个迭代器，使用从可迭代获得的参数计算函数。当参数参数已经被分组到来自单个可迭代的元组（数据已经被“预压缩”）时，使用map()
 print(list(itertools.starmap(pow, [(2,2), (3,2), (10,3)])))
 # >>> [4, 9, 1000]
@@ -292,8 +309,8 @@ print(list(itertools.starmap(pow, [(2,2), (3,2), (10,3)])))
 print(list(map(pow, [2,3,10], [2,2,3])))
 
 
-
-# itertools.tee(iterable, n=2)
+print()
+print('itertools.tee(iterable, n=2)')
 # 用于从 iterable 创建 n 个独立的迭代器，以元组的形式返回，n 的默认值是 2。
 itertools.tee('abcd')   # n 默认为 2，创建两个独立的迭代器
 # (<itertools.tee object at 0x1049957e8>, <itertools.tee object at 0x104995878>)
@@ -305,8 +322,8 @@ print(list(iter2))
 # print(list(iter3)) # 可以不输出,但是不能少指定
 
 
-
-# itertools.zip_longest(*iterables, fillvalue=None)
+print()
+print('itertools.zip_longest(*iterables, fillvalue=None)')
 # 创建一个迭代器，聚合来自每个迭代器的元素。如果迭代的长度不均匀，则缺少的值将被填充fillvalue。迭代继续，直到最长可迭代被耗尽
 print(dict(itertools.zip_longest('ABCD', 'xy', fillvalue='-')))
 # >>> {'A': 'x', 'B': 'y', 'C': '-', 'D': '-'}
