@@ -191,6 +191,7 @@ lst=[d1,d2,d3,d4,d5,d6]
 
 #通过country进行分组：
 lst.sort(key=itemgetter('country')) #需要先排序，然后才能groupby。lst排序后自身被改变
+# 不sort的话,同类型items会散落,形成很多同类的小分组
 lstg = groupby(lst,itemgetter('country'))
 #lstg = groupby(lst,key=lambda x:x['country']) 等同于使用itemgetter()
 
