@@ -136,6 +136,48 @@ print(result)  # >>> [0, 1, 0, 1, 2, 0, 1, 2, 3, 0, 1, 2, 3, 4,
 
 
 print()
+print('itertools.combinations(iterable, r)')
+# 从输入可迭代返回r个元素的长度的子序列
+# 组合以词典排序顺序发出。因此，如果输入可迭代被排序，则组合元组将以排序顺序产生。
+# 元素根据它们的位置而不是它们的值被视为唯一的。因此，如果输入元素是唯一的，则在每个组合中将不存在重复值。
+print([str(x) + str(y) for x,y in itertools.combinations('ABCD', 2)])
+# >>> [('A', 'B'), ('A', 'C'), ('A', 'D'), ('B', 'C'), ('B', 'D'), ('C', 'D')]
+print([str(x) + str(y) + str(z) for x,y,z in itertools.combinations(range(4), 3)])
+# >>> ['012', '013', '023', '123']
+print([str(x) + str(y) for x,y in itertools.combinations('AAAA', 2)])
+# >>> ['AA', 'AA', 'AA', 'AA', 'AA', 'AA']  注意这里虽然string是'AAAA'.但是不同的A被视为不同元素,不会形成只有一个'AA'的情况
+# 相当于排列组合中的组合,不讲究顺序,但是选出所有的组合
+
+
+print()
+print('itertools.combinations_with_replacement(iterable, r)')
+# 从输入可迭代返回元素的r长度子序列，允许单个元素重复一次以上。
+# 组合以词典排序顺序发出。因此，如果输入可迭代被排序，则组合元组将以排序顺序产生。
+# 元素根据它们的位置而不是它们的值被视为唯一的。因此，如果输入元素是唯一的，则生成的组合也将是唯一的。
+print([str(x) + str(y) for x,y in itertools.combinations_with_replacement('ABC', 2)])
+# >>> ['AA', 'AB', 'AC', 'BB', 'BC', 'CC']
+print(sorted(list(set([str(x) + str(y) for x,y in itertools.combinations('ABCABC', 2)]))))
+# >>> ['AA', 'AB', 'AC', 'BA', 'BB', 'BC', 'CA', 'CB', 'CC']
+print(sorted(list(set([str(x) + str(y) for x,y in itertools.combinations('AABBCC', 2)]))))
+# >>>[ 'AA', 'AB', 'AC', 'BB', 'BC', 'CC']
+# 注意这里,如果想用combination()实现,则必须使用'AABBCC'而不是'ABCABC'
+# 使用set()来清除重复元素,然后再次list(),顺序问题参考Zsimplelearnings/remove_repeating_in_list.py
+
+
+print()
+print('itertools.permutations(iterable, r=None)')
+# 返回可迭代中的元素的连续r长度排列。
+# 如果r未指定或None，则r默认为可迭代的长度，长度排列。
+# 排列按照字典排序顺序排列。因此，如果输入iterable被排序，则排列元组将以排序顺序产生。
+# 元素根据它们的位置而不是它们的值被视为唯一的。因此，如果输入元素是唯一的，则在每个排列中将不存在重复值。
+print([x+y for x, y in itertools.permutations('ABC', 2)])
+# >>> ['AB', 'AC', 'BA', 'BC', 'CA', 'CB']
+print([str(x) + str(y) + str(z) for x,y,z in itertools.permutations(range(3))])
+# >>> ['012', '021', '102', '120', '201', '210']
+# 相当于排列组合中的排列,顺序也讲究
+
+
+print()
 print('itertools.compress(data, selectors)')
 # 创建一个迭代器，用于过滤数据中的元素，只返回在选择器中具有对应元素的元素，其计算结果为True。当数据或选择器迭代可用时停止。
 data = 'ABCDEF'
@@ -256,18 +298,6 @@ print(list(itertools.islice('ABCDEFG', 0, None, 2)))  # means range(2, len(itera
 # >>> ['A', 'C', 'E', 'G']
 print(list(itertools.islice('ABCDEFG', 2, 2)))  # returns empty list
 # >>> []
-
-
-print()
-print('itertools.permutations(iterable, r=None)')
-# 返回可迭代中的元素的连续r长度排列。
-# 如果r未指定或None，则r默认为可迭代的长度，长度排列。
-# 排列按照字典排序顺序排列。因此，如果输入iterable被排序，则排列元组将以排序顺序产生。
-# 元素根据它们的位置而不是它们的值被视为唯一的。因此，如果输入元素是唯一的，则在每个排列中将不存在重复值。
-print([x+y for x, y in itertools.permutations('ABC', 2)])
-# >>> ['AB', 'AC', 'BA', 'BC', 'CA', 'CB']
-print([str(x) + str(y) + str(z) for x,y,z in itertools.permutations(range(3))])
-# >>> 012 021 102 120 201 210
 
 
 print()
