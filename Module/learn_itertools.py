@@ -347,7 +347,7 @@ print('itertools.tee(iterable, n=2)')
 # 用于从 iterable 创建 n 个独立的迭代器，以元组的形式返回，n 的默认值是 2。
 itertools.tee('abcd')   # n 默认为 2，创建两个独立的迭代器
 # (<itertools.tee object at 0x1049957e8>, <itertools.tee object at 0x104995878>)
-iter1, iter2, iter3 = itertools.tee('abcde', 3)  #如果是默认,就iter1,iter2 =, 如果是指定,则必须也配齐3个,不得缺少
+iter1, iter2, iter3 = itertools.tee('abcde', 3)  #如果是默认,就iter1,iter2 =, 如果是指定n,则必须也配齐n个,不得缺少
 print(list(iter1))
 # >>> ['a', 'b', 'c', 'd', 'e']
 print(list(iter2))
@@ -360,4 +360,4 @@ print('itertools.zip_longest(*iterables, fillvalue=None)')
 # 创建一个迭代器，聚合来自每个迭代器的元素。如果迭代的长度不均匀，则缺少的值将被填充fillvalue。迭代继续，直到最长可迭代被耗尽
 print(dict(itertools.zip_longest('ABCD', 'xy', fillvalue='-')))
 # >>> {'A': 'x', 'B': 'y', 'C': '-', 'D': '-'}
-# 基本上相当于zip,只不过zip终止与最短iterable,这个终止与最长iterable,通过fillvalue
+# 基本上相当于zip,只不过zip终止于最短iterable,这个终止于最长iterable,通过fillvalue
