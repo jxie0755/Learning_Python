@@ -114,4 +114,26 @@ print(list(ncycles([1,2,3,4], 3)))
 
 
 print()
+print('dotproduct(vec1, vec2)')
+import operator
+def dotproduct(vec1, vec2):
+    return sum(map(operator.mul, vec1, vec2))
+a = [1, 2, 3]
+b = [7, 8, 9]
+print(dotproduct(a, b))
+# >>> equal to 1*7+2*8+3*9 = 50
+
+
+print()
+print('flatten(listOfLists)')
+def flatten(listOfLists):
+    """Flatten one level of nesting"""
+    return chain.from_iterable((listOfLists))
+a = [[1,2,3], ['a', 'b', 'c'], [7, 8, 9]]
+print(list(flatten(a)))
+
+
+
+
+
 

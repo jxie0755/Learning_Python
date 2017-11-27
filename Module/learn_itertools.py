@@ -94,8 +94,8 @@ print('itertools.chain(*iterables)')
 # 创建一个迭代器，从第一个迭代器返回元素，直到它耗尽，然后继续下一个迭代器，直到所有的迭代器都用尽。
 # To merge all the items in lists of a list
 list2d = [[1,2,3],['a','b','c'], [7], [8,9]]
-merged = list(itertools.chain(*list2d))
-print(merged)  # >>> [1, 2, 3, 'a', 'b', 'c', 7, 8, 9]
+print(list(itertools.chain(*list2d)))
+# >>> [1, 2, 3, 'a', 'b', 'c', 7, 8, 9]
 
 aa = [1,2,3]
 bb = ['a', 'b', 'c']
@@ -105,7 +105,9 @@ print(list(itertools.chain(aa, bb)))  # >>> [1, 2, 3, 'a', 'b', 'c']
 print()
 print('classmethod chain.from_iterable(iterable)')
 # chain()的替代构造函数。从一个可计算延迟的可迭代参数获取链接的输入。
-print(list(itertools.chain.from_iterable(list2d)))
+print(list(itertools.chain.from_iterable(list2d)))  # only take one argument
+# >>> [1, 2, 3, 'a', 'b', 'c', 7, 8, 9]
+
 
 # 生成循环iterator
 def generate_iterables():
