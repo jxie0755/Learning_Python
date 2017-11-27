@@ -14,3 +14,14 @@ print(bbb)
 
 vars()[test] = 'yyy'
 print(bbb)  # 可以被覆盖
+
+# 可以是数据结构
+test = 'ccc'
+vars()[test] = [1,2,3]
+print(ccc)  
+vars()[test] = (1,2,3)
+print(ccc)
+vars()[test] = {1,2,3}
+print(ccc)
+vars()[test] = {'a': 1, 'b': 2}
+print(ccc) 
