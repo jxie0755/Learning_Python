@@ -149,6 +149,14 @@ print(list(repeatfunc(random.random, 3)))
 # >>> [list of 3 random numbers]
 
 
-
-
-
+print()
+print('pairwise(iterable)')
+def pairwise(iterable):
+    """s -> (s0, s1), (s1, s2), (s2, s3), ..."""
+    a, b = tee(iterable)
+    next(b, None)
+    # next(b, None) 可以继续间隔
+    # consume(b, 3) 或者甚至利用consume跳过任意间隔
+    return zip(a, b)
+print(list(pairwise('abcdefg')))
+# >>> [('a', 'b'), ('b', 'c'), ('c', 'd'), ('d', 'e'), ('e', 'f'), ('f', 'g')]
