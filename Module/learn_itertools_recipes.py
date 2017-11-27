@@ -133,6 +133,21 @@ a = [[1,2,3], ['a', 'b', 'c'], [7, 8, 9]]
 print(list(flatten(a)))
 
 
+print()
+print('repeatfunc(func, times=None, *args)')
+import random
+def repeatfunc(func, times=None, *args):
+    """Repeat calls to func with specified arguments"""
+    if times is None:
+        return starmap(func, repeat(args))
+    return starmap(func, repeat(args, times))
+print(list(repeatfunc(lambda x: x**2, 3, 5)))
+# >>> [25, 25, 25]
+print(list(repeatfunc(lambda x,y: x+y, 3, 5, 6)))
+# >>> [11, 11, 11]
+print(list(repeatfunc(random.random, 3)))
+# >>> [list of 3 random numbers]
+
 
 
 
