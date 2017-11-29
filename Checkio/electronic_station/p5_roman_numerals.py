@@ -1,7 +1,7 @@
 # p5_roman_numerals
 
 # The first ten Roman numerals are: I, II, III, IV, V, VI, VII, VIII, IX, and X.
-Roman_Nu = {'I' : 1, 'V': 5, X - 10, 'L': 50, 'C': 100, 'D': 500, 'M': 1000}
+Roman_Nu = {'I' : 1, 'V': 5, 'X': 10, 'L': 50, 'C': 100, 'D': 500, 'M': 1000}
 Roman_Nu = {1: 'I', 5: 'V', 10: 'X', 50: 'L', 100: 'C', 500: 'D', 1000: 'M'}
 # For this task, you should return a roman numeral using the specified integer value ranging from 1 to 3999.
 # Input: A number as an integer.
@@ -16,7 +16,7 @@ def checkio(data):
     
     data = str(data).rjust(4, '0')   # 利用rjust补足数字成为4位数
     dlst = list(map(lambda x,y: int(x)*y, data, (1000, 100, 10, 1)))  # 分解各数位
-    return  ''.join(list(map(lambda x: R[x], dlst)))　# 将各数位代换成罗马数字,然后拼接
+    return  ''.join(list(map(lambda x: R[x], dlst))) # 将各数位代换成罗马数字,然后拼接
 
 
 # Version 2 Calculation
