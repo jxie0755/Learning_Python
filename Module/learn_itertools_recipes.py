@@ -162,3 +162,205 @@ def pairwise(iterable):
     return zip(a, b)
 print(list(pairwise('abcdefg')))
 # >>> [('a', 'b'), ('b', 'c'), ('c', 'd'), ('d', 'e'), ('e', 'f'), ('f', 'g')]
+
+
+print()
+print('grouper(iterable, n, fillvalue=None)')
+def grouper(iterable, n, fillvalue=None):
+    "Collect data into fixed-length chunks or blocks"
+    args = [iter(iterable)] * n
+    return zip_longest(*args, fillvalue=fillvalue)
+
+print([str(x) + str(y) + str(z) for x,y,z in grouper('ABCDEFG', 3, 'x')])
+# >>> ['ABC', 'DEF', 'Gxx']
+
+
+print()
+print('roundrobin(*iterables)')
+def roundrobin(*iterables):
+    "roundrobin('ABC', 'D', 'EF') --> A D E B F C"
+    pending = len(iterables)
+    nexts = cycle(iter(it).__next__ for it in iterables)
+    while pending:
+        try:
+            for next in nexts:
+                yield next()
+        except StopIteration:
+            pending -= 1
+            nexts = cycle(islice(nexts, pending))
+
+print(list(roundrobin('ABC', '23', 'D')))
+# >>> ['A', '2', 'D', 'B', '3', 'C']  # cycle in sequence of index of each item
+
+
+print()
+print('partition(pred, iterable)')
+def partition(pred, iterable):
+    'Use a predicate to partition entries into false entries and true entries'
+    t1, t2 = tee(iterable)
+    return filterfalse(pred, t1), filter(pred, t2)
+for i in partition(lambda x: x%2 != 0, range(10)):
+    print(list(i))
+# >>>
+# [0, 2, 4, 6, 8] False first
+# [1, 3, 5, 7, 9] True second
+# 相当于filter, filterfalse一起使用, 关键是tee的使用,把一个iterable复制成两个,分别迭代
+
+
+print()
+print('powerset(iterable)')
+def powerset(iterable):
+    "powerset([1,2,3]) --> () (1,) (2,) (3,) (1,2) (1,3) (2,3) (1,2,3)"
+    s = list(iterable)
+    return chain.from_iterable(combinations(s, r) for r in range(len(s)+1))
+
+print(list(powerset(['a', 'b', 'b']))) # 不忽略重复item
+# >>> [(), ('a',), ('b',), ('b',), ('a', 'b'), ('a', 'b'), ('b', 'b'), ('a', 'b', 'b')]
+# 相当于找出一个iterable所有长度的组合, 用tuple整理
+lst = list(powerset(['a', 'b', 'c', 'd']))
+group_l = groupby(lst,key=len)
+for k, v in group_l:
+    print(k, list(v))
+# >>>
+# 0 [()]
+# 1 [('a',), ('b',), ('c',), ('d',)]
+# 2 [('a', 'b'), ('a', 'c'), ('a', 'd'), ('b', 'c'), ('b', 'd'), ('c', 'd')]
+# 3 [('a', 'b', 'c'), ('a', 'b', 'd'), ('a', 'c', 'd'), ('b', 'c', 'd')]
+# 4 [('a', 'b', 'c', 'd')]
+
+
+print()
+print('unique_everseen(iterable, key=None)')
+def unique_everseen(iterable, key=None):
+    "List unique elements, preserving order. Remember all elements ever seen."
+    seen = set()
+    seen_add = seen.add
+    if key is None:
+        for element in filterfalse(seen.__contains__, iterable):
+            seen_add(element)
+            yield element
+    else:
+        for element in iterable:
+            k = key(element)
+            if k not in seen:
+                seen_add(k)
+                yield element
+
+print(list(unique_everseen('EAAAABBBCCDAABBB')))
+# >>> ['E', 'A', 'B', 'C', 'D']
+# 相当于set,自带顺序保留方式
+x = 'EAAAABBBCCDAABBB'
+print(sorted(set(x), key=x.index))
+# >>> ['E', 'A', 'B', 'C', 'D']
+print(list(unique_everseen(x, str.lower)))
+# 由于使用key,把所有字符都规格化,所以不管是upper还是lower都是一个效果
+# >>> ['E', 'A', 'B', 'C', 'D']
+
+
+print()
+print('unique_justseen(iterable, key=None)')
+def unique_justseen(iterable, key=None):
+    "List unique elements, preserving order. Remember only the element just seen."
+    return map(next, map(itemgetter(1), groupby(iterable, key)))
+
+print(list(unique_justseen('AAAABBBCCDAABBB')))
+# >>> ['A', 'B', 'C', 'D', 'A', 'B']
+print(list(unique_justseen('ABBCcAD', str.lower)))
+# >>> ['A', 'B', 'C', 'A', 'D']
+print(list(unique_justseen('ABBCcAcD', str.lower)))
+# >>> ['A', 'B', 'C', 'A', 'c', 'D']  # justseen不会过滤掉不连续的小写c
+
+
+print()
+print('iter_except(func, exception, first=None)')
+def iter_except(func, exception, first=None):
+    """ Call a function repeatedly until an exception is raised.
+    Converts a call-until-exception interface to an iterator interface.
+    Like builtins.iter(func, sentinel) but uses an exception instead
+    of a sentinel to end the loop.
+    """
+    try:
+        if first is not None:
+            yield first()            # For database APIs needing an initial cast to db.first()
+        while True:
+            yield func()
+    except exception:
+        pass
+s = [1,2,3,4]
+result = []
+for i in iter_except(s.pop, IndexError):
+    result.append(i)
+print(result)
+# >>> [4, 3, 2, 1]
+
+
+print()
+print('first_true(iterable, default=False, pred=None)')
+def first_true(iterable, default=False, pred=None):
+    """Returns the first true value in the iterable.
+    If no true value is found, returns *default*
+    If *pred* is not None, returns the first item
+    for which pred(item) is true.
+    """
+    return next(filter(pred, iterable), default)
+print(first_true(['','b','c'], 'x'))  # >>> b
+print(first_true(['', 0, None], 'x'))  # >>> x
+print(first_true([0,-1,2], 'x', lambda x:x**2)) # >>> -1
+
+
+print()
+print('random_product(*args, repeat=1)')
+def random_product(*args, repeat=1):
+    "Random selection from itertools.product(*args, **kwds)"
+    pools = [tuple(pool) for pool in args] * repeat
+    return tuple(random.choice(pool) for pool in pools)
+
+print(random_product('abc'))
+# >>> ('a',) or ('b',) or ('c',)
+print(random_product('abc', repeat=2))
+# >>> ('x', 'y') same above, x and y could be any one of 'a', 'b', 'c'
+print(random_product('abc', 'def'))
+# >>> ('x', 'y')  x could be any one of 'a', 'b', 'c', y from 'd', 'e', 'f'
+print(random_product('abc', 'def', repeat=2))
+# >>> ('x', 'y', 'x', 'y') x could be any one of 'a', 'b', 'c', y from 'd', 'e', 'f'
+
+
+print()
+import random
+print('random_permutation(iterable, r=None)')
+def random_permutation(iterable, r=None):
+    "Random selection from itertools.permutations(iterable, r)"
+    pool = tuple(iterable)
+    r = len(pool) if r is None else r   # r <= len(iterable)
+    return tuple(random.sample(pool, r))
+print(random_permutation('abc'))
+# >>> ('a','b', 'c') or ('b', 'a', 'c') or ('c', 'a', 'b') or any permutation of 'a', 'b', 'c'
+print(random_permutation('abc', r=2))
+# >>> ('b', 'a') or pick 2 out of 'a', 'b', 'c' and random permutation
+
+
+print()
+print('random_combination(iterable, r)')
+def random_combination(iterable, r):
+    "Random selection from itertools.combinations(iterable, r)"
+    pool = tuple(iterable)
+    n = len(pool)
+    indices = sorted(random.sample(range(n), r))
+    return tuple(pool[i] for i in indices)
+
+print(random_combination('dcba', r=3))
+# >>> ('d', 'c', 'a') or pick 3 out of 'd', 'c', 'b', 'a' and random combinations.
+# since the sequence is not important anymore, the tuple will follow the order of iterable index.
+
+
+print()
+print('random_combination_with_replacement(iterable, r)')
+def random_combination_with_replacement(iterable, r):
+    "Random selection from itertools.combinations_with_replacement(iterable, r)"
+    pool = tuple(iterable)
+    n = len(pool)
+    indices = sorted(random.randrange(n) for i in range(r))
+    return tuple(pool[i] for i in indices)
+
+print(random_combination_with_replacement('123', r=3))
+# >>> ('2', '3', '3') same random combination, but allow repeat elements.
