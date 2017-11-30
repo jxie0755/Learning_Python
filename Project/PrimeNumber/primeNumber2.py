@@ -8,8 +8,6 @@ def isPrime(n):
             return False
     return True
 
-print(isPrime(97))
-
 print(list(filter(isPrime, range(100))))
 
 
