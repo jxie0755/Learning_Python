@@ -7,24 +7,21 @@
 
 def checkio(number):
     # Check if the number is a prime number:
-    def isPrime(n):
-        if n <= 1:
-            return False
-        for i in range(2, int(n ** 0.5) + 1):
-            if n % i == 0:
-                return False
-        return True
-
-    return 0
+    if all(map(lambda x: number % x != 0, range(2, int(number ** 0.5) + 1))):
+        return 0
+    # if not then find the
+    else:
+        return 0
 
 
 
 
 
-if __name__ == '__main__':
-    assert checkio(20) == 45, "1st example"
-    assert checkio(21) == 37, "2nd example"
-    assert checkio(17) == 0, "3rd example"
-    assert checkio(33) == 0, "4th example"
-    assert checkio(3125) == 55555, "5th example"
-    assert checkio(9973) == 0, "6th example"
+# if __name__ == '__main__':
+#     assert checkio(20) == 45, "1st example"
+#     assert checkio(21) == 37, "2nd example"
+#     assert checkio(17) == 0, "3rd example"
+#     assert checkio(33) == 0, "4th example"
+#     assert checkio(3125) == 55555, "5th example"
+#     assert checkio(9973) == 0, "6th example"
+
