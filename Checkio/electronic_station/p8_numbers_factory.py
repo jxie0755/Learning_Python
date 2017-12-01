@@ -12,7 +12,7 @@ def checkio(number):
     z = number
     result = []
     def divx(x):
-        for i in range(2, 10)[::-1]:
+        for i in range(9, 1, -1):
             if x % i == 0:
                 a = i
                 b = x // i
@@ -46,3 +46,15 @@ if __name__ == '__main__':
     assert checkio(9973) == 0, "6th example"
     print('done')
 
+# Good Version
+def checkio2(number):
+    res = []
+    while number != 1:
+        for i in range(9, 1, -1):
+            if number % i == 0:
+                res.append(str(i))
+                number //= i
+                break
+        else:
+            return 0
+    return int("".join(sorted(res)))
