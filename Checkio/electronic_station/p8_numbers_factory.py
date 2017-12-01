@@ -6,14 +6,12 @@
 # example:N = 20. We can factorize this number as 2*10, but 10 is not a digit. Also we can factorize it as 4*5 or 2*2*5. The smallest number for 2*2*5 is 225, for 4*5 -- 45. So we select 45.
 
 def checkio(number):
-    # Check if the number is a prime number:
-    if all(map(lambda x: number % x != 0, range(2, int(number ** 0.5) + 1))):
-        return 0
-    # if not then find the
-    else:
-        return 0
-
-
+    # Form a list for all the divisor
+    divisors = list(filter(lambda x: number % x == 0, range(2, number)))
+    print(divisors)
+    # if len(divisors) == 0:
+    #     return 0
+    # else:
 
 
 
@@ -24,4 +22,6 @@ def checkio(number):
 #     assert checkio(33) == 0, "4th example"
 #     assert checkio(3125) == 55555, "5th example"
 #     assert checkio(9973) == 0, "6th example"
+#     print('done')
 
+print(checkio(3125))
