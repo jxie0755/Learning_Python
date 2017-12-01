@@ -17,7 +17,6 @@ def checkio(number):
                 b = x // i
                 result.append(i)
                 return b
-        return None
     # cycling to get all divisor's divisor into the list if < 10.
     while True:
         try:
@@ -26,10 +25,10 @@ def checkio(number):
             break
     print(result)
     # format the output
-    if len(result) == 0:
-        return 0
-    else:
-        return int(''.join([str(i) for i in sorted(result)]))
+    # if len(result) == 0:
+    #     return 0
+    # else:
+    #     return int(''.join([str(i) for i in sorted(result)]))
 
 
 
@@ -42,4 +41,4 @@ def checkio(number):
 #     assert checkio(9973) == 0, "6th example"
 #     print('done')
 
-print(checkio(33))
+print(checkio(20))
