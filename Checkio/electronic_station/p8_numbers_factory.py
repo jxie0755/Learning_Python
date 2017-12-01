@@ -12,14 +12,26 @@ def checkio(number):
     result = []
     def divx(x):
         for i in range(2, 10)[::-1]:
-            if number % i == 0:
+            if x % i == 0:
                 a = i
-                b = number // i
-                result.append((a, b))
-                if b >= 10:
-                    divx(b)
-    divx(number)
+                b = x // i
+                result.append(i)
+                return b
+        return None
+    # cycling to get all divisor's divisor into the list if < 10.
+    while True:
+        try:
+            number = divx(number)
+        except TypeError:
+            break
     print(result)
+    # format the output
+    if len(result) == 0:
+        return 0
+    else:
+        return int(''.join([str(i) for i in sorted(result)]))
+
+
 
 # if __name__ == '__main__':
 #     assert checkio(20) == 45, "1st example"
@@ -30,4 +42,4 @@ def checkio(number):
 #     assert checkio(9973) == 0, "6th example"
 #     print('done')
 
-print(checkio(3125))
+print(checkio(33))
