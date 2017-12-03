@@ -55,6 +55,7 @@ def checkio2(number):
         for i in range(9, 1, -1):
             if number % i == 0:
                 res.append(str(i))
+                # 循环更新number,思路和divmod算法差不多
                 number //= i
                 break
         # 精髓就是利用一个else把所有情况都return 0: number只要不能整除9-2之间的数就马上return 0
