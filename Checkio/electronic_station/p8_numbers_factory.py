@@ -47,14 +47,20 @@ if __name__ == '__main__':
     print('done')
 
 # Good Version
+# 思路几乎完全相同,但是他写了一个更好的循环
 def checkio2(number):
     res = []
+    # 将我的divx()和后面的while循环合为一体了.
     while number != 1:
         for i in range(9, 1, -1):
             if number % i == 0:
                 res.append(str(i))
                 number //= i
                 break
+        # 精髓就是利用一个else把所有情况都return 0: number只要不能整除9-2之间的数就马上return 0
         else:
             return 0
     return int("".join(sorted(res)))
+
+dd = 20
+print(checkio2(dd))
