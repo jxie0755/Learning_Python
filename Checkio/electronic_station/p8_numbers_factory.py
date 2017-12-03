@@ -50,7 +50,7 @@ if __name__ == '__main__':
 # 思路几乎完全相同,但是他写了一个更好的循环
 def checkio2(number):
     res = []
-    # 将我的divx()和后面的while循环合为一体了.
+    # 将我的divx()函数和后面的while循环合为一体了.
     while number != 1:
         for i in range(9, 1, -1):
             if number % i == 0:
