@@ -49,3 +49,20 @@ def largest_histogram2(histogram):
 
 # print(largest_histogram2(tt))
 # 计算需要3596毫秒
+
+
+# Version 3, speedy,算法不明确,但是速度极快
+aa = [2, 1, 4, 5, 1, 3, 3]
+def largest_histogram3(histogram):
+    localmaxes = []
+    print(set(histogram))
+    for h in set(histogram):
+        widths = [histogram[0] >= h]
+        for i in histogram[1:]:
+            widths.append((widths[-1]+1) * (i >= h))
+            print(widths)
+        localmaxes.append(max(widths) * h)
+    return max(localmaxes)
+
+# print(largest_histogram3(aa))
+
