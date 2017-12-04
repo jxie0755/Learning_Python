@@ -64,5 +64,5 @@ def largest_histogram3(histogram):
         localmaxes.append(max(widths) * h)
     return max(localmaxes)
 
-# print(largest_histogram3(aa))
+print(largest_histogram3(aa))
 
