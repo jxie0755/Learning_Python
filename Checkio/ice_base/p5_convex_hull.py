@@ -61,7 +61,7 @@ def checkio(data):
 
     candidates = edge[:]
     for i in suspecious:
-        if inside_polygon(i, edge) and not pointOnBorder(i, edge):
+        if inside_polygon(i, candidates) and not pointOnBorder(i, candidates):
            pass
         else:
             candidates.append(i)
