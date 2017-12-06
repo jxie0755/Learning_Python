@@ -13,7 +13,7 @@ def can_pass(matrix, first, second):
     # add 1 layer over the matrix with 'x'
     matrix_new = list(map(lambda x: list(x), matrix))
     addrow1, addrow2 = itertools.tee(list(map(lambda x: 'x', range(len(matrix[0])))))
-    matrix_new.insert(0, list(addrow1));
+    matrix_new.insert(0, list(addrow1))
     matrix_new.append(list(addrow2))
 
     for i in matrix_new:
