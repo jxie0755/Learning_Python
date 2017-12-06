@@ -5,7 +5,7 @@
 # Output: The list of indexes of coordinates from the given list.
 # The sequence starts from the bottom leftmost point.
 # points lie on the convex hull in clockwise order (see the picture)
-import itertools
+
 def checkio(data):
     # find the points at most up/down/left/right in a list called edge, edge is safe
     xlst, ylst = [i[0] for i in data], [i[1] for i in data]
@@ -110,8 +110,6 @@ def checkio(data):
         if data.index(i) not in indexlst:
             indexlst.append(data.index(i))
     return indexlst
-
-
 
 
 #
