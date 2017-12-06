@@ -5,7 +5,7 @@
 # Output: The list of indexes of coordinates from the given list.
 # The sequence starts from the bottom leftmost point.
 # points lie on the convex hull in clockwise order (see the picture)
-
+import itertools
 def checkio(data):
     # find the points at most up/down/left/right in a list called edge, edge is safe
     xlst, ylst = [i[0] for i in data], [i[1] for i in data]
@@ -14,6 +14,9 @@ def checkio(data):
 
     # the rest of the coor is suspecious
     suspecious = [i for i in data if i not in edge]
+
+    print(edge)
+    print(suspecious)
 
     def inside_polygon(point, polygon):
         """
@@ -56,25 +59,71 @@ def checkio(data):
                         return True
         return False
 
+    candidates = edge[:]
+    for i in suspecious:
+        if inside_polygon(i, edge) and not pointOnBorder(i, edge):
+           pass
+        else:
+            candidates.append(i)
+    print(candidates)
 
-# assert checkio(
-#     [[7, 6], [8, 4], [7, 2], [3, 2], [1, 6], [1, 8], [4, 9]]
-# ) == [4, 5, 6, 0, 1, 2, 3], "First example"
-# assert checkio(
-#     [[3, 8], [1, 6], [6, 2], [7, 6], [5, 5], [8, 4], [6, 8]]
-# ) == [1, 0, 6, 3, 5, 2], "Second example"
-# print('done')
-# data = [[3, 8], [1, 6], [6, 2], [7, 6], [5, 5], [8, 4], [6, 8]]
-# checkio(data)
+    # after edge is finished report the index
+    left, right, up, down, result = [], [], [], [], []
+    for i in sorted(candidates):
+        if i[0] == min(xlst):  # left
+            left.append(i)
+        if i[1] == max(ylst):  # up
+            up.append(i)
+        if i[0] == max(xlst):  # right
+            right.append(i)
+        if i[1] == min(ylst):  # down
+            down.append(i)
+    restcandidates = []
+    for i in candidates:
+        if i not in up and i not in down and i not in left and i not in right:
+            restcandidates.append(i)
+
+    # organize the result with the sequence of coordinates
+    for i in left:
+        result.append(i)
+    for i in restcandidates:
+        if i[1] >= left[-1][1] and i[0] <= up[0][0]:  # left to up
+            result.append(i)
+    for i in up:
+        result.append(i)
+    for i in restcandidates:
+        if i[0] >= up[-1][0] and i[1] >= right[-1][1]:
+            result.append(i)
+    for i in right[::-1]:
+        result.append(i)
+    for i in restcandidates:
+        if i[0] >= down[-1][0] and i[1] <= right[0][1]:
+            result.append(i)
+    for i in down[::-1]:
+        result.append(i)
+    for i in restcandidates:
+        if i[0] <= down[0][0] and i[1] <= left[0][1]:
+            result.append(i)
+    print(result)
+    indexlst = []
+    for i in result:
+        if data.index(i) not in indexlst:
+            indexlst.append(data.index(i))
+    return indexlst
 
 
-if __name__ == '__main__':
-    # These "asserts" using only for self-checking and not necessary for auto-testing
-    assert checkio(
-        [[7, 6], [8, 4], [7, 2], [3, 2], [1, 6], [1, 8], [4, 9]]
-    ) == [4, 5, 6, 0, 1, 2, 3], "First example"
-    assert checkio(
-        [[3, 8], [1, 6], [6, 2], [7, 6], [5, 5], [8, 4], [6, 8]]
-    ) == [1, 0, 6, 3, 5, 2], "Second example"
 
-# 未完待续
+
+#
+# if __name__ == '__main__':
+#     # These "asserts" using only for self-checking and not necessary for auto-testing
+#     assert checkio(
+#         [[7, 6], [8, 4], [7, 2], [3, 2], [1, 6], [1, 8], [4, 9]]
+#     ) == [4, 5, 6, 0, 1, 2, 3], "First example"
+#     assert checkio(
+#         [[3, 8], [1, 6], [6, 2], [7, 6], [5, 5], [8, 4], [6, 8]]
+#     ) == [1, 0, 6, 3, 5, 2], "Second example"
+#     print('done')
+
+print(checkio([[4,7],[5,5],[2,4],[7,4],[3,2],[5,2]]))
+# TODO 继续完成debug
