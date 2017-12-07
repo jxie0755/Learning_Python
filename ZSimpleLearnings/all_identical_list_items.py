@@ -10,7 +10,7 @@ xlist.count(xlist[0]) == len(xlist)
 all(i==xlist[0] for i in xlist)
 
 # solution 3: 检查set(list)的长度是否等于1, won't work in empty list.
-lent(set(xlist)) == 1
+lent(set(xlist)) <= 1
 
 
 # 利用以上方法
@@ -23,7 +23,7 @@ def verify2(matrix):
     return any(all(i==xlist[0] for i in xlist) for xlist in matrix)
 
 def verify3(matrix):
-    return any(len(set(i))==1 for i in matrix)
+    return any(len(set(i)) <= 1 for i in matrix)
 
 target = [[1, 2, 1, 1], [1, 1, 1, 1], [1, 3, 1, 6], [1, 7, 2, 5]]
 print(verify1(target))
