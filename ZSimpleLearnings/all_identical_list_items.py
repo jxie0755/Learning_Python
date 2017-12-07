@@ -25,7 +25,7 @@ def verify2(matrix):
     return any(all(i==xlist[0] for i in xlist) for xlist in matrix)
 
 def verify3(matrix):
-    return any(len(set(i))==1 for i in matrix)
+    return any(len(set(i)) <=1 for i in matrix)
 
 def verify4(matrix):  # 错位对比法
    return any(i[1:] == i[:-1] for i in matrix)
