@@ -12,6 +12,8 @@ all(i==xlist[0] for i in xlist)
 # solution 3: 检查set(list)的长度是否等于1, won't work in empty list.
 lent(set(xlist)) <= 1
 
+# solution 4: 错位对比法
+xlist[1:] == xlist[:-1]
 
 # 利用以上方法
 # 假设一个matrix中含有很多list,写一个函数: 检查是否其中一个list中存在所有元素相等的情况
