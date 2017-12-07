@@ -23,11 +23,16 @@ def verify2(matrix):
     return any(all(i==xlist[0] for i in xlist) for xlist in matrix)
 
 def verify3(matrix):
-    return any(len(set(i)) <= 1 for i in matrix)
+    return any(len(set(i))==1 for i in matrix)
+
+def verify4(matrix):  # 错位对比法
+   return any(i[1:] == i[:-1] for i in matrix)
+   
 
 target = [[1, 2, 1, 1], [1, 1, 1, 1], [1, 3, 1, 6], [1, 7, 2, 5]]
 print(verify1(target))
 print(verify2(target))
 print(verify3(target))
+print(verify4(target))
 
 # 注意使用all()和any(),配合list comprehension
