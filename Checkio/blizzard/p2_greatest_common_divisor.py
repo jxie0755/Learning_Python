@@ -61,3 +61,5 @@ def greatest_common_divisorX(*args):
 print(greatest_common_divisorX(4294967296, 2))
 print(greatest_common_divisorX(2226172404, 2652430846, 3702223254, 3260139372, 2021191608))
 print(greatest_common_divisorX(6, 4))
+
+# module fractions can solve this problem easily with a function called gcd()
