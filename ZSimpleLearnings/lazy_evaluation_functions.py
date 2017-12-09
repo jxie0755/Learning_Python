@@ -10,7 +10,7 @@ def f(x):
 map(f, a)  # this function only returns an iterable object that does nothing
 print(result)  # >>> []
 
-list(map(f, a))
+list(map(f, a))  # list() consumes the iterator of map object
 print(result)  # >>> [1, 4, 9, 16, 25, 36, 49]
 
 
