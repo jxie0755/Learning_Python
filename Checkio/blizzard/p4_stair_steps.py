@@ -18,6 +18,8 @@ def checkio(numbers):
         elif numbers[i] > 0:
             neglst.append(temp)
             temp = []
+    if numbers[-1] < 0:
+        neglst.append(temp)
     print(neglst)
 
     # 写一个函数处理算法,当连续两个负数取其小,当连续三个负数,去中间数,除非头尾加起来更小.
@@ -39,11 +41,10 @@ def checkio(numbers):
 
     return sum(negstep) + sum(filter(lambda x: x > 0, numbers))
 
-# if __name__ == '__main__':
-#     assert checkio([5, -3, -1, 2]) == 6, 'Fifth'
-#     assert checkio([5, 6, -10, -7, 4]) == 8, 'First'
-#     assert checkio([-11, 69, 77, -51, 23, 67, 35, 27, -25, 95]) == 393, 'Second'
-#     assert checkio([-21, -23, -69, -67, 1, 41, 97, 49, 27]) == 125, 'Third'
-#     print('All ok')
+if __name__ == '__main__':
+    assert checkio([5, -3, -1, 2]) == 6, 'Fifth'
+    assert checkio([5, 6, -10, -7, 4]) == 8, 'First'
+    assert checkio([-11, 69, 77, -51, 23, 67, 35, 27, -25, 95]) == 393, 'Second'
+    assert checkio([-21, -23, -69, -67, 1, 41, 97, 49, 27]) == 125, 'Third'
+    print('All ok')
 
-# Fail: checkio([-10, -10, -10, 99, -10, -10])
