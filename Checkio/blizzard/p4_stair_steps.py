@@ -20,7 +20,6 @@ def checkio(numbers):
             temp = []
     if numbers[-1] < 0:
         neglst.append(temp)
-    print(neglst)
 
     # 写一个函数处理算法,当连续两个负数取其小,当连续三个负数,去中间数,除非头尾加起来更小.
     negstep = []
@@ -41,10 +40,35 @@ def checkio(numbers):
 
     return sum(negstep) + sum(filter(lambda x: x > 0, numbers))
 
-if __name__ == '__main__':
-    assert checkio([5, -3, -1, 2]) == 6, 'Fifth'
-    assert checkio([5, 6, -10, -7, 4]) == 8, 'First'
-    assert checkio([-11, 69, 77, -51, 23, 67, 35, 27, -25, 95]) == 393, 'Second'
-    assert checkio([-21, -23, -69, -67, 1, 41, 97, 49, 27]) == 125, 'Third'
-    print('All ok')
+# if __name__ == '__main__':
+#     assert checkio([5, -3, -1, 2]) == 6, 'Fifth'
+#     assert checkio([5, 6, -10, -7, 4]) == 8, 'First'
+#     assert checkio([-11, 69, 77, -51, 23, 67, 35, 27, -25, 95]) == 393, 'Second'
+#     assert checkio([-21, -23, -69, -67, 1, 41, 97, 49, 27]) == 125, 'Third'
+#     print('All ok')
 
+
+def checkio2(numbers):
+    c = [0] * (len(numbers) + 1)
+    print(c)
+    c[1] = numbers[0]
+    print(c)
+    print(numbers)
+    for i in range(2, len(numbers) + 1):
+        print((c[i - 1], c[i - 2]), numbers[i - 1])
+        c[i] = max(c[i - 1], c[i - 2]) + numbers[i - 1]
+        print(c)
+    return max(c[-1], c[-2])
+
+
+def checkio3(numbers):
+    prevmax = curmax = 0
+    print(numbers + [0])
+    for n in numbers + [0]:
+        nextmax = max(curmax + n, prevmax + n)
+        print(curmax + n, prevmax + n)
+        prevmax = curmax
+        curmax = nextmax
+    return curmax
+
+print(checkio3([13,24,-23,-12,-12,12,13]))
