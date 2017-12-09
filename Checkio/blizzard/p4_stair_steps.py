@@ -47,7 +47,7 @@ def checkio(numbers):
 #     assert checkio([-21, -23, -69, -67, 1, 41, 97, 49, 27]) == 125, 'Third'
 #     print('All ok')
 
-
+# 其他算法不理解
 def checkio2(numbers):
     c = [0] * (len(numbers) + 1)
     print(c)
@@ -60,7 +60,7 @@ def checkio2(numbers):
         print(c)
     return max(c[-1], c[-2])
 
-
+# 其他算法,不理解
 def checkio3(numbers):
     prevmax = curmax = 0
     print(numbers + [0])
