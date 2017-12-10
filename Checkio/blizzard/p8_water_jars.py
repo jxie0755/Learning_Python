@@ -9,8 +9,20 @@
 # Input: The volume of first jar, the volume of second jar and the goal as integers.
 
 def checkio(first, second, goal):
-    # temporarily assume first < second:
+    # Handle the problem of which jar is small and which is large
     small, large = min(first, second), max(first, second)
+    if first < second:
+        FS,FL,ES,EL,SL,LS = '01', '02', '10', '20', '12', '21'
+    elif first > second:
+        FS,FL,ES,EL,SL,LS = '02', '01', '20', '10', '21', '12'
+
+    # if goal can be achieved by one fill
+    if goal == small:
+        return FS
+    if goal == large:
+        return FL
+
+    # if goal can not be achieved by one fill
 
 
 
