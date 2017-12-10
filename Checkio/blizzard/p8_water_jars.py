@@ -12,9 +12,9 @@ def checkio(first, second, goal):
     # Handle the problem of which jar is small and which is large
     small, large = min(first, second), max(first, second)
     if first < second:
-        FS,FL,ES,EL,SL,LS = '01', '02', '10', '20', '12', '21'
+        FS,FL,ES,EL,SL,LS = ['01'], ['02'], ['10'], ['20'], ['12'], ['21']
     elif first > second:
-        FS,FL,ES,EL,SL,LS = '02', '01', '20', '10', '21', '12'
+        FS,FL,ES,EL,SL,LS = ['02'], ['01'], ['20'], ['10'], ['21'], ['12']
 
     # if goal can be achieved by one fill
     if goal == small:
@@ -23,6 +23,7 @@ def checkio(first, second, goal):
         return [FL]
 
     # if goal can not be achieved by one fill
+
 
 
 
@@ -67,3 +68,7 @@ def checkio(first, second, goal):
 checkio(5, 7, 6)
 # ['02', '21', '10', '21', '02', '21', '10', '21', '02', '21']
 
+
+result = ['A', 'B']
+x = ['F']
+print(result + x)
