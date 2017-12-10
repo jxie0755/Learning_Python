@@ -18,9 +18,9 @@ def checkio(first, second, goal):
 
     # if goal can be achieved by one fill
     if goal == small:
-        return FS
+        return [FS]
     if goal == large:
-        return FL
+        return [FL]
 
     # if goal can not be achieved by one fill
 
