@@ -22,12 +22,8 @@ def checkio(first, second, goal):
     if goal == large:
         return [FL]
 
+
     # if goal can not be achieved by one fill
-
-
-
-
-
     return []
 
 # if __name__ == '__main__':
@@ -68,7 +64,4 @@ def checkio(first, second, goal):
 checkio(5, 7, 6)
 # ['02', '21', '10', '21', '02', '21', '10', '21', '02', '21']
 
-
-result = ['A', 'B']
-x = ['F']
-print(result + x)
+# 未完成
