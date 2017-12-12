@@ -15,28 +15,28 @@ HUNDRED = "hundred"
 
 def checkio(number):
     number = str(number).zfill(3)  # format the number to 3 digit string
-    result = ''
 
     # at hundreds
-    for i in range(10):
-        if number[0] == str(i) and number[0] != '0':
-            result += FIRST_TEN[i-1] + ' ' + HUNDRED
+    if int(number[0]) != 0:
+        hundreds = FIRST_TEN[int(number[0])-1] + ' hundred'
+    else:
+        hundreds = ''
 
     # at tens
-    for i in range(10):
-        if number[1] == str(i) and number[1] != '0' and number[1] != '1':
-            result += ' ' + OTHER_TENS[i-2]
+    if int(number[1]) in range(2, 10):
+        tens = ' ' + OTHER_TENS[int(number[1])-2]
+    elif int(number[1]) == 1:
+        tens, ones = '', ' ' + SECOND_TEN[int(number[2])]
+    elif int(number[1]) == 0:
+        tens = ''
 
     # at ones
-    for i in range(0, 10):
-        if number[1] == '1' and number[2] == str(i) and number[2] != '0':
-            result += ' ' + SECOND_TEN[i]
-        elif number[1] == '1' and number[2] == str(i) and number[2] == '0':
-            result += ' ' + SECOND_TEN[0]
-        elif number[1] != '1' and number[2] == str(i) and number[2] != '0':
-            result += ' ' + FIRST_TEN[i-1]
+    if int(number[2]) in range(1,10) and int(number[1]) != 1:
+        ones = ' ' + FIRST_TEN[int(number[2]) -1]
+    elif int(number[2]) == 0 and int(number[1]) != 1:
+        ones = ''
 
-    return result.strip()
+    return (hundreds + tens + ones).strip()
 
 
 # if __name__ == '__main__':
