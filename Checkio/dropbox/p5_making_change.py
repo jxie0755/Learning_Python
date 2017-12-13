@@ -38,5 +38,5 @@ def checkio(price, coins):
 #     print('Done')
 
 # 算法对大数不友好
-print(checkio(123456, [1, 6, 7, 456, 678]))
+# print(checkio(123456, [1, 6, 7, 456, 678]))
 # 456 * 15 + 678 * 172 = 123456, output should be 15 + 172 = 187
