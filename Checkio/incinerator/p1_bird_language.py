@@ -8,7 +8,6 @@
 VOWELS = 'aeiouy'
 CONSONANTS = 'bcdfghjklmnpqrstvwxz'
 
-
 def translate(phrase):
     result = list(phrase)
     # filter out the vowels after the cononants
@@ -24,7 +23,20 @@ def translate(phrase):
     return result
 
 # It would be much easier to solve the problem with while loop
-
+def translate(phrase):
+    result = ''
+    i = 0
+    while i < len(phrase):
+        if phrase[i] in CONSONANTS:
+            result += phrase[i]
+            i += 2
+        elif phrase[i] in VOWELS:
+            result += phrase[i]
+            i += 3
+        else:
+            result += phrase[i]
+            i += 1
+    return result
 
 
 if __name__ == '__main__':
@@ -34,3 +46,4 @@ if __name__ == '__main__':
     assert translate("aaa bo cy da eee fe") == "a b c d e f", "Alphabet"
     assert translate("sooooso aaaaaaaaa") == "sos aaa", "Mayday, mayday"
 
+print(translate("hieeelalaooo"))
