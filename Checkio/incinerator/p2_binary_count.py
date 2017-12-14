@@ -6,7 +6,7 @@
 # Output: The quantity of unities in the binary form as an integer.
 
 def checkio(number):
-    return str(bin(number)).count('1')
+    return bin(number)[2:].count('1')
 
 if __name__ == '__main__':
     assert checkio(4) == 1
