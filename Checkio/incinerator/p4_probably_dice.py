@@ -58,6 +58,3 @@ if __name__ == '__main__':
     print('done for small numbers')
     assert(almost_equal(probability(10, 10, 50), 0.0375)), "Many dice, many sides"
     print('done for large numbers too')
-
-
-print(math.factorial(6) / math.factorial(2) / math.factorial(3))
