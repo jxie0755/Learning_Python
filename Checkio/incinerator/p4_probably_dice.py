@@ -60,3 +60,4 @@ if __name__ == '__main__':
     print('done for large numbers too')
 
 
+print(math.factorial(6) / math.factorial(2) / math.factorial(3))
