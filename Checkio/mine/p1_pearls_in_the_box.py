@@ -1,5 +1,3 @@
-p1_pearls_in_the_box
-
 # https://py.checkio.org/mission/box-probability/
 # You are given a start set of pearls as a string that contains "b" (black) and "w" (white) and the number of the step (N).
 # The order of the pearls does not matter.
