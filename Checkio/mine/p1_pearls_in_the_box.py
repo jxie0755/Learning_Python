@@ -32,14 +32,14 @@ def checkio(marbles, step):
                 b.append('w')
                 result.append(b)
                 chance.append(i.count('b') / len(i))
-            if 'w' not in i:
-                a = []
-                result.append(a)
-                chance.append(0)
-            if 'b' not in i:
-                b = []
-                result.append(b)
-                chance.append(0)
+            # if 'w' not in i:
+            #     a = []
+            #     result.append(a)
+            #     chance.append(0)
+            # if 'b' not in i:
+            #     b = []
+            #     result.append(b)
+            #     chance.append(0)
 
         totalp.append(result)
         wchance.append(chance)
@@ -56,10 +56,13 @@ def checkio(marbles, step):
     # 未完成
     return 0.50
 
-    # if __name__ == '__main__':
-    #     assert checkio('bbw', 3) == 0.48, "1st example"
-    #     assert checkio('wwb', 3) == 0.52, "2nd example"
-    #     assert checkio('www', 3) == 0.56, "3rd example"
-    #     assert checkio('bbbb', 1) == 0, "4th example"
-    #     assert checkio('wwbb', 4) == 0.5, "5th example"
-    #     assert checkio('bwbwbwb', 5) == 0.48, "6th example"
+print(checkio('bbw', 3))
+
+# if __name__ == '__main__':
+#     assert checkio('bbw', 3) == 0.48, "1st example"
+#     assert checkio('wwb', 3) == 0.52, "2nd example"
+#     assert checkio('www', 3) == 0.56, "3rd example"
+#     assert checkio('bbbb', 1) == 0, "4th example"
+#     assert checkio('wwbb', 4) == 0.5, "5th example"
+#     assert checkio('bwbwbwb', 5) == 0.48, "6th example"
+
