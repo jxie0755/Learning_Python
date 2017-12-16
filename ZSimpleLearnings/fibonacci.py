@@ -11,7 +11,7 @@ def fib_gen_r(i):
     else:
         return fib_gen_r(i - 1) + fib_gen_r(i - 2)
 
-print(fib_gen_r(30))
+print(fib_gen_r(7))
 
 # [0, 1, 1, 2, 3, 5, 8, 13]
 #  0  1  2  3  4  5  6  7
@@ -34,9 +34,11 @@ def fib_gen_nr(i):
             lst.append(temp)
         return lst[-1]
 
-print(fib_gen_nr(30))
+print(fib_gen_nr(7))
+
 
 # if need to output a list of fibonacci numbers till 'i'th position
+# Non-recursive way
 # only need to revise the nr method slightly
 def fiblist_gen_nr(i):
     """
