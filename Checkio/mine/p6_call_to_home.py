@@ -39,12 +39,8 @@ def total_cost(calls):
             return 100 + (sum(billable) - 100) * 2
         else:
             return sum(billable)
-
-    final = 0
-    for k, g in lstg:
-        final += dayprice(list(g))
-
-    return final
+    
+    return sum(map(dayprice, [list(g) for k, g in lstg]))
 
 
 if __name__ == '__main__':
