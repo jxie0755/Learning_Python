@@ -24,6 +24,5 @@ class Solution(object):
 
 a = [2, 7, 11, 15]
 b = [1, 3, 3]
-case = Solution()
-print(case.twoSum(a, 9))
-print(case.twoSum(b, 6))
+print(Solution().twoSum(a, 9))
+print(Solution().twoSum(b, 6))
