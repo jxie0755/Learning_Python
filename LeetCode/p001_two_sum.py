@@ -14,7 +14,7 @@ class Solution(object):
             if target - i in nums:
                 result.append(i)
                 result.append(target - i)
-            break
+                break
         output = []
         for j in result:
             output.append(nums.index(j))
@@ -23,5 +23,7 @@ class Solution(object):
 
 
 a = [2, 7, 11, 15]
-test = Solution()
-print(test.twoSum(a, 9))
+b = [1, 3, 3]
+case = Solution()
+print(case.twoSum(a, 9))
+print(case.twoSum(b, 6))
