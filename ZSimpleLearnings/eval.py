@@ -14,3 +14,8 @@ print(eval(f'{a}' + '.' + b + f'({target})'))  # >>> 3
 
 # actually, you don't need f-string to bring-in variables.
 print(eval('a' + '.' + b + '(target)'))  # >>> 3
+
+
+# https://stackoverflow.com/questions/47898221/should-i-use-f-string-when-writing-with-eval?noredirect=1#comment82763268_47898221
+# BE VERY CAREFUL TO USE EVAL
+# TRY NOT TO USE IT AS MUCH AS POSSIBLE!!
