@@ -34,3 +34,5 @@ def checkio3(string, algorithm):
 
 def checkio4(hashed_string, algorithm):
     return (getattr(hashlib, algorithm)(hashed_string.encode('utf8'))).hexdigest()
+
+
