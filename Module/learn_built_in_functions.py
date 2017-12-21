@@ -61,7 +61,6 @@ print(bytearray([0, 100, 255]))  # >>> bytearray(b'\x00d\xff')
 print(bytearray(12))  # >>> bytearray(b'\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00')
 print(bytes([0, 100, 255]))  # >>> b'\x00d\xff'
 print(bytes(12))  # >>> b'\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
-# 暂时不理解
 
 
 print(8)
@@ -69,6 +68,7 @@ print('bytes()')
 # 返回一个新的字节对象，是一个在 0<= x < 256之间的不可变的整数序列。 
 # bytes 是 bytearray 的不可变版本 – 它具有同样的非改变性的方法和同样的索引和切片操作
 # 因此，构造函数参数的解释与bytearray()相同。
+
 
 print(9)
 print('callable()')
@@ -94,7 +94,7 @@ print(11)
 print('classmethod()')
 print(classmethod(abs(5)))
 # 将函数包装成类方法
-# 暂时不理解
+# oop环境
 
 
 print(12)
@@ -117,7 +117,7 @@ print('delattr()')
 # 这个函数和setattr()有关。参数是一个对象和一个字符串。
 # 字符串必须是对象的某个属性的名字。只要对象允许，这个函数删除该名字对应的属性。
 # delattr(x, 'foobar')等同于del x.foobar。
-# 暂时不理解
+# oop环境
 
 
 print(15)
@@ -287,7 +287,7 @@ print(34)
 print('isinstance(object, classinfo)')
 # 如果object是clsaainfo的一个实例（或者是classinfo的直接、间接或虚拟子类的实例），那么则返回true。
 # 如果对象不是给定类型的对象，则函数始终返回false
-# 暂时不理解
+# oop环境
 
 
 print(35)
@@ -313,9 +313,11 @@ print(39)
 print('locals()')
 # 暂时不理解
 
+
 print(40)
 print('map()')
 print('see in ZSimpleLearnings/lambda_map_filter_reduce.py')
+
 
 print(41, 43)
 print('max() and min()')
@@ -329,6 +331,7 @@ print('memoryview()')
 print(memoryview(b'abcde'))  # >>> <memory at 0x7f3271528048>
 print(memoryview('abcde'.encode('utf-8')))  # >>> <memory at 0x7f3271528048>
 
+
 print(44)
 print('next()')
 # consume the next item in an iterator
@@ -338,6 +341,7 @@ print('see in Module/learn_itertools.py')
 print(45)
 print('object()')
 # oop 环境
+
 
 print(46)
 print('oct(x)')
@@ -430,6 +434,7 @@ print(56)
 print('set([iterable])')
 # create a set object
 
+
 print(57)
 print('setattr(object, name, value)')
 # 它与getattr()相对应。参数是一个对象、一个字符串和一个任意值。
@@ -443,6 +448,7 @@ print('slice()')
 a = [1,2,3,4]
 b = a[0:2]
 print(b)  # >>> [1, 2]
+
 
 print(59)
 print('sorted()')
