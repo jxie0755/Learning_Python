@@ -1,4 +1,5 @@
 # 将字符串变成变量名
+# string as variable_name
 
 test = 'aaa'
 vars()[test] = 999
