@@ -203,7 +203,7 @@ print(format(2.55, '0.1f'))  # >>> 2.5
 print(24)
 print('frozenset()')
 # print(frozenset([1, 2, 3]))
-# 暂时不理解
+print('see in ZSimpleLearnings/python_frozenset.py')
 
 
 print(25)
