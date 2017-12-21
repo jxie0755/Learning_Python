@@ -1,10 +1,9 @@
-# eval() function is to convert a string to a piece of codes
+# eval() function is to convert a variable's value ('string') into a code through using the variable's name
 
 # Example: list.count()
 a = [1,2,3,1,2,3,4,1,2,5,6,7]
 b = 'count'
 target = 2
-
 
 # regular way
 print(a.count(target))  # >>> 3
@@ -19,3 +18,24 @@ print(eval('a' + '.' + b + '(target)'))  # >>> 3
 # https://stackoverflow.com/questions/47898221/should-i-use-f-string-when-writing-with-eval?noredirect=1#comment82763268_47898221
 # BE VERY CAREFUL TO USE EVAL
 # TRY NOT TO USE IT AS MUCH AS POSSIBLE!!
+
+
+# exec() turn a string into a python line of codes
+# it is as dangerous as eval() for the same reason
+
+x = 'lst = [i for i in range(4)]'
+xx = 'lstx = [i for i in range(4)]'
+y = 'lst.append(9)'
+
+exec(x)
+print(lst)  # >>> [0, 1, 2, 3]
+# lst.append(9)
+
+exec(y)
+print(lst)  # >>> [0, 1, 2, 3, 9]
+
+eval(y)  # eval will also work
+print(lst)  # >>> [0, 1, 2, 3, 9, 9]
+
+
+# AVOID USING THIS!!
