@@ -84,7 +84,9 @@ print(10)
 print('chr()')
 print(chr(97))  # >>> a, refer the ascii table
 print(ord('a'))  # >>> 97, the inverse function of chr
+print(chr(127))  # >>> 
 # The valid range for the argument is from 0 through 1,114,111
+# ascii table is from 0 to 127
 # return the character accordingly
 
 
@@ -189,8 +191,13 @@ print(format(12, "b"))
 # integer
 print(format(1234, "*>+7,d"))
 # float number
-print(format(123.4567, "^-09.3f"))
-# 暂时不理解
+print(format(123.4567, "^-09.3f"))  # 暂时不理解
+
+# 四舍五入与round类似
+print(format(1.5, '0.0f'))  # >>> 2
+print(format(2.5, '0.0f'))  # >>> 2
+print(format(1.55, '0.1f'))  # >>> 1.6
+print(format(2.55, '0.1f'))  # >>> 2.5
 
 
 print(24)
@@ -212,8 +219,18 @@ print(globals())
 
 print(27)
 print('hasattr()')
-# 
+# 参数是一个对象和一个字符串。如果字符串是对象的一个属性，则返回True，否则返回False。
+# 它的实现是通过调用getattr(object, name)并查看它是否引发一个AttributeError
+lst = [1,2,3]
+print(hasattr(lst, 'append'))  # >>> True
+print(hasattr(lst, 'insert'))  # >>> True
 
+strin = 'abc'
+print(hasattr(strin, 'isalpha'))  # >>> True
+print(hasattr(strin, 'ascii_lowercase'))  # >>> False
+import string
+print(hasattr(string, 'ascii_lowercase'))  # >>> True
+# 更多用于oop环境
 
 print(28)
 print('hash()')
@@ -287,133 +304,187 @@ print('len()')
 # return length of a iterable
 
 
-print(38)
-print('locals()')
+print(39)
+print('list()')
+# turn iterable into a list
 
 
 print(39)
+print('locals()')
+# 暂时不理解
+
+print(40)
 print('map()')
 print('see in ZSimpleLearnings/lambda_map_filter_reduce.py')
 
-print(40, 42)
+print(41, 43)
 print('max() and min()')
 print('see in ZSimpleLearnings/max_min.py')
 
 
-print(41)
+print(42)
 print('memoryview()')
+# Return the object's memory address?
+# memoryview: a bytes-like object is required, not 'str'
+print(memoryview(b'abcde'))  # >>> <memory at 0x7f3271528048>
+print(memoryview('abcde'.encode('utf-8')))  # >>> <memory at 0x7f3271528048>
+
+print(44)
+print('next()')
+# consume the next item in an iterator
+print('see in Module/learn_itertools.py')
 
 
-print()
-print('')
+print(45)
+print('object()')
+# oop 环境
+
+print(46)
+print('oct(x)')
+# 将整数转换为八进制字符串。结果是一个合法的Python表达式。
+print(oct(120))  # >>> 0o170  'o' means 八进制
+print(oct(1999)) # >>> 0o3717
 
 
-print()
-print('')
+print(47)
+print('open()')
+print('see in ZSimpleLearnings/write_and_write_back.py')
 
 
-print()
-print('')
+print(48)
+print('ord(c)')
+# 给定一个表示一个Unicode字符的字符串，返回一个表示该字符的Unicode代码点的整数。
+print(ord('a'))  # >>> 97
+print(ord(' '))  # >>> 32
+print(ord('#'))  # >>> 35
+# refer ascii table (0-127)
+# but also support more than 0-127
+print(chr(1223))  # >>> Ӈ
+print(ord('Ӈ'))   # >>> 1223
+# The valid range for the argument is from 0 through 1,114,111
 
 
-print()
-print('')
+print(49)
+print('pow(x, y[, z])')
+# return x^y
+# 如果提供z参数， 返回x^y再除以z的余数
+print(pow(2, 3, 7))  # >>> 8 (2^3=8)
+print(pow(2, 3, 7))  # >>> 1 (8//7=1, 余1)
 
 
-print()
-print('')
+print(50)
+print('print()')
+print('hello world')
 
 
-print()
-print('')
+print(51)
+print('range(stop)')
+print('range(start, stop[, step])')
+print('well understood')
 
 
-print()
-print('')
+print(52)
+print('property()')
+# oop 环境
+
+print(53)
+print('repr(object)')
+# 返回某个对象可打印形式的字符串。
+a = [1,2,3]
+print(repr(a))  # >>> [1, 2, 3]
+print(a)
+
+b = range(5)
+print(repr(b))  # >>> range(0, 5)
+print(b)
+
+c = 'abcd'
+print(repr(c))  # >>> 'abcd'   difference is that it will show ''
+print(c)        # >>> abcd
+
+import datetime
+today = datetime.datetime.now()
+# Prints readable format for date-time object
+print(today)        # >>> 2017-12-21 20:12:24.180042
+# prints the official format of date-time object
+print(repr(today))  # >>> datetime.datetime(2017, 12, 21, 20, 12, 24, 180042)
 
 
-print()
-print('')
+print(54)
+print('reversed(seq)')
+# 返回一个反向iterator
+a = [1,2,3]
+print(list(reversed(a)))
+print('see in ZSimpleLearnings/sort_vs_sorted_and_reverse.py')
 
 
-print()
-print('')
+print(55)
+print('round(number[, ndigits])')
+# 当一个值刚好在两个边界的中间的时候， round 函数返回离它最近的偶数。 
+print(round(1.5, 0))  # >>> 2.0
+print(round(2.5, 0))  # >>> 2.0
+# 也就是说，对1.5或者2.5的舍入运算都会得到2。
 
 
-print()
-print('')
+print(56)
+print('set([iterable])')
+# create a set object
+
+print(57)
+print('setattr(object, name, value)')
+# 它与getattr()相对应。参数是一个对象、一个字符串和一个任意值。
+# 字符串可以是一个已存在属性的名字也可以是一个新属性的名字。
+# 该函数将值赋值给属性，只要对象允许。
 
 
-print()
-print('')
+print(58)
+print('slice()')
+# slice a list
+a = [1,2,3,4]
+b = a[0:2]
+print(b)  # >>> [1, 2]
+
+print(59)
+print('sorted()')
+# sort from small to large (num, alpha)
+print('see in ZSimpleLearnings/sort_vs_sorted_and_reverse.py')
 
 
-print()
-print('')
+print(60)
+print('staticethod()')
+# 返回function的一个静态方法。
 
 
-print()
-print('')
+print(61)
+print('str()')
 
 
-print()
-print('')
+print(62)
+print('sum()')
 
 
-print()
-print('')
+print(63)
+print('super()')
 
 
-print()
-print('')
+print(64)
+print('tuple()')
 
 
-print()
-print('')
+print(65)
+print('type()')
 
 
-print()
-print('')
+print(66)
+print('vars()')
 
 
-print()
-print('')
+print(67)
+print('zip()')
 
 
-print()
-print('')
-
-
-print()
-print('')
-
-
-print()
-print('')
-
-
-print()
-print('')
-
-
-print()
-print('')
-
-
-print()
-print('')
-
-
-print()
-print('')
-
-
-print()
-print('')
-
-
-
-
+print(68)
+print('__import__()')
 
 
 
