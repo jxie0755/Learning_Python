@@ -457,34 +457,50 @@ print('staticethod()')
 
 print(61)
 print('str()')
+# turn object into a string version
 
 
 print(62)
 print('sum()')
+# return the sum of an iterable
+# 对于某些使用情况，有很好的替代sum()的方法。
+# 连接字符串序列的首选快速方法是调用''.join(sequence)。
 
 
 print(63)
 print('super()')
+# 返回一个代理对象，它委托方法给父类或者type的同级类。
+# 这对于访问类中被覆盖的继承方法很有用。
+# oop环境
 
 
 print(64)
 print('tuple()')
+# create a tuple from an iterable
 
 
 print(65)
 print('type()')
+# return the type of the object
 
 
 print(66)
 print('vars()')
+print('see in ZSimpleLearnings/python_vars.py')
 
 
 print(67)
 print('zip()')
+# very use full to link a group of arrays
+print('see in ZSimpleLearnings/python_zip.py')
 
 
 print(68)
 print('__import__()')
+# 用于import任何文件名
+# surpose a file named 05_if1_guess_number.py, we want to import this file
+mymodule = __import__('05_if1_guess_number')
+
 
 
 
