@@ -1,3 +1,4 @@
+import operator
 # operator.attrgetter(attr)
 # operator.attrgetter(*attrs)
 
