@@ -9,6 +9,7 @@ class Car():
         self.model = model
         self.year = year
         self.odometer = odometer
+        print('new car obtained')
 
     def __str__(self):  # a string version to represent the object (used as a description)
         return f'{self.year} {self.make} {self.model}'
@@ -35,5 +36,6 @@ class Car():
     def gas_tank(self, tank_size):
         print('fill up the gas tank', tank_size, 'gallons')
 
-DenisNewCar = Car('Audi', 'A4', '2017')
-print(DenisNewCar)
+DenisNewCar = Car('Audi', 'A4', '2017')  # >>> print 'new car obtained' when create the object
+print(DenisNewCar)  # >>> '2017 Audi A4' used as a 'name' to represent the object
+
