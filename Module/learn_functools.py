@@ -1,3 +1,4 @@
+import functools
 print('functools.partial(func, *args, **keywords')
 # 返回一个新的partial对象，该对象在调用时将采用位置参数args和关键字参数关键字调用的func 。
 # 如果提供多个参数调用， 它们会被追加给 args。如果提供额外的关键字参数， 它们会扩展和覆盖 keywords。
@@ -32,7 +33,7 @@ print('functools.partialmethod(func, *args, **keywords)')
 
 
 
-functools.reduce(function, iterable[, initializer])
+print('functools.reduce(function, iterable[, initializer])')
 # 将两个参数的函数累加到序列的项中，从左到右，以便将序列减少为单个值。
 # See in ZSimpleLearnings/lambda_map_filter_reduce.py
 
