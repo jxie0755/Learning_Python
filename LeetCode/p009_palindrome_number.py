@@ -1,4 +1,8 @@
+# p009 Palindrome Number
+# Easy
+
 # Determine whether an integer is a palindrome. Do this without extra space.
+# Negative integer will not be a palindrome
 
 class Solution(object):
     def isPalindrome(self, x):
@@ -11,4 +15,5 @@ class Solution(object):
         else:
             return str(x) == str(x)[::-1]
 
+print(Solution().isPalindrome(2147447412))
 print(Solution().isPalindrome(-2147447412))
