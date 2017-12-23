@@ -4,7 +4,8 @@
 
 class Car():
     '''car information summary'''
-    def __init__(self, make, model, year, odometer=0):
+    def __init__(self, id, make, model, year, odometer=0):
+        self.id = id
         self.make = make
         self.model = model
         self.year = year
@@ -12,7 +13,8 @@ class Car():
         print('new car obtained')
 
     def __str__(self):  # a string version to represent the object (used as a description)
-        return f'{self.year} {self.make} {self.model}'
+        # return f'{self.year} {self.make} {self.model}'
+        return 'car' + self.id
 
     def get_car_info(self):
         long_name = str(self.year) + ' ' + self.make + ' ' + self.model
@@ -36,6 +38,7 @@ class Car():
     def gas_tank(self, tank_size):
         print('fill up the gas tank', tank_size, 'gallons')
 
-DenisNewCar = Car('Audi', 'A4', '2017')  # >>> print 'new car obtained' when create the object
+DenisNewCar = Car('001','Audi', 'A4', '2017')  # >>> print 'new car obtained' when create the object
 print(DenisNewCar)  # >>> '2017 Audi A4' used as a 'name' to represent the object
+                    # >>> 'car001' as an ID
 
