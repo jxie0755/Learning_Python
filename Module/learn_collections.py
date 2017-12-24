@@ -10,15 +10,17 @@ dict1 = {'a': 1, 'b': 2}
 dict2 = {'b': 3, 'c': 4}  # 注意这里'b'为重复的key
 chain = collections.ChainMap(dict1, dict2)
 print(chain)  # >>> ChainMap({'a': 1, 'b': 2}, {'b': 3, 'c': 4})
-print(chain.maps)  # >>> [{'a': 1, 'b': 2}, {'b': 3, 'c': 4}]
-
-# 如果只是单纯组合, 可以等同于
+print(chain.maps)  # >>> [{'a': 1, 'b': 2}, {'b': 3, 'c': 4}], a list
 chainmap = [dict1, dict2]
 print(chainmap == chain.maps)  # >>> True
+print(dict1 in chain.maps)  # >>> True
+print(list(chain))  # >>> a list of keys, sequence random
+print(dict(chain))  # >>> {'b': 2, 'c': 4, 'a': 1} flatten to a regular dict, sequence random
 
 # 但是这个chain的优点是可以输出各种key和value,因为chain object不是单纯的一个list
-print(list(chain.keys()))  # >>> ['b', 'a', 'c'] 过滤掉重复的key
-print(list(chain.values()))  # >>> [2, 1, 4]  注意这里3没有被记入,要遵循先入为主的原则
+print(chain.items())  # >>> ItemsView(ChainMap({'a': 1, 'b': 2}, {'b': 3, 'c': 4}))
+print(list(chain.keys()))  # >>> ['b', 'a', 'c'] 过滤掉重复的key, sequence random
+print(list(chain.values()))  # >>> [2, 1, 4]  注意这里3没有被记入,要遵循先入为主的原则, sequence random
 
 # 访问这个chain object可以取出各key的value
 print(chain['b'])  # >>> 2
