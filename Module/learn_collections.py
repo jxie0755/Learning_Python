@@ -191,8 +191,10 @@ dec.rotate(3)  # rotate n elements from end to head
 print(dec)  # >>> deque(['before', 'x', 'y', 8, 7, 'after', 5, 4, 3, 2, 'ins', 1])
 dec.rotate(-3)  # rotate the reverse way
 print(dec)  # >>> deque([8, 7, 'after', 5, 4, 3, 2, 'ins', 1, 'before', 'x', 'y'])
-dec.clear()
-print(dec)  # >>> deque([])  # empty the deque
+# dec.clear() # >>> deque([])  # empty the deque
 
 
+# deque can be transferred to a regular list
+print(dec)  # >>> deque([8, 7, 'after', 5, 4, 3, 2, 'ins', 1, 'before', 'x', 'y'])
+print(list(dec))  # >>> [8, 7, 'after', 5, 4, 3, 2, 'ins', 1, 'before', 'x', 'y']
 
