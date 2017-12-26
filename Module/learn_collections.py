@@ -124,5 +124,14 @@ n = 2  # n least common elements:
 print(c.most_common()[:-n-1:-1])
 c.clear() # >>> clear counts, c becomes empty counter
 
+# math way operation
+c = collections.Counter(a=3, b=1)
+d = collections.Counter(a=1, b=2)
+print(c + d)  # >>> Counter({'a': 4, 'b': 3})   # add two counters together:  c[x] + d[x]
+print(c - d)  # >>> Counter({'a': 2})           # subtract (keeping only positive counts)
+print(c & d)  # >>> Counter({'a': 1, 'b': 1})   # intersection:  min(c[x], d[x])
+print(c | d)  # >>> Counter({'a': 3, 'b': 2})   # union:  max(c[x], d[x])
 
-
+c = collections.Counter(a=2, b=-4)
+print(+c)  # >>> Counter({'a': 2})
+print(-c)  # >>> Counter({'b': 4})
