@@ -87,6 +87,7 @@ print(c4)  # >>> Counter({'cats': 4})
 
 # Counter()可以使用的方法
 # most common 统计top(x), x=2 below, 输出为一个list
+print(cnt) # >>> Counter({'blue': 3, 'red': 2, 'green': 1})
 print(cnt.most_common(2))  # >>>  [('blue', 3), ('red', 2)]
 
 # elements()
@@ -140,6 +141,7 @@ print(-c)  # >>> Counter({'b': 4})
 
 print()
 print('collections.deque([iterable[, maxlen]])')
+
 # 返回一个由迭代器从左到右(使用append())初始化的双向队列.若未指定初始化的迭代器，返回的双向队列的长度为0
 # 双向队列（Deque）是栈和队列的一般化（deque发音和‘deck’一样，是‘double-ended queue’的缩写）。
 # Deque是线程安全的。在队列两端添加（append）或弹出（pop）元素的复杂度大约是O(1),所以Deque的效率是很高的。
@@ -149,7 +151,7 @@ print('collections.deque([iterable[, maxlen]])')
 # 一旦有界的双向队列满了以后，当有新的元素添加到队列中，就会有相应数量的元素在另一端被丢弃。有界双向队列提供了类似于Unix中tail过滤器的功能。
 
 # Create a deque
-lst = [1,2,3,4,5]
+lst = [1,2,3,3,4,5]
 dec = collections.deque(lst)  # iterable
 dec2 = collections.deque(range(5))  # iterator
 dec3 = collections.deque('stringdeck')  # string
@@ -159,12 +161,38 @@ def f(x):
 print(type(f(5)))
 dec4 = collections.deque(f(5))  # generator
 
-print(dec)  # >>> deque([1, 2, 3, 4, 5])
+print(dec)  # >>> deque([1, 2, 3, 3, 4, 5])
 print(dec2)  # >>> deque([0, 1, 2, 3, 4])
 print(dec3)  # >>> deque(['s', 't', 'r', 'i', 'n', 'g', 'd', 'e', 'c', 'k'])
 print(dec4)  # deque([0, 1, 4, 9, 16])
 
-# simple methods to operator deque object
+# simple methods to operator deque object (mostly similar to list methods)
+dec.append('after')
+dec.appendleft('before')
+print(dec)  # >>> deque(['before', 1, 2, 3, 4, 5, 'after'])
+decc = dec.copy()  # >>> normal copy
+#  deccc = dec[:] not slicable, so need to use copy()
+print(dec.count(3))  # >>> count number
+dec.extend([7,8,9])
+print(dec)  # >>> deque(['before', 1, 2, 3, 3, 4, 5, 'after', 7, 8, 9])
+dec.extendleft(['x', 'y', 'z'])  # 注意顺序!!!extend left连iterable的顺序也会反转添加
+print(dec)  # deque(['z', 'y', 'x', 'before', 1, 2, 3, 3, 4, 5, 'after', 7, 8, 9])
+print(dec.index(2))  # >>> 5, return the index of 2 in thie dec
+print(dec.insert(5, 'ins'))
+print(dec)  # >>> deque(['z', 'y', 'x', 'before', 1, 'ins', 2, 3, 3, 4, 5, 'after', 7, 8, 9])
+dec.pop()
+dec.popleft()
+print(dec)  # >>> deque(['y', 'x', 'before', 1, 'ins', 2, 3, 3, 4, 5, 'after', 7, 8])
+dec.remove(3)
+print(dec)  # >>> deque(['y', 'x', 'before', 1, 'ins', 2, 3, 4, 5, 'after', 7, 8])  # first time occurence
+dec.reverse()
+print(dec)  # >>> deque([8, 7, 'after', 5, 4, 3, 2, 'ins', 1, 'before', 'x', 'y'])
+dec.rotate(3)  # rotate n elements from end to head
+print(dec)  # >>> deque(['before', 'x', 'y', 8, 7, 'after', 5, 4, 3, 2, 'ins', 1])
+dec.rotate(-3)  # rotate the reverse way
+print(dec)  # >>> deque([8, 7, 'after', 5, 4, 3, 2, 'ins', 1, 'before', 'x', 'y'])
+dec.clear()
+print(dec)  # >>> deque([])  # empty the deque
 
 
 
