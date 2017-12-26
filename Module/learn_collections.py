@@ -135,3 +135,36 @@ print(c | d)  # >>> Counter({'a': 3, 'b': 2})   # union:  max(c[x], d[x])
 c = collections.Counter(a=2, b=-4)
 print(+c)  # >>> Counter({'a': 2})
 print(-c)  # >>> Counter({'b': 4})
+
+
+
+print()
+print('collections.deque([iterable[, maxlen]])')
+# 返回一个由迭代器从左到右(使用append())初始化的双向队列.若未指定初始化的迭代器，返回的双向队列的长度为0
+# 双向队列（Deque）是栈和队列的一般化（deque发音和‘deck’一样，是‘double-ended queue’的缩写）。
+# Deque是线程安全的。在队列两端添加（append）或弹出（pop）元素的复杂度大约是O(1),所以Deque的效率是很高的。
+# 尽管list 对象支持类似的操作, 但是list是专门为固定长度的操作进行了优化，导致了改变列表长度和数据位置的操作
+# 例如 pop(0)和 insert(0, v) 操作的复杂度高达O(n)
+# 如果 maxlen 未指定或为 None，deque可能长到任意长度。否则，deque的最大长度为指定的maxlen。
+# 一旦有界的双向队列满了以后，当有新的元素添加到队列中，就会有相应数量的元素在另一端被丢弃。有界双向队列提供了类似于Unix中tail过滤器的功能。
+
+# Create a deque
+lst = [1,2,3,4,5]
+dec = collections.deque(lst)  # iterable
+dec2 = collections.deque(range(5))  # iterator
+dec3 = collections.deque('stringdeck')  # string
+def f(x):
+    for i in range(x):
+        yield i**2
+print(type(f(5)))
+dec4 = collections.deque(f(5))  # generator
+
+print(dec)  # >>> deque([1, 2, 3, 4, 5])
+print(dec2)  # >>> deque([0, 1, 2, 3, 4])
+print(dec3)  # >>> deque(['s', 't', 'r', 'i', 'n', 'g', 'd', 'e', 'c', 'k'])
+print(dec4)  # deque([0, 1, 4, 9, 16])
+
+# simple methods to operator deque object
+
+
+
