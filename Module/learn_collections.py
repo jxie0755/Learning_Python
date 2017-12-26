@@ -99,11 +99,30 @@ print(list(cnt.elements()))  # >>> ['red', 'red', 'blue', 'blue', 'blue', 'green
 c = collections.Counter(a=4, b=2, c=0, d=-2)
 d = collections.Counter(a=1, b=2, c=3, d=4)
 c.subtract(d)
-print(c)  # >>> Counter({'a': 3, 'b': 0, 'c': -3, 'd': -6})
+print(c)   # >>> Counter({'a': 3, 'b': 0, 'c': -3, 'd': -6})
+print(+c)  # >>> Counter({'a': 3})  remove 0 and negative values
 
 # 同理可以update,也就是增加
 c = collections.Counter(a=4, b=2, c=0, d=-2)
 d = collections.Counter(a=1, b=2, c=3, d=4)
 c.update(d)
 print(c)  # >>> Counter({'a': 5, 'b': 4, 'c': 3, 'd': 2})
+
+# 其他attributes
+print(c.values())  # >>> dict_values([5, 4, 3, 2])
+print(list(c))  # >>> ['a', 'b', 'c', 'd']
+print(set(c))  # >>> {'a', 'd', 'c', 'b'}
+print(dict(c))  # >>> {'a': 5, 'b': 4, 'c': 3, 'd': 2} convert to a regular dict
+print(c.items())  # >>> dict_items([('a', 5), ('b', 4), ('c', 3), ('d', 2)]), convert to a list of (elem, cnt) pairs
+
+#  Counter(dict(list_of_pairs))    # convert from a list of (elem, cnt) pairs
+aa = [('a', 10), ('b', 20), ('c', 30)]
+print(dict(aa))  # >>> {'a': 10, 'b': 20, 'c': 30}
+ccc = collections.Counter(dict(aa))
+
+n = 2  # n least common elements:
+print(c.most_common()[:-n-1:-1])
+c.clear() # >>> clear counts, c becomes empty counter
+
+
 
