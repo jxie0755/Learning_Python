@@ -201,9 +201,26 @@ print(dec)  # >>> deque([8, 7, 'after', 5, 4, 3, 2, 'ins', 1, 'before', 'x', 'y'
 print(dec)  # >>> deque([8, 7, 'after', 5, 4, 3, 2, 'ins', 1, 'before', 'x', 'y'])
 print(list(dec))  # >>> [8, 7, 'after', 5, 4, 3, 2, 'ins', 1, 'before', 'x', 'y']
 
+print()
+print('deque application')
 # deque application scenarios
 def tail(filename, n=10):
     """Return the last n lines of a file"""
     with open(filename) as f:
         return collections.deque(f, n)
+# print(tail('dequetest.txt', n=5))
+
+import itertools
+def moving_average(iterable, n=3):
+    # calculate 3 consecutve numbers' avaerage value
+    it = iter(iterable)  # 目的就是创造一个迭代器使得不会重复迭代
+    d = collections.deque(itertools.islice(it, n-1))  # 针对iterator不能使用普通slice method
+    d.appendleft(0) # 补位一个0在最左侧
+    s = sum((d))
+    for elem in it:  # 这里迭代的目的就是新加一个elem,然后从左侧踢出一个elem,维持总数是3个,然后计算average
+        s += elem - d.popleft()
+        d.append(elem)
+        yield s / n
+print(list(moving_average([40, 30, 50, 46, 39, 44])))
+# >>> [40.0 42.0 45.0 43.0]
 
