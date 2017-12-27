@@ -191,7 +191,7 @@ dec.remove(3)
 print(dec)  # >>> deque(['y', 'x', 'before', 1, 'ins', 2, 3, 4, 5, 'after', 7, 8])  # first time occurence
 dec.reverse()
 print(dec)  # >>> deque([8, 7, 'after', 5, 4, 3, 2, 'ins', 1, 'before', 'x', 'y'])
-dec.rotate(3)  # rotate n elements from end to head
+dec.rotate(3)  # move n elements from end to head
 print(dec)  # >>> deque(['before', 'x', 'y', 8, 7, 'after', 5, 4, 3, 2, 'ins', 1])
 dec.rotate(-3)  # rotate the reverse way
 print(dec)  # >>> deque([8, 7, 'after', 5, 4, 3, 2, 'ins', 1, 'before', 'x', 'y'])
@@ -204,8 +204,13 @@ print(list(dec))  # >>> [8, 7, 'after', 5, 4, 3, 2, 'ins', 1, 'before', 'x', 'y'
 print()
 print('deque application')
 # deque application scenarios
-def tail(filename, n=10):
-    """Return the last n lines of a file"""
+def tail(filename, n):
+    """
+    Return the last n lines of a file
+    :param filename: txt file name as a string
+    :param n: last n lines
+    :return: a list of last n lines in the txt file
+    """
     with open(filename) as f:
         return collections.deque(f, n)
 # print(tail('dequetest.txt', n=5))
@@ -223,4 +228,43 @@ def moving_average(iterable, n=3):
         yield s / n
 print(list(moving_average([40, 30, 50, 46, 39, 44])))
 # >>> [40.0 42.0 45.0 43.0]
+
+# 理解:"一旦有界的双向队列满了以后，当有新的元素添加到队列中，就会有相应数量的元素在另一端被丢弃。"
+dec = collections.deque([1,2,3,4,5,6,7,8,9], 5)
+print(dec)  # >>> deque([5, 6, 7, 8, 9], maxlen=5)
+dec.append('x')
+print(dec)  # >>> deque([6, 7, 8, 9, 'x'], maxlen=5)  # kick out 5 from the left
+dec.appendleft('y')
+print(dec)  # >>> deque(['y', 6, 7, 8, 9], maxlen=5)  # kick out 'x' from the right
+
+# 重写 moving_average()函数
+def moving_average_deq(iterable, n=3):
+    # calculate 3 consecutve numbers' avaerage value
+    it = iter(iterable)  # 目的就是创造一个迭代器使得不会重复迭代
+    d = collections.deque(itertools.islice(it, n-1), 3)  # 加入iterator前三项,但是限制deque的maxlen为3
+    d.appendleft(0)  # 仍然需要补位一个0
+    print('d is now', d)
+    for elem in it:  # 同样是维持总数是3个,但是这里依靠deque固定长度的特性
+        d.append(elem)
+        s = sum(d)
+        yield s / n
+print(list(moving_average_deq([40, 30, 50, 46, 39, 44])))
+
+def delete_nth(d, n):
+    """
+    利用rotate来实现deque的slice和删除方法
+    :param d: collections object deque
+    :param n: number of elements
+    :return: a slice
+    """
+    print(d)
+    d.rotate(-n)
+    print(d)
+    d.popleft()
+    d.rotate(n)
+sample = collections.deque([1,2,3,4,5,6,7])
+print(sample)           # >>> deque([1, 2, 3, 4, 5, 6, 7])
+delete_nth(sample, 3)       # deque([4, 5, 6, 7, 1, 2, 3]) after rotate(-3)
+                            # deque([5, 6, 7, 1, 2, 3])  after popleft()
+                            # deque([1, 2, 3, 5, 6, 7]) after rotate(3)
 
