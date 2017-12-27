@@ -357,6 +357,11 @@ print('collections.namedtuple(typename, field_names, verbose=False, rename=False
 Point = collections.namedtuple('Point', ['x', 'y'])
 print(Point)  # >>> <class '__main__.Point'>
 
+# verbose和rename实例
+V = collections.namedtuple('Verb', ['x', 'y'], verbose=False)  # 若verbose=True,则创造V的时候回打印源码, 大部分时候是不必要的
+R = collections.namedtuple('Renam', 'large, small, for, class, return', rename=True)
+print(R(1,2,3,4,5))  # >>> Renam(large=1, small=2, _2=3, _3=4, _4=5)  # 将python关键字过滤改名为'_index'形式
+
 p = Point(11, 22)  # p is an actuall namedtuple object
 # 为一个tuple的各项安排了名字, 这里为坐标
 print(p)  # >>> Point(x=11, y=22)
@@ -371,20 +376,21 @@ x, y = p
 print(x, y)  # >>> 11 , 22
 
 # 三个method
-# ._make(iterable)  create a new example of namedtuple
 t = [10, 20]
-coor = Point._make(t)
+coor = Point._make(t)  # # ._make(iterable)  create a new example of namedtuple
 print(coor)  # >>> Point(x=10, y=20)
 
-# _asdict()  return an OrderedDict, key to value mapping
-OD = coor._asdict()
+OD = coor._asdict()  # return an OrderedDict, key to value mapping
 print(OD)  # >>> OrderedDict([('x', 10), ('y', 20)])
 print(dict(OD))  # >>> {'x': 10, 'y': 20}  # to normal dict
 
-# _replace(kwargs)
 print(coor)  # >>> Point(x=10, y=20)
 print(coor._replace(x=99))  # >>> Point(x=99, y=20)  # create a new namedtuple with new value
 print(coor)  # does not change the original value!!!!
 
 # 两个attribute
-
+# print(coor._source)  # return a string that contains python codes for this class, to create a record (打印class源码)
+print(coor._fields)  # >>> ('x', 'y')  # a tuple
+Color = collections.namedtuple('Color', 'red green blue')  # 参见field_names要求
+Pixel = collections.namedtuple('Pixel', coor._fields + Color._fields)  # 即使一个是string一个是tuple也可以相加整合
+print(Pixel(11, 22, 128, 255, 0))  # 用于从已有namedtuple创建新的namedtuple
