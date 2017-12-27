@@ -254,7 +254,7 @@ def delete_nth(d, n):
     """
     利用rotate来实现deque的slice和删除方法
     :param d: collections object deque
-    :param n: number of elements
+    :param n: nth element to remove
     :return: a slice
     """
     print(d)
@@ -272,3 +272,66 @@ delete_nth(sample, 3)       # deque([4, 5, 6, 7, 1, 2, 3]) after rotate(-3)
 
 print()
 print('collections.defaultdict([default_factory[, ...]])')
+
+# 返回一个新的类似字典的对象。defaultdict是内置dict类的子类。
+# 它覆盖一个方法，并添加一个可写的实例变量。
+# 其余的功能与dict类相同，这里就不再记录。
+# 第一个参数提供default_factory属性的初始值；它默认为None。所有剩余的参数都视为与传递给dict构造函数的参数相同，包括关键字参数。
+
+# create a defaultdict
+lst = [('yellow', 1), ('blue', 2), ('yellow', 3), ('blue', 4), ('red', 1)]
+dic = dict(lst); print(dic)  # >>> {'yellow': 3, 'blue': 4, 'red': 1}
+
+# default_factory表示的是value的类型
+# 当每个键第一次遇到时，它不在映射中；因此default_factory函数自动创建一个条目,例如list(),int()。
+ddic = ddic = collections.defaultdict()  # 缺省的话 defaultdict(None, {})
+ddic = collections.defaultdict(list)  # 使用list作为default factory
+print(ddic)  # >>> defaultdict(<class 'list'>, {})
+
+s = [('yellow', 1), ('blue', 2), ('yellow', 3), ('blue', 4), ('red', 1)]
+d = collections.defaultdict(list)
+for k, v in s:
+    d[k].append(v)
+print(d)  # >>> defaultdict(<class 'list'>, {'yellow': [1, 3], 'blue': [2, 4], 'red': [1]})
+print(sorted(d.items()))  # >>> [('blue', [2, 4]), ('red', [1]), ('yellow', [1, 3])]
+print(dict(d))  # >>> {'yellow': [1, 3], 'blue': [2, 4], 'red': [1]}
+d.update(black=[1,2,3,4])
+print(dict(d))  # >>> {'yellow': [1, 3], 'blue': [2, 4], 'red': [1], 'black': [1, 2, 3, 4]}
+
+# 将default_factory设置为set可使defaultdict有助于构建集合字典,规避重复value
+s = [('red', 1), ('blue', 2), ('red', 3), ('blue', 4), ('red', 1), ('blue', 4)]
+d = collections.defaultdict(set)
+for k, v in s:
+    d[k].add(v)
+print(d.items())  # dict_items([('red', {1, 3}), ('blue', {2, 4})])
+
+s = 'mississippi'
+# 当一个字母第一次遇到时，映射中缺少该字母，因此default_factory函数调用int()以提供默认计数零。增量操作然后建立每个字母的计数。
+d = collections.defaultdict(int)
+for k in s:
+    d[k] += 1
+print(d.items())  # >>> dict_items([('m', 1), ('i', 4), ('s', 4), ('p', 2)])
+# 这种用法类似collections.Counter()
+d.update(m=10)  # 利用update来改变value (修改)
+d.update(x=99)  # (增加)
+print(d.items())  # >>> dict_items([('m', 10), ('i', 4), ('s', 4), ('p', 2), ('x', 99)])
+
+d = collections.defaultdict()
+print(d)  # >>> defaultdict(None, {})
+d.update(name='John', action='ran')
+print(d)  # >>> defaultdict(None, {'name': 'John', 'action': 'ran'})
+
+# normal dict operation
+for i in d:  # iterable by the key, like regular dict
+    print(i)
+
+for k, v in d.items():
+    print(k, v)
+
+for v in d.values():
+    print(v)
+d['name'] = 'Denis'
+print(d)  # >>> defaultdict(None, {'name': 'Denis', 'action': 'ran'})
+del d['name']
+print(d)  # >>> defaultdict(None, {'action': 'ran'})
+
