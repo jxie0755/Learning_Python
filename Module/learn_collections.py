@@ -357,6 +357,11 @@ print('collections.namedtuple(typename, field_names, verbose=False, rename=False
 Point = collections.namedtuple('Point', ['x', 'y'])
 print(Point)  # >>> <class '__main__.Point'>
 
+# create from a dict
+coordict = {'x': 101, 'y': 102}  # 注意这里key必须match class arguments
+print(Point(**coordict))  # >>> Point(x=101, y=102)
+
+
 # verbose和rename实例
 V = collections.namedtuple('Verb', ['x', 'y'], verbose=False)  # 若verbose=True,则创造V的时候回打印源码, 大部分时候是不必要的
 R = collections.namedtuple('Renam', 'large, small, for, class, return', rename=True)
@@ -393,4 +398,19 @@ print(coor)  # does not change the original value!!!!
 print(coor._fields)  # >>> ('x', 'y')  # a tuple
 Color = collections.namedtuple('Color', 'red green blue')  # 参见field_names要求
 Pixel = collections.namedtuple('Pixel', coor._fields + Color._fields)  # 即使一个是string一个是tuple也可以相加整合
-print(Pixel(11, 22, 128, 255, 0))  # 用于从已有namedtuple创建新的namedtuple
+pp = Pixel(11, 22, 128, 255, 0)
+print(pp)  # 用于从已有namedtuple创建新的namedtuple
+
+# 通过getattr(object, attribute)来检索value
+print(getattr(pp, 'red'))  # >>> 128
+
+# 通过__doc__字段直接分配自定义文档字符串
+Book = collections.namedtuple('DenisBook', 'id, title, authors')
+Book.__doc__ += ': Hardcover book'
+Book.id.__doc__ = '13-digit ISBN'
+Book.title.__doc__ = 'Title of first printing'
+Book.authors.__doc__ = 'List of authors sorted by last name'
+# print(help(Book))  # this is to help build up the doc string of this class, to keep as a record
+
+
+
