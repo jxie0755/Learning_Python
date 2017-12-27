@@ -166,6 +166,10 @@ print(dec2)  # >>> deque([0, 1, 2, 3, 4])
 print(dec3)  # >>> deque(['s', 't', 'r', 'i', 'n', 'g', 'd', 'e', 'c', 'k'])
 print(dec4)  # deque([0, 1, 4, 9, 16])
 
+ddec = collections.deque(lst, 3)  # limit maxlen
+print('maxlen is', ddec.maxlen)  # >>> 3
+print(ddec)  # >>> deque([3, 4, 5], maxlen=3)
+
 # simple methods to operator deque object (mostly similar to list methods)
 dec.append('after')
 dec.appendleft('before')
@@ -193,8 +197,12 @@ dec.rotate(-3)  # rotate the reverse way
 print(dec)  # >>> deque([8, 7, 'after', 5, 4, 3, 2, 'ins', 1, 'before', 'x', 'y'])
 # dec.clear() # >>> deque([])  # empty the deque
 
-
 # deque can be transferred to a regular list
 print(dec)  # >>> deque([8, 7, 'after', 5, 4, 3, 2, 'ins', 1, 'before', 'x', 'y'])
 print(list(dec))  # >>> [8, 7, 'after', 5, 4, 3, 2, 'ins', 1, 'before', 'x', 'y']
 
+# deque application scenarios
+def tail(filename, n=10):
+    """Return the last n lines of a file"""
+    with open(filename) as f:
+        return collections.deque(f, n)
