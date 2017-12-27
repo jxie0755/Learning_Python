@@ -322,16 +322,69 @@ d.update(name='John', action='ran')
 print(d)  # >>> defaultdict(None, {'name': 'John', 'action': 'ran'})
 
 # normal dict operation
-for i in d:  # iterable by the key, like regular dict
-    print(i)
-
-for k, v in d.items():
-    print(k, v)
-
-for v in d.values():
-    print(v)
+print(d.items())   # >>> dict_items([('name', 'John'), ('action', 'ran')])
+print(d.keys())    # >>> dict_items([('name', 'John'), ('action', 'ran')])
+print(d.values())  # >>> dict_values(['John', 'ran'])
 d['name'] = 'Denis'
 print(d)  # >>> defaultdict(None, {'name': 'Denis', 'action': 'ran'})
 del d['name']
 print(d)  # >>> defaultdict(None, {'action': 'ran'})
+
+
+
+print()
+print('collections.namedtuple(typename, field_names, verbose=False, rename=False)')
+# 返回一个叫做 typename 的tuple子类(译注:其实这是一个生成类的工厂方法).
+# 这个新的子类用来创建类tuple(tuple-like)的对象,这个对象拥有可以通过属性访问的字段，并且可以通过下标索引和迭代。
+# 这个子类的实例还拥有十分友好的文档[docstring(包括类型名和字段名)，
+# 可通过__doc__访问]和十分好用的__repr__() 方法，__repr__()以name=value的方式列出了元组中的内容
+
+# 解读field_names:
+# field_names 是一个单独的字符串，这个字符串中包含的所有字段用空格或逗号隔开，例如 'x y' 或 'x, y'.
+# 另外, field_names 也可以是字符串的列表，例如 ['x', 'y'].
+# 除了以下划线开头的名称，任何有效的 Python 标识符都可用于 fieldname 。
+# 有效的标识符由字母、 数字和下划线组成，但做不能以数字或下划线开头
+# 并且不能是 关键字 例如 class、 for、 return、 global、 pass 或 raise。
+
+# 解读verbose和rename
+# 如果 rename参数 为 True, 无效的字段名会被自动转换成位置的名称.
+# 例如, ['abc', 'def', 'ghi', 'abc'] 将被转换为 ['abc', '_1', 'ghi', '_3'], 来消除关键字 def 和重复的字段名 abc.
+# 如果verbose 为 True, 在类被建立后将打印类的定义.这个选项是过时的; 相反，它打印的是类的 _source 属性(译注:也就是打印源代码).
+# namedtuple 的实例中并没有字典, 所以namedtuple并不会比常规的tuple消耗更多的内存，它是轻量级的.
+
+# Basic example
+# create a class of namedtuples
+Point = collections.namedtuple('Point', ['x', 'y'])
+print(Point)  # >>> <class '__main__.Point'>
+
+p = Point(11, 22)  # p is an actuall namedtuple object
+# 为一个tuple的各项安排了名字, 这里为坐标
+print(p)  # >>> Point(x=11, y=22)
+print(tuple(p))  # >>> (11, 22)
+print('p[0]', p[0])  # >>> 11
+print('p[1]', p[1])  # >>> 22
+print(p[0] + p[1])   # >>> 33
+# access by name
+print(p.x, ',', p.y)  # >>> 11 , 22
+# can be unpacked
+x, y = p
+print(x, y)  # >>> 11 , 22
+
+# 三个method
+# ._make(iterable)  create a new example of namedtuple
+t = [10, 20]
+coor = Point._make(t)
+print(coor)  # >>> Point(x=10, y=20)
+
+# _asdict()  return an OrderedDict, key to value mapping
+OD = coor._asdict()
+print(OD)  # >>> OrderedDict([('x', 10), ('y', 20)])
+print(dict(OD))  # >>> {'x': 10, 'y': 20}  # to normal dict
+
+# _replace(kwargs)
+print(coor)  # >>> Point(x=10, y=20)
+print(coor._replace(x=99))  # >>> Point(x=99, y=20)  # create a new namedtuple with new value
+print(coor)  # does not change the original value!!!!
+
+# 两个attribute
 
