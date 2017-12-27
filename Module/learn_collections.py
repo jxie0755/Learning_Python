@@ -268,3 +268,7 @@ delete_nth(sample, 3)       # deque([4, 5, 6, 7, 1, 2, 3]) after rotate(-3)
                             # deque([5, 6, 7, 1, 2, 3])  after popleft()
                             # deque([1, 2, 3, 5, 6, 7]) after rotate(3)
 
+
+
+print()
+print('collections.defaultdict([default_factory[, ...]])')
