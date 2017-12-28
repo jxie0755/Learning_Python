@@ -31,6 +31,10 @@ class Car():
     def gas_tank(self, tank_size):
         print('fill up the gas tank', tank_size, 'gallons')
 
+
+# 一个类继承继承 另一个类时，它将自动获得另一个类的所有属性和方法；原有的 类称为父类父类 ，而新类称为子类子类 。
+# 子类继承了其父类的所有属性和方法，同时还可以定义自己的属性和方法。
+
 class ElectricCar(Car):
     # 添加一个电动车独有的属性,电瓶容量(battery_size)
     def __init__(self, make, model, year, battery_size, odometer=13500):  # 此处设置默认值,超类处的默认值被覆盖
