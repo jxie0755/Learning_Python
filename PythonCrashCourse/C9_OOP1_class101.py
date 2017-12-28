@@ -30,7 +30,7 @@ myDog.roll_over() # 等同于 Dog.roll_over(myDog)
 print(myDog.dog_name)  # >>> didi
 print(myDog.dog_age)   # >>> 3
 # print(myDog.__doggy)  # 此处会报错,因为__doggy无法直接被调用
-print(myDog.doggystyle())  # >>> doggy is 123  # 而类方法调用__doggy则可输出结果
+print(myDog.doggystyle())  # >>> doggy is 123  # 而类方法调用__doggy则可输出结果.
 
 print(dir(myDog))
 
