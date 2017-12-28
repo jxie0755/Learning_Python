@@ -42,8 +42,15 @@ class Solution(object):
     # beat 18.90% python submission
 
     def intToRoman3(self, num):
+        # 这个地方triky在于,要注意字典的order问题,在python3.6,字典是有order
+        # 但是如果运行与python低版本,dict没有order,会出现算法bug
+        # 在这里LeetCode就出现了这个bug,所以把dict拆分成list来做算法解决
+        # 也可以使用collections.OrderedDrict
         result = ''
-        roman_list = [(1000, 'M'), (900, 'CM'), (500, 'D'), (400, 'CD'), (100, 'C'), (90, 'XC'), (50, 'L'), (40, 'XL'), (10, 'X'), (9, 'IX'), (5, 'V'), (4, 'IV'), (1, 'I')]
+        roman_list = [(1000, 'M'), (900, 'CM'), (500, 'D'), (400, 'CD'),
+                      (100, 'C'), (90, 'XC'), (50, 'L'), (40, 'XL'),
+                      (10, 'X'), (9, 'IX'), (5, 'V'), (4, 'IV'), (1, 'I')
+                      ]
         for arabic, roman in roman_list:
             repeat, num = divmod(num, arabic)
             result += repeat * roman
@@ -51,3 +58,4 @@ class Solution(object):
     # beat 43.17% python submission
 
 print(Solution().intToRoman3(3888))
+

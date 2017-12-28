@@ -2,6 +2,9 @@
 # Input: A roman number as a string.
 # Output: The decimal representation of the roman number as an int.
 
+
+# 注意这里面dictionary的order问题!!!
+
 def reverse_roman(roman_string):
     result = 0
     # remove the possibility of 4 and 9

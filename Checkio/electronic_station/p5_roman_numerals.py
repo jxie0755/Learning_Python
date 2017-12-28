@@ -7,6 +7,8 @@ Roman_Nu = {1: 'I', 5: 'V', 10: 'X', 50: 'L', 100: 'C', 500: 'D', 1000: 'M'}
 # Input: A number as an integer.
 # Output: The Roman numeral as a string.
 
+# 注意dictionary的order问题
+
 # Version 1 Exhaustive method
 def checkio(data):
     R = {0:'', 1:'I', 2:'II', 3:'III', 4:'IV', 5:'V', 6:'VI', 7:'VII', 8:'VIII', 9:'IX',
