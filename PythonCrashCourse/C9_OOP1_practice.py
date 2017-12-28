@@ -6,12 +6,19 @@ class Restaurant():
     def __init__(self, name, type):
         self.restaurant_name = name
         self.cuisine_type = type
+        self.number_served = 0
 
     def describe_restaurant(self):
         print(f'{self.restaurant_name} serves {self.cuisine_type} food')
 
     def open_restaurant(self):
         print(f'{self.restaurant_name} is now opened for business!')
+
+    def set_number_served(self, new_num):
+        self.number_served = new_num
+
+    def increment_number_served(self, increment):
+        self.number_served += increment
 
 elgalloblanco = Restaurant('El Gallo Blanco', 'Mexican')
 teressa = Restaurant("Teressa's Cafe", 'Italian')
@@ -21,6 +28,17 @@ print(teressa.cuisine_type)  # >>> Italian
 
 elgalloblanco.describe_restaurant()  # >>> El Gallo Blanco serves Mexican food
 teressa.open_restaurant()  # >>> Teressa's Cafe is now opened for business!
+
+print(elgalloblanco.number_served)  # >>> 0
+elgalloblanco.number_served = 100
+print(elgalloblanco.number_served)  # >>> 100
+
+teressa.set_number_served(1234)
+print(teressa.number_served)  # >>> 1234
+teressa.increment_number_served(234)
+print(teressa.number_served)  # >>> 1468
+
+
 
 
 
