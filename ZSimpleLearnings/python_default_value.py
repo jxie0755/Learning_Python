@@ -1,4 +1,5 @@
 # This is to show the default value can be impacted if it is a mutable type (list, dict, etc)
+# https://stackoverflow.com/questions/48014503/class-default-parameter-in-python#48014519
 
 def f(x=[]):
     return x
@@ -31,3 +32,17 @@ a += 4
 print(a)  # >>> 9
 
 print(g()) # >>> 5 # not impacted because int is not mutable
+
+
+# A good way to avoid this from happening, is to use None then define the default in the function
+def h(x=None):
+    if x is None:
+        x = []
+    return x
+
+print(h())  # >>> []
+list3 = h()
+list3.append(33)
+list3.append(44)
+print(list3)  # >>> [33, 44]
+print(h())  # >>> []
