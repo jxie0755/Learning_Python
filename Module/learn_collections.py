@@ -414,3 +414,11 @@ Book.authors.__doc__ = 'List of authors sorted by last name'
 
 
 
+print()
+print('class collections.OrderedDict([items])')
+
+# 返回一个dict子类的实例，支持通常的dict方法。
+# OrderedDict是记住键首次插入顺序的字典。
+# 如果新条目覆盖现有条目，则原始插入位置保持不变。
+# 删除条目并重新插入会将其移动到末尾。
+
