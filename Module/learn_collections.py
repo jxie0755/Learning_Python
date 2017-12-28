@@ -471,4 +471,28 @@ print(orddic2)  # >>> OrderedDict([('pear', 1), ('banana', 3), ('apple', 4)])
 
 
 
+print()
+print('collections.UserDict([initialdata])')
+
+# UserDict是一个包裹了字典的对象。对这个类的需要已经部分地被直接从dict子类化的能力所代替；
+# 但是，此类可以更容易使用，因为底层字典可作为属性访问。
+# UserDict仿照字典。实例的内容保存在一个普通的字典当中，可以通过UserDict实例的属性data访问。
+# 如果提供initialdata, data就会被初始化为initialldata
+
+# 一般来说没什么用
+# 主要使用来拷贝一个字典的数据，而不是共享同一份数据。
+
+lst = [('a', 1), ('b', 2), ('c', 3), ('d', 4)]
+udic = collections.UserDict(lst)
+print(udic)  # >>> {'a': 1, 'b': 2, 'c': 3, 'd': 4}  # looks no different than regular dict
+print(udic.data)  # >>> {'a': 1, 'b': 2, 'c': 3, 'd': 4}  # 输出一个regular dict
+
+regdic = dict(lst)
+udic2 = collections.UserDict(regdic)  # initialdata 可以是paried list也可以是一个dict
+print(udic2)  # >>> {'a': 1, 'b': 2, 'c': 3, 'd': 4}
+
+emptudic = collections.UserDict()
+print(emptudic)  # >>> {} 可为空
+emptudic['test'] = 1234
+print(emptudic)  # >>> {'test': 1234} # no difference from regular dict
 
