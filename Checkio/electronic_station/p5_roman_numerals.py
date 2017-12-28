@@ -41,14 +41,15 @@ def checkio2(data):
 # Version 3 divmod method, 直接对数字进行转换,而不是字符操作
 def checkio3(data):
     result = ''
-    roman_dict = {1000: 'M', 900:'CM', 500:'D', 400:'CD', 100:'C', 90:'XC', 50:'L', 40:'LX', 10:'X', 9:'IX', 5:'V', 4:'IV', 1:'I'}
+    roman_dict = {1000: 'M', 900:'CM', 500:'D', 400:'CD', 100:'C', 90:'XC', 50:'L', 40:'XL', 10:'X', 9:'IX', 5:'V', 4:'IV', 1:'I'}
     for arabic, roman in roman_dict.items():
         repeat, data = divmod(data, arabic)
         result += repeat * roman
     return result
 
 if __name__ == '__main__':
-    assert checkio(6) == 'VI', '6'
-    assert checkio(76) == 'LXXVI', '76'
-    assert checkio(499) == 'CDXCIX', '499'
-    assert checkio(3888) == 'MMMDCCCLXXXVIII', '3888'
+    assert checkio3(4) == 'IV'
+    assert checkio3(6) == 'VI', '6'
+    assert checkio3(76) == 'LXXVI', '76'
+    assert checkio3(499) == 'CDXCIX', '499'
+    assert checkio3(3888) == 'MMMDCCCLXXXVIII', '3888'
