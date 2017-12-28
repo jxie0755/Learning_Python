@@ -496,3 +496,30 @@ print(emptudic)  # >>> {} 可为空
 emptudic['test'] = 1234
 print(emptudic)  # >>> {'test': 1234} # no difference from regular dict
 
+
+
+print()
+print('collections.UserList([list])')
+
+# 这个类充当列表对象的包装器。
+# 它是一个有用的基类，你自己的类列表类可以从它们继承，覆盖现有的方法或添加新的。这样，可以向列表中添加新的行为。
+# 这个类的需要已经部分地被直接从list子类化的能力所取代；
+# 但是，此类可以更容易使用，因为底层列表可作为属性访问。
+
+lst = [1,2,3,4]
+ulst = collections.UserList(lst)
+print(ulst)  # >>> [1, 2, 3, 4]
+print(type(ulst.data))  # regular list
+
+
+
+print()
+print('collections.UserString([sequence])')
+
+# 类UserString充当字符串对象的包装器。这个类的需要已经部分地被从str直接子类化的能力所取代；
+# 但是，此类可以更容易使用，因为底层字符串可作为属性访问。
+
+stri = 'abcdefg'
+ustri = collections.UserString(stri)
+print(ustri)  # >>> abcdefg
+print(type(ustri.data))  # >>> regular string
