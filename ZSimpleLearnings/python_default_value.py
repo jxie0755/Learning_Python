@@ -20,3 +20,14 @@ print(list2)  # >>> [99, 101, 300]
 print(f())  # >>> [99, 101]
 
 # Just be careful about this issue
+
+def g(x=5):
+    return x
+
+print(g())  # >>> 5
+a = g()
+print(a)  #  >>> 5
+a += 4
+print(a)  # >>> 9
+
+print(g()) # >>> 5 # not impacted because int is not mutable
