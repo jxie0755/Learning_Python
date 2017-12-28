@@ -422,3 +422,44 @@ print('class collections.OrderedDict([items])')
 # 如果新条目覆盖现有条目，则原始插入位置保持不变。
 # 删除条目并重新插入会将其移动到末尾。
 
+# basic example
+lst = [('a', 1), ('b', 2), ('c', 3), ('d', 4)]
+odic = collections.OrderedDict(lst)
+print(odic)           # >>> OrderedDict([('a', 1), ('b', 2), ('c', 3), ('d', 4)])
+print(odic.items())   # >>> odict_items([('a', 1), ('b', 2), ('c', 3), ('d', 4)])
+print(odic.keys())    # >>> odict_keys(['a', 'b', 'c', 'd'])
+print(odic.values())  # >>> odict_values([1, 2, 3, 4])
+
+# basic operation
+print(odic['c'])  # >>> 3
+odic['e'] = 5
+print(odic)  # >>>OrderedDict([('a', 1), ('b', 2), ('c', 3), ('d', 4), ('e', 5)])
+
+# 除了通常的映射方法之外，有序字典还支持使用reversed()的反向迭代。
+print(list(reversed(odic)))  # >>> ['e', 'd', 'c', 'b', 'a']
+rdiclist = [(k, v) for k, v in reversed(odic.items())]
+print(rdiclist)  # >>> [('e', 5), ('d', 4), ('c', 3), ('b', 2), ('a', 1)]
+
+# keep dict ordered, by both regular and ordered dict
+d = {'banana': 3, 'apple': 4, 'pear': 1, 'orange': 2}  # regular dictionary
+
+regdic1 = dict(sorted(d.items()))  # key=lambda x:x[0] 可省略
+print(regdic1)  # >>> {'apple': 4, 'banana': 3, 'orange': 2, 'pear': 1}
+regdic2 = dict(sorted(d.items(), key=lambda x:x[1]))
+print(regdic2)  # >>> {'pear': 1, 'orange': 2, 'banana': 3, 'apple': 4}
+regdic3 = dict(sorted(d.items(), key=lambda x:len(x[0])))  # sort by length of key
+print(regdic3)  # >>> {'pear': 1, 'apple': 4, 'banana': 3, 'orange': 2}
+
+orddic1 = collections.OrderedDict(sorted(d.items()))  # key=lambda x:x[0] 可以省略
+print(orddic1)    # >>> OrderedDict([('apple', 4), ('banana', 3), ('orange', 2), ('pear', 1)])
+orddic2 = collections.OrderedDict(sorted(d.items(), key=lambda x:x[1]))
+print(orddic2)    # >>> OrderedDict([('pear', 1), ('orange', 2), ('banana', 3), ('apple', 4)])
+orddic3 = collections.OrderedDict(sorted(d.items(), key=lambda x:len(x[0])))
+print(orddic3)    # >>> OrderedDict([('pear', 1), ('apple', 4), ('banana', 3), ('orange', 2)])
+
+
+
+
+
+
+
