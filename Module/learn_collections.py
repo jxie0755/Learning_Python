@@ -422,6 +422,12 @@ print('class collections.OrderedDict([items])')
 # 如果新条目覆盖现有条目，则原始插入位置保持不变。
 # 删除条目并重新插入会将其移动到末尾。
 
+# regular dict is order in python 3.6, but:
+# 1. it's not in the spec
+# 2. you shouldn't rely on it
+# 3. python can't figure out if you're relying on it, so no error will be raised
+# 4. subtle bugs are sure to be introduced by people who "know" this "feature" exists and use it.
+
 # basic example
 lst = [('a', 1), ('b', 2), ('c', 3), ('d', 4)]
 odic = collections.OrderedDict(lst)
