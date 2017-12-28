@@ -505,5 +505,5 @@ print(68)
 print('__import__()')
 # 用于import任何文件名
 # surpose a file named 05_if1_guess_number.py, we want to import this file
-mymodule = __import__('05_if1_guess_number')
+# mymodule = __import__('05_if1_guess_number')
 
