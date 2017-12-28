@@ -9,11 +9,11 @@
 
 class Car():
     '''car information summary'''
-    def __init__(self, make, model, year, odometer):
+    def __init__(self, make, model, year):
         self.make = make
         self.model = model
         self.year = year
-        self.odometer = odometer
+        self.odometer = 0  # 相当于设置一个(添加__则私有)属性,但是不需要在创造是外部添加,而是一个默认值(等于0)
 
     def get_car_info(self):
         long_name = str(self.year) + ' ' + self.make + ' ' + self.model
@@ -23,6 +23,8 @@ class Car():
         print('The car has been driven: ' + str(self.odometer) + ' miles')
 
     # 添加一个方法来改变里程表读数
+    # 使用方法的好处就是对于更改里程数做一些规定,比如禁止回调
+    # 注意如果不希望第三方轻易修改里程数,还需要将属性设置为私有,切断直接修改属性的可能性
     def update_odometer(self, mileage):
         # 添加了一个禁止回调里程表的设置
         if mileage > self.odometer:
@@ -40,12 +42,13 @@ class Car():
 
 # 注意:以上两个方法只能禁止用户回调里程表,如果有人能接触原代码,则可以通过直接变动属性值回调.
 
-my_car = Car('Audi', 'S4', 2016, 0)
+my_car = Car('Audi', 'S4', 2016)
 print(my_car.get_car_info())
 my_car.read_odometer()
 
 # 修改odometer数字
-my_car.odometer = 18000
+# 有时候需要像这样直接访问属性，但其他时候需要编写对属性进行更新的方法。
+my_car.odometer = 19999  # 从外部修改(若为private方法__odometer则无法更改,但不会报错!)
 my_car.read_odometer()
 
 # 使用方法修改odometer
