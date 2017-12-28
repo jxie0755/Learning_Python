@@ -394,6 +394,7 @@ print('property()')
 print(53)
 print('repr(object)')
 # 返回某个对象可打印形式的字符串。
+# 主要作用是传送出一个可以给eval()运行的字符串
 a = [1,2,3]
 print(repr(a))  # >>> [1, 2, 3]
 print(a)
