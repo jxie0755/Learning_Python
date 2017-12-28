@@ -457,8 +457,11 @@ print(orddic2)    # >>> OrderedDict([('pear', 1), ('orange', 2), ('banana', 3), 
 orddic3 = collections.OrderedDict(sorted(d.items(), key=lambda x:len(x[0])))
 print(orddic3)    # >>> OrderedDict([('pear', 1), ('apple', 4), ('banana', 3), ('orange', 2)])
 
-
-
+# delete key pair will keep the order
+del regdic2['orange']
+print(regdic2)  # >>> {'pear': 1, 'banana': 3, 'apple': 4}
+del orddic2['orange']
+print(orddic2)  # >>> OrderedDict([('pear', 1), ('banana', 3), ('apple', 4)])
 
 
 
