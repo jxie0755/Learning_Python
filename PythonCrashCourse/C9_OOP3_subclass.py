@@ -3,11 +3,11 @@
 
 class Car():
     '''car information summary'''
-    def __init__(self, make, model, year, tank=35, odometer=500):
+    def __init__(self, make, model, year, tank=35):
         self.make = make
         self.model = model
         self.year = year
-        self.odometer = odometer
+        self.odometer = 0
         self.tank_size = tank
 
     def get_car_info(self):
@@ -44,14 +44,13 @@ class Car():
 
 class ElectricCar(Car):  # 创建子类的方法是创建时参数填写父类的名字
     # 添加一个电动车独有的属性,电瓶容量(battery_size)
-    def __init__(self, make, model, year, battery_size=50, odometer=1000):  # 此处设置新默认值,而不是继承超类
+    def __init__(self, make, model, year, battery_size=50):  # 此处设置新默认值,而不是继承超类
         #  添加ECar的init有一个battery属性,设置默认值为50
 
         super().__init__(make, model, year)  # super()中不需要battery
                                              # 注意这里gas tank不再是电动车的属性
         # Car.__init__(self, make, model, year) # also works
-
-        self.odometer = odometer  # 由于Ecar有新的默认odometer reading,所以不要继承父类,而是新写一个odometer属性
+        self.odometer = 0  # 由于Ecar有新的默认odometer reading,所以不要继承父类,而是新写一个odometer属性
         self.battery_size = battery_size  # 新加一个子类特有的属性,battery_size
 
     # 由于子类继承父类的方法,所以不需要再写一次方法
