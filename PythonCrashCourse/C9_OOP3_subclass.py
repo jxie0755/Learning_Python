@@ -99,5 +99,5 @@ print(my_tesla.read_odometer())
 my_tesla.fill_tank(32)
 print(my_tesla.battery())
 
-print(my_tesla.year)
+print(my_tesla.type)
 
