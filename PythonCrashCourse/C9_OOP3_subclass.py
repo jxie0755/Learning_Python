@@ -44,13 +44,12 @@ class Car():
 
 class ElectricCar(Car):  # 创建子类的方法是创建时参数填写父类的名字
     # 添加一个电动车独有的属性,电瓶容量(battery_size)
-    def __init__(self, make, model, year, battery_size, odometer=1000):  # 此处设置默认值,超类处的默认值被覆盖
-    # 添加ECar的init有一个battery, 调整顺序,默认值odometer在最后.
+    def __init__(self, make, model, year, battery_size=50, odometer=1000):  # 此处设置新默认值,而不是继承超类
+        #  添加ECar的init有一个battery属性,设置默认值为50
 
         super().__init__(make, model, year)  # super()中不需要battery
-                                                       # 注意超类的odometer不要再给默认值了,不然无法修改子类的odometer
-                                                       # 注意这里gas tank不再是电动车的属性
-        # Car.__init__(self, make, model, year, odometer) # also works
+                                             # 注意这里gas tank不再是电动车的属性
+        # Car.__init__(self, make, model, year) # also works
 
         self.odometer = odometer  # 由于Ecar有新的默认odometer reading,所以不要继承父类,而是新写一个odometer属性
         self.battery_size = battery_size  # 新加一个子类特有的属性,battery_size
@@ -82,7 +81,7 @@ my_car.fill_tank(32)
 
 print()
 
-my_tesla = ElectricCar('Tesla', 'Model S', 2017, 99, 1000)
+my_tesla = ElectricCar('Tesla', 'Model S', 2017)
 print(my_tesla.get_car_info())
 
 print(my_tesla.read_odometer())
