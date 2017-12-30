@@ -47,35 +47,25 @@ class ElectricCar(Car):  # 创建子类的方法是创建时参数填写父类�
     def __init__(self, make, model, year, battery_size, odometer=1000):  # 此处设置默认值,超类处的默认值被覆盖
     # 添加ECar的init有一个battery, 调整顺序,默认值odometer在最后.
 
-        super().__init__(make, model, year, odometer)  # super()中不需要battery
+        super().__init__(make, model, year)  # super()中不需要battery
                                                        # 注意超类的odometer不要再给默认值了,不然无法修改子类的odometer
                                                        # 注意这里gas tank不再是电动车的属性
         # Car.__init__(self, make, model, year, odometer) # also works
 
+        self.odometer = odometer  # 由于Ecar有新的默认odometer reading,所以不要继承父类,而是新写一个odometer属性
         self.battery_size = battery_size  # 新加一个子类特有的属性,battery_size
 
-    def get_car_info(self):
-        description = Car.get_car_info(self)
-        return description
-
-    # odometer section
-    def read_odometer(self):
-        return Car.read_odometer(self)
-
-    def update_odometer(self, mileage):
-        Car.update_odometer(self, mileage)
-        return self.odometer
-
-    def increment_odometer(self, add_mileage):
-        Car.increment_odometer(self, add_mileage)
+    # 由于子类继承父类的方法,所以不需要再写一次方法
 
     # special attributes
     def battery(self):
         print('battery size is ' + str(self.battery_size))
         return self.battery_size
 
+    # 如果父类的方法对于子类不再合适,那么可以进行重写来覆盖
     def fill_tank(self, volume):
         print('Electric car does not have a gas tank!')
+        # 以上方法如果被删除,则会转而执行父类的相同名称的方法
 
 
 
