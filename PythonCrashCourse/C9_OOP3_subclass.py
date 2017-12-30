@@ -35,13 +35,13 @@ class Car():
 # 一个类继承继承 另一个类时，它将自动获得另一个类的所有属性和方法；原有的 类称为父类父类 ，而新类称为子类子类 。
 # 子类继承了其父类的所有属性和方法，同时还可以定义自己的属性和方法。
 
-class ElectricCar(Car):
+class ElectricCar(Car):  # 创建子类的方法是创建时参数填写父类的名字
     # 添加一个电动车独有的属性,电瓶容量(battery_size)
     def __init__(self, make, model, year, battery_size, odometer=13500):  # 此处设置默认值,超类处的默认值被覆盖
     # 添加ECar的init有一个battery, 调整顺序,默认值odometer在最后.
 
         super().__init__(make, model, year, odometer)  # super中不需要battery
-                                                      # 注意超类的odometer不要再给默认值了,不然无法修改子类的odometer
+                                                       # 注意超类的odometer不要再给默认值了,不然无法修改子类的odometer
         # Car.__init__(self, make, model, year, odometer) # also works
 
         self.battery_size = battery_size
