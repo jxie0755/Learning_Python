@@ -58,7 +58,7 @@ class ElectricCar(Car):  # 创建子类的方法是创建时参数填写父类�
 
     # odometer section
     def read_odometer(self):
-        Car.read_odometer(self)
+        return Car.read_odometer(self)
 
     def update_odometer(self, mileage):
         Car.update_odometer(self, mileage)
@@ -78,10 +78,12 @@ class ElectricCar(Car):  # 创建子类的方法是创建时参数填写父类�
 
 my_car = Car('Audi', 'S4', 2016)
 print(my_car.get_car_info())
+
 print(my_car.read_odometer())
 my_car.update_odometer(1999)
 my_car.increment_odometer(200)
 print(my_car.read_odometer())
+
 my_car.fill_tank(32)
 
 
@@ -89,11 +91,13 @@ print()
 
 my_tesla = ElectricCar('Tesla', 'Model S', 2017, 99, 1000)
 print(my_tesla.get_car_info())
-print(my_tesla.read_odometer())
-# my_tesla.battery_size()
-print(my_tesla.battery())
 
+print(my_tesla.read_odometer())
+my_tesla.update_odometer(3000)
+my_tesla.increment_odometer(500)
+print(my_tesla.read_odometer())
 
 # 若是父类中的某些方法,对于子类来说不能用,那么就在子类中创造同样名称的方法,然后返回一个不能用的print即可
 my_tesla.fill_tank(32)
+print(my_tesla.battery())
 
