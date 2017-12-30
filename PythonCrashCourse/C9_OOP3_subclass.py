@@ -3,7 +3,7 @@
 
 class Car():
     '''car information summary'''
-    def __init__(self, make, model, year, tank=35, odometer=0):
+    def __init__(self, make, model, year, tank=35, odometer=500):
         self.make = make
         self.model = model
         self.year = year
