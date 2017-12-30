@@ -22,11 +22,13 @@ class Car():
         if mileage > self.odometer:
             self.odometer = mileage
         else:
-            print('you can\'t roll an odometer back!' )
+            print('you can\'t roll an odometer back!')
+        return Car.read_odometer(self)
 
     def increment_odometer(self, add_mileage):
         if add_mileage > 0:
             self.odometer += add_mileage
+            print(add_mileage, 'miles has been added to the odometer')
         else:
             print('what are you trying to do? \nYou think I am stupid?')
 
@@ -62,6 +64,7 @@ class ElectricCar(Car):  # 创建子类的方法是创建时参数填写父类�
 
     def update_odometer(self, mileage):
         Car.update_odometer(self, mileage)
+        return self.odometer
 
     def increment_odometer(self, add_mileage):
         Car.increment_odometer(self, add_mileage)
@@ -80,7 +83,7 @@ my_car = Car('Audi', 'S4', 2016)
 print(my_car.get_car_info())
 
 print(my_car.read_odometer())
-my_car.update_odometer(1999)
+print(my_car.update_odometer(1999))
 my_car.increment_odometer(200)
 print(my_car.read_odometer())
 
@@ -93,7 +96,7 @@ my_tesla = ElectricCar('Tesla', 'Model S', 2017, 99, 1000)
 print(my_tesla.get_car_info())
 
 print(my_tesla.read_odometer())
-my_tesla.update_odometer(3000)
+print(my_tesla.update_odometer(3000))
 my_tesla.increment_odometer(500)
 print(my_tesla.read_odometer())
 
