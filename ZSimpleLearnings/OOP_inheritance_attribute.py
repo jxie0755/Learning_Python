@@ -25,3 +25,4 @@ print(sub1.C)  # >>> 7
 print(sub1.D)  # >>> X  # 此处虽然super()没有指定,但是由于SuperC中有默认值,所以仍然被继承
 print(sub1.E)  # >>> what?
 print(sub1.F)  # >>> Y
+
