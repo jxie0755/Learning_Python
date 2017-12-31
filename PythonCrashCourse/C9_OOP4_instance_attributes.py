@@ -41,6 +41,8 @@ class Battery():
         range = self.battery_size * 3 + 30
         print('The car\'s range is', range, 'miles')
 
+    def upgrade_battery(self):
+        self.battery_size = 85
 
 my_car = Car('Audi', 'S4', 2016)
 print(my_car.get_car_info())
@@ -57,9 +59,14 @@ my_tesla.battery.get_range()     # 后半段的battery_info()和get_range()实�
 print(type(my_tesla.battery))    # >>> <class '__main__.Battery'> 属性为Battery的一个实例
 
 
+print()
+# 给Battery 类添加一个名为upgrade_battery() 的方法。这个方法检查电瓶容量，如果它不是85，就将它设置为85。
+my_tesla.battery.upgrade_battery()
+my_tesla.battery.battery_info()  # >>> The battery size is: 85
+my_tesla.battery.get_range()     # >>> The car's range is 285 miles
+
 
 # 这样做的目的就是把一个类的属性(如果该属性可以细化)本身做成一个类.
 # 这个做法和创造子类是不同的逻辑.
 # 子类的做法是将从父类中创造一个从属的分支
 # 而这里的做法是将一个类的属性独立成一个类,没有从属关系
-
