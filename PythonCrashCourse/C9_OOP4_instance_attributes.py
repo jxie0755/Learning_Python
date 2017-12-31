@@ -21,6 +21,7 @@ class ElectricCar(Car):
         super().__init__(make, model, year, type)
         self.odometer = 0
         self.battery = Battery()  # 将Battery类的一个实例Battery()做为电动车的一个属性
+        # 每当方法__init__()被调用时，都将执行该操作；因此现在每个ElectricCar实例都包含一个自动创建的Battery实例。
 
     # special attributes
     def battery(self):
