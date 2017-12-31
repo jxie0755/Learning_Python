@@ -41,10 +41,10 @@ class Car():
             print("You can't fill up the tank more than it can take!")
 
 class ElectricCar(Car):
-    def __init__(self, make, model, year, type='sports car', battery_size=50):
+    def __init__(self, make, model, year, type='sports car'):
         super().__init__(make, model, year, type)
         self.odometer = 0
-        self.BBBattery = Battery()
+        self.battery = Battery()
 
     # special attributes
     def battery(self):
@@ -58,7 +58,7 @@ class ElectricCar(Car):
 
 class Battery():
     # 独立battery成为一个类
-    def __init__(self, battery_size=70):
+    def __init__(self, battery_size=50):
         self.battery_size = battery_size
 
     def battery_info(self):
@@ -79,11 +79,11 @@ print()
 
 my_tesla = ElectricCar('Tesla', 'Model S', 2017)
 my_tesla.get_car_info()
-my_tesla.BBBattery.battery_info()
+my_tesla.battery.battery_info()
 # 注意这里,BBBattery是来自my_tesla的self.BBBattery属性,而不是Battery这个class的名字!!
 my_tesla.read_odometer()
 my_tesla.fill_tank(40)
-my_tesla.BBBattery.get_range()
+my_tesla.battery.get_range()
 
 
 
