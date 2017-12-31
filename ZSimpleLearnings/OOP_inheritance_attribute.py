@@ -43,13 +43,16 @@ print()
 # 如果想在生成实例时就自动继承/改变 默认属性值:
 # 一个办法就是子类__init__和super()中都加入显性默认值的变量
 class SubC2(SuperC):
-    def __init__(self, a, b, c, f, d='new d2'):  # 此处无法强制
-        super().__init__(a, b, c, d='XXX')  # 此处不能放置e,因为e不属于父类__init()方法创建时必须输入的参数
-                                  # 此处如果super()中再次写入默认值,则会再度覆盖子类属性的赋值,除非生成实例后再改写
-                                  # 理由是super().有更高的权利
+    def __init__(self, a, b, c, f, d='D0'):  # 子类维持与父类相同的默认值
+        super().__init__(a, b, c, d)  # super()中也添加d
+                                    # 此处不能放置e,因为e不属于父类__init()方法创建时必须输入的参数
+
+        #  super().__init__(a, b, c, d='XXX')
+        #  此处如果super()中再次写入默认值,则会再度覆盖子类属性的赋值,除非生成实例后再改写
+        # 理由是super().有更高的权利
         self.F = f
 
-sub2 = SubC2('A2', 'B2', 'C2', 'Y2', d='new d22')
+sub2 = SubC2('A2', 'B2', 'C2', 'Y2', d='new d22')  # 此处不设定d,则维持同父类一致的默认值,但是同时又可以赋予实例新值
 print(sub2.A)  # >>> A2  # Ａ, B, C被继承而且数值被刷新
 print(sub2.B)  # >>> B2
 print(sub2.C)  # >>> C2
