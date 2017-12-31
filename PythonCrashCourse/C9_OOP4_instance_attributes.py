@@ -1,4 +1,4 @@
-# Inheritance, Parent class, Child class, subclass, super class
+# 将一个属性独立成为一个新的类
 # 讲电动车的电池拆分成一个独立的类, 这样电池的很多属性可以在这个类中细化
 # 将此文件另存为Car.py以供其他文件导入类
 
@@ -51,9 +51,10 @@ print(my_tesla.get_car_info())
 
 print()
 
-my_tesla.battery.battery_info()
-# 注意这里,battery是来自my_tesla的self.battery属性,而不是Battery这个class的名字!!
-my_tesla.battery.get_range()
+my_tesla.battery.battery_info()  # 这里前半段my_tesla.battery表面是调用Ecar的battery属性,但是这个属性其实是Battery类的一个实例
+my_tesla.battery.get_range()     # 后半段的battery_info()和get_range()实际是Battery类的方法
 
-
-
+# 这样做的目的就是把一个类的属性(如果该属性可以细化)本身做成一个类.
+# 这个做法和创造子类是不同的逻辑.
+# 子类的做法是将从父类中创造一个从属的分支
+# 而这里的做法是将一个类的属性独立成一个类,没有从属关系
