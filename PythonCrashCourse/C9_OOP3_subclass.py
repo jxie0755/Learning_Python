@@ -98,6 +98,5 @@ print(my_tesla.read_odometer())
 # 若是父类中的某些方法,对于子类来说不能用,那么就在子类中创造同样名称的方法,然后返回一个不能用的print即可
 my_tesla.fill_tank(32)
 print(my_tesla.battery())
-
 print(my_tesla.type)
 
