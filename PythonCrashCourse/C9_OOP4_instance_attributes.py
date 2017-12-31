@@ -49,13 +49,17 @@ print()
 
 my_tesla = ElectricCar('Tesla', 'Model S', 2017)
 print(my_tesla.get_car_info())
-
+print(type(my_tesla))  # >>> <class '__main__.ElectricCar'>
 print()
 
 my_tesla.battery.battery_info()  # 这里前半段my_tesla.battery表面是调用Ecar的battery属性,但是这个属性其实是Battery类的一个实例
 my_tesla.battery.get_range()     # 后半段的battery_info()和get_range()实际是Battery类的方法
+print(type(my_tesla.battery))    # >>> <class '__main__.Battery'> 属性为Battery的一个实例
+
+
 
 # 这样做的目的就是把一个类的属性(如果该属性可以细化)本身做成一个类.
 # 这个做法和创造子类是不同的逻辑.
 # 子类的做法是将从父类中创造一个从属的分支
 # 而这里的做法是将一个类的属性独立成一个类,没有从属关系
+
