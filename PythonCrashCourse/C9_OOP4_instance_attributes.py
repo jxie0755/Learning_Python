@@ -4,53 +4,63 @@
 
 class Car():
     '''car information summary'''
-    def __init__(self, make, model, year, odometer=5500):
+    def __init__(self, make, model, year, type='sedan', tank=35):
         self.make = make
         self.model = model
         self.year = year
-        self.odometer = odometer
+        self.type = type
+        self.odometer = 0
+        self.tank_size = tank
 
     def get_car_info(self):
-        long_name = str(self.year) + ' ' + self.make + ' ' + self.model
-        print(long_name)
+        description = str(self.year) + ' ' + self.make + ' ' + self.model + ' ' + self.type
+        return description
 
     def read_odometer(self):
         print('The car has been driven: ' + str(self.odometer) + ' miles')
+        return self.odometer
 
     def update_odometer(self, mileage):
         if mileage > self.odometer:
             self.odometer = mileage
         else:
-            print('you can\'t roll an odometer back!' )
+            print('you can\'t roll an odometer back!')
+        return Car.read_odometer(self)
 
     def increment_odometer(self, add_mileage):
         if add_mileage > 0:
             self.odometer += add_mileage
+            print(add_mileage, 'miles has been added to the odometer')
         else:
             print('what are you trying to do? \nYou think I am stupid?')
 
-    def gas_tank(self, tank_size):
-        print('fill up the gas tank', tank_size, 'gallons')
+    def fill_tank(self, volume):
+        if volume <= self.tank_size:
+            print('Fill up the gas', volume, 'gallons')
+        else:
+            print("You can't fill up the tank more than it can take!")
 
 class ElectricCar(Car):
-    def __init__(self, make, model, year, odometer=13500):
-        super().__init__(make, model, year, odometer)
-        self.BBBattery = Battery()  # 此处精髓在于, 在初始化阶段新添一个本来没有的参数,这个参数实际上是Battery类的实例.
-        # 这样做的好处就在于, 每当生成一个ECar的实例(my_tesla), 都会自动生成一个电池属性,但它不属于ECar自身的实参,而是引用了来自Battery类的实例,所以有效的精简了每一个类的复杂程度.
+    def __init__(self, make, model, year, type='sports car', battery_size=50):
+        super().__init__(make, model, year, type)
+        self.odometer = 0
+        self.BBBattery = Battery()
 
-        # self.battery_size = battery_size 取消原有的自带属性
+    # special attributes
+    def battery(self):
+        print('battery size is ' + str(self.battery_size))
+        return self.battery_size
 
-    def get_car_info(self):
-        Car.get_car_info(self)
-        # print('Battery size: ', self.battery_size)
-
-    def gas_tank(self, tank_size):
-        print('You don\'t have a gas tank!')
+    # 如果父类的方法对于子类不再合适,那么可以进行重写来覆盖
+    def fill_tank(self, volume):
+        print('Electric car does not have a gas tank!')
+        # 以上方法如果被删除,则会转而执行父类的相同名称的方法
 
 class Battery():
     # 独立battery成为一个类
     def __init__(self, battery_size=70):
         self.battery_size = battery_size
+
     def battery_info(self):
         print("The battery size is:", self.battery_size)
 
@@ -60,10 +70,10 @@ class Battery():
         print('The car\'s range is', range, 'miles')
 
 
-my_car = Car('Audi', 'S4', 2016, 5000)
+my_car = Car('Audi', 'S4', 2016)
 print(my_car.get_car_info())
 my_car.read_odometer()
-my_car.gas_tank(40)
+my_car.fill_tank(40)
 
 print()
 
@@ -72,7 +82,7 @@ my_tesla.get_car_info()
 my_tesla.BBBattery.battery_info()
 # 注意这里,BBBattery是来自my_tesla的self.BBBattery属性,而不是Battery这个class的名字!!
 my_tesla.read_odometer()
-my_tesla.gas_tank(40)
+my_tesla.fill_tank(40)
 my_tesla.BBBattery.get_range()
 
 
