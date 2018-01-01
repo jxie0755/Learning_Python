@@ -18,7 +18,7 @@ class Car():
 # 然后这个makeC和modelC变成了Tank()实例中的makeT和modelT, 根据方法,寻找Tank中的dict数据得到相对应的size
 
 class Tank():
-    # This is a better way, because the mapping should be in the Tank
+    # This is a better way, because the data of mapping should be in the Tank
     car_tank_sizes = {'Audi': {'A4': 20, 'A6': 25, 'A8': 30},
                       'BMW': {'Series 3': 21, 'Series 5': 26, 'Series 7': 31}}
                       # attributes does not need to be in __init__()
