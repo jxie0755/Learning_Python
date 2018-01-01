@@ -89,7 +89,6 @@ import operator
 inventory = [('apple', 3), ('banana', 2), ('pear', 5), ('orange', 1)]
 getcount = operator.itemgetter(1)
 
-
 # 去出元组中的第1项
 print(list(map(getcount, inventory)))  # >>> [3, 2, 5, 1]
 print(list(map(lambda x:x[1], inventory)))
