@@ -26,13 +26,12 @@ class Tank():
     def __init__(self, makeT, modelT):
         self.tank_size = Tank.car_tank_sizes.get(makeT, {}).get(modelT)
 
-        # 这样虽然可以实现,如果出现读取内置mapping之外的数据,则会引发KeyError, 除非引入try,except写法
         # self.tank_size = Tank.car_tank_sizes[f'{makeT}'][f'{modelT}']
+        # 这样虽然可以实现,如果出现读取内置mapping之外的数据,则会引发KeyError, 除非引入try,except写法
 
-        # 这样可以使用itemgetter得到数据,同样会引发KeyError
         # from operator import itemgetter
         # self.tank_size = itemgetter(modelT)(itemgetter(makeT)(Tank.car_tank_sizes))
-
+        # 这样可以使用itemgetter得到数据,同样会引发KeyError
 
     def tank_info(self):
         if self.tank_size == None:  # 设置一个if条件,避免意外
