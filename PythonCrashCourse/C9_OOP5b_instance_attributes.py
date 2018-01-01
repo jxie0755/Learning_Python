@@ -1,6 +1,5 @@
 # 这是很重要的一次尝试,将整个Tank class独立出来,然后使得它能根据car model的不同来给出不同的tank size
 # Link car model to the tank_size
-
 # 完全体: 将car_tank_size也放入到Tank的class中 -- 彻底的独立.
 # 利用嵌套的dict,使得不单能够分辨model,连make也可以分辨
 
@@ -15,6 +14,8 @@ class Car():
         print('The car is', long_name)
 
 # 要注意这里的make和model分别是跟的那个类里的make和model
+# 这里生成Tank()实例时,引用的是Car实例的makeC和modelC作为参数
+# 然后这个makeC和modelC变成了Tank()实例中的makeT和modelT, 根据方法,寻找Tank中的dict数据得到相对应的size
 
 class Tank():
     # This is a better way, because the mapping should be in the Tank

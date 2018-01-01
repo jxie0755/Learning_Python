@@ -1,3 +1,5 @@
+# 仍然是以另一个类(Tank)的实例作为Car类的属性, 区别是这里实例将进入参数
+
 # 这是很重要的一次尝试,将整个Tank class独立出来,然后使得它能根据car model的不同来给出不同的tank size
 # Link car model to the tank_size
 # 这里是将一个dict放入在Car class类,然后Tank的method可以根据这个dict来给出不同的答案.
