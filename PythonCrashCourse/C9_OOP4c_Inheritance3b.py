@@ -17,8 +17,10 @@ class Car():
 # 要注意这里的make和model分别是跟的那个类里的make和model
 
 class Tank():
+    # This is a better way, because the mapping should be in the Tank
     car_tank_sizes = {'Audi': {'A4': 20, 'A6': 25, 'A8': 30},
                       'BMW': {'Series 3': 21, 'Series 5': 26, 'Series 7': 31}}
+                      # attributes does not need to be in __init__()
 
     def __init__(self, makeT, modelT):
         self.tank_size = Tank.car_tank_sizes.get(makeT, {}).get(modelT)
