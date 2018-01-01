@@ -1,7 +1,11 @@
 import operator
 
 
-# operator.attrgetter()
+print()
+print('operator.attrgetter(attr)')
+print('operator.attrgetter(*attrs)')
+
+# 返回从其操作数获取attr的可调用对象。如果请求多个属性，则返回一个属性元组。属性名称也可以包含点
 
 class Student(object):
     def __init__(self, id, name, marks):
@@ -36,7 +40,11 @@ print(yr(date2))  # >>> 1986
 
 
 
-# operator.itemgetter()
+print()
+print('operator.itemgetter(item)')
+print('operator.itemgetter(*items)')
+
+# 返回使用操作数的__getitem__()方法从其操作数获取项的可调用对象。如果指定了多个项，则返回查找值的元组。
 
 import operator
 import itertools

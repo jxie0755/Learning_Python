@@ -24,7 +24,14 @@ class Tank():
                       # attributes does not need to be in __init__()
 
     def __init__(self, makeT, modelT):
-        self.tank_size = Tank.car_tank_sizes.get(makeT, {}).get(modelT)
+        # self.tank_size = Tank.car_tank_sizes.get(makeT, {}).get(modelT)
+
+        # 这样虽然可以实现,如果出现读取内置mapping之外的数据,则会引发error, 除非引入try,except写法
+        self.tank_size = Tank.car_tank_sizes[f'{makeT}'][f'{modelT}']
+
+        #
+        from operator import itemgetter
+        self.tank_size = itemgetter(Tank.car_tank_sizes[makeT])
 
     def tank_info(self):
         if self.tank_size == None:  # 设置一个if条件,避免意外
@@ -41,6 +48,6 @@ my_car2 = Car('BMW', 'Series 5')
 my_car2.get_car_info()
 my_car2.tank.tank_info()
 
-my_car3 = Car('Mercedez', 'Series E')
-my_car3.get_car_info()
-my_car3.tank.tank_info()
+# my_car3 = Car('Mercedez', 'Series E')
+# my_car3.get_car_info()
+# my_car3.tank.tank_info()
