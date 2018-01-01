@@ -4,12 +4,14 @@
 # 还不是完全体,因为tank信息还是存在了Car这个class里. 参见下一个版本5_OOP4c.py
 
 class Car():
-    car_tank_sizes = {'Audi': {'A4': '20', 'A6': 25, 'A8': 30}}
+    car_tank_sizes = {'Audi': {'A4': 20, 'A6': 25, 'A8': 30}}
 
     def __init__(self, make, model):
         self.make = make
         self.model = model
         self.tank = Tank(Car.car_tank_sizes.get(self.make, {}).get(self.model))
+                         # creating not just an empty instance, but also with actual parameter
+                         # parameter connects a mapping from the car model, so that each model will have different size
 
     def get_car_info(self):
         long_name = self.make + ' ' + self.model
@@ -28,5 +30,6 @@ class Tank():
 
 
 my_car = Car('Audi', 'A6')
+
 my_car.get_car_info()
 my_car.tank.tank_info()
