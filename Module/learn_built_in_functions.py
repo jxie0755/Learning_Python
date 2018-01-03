@@ -270,12 +270,18 @@ print(hasattr(obj, 'meth2'))  # >>> True
 print(set(dir(obj)) - set(dir(Cls)))  # >>> {'attr2'}  # only created in __init__() when an instance is made.
 # Therefore Cls has no attribute as attr2 but obj has.
 
-for i in dir(obj):
-    print(type(i))
-
-
 # for more information, check my question on:
 # https://stackoverflow.com/questions/48070833/python-hasattr-to-differentiate-a-method-and-an-attribute
+# This problem can be solved by using callable()
+def hasmethod(obj, method_name):
+    return hasattr(obj, method_name) and callable(getattr(obj, method_name))
+
+def hasattribute(obj, method_name):
+    return hasattr(obj, method_name) and not callable(getattr(obj, method_name))
+
+print(hasmethod(obj, 'meth1'))     # >>> True
+print(hasmethod(obj, 'attr1'))     # >>> False
+print(hasattribute(obj, 'attr1'))  # >>> True
 
 
 print('\n', 28)
