@@ -66,6 +66,7 @@ print(dd.get('f'))         # >>> None  # 相当于 d['f'], 但是不会引发err
 print(dd.get('f', '123'))  # >>> 123   # 引发default
 
 
+
 # dict.items(), dict.keys(), dict.values()
 # 返回字典项目的新视图, 注意这个类似容器,不是iterator也不是generator,不存在consume的问题
 print(dd.items())    # >>> dict_items([('a', 1), ('b', 2), ('c', 3), ('d', 4), ('e', 5)])
@@ -94,6 +95,8 @@ print(list(keys))  # >>> ['spam', 'bacon']
 # keys() are considered as a set, so accept set operations
 print(keys & {'eggs', 'bacon', 'salad'})  # >>> {'bacon'}
 print(keys ^ {'sausage', 'juice'})        # >>> {'juice', 'sausage', 'bacon', 'spam'}
+
+
 
 # popitem()
 # 如果字典为空，调用popitem()将引发一个KeyError
