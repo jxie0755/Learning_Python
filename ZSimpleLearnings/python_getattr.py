@@ -36,3 +36,14 @@ op = 'chain'
 list2d = [[1,2,3],['a','b','c'], [7], [8,9]]
 print(list(getattr(itertools, op)(*list2d)))
 # >>> [1, 2, 3, 'a', 'b', 'c', 7, 8, 9]
+
+# This can also be used to get run an internal method in OOP application
+class Cls():
+    def __init__(self, attr1):
+        self.attr1 = attr1
+    def meth1(self, num):
+        return num**2
+
+obj = Cls('attribute 1')
+print(getattr(obj, 'attr1'))     # >>> attribute 1
+print(getattr(obj, 'meth1')(7))  # >>> 49
