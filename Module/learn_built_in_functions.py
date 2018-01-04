@@ -42,7 +42,6 @@ print(format(10, 'b'))  # >>> 1010, this can remove the '0b'
 # argument: an integer number
 # return the binary value
 
-
 print('\n', 6)
 print('bool([x])')
 print(bool(0))  # >>> False
