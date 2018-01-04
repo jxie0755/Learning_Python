@@ -3,8 +3,8 @@
 # http://yangcongchufang.com/%E9%AB%98%E7%BA%A7python%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/python-object-class.html
 
 
-
-# 基础知识
+print()
+print('基础知识')
 
 # 类(Class)和实例(Instance)是面向对象最重要的概念
 # simplest way of creating a class
@@ -74,7 +74,8 @@ print(denis.gender)  # >>> male  # attribute only for denis
 
 
 
-# 访问限制
+print()
+print('访问限制')
 
 # 在Class内部，可以有属性和方法，而外部代码可以通过直接调用实例变量的方法来操作数据，这样，就隐藏了内部的复杂逻辑。
 # 但是，从前面Student类的定义来看，外部代码还是可以自由地修改一个实例的name、score属性
@@ -124,19 +125,66 @@ class Student(object):
     def print_score(self):
         print(f"{self.__name} has a score of {self.__score}")
 
+denis = Student('Denis Xie', 99, 'male')
 print(denis.__gender__)  # >>> male        # __special__可以从外部访问
 print(denis._Student__name)  # >>> Denis Xie   # __private 仍然从外部访问
 
 # 但是强烈建议你不要这么干，因为不同版本的Python解释器可能会把__name改成不同的变量名
 # Python的访问限制其实并不严格，主要靠自觉, 防君子不防小人
 
+print(dir(denis))  # 可以发现private变量名字是如何被解释器改变的
 
 
-# 继承和多态
+print()
+print('继承和多态')
 
+# create a class Animal(), and a subclass Dog()
+class Animal(object):
+    def run(self):
+        print('running...')
 
+class Dog(Animal):
+    pass
 
+little_dog = Dog()
+little_dog.run()  # >>> running...
+# 子类获得了父类的全部功能。Dog()里继承了run()函数，可以给自己的实例里直接用
 
+# 子类和父类如果定义的时候都有个run()?
+class Animal(object):
+    def run(self):
+        print('running...')
 
+class Dog(Animal):
+    def run(self):
+        print('dog running...')
 
+little_animal = Animal()
+little_dog = Dog()
+little_dog.run()   # >>> dog running...
+# 子类的的方法如果和父类的方法重名，子类会覆盖掉父类。因为这个特性，就获得了一个继承的好处”多态”
+
+print(isinstance(little_dog, Dog))     # >>> True
+print(isinstance(little_dog, Animal))  # >>> True   # 即使dog对于超类也是True
+print(isinstance(little_animal, Dog))  # >>> False  # 父类实例不属于子类
+
+# 要理解多态的好处，我们还需要再编写一个函数，这个函数接受一个Animal类型的变量
+# 先再添加一个Cat子类
+class Cat(Animal):
+    def run(self):
+        print('cat running...')
+
+def animal_run(animal):
+    animal.run()
+
+animal_run(Animal())  # >>> running...
+animal_run(Dog())     # >>> dog running...
+animal_run(Cat())     # >>> cat running...
+
+# Dog作为Animal的子类，不必对animal_run()做任何修改。
+# 实际上，任何依赖Animal作为参数的函数或者方法都可以不加修改地正常运行，原因在于多态
+
+# 多态的好处就是，当我们需要传入Dog、Cat 等子类时，我们只需要接收Animal类型就可以了
+# 因为子类终究都是Animal类型，由于Animal类型有run()方法，因此会自动调用实际类型的run()方法，这就是多态的意思
+# 总结,多态的好处就是利用与父类相同的方法名,来运行父类的方法,但是对于各子类却有不同的结果
 
