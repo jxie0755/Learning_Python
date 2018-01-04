@@ -496,7 +496,7 @@ print('setattr(object, name, value)')
 # 它与getattr()相对应。参数是一个对象、一个字符串和一个任意值。
 # 字符串可以是一个已存在属性的名字也可以是一个新属性的名字。
 # 该函数将值赋值给属性，只要对象允许。
-
+# OOP环境
 
 print('\n', 58)
 print('slice()')
