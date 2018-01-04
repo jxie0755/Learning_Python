@@ -206,4 +206,33 @@ animal_run(Timer())  # >>> Start...
 print()
 print('获取对象信息')
 
+# 介绍一些用于获取对象信息的函数与方法
 
+# type() 可以检查类型
+# 对于class的继承关系来说，使用type()就很不方便。我们要判断class的类型，可以使用isinstance()函数
+# dir() 也很有用,返回全部可调用的属性和方法, 以包含字符串的list形式返回
+
+# 类似__xxx__的属性和方法在Python中都是有特殊用途的，比如__len__方法返回长度。
+# 在Python中，如果你调用len()函数试图获取一个对象的长度，实际上，在len()函数内部，它自动去调用str对象的__len__()方法，
+# 所以，下面的代码是等价的
+print(len('ABC'))       # >>> 3
+print('ABC'.__len__())  # >>> 3
+
+# 自制__special__函数
+class People():
+    def __len__(self):
+        return 100
+    def ppl(self):
+        return 'People has power'
+denis = People()
+print(len(denis))  # >>> 100  # 只有特殊方法才可以这样
+# print(ppl(denis))  # >>> NameError: name 'ppl' is not defined
+
+# 当然既然能列出这属性和方法，也可以相应的修改
+# python准备了getattr()、setattr()、hasattr()，可以直接操作一个对象的状态
+# 具体函数使用已经有基础学习过,不再赘述
+
+# 通过内置的一系列函数，我们可以对任意一个Python对象进行剖析，拿到其内部的数据。
+# 要注意的是，只有在不知道对象信息的时候，我们才会去获取对象信息
+# 如果可以直接写：sum = obj.x + obj.y
+# 就不要写：sum = getattr(obj, 'x') + getattr(obj, 'y')
