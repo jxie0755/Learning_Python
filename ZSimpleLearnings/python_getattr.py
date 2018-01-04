@@ -1,4 +1,6 @@
-# getattr(a, b) == a.b if b is an attribute of an object(anything follows a '.')
+# getattr(object, name[, default])
+# 返回object的属性值。name必须是个字符串。如果字符串是对象某个属性的名字，则返回该属性的值。
+# 如果这个名字的属性不存在，如果提供default则返回它，否则引发AttributeError
 
 x = 'append'
 y = 'remove'
