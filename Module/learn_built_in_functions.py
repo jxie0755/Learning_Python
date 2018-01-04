@@ -339,7 +339,10 @@ print('\n', 34)
 print('isinstance(object, classinfo)')
 # 如果object是clsaainfo的一个实例（或者是classinfo的直接、间接或虚拟子类的实例），那么则返回true。
 # 如果对象不是给定类型的对象，则函数始终返回false
+# 如果classinfo是对象类型的元组（或递归地，其他这样的元组），如果对象是任何类型的实例，则返回true。如果classinfo不是类型或类型组成的元祖和此类元组，则会引发TypeError异常。
 # oop环境
+print(isinstance(123, int))  # >>> True
+print(isinstance('joker', (int, list, str, tuple)))  # >>> True  # 只要是符合元祖中任一个都返回True
 
 
 print('\n', 35)
