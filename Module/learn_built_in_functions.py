@@ -1,7 +1,7 @@
 # A try out for all the built-in functions in python
 
 print('\n', 1)
-print('abs()')
+print('abs(x)')
 print(abs(-4))  # >>> 4
 # absolute value
 # argument: int and float
@@ -9,7 +9,7 @@ print(abs(-4))  # >>> 4
 
 
 print('\n', 2)
-print('all()')
+print('all(iterable)')
 print(all([0, 4]))  # >>> False
 print(all([]))  # >>> True
 # argument: iterable objects
@@ -18,7 +18,7 @@ print(all([]))  # >>> True
 
 
 print('\n', 3)
-print('any()')
+print('any(iterable)')
 print(any([0, 4]))  # >>> True
 # argument: iterable objects
 # return True if any elements of the iterable are true
@@ -26,7 +26,7 @@ print(any([0, 4]))  # >>> True
 
 
 print('\n', 4)
-print('ascii()')
+print('ascii(object)')
 print(ascii('ö'))  # >>> xf6n
 print('Pyth\xf6n')  # >>>Pythön
 # argument: an object
@@ -34,7 +34,7 @@ print('Pyth\xf6n')  # >>>Pythön
 # For example, ö is changed to \xf6n, √ is changed to \u221a
 
 print('\n', 5)
-print('bin()')
+print('bin(x)')
 print(bin(3))  # >>> 0b11
 print(bin(-10))  # >>> -0b1010
 print(format(10, 'b'))  # >>> 1010, this can remove the '0b'
@@ -44,7 +44,7 @@ print(format(10, 'b'))  # >>> 1010, this can remove the '0b'
 
 
 print('\n', 6)
-print('bool()')
+print('bool([x])')
 print(bool(0))  # >>> False
 print(bool('0'))  # >>> True
 print(bool(None))  # >>> False
@@ -56,7 +56,7 @@ print(bool([]))  # >>> False
 
 
 print('\n', 7)
-print('bytearray()')
+print('bytearray([source[, encoding[, errors]]])')
 print(bytearray([0, 100, 255]))  # >>> bytearray(b'\x00d\xff')
 print(bytearray(12))  # >>> bytearray(b'\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00')
 print(bytes([0, 100, 255]))  # >>> b'\x00d\xff'
@@ -64,14 +64,14 @@ print(bytes(12))  # >>> b'\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
 
 
 print('\n', 8)
-print('bytes()')
+print('bytes([source[, encoding[, errors]]])')
 # 返回一个新的字节对象，是一个在 0<= x < 256之间的不可变的整数序列。 
 # bytes 是 bytearray 的不可变版本 – 它具有同样的非改变性的方法和同样的索引和切片操作
 # 因此，构造函数参数的解释与bytearray()相同。
 
 
 print('\n', 9)
-print('callable()')
+print('callable(object)')
 print(callable(1))  # >>> False
 print(callable(abs))  # >>> True, function is callable
 print(callable([1, 2]))  # >>> True, function is callable
@@ -81,7 +81,7 @@ print(callable(zip()))  # >>> False, if with '()'
 
 
 print('\n', 10)
-print('chr()')
+print('chr(i)')
 print(chr(97))  # >>> a, refer the ascii table
 print(ord('a'))  # >>> 97, the inverse function of chr
 print(chr(127))  # >>> 
@@ -91,20 +91,20 @@ print(chr(127))  # >>> 
 
 
 print('\n', 11)
-print('classmethod()')
+print('classmethod(function)')
 print(classmethod(abs(5)))
 # 将函数包装成类方法
 # oop环境
 
 
 print('\n', 12)
-print('compile()')
+print('compile(source, filename, mode, flags=0, dont_inherit=False, optimize=-1)')
 # compile(source, filename, mode, flags=0, dont_inherit=False, optimize=-1)
 # 暂时不理解
 
 
 print('\n', 13)
-print('complex()')
+print('complex([real[, imag]])')
 print(complex('1+2j'))
 # 返回值形式为real + imag * 1j的复数，或将字符串或数字转换为复数
 # does not allow white space in the string ('1 + 2j') will raise error
@@ -112,7 +112,7 @@ print(complex('1+2j'))
 
 
 print('\n', 14)
-print('delattr()')
+print('delattr(object, name)')
 # delattr(object, 's')
 # 这个函数和setattr()有关。参数是一个对象和一个字符串。
 # 字符串必须是对象的某个属性的名字。只要对象允许，这个函数删除该名字对应的属性。
@@ -121,20 +121,22 @@ print('delattr()')
 
 
 print('\n', 15)
-print('dict()')
+print('dict(**kwarg)')
+print('dict(mapping, **kwarg)')
+print('dict(iterable, **kwarg)')
 print(dict(zip([1, 2, 3], ['a', 'b', 'c'])))
 # create a dictionary
 
 
 print('\n', 16)
-print('dir()')
+print('dir([object])')
 print(dir())
 # 如果没有参数，返回当前本地作用域内的名字列表。
 # 如果有参数，尝试返回参数所指明对象的合法属性和方法的列表。
 
 
 print('\n', 17)
-print('divmod()')
+print('divmod(a, b)')
 print(divmod(7, 2))  # >>> (3, 1) return a tuple
 for i in divmod(7, 2):
     print(i)
@@ -143,7 +145,7 @@ for i in divmod(7, 2):
 
 
 print('\n', 18)
-print('enumerate()')
+print('enumerate(iterable, start=0)')
 l = ['apple', 'banana', 'pear', 'mango']
 print(list(enumerate(l, start=1)))
 # >>> [(1, 'apple'), (2, 'banana'), (3, 'pear'), (4, 'mango')]
@@ -154,33 +156,33 @@ print(dict(enumerate(l, start=1)))
 
 
 print('\n', 19)
-print('eval()')
+print('eval(expression, globals=None, locals=None)')
 # eval(expression, globals=None, locals=None)
 print('see in ZSimpleLearnings/python_eval.py')
 print('AVOID USING!!!!')
 
 
 print('\n', 20)
-print('exec()')
+print('exec(object[, globals[, locals]])')
 # exec(object[, globals[, locals]])
 print('see in ZSimpleLearnings/python_eval.py')
 print('AVOID USING!!!!')
 
 
 print('\n', 21)
-print('filter()')
+print('filter(function, iterable)')
 print('see in ZSimpleLearnings/lambda_map_filter_reduce.py')
 
 
 print('\n', 22)
-print('float()')
+print('float([x])')
 print(float(25))  # >>> 25.0
 print(float('-25'))  # >>> -25.0
 # convert an int or number in string to a float number
 
 
 print('\n', 23)
-print('format()')
+print('format(value[, format_spec])')
 # 'd' for integer
 print(format(123, "d"))  # must be integer
 # 'f' for float arguments
@@ -201,13 +203,13 @@ print(format(2.55, '0.1f'))  # >>> 2.5
 
 
 print('\n', 24)
-print('frozenset()')
+print('frozenset([iterable])')
 # print(frozenset([1, 2, 3]))
 print('see in ZSimpleLearnings/python_frozenset.py')
 
 
 print('\n', 25)
-print('getattr()')
+print('getattr(object, name[, default])')
 print('see in ZSimpleLearnings/python_getattr.py')
 
 
@@ -221,6 +223,8 @@ print('\n', 27)
 print('hasattr(object, name)')
 # 参数是一个对象和一个字符串。如果字符串是对象的一个属性，则返回True，否则返回False。
 # 它的实现是通过调用getattr(object, name)并查看它是否引发一个AttributeError
+# 常用于运行函数前做一个boolean判断,如果True即运行函数,False则不运行
+
 lst = [1,2,3]
 print(hasattr(lst, 'append'))  # >>> True
 print(hasattr(lst, 'insert'))  # >>> True
@@ -285,7 +289,7 @@ print(hasattribute(obj, 'attr1'))  # >>> True
 
 
 print('\n', 28)
-print('hash()')
+print('hash(object)')
 # Hash values are just integers which are used to ~
 # compare dictionary keys during a dictionary lookup quickly.
 print(hash(181))
@@ -296,7 +300,7 @@ print(hash(vowels))
 
 
 print('\n', 29)
-print('help()')
+print('help([object])')
 # help() returns the doc str
 help(abs)
 help(list)
@@ -305,7 +309,7 @@ help(list)
 
 
 print('\n', 30)
-print('hex()')
+print('hex(x)')
 # like bin, hex() returns an integer to hexadecimal number
 # start with '0x'
 print(hex(123456))
@@ -314,20 +318,20 @@ print(format(123456, 'x'))
 
 
 print('\n', 31)
-print('id()')
+print('id(object)')
 # id is very similar to hash, an identity of an object
 print(id(5))
 
 
 print('\n', 32)
-print('input()')
+print('input([prompt])')
 # input()
 # to have user input with a hint as the argument
 
 
 print('\n', 33)
-print('int()')
-# int(x, base=10)
+print('int(x)')
+print('int(x, base=10)')
 # don't forget that base can be changed from 2-36.
 # base为0意味着完全解释为代码字面值
 a = '142AB34'
@@ -346,21 +350,21 @@ print(isinstance('joker', (int, list, str, tuple)))  # >>> True  # 只要是符�
 
 
 print('\n', 35)
-print('issubclass()')
+print('issubclass(class, classinfo)')
 # 如果 class 是classinfo的子类(直接、 间接或 虚拟) 则返回 true 。
 # 一个类被认为是它自己的子类。classinfo可以是类对象的元组，这时classinfo中的每个类对象都会被检查。
 
 print('\n', 36)
-print('iter()')
+print('iter(object[, sentinel])')
 # 返回一个迭代器对象
 
 print('\n', 37)
-print('len()')
+print('len(s)')
 # return length of a iterable
 
 
 print('\n', 38)
-print('list()')
+print('list([iterable])')
 # turn iterable into a list
 
 
@@ -370,17 +374,20 @@ print('locals()')
 
 
 print('\n', 40)
-print('map()')
+print('map(function, iterable, ...)')
 print('see in ZSimpleLearnings/lambda_map_filter_reduce.py')
 
 
 print('\n', 41, 43)
-print('max() and min()')
+print('max(iterable, *[, key, default])')
+print('max(arg1, arg2, *args[, key])')
+print('min(iterable, *[, key, default])')
+print('min(arg1, arg2, *args[, key])')
 print('see in ZSimpleLearnings/max_min.py')
 
 
 print('\n', 42)
-print('memoryview()')
+print('memoryview(obj)')
 # Return the object's memory address?
 # memoryview: a bytes-like object is required, not 'str'
 print(memoryview(b'abcde'))  # >>> <memory at 0x7f3271528048>
@@ -388,7 +395,7 @@ print(memoryview('abcde'.encode('utf-8')))  # >>> <memory at 0x7f3271528048>
 
 
 print('\n', 44)
-print('next()')
+print('next(iterator[, default])')
 # consume the next item in an iterator
 print('see in Module/learn_itertools.py')
 
@@ -406,7 +413,7 @@ print(oct(1999)) # >>> 0o3717
 
 
 print('\n', 47)
-print('open()')
+print('open(file, mode='r', buffering=-1, encoding=None, errors=None, newline=None, closefd=True, opener=None)')
 print('see in ZSimpleLearnings/write_and_write_back.py')
 
 
@@ -432,19 +439,17 @@ print(pow(2, 3, 7))  # >>> 1 (8//7=1, 余1)
 
 
 print('\n', 50)
-print('print()')
+print("print(*objects, sep=' ', end='\n', file=sys.stdout, flush=False)")
 print('hello world')
 
-
 print('\n', 51)
+print('property(fget=None, fset=None, fdel=None, doc=None)')
+# oop 环境
+
+print('\n', 52)
 print('range(stop)')
 print('range(start, stop[, step])')
 print('well understood')
-
-
-print('\n', 52)
-print('property()')
-# oop 环境
 
 print('\n', 53)
 print('repr(object)')
@@ -499,7 +504,9 @@ print('setattr(object, name, value)')
 # OOP环境
 
 print('\n', 58)
-print('slice()')
+print('slice(stop)')
+print('slice(start, stop[, step])')
+# 返回一个slice对象，表示由索引range(start, stop, step)指出的集合。start和step参数默认为None
 # slice a list
 a = [1,2,3,4]
 b = a[0:2]
@@ -507,58 +514,60 @@ print(b)  # >>> [1, 2]
 
 
 print('\n', 59)
-print('sorted()')
+print('sorted(iterable[, key][, reverse])')
 # sort from small to large (num, alpha)
 print('see in ZSimpleLearnings/sort_vs_sorted_and_reverse.py')
 
 
 print('\n', 60)
-print('staticethod()')
+print('staticmethod(function)')
 # 返回function的一个静态方法。
 
 
 print('\n', 61)
-print('str()')
+print('str(object='')')
+print("str(object=b'', encoding=')utf-8', errors='strict")
 # turn object into a string version
 
 
 print('\n', 62)
-print('sum()')
+print('sum(iterable[, start])')
 # return the sum of an iterable
 # 对于某些使用情况，有很好的替代sum()的方法。
 # 连接字符串序列的首选快速方法是调用''.join(sequence)。
 
 
 print('\n', 63)
-print('super()')
+print('super([type[, object-or-type]])')
 # 返回一个代理对象，它委托方法给父类或者type的同级类。
 # 这对于访问类中被覆盖的继承方法很有用。
 # oop环境
 
 
 print('\n', 64)
-print('tuple()')
+print('tuple([iterable])')
 # create a tuple from an iterable
 
 
 print('\n', 65)
-print('type()')
+print('type(object)')
+print('type(name, bases, dict)')
 # return the type of the object
 
 
 print('\n', 66)
-print('vars()')
+print('vars([object])')
 print('see in ZSimpleLearnings/python_vars.py')
 
 
 print('\n', 67)
-print('zip()')
+print('zip(*iterables)')
 # very use full to link a group of arrays
 print('see in ZSimpleLearnings/python_zip.py')
 
 
 print('\n', 68)
-print('__import__()')
+print('__import__(name, globals=None, locals=None, fromlist=(), level=0)')
 # 用于import任何文件名
 # surpose a file named 05_if1_guess_number.py, we want to import this file
 # mymodule = __import__('05_if1_guess_number')
