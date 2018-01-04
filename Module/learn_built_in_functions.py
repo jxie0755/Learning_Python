@@ -218,7 +218,7 @@ print(globals())
 
 
 print('\n', 27)
-print('hasattr()')
+print('hasattr(object, name)')
 # 参数是一个对象和一个字符串。如果字符串是对象的一个属性，则返回True，否则返回False。
 # 它的实现是通过调用getattr(object, name)并查看它是否引发一个AttributeError
 lst = [1,2,3]
