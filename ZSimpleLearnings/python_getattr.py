@@ -49,3 +49,7 @@ class Cls():
 obj = Cls('attribute 1')
 print(getattr(obj, 'attr1'))     # >>> attribute 1
 print(getattr(obj, 'meth1')(7))  # >>> 49
+
+# 测试默认值
+print(getattr(obj, 'attr2', '404'))  # >>> 404
+
