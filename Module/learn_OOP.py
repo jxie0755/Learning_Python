@@ -242,3 +242,147 @@ print(len(denis))  # >>> 100  # 只有特殊方法才可以这样
 # 要注意的是，只有在不知道对象信息的时候，我们才会去获取对象信息
 # 如果可以直接写：sum = obj.x + obj.y
 # 就不要写：sum = getattr(obj, 'x') + getattr(obj, 'y')
+
+
+
+print()
+print('实例属性和类属性')
+
+# 不要把多态应用到属性上,而只是应用到方法上
+
+class Student(object):
+    name = 'Student'
+
+s = Student()
+print(s.name)  # >>> Student
+print(Student.name)  # >>> Student
+
+# 类的名字是Student,类里的属性也叫Student.这会导致黑人问号脸
+s.name = 'Denis'
+print(s.name)  # >>> Denis
+print(Student.name)  # >>> Student
+del s.name # 如果删除实例的name属性
+print(s.name)  # >>> Student  # 再次调用s.name，由于实例的name属性没有找到，类的name属性就显示出来了
+
+# * 在编写程序的时候，千万不要把实例属性和类属性使用相同的名字
+# * 因为相同名称的实例属性将屏蔽掉类属性，但是当你删除实例属性后，再使用相同的名称，访问到的将是类属性
+# * 也就是说,不要把多态应用到属性上,而只是应用到方法上
+# * 注意,这里的属性,不是指__init__()创造的属性,因为那个属于方法范畴了. 这里属性指的是直接属性.
+
+
+
+print()
+print('使用slots')
+
+class Student(object):
+    __slots__ = ('name', 'age')  # 用tuple定义允许绑定的属性名称
+
+    def __init__(self, name):
+        self.name = name
+        # self.score = score  # 一旦slots限制,即使是__init__()也不能违规创建其他属性
+
+# d = Student('Denis', 99)  # >>> AttributeError: 'Student' object has no attribute 'score'
+
+dd = Student('Denis')
+dd.age = 25
+# dd.whatever = 33  # >>> 'Student' object has no attribute 'whatever'
+print(dd.name)  # >>> Denis
+print(dd.age)  # >>> 25
+
+# 使用__slots__要注意，__slots__定义的属性仅对当前类实例起作用，对继承的子类是不起作用的
+class GoodStudent(Student):
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+cc = GoodStudent('Cindy', 26)
+cc.whatever = 123123
+print(cc.whatever)  # >>> 13212
+
+
+
+print()
+print('使用@Property')
+class Student(object):
+    def __init__(self, name, score):
+        self.name = name
+        self.score = score
+
+dd = Student('Denis', 59)
+dd.score = 999
+print(dd.score)  # >>> 999  # score can be changed easily, not a safe way of coding
+
+
+class Student(object):
+    def __init__(self, name, score):
+        self.name = name
+        self._score = score
+
+    def get_score(self):
+        return self._score
+
+    def set_score(self, value):
+        if not isinstance(value, int):
+            raise ValueError('score must be an integer!')
+        if value < 0 or value > 100:
+            raise ValueError('score must between 0 - 100.')
+        self._score = value
+
+dd = Student('Denis', 59)
+# dd.set_score(199)  # >>> ValueError: score must between 0 - 100.
+dd.set_score(99)
+print(dd.get_score())  # >>> 99
+
+
+# 把一个getter方法变成属性，只需要加上@property就可以了
+# 此时，@property本身又创建了另一个装饰器@score.setter，负责把一个setter方法变成属性赋值
+# 于是，我们就拥有一个可控的属性操作
+
+class Student(object):
+    @property  # 此处将方法score变成属性
+    def score(self):
+        return self._score
+
+    @score.setter  # .setter是一个property的固定的set属性,不能乱改
+    def score(self, value):
+        if not isinstance(value, int):
+            raise ValueError('score must be an integer!')
+        if value < 0 or value > 100:
+            raise ValueError('score must between 0 - 100!')
+        self._score = value
+
+d = Student()
+d.score = 60
+print(d.score)  # >>> 60  # 这个是方法变作的属性
+print(d._score)  # >>> 60  # 这个是真属性
+# d.score = 9999
+# print(d.score)  # >>> ValueError: score must between 0 - 100!
+
+
+# 还可以定义只读属性，只定义getter方法，不定义setter方法就是一个只读属性
+# birth是可读写属性，而age就是一个只读属性，因为age可以根据birth和当前时间计算出来
+class Student(object):
+    @property
+    def birth(self):
+        return self._birth
+
+    @birth.setter
+    def birth(self, value):
+        self._birth = value
+
+    @property
+    def age(self):
+        return 2017 - self._birth
+
+dd = Student()
+dd.birth = 1986
+print(dd.age)  # >> 29
+# dd.age = 35  # >>> AttributeError: can't set attribute
+
+# * @property广泛应用在类的定义中，可以让调用者写出简短的代码，同时保证对参数进行必要的检查，减少了出错的可能性
+# * 主要作用还是对于属性做限制,通过设定方法,但是这个方法又被@property变成属性,这样调用方法的时候看起来就像是在调用属性
+
+
+
+print()
+print('多重继承')
