@@ -106,6 +106,11 @@ denis.__gender = 'male'
 denis.__gender = 'female'
 print(denis.__gender)  # >>> female
 
+# 而且只是无法访问,不代表无法更改
+denis.__score = 59
+print(denis.__score) # >>> 59  # 注意,这里强行添加的仍然是一个外形是private实际是public的变量
+denis.print_score()  # >>> Denis Xie has a score of 99  # 这里方法调用的仍然是init方法创造的真private变量
+
 # 如果外部还需要访问到这两个内部状态的话，可以给Student类增加get_name和get_score这样的方法。
 # 如果外部还有修改需求的话，就给该类再增加set_score或set_name方法。用这样的方式去get() set() 一个内部保护变量
 # 具体代码不再赘述
