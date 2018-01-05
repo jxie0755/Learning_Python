@@ -170,6 +170,7 @@ print(isinstance(little_animal, Dog))  # >>> False  # 父类实例不属于子�
 
 # 要理解多态的好处，我们还需要再编写一个函数，这个函数接受一个Animal类型的变量
 # 先再添加一个Cat子类
+# 注意,这里针对方法做例子,但是对属性的调用同样成立
 class Cat(Animal):
     def run(self):
         print('cat running...')
