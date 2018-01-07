@@ -7,7 +7,7 @@
 # The 32-bit int data type can hold integer values in the range of −2,147,483,648 to 2,147,483,647.
 
 class Solution(object):
-    def reverse(self, x):
+    def reverse(self, x):  # beats 3.88%
         """
         :type x: int
         :rtype: int

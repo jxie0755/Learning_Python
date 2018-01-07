@@ -6,7 +6,7 @@
 
 
 class Solution(object):
-    def twoSum(self, nums, target):
+    def twoSum(self, nums, target):  # beats 55.36%
         """
         :type nums: List[int]
         :type target: int
@@ -23,7 +23,7 @@ class Solution(object):
             output.append(nums.index(j))
             nums[nums.index(j)] = 'x'
         return output
-# beat 55.36% python submission
+
 
 a = [2, 7, 11, 15]
 b = [1, 3, 3]

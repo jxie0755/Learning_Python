@@ -6,7 +6,7 @@
 
 
 class Solution(object):
-    def romanToInt(self, roman_string):
+    def romanToInt(self, roman_string):  # beats 46.63%
         """
         :type roman_string: str
         :rtype: int

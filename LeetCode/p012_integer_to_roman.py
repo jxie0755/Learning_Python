@@ -5,7 +5,7 @@
 # Input is guaranteed to be within the range from 1 to 3999.
 
 class Solution(object):
-    def intToRoman(self, num):
+    def intToRoman(self, num):  # beats 13.29%
         """
         :type num: int
         :rtype: str
@@ -19,11 +19,9 @@ class Solution(object):
         dlst = list(map(lambda x, y: int(x) * y, num, (1000, 100, 10, 1)))  # 分解各数位
         return ''.join(list(map(lambda x: R[x], dlst)))  # 将各数位代换成罗马数字,然后拼接
 
-    # beat 13.29% python submission
+    def intToRoman2(self, num):  # beats 18.90%
 
-    def intToRoman2(self, num):
         num = str(num).rjust(4, '0')  # 拆解data成为单独的数字字符,并补足数位
-
         def rom(n, x, y, z):  # 写一个函数来表明转换逻辑
             nd = int(num[n])
             if nd == 0:
@@ -36,16 +34,11 @@ class Solution(object):
                 return y + (nd - 5) * x
             elif nd == 9:
                 return x + z
-
         # 使用map对data中每个数位进行转换,然后合并
         return ''.join(list(map(rom, range(4), ['M', 'C', 'X', 'I'], ['', 'D', 'L', 'V'], ['', 'M', 'C', 'X'])))
-    # beat 18.90% python submission
 
-    def intToRoman3(self, num):
-        # 这个地方triky在于,要注意字典的order问题,在python3.6,字典是有order
-        # 但是如果运行与python低版本,dict没有order,会出现算法bug
-        # 在这里LeetCode就出现了这个bug,所以把dict拆分成list来做算法解决
-        # 也可以使用collections.OrderedDrict
+    def intToRoman3(self, num):  # beats 43.17%
+
         result = ''
         roman_list = [(1000, 'M'), (900, 'CM'), (500, 'D'), (400, 'CD'),
                       (100, 'C'), (90, 'XC'), (50, 'L'), (40, 'XL'),
@@ -56,7 +49,10 @@ class Solution(object):
             repeat, num = divmod(num, arabic)
             result += repeat * roman
         return result
-    # beat 43.17% python submission
+        # 这个地方triky在于,要注意字典的order问题,在python3.6,字典是有order
+        # 但是如果运行与python低版本,dict没有order,会出现算法bug
+        # 在这里LeetCode就出现了这个bug,所以把dict拆分成list来做算法解决
+        # 也可以使用collections.OrderedDrict
 
 print(Solution().intToRoman3(3888))
 

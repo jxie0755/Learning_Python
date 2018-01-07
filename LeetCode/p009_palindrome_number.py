@@ -5,7 +5,7 @@
 # Negative integer will not be a palindrome
 
 class Solution(object):
-    def isPalindrome(self, x):
+    def isPalindrome(self, x):  # beats 24.10%
         """
         :type x: int
         :rtype: bool

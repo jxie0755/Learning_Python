@@ -4,7 +4,7 @@
 # Write a function to find the longest common prefix string amongst an array of strings.
 
 class Solution(object):
-    def longestCommonPrefix(self, strs):
+    def longestCommonPrefix(self, strs):  # beats 53.82%
         """
         :type strs: List[str]
         :rtype: str
@@ -22,7 +22,7 @@ class Solution(object):
             else:
                 break
         return result
-# beat 53.82% python submission
+
 
 lst = ['Denis Xie', 'Dennis X', 'Dendi Den', 'Deln']
 lst2 = ["aca", "cba"]
