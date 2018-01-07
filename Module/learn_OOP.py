@@ -468,3 +468,37 @@ class Fib(object):
         return a
 
 print(Fib()[8])  # >>> 34
+
+# __getattr__()
+# 还记得之前如果访问实例中的属性不存在就会抛出的no attribute错误吗
+# __getattr__可以动态的返回一个属性，当要访问的属性不存在的时候，Python解释器会试图调用__getattr__(XXX)来尝试获得需要的属性
+# 利用这一点，可以把一个类的所有属性和方法调用全部动态化处理
+class Chain():
+    def __init__(self, path=''):
+        self._path = path
+
+    def __getattr__(self, path):
+        return Chain('%s/%s' % (self._path, path))
+
+    def __str__(self):
+        return self._path
+
+    __repr__ = __str__
+
+print(Chain().status.user.timeline.list)
+# >>> /status/user/timeline/list
+
+# __call__()
+# 一个对象实例可以有自己的属性和方法，当我们调用实例方法时，我们用instance.method()来调用
+# 能不能直接在实例本身上调用呢？
+class Student(object):
+
+    def __init__(self, name):
+        self.name = name
+
+    def __call__(self):
+        print(f'My name is {self.name}.')
+
+s = Student('Denis')
+s()  # >>> My name is Denis.
+
