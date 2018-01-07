@@ -168,7 +168,7 @@ print(dec4)  # deque([0, 1, 4, 9, 16])
 
 ddec = collections.deque(lst, 3)  # limit maxlen
 print('maxlen is', ddec.maxlen)  # >>> 3
-print(ddec)  # >>> deque([3, 4, 5], maxlen=3)
+print(ddec)  # >>> deque([3, 4, 5], maxlen=3)  # 注意,这里maxlen的限制是从list的最后items开始,而不是最前
 
 # simple methods to operator deque object (mostly similar to list methods)
 dec.append('after')
