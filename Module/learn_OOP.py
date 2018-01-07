@@ -528,6 +528,7 @@ Month = Enum('Month', (
 for name, member in Month.__members__.items():
     print(name, '=>', member, ',', member.value)
 
+# value属性则是自动赋给成员的int常量，默认从1开始计数
 # >>>
 # Jan => Month.Jan , 1
 # Feb => Month.Feb , 2
@@ -546,13 +547,34 @@ for name, member in Month.__members__.items():
 print(dict(Month.__members__.items()))
 # {'Jan': <Month.Jan: 1>, 'Feb': <Month.Feb: 2>, 'Mar': <Month.Mar: 3>, 'Apr': <Month.Apr: 4>, 'May': <Month.May: 5>, 'Jun': <Month.Jun: 6>, 'Jul': <Month.Jul: 7>, 'Aug': <Month.Aug: 8>, 'Sep': <Month.Sep: 9>, 'Oct': <Month.Oct: 10>, 'Nov': <Month.Nov: 11>, 'Dec': <Month.Dec: 12>}
 
+# 如果需要更精确地控制枚举类型，可以从Enum派生出自定义类
+from enum import Enum, unique
+# @unique装饰器可以帮助我们检查保证没有重复值。
+@unique
+class Weekday(Enum):
+    Sun = 0  # Sun的value被设定为0
+    Mon = 1
+    Tue = 2
+    Wed = 3
+    Thu = 4
+    Fri = 5
+    Sat = 6
 
+# Enum可以把一组相关常量定义在一个class中，且class不可变，而且成员可以直接比较
+day1 = Weekday.Mon
+print(day1)  # >>> Weekday.Mon
 
+print(Weekday.Tue)  # >>> Weekday.Tue
+print(Weekday['Tue'])  # >>> Weekday.Tue
+print(Weekday.Tue.value)  # >>> 2
 
+print(day1 == Weekday.Mon)  # >>> True
+print(Weekday(1))  # >>> Weekday.Mon
+print(day1 == Weekday(1))  # >>> True
 
+# print(Weekday(7))  # >>> ValueError: 7 is not a valid Weekday
 
-
-
-
+print(dict(Weekday.__members__.items()))
+# {'Sun': <Weekday.Sun: 0>, 'Mon': <Weekday.Mon: 1>, 'Tue': <Weekday.Tue: 2>, 'Wed': <Weekday.Wed: 3>, 'Thu': <Weekday.Thu: 4>, 'Fri': <Weekday.Fri: 5>, 'Sat': <Weekday.Sat: 6>}
 
 
