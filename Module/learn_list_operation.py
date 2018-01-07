@@ -19,7 +19,7 @@ listA[a:b] = []        # remove a serious of items together
 
 listA = ['A', 'B', 'C', 'D', 'E', 'F']
 listA.pop()            # pop an end item for use, and remove from the list
-listA.pop(n)           # pop the item at position n in the list
+listA.pop(n)           # pop the item at position n in the list (index)
 
 # revise tuple is not allowed, just re-write it.
 
