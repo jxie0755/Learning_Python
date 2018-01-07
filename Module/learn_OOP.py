@@ -502,3 +502,57 @@ class Student(object):
 s = Student('Denis')
 s()  # >>> My name is Denis.
 
+
+
+print()
+print('使用枚举类')
+# 当我们需要定义常量时，一个办法是用大写变量通过整数来定义
+JAN = 1
+FEB = 2
+MAR = 3
+#...
+NOV = 11
+DEC = 12
+
+# 好处是简单，缺点是类型是int，并且仍然是变量
+
+# 更好的方法是为这样的枚举类型定义一个class类型，然后，每个常量都是class的一个唯一实例
+# 利用enum模块
+from enum import Enum
+
+Month = Enum('Month', (
+    'Jan', 'Feb', 'Mar', 'Apr',
+    'May', 'Jun', 'Jul', 'Aug',
+    'Sep', 'Oct', 'Nov', 'Dec'))
+
+for name, member in Month.__members__.items():
+    print(name, '=>', member, ',', member.value)
+
+# >>>
+# Jan => Month.Jan , 1
+# Feb => Month.Feb , 2
+# Mar => Month.Mar , 3
+# Apr => Month.Apr , 4
+# May => Month.May , 5
+# Jun => Month.Jun , 6
+# Jul => Month.Jul , 7
+# Aug => Month.Aug , 8
+# Sep => Month.Sep , 9
+# Oct => Month.Oct , 10
+# Nov => Month.Nov , 11
+# Dec => Month.Dec , 12
+
+# 本质上还是一个mapping
+print(dict(Month.__members__.items()))
+# {'Jan': <Month.Jan: 1>, 'Feb': <Month.Feb: 2>, 'Mar': <Month.Mar: 3>, 'Apr': <Month.Apr: 4>, 'May': <Month.May: 5>, 'Jun': <Month.Jun: 6>, 'Jul': <Month.Jul: 7>, 'Aug': <Month.Aug: 8>, 'Sep': <Month.Sep: 9>, 'Oct': <Month.Oct: 10>, 'Nov': <Month.Nov: 11>, 'Dec': <Month.Dec: 12>}
+
+
+
+
+
+
+
+
+
+
+
