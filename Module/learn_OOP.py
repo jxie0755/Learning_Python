@@ -386,3 +386,85 @@ print(dd.age)  # >> 29
 
 print()
 print('多重继承')
+
+class Animal(object):
+    def animalrun(self):
+        print('I am running...')
+
+class Runnable():
+    def run(self):
+        print("I can run...")
+
+# 多重继承,继承不止一个父类
+class Dog(Animal, Runnable):
+    pass
+
+didi = Dog()
+didi.animalrun()  # >>> I am running...  # Animal类的方法
+didi.run()        # >>> I can run...     # Runnable类的方法
+# 通过多重继承，一个子类就可以同时获得多个父类的所有功能
+
+# 这种多重继承的设计通常称之为MixIn:
+# * MixIn的目的就是给一个类增加多个功能
+# * 在设计类的时候，我们优先考虑通过多重继承来组合多个MixIn的功能，而不是设计多层次的复杂的继承关系
+# * 通过各种组合继承类，不需要复杂而庞大的继承链，只要选择组合不同的类的功能，就可以快速构造出所需的子类。
+# * 由于Python允许使用多重继承，因此，MixIn就是一种常见的设计
+# * 只允许单一继承的语言（如Java）不能使用MixIn的设计
+
+
+
+print()
+print('定制类')
+
+# 形如__xxx__的变量或者函数名就要注意，这些在Python中是有特殊用途的
+
+# __str__()
+class Student(object):
+    def __init__(self, name):
+        self.name = name
+
+    def __str__(self):
+        return f"Student name is {self.name}"
+
+    __repr__ = __str__
+
+print(Student('Denis'))  # >>> <__main__.Student object at 0x10454fe80>
+# 如果想改变以上输出结果，就需要用到__str___，在类里重新定义这个方法就可以了
+print(Student('Denis'))  # >>> Student name is Denis
+
+# 但是print()管的是输出string,而不是代表物体本身的string,所以repr()仍然按以前显示
+print(repr(Student('Denis')))  # >>> <__main__.Student object at 0x104550f28>
+# 说明直接显示变量不归__str__管了，由__repr__管
+
+# __iter__() 和 __next__()
+# 如果一个类想被用于for ... in循环，类似list或tuple那样，就必须实现一个__iter__()方法
+# 该方法返回一个迭代对象，然后，Python的for循环就会不断调用该迭代对象的__next__()方法拿到循环的下一个值
+# 直到遇到StopIteration错误时退出循环
+class Fib():
+    def __init__(self):
+        self.a, self.b = 0, 1  # 初始化两个计数器
+
+    def __iter__(self):
+        return self  # 实例本身即是迭代对象，故而返回自己
+
+    def __next__(self):
+        self.a, self.b = self.b, self.a + self.b # 计算下一个值
+        if self.a > 10000:  # 退出循环条件
+            raise StopIteration()
+        return self.a
+
+print(list(Fib()))
+# >>> [1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987, 1597, 2584, 4181, 6765]
+
+# Fib实例虽然能作用于for循环，看起来和list有点像，但是，把它当成list来使用还是不行，比如，取第5个元素
+# print(Fib()[5])  # >>> TypeError: 'Fib' object does not support indexing
+
+# 要表现得像list那样按照下标取出元素，需要实现__getitem__()方法
+class Fib(object):
+    def __getitem__(self, n):
+        a, b = 1, 1
+        for x in range(n):
+            a, b = b, a + b
+        return a
+
+print(Fib()[8])  # >>> 34
