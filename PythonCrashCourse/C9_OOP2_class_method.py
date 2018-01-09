@@ -7,7 +7,7 @@
 # 就算是设定为实参,也是可以修改的,方法完全相同
 # 要么就设定实参,在创造对象是就赋予一个数,要么就不设定实参,但是赋予一个默认值,二者皆可
 
-class Car():
+class Car(object):
     '''car information summary'''
     def __init__(self, make, model, year):
         self.make = make

@@ -1,7 +1,7 @@
 # Inheritance, Parent class, Child class, subclass, super class
 # 继续使用Car的例子,在下面创建一个electric car的子类
 
-class Car():
+class Car(object):
     '''car information summary'''
     def __init__(self, make, model, year, type='sedan', tank=35):
         self.make = make

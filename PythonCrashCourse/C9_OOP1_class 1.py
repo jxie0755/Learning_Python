@@ -1,6 +1,6 @@
 # 创建dog类, 为其设置名字和年龄,赋予蹲下和打滚的能力
 
-class Dog():
+class Dog(object):
     '''a simple attemp to model a dog'''
 
     def __init__(self, name, age, doggy):

@@ -225,7 +225,7 @@ print(len('ABC'))       # >>> 3
 print('ABC'.__len__())  # >>> 3
 
 # 自制__special__函数
-class People():
+class People(object):
     def __len__(self):
         return 100
     def ppl(self):
@@ -473,7 +473,7 @@ print(Fib()[8])  # >>> 34
 # 还记得之前如果访问实例中的属性不存在就会抛出的no attribute错误吗
 # __getattr__可以动态的返回一个属性，当要访问的属性不存在的时候，Python解释器会试图调用__getattr__(XXX)来尝试获得需要的属性
 # 利用这一点，可以把一个类的所有属性和方法调用全部动态化处理
-class Chain():
+class Chain(object):
     def __init__(self, path=''):
         self._path = path
 
@@ -585,7 +585,7 @@ print('使用元类')
 # 动态语言和静态语言最大的不同，就是函数和类的定义，不是编译时定义的，而是运行时动态创建的
 
 # 比方说我们要定义一个Hello的class，就写一个hello.py模块
-class Hello():
+class Hello(object):
     def hello(self, name='world'):
         print(f'Hello, {name}')
 

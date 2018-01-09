@@ -2,7 +2,7 @@
 # 讲电动车的电池拆分成一个独立的类, 这样电池的很多属性可以在这个类中细化
 # 将此文件另存为Car.py以供其他文件导入类
 
-class Car():
+class Car(object):
     '''car information summary'''
     def __init__(self, make, model, year, type='sedan', tank=35):
         self.make = make
@@ -28,7 +28,7 @@ class ElectricCar(Car):
         print('battery size is ' + str(self.battery_size))
         return self.battery_size
 
-class Battery():
+class Battery(object):
     # 独立battery成为一个类
     def __init__(self, battery_size=50):
         self.battery_size = battery_size

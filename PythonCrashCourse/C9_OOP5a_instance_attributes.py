@@ -5,7 +5,7 @@
 # 这里是将一个dict放入在Car class类,然后Tank的method可以根据这个dict来给出不同的答案.
 # 还不是完全体,因为tank信息还是存在了Car这个class里. 参见下一个版本5_OOP4c.py
 
-class Car():
+class Car(object):
     car_tank_sizes = {'Audi': {'A4': 20, 'A6': 25, 'A8': 30}}
 
     def __init__(self, make, model):
@@ -20,7 +20,7 @@ class Car():
         print('The car is', long_name)
 
 
-class Tank():
+class Tank(object):
     def __init__(self, tank_size):
         if (tank_size is None):
             self.tank_size = 20

@@ -3,7 +3,7 @@
 # 完全体: 将car_tank_size也放入到Tank的class中 -- 彻底的独立.
 # 利用嵌套的dict,使得不单能够分辨model,连make也可以分辨
 
-class Car():
+class Car(object):
     def __init__(self, make, model):
         self.makeC = make
         self.modelC = model
@@ -17,7 +17,7 @@ class Car():
 # 这里生成Tank()实例时,引用的是Car实例的makeC和modelC作为参数
 # 然后这个makeC和modelC变成了Tank()实例中的makeT和modelT, 根据方法,寻找Tank中的dict数据得到相对应的size
 
-class Tank():
+class Tank(object):
     # This is a better way, because the data of mapping should be in the Tank
     car_tank_sizes = {'Audi': {'A4': 20, 'A6': 25, 'A8': 30},
                       'BMW': {'Series 3': 21, 'Series 5': 26, 'Series 7': 31}}
