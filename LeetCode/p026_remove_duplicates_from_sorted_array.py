@@ -21,9 +21,10 @@ class Solution(object):
                 nums[index] = nums[i]
                 index += 1
                 start = i
-        return index
+        # 思路在于利用外部游标对应遍历时的瞬间赋值
+        return index, nums
 
 nums = [1,1,2,2,3]
-print(Solution().removeDuplicates(nums))
+print(Solution().removeDuplicates(nums))  # >>> (3, [1, 2, 3, 2, 3])
 
 
