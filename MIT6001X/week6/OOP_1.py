@@ -8,7 +8,8 @@ class Coordinate(object):
         return (x_diff_sq + y_diff_sq)**0.5
 
 c = Coordinate(3,4)
-point = Coordinate(5,5)
-print(c.distance(point))  # >>> 2.23606797749979
+print(c.x, c.y)  # >>> 3 4
+origin = Coordinate(0,0)
+print(c.distance(origin))  # >>> 5.0
 
 
