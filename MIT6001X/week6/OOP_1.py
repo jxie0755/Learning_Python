@@ -30,3 +30,4 @@ print(isinstance(c, Coordinate))  # >>> True
 
 c2 = Coordinate(1,1)
 print(c-c2) # >>> <2,3>
+
