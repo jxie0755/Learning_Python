@@ -12,6 +12,7 @@ class Coordinate(object):
         return f'<{self.x},{self.y}>'
 
     def __sub__(self, other):      # this is actually from operator module!!
+                                   # see other special methods in Language reference section 3.3
         return Coordinate(self.x - other.x, self.y - other.y)
 
 c = Coordinate(3,4)
