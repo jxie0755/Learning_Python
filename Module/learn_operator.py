@@ -112,6 +112,7 @@ print(sorted(inventory, key=getcount)) # >>> [('orange', 1), ('banana', 2), ('ap
 # operator.__gt__(a, b)
 
 # 逻辑操作也通常适用于所有对象，并支持真值测试，身份测试和布尔运算
+# 这些带双__前后的method很多都可以用于定义新的类方法(OOP环境)
 
 # operator.not_(obj)
 # operator.__not__(obj)
