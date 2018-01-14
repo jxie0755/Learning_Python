@@ -191,12 +191,29 @@ class Animal(object):
     def __str__(self):
         return 'animal:' + str(self.name) + ':' + str(self.age)
 
+myAnimal = Animal(3)
+myAnimal.set_name('foobar')
+print(myAnimal)
 
-myanimal = Animal(3)
-print(myanimal)
+class Cat(Animal):
+    def speak(self):
+        print('meow')
+    def __str__(self):
+        return 'cat:' + str(self.name) + ':' + str(self.age)
+
+jelly = Cat(1)
+jelly.set_name('JellyBelly')
+print(jelly)                  # >>> cat:JellyBelly:1
+print(Animal.__str__(jelly))  # >>> animal:JellyBelly:1  # still get access to Animal's method by using this way
 
 
+class Rabbit(Animal):
+    def speak(self):
+        print('meep')
+    def __str__(self):
+        return 'rabbit:' + str(self.name) + ':' + str(self.age)
 
-
-
+peter = Rabbit(5)
+jelly.speak()  # >>> meow
+peter.speak()  # >>> meep
 
