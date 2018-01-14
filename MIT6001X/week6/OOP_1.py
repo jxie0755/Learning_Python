@@ -54,7 +54,8 @@ class Fraction(object):
         numerNew = other.getDenom() * self.getNumer() - other.getNumer() * self.getDenom()
         denomNew = other.getDenom() * self.getDenom()
         return Fraction(numerNew, denomNew)
-
+    def convert(self):
+        return self.getNumer() / self.getDenom()
 
 oneHalf = Fraction(1,2)
 twoThirds = Fraction(2,3)
@@ -63,6 +64,10 @@ print(f'{oneHalf}, {twoThirds}')  # >>> 1 / 2, 2 / 3
 
 print(oneHalf + twoThirds)  # >>> 7 / 6
 print(oneHalf - twoThirds)  # >>> -1 / 6
+
+print(threeQuarters.convert())  # >>> 0.75
+
+# another example: a set of integers
 
 
 
