@@ -96,7 +96,7 @@ class Intset(object):
         if elm in self.data:
             self.data.remove(elm)
         else:
-            raise ValueError('element not found in set')
+            raise ValueError(f'{str(elm)} not found in set')
 set1 = Intset([1,1,2,2,3,3,4,4,4,5])
 print(set1)  # >>> {1, 2, 3, 4, 5}
 
