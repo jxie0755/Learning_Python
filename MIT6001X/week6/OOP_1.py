@@ -74,7 +74,7 @@ print(threeQuarters.convert())  # >>> 0.75
 # member: boolean a member's exisitence in set
 # remove: remove an element, error if not present
 
-class Intset(object):
+class IntSet(object):
     def __init__(self, lst=[]):  # use default empty list incase want to create an empty set.
         self.lst = lst
         setlst = []
@@ -97,7 +97,7 @@ class Intset(object):
             self.data.remove(elm)
         else:
             raise ValueError(f'{str(elm)} not found in set')
-set1 = Intset([1,1,2,2,3,3,4,4,4,5])
+set1 = IntSet([1, 1, 2, 2, 3, 3, 4, 4, 4, 5])
 print(set1)  # >>> {1, 2, 3, 4, 5}
 
 set1.insert(5)
@@ -111,7 +111,7 @@ set1.remove(3)
 # set1.remove(8)
 print(set1)  # >>> {1, 2, 4, 5, 6}
 
-set2 = Intset()
+set2 = IntSet()
 print(set2)  # >>> {}
 
 
