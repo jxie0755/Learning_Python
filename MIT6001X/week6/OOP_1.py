@@ -29,6 +29,7 @@ class Coordinate(object):
     def __eq__(self, other):
         return self.getX() == other.getX() and self.getY() == other.getY()
 
+    # Define __repr__, a special method that returns a string that looks like a valid Python expression
     def __repr__(self):
         return 'Coordinate(' + str(self.x) + ',' + str(self.y) + ')'
 
@@ -52,6 +53,7 @@ cdash = Coordinate(3,4)
 print(c == cdash)
 
 ccopy = eval(repr(c))
+print(repr(c))  # >>> Coordinate(3,4)
 print(ccopy)
 
 # create a new type as a fraction type of number
