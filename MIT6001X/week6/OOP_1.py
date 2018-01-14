@@ -46,13 +46,23 @@ class Fraction(object):
     def getDenom(self):
         return self.denom
 
+    def __add__(self, other):
+        numerNew = other.getDenom() * self.getNumer() + other.getNumer() * self.getDenom()
+        denomNew = other.getDenom() * self.getDenom()
+        return Fraction(numerNew, denomNew)
+    def __sub__(self, other):
+        numerNew = other.getDenom() * self.getNumer() - other.getNumer() * self.getDenom()
+        denomNew = other.getDenom() * self.getDenom()
+        return Fraction(numerNew, denomNew)
+
+
 oneHalf = Fraction(1,2)
-twoThird = Fraction(2,3)
-print(f'{oneHalf}, {twoThird}')  # >>> 1 / 2, 2 / 3
+twoThirds = Fraction(2,3)
+threeQuarters = Fraction(3,4)
+print(f'{oneHalf}, {twoThirds}')  # >>> 1 / 2, 2 / 3
 
-
-
-
+print(oneHalf + twoThirds)  # >>> 7 / 6
+print(oneHalf - twoThirds)  # >>> -1 / 6
 
 
 
