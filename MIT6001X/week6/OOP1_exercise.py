@@ -38,7 +38,7 @@ print(w4.getY())
 X = w4.getX() + w3.getX() + w2.getX()
 print(X)
 
-print(w4.getX())  # 记住这里class内部数据被封装,不受外部干扰
+print(w4.getX())  # 记住这里class内部数据被封装,不受外部干扰,也就是X变了,但是self.x没有变化
 
 Y = w4.getY() + w3.getY()
 Y = Y + w2.getY()
