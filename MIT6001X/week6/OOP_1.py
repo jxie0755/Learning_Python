@@ -83,7 +83,7 @@ class Intset(object):
                 setlst.append(i)
         self.data = setlst
     def __str__(self):
-        return "{" + str(self.data)[1:-1] + "}"
+        return "{" + str(sorted(self.data))[1:-1] + "}"
 
     def insert(self, elm):
         if elm not in self.data:
