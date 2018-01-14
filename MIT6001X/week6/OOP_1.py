@@ -1,3 +1,4 @@
+print('Coordinate example')
 class Coordinate(object):
     def __init__(self, x, y):
         self.x = x
@@ -15,6 +16,22 @@ class Coordinate(object):
                                    # see other special methods in Language reference section 3.3
         return Coordinate(self.x - other.x, self.y - other.y)
 
+    def getX(self):
+        # Getter method for a Coordinate object's x coordinate.
+        # Getter methods are better practice than just accessing an attribute directly
+        return self.x
+
+    def getY(self):
+        # Getter method for a Coordinate object's y coordinate
+        return self.y
+
+    # Add an __eq__ method that returns True if coordinates refer to same point in the plane
+    def __eq__(self, other):
+        return self.getX() == other.getX() and self.getY() == other.getY()
+
+    def __repr__(self):
+        return 'Coordinate(' + str(self.x) + ',' + str(self.y) + ')'
+
 c = Coordinate(3,4)
 print(c.x, c.y)  # >>> 3 4
 origin = Coordinate(0,0)
@@ -31,9 +48,16 @@ print(isinstance(c, Coordinate))  # >>> True
 c2 = Coordinate(1,1)
 print(c-c2) # >>> <2,3>
 
+cdash = Coordinate(3,4)
+print(c == cdash)
+
+ccopy = eval(repr(c))
+print(ccopy)
 
 # create a new type as a fraction type of number
 # 分子Numerator and 分母denominator
+print()
+print('Fraction example')
 class Fraction(object):
     def __init__(self, numer, denom):
         self.numer = numer
@@ -97,6 +121,7 @@ class IntSet(object):
             self.data.remove(elm)
         else:
             raise ValueError(f'{str(elm)} not found in set')
+
 set1 = IntSet([1, 1, 2, 2, 3, 3, 4, 4, 4, 5])
 print(set1)  # >>> {1, 2, 3, 4, 5}
 
