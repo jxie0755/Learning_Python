@@ -68,9 +68,51 @@ print(oneHalf - twoThirds)  # >>> -1 / 6
 print(threeQuarters.convert())  # >>> 0.75
 
 # another example: a set of integers
+# basic idea is the same as python sets (no repeat items), but to achieve by codes
+# methods can be:
+# insert : add an elements
+# member: boolean a member's exisitence in set
+# remove: remove an element, error if not present
 
+class Intset(object):
+    def __init__(self, lst=[]):  # use default empty list incase want to create an empty set.
+        self.lst = lst
+        setlst = []
+        for i in lst:
+            if i not in setlst:
+                setlst.append(i)
+        self.data = setlst
+    def __str__(self):
+        return "{" + str(self.data)[1:-1] + "}"
 
+    def insert(self, elm):
+        if elm not in self.data:
+            self.data.append(elm)
 
+    def member(self, elm):
+        return elm in self.data
+
+    def remove(self, elm):
+        if elm in self.data:
+            self.data.remove(elm)
+        else:
+            raise ValueError('element not found in set')
+set1 = Intset([1,1,2,2,3,3,4,4,4,5])
+print(set1)  # >>> {1, 2, 3, 4, 5}
+
+set1.insert(5)
+set1.insert(6)
+print(set1)  # >>> {1, 2, 3, 4, 5, 6}
+
+print(set1.member(6))  # >>> True
+print(set1.member(7))  # >>> False
+
+set1.remove(3)
+# set1.remove(8)
+print(set1)  # >>> {1, 2, 4, 5, 6}
+
+set2 = Intset()
+print(set2)  # >>> {}
 
 
 
