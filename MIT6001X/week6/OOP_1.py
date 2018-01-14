@@ -170,7 +170,30 @@ print(set1)  # >>> {1, 2, 4, 5, 6}
 print(set1.intersect(set2))  # >>> {2, 4, 6}
 
 
+# Mimic real life
+class Animal(object):
+    def __init__(self, age):
+        self.age = age
+        self.name = None  # start with no name
 
+    # getters and setters should always be used outside of the class to access the data attributes.
+
+    # getter
+    def get_age(self):
+        return self.age
+    def get_name(self):
+        return self.name
+    # setter
+    def set_age(self, newage):
+        self.age = newage
+    def set_name(self, newname=''):
+        self.name = newname
+    def __str__(self):
+        return 'animal:' + str(self.name) + ':' + str(self.age)
+
+
+myanimal = Animal(3)
+print(myanimal)
 
 
 
