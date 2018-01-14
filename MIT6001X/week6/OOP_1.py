@@ -100,31 +100,60 @@ print(threeQuarters.convert())  # >>> 0.75
 # member: boolean a member's exisitence in set
 # remove: remove an element, error if not present
 
-class IntSet(object):
-    def __init__(self, lst=[]):  # use default empty list incase want to create an empty set.
-        self.lst = lst
-        setlst = []
-        for i in lst:
-            if i not in setlst:
-                setlst.append(i)
-        self.data = setlst
+
+print()
+print('intSet example')
+class intSet(object):
+    """An intSet is a set of integers
+    The value is represented by a list of ints, self.vals.
+    Each int in the set occurs in self.vals exactly once."""
+
+    def __init__(self):
+        """Create an empty set of integers"""
+        self.vals = []
+
+    def insert(self, e):
+        """Assumes e is an integer and inserts e into self"""
+        if not e in self.vals:
+            self.vals.append(e)
+
+    def member(self, e):
+        """Assumes e is an integer
+           Returns True if e is in self, and False otherwise"""
+        return e in self.vals
+
+    def remove(self, e):
+        """Assumes e is an integer and removes e from self
+           Raises ValueError if e is not in self"""
+        try:
+            self.vals.remove(e)
+        except:
+            raise ValueError(str(e) + ' not found')
+
     def __str__(self):
-        return "{" + str(sorted(self.data))[1:-1] + "}"   # make sure it automactically sort from small to large
+        """Returns a string representation of self"""
+        self.vals.sort()
+        return '{' + ','.join([str(e) for e in self.vals]) + '}'
 
-    def insert(self, elm):
-        if elm not in self.data:
-            self.data.append(elm)
+    # Define an intersect method that returns a new intSet containing elements that appear in both sets. (交集)
+    def intersect(self, other):
+        intersect = intSet()
+        for i in self.vals:
+            if i in other.vals:
+                intersect.vals.append(i)
+        return intersect
 
-    def member(self, elm):
-        return elm in self.data
+    # Add the appropriate method(s) so that len(s) returns the number of elements in s
+    def __len__(self):
+        return len(self.vals)
 
-    def remove(self, elm):
-        if elm in self.data:
-            self.data.remove(elm)
-        else:
-            raise ValueError(f'{str(elm)} not found in set')
+emptset = intSet()
+print(emptset)  # >>> {}
 
-set1 = IntSet([1, 1, 2, 2, 3, 3, 4, 4, 4, 5])
+set1 = intSet()
+set1.insert(1); set1.insert(1); set1.insert(2); set1.insert(2); set1.insert(3); set1.insert(4); set1.insert(5)
+set2 = intSet()
+set2.insert(2); set2.insert(4); set2.insert(4); set2.insert(4); set2.insert(6); set2.insert(8); set2.insert(8); set2.insert(8)
 print(set1)  # >>> {1, 2, 3, 4, 5}
 
 set1.insert(5)
@@ -138,8 +167,11 @@ set1.remove(3)
 # set1.remove(8)
 print(set1)  # >>> {1, 2, 4, 5, 6}
 
-set2 = IntSet()
-print(set2)  # >>> {}
+print(set1.intersect(set2))  # >>> {2, 4, 6}
+
+
+
+
 
 
 
