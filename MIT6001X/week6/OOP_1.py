@@ -219,6 +219,45 @@ peter = Rabbit(5)
 jelly.speak()  # >>> meow
 peter.speak()  # >>> meep
 
+class Rabbit(Animal):
+    tag = 1
+    def __init__(self, age, parent1=None, parent2=None):
+        Animal.__init__(self, age)
+        self.parent1 = parent1
+        self.parent2 = parent2
+        self.rid = Rabbit.tag  # call Class tag
+        Rabbit.tag += 1  # change Class tag, so that each tag is unique
+        # every instance created, __init__ is called, and class variable changes
+    def get_rid(self):
+        return str(self.rid).zfill(3)
+    def get_parent1(self):
+        return self.parent1
+    def get_parent2(self):
+        return self.parent2
+    def __add__(self, other):
+        return Rabbit(0, self, other)
+    def __eq__(self, other):
+        parent_same = self.parent1.rid == other.parent1.rid \
+                      and self.parent2.rid == other.parent2.rid
+        parent_diff = self.parent1.rid == other.parent2.rid \
+                      and self.parent2.rid == other.parent1.rid
+        return parent_same or parent_diff
+    # get_name and get_age inherit from Animal class
+
+print()
+print('new Rabbit class example')
+peter = Rabbit(2); peter.set_name('Peter')
+hopsy = Rabbit(3); hopsy.set_name('Hopsy')
+cotton = Rabbit(1, peter, hopsy)
+print(peter.get_rid(), hopsy.get_rid(), cotton.get_rid())  # >>> 001 002 003
+print(cotton.get_parent2().get_name())  # >>> Hopsy
+cotton2 = hopsy + peter
+print(cotton2.get_rid(), cotton2.get_parent1().get_name(), cotton2.get_parent2().get_name())
+# >>> 0004 Hopsy Peter
+print(cotton == cotton2) # >>> True
+
+print()
+print('Person class')
 class Person(Animal):
     def __init__(self, name, age):
         Animal.__init__(self, age)
