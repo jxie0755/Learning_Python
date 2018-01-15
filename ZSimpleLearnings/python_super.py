@@ -23,7 +23,7 @@ bb = B()
 
 cc = C()
 # >>>
-# A  # 来自继承A类init的print
+# A  # 来自继承A类init的print  # 这就造成了不必要的重复
 # A  # 来自继承B类中的init的A.init的print
 # B  # 来自继承B类中的print
 # C  # 来自C类中的init的print
@@ -53,7 +53,7 @@ bb = B()
 
 cc = C()
 # >>>
-# A  # 来自B类中的super()下一个类为A,所以来自A的init的print
+# A  # 来自B类中的super()下一个类为A,所以来自A的init的print　　＃ 这就免去了不必要的重复
 # B  # 来自继承B类中的print
 # C  # 来自C类中的init的print
 
