@@ -171,6 +171,8 @@ print(set1.intersect(set2))  # >>> {2, 4, 6}
 
 
 # Mimic real life
+print()
+print('Hierarchy example')
 class Animal(object):
     def __init__(self, age):
         self.age = age
@@ -216,4 +218,55 @@ class Rabbit(Animal):
 peter = Rabbit(5)
 jelly.speak()  # >>> meow
 peter.speak()  # >>> meep
+
+class Person(Animal):
+    def __init__(self, name, age):
+        Animal.__init__(self, age)
+        Animal.set_name(self, name)
+        self.friends = []
+    def get_friends(self):
+        return self.friends
+    def add_friend(self, fname):
+        if fname not in self.friends:
+            self.friends.append(fname)
+    def speak(self):
+        print('hello')
+    def age_diff(self, other):
+        diff = self.get_age() - other.get_age()
+        if self.age > other.age:
+            print(self.name, 'is', diff, 'years older than', other.name)
+        else:
+            print(self.name, 'is', -diff, 'years younger than', other.name)
+    def __str__(self):
+        return 'person:'+str(self.name)+':'+str(self.age)
+
+eric = Person('eric', 45)
+john = Person('john', 55)
+eric.speak()  # >>> hello
+eric.age_diff(john)  # >>> eric is 10 years younger than john
+john.age_diff(eric)  # >>> john is 10 years older than eric
+
+import random
+class Student(Person):
+    def __init__(self, name, age, major=None):
+        Person.__init__(self, name, age)
+        self.major = major
+    def change_major(self, major):
+        self.major = major
+    def speak(self):
+        r = random.random()  # gives a float between 0 and 1
+        if r < 0.25:
+            print('i have homework')
+        elif 0.25 <= r < 0.5:
+            print('i need sleep')
+        elif 0.5 <= r < 0.75:
+            print('i should eat')
+        else:
+            print('i am watching tv')
+    def __str__(self):
+        return 'student:'+str(self.name)+':'+str(self.age)+':'+str(self.major)
+
+fred = Student('Fred', 18, 'Course VI')
+print(fred)  # >>> studentFred:18:Course VI
+fred.speak()  # >>> random
 
