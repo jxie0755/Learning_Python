@@ -236,7 +236,7 @@ class Rabbit(Animal):
         return self.parent2
     def __add__(self, other):
         return Rabbit(0, self, other)
-    def __eq__(self, other):
+    def __eq__(self, other):  # using the rid as unique identification
         parent_same = self.parent1.rid == other.parent1.rid \
                       and self.parent2.rid == other.parent2.rid
         parent_diff = self.parent1.rid == other.parent2.rid \
