@@ -45,15 +45,15 @@ class C(B, A):
         super().__init__()  # 只会寻求第一个父类,这里也就是B类
         print('C')
 
-# 采用super()方式时，会自动找到第一个多继承中的第一个父类
+# 采用super()方式时，会自动找到第一个多继承中的下一个类(不是父类!)
 bb = B()
 # >>>
-# A  # 来自继承A类init的print
+# A  # 来自A类init的print
 # B  # 来自B类init的print
 
 cc = C()
 # >>>
-# A  # 比之前少一个A,因为super()函数只继承第一个父类B,A的init被略过
+# A  # 来自B类中的super()下一个类为A,所以来自A的init的print
 # B  # 来自继承B类中的print
 # C  # 来自C类中的init的print
 
@@ -87,7 +87,9 @@ if __name__ == "__main__":
 # I am an actor, I can act !
 # I am a singer, I can sing !
 
-# 注意顺序问题,竟然是先出最高父类,再出第二父类,顺序逆向
+# 注意顺序问题,竟然是先出最高父类,再出第二父类,顺序逆向, 原因:
+# super在singer power之前, super追寻到actor,actor中super又在actor power之前,所以最先print的是person power
+
 # 不同于特殊方法init, 这里的show_my_power将展示所有父类的方法,而不是只输出第一顺序父类
 # 如果Singer和Actor不用super语句,那么只会输出Singer的show_my_power(第一顺序父类)
 
