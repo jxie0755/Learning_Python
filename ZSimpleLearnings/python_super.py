@@ -57,3 +57,36 @@ cc = C()
 # B  # 来自继承B类中的print
 # C  # 来自C类中的init的print
 
+
+
+# Another example
+print()
+class Person(object):
+    def show_my_power(self):
+        print("I am a person, I can walk!")
+
+class Singer(Person):
+    def show_my_power(self):
+        super().show_my_power()
+        print("I am a singer, I can sing!")
+
+class Actor(Person):
+    def show_my_power(self):
+        super().show_my_power()
+        print("I am an actor, I can act!")
+
+class Artist(Singer, Actor):
+    pass
+
+if __name__ == "__main__":
+    a = Artist()
+    a.show_my_power()
+
+# >>>
+# I am a person, I can walk !
+# I am an actor, I can act !
+# I am a singer, I can sing !
+
+# 注意顺序问题,竟然是先出最高父类,再出第二父类,顺序逆向
+# 不同于特殊方法init, 这里的show_my_power将展示所有父类的方法,而不是只输出第一顺序父类
+# 如果Singer和Actor不用super语句,那么只会输出Singer的show_my_power(第一顺序父类)
