@@ -34,3 +34,13 @@ p4 = Person('Andrew Gates')
 p5 = Person('Steve Wozniak')
 personList = [p1, p2, p3, p4, p5]
 
+print(p1)  # >>> Mark Zuckerberg
+personList.sort()  # >>> this works because we defined __lt__ method, and it will sort by lastName
+for e in personList:
+    print(e)
+# >>>
+# Andrew Gates
+# Bill Gates
+# Drew Houston
+# Steve Wozniak
+# Mark Zuckerberg
