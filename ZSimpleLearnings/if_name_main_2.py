@@ -1,16 +1,22 @@
 import if_name_main_1
 
-print('In file 2 we only test one function:')
-
-print(if_name_main_1.f1(6))
+# Whatever executable codes in file_1 will run first:
 # >>>
-# In file 1 we have two functions run:
+# The following codes are run in file_1:
+# __name__ is now: if_name_main_1
 # 4
 # 16
-# In file 2 we only test one function:
+
+
+print('The following codes are run in file_2:')
+print('__name__ is now', __name__)
+print(if_name_main_1.f1(6))
+# >>>
+# following codes are run in file_2:
+# __name__ is now __main__
 # 36
 
-if __name__ == '__main__':
-    print(if_name_main_1.f1(7))
-# >>>
-# 49   # this only use the functions in file1 and run it in file 2
+
+# the section in file 1 under "if __name__ == '__main__':" will now not be executed
+
+
