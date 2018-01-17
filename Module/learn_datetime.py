@@ -18,8 +18,8 @@ print(datetime.MAXYEAR)  # >>> 9999
 # class datetime.tzinfo
 # class datetime.timezone
 
-
-datetime.timedelta(days=0, seconds=0, microseconds=0, milliseconds=0, minutes=0, hours=0, weeks=0)
+print()
+print('datetime.timedelta(days=0, seconds=0, microseconds=0, milliseconds=0, minutes=0, hours=0, weeks=0)')
 
 # timedelta对象表示时间的间隔，即两个日期或时间之间的差值。
 datetime.timedelta(days=0, seconds=0, microseconds=0, milliseconds=0, minutes=0, hours=0, weeks=0)
@@ -27,7 +27,7 @@ datetime.timedelta(days=0, seconds=0, microseconds=0, milliseconds=0, minutes=0,
 dt = datetime.timedelta(1.5, 5.5, weeks=0.5)
 print(dt)  # >>> 5 days, 0:00:05.500000
 
-
+# timedelta对象是可哈希的（可用作字典键）
 # 注意,timedelta只能在同类型的datetime class之间,不能跨越 (比如date-datetime)
 # timedelta 不支持time之间的运算,只支持date和datetime, 除非通过datetime实例中y,m,d均为同一个值(1)来实现
 # 原因: 不考虑时区来比较时间是不安全的,所以计算需要通过datetime确定日期,或者确定timezone才能安全的对比
@@ -36,8 +36,6 @@ datetimeX2 = datetime.datetime(1,1,1, 16, 30, 59)
 print(datetimeX1-datetimeX2)  # >>> 0:29:01
 # 或者使用datetime.strptime() (在datetime.strptime()中会介绍)
 
-
-import datetime
 A = datetime.timedelta(days=1, hours=2, seconds=100)  # 可以不用是整数,比如hour=0.5
 print(A)                  # >>> 1 day, 2:01:40
 
@@ -58,8 +56,8 @@ print(A.microseconds)     # >>> 500   # just microseconds
 print(A.total_seconds())  # >>> 131500.0
 
 
-
-datetime.date(year, month, day)
+print()
+print('datetime.date(year, month, day)')
 
 # date 类属性
 datetime.date.min # >>> 0001-01-01
@@ -119,8 +117,8 @@ print(A.strftime('%m/%d/%y %H:%M:%S'))  # >>> 08/08/17 00:00:00
 print(A.__format__("%d/%m/%y"))  # same as above
 
 
-
-datetime.datetime(year, month, day, hour=0, minute=0, second=0, microsecond=0, tzinfo=None)
+print()
+print('datetime.datetime(year, month, day, hour=0, minute=0, second=0, microsecond=0, tzinfo=None)')
 
 # 基本就是date + time
 
@@ -265,8 +263,8 @@ print(A.strftime('%m/%d/%Y %H:%M:%S'))  # >>> 03/15/2017 17:15:30
 # datetime.__format__(format)
 
 
-
-datetime.time(hour=0, minute=0, second=0, microsecond=0, tzinfo=None)
+print()
+print('datetime.time(hour=0, minute=0, second=0, microsecond=0, tzinfo=None)')
 # 所有参数都是可选的。tzinfo可以是None或tzinfo子类的实例
 # time是哈希的,所以可以用作字典键
 
@@ -286,3 +284,38 @@ datetime.time(hour=0, minute=0, second=0, microsecond=0, tzinfo=None)
 # time.second       # 在range(60)之间。
 # time.microsecond  # 在range(1000000)之间。
 # time.tzinfo       # 作为tzinfo参数传递给time构造函数的对象，如果没有传递则为None
+
+
+# time 实例方法
+# time.replace([hour[, minute[, second[, microsecond[, tzinfo]]]]])
+
+# time.isoformat()
+# 返回以ISO 8601 格式HH:MM:SS.mmmmmm表示间的字符串，如果self.microsecond为0，则以HH:MM:SS的格式
+
+# time.__str__()
+# 对于时间t，str(t)等同于t.isoformat()
+
+# time.strftime(format)
+# 返回一个表示time的字符串，由显式的格式字符串控制
+
+# time.__format__(format)
+# 与time.strftime()相同。这使得可以在使用str.format()时为time对象指定格式字符串
+
+# time.utcoffset()
+# 如果tzinfo为None，则返回None，否则返回self.tzinfo.utcoffset(None)；
+# 如果后者未返回None或表示小于一天的整数分钟的timedelta对象，则引发一个异常
+
+# time.dst()
+# 如果tzinfo为None，则返回None，否则返回self.tzinfo.utcoffset(None)；
+# 如果后者未返回None或表示小于一天的整数分钟的timedelta对象，则引发一个异常
+
+# time.tzname()
+# 如果tzinfo为None，则返回None，否则返回self.tzinfo.tzname(None)；
+# 如果后者不返回None或字符串对象，则引发一个异常
+
+
+
+print()
+print('datetime.tzinfo')
+# 这是一个抽象的基类，意味着这个类不应该直接实例化
+# 你需要派生一个具体的子类，并且（至少）提供你使用的datetime方法所需的标准tzinfo方法的实现
