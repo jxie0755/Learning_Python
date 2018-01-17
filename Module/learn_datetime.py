@@ -319,3 +319,84 @@ print()
 print('datetime.tzinfo')
 # 这是一个抽象的基类，意味着这个类不应该直接实例化
 # 你需要派生一个具体的子类，并且（至少）提供你使用的datetime方法所需的标准tzinfo方法的实现
+# datetime模块提供tzinfo的一个简单的具体子类timezone，它可以表示与UTC有固定偏移的时区，如UTC本身或北美EST和EDT
+# tzinfo子类必须有一个可以无参数调用的__init__()方法
+
+# tzinfo 类方法
+# tzinfo的具体子类可能需要实现以下方法。需要哪些方法取决于对aware的datetime对象的使用
+
+# tzinfo.utcoffset(dt)
+# 返回本地时间与UTC的偏移量，以UTC东部分钟数为单位,如果本地时间在UTC的西边，它应该是负的。
+# 注意，这是UTC的总偏移量
+# 指定-1439到1439范围内的整数分钟（1440 = 24*60；偏移量必须小于一天）
+
+# tzinfo.dst(dt)
+# 如果DST信息未知，则返回夏令时（DST）调整（以UTC以东为单位），或者None。
+# 如果DST不起作用，则返回timedelta(0)
+# 如果DST有效，则将偏移返回为timedelta对象
+
+# tzinfo.tzname(dt)
+# 将与datetime对象dt对应的时区名称作为字符串返回。
+# datetime模块没有定义有关字符串名称的内容，并且没有要求它有任何特别的意思。
+# 例如，“GMT”、“UTC”、“-500”、“-5:00”、“EDT”、“US/Eastern”、“America/New York”都是有效的返回
+
+# tzinfo.fromutc(dt)
+# 这是从默认的datetime.astimezone()实现中调用的。
+# 当从中调用时，dt.tzinfo为self，并且dt的日期和时间数据被视为表示UTC时间
+
+# 举例说明
+from datetime import tzinfo, timedelta, datetime
+ZERO = timedelta(0)
+HOUR = timedelta(hours=1)
+
+class UTC(tzinfo):
+    """UTC"""
+    def utcoffset(self, dt):
+        return ZERO
+    def tzname(self, dt):
+        return "UTC"
+    def dst(self, dt):
+        return ZERO
+
+utc = UTC()
+# A class building tzinfo objects for fixed-offset time zones.
+
+# Note that FixedOffset(0, "UTC") is a different way to build a UTC tzinfo object.
+class FixedOffset(tzinfo):
+    """Fixed offset in minutes east from UTC."""
+
+    def __init__(self, offset, name):
+        self.__offset = timedelta(minutes=offset)
+        self.__name = name
+
+    def utcoffset(self, dt):
+        return self.__offset
+
+    def tzname(self, dt):
+        return self.__name
+
+    def dst(self, dt):
+        return ZERO
+
+# A class capturing the platform's idea of local time
+
+
+
+print()
+print('datetime.timezone(offset[, name])')
+
+# timezone.utcoffset(dt)
+# 返回构建timezone实例时指定的固定值。忽略dt参数。返回值是等于本地时间和UTC之差的timedelta实例
+
+# timezone.tzname(dt)
+# 返回在构建timezone实例时指定的固定值或字符串'UTCsHH:MM'，其中s是offset的符号，HH和MM分别是offset.hours和offset.minutes
+
+# timezone.dst(dt)
+# 始终返回None
+
+# timezone.fromutc(dt)
+# 返回dt + offset。dt参数必须是一个aware的datetime实例，其中tzinfo设置为self
+
+# timezone 类属性：
+# timezone.utc
+# UTC时区，timezone(timedelta(0))
