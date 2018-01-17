@@ -4,19 +4,13 @@ import if_name_main_1
 # >>>
 # The following codes are run in file_1:
 # __name__ is now: if_name_main_1
-# 4
-# 16
-
-
-print('The following codes are run in file_2:')
-print('__name__ is now', __name__)
-print(if_name_main_1.f1(6))
-# >>>
-# following codes are run in file_2:
-# __name__ is now __main__
-# 36
-
+# f(2)= 4
 
 # the section in file 1 under "if __name__ == '__main__':" will now not be executed
-
-
+print('The following codes are run in file_2:')
+print('__name__ is now:', __name__)
+print('f(6)=', if_name_main_1.f(6))
+# >>>
+# following codes are run in file_2:
+# __name__ is now: __main__
+# 36
