@@ -19,7 +19,7 @@ class Person(object):
         if self.birthday == None:
             raise ValueError
         return (datetime.date.today() - self.birthday).days
-    def __lt__(self, other):
+    def __lt__(self, other):  # sort must be build on a system that allow comparison
         if self.lastName == other.lastName:
             return self.name < other.name
         return self.lastName < other.lastName
@@ -44,3 +44,34 @@ for e in personList:
 # Drew Houston
 # Steve Wozniak
 # Mark Zuckerberg
+
+class MITPerson(Person):
+    nextIdNum = 0  # next ID number to assign
+    def __init__(self, name):
+        Person.__init__(self, name)  # initialize Person
+        self.idNum = MITPerson.nextIdNum
+        MITPerson.nextIdNum += 1
+    def __str__(self):
+        return self.name
+    def getIdNum(self):
+        return self.idNum
+
+    # sorting by ID number not name
+    def __lt__(self, other):
+        return self.idNum < other.idNum
+
+    def speak(self, utterance):
+        return (self.getLasstName() + ' says: ' + utterance)
+
+denis = MITPerson('Denis Xie')
+print(denis.speak('how are you'))
+cindy = MITPerson('Cindy Tian')
+adrienne = MITPerson('Adrienne Xie')
+
+print(denis.getIdNum(), cindy.getIdNum(), adrienne.getIdNum())
+# >>> 0 1 2
+lst = [cindy, denis, adrienne]
+lst.sort()
+for i in lst:
+    print(i)
+
