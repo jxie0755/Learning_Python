@@ -101,8 +101,8 @@ print(sorted(inventory, key=getcount)) # >>> [('orange', 1), ('banana', 2), ('ap
 # operator.le(a, b)  ==   a <= b
 # operator.eq(a, b)  ==   a == b
 # operator.ne(a, b)  ==   a != b
-# operator.ge(a, b)  ==   a > b
-# operator.gt(a, b)  ==   a >= b
+# operator.ge(a, b)  ==   a >= b
+# operator.gt(a, b)  ==   a > b
 
 # operator.__lt__(a, b)
 # operator.__le__(a, b)
