@@ -1,3 +1,6 @@
+print('set([iterable]))')
+print('frozenset([iterable])')
+
 # Set 包含两个,一个是set,一个是frozenset.
 
 # 集合对象是一个由互不相同的hashable对象组成的无序集合

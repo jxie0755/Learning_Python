@@ -1,3 +1,5 @@
+print('list([iterable])')
+
 # add and remove items from a list
 listA = ['A', 'B', 'C', 'D', 'E', 'F']
 
@@ -81,6 +83,7 @@ print(sorted(L))  # does not change L
 print(L)
 
 L.sort()          # change L
+# This method sorts the list in place, using only < comparisons between items
 print(L)
 
 # reverse

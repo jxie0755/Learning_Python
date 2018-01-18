@@ -1,3 +1,7 @@
+print('dict(**kwarg)')
+print('dict(mapping, **kwarg)')
+print('dict(iterable, **kwarg)')
+
 # 一个mapping对象将hashable的值映射到任意对象。映射是可变对象。目前只有一种标准映射类型，那就是字典Dictionary
 
 # 字典的键几乎是任意值。值是不能hashable，也就是包含列表、字典或其它可变类型的值（它们通过值而不是对象ID进行比较）不可以用作键。

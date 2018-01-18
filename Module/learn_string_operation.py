@@ -1,3 +1,6 @@
+print('str(object='')')
+print("str(object=b'', encoding='utf-8', errors='strict'))")
+
 import string
 
 # a string contains all letters
