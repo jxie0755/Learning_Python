@@ -50,4 +50,3 @@ print('{:.2%}'.format(19/22))  # >>> 86.36%'
 import datetime
 d = datetime.datetime(2010, 7, 4, 12, 15, 58)
 print('{:%Y-%m-%d %H:%M:%S}'.format(d))  # >>> '2010-07-04 12:15:58'
-
