@@ -43,7 +43,7 @@ print(format(10, 'b'))  # >>> 1010, this can remove the '0b'
 # return the binary value
 
 print('\n', 6)
-print('bool([x])')
+print('class bool([x])')
 print(bool(0))  # >>> False
 print(bool('0'))  # >>> True
 print(bool(None))  # >>> False
@@ -55,7 +55,7 @@ print(bool([]))  # >>> False
 
 
 print('\n', 7)
-print('bytearray([source[, encoding[, errors]]])')
+print('class bytearray([source[, encoding[, errors]]])')
 print(bytearray([0, 100, 255]))  # >>> bytearray(b'\x00d\xff')
 print(bytearray(12))  # >>> bytearray(b'\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00')
 print(bytes([0, 100, 255]))  # >>> b'\x00d\xff'
@@ -63,7 +63,7 @@ print(bytes(12))  # >>> b'\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
 
 
 print('\n', 8)
-print('bytes([source[, encoding[, errors]]])')
+print('class bytes([source[, encoding[, errors]]])')
 # 返回一个新的字节对象，是一个在 0<= x < 256之间的不可变的整数序列。 
 # bytes 是 bytearray 的不可变版本 – 它具有同样的非改变性的方法和同样的索引和切片操作
 # 因此，构造函数参数的解释与bytearray()相同。
@@ -103,7 +103,7 @@ print('compile(source, filename, mode, flags=0, dont_inherit=False, optimize=-1)
 
 
 print('\n', 13)
-print('complex([real[, imag]])')
+print('class complex([real[, imag]])')
 print(complex('1+2j'))
 # 返回值形式为real + imag * 1j的复数，或将字符串或数字转换为复数
 # does not allow white space in the string ('1 + 2j') will raise error
@@ -120,9 +120,9 @@ print('delattr(object, name)')
 
 
 print('\n', 15)
-print('dict(**kwarg)')
-print('dict(mapping, **kwarg)')
-print('dict(iterable, **kwarg)')
+print('class dict(**kwarg)')
+print('class dict(mapping, **kwarg)')
+print('class dict(iterable, **kwarg)')
 print(dict(zip([1, 2, 3], ['a', 'b', 'c'])))
 # create a dictionary
 
@@ -174,7 +174,7 @@ print('see in ZSimpleLearnings/lambda_map_filter_reduce.py')
 
 
 print('\n', 22)
-print('float([x])')
+print('class float([x])')
 print(float(25))  # >>> 25.0
 print(float('-25'))  # >>> -25.0
 # convert an int or number in string to a float number
@@ -202,7 +202,7 @@ print(format(2.55, '0.1f'))  # >>> 2.5
 
 
 print('\n', 24)
-print('frozenset([iterable])')
+print('class frozenset([iterable])')
 # print(frozenset([1, 2, 3]))
 print('see in ZSimpleLearnings/python_frozenset.py')
 
@@ -329,8 +329,8 @@ print('input([prompt])')
 
 
 print('\n', 33)
-print('int(x)')
-print('int(x, base=10)')
+print('class int(x)')
+print('class int(x, base=10)')
 # don't forget that base can be changed from 2-36.
 # base为0意味着完全解释为代码字面值
 a = '142AB34'
@@ -363,7 +363,7 @@ print('len(s)')
 
 
 print('\n', 38)
-print('list([iterable])')
+print('class list([iterable])')
 # turn iterable into a list
 
 
@@ -400,7 +400,7 @@ print('see in Module/learn_itertools.py')
 
 
 print('\n', 45)
-print('object()')
+print('class object()')
 # oop 环境
 
 
@@ -442,7 +442,7 @@ print("print(*objects, sep=' ', end='\n', file=sys.stdout, flush=False)")
 print('hello world')
 
 print('\n', 51)
-print('property(fget=None, fset=None, fdel=None, doc=None)')
+print('class property(fget=None, fset=None, fdel=None, doc=None)')
 # oop 环境
 
 print('\n', 52)
@@ -491,7 +491,7 @@ print(round(2.5, 0))  # >>> 2.0
 
 
 print('\n', 56)
-print('set([iterable])')
+print('class set([iterable])')
 # create a set object
 
 
@@ -503,8 +503,8 @@ print('setattr(object, name, value)')
 # OOP环境
 
 print('\n', 58)
-print('slice(stop)')
-print('slice(start, stop[, step])')
+print('class slice(stop)')
+print('class slice(start, stop[, step])')
 # 返回一个slice对象，表示由索引range(start, stop, step)指出的集合。start和step参数默认为None
 # slice a list
 a = [1,2,3,4]
@@ -519,13 +519,13 @@ print('see in ZSimpleLearnings/sort_vs_sorted_and_reverse.py')
 
 
 print('\n', 60)
-print('staticmethod(function)')
+print('@ staticmethod(function)')
 # 返回function的一个静态方法。
 
 
 print('\n', 61)
-print('str(object='')')
-print("str(object=b'', encoding=')utf-8', errors='strict")
+print('class str(object='')')
+print("class str(object=b'', encoding=')utf-8', errors='strict")
 # turn object into a string version
 
 
@@ -549,8 +549,8 @@ print('tuple([iterable])')
 
 
 print('\n', 65)
-print('type(object)')
-print('type(name, bases, dict)')
+print('class type(object)')
+print('class type(name, bases, dict)')
 # return the type of the object
 
 
