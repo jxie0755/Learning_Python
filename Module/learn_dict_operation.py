@@ -1,6 +1,6 @@
-print('dict(**kwarg)')
-print('dict(mapping, **kwarg)')
-print('dict(iterable, **kwarg)')
+print('class dict(**kwarg)')
+print('class dict(mapping, **kwarg)')
+print('class dict(iterable, **kwarg)')
 
 # 一个mapping对象将hashable的值映射到任意对象。映射是可变对象。目前只有一种标准映射类型，那就是字典Dictionary
 

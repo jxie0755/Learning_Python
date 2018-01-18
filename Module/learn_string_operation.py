@@ -1,5 +1,5 @@
-print('str(object='')')
-print("str(object=b'', encoding='utf-8', errors='strict'))")
+print('class str(object='')')
+print("class str(object=b'', encoding='utf-8', errors='strict'))")
 
 import string
 

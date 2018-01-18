@@ -1,7 +1,7 @@
 import collections
 
 print()
-print('collections.ChainMap(*maps)')
+print('class collections.ChainMap(*maps)')
 # 一个 ChainMap组合多个字典或其它映射集创建一个单一且可更新的视图。如果没有指定 maps ，那么将会用一个空字典作为新chain里面的一个mapping
 # 基础的mappings被存储在一个列表当中。这个列表是公开的，可以用 maps 属性访问和更新。没有其它的情况。
 
@@ -47,7 +47,7 @@ print(new_chain.parents.maps)
 
 
 print()
-print('collections.Counter([iterable-or-mapping])')
+print('class collections.Counter([iterable-or-mapping])')
 
 # 计数器工具提供方面、快速的计数方法。
 cnt = collections.Counter()  # create empty counter
@@ -140,7 +140,7 @@ print(-c)  # >>> Counter({'b': 4})
 
 
 print()
-print('collections.deque([iterable[, maxlen]])')
+print('class collections.deque([iterable[, maxlen]])')
 
 # 返回一个由迭代器从左到右(使用append())初始化的双向队列.若未指定初始化的迭代器，返回的双向队列的长度为0
 # 双向队列（Deque）是栈和队列的一般化（deque发音和‘deck’一样，是‘double-ended queue’的缩写）。
@@ -271,7 +271,7 @@ delete_nth(sample, 3)       # deque([4, 5, 6, 7, 1, 2, 3]) after rotate(-3)
 
 
 print()
-print('collections.defaultdict([default_factory[, ...]])')
+print('class collections.defaultdict([default_factory[, ...]])')
 
 # 返回一个新的类似字典的对象。defaultdict是内置dict类的子类。
 # 它覆盖一个方法，并添加一个可写的实例变量。
@@ -472,7 +472,7 @@ print(orddic2)  # >>> OrderedDict([('pear', 1), ('banana', 3), ('apple', 4)])
 
 
 print()
-print('collections.UserDict([initialdata])')
+print('class collections.UserDict([initialdata])')
 
 # UserDict是一个包裹了字典的对象。对这个类的需要已经部分地被直接从dict子类化的能力所代替；
 # 但是，此类可以更容易使用，因为底层字典可作为属性访问。
@@ -499,7 +499,7 @@ print(emptudic)  # >>> {'test': 1234} # no difference from regular dict
 
 
 print()
-print('collections.UserList([list])')
+print('class collections.UserList([list])')
 
 # 这个类充当列表对象的包装器。
 # 它是一个有用的基类，你自己的类列表类可以从它们继承，覆盖现有的方法或添加新的。这样，可以向列表中添加新的行为。
@@ -514,7 +514,7 @@ print(type(ulst.data))  # regular list
 
 
 print()
-print('collections.UserString([sequence])')
+print('class collections.UserString([sequence])')
 
 # 类UserString充当字符串对象的包装器。这个类的需要已经部分地被从str直接子类化的能力所取代；
 # 但是，此类可以更容易使用，因为底层字符串可作为属性访问。

@@ -26,7 +26,7 @@ print(newfunc(a, base=8))  # >>> 4161
 
 
 
-print('functools.partialmethod(func, *args, **keywords)')
+print('class functools.partialmethod(func, *args, **keywords)')
 # 返回一个新的partialmethod描述器，它的行为类似于partial，除了它被设计为用作方法定义而不是直接可调用。
 # func必须是descriptor或可调用对象（这两个对象都像常规函数一样被处理为描述器）
 # 针对oop环境,创造一个方法,而不是函数,来用

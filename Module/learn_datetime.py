@@ -19,7 +19,7 @@ print(datetime.MAXYEAR)  # >>> 9999
 # class datetime.timezone
 
 print()
-print('datetime.timedelta(days=0, seconds=0, microseconds=0, milliseconds=0, minutes=0, hours=0, weeks=0)')
+print('class datetime.timedelta(days=0, seconds=0, microseconds=0, milliseconds=0, minutes=0, hours=0, weeks=0)')
 
 # timedelta对象表示时间的间隔，即两个日期或时间之间的差值。
 datetime.timedelta(days=0, seconds=0, microseconds=0, milliseconds=0, minutes=0, hours=0, weeks=0)
@@ -57,7 +57,7 @@ print(A.total_seconds())  # >>> 131500.0
 
 
 print()
-print('datetime.date(year, month, day)')
+print('class datetime.date(year, month, day)')
 
 # date 类属性
 datetime.date.min # >>> 0001-01-01
@@ -118,7 +118,7 @@ print(A.__format__("%d/%m/%y"))  # same as above
 
 
 print()
-print('datetime.datetime(year, month, day, hour=0, minute=0, second=0, microsecond=0, tzinfo=None)')
+print('class datetime.datetime(year, month, day, hour=0, minute=0, second=0, microsecond=0, tzinfo=None, *, fold=0)')
 
 # 基本就是date + time
 
@@ -264,7 +264,7 @@ print(A.strftime('%m/%d/%Y %H:%M:%S'))  # >>> 03/15/2017 17:15:30
 
 
 print()
-print('datetime.time(hour=0, minute=0, second=0, microsecond=0, tzinfo=None)')
+print('class datetime.time(hour=0, minute=0, second=0, microsecond=0, tzinfo=None, *, fold=0)')
 # 所有参数都是可选的。tzinfo可以是None或tzinfo子类的实例
 # time是哈希的,所以可以用作字典键
 
@@ -316,7 +316,7 @@ print('datetime.time(hour=0, minute=0, second=0, microsecond=0, tzinfo=None)')
 
 
 print()
-print('datetime.tzinfo')
+print('class datetime.tzinfo')
 # 这是一个抽象的基类，意味着这个类不应该直接实例化
 # 你需要派生一个具体的子类，并且（至少）提供你使用的datetime方法所需的标准tzinfo方法的实现
 # datetime模块提供tzinfo的一个简单的具体子类timezone，它可以表示与UTC有固定偏移的时区，如UTC本身或北美EST和EDT
@@ -383,7 +383,7 @@ class FixedOffset(tzinfo):
 
 
 print()
-print('datetime.timezone(offset[, name])')
+print('class datetime.timezone(offset, name=None)')
 
 # timezone.utcoffset(dt)
 # 返回构建timezone实例时指定的固定值。忽略dt参数。返回值是等于本地时间和UTC之差的timedelta实例

@@ -1,4 +1,4 @@
-print('list([iterable])')
+print('class list([iterable])')
 
 # add and remove items from a list
 listA = ['A', 'B', 'C', 'D', 'E', 'F']

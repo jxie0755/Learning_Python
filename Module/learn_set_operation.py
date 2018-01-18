@@ -1,5 +1,5 @@
-print('set([iterable]))')
-print('frozenset([iterable])')
+print('class set([iterable]))')
+print('class frozenset([iterable])')
 
 # Set 包含两个,一个是set,一个是frozenset.
 
