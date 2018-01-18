@@ -58,3 +58,4 @@ print(format(Decimal('2.5'), '0.0f'))  # >>> 3
 getcontext().rounding = ROUND_HALF_UP
 print(f"{Decimal('1.45'):.1f}")  # >>> 1.5   
 print(f"{Decimal('1.45'):.2}")   # >>> 1.5   
+
