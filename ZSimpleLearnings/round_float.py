@@ -43,7 +43,8 @@ print(format(2.55, '0.1f'))  # >>> 2.5
 
 # 但是format仍然不解决四舍五入精度问题
 
-
+print()
+print('use decimal to solve rounding problem')
 # 消除四舍五入误差请用decimal模块!!
 # decimal 的默认 context 是“四舍六入五留双”，rounding=ROUND_HALF_EVEN 
 # 四舍五入要把rounding改成ROUND_HALF_UP
@@ -54,3 +55,11 @@ print(Decimal(Decimal('2.55').quantize(Decimal('.1'), rounding=ROUND_HALF_UP))) 
 
 print(Decimal(Decimal('1.5').quantize(Decimal('1'), rounding=ROUND_HALF_UP)))  # >>> 2
 print(Decimal(Decimal('2.5').quantize(Decimal('1'), rounding=ROUND_HALF_UP)))  # >>> 3
+
+# 或者直接修改context,这时再用round就好了
+# 记住一定用str input,不要用float
+getcontext().rounding = ROUND_HALF_UP 
+print(round(Decimal('1.45'), 1))  # >>> 1.5
+print(round(Decimal('2.55'), 1))  # >>> 2.6
+print(round(Decimal('1.5'), 0))  # >>> 2
+print(round(Decimal('2.5'), 0))  # >>> 3
