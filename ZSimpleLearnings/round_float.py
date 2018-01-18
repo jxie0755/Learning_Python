@@ -53,15 +53,8 @@ print(format(Decimal('2.55'), '0.1f'))  # >>> 2.6
 print(format(Decimal('1.5'), '0.0f'))  # >>> 2
 print(format(Decimal('2.5'), '0.0f'))  # >>> 3
 
-# f-string输出用法
-getcontext().rounding = ROUND_HALF_UP
-print(f'{1.45:.1f}')          # >>> 1.4  # 加f在末尾,表示1位小数
-print(f'{1.45:.2}')           # >>> 1.4  # 不加f在末尾,表示一共就2位表示
-
-print(f"{'1.49':.3}")         # >>> 1.4 # 若把float换成str,则是包括小数点一起一共4位输出,没有任何rounding,相当于str[:4]
-print(f"{'abcde':.3}")           # >>> abc
-# print(f"{'abcde':.3}f")        # >>> 不能加f,只能用于floats      
-
+# f-string输出用法  
 # 同时引用Decimal解决四舍五入问题
+getcontext().rounding = ROUND_HALF_UP
 print(f"{Decimal('1.45'):.1f}")  # >>> 1.5   
-print(f"{Decimal('1.45'):.2}")   # >>> 1.5  
+print(f"{Decimal('1.45'):.2}")   # >>> 1.5   
