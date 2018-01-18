@@ -400,3 +400,29 @@ print('datetime.timezone(offset[, name])')
 # timezone 类属性：
 # timezone.utc
 # UTC时区，timezone(timedelta(0))
+
+# Try out the timezone, and display time in different timezone
+
+from datetime import datetime,timezone,timedelta
+
+dtutc = datetime.utcnow()
+print(dtutc)  # >>> 2018-01-17 21:41:10.514815  Straight UTC
+
+dtutc = dtutc.replace(tzinfo=timezone.utc)
+print(dtutc)  # >>> 2018-01-17 21:41:10.514815+00:00  Still UTC, but ready for convert
+
+tzutc_8 = timezone(timedelta(hours=8))  # setup the time zone we want
+dtbeijing = dtutc.astimezone(tzutc_8)
+print(dtbeijing)
+
+
+# Simplified version
+print(datetime.utcnow().strftime('%m/%d/%y %H:%M:%S')) # >>> 01/17/18 21:51:15
+
+tzutc_8 = timezone(timedelta(hours=8))  # GMT+8
+DtBeijing = datetime.utcnow().replace(tzinfo=timezone.utc).astimezone(tzutc_8)
+print(DtBeijing.strftime('%m/%d/%y %H:%M:%S'))         # >>> 01/18/18 05:50:35
+
+tzutc_M5 = timezone(timedelta(hours=-5))  # GMT-5
+DtNewyork = datetime.utcnow().replace(tzinfo=timezone.utc).astimezone(tzutc_M5)
+print(DtNewyork.strftime('%m/%d/%y %H:%M:%S'))         # >>> 01/17/18 16:50:35
