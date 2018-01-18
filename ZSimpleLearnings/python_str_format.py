@@ -1,3 +1,37 @@
+# 学习format()
+# python 2.5之后,format通过{}和:来代替%。
+
+# python 3.5新加入f-string,使用更方便,阅读更明确, 主要用于代用之前设定的变量
+a = 'foo'
+b = 'bar'
+print(f'{a} and {b}')  # >>> foo and bar
+
+# “映射”示例, 通过位置
+# 字符串的format函数可以接受不限个参数，位置可以不按顺序，可以不用或者用多次，不过2.6不能为空{}，2.7才可以
+print('{0},{1}'.format('foo','bar'))      # >>> foo,bar
+print('{},{}'.format('foo','bar'))        # >>> foo,bar
+print('{1},{0},{1}'.format('foo','bar'))  # >>> foo,bar
+print('{2}, {1}, {0}'.format(*'abc'))     # >>> c, b, a  # unpack
+
+# 通过关键字参数
+print('{name}, {age}'.format(age=18,name='denis'))  # >>> denis, 18
+
+# 通过对象属性
+
+class Person:  
+    def __init__(self,name,age):  
+        self.name,self.age = name,age  
+    def __str__(self):  
+        # return 'This guy is {self.name}, is {self.age} old'.format(self=self)
+        return f'This guy is {self.name}, is {self.age} old'  # f-string
+
+print(Person('denis',18))  # >>> This guy is denis, is 18 old
+
+# 通过下标
+p = ['foo', 'bar']
+print('{0[0]},{0[1]}'.format(p))  # >>> foo,bar
+print(f'{p[0]}, {p[1]}')  # >>> foo,bar  # f-string
+
 # format 格式限定符
 # 它有着丰富的的“格式限定符”（语法是{}中带:号），比如：
 
@@ -42,6 +76,8 @@ print('{: f}; {: f}'.format(3.14, -3.14))  # show a space for positive numbers
 # >>> ' 3.140000; -3.140000'
 print('{:-f}; {:-f}'.format(3.14, -3.14))  # show only the minus -- same as '{:f}; {:f}'
 # >>>> '3.140000; -3.140000'
+print('{:-.2f}; {:-.2f}'.format(3.14, -3.14))  # and control precision
+# >>> 3.14; -3.14  
 
 # 百分比
 print('{:.2%}'.format(19/22))  # >>> 86.36%'
