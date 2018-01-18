@@ -45,6 +45,9 @@ print(format(2.55, '0.1f'))  # >>> 2.5
 
 
 # 消除四舍五入误差请用decimal模块!!
+# decimal 的默认 context 是“四舍六入五留双”，rounding=ROUND_HALF_EVEN 
+# 四舍五入要把rounding改成ROUND_HALF_UP
+
 from decimal import *
 print(Decimal(Decimal('1.45').quantize(Decimal('.1'), rounding=ROUND_HALF_UP)))  # >>> 1.5
 print(Decimal(Decimal('2.55').quantize(Decimal('.1'), rounding=ROUND_HALF_UP)))  # >>> 2.6
