@@ -43,6 +43,7 @@ print(emptset)  # >>> set()
 
 
 # create frozenset
+# frozenset是冻结的集合，它是不可变的，存在哈希值，好处是它可以作为字典的key，也可以作为其它集合的元素。
 
 # 基本相同,但是不能直接使用{}
 print(frozenset(lst))   # >>> frozenset({1, 2, 3, 4, 5})
