@@ -1,3 +1,7 @@
+# itertool module
+# https://docs.python.org/3/library/itertools.html#module-itertools
+
+
 print()
 print('next()')
 # 一个很有用的funtion,用于获取iterable中的下一个item.

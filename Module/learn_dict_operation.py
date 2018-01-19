@@ -1,3 +1,6 @@
+# dict operation
+# https://docs.python.org/3/library/stdtypes.html#dict
+
 print('class dict(**kwarg)')
 print('class dict(mapping, **kwarg)')
 print('class dict(iterable, **kwarg)')

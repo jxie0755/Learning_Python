@@ -1,3 +1,7 @@
+# functool module
+# https://docs.python.org/3/library/functools.html#module-functools
+
+
 import functools
 print('functools.partial(func, *args, **keywords')
 # 返回一个新的partial对象，该对象在调用时将采用位置参数args和关键字参数关键字调用的func 。

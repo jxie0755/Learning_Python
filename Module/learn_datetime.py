@@ -1,4 +1,7 @@
-# class datetime 模块
+# datetime module
+# https://docs.python.org/3/library/datetime.html#module-datetime
+
+
 # 模块常量
 # datetime.MINYEAR
 # date和datetime对象中允许的最小年份

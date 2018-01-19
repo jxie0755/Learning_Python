@@ -1,4 +1,5 @@
-# A try out for all the built-in functions in python
+# python 3.6 built-in functions
+# https://docs.python.org/3/library/functions.html#built-in-functions
 
 print('\n', 1)
 print('abs(x)')

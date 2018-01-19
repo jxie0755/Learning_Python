@@ -1,3 +1,6 @@
+# string operation
+# https://docs.python.org/3/library/string.html#module-string
+
 print('class str(object='')')
 print("class str(object=b'', encoding='utf-8', errors='strict'))")
 

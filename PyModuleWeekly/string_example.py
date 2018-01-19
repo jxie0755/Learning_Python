@@ -1,3 +1,5 @@
+# https://pymotw.com/3/string/index.html
+
 import string
 
 

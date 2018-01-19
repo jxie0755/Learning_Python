@@ -1,4 +1,8 @@
+# string methods
+# https://docs.python.org/3/library/stdtypes.html#string-methods
+
 # No need to import string!!
+
 
 print()
 print('str.capitalize()')

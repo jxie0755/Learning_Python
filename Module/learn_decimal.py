@@ -1,3 +1,6 @@
+# decimal module
+# https://docs.python.org/3/library/decimal.html#module-decimal
+
 import decimal
 
 # decimal模块支持快速正确舍入的十进制浮点运算。它提供了优于float数据类型的几个优点

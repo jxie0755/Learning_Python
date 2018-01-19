@@ -1,3 +1,7 @@
+# math module
+# https://docs.python.org/3/library/math.html#module-math
+
+
 import math
 
 # module attributes
