@@ -11,6 +11,7 @@ I will use a series of study material:
 * Checkio.org for python practice -- ongoing (finished all beginner and easy questions)
 * MIT CS 6.00.1x Introduction to Computer Science and Programming Using Python -- on going
 * Python 3 standard library -- ongoing
+* LeetCode -- ongoing (start from easy questions)
 * UC Berkeley CS61a -- coming up next
 * RICE University An Introduction to Interactive Programming in Python P1 & P2
 * Python Datastructure and Algorithm
