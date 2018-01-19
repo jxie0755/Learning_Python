@@ -18,7 +18,7 @@ print('Hello! ', customer_name, '! You can order whenever you are ready:)\n')
 base_order = []
 print('Our pizza types are:')
 for base, baseprice in base_list.items():
-    print('{}: ${}'.format(base, baseprice))
+    print(f'{base}: ${baseprice}')
 
 # 加了一段循环条件,如果输入的内容不在menu里,出现提示
 while True:
@@ -34,14 +34,14 @@ while True:
 cheese_order = []
 print('\nPlease how much cheese do you want in the base:')
 for cheese, cheeseprice in cheese_list.items():
-    print('{}: ${}'.format(cheese, cheeseprice))
+    print(f'{cheese}: ${cheeseprice}')
 while True:
     cheese_input = str(input('please choose the cheese for your pizza:'))
     if cheese_input not in cheese_list.keys():
         print('Sorry, we don\'t have that')
         continue
     else:
-        cheese_order.append(base_input)
+        cheese_order.append(cheese_input)
         break
 
 # Summarize the order so far
@@ -50,7 +50,7 @@ print('\nSo far, you ordered a', base_order, 'pizza with', cheese_order, 'amount
 # show the meat list and have customer order the meat
 print('\nPlease take a look at our choice of meat:')
 for meat, meatprice in meat_list.items():
-    print('{}: ${}'.format(meat, meatprice))
+    print(f'{meat}: ${meatprice}')
 
 meat_order = []
 max_length_list = 5
@@ -74,7 +74,7 @@ print(' good choice!')
 # show the vegetable list and have customer order the vegetable
 print('\nWe also have a lot of options for vegetables:')
 for vegi, vegiprice in vegi_list.items():
-    print('{}: ${}'.format(vegi, vegiprice))
+    print(f'{vegi}: ${vegiprice}')
 
 vegi_order = []
 max_length_list = 6
