@@ -5,6 +5,7 @@ Thanks!
 
 ---
 I will use a series of study material:
+
 * A Byte of Python -- finished
 * Python Crash Course -- finished
 * Checkio.org for python practice -- ongoing (finished all beginner and easy questions)
