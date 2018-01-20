@@ -22,17 +22,7 @@ print(timeit.timeit('char in text', setup="text ='sample string'; char = 'g'", n
 print(timeit.timeit('text.find(char)', setup='text = "sample string"; char = "g"'))
 # >>> 0.14675580299990543
 
-# def fib_gen_r(i):
-#     """
-#     Fibonacci function generator
-#     generate the fibonacci number at 'i'th posistion
-#     """
-#     if i == 0:
-#         return 0
-#     elif i == 1:
-#         return 1
-#     else:
-#         return fib_gen_r(i - 1) + fib_gen_r(i - 2)
+
 # print(timeit.timeit('fib_gen_r(30)', number=10000))  # >>> 不能运行一个函数?
 print(timeit.timeit('fib_gen_r(30)', setup='from __main__ import fib_gen_r', number=5))
 # >>> 1.9347527580011956
@@ -45,8 +35,8 @@ print(timeit.timeit('fib_gen_r(30)', setup='from ZSimpleLearnings.fibonacci impo
 
 print()
 print("timeit.repeat(stmt='pass', setup='pass', timer=<default timer>, repeat=3, number=1000000, globals=None)")
-# Create a Timer instance with the given statement
-# setup code and timer function and run its repeat() method with the given repeat count and number executions.
+
+# 好处就是可以做repeat,得到一组运行时间的list,方便求平均值
 print(timeit.repeat('list(range(0, 999))', repeat=3, number=10000))
 # >>> [0.17210359499949845, 0.15265621899925463, 0.15970960199956608] # 输出一个list可以算平均值
 
@@ -55,15 +45,11 @@ print(timeit.repeat('fib_gen_r(30)', setup='from __main__ import fib_gen_r', rep
 # >>> [1.2522393469989765, 1.2651939509996737, 1.2109857380000904]
 
 
-print()
-print("timeit.default_timer()")
-# 默认计时器，始终为time.perf_counter()
-
-
 
 print()
 print("class timeit.Timer(stmt='pass', setup='pass', timer=<timer function>, globals=None)")
-# 用于计时小代码段执行速度的类
+# 为一个类,接用timeit和repeat方法
+
 # timeit(number=1000000)  方法
 print(timeit.Timer('list(range(0, 999))').timeit(number=10000))  # >>> 0.16091239100023813
 # repeat(repeat=3, number=1000000) 方法
@@ -71,6 +57,12 @@ print(timeit.Timer('list(range(0, 999))').repeat(repeat=3, number=10000))
 # >>> [0.1699522140006593, 0.15189915299924905, 0.16639813700021477]
 print(timeit.Timer('fib_gen_r(30)', setup='from __main__ import fib_gen_r').repeat(repeat=3, number=5))
 # >>> [1.9957611610007007, 1.9907497040003364, 1.9418537080000533]
+
+
+
+print()
+print("timeit.default_timer()")
+# 默认计时器，始终为time.perf_counter()
 
 
 print()
