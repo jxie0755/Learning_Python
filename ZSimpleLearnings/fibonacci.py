@@ -1,3 +1,4 @@
+# if only need to get one number
 # recursive way (recursion)
 def fib_gen_r(i):
     """
@@ -11,7 +12,8 @@ def fib_gen_r(i):
     else:
         return fib_gen_r(i - 1) + fib_gen_r(i - 2)
 
-print(fib_gen_r(7))  # >>> 13
+if __name__ == '__main__':
+    print(fib_gen_r(7))  # >>> 13
 
 # [0, 1, 1, 2, 3, 5, 8, 13]
 #  0  1  2  3  4  5  6  7
@@ -34,16 +36,17 @@ def fib_gen_nr(i):
             lst.append(temp)
         return lst[-1]
 
-print(fib_gen_nr(7))  # >>> 13
+if __name__ == '__main__':
+    print(fib_gen_nr(7))  # >>> 13
 
 
 # if need to output a list of fibonacci numbers till 'i'th position
-# Non-recursive way
-# only need to revise the nr method slightly
+# only have Non-recursive way
+# just need to revise the nr method slightly
 def fiblist_gen_nr(i):
     """
         Fibonacci function generator
-        generate the fibonacci number at 'i'th posistion
+        generate the fibonacci list till 'i'th posistion
     """
     lst = [0, 1]
     if i == 0:
@@ -56,7 +59,8 @@ def fiblist_gen_nr(i):
             lst.append(temp)
         return lst
 
-print(fiblist_gen_nr(7))  # >>> [0, 1, 1, 2, 3, 5, 8, 13]
+if __name__ == '__main__':
+    print(fiblist_gen_nr(7))  # >>> [0, 1, 1, 2, 3, 5, 8, 13]
 
 
 # 新写法
@@ -66,7 +70,8 @@ def fib_gen_nr2(i):
         a, b = b, a+b
     return a
 
-print(fib_gen_nr2(7))  # >>> 13
+if __name__ == '__main__':
+    print(fib_gen_nr2(7))  # >>> 13
 
 def fiblist_gen_nr2(i):
     lst = [0]
@@ -76,7 +81,8 @@ def fiblist_gen_nr2(i):
         lst.append(a)
     return lst
 
-print(fiblist_gen_nr2(7))  # >>> [0, 1, 1, 1, 2, 3, 5, 8, 13]
+if __name__ == '__main__':
+    print(fiblist_gen_nr2(7))  # >>> [0, 1, 1, 1, 2, 3, 5, 8, 13]
 
 
 
