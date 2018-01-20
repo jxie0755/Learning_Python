@@ -30,7 +30,8 @@ class Solution(object):
 
 nums = [1, 2, 3, 4, 2, 3, 4, 4, 5, 6, 1, 2, 3, 4]
 val = 4
-print(Solution().removeElement(nums, val))
+print(Solution().removeElement(nums, val))  # >>> 10
+
 print(timeit.Timer('Solution().removeElement(nums, val)',
                    setup='from __main__ import Solution; '
                          'nums = [1, 2, 3, 4, 2, 3, 4, 4, 5, 6, 1, 2, 3, 4];'
