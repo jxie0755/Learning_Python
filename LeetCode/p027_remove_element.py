@@ -5,6 +5,8 @@
 # Do not allocate extra space for another array, you must do this by modifying the input array in-place with O(1) extra memory.
 # The order of elements can be changed. It doesn't matter what you leave beyond the new length.
 
+import timeit
+
 class Solution(object):
     def removeElement(self, nums, val):  # beats 51.33%
         """
@@ -29,3 +31,18 @@ class Solution(object):
 nums = [1, 2, 3, 4, 2, 3, 4, 4, 5, 6, 1, 2, 3, 4]
 val = 4
 print(Solution().removeElement(nums, val))
+print(timeit.Timer('Solution().removeElement(nums, val)',
+                   setup='from __main__ import Solution; '
+                         'nums = [1, 2, 3, 4, 2, 3, 4, 4, 5, 6, 1, 2, 3, 4];'
+                         'val = 4')
+      .repeat(3, 1000000))
+
+# >>> [1.8547368030012876, 1.7035995290007122, 1.718884424000862]
+
+print(timeit.Timer('Solution().removeElement2(nums, val)',
+                   setup='from __main__ import Solution; '
+                         'nums = [1, 2, 3, 4, 2, 3, 4, 4, 5, 6, 1, 2, 3, 4];'
+                         'val = 4')
+      .repeat(3, 1000000))
+# >>> [0.4291627630009316, 0.4323928640005761, 0.43043123800089234]
+
