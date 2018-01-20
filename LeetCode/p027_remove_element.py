@@ -47,3 +47,19 @@ print(timeit.Timer('Solution().removeElement2(nums, val)',
       .repeat(3, 1000000))
 # >>> [0.4291627630009316, 0.4323928640005761, 0.43043123800089234]
 
+
+# 在极端情况下,复杂度非线性递增,第一个方法就变得更快了,第二个方法反而慢了很多
+print(timeit.Timer('Solution().removeElement(nums, val)',
+                   setup='from __main__ import Solution; '
+                         'nums = list(range(10)) * 10000;'
+                         'val = 4')
+      .repeat(3, 100))
+
+# >>> [1.5640779950008437, 1.5756833779996668, 1.6097137039996596]
+
+print(timeit.Timer('Solution().removeElement2(nums, val)',
+                   setup='from __main__ import Solution; '
+                         'nums = list(range(10)) * 10000;'
+                         'val = 4')
+      .repeat(3, 100))
+# >>> [11.877236265998363, 11.790503606998755, 12.056773186999635]
