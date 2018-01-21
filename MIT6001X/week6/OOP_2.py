@@ -2,6 +2,8 @@
 # About people
 # Start with Person object
 import datetime
+
+print()
 class Person(object):
     def __init__(self, name):
         """create a person called name"""
@@ -45,6 +47,7 @@ for e in personList:
 # Steve Wozniak
 # Mark Zuckerberg
 
+print()
 class MITPerson(Person):
     nextIdNum = 0  # next ID number to assign
     def __init__(self, name):
@@ -72,12 +75,52 @@ print(denis.getIdNum(), cindy.getIdNum(), adrienne.getIdNum())
 # >>> 0 1 2
 lst = [cindy, denis, adrienne]
 lst.sort()
-for i in lst:
-    print(i)
+print([i.__str__() for i in lst])  # >>> ['Denis Xie', 'Cindy Tian', 'Adrienne Xie']  # by ID
 
 # print(denis < p4)  # denis.__lt__(p4)
 # >>> AttributeError: 'Person' object has no attribute 'idNum'
 print(p4 < denis)    # p4.__lt__(denis)
 # >>> True   # this calls Person's method, compare by last name
 # Whoever got called first, the method from that class is used
+
+
+
+# create a further subclass of undergraduates and graduate student of MIT
+print()
+
+class Student(MITPerson):
+    def __init__(self, name, classYear):
+        MITPerson.__init__(self, name)
+        self.year = classYear
+    def getClass(self):
+        return self.year
+    def speak(self, utterance):
+        return MITPerson.speak(self, 'Dude, ' + utterance)
+
+class UG(Student):  # UG as undergraduates
+    pass
+
+class Grad(Student):
+    pass
+
+class TransferStudent(Student):  # this caused a problem of rewriting the isStudent() method.
+    pass
+# a better way is to create a student(MITPerson), and all UG, Grads, TransferStudent inherit from there.
+
+def isStudent(obj):
+    return isinstance(obj, Student)  # so the method can be built on one superclass
+
+s1 = UG('Denis Xie', 2008)
+s2 = UG('Cindy Tian', 2007)
+s3 = UG('Adrienne Xie', 2035)
+s4 = UG('Fan Chen', 1978)
+
+print(s1)  # >>> Denis Xie
+print(s1.getClass())  # >>> 2008
+print(s1.speak("What's up"))  # >>> Xie says: Dude, What's up
+
+print(s1, s1.getIdNum(), s2, s2.getIdNum())  # >>> Denis Xie 3 Cindy Tian 4
+lst = [s2, s4, s1, s3]
+lst.sort()
+print([i.__str__() for i in lst])  # >>> ['Denis Xie', 'Cindy Tian', 'Adrienne Xie', 'Fan Chen']  # by ID
 
