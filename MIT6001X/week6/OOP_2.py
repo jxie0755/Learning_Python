@@ -13,7 +13,8 @@ class Person(object):
     def getLasstName(self):
         return self.lastName
     def __str__(self):
-        return self.name
+        return str(self.name)
+    __repr__ = __str__  # this is added to make print simpler when called in a list
 
     def setBirthday(self, month, day, year):
         self.birthday = datetime.date(year, month, day)
@@ -38,14 +39,7 @@ personList = [p1, p2, p3, p4, p5]
 
 print(p1)  # >>> Mark Zuckerberg
 personList.sort()  # >>> this works because we defined __lt__ method, and it will sort by lastName
-for e in personList:
-    print(e)
-# >>>
-# Andrew Gates
-# Bill Gates
-# Drew Houston
-# Steve Wozniak
-# Mark Zuckerberg
+print(personList)  # >>> [Andrew Gates, Bill Gates, Drew Houston, Steve Wozniak, Mark Zuckerberg]
 
 print()
 class MITPerson(Person):
@@ -75,7 +69,7 @@ print(m1.getIdNum(), m2.getIdNum(), m3.getIdNum())
 # >>> 0 1 2
 lst = [m2, m1, m3]
 lst.sort()
-print([i.__str__() for i in lst])  # >>> ['Denis Xie', 'Cindy Tian', 'Adrienne Xie']  # by ID
+print(lst)  # >>> ['Denis Xie', 'Cindy Tian', 'Adrienne Xie']  # by ID
 
 # print(denis < p4)  # denis.__lt__(p4)
 # >>> AttributeError: 'Person' object has no attribute 'idNum'
@@ -122,7 +116,7 @@ print(s1.speak("What's up"))  # >>> Xie says: Dude, What's up
 print(s1, s1.getIdNum(), s2, s2.getIdNum())  # >>> Denis Xie 3 Cindy Tian 4
 lst = [s2, s4, s1, s3]
 lst.sort()
-print([i.__str__() for i in lst])  # >>> ['Denis Xie', 'Cindy Tian', 'Adrienne Xie', 'Fan Chen']  # by ID
+print(lst)  # >>> ['Denis Xie', 'Cindy Tian', 'Adrienne Xie', 'Fan Chen']  # by ID
 
 
 
@@ -141,4 +135,79 @@ class Professor(MITPerson):
 prof1 = Professor('Denis Xie', 'Food Science')
 print(prof1.speak('Hello world'))
 print(prof1.lecture('Organic Chemistry'))
+
+
+
+
+# Another example class (grade book)
+# build a data structure that can hold grades for students
+# gather together data and procedures for dealing with them in a single structure
+# so that the code can be used without knowing internal details
+class Grades(object):
+    """A mapping from students to a list of grades"""
+    def __init__(self):
+        """create empty grade book"""
+        self.students = []
+        self.grades = {}
+        self.isSorted = True  # True if self.students is sorted
+    def addStudent(self, student):
+        """Assumes: student is of type Student
+           Add student to the grade book"""
+        if student in self.students:
+            raise ValueError('Duplicate student')
+        self.students.append(student)
+        self.grades[student.getIdNum()] = []
+        self.isSorted = False
+    def addGrade(self, student, grade):
+        """Assumes: grade is a float
+           Add grade to the list of grades for student"""
+        try:
+            self.grades[student.getIdNum()].append(grade)
+        except KeyError:
+            raise ValueError('Student not in grade book')
+    def getGrades(self, student):
+        """Return a list of grades for student"""
+        try:
+            return self.grades[student.getIdNum()][:]
+        except KeyError:
+            raise ValueError('Student not in grade book')
+    def allStudent(self):
+        """Return a list of students (sorted and copied) in the grade book"""
+        if not self.isSorted:
+            self.students.sort()
+            self.isSorted = True
+        return [i.__str__() for i in self.students]
+
+def gradeReport(course):  # a function to export a report for grades of a course
+    """Assumes course ia of type grades"""
+    report = []
+    for s in course.allStudents():
+        tot = 0.0
+        numGrades = 0
+        for g in course.getGrades(s):
+            tot += g
+            numGrades += 1
+        try:
+            average = tot/numGrades
+            report.append(str(s) + '\'s mean grade is ' + str(average))
+        except ZeroDivisionError:
+            report.append(str(s) + ' has no grades')
+    return '\n'.join(report)
+
+MIT6001X = Grades()
+studenList = [s2, s4, s1, s3]  # use previous UG class example list
+# [Cindy Tian, Fan Chen, Denis Xie, Adrienne Xie]
+
+
+for i in studenList:
+    MIT6001X.addStudent(i)
+print(MIT6001X.allStudent())
+# >>> # ['Denis Xie', 'Cindy Tian', 'Adrienne Xie', 'Fan Chen']
+
+MIT6001X.addGrade(s2, 85)
+MIT6001X.addGrade(s4, 85)
+MIT6001X.addGrade(s1, 85)
+MIT6001X.addGrade(s3, 85)
+
+
 
