@@ -1,3 +1,5 @@
+# any procedure or method with yield statement called generator
+
 mylist = [1, 2, 3]  # iterable
 rrange = range(5)   # iterator
 print()
