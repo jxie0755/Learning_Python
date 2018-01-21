@@ -171,12 +171,12 @@ class Grades(object):
             return self.grades[student.getIdNum()][:]
         except KeyError:
             raise ValueError('Student not in grade book')
-    def allStudent(self):
+    def allStudents(self):
         """Return a list of students (sorted and copied) in the grade book"""
         if not self.isSorted:
             self.students.sort()
             self.isSorted = True
-        return [i.__str__() for i in self.students]
+        return self.students
 
 def gradeReport(course):  # a function to export a report for grades of a course
     """Assumes course ia of type grades"""
@@ -195,19 +195,55 @@ def gradeReport(course):  # a function to export a report for grades of a course
     return '\n'.join(report)
 
 MIT6001X = Grades()
-studenList = [s2, s4, s1, s3]  # use previous UG class example list
+studenList = [s2, s1, s3]  # use previous UG class example list
 # [Cindy Tian, Fan Chen, Denis Xie, Adrienne Xie]
 
 
 for i in studenList:
     MIT6001X.addStudent(i)
-print(MIT6001X.allStudent())
-# >>> # ['Denis Xie', 'Cindy Tian', 'Adrienne Xie', 'Fan Chen']
+print(MIT6001X.allStudents())
+# >>> [Denis Xie, Cindy Tian, Adrienne Xie, Fan Chen]
 
-MIT6001X.addGrade(s2, 85)
-MIT6001X.addGrade(s4, 85)
-MIT6001X.addGrade(s1, 85)
-MIT6001X.addGrade(s3, 85)
+MIT6001X.addGrade(s2, 75)
+MIT6001X.addGrade(s2, 70)
+MIT6001X.addGrade(s2, 70)
+MIT6001X.addGrade(s2, 95)
+
+MIT6001X.addGrade(s1, 91)
+MIT6001X.addGrade(s1, 92)
+MIT6001X.addGrade(s1, 88)
+MIT6001X.addGrade(s1, 99)
+
+MIT6001X.addGrade(s3, 59)
+MIT6001X.addGrade(s3, 61)
+MIT6001X.addGrade(s3, 59)
+MIT6001X.addGrade(s3, 68)
+
+print(MIT6001X.getGrades(s1))  # >>> [91, 92, 88, 99]
+print(gradeReport(MIT6001X))
+# >>>
+# Denis Xie's mean grade is 90.0
+# Cindy Tian's mean grade is 85.0
+# Adrienne Xie's mean grade is 59.0
+# Fan Chen's mean grade is 75.0
+
+print(MIT6001X.grades)  # not encouraged as it exposes the attributes
+# >>> {4: [75, 70, 70, 95], 3: [91, 92, 88, 99], 5: [59, 61, 59, 68]}
 
 
 
+# introduce generator
+def genTest():
+    yield 1
+    yield 2
+
+k = genTest()
+print(k)
+for i in k:
+    print(i)
+# >>>
+# 1
+# 2
+for i in k:
+    print(i)
+# >>> the generator is now empty, shows nothing as output
