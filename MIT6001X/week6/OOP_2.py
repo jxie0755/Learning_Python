@@ -61,7 +61,7 @@ class MITPerson(Person):
         return self.idNum < other.idNum
 
     def speak(self, utterance):
-        return (self.getLasstName() + ' says: ' + utterance)
+        return self.getLasstName() + ' says: ' + utterance
 
 denis = MITPerson('Denis Xie')
 print(denis.speak('how are you'))
