@@ -21,6 +21,9 @@ mygenerator = (x*x for x in mylist)
 print(type(mygenerator), mygenerator)
 # >>> <class 'generator'> <generator object <genexpr> at 0x7f5c5c48a620>
 
+# it has next() function just like a iterator
+print(next(mygenerator))  # >>> 1
+print(next(mygenerator))  # >>> 4
 
 print()
 # Yield is a keyword that is used like return, except the function will return a generator.
