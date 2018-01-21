@@ -20,6 +20,7 @@ if __name__ == '__main__':
 
 # non-recursive way
 # actually non-recursive way is much more efficient!!!
+print()
 def fib_gen_nr(i):
     """
         Fibonacci function generator
@@ -43,6 +44,7 @@ if __name__ == '__main__':
 # if need to output a list of fibonacci numbers till 'i'th position
 # only have Non-recursive way
 # just need to revise the nr method slightly
+print()
 def fiblist_gen_nr(i):
     """
         Fibonacci function generator
@@ -64,6 +66,7 @@ if __name__ == '__main__':
 
 
 # 新写法
+print()
 def fib_gen_nr2(i):
     a, b = 0, 1
     for x in range(i):
@@ -73,6 +76,7 @@ def fib_gen_nr2(i):
 if __name__ == '__main__':
     print(fib_gen_nr2(7))  # >>> 13
 
+print()
 def fiblist_gen_nr2(i):
     lst = [0]
     a, b = 0, 1
@@ -86,6 +90,7 @@ if __name__ == '__main__':
 
 
 # use generator in fibonacci function
+print()
 def genFib():  # this created a generator for fibonacci numbers
     index = 0
     a, b = 0, 1
@@ -95,3 +100,22 @@ def genFib():  # this created a generator for fibonacci numbers
         next = a + b
         yield next
         a, b = b, next
+
+# print a list of any length for fibonacci numbers
+print()
+def fib_gen_nr3(x):
+    """x is the threshold to stop when a fib number is larger than it"""
+    for n in genFib():
+        print(n)
+        if n >= x:
+            break
+fib_gen_nr3(13)
+# >>>
+# 0
+# 1
+# 1
+# 2
+# 3
+# 5
+# 8
+# 13
