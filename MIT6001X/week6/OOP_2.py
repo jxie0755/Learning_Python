@@ -64,22 +64,22 @@ class MITPerson(Person):
         return self.idNum < other.idNum
 
     def speak(self, utterance):
-        return self.getLasstName() + ' says: ' + utterance
+        return self.name + ' says: ' + utterance
 
-denis = MITPerson('Denis Xie')
-print(denis.speak('how are you'))
-cindy = MITPerson('Cindy Tian')
-adrienne = MITPerson('Adrienne Xie')
+m1 = MITPerson('Denis Xie')
+print(m1.speak('how are you'))
+m2 = MITPerson('Cindy Tian')
+m3 = MITPerson('Adrienne Xie')
 
-print(denis.getIdNum(), cindy.getIdNum(), adrienne.getIdNum())
+print(m1.getIdNum(), m2.getIdNum(), m3.getIdNum())
 # >>> 0 1 2
-lst = [cindy, denis, adrienne]
+lst = [m2, m1, m3]
 lst.sort()
 print([i.__str__() for i in lst])  # >>> ['Denis Xie', 'Cindy Tian', 'Adrienne Xie']  # by ID
 
 # print(denis < p4)  # denis.__lt__(p4)
 # >>> AttributeError: 'Person' object has no attribute 'idNum'
-print(p4 < denis)    # p4.__lt__(denis)
+print(p4 < m1)    # p4.__lt__(denis)
 # >>> True   # this calls Person's method, compare by last name
 # Whoever got called first, the method from that class is used
 
@@ -123,4 +123,22 @@ print(s1, s1.getIdNum(), s2, s2.getIdNum())  # >>> Denis Xie 3 Cindy Tian 4
 lst = [s2, s4, s1, s3]
 lst.sort()
 print([i.__str__() for i in lst])  # >>> ['Denis Xie', 'Cindy Tian', 'Adrienne Xie', 'Fan Chen']  # by ID
+
+
+
+# create a professor class
+print()
+class Professor(MITPerson):
+    def __init__(self, name, department):
+        MITPerson.__init__(self, name)
+        self.department = department
+    def speak(self, utterance):
+        new = 'In course ' + self.department + ' we say '
+        return MITPerson.speak(self, new + utterance)
+    def lecture(self, topic):
+        return self.speak('it is obvious that ' + topic)
+
+prof1 = Professor('Denis Xie', 'Food Science')
+print(prof1.speak('Hello world'))
+print(prof1.lecture('Organic Chemistry'))
 
