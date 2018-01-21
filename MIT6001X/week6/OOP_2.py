@@ -75,3 +75,9 @@ lst.sort()
 for i in lst:
     print(i)
 
+# print(denis < p4)  # denis.__lt__(p4)
+# >>> AttributeError: 'Person' object has no attribute 'idNum'
+print(p4 < denis)    # p4.__lt__(denis)
+# >>> True   # this calls Person's method, compare by last name
+# Whoever got called first, the method from that class is used
+
