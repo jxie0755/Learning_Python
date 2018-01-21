@@ -171,12 +171,19 @@ class Grades(object):
             return self.grades[student.getIdNum()][:]
         except KeyError:
             raise ValueError('Student not in grade book')
-    def allStudents(self):
+    # def allStudents(self):
+    #     """Return a list of students (sorted and copied) in the grade book"""
+    #     if not self.isSorted:
+    #         self.students.sort()
+    #         self.isSorted = True
+    #     return self.students
+    def allStudents(self):  # new version by using generator
         """Return a list of students (sorted and copied) in the grade book"""
         if not self.isSorted:
             self.students.sort()
             self.isSorted = True
-        return self.students
+        for s in self.students:
+            yield s
 
 def gradeReport(course):  # a function to export a report for grades of a course
     """Assumes course ia of type grades"""
@@ -203,6 +210,12 @@ for i in studenList:
     MIT6001X.addStudent(i)
 print(MIT6001X.allStudents())
 # >>> [Denis Xie, Cindy Tian, Adrienne Xie, Fan Chen]
+# >>> <generator object genTest at 0x104532db0>  # after using generator
+k = MIT6001X.allStudents()
+print(next(k))  # >>> Denis Xie
+print(next(k))  # >>> Cindy Tian
+print(next(k))  # >>> Adrienne Xie
+
 
 MIT6001X.addGrade(s2, 75)
 MIT6001X.addGrade(s2, 70)
@@ -247,3 +260,20 @@ for i in k:
 for i in k:
     print(i)
 # >>> the generator is now empty, shows nothing as output
+
+# use generator in fibonacci function
+def genFib():  # this created a generator for fibonacci numbers
+    index = 0
+    a, b = 0, 1
+    yield a
+    yield b
+    while True:
+        next = a + b
+        yield next
+        a, b = b, next
+
+# print a list of any length for fibonacci numbers
+for n in genFib():
+    print(n)
+    if n >= 13:
+        break
