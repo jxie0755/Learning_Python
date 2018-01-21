@@ -82,7 +82,16 @@ def fiblist_gen_nr2(i):
     return lst
 
 if __name__ == '__main__':
-    print(fiblist_gen_nr2(7))  # >>> [0, 1, 1, 1, 2, 3, 5, 8, 13]
+    print(fiblist_gen_nr2(7))  # >>> [0, 1, 1, 2, 3, 5, 8, 13]
 
 
-
+# use generator in fibonacci function
+def genFib():  # this created a generator for fibonacci numbers
+    index = 0
+    a, b = 0, 1
+    yield a
+    yield b
+    while True:
+        next = a + b
+        yield next
+        a, b = b, next
