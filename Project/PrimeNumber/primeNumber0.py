@@ -11,6 +11,23 @@ for x in range(2, 101):
         pnumber1.append(x)
 print(pnumber1)
 
+# generator version
+def genPrimes():
+    i = 2
+    while True:
+        for x in range(2, i):
+            if i % x == 0:
+                i += 1
+                break
+        else:
+            yield i
+            i += 1
+
+if __name__ == '__main__':
+    P = genPrimes()
+    print(type(P))
+    # for i in range(10):
+    #     print(next(P))
 
 # 这是跟上一版本相反的做法,先创造一个list把所有2-100的数字包括进去,然后去掉不是质数的数,剩下的保留
 # !!!!!这个不会work,因为: 当一个item被remove,下次迭代的时候,发现这个item对于下个i又需要被remove
