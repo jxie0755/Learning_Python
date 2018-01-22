@@ -13,6 +13,7 @@ def find_primes(n):
             primeList.append(x)
     print(primeList)
 
-max = int(input('Find primes up to what numbers?:'))
-find_primes(max)
+if __name__ == '__main__':
+    max = int(input('Find primes up to what numbers?:'))
+    find_primes(max)
 

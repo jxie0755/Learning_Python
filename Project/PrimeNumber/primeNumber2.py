@@ -8,7 +8,8 @@ def isPrime(n):
             return False
     return True
 
-print(list(filter(isPrime, range(100))))
+if __name__ == '__main__':
+    print(list(filter(isPrime, range(100))))
 
 
 def isPrime2(n):
@@ -16,4 +17,5 @@ def isPrime2(n):
     n can be any integer"""
     return n != 0 and n != 1 and all(map(lambda x: n % x != 0, range(2, int(n ** 0.5) + 1)))
 
-print(list(filter(isPrime2, range(100))))
+if __name__ == '__main__':
+    print(list(filter(isPrime2, range(100))))
