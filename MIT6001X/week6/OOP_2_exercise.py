@@ -12,8 +12,21 @@ def genPrimes():
             yield i
             i += 1
 
-P = genPrimes()
-print(type(P))
-for i in range(20):
-    print(next(P))
+if __name__ == '__main__':
+    P = genPrimes()
+    print(type(P))
+    for i in range(10):
+        print(next(P))
 
+def genPrimes2():
+    i = 2
+    while True:
+        if all(i % x != 0 for x in range(2, i)):
+            yield i
+        i += 1
+
+if __name__ == '__main__':
+    print()
+    P2 = genPrimes2()
+    for i in range(10):
+        print(next(P2))
