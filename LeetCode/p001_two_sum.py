@@ -29,3 +29,4 @@ if __name__ == '__main__':
     assert Solution().twoSum([3, 3], 6) == [0,1],  'two identical'
     assert Solution().twoSum([-1, -2, -3, -4, -5], -8) == [2, 4],  'negative int'
     assert Solution().twoSum([3, 2, 4], 6) == [1, 2],  'struggle with 1/2 target'
+    print('test done, all pass')
