@@ -9,7 +9,7 @@
 # rtype: List[int]
  
 class Solution(object):
-    def twoSum(self, nums, target):  # beats 55.36%
+    def twoSum(self, nums, target):  # beats 55%
         result = []
         for i in sorted(nums):
             if target - i in nums:
@@ -22,7 +22,7 @@ class Solution(object):
             nums[nums.index(j)] = 'x'
         return output
     
-    def twoSum2(self, nums, target):
+    def twoSum2(self, nums, target):  # beats 125
         half = target / 2
         if nums.count(half) == 2:
             indexHalf =nums.index(half)
