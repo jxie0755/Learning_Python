@@ -53,3 +53,22 @@ for i in hh:
 # >>> iterator over 0, 1, 4, 9, then break
 # now hh is half consumed
 print(list(hh)) # >>> [25, 36, 49]
+
+
+# from https://www.ics.uci.edu/~pattis/ICS-33/lectures/generators.txt
+
+# example of mixing yield and return in a generator
+def createGenerator(x):
+    for i in range(x):
+        yield i*i
+        if i == 5:
+            return 'time to stop'
+
+g1 = createGenerator(15)
+# for i in range(14):
+#     print(next(g1))
+# >>> iteration output 0,1,4,9,16,25 then raise StopIteration:time to stop
+print(list(g1))  # >>> [0, 1, 4, 9, 16, 25]  # stoped after i == 5.
+
+
+
