@@ -12,22 +12,17 @@ for x in range(2, 101):
 print(pnumber1)
 
 # generator version
-def genPrimes():
-    i = 2
-    while True:
-        for x in range(2, i):
-            if i % x == 0:
-                i += 1
-                break
-        else:
-            yield i
-            i += 1
+def genPrimes(max = None):  # set a max limit
+    p = 2
+    while max == None or p <= max:
+        if all(p % x != 0 for x in range(2, p)):
+            yield p
+        p += 1
 
 if __name__ == '__main__':
-    P = genPrimes()
+    P = genPrimes(17)
     print(type(P))
-    # for i in range(10):
-    #     print(next(P))
+    print(list(P))  # >>> [2, 3, 5, 7, 11, 13, 17]
 
 # 这是跟上一版本相反的做法,先创造一个list把所有2-100的数字包括进去,然后去掉不是质数的数,剩下的保留
 # !!!!!这个不会work,因为: 当一个item被remove,下次迭代的时候,发现这个item对于下个i又需要被remove
