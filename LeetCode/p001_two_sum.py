@@ -24,8 +24,8 @@ class Solution(object):
             nums[nums.index(j)] = 'x'
         return output
 
-
-a = [2, 7, 11, 15]
-b = [1, 3, 3]
-print(Solution().twoSum(a, 9))
-print(Solution().twoSum(b, 6))
+if __name__ == '__main__':
+    assert Solution().twoSum([11, 2, 7, 15], 9) == [1,2],  'regular'
+    assert Solution().twoSum([3, 3], 6) == [0,1],  'two identical'
+    assert Solution().twoSum([-1, -2, -3, -4, -5], -8) == [2, 4],  'negative int'
+    assert Solution().twoSum([3, 2, 4], 6) == [1, 2],  'struggle with 1/2 target'
