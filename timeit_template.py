@@ -7,5 +7,7 @@ class Solution(object):
 
 if __name__ == '__main__':
     from timeit import repeat
-    result = repeat('Solution.f(3)', setup='from __main__ import Solution', repeat=3, number=1000000)
-    print(round(sum(result)/len(result), 4))
+    result = repeat('Solution.f(3)',
+                    setup='from __main__ import Solution',
+                    repeat=3, number=1000000)
+    print(f'{sum(result)/ len(result):.4f}')
