@@ -5,7 +5,7 @@
 # Input is guaranteed to be within the range from 1 to 3999.
 
 class Solution(object):
-    def intToRoman(self, num):  # beats 13.29%
+    def intToRoman(self, num):
         """
         :type num: int
         :rtype: str
@@ -19,7 +19,7 @@ class Solution(object):
         dlst = list(map(lambda x, y: int(x) * y, num, (1000, 100, 10, 1)))  # 分解各数位
         return ''.join(list(map(lambda x: R[x], dlst)))  # 将各数位代换成罗马数字,然后拼接
 
-    def intToRoman2(self, num):  # beats 18.90%
+    def intToRoman2(self, num):
 
         num = str(num).rjust(4, '0')  # 拆解data成为单独的数字字符,并补足数位
         def rom(n, x, y, z):  # 写一个函数来表明转换逻辑
@@ -37,7 +37,7 @@ class Solution(object):
         # 使用map对data中每个数位进行转换,然后合并
         return ''.join(list(map(rom, range(4), ['M', 'C', 'X', 'I'], ['', 'D', 'L', 'V'], ['', 'M', 'C', 'X'])))
 
-    def intToRoman3(self, num):  # beats 43.17%
+    def intToRoman3(self, num): 
 
         result = ''
         roman_list = [(1000, 'M'), (900, 'CM'), (500, 'D'), (400, 'CD'),
@@ -54,5 +54,8 @@ class Solution(object):
         # 在这里LeetCode就出现了这个bug,所以把dict拆分成list来做算法解决
         # 也可以使用collections.OrderedDrict
 
-print(Solution().intToRoman3(3888))
+if __name__ == '__main__':
+    assert Solution().intToRoman3(3888) == 'MMMDCCCLXXXVIII', 'one check is good'
+    print('all passed')
+
 
