@@ -4,13 +4,13 @@
 # Given a roman numeral, convert it to an integer.
 # Input is guaranteed to be within the range from 1 to 3999.
 
+# """
+# :type roman_string: str
+# :rtype: int
+# """
 
 class Solution(object):
-    def romanToInt(self, roman_string):  # beats 46.63%
-        """
-        :type roman_string: str
-        :rtype: int
-        """
+    def romanToInt(self, roman_string):
         result = 0
         # remove the possibility of 4 and 9
         checklst = {'CM': 900, 'CD': 400, 'XC': 90, 'XL': 40, 'IX': 9, 'IV': 4}
@@ -26,4 +26,5 @@ class Solution(object):
 
         return result
 
-print(Solution().romanToInt('CDXCIX'))
+if __name__ == '__main__':
+    assert Solution().romanToInt('MMMCDXCIX') == 3499
