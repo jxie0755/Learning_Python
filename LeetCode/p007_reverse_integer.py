@@ -6,21 +6,22 @@
 # For the purpose of this problem, assume that your function returns 0 when the reversed integer overflows.
 # The 32-bit int data type can hold integer values in the range of −2,147,483,648 to 2,147,483,647.
 
+# """
+# :type x: int
+# :rtype: int
+# """
+    
 class Solution(object):
-    def reverse(self, x):  # beats 3.88%
-        """
-        :type x: int
-        :rtype: int
-        """
+    def reverse(self, x):  
         if x >= 0:
             result = int(str(x)[::-1])
             return result if result <= 2147483647 else 0
-        elif x < 0:
+        else:
             result = int('-' + str(x)[-1:0:-1])
             return result if result >= -2147483648 else 0
 
-
-assert Solution().reverse(123) == 321
-assert Solution().reverse(-120) == -21
-assert Solution().reverse(1534236469) == 0
-print('done')
+if __name__ == '__main__':
+    assert Solution().reverse(123) == 321
+    assert Solution().reverse(-120) == -21
+    assert Solution().reverse(1534236469) == 0
+    print('all passed')
