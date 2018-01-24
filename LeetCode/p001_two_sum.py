@@ -32,4 +32,5 @@ if __name__ == '__main__':
     result = repeat('Solution().twoSum([11, 2, 7, 15], 9)',
                     setup='from __main__ import Solution',
                     repeat=3, number=1000000)
-    print(round(sum(result)/len(result), 4))
+    print(f'{sum(result)/ len(result):.4f}')
+
