@@ -10,17 +10,18 @@
 # """
 
 class Solution():
+    class Solution():
     OPEN_BRACKETS = {'(': 1, '{': 2, '[': 3}
     CLOSE_BRACKETS = {')': 1, '}': 2, ']': 3}
     def isValid(self, s):  # beats 60.51%
         result = []
         for i in s:
-            if i in Solution.OPEN_BRACKETS:
-                result.append(Solution.OPEN_BRACKETS[i])
-            if i in Solution.CLOSE_BRACKETS:
+            if i in self.OPEN_BRACKETS:
+                result.append(self.OPEN_BRACKETS[i])
+            if i in self.CLOSE_BRACKETS:
                 if len(result) == 0:
                     return False
-                if result.pop() != Solution.CLOSE_BRACKETS[i]:
+                if result.pop() != self.CLOSE_BRACKETS[i]:
                     return False
         return len(result) == 0
 
