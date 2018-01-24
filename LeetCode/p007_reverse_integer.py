@@ -12,16 +12,29 @@
 # """
     
 class Solution(object):
-    def reverse(self, x):  
+    def reverse(self, x):  # string method
         if x >= 0:
             result = int(str(x)[::-1])
             return result if result <= 2147483647 else 0
         else:
             result = int('-' + str(x)[-1:0:-1])
             return result if result >= -2147483648 else 0
+    
+    def reverse2(self, x):  # no extra space used, by using divmod method
+        absX = abs(x)
+        rev = 0
+        while absX > 0:
+            move = 10
+            rev = rev * 10 + absX % move
+            absX = absX // 10  
+            move *= 10
+        
+        rev = -rev if x < 0 else rev
+        return rev if 2147483647 > rev > -2147483648 else 0
 
 if __name__ == '__main__':
-    assert Solution().reverse(123) == 321
-    assert Solution().reverse(-120) == -21
-    assert Solution().reverse(1534236469) == 0
+    assert Solution().reverse(123) == 321, 'regular'
+    assert Solution().reverse(-120) == -21, 'tricky reverse'
+    assert Solution().reverse(1534236469) == 0, 'large number'
+    assert Solution().reverse(0) == 0, 'zero'
     print('all passed')
