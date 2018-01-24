@@ -20,15 +20,12 @@ class Solution(object):
             result = int('-' + str(x)[-1:0:-1])
             return result if result >= -2147483648 else 0
     
-    def reverse2(self, x):  # no extra space used, by using divmod method
+    def reverse(self, x):  # no extra space used, by using divmod method
         absX = abs(x)
         rev = 0
         while absX > 0:
-            move = 10
-            rev = rev * 10 + absX % move
-            absX = absX // 10  
-            move *= 10
-        
+            rev = rev * 10 + absX % 10
+            absX //= 10  
         rev = -rev if x < 0 else rev
         return rev if 2147483647 > rev > -2147483648 else 0
 
