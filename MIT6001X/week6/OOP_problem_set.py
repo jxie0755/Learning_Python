@@ -69,6 +69,28 @@ class Message(object):
         map_up = dict(zip(k_up, v_up))
         return {**map_low, **map_up}
 
+    def apply_shift(self, shift):
+        '''
+        Applies the Caesar Cipher to self.message_text with the input shift.
+        Creates a new string that is self.message_text shifted down the
+        alphabet by some number of characters determined by the input shift
+
+        shift (integer): the shift with which to encrypt the message.
+        0 <= shift < 26
+
+        Returns: the message text (string) in which every character is shifted
+             down the alphabet by the input shift
+        '''
+        mapping = self.build_shift_dict(shift)
+        shifted_text = ''
+        for i in self.message_text:
+            if i in mapping:
+                shifted_text += mapping[i]
+            else:
+                shifted_text += i
+        return shifted_text
+
+
 print(string.ascii_lowercase + string.ascii_uppercase)
-print(Message('abc').build_shift_dict(5))
+print(Message('Xie').apply_shift(5))
 
