@@ -20,7 +20,7 @@ class Solution(object):
         if x < 0:
             return False
         half_palindrome = 0
-        while x > half_palindrome:
+        while x > half_palindrome:  # this is faster than going through the whole number and only check the half
             half_palindrome = half_palindrome * 10 + x % 10
             x //= 10
             print(x, half_palindrome)
