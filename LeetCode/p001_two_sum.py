@@ -9,20 +9,7 @@
 # rtype: List[int]
  
 class Solution(object):
-    def twoSum(self, nums, target):  # beats 55%
-        result = []
-        for i in sorted(nums):
-            if target - i in nums:
-                result.append(i)
-                result.append(target - i)
-                break
-        output = []
-        for j in result:
-            output.append(nums.index(j))
-            nums[nums.index(j)] = 'x'
-        return output
-    
-    def twoSum2(self, nums, target):  # beats 125
+    def twoSum(self, nums, target):  # beats 1.25%
         half = target / 2
         if nums.count(half) == 2:
             indexHalf =nums.index(half)
@@ -34,7 +21,15 @@ class Solution(object):
 
 if __name__ == '__main__':
     assert Solution().twoSum([11, 2, 7, 15], 9) == [1,2],  'regular'
+    assert Solution().twoSum([11, 7, 2, 15], 9) == [1,2],  'regular revert'
     assert Solution().twoSum([3, 3], 6) == [0,1],  'two identical'
     assert Solution().twoSum([-1, -2, -3, -4, -5], -8) == [2, 4],  'negative int'
     assert Solution().twoSum([3, 2, 4], 6) == [1, 2],  'struggle with 1/2 target'
-    print('test done, all pass')
+    print('test done, all passed')
+
+if __name__ == '__main__':
+    from timeit import repeat
+    result = repeat('Solution().twoSum([11, 2, 7, 15], 9)',
+                    setup='from __main__ import Solution',
+                    repeat=3, number=1000000)
+    print(round(sum(result)/len(result), 4))
