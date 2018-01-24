@@ -204,6 +204,16 @@ print(dec)  # >>> deque([8, 7, 'after', 5, 4, 3, 2, 'ins', 1, 'before', 'x', 'y'
 print(dec)  # >>> deque([8, 7, 'after', 5, 4, 3, 2, 'ins', 1, 'before', 'x', 'y'])
 print(list(dec))  # >>> [8, 7, 'after', 5, 4, 3, 2, 'ins', 1, 'before', 'x', 'y']
 
+# merge two deque?
+d1 = collections.deque([1,2,3])
+d2 = collections.deque([4,5,6])
+d3 = d1 + d2
+print(d3)  # >>> deque([1, 2, 3, 4, 5, 6])
+
+# two deque made into a dictionary
+print(dict(zip(d1, d2)))  # >>> {1: 4, 2: 5, 3: 6}
+
+
 print()
 print('deque application')
 # deque application scenarios
