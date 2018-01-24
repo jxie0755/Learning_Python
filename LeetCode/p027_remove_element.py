@@ -10,6 +10,7 @@
 # :type val: int
 # :rtype: int
 # """
+
 import timeit
 
 class Solution(object):
