@@ -4,9 +4,11 @@
 # Given an array of integers, return indices of the two numbers such that they add up to a specific target.
 # You may assume that each input would have exactly one solution, and you may not use the same element twice.
 
+# """
 # type nums: List[int]
 # type target: int
 # rtype: List[int]
+# """
  
 class Solution(object):
  			def twoSum(self, nums, target):  # brutal force, slowest
@@ -18,6 +20,7 @@ class Solution(object):
                         return [index_i, nums.index(j)]
                     else:
                         return [index_i, nums.index(i, index_i+1)]
+    
     def twoSum2(self, nums, target):  # brutal force, check half first
         half = target / 2
         if nums.count(half) == 2:
