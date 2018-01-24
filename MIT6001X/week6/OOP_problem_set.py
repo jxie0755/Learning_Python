@@ -67,7 +67,8 @@ class Message(object):
         v_up = k_up[shift:] + k_up[:shift]
         map_low = dict(zip(k_low, v_low))
         map_up = dict(zip(k_up, v_up))
-        return {**map_low, **map_up}
+        shift_dict = {**map_low, **map_up}
+        return shift_dict
 
     def apply_shift(self, shift):
         '''
