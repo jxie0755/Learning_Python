@@ -16,19 +16,18 @@ class Solution(object):
         else:
             return str(x) == str(x)[::-1]
 
-    def isPalindrome2(self, x):  # use divmod method, no need for extra space
+    def isPalindrome2(self, x):  # use divmod method
         if x < 0:
             return False
-        elif 0 < x < 10:  # avoid single digit problem
-            return True
-        half_palindrome = 0
-        while x > half_palindrome:  # this is faster than going through the whole number and only check the half
-            half_palindrome = half_palindrome * 10 + x % 10
-            x //= 10
-        return x == half_palindrome
+        copy, reverse = x, 0
+        while copy > 0:
+            reverse = reverse * 10 + copy % 10
+            copy //= 10
+        return reverse == x
 
 if __name__ == '__main__':
-    assert Solution().isPalindrome2(2147447412) == True, 'Is palindrome'
-    assert Solution().isPalindrome2(-2147447412) == False, 'Not palindrome'
+    assert Solution().isPalindrome2(21477412) == True, 'Is palindrome (even)'
+    assert Solution().isPalindrome2(12321) == True, 'Is palindrome (odd)'
+    assert Solution().isPalindrome2(-21477412) == False, 'Not palindrome'
     assert Solution().isPalindrome2(1) == True, 'Single digit'
     print('all passed')
