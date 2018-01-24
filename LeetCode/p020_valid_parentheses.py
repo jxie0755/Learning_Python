@@ -27,10 +27,11 @@ class Solution():
 # 不再使用index,因为太不直观,直接使用mapping把左括号和右括号对应值(其实不需要是num,任何三个键值都能成立)
 # 仍然是用pop()来对应括号位置关系
 
-assert Solution().isValid("((5+3)*2+1)") == True, "Simple"
-assert Solution().isValid("{[(3+1)+2]+}") == True, "Different types"
-assert Solution().isValid("(3+{1-1)}") == False, ") is alone inside {}"
-assert Solution().isValid("[1+1]+(2*2)-{3/3}") == True, "Different operators"
-assert Solution().isValid("(({[(((1)-2)+3)-3]/3}-3)") == False, "One is redundant"
-assert Solution().isValid("2+3") == True, "No brackets, no problem"
-print('done')
+if __name__ == '__main__':
+    assert Solution().isValid("((5+3)*2+1)") == True, "Simple"
+    assert Solution().isValid("{[(3+1)+2]+}") == True, "Different types"
+    assert Solution().isValid("(3+{1-1)}") == False, ") is alone inside {}"
+    assert Solution().isValid("[1+1]+(2*2)-{3/3}") == True, "Different operators"
+    assert Solution().isValid("(({[(((1)-2)+3)-3]/3}-3)") == False, "One is redundant"
+    assert Solution().isValid("2+3") == True, "No brackets, no problem"
+    print('all pased')
