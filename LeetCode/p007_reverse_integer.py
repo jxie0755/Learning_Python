@@ -12,7 +12,7 @@
 # """
     
 class Solution(object):
-    def reverse(self, x):  # string method
+    def reverse(self, x):  # string method, takes extra space
         if x >= 0:
             result = int(str(x)[::-1])
             return result if result <= 2147483647 else 0
