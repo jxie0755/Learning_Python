@@ -65,9 +65,9 @@ class Message(object):
         k_up = string.ascii_uppercase
         v_low = k_low[shift:] + k_low[:shift]
         v_up = k_up[shift:] + k_up[:shift]
-        map_low = dict(zip(k_low, v_low))
-        map_up = dict(zip(k_up, v_up))
-        shift_dict = {**map_low, **map_up}
+        k = k_low + k_up
+        v = v_low + v_up
+        shift_dict = dict(zip(k, v))
         return shift_dict
 
     def apply_shift(self, shift):
