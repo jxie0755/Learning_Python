@@ -35,3 +35,5 @@ if __name__ == '__main__':
     assert Solution().isValid("(({[(((1)-2)+3)-3]/3}-3)") == False, "One is redundant"
     assert Solution().isValid("2+3") == True, "No brackets, no problem"
     print('all pased')
+
+    
