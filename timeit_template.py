@@ -2,7 +2,7 @@
 # the codes can be used for algorithm test by calculating the time
 
 class Solution(object):
-    def f(x):  # power function
+    def f(x):  # power function, for test
         return x**2
 
 if __name__ == '__main__':
