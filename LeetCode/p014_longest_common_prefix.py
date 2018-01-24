@@ -36,8 +36,9 @@ class Solution(object):
                 break
         return result
 
-
-lst = ['Denis Xie', 'Dennis X', 'Dendi Den', 'Denn']
-lst2 = []
-print(Solution().longestCommonPrefix(lst))  # >>> Den
-print(Solution().longestCommonPrefix2(lst2))  # >>> Den
+if __name__ == '__main__':
+    lst = ['Denis Xie', 'Dennis X', 'Dendi Den', 'Denn']
+    lst2 = []
+    assert Solution().longestCommonPrefix(lst)  == 'Den', 'regular test'
+    assert Solution().longestCommonPrefix(lst2) == '', 'empty list'
+    print('all passed')
