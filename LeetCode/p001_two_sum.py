@@ -11,7 +11,7 @@
 # """
  
 class Solution(object):
- 			def twoSum(self, nums, target):  # brutal force, slowest
+    def twoSum(self, nums, target):  # brutal force, slowest
         for i in nums:
             index_i = nums.index(i)
             for j in nums[index_i+1:]:
