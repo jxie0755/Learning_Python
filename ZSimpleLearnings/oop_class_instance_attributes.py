@@ -20,3 +20,4 @@ print(o1.c, o2.c)  # >>> WTF really?          # only change o2.c, because o1.c g
 
 # In generall, we do not override class attribute with instance attribute.
 # And class attributes should be used separately for systematic purpose.
+# ALways call class attribute by ClassName.class_attribute
