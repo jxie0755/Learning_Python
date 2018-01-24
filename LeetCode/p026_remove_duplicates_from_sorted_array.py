@@ -5,12 +5,13 @@
 # Do not allocate extra space for another array, you must do this by modifying the input array in-place with O(1) extra memory.
 # 意思是不能再造一个新list,而是在原list上改动
 
+# """
+# :type nums: List[int]
+# :rtype: int
+# """
+
 class Solution(object):
-    def removeDuplicates(self, nums):  # beats 83.31%
-        """
-        :type nums: List[int]
-        :rtype: int
-        """
+    def removeDuplicates(self, nums):  
         if not nums:
             return 0
 
@@ -24,5 +25,8 @@ class Solution(object):
         # 思路在于利用外部游标对应遍历时的瞬间赋值
         return index, nums
 
-nums = [1,1,2,2,3]
-print(Solution().removeDuplicates(nums))  # >>> (3, [1, 2, 3, 2, 3])
+if __name__ = '__main__':
+    nums = [1,1,2,2,3]
+    assert Solution().removeDuplicates(nums) == (3, [1, 2, 3, 2, 3]), 'regular test'
+    print('all passed')
+
