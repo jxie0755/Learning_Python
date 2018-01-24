@@ -208,6 +208,8 @@ print(list(dec))  # >>> [8, 7, 'after', 5, 4, 3, 2, 'ins', 1, 'before', 'x', 'y'
 d1 = collections.deque([1,2,3])
 d2 = collections.deque([4,5,6])
 d3 = d1 + d2
+# d4 = d3 - d1  # 只能加不能减
+# print(d4)
 print(d3)  # >>> deque([1, 2, 3, 4, 5, 6])
 
 # two deque made into a dictionary
