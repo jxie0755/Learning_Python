@@ -22,12 +22,12 @@ class Solution(object):
     
     def reverse(self, x):  # no extra space used, by using divmod method
         absX = abs(x)
-        rev = 0
+        result = 0
         while absX > 0:
-            rev = rev * 10 + absX % 10
+            result = result * 10 + absX % 10
             absX //= 10  
-        rev = -rev if x < 0 else rev
-        return rev if 2147483647 > rev > -2147483648 else 0
+        result = -result if x < 0 else result
+        return result if 2147483647 > result > -2147483648 else 0
 
 if __name__ == '__main__':
     assert Solution().reverse(123) == 321, 'regular'
