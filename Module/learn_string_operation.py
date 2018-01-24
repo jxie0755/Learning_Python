@@ -6,14 +6,6 @@ print("class str(object=b'', encoding='utf-8', errors='strict'))")
 
 import string
 
-# a string contains all letters
-str = string.ascii_lowercase
-print(str)
-
-# if need a list:
-lst = list(string.ascii_lowercase)
-
-# others
 # help(string)
 
 # ascii_letters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
