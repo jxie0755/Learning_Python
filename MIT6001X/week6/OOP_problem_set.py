@@ -1,17 +1,63 @@
-# This assignment will deal with a well-known (though not very secure) encryption method called the Caesar cipher.
-# Some vocabulary to get you started on this problem
-
-# Encryption - the process of obscuring or encoding messages to make them unreadable until they are decrypted
-# Decryption - making encrypted messages readable again by decoding them
-# Cipher - algorithm for performing encryption and decryption
-# Plaintext - the original message
-# Ciphertext - the encrypted message.
-
-# ps6.py - a file containing three classes that you will have to implement.
-# words.txt - a file containing valid English words (should be in the same folder as your ps6.py file).
-# story.txt - a file containing an encrypted message that you will have to decode (should be in the same folder as your ps6.py file).
-
 import string
+
+
+### DO NOT MODIFY THIS FUNCTION ###
+def load_words(file_name):
+    '''
+    file_name (string): the name of the file containing
+    the list of words to load
+
+    Returns: a list of valid words. Words are strings of lowercase letters.
+
+    Depending on the size of the word list, this function may
+    take a while to finish.
+    '''
+    print('Loading word list from file...')
+    # inFile: file
+    in_file = open(file_name, 'r')
+    # line: string
+    line = in_file.readline()
+    # word_list: list of strings
+    word_list = line.split()
+    print('  ', len(word_list), 'words loaded.')
+    in_file.close()
+    return word_list
+
+
+### DO NOT MODIFY THIS FUNCTION ###
+def is_word(word_list, word):
+    '''
+    Determines if word is a valid word, ignoring
+    capitalization and punctuation
+
+    word_list (list): list of words in the dictionary.
+    word (string): a possible word.
+
+    Returns: True if word is in word_list, False otherwise
+
+    # Example:
+    # >>> is_word(word_list, 'bat') returns
+    # True
+    # >>> is_word(word_list, 'asdf') returns
+    # False
+    # '''
+    word = word.lower()
+    word = word.strip(" !@#$%^&*()-_+={}[]|\:;'<>?,./\"")
+    return word in word_list
+
+
+### DO NOT MODIFY THIS FUNCTION ###
+def get_story_string():
+    """
+    Returns: a joke in encrypted text.
+    """
+    f = open("story.txt", "r")
+    story = str(f.read())
+    f.close()
+    return story
+
+
+WORDLIST_FILENAME = 'words.txt'
 
 
 class Message(object):
@@ -27,7 +73,7 @@ class Message(object):
             self.valid_words (list, determined using helper function load_words
         '''
         self.message_text = text
-        # self.valid_words = load_words(WORDLIST_FILENAME)
+        self.valid_words = load_words(WORDLIST_FILENAME)
 
     ### DO NOT MODIFY THIS METHOD ###
     def get_message_text(self):
@@ -91,9 +137,6 @@ class Message(object):
                 shifted_text += i
         return shifted_text
 
-if __name__ == '__main__':
-    print(string.ascii_lowercase + string.ascii_uppercase)
-    print(Message('Xie').apply_shift(5))
 
 class PlaintextMessage(Message):
     def __init__(self, text, shift):
@@ -155,13 +198,60 @@ class PlaintextMessage(Message):
         '''
         self.shift = shift
 
-if __name__ == '__main__':
-    t1 = PlaintextMessage('Denis', 2)
-    print(t1.get_shift())
-    print(t1.get_encrypting_dict())
-    print(t1.get_message_text_encrypted())
-    t1.change_shift(1)
-    print(t1.get_shift())
-    print(t1.get_encrypting_dict())
-    print(t1.get_message_text_encrypted())
 
+class CiphertextMessage(Message):
+    def __init__(self, text):
+        '''
+        Initializes a CiphertextMessage object
+
+        text (string): the message's text
+
+        a CiphertextMessage object has two attributes:
+            self.message_text (string, determined by input text)
+            self.valid_words (list, determined using helper function load_words)
+        '''
+        Message.__init__(self, text)
+
+    def decrypt_message(self):
+        '''
+        Decrypt self.message_text by trying every possible shift value
+        and find the "best" one. We will define "best" as the shift that
+        creates the maximum number of real words when we use apply_shift(shift)
+        on the message text. If s is the original shift value used to encrypt
+        the message, then we would expect 26 - s to be the best shift value
+        for decrypting it.
+
+        Note: if multiple shifts are  equally good such that they all create
+        the maximum number of you may choose any of those shifts (and their
+        corresponding decrypted messages) to return
+
+        Returns: a tuple of the best shift value used to decrypt the message
+        and the decrypted message text using that shift value
+        '''
+        count_dict = {}
+        for i in range(0, 27):
+            shift = 26 - i
+            decode_message = self.apply_shift(shift)
+            list_decode_message = decode_message.split()
+            count = 0
+            for word in list_decode_message:
+                if is_word(self.valid_words, word):
+                    count += 1
+            count_dict[shift] = count
+        for k, v in count_dict.items():
+            if v == max(count_dict.values()):
+                return (k, self.apply_shift(k))
+
+
+# Example test case (PlaintextMessage)
+plaintext = PlaintextMessage('hello', 2)
+print('Expected Output: jgnnq')
+print('Actual Output:', plaintext.get_message_text_encrypted())
+
+# Example test case (CiphertextMessage)
+ciphertext = CiphertextMessage('jgnnq')
+print('Expected Output:', (24, 'hello'))
+print('Actual Output:', ciphertext.decrypt_message())
+
+ciphertext = CiphertextMessage('(jgnnq), Yqtnf')
+print('Actual Output:', ciphertext.decrypt_message())
