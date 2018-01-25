@@ -255,3 +255,14 @@ print('Actual Output:', ciphertext.decrypt_message())
 
 ciphertext = CiphertextMessage('(jgnnq), Yqtnf')
 print('Actual Output:', ciphertext.decrypt_message())
+
+
+def decrypt_story():
+    story = get_story_string()
+    story_text = CiphertextMessage(story)
+    return story_text.decrypt_message()
+
+import textwrap
+result = textwrap.wrap(decrypt_story()[1], width=70)
+for i in result:
+    print(i)
