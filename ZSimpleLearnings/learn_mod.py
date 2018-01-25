@@ -7,3 +7,12 @@ def fun1():
 var2 = 5
 def fun2():
     return var2
+
+class People(object):
+    var_p = 'people'
+    def __init__(self, name):
+        self.name = name
+    def __str__(self):
+        return self.name
+    def set_varP(self, newstring):
+        People.var_p = newstring
