@@ -65,7 +65,7 @@ print(bytes(12))  # >>> b'\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
 
 print('\n', 8)
 print('class bytes([source[, encoding[, errors]]])')
-# 返回一个新的字节对象，是一个在 0<= x < 256之间的不可变的整数序列。 
+# 返回一个新的字节对象，是一个在 0<= x < 256之间的不可变的整数序列。
 # bytes 是 bytearray 的不可变版本 – 它具有同样的非改变性的方法和同样的索引和切片操作
 # 因此，构造函数参数的解释与bytearray()相同。
 
@@ -485,7 +485,7 @@ print('see in ZSimpleLearnings/sort_vs_sorted_and_reverse.py')
 
 print('\n', 55)
 print('round(number[, ndigits])')
-# 当一个值刚好在两个边界的中间的时候， round 函数返回离它最近的偶数。 
+# 当一个值刚好在两个边界的中间的时候， round 函数返回离它最近的偶数。
 print(round(1.5, 0))  # >>> 2.0
 print(round(2.5, 0))  # >>> 2.0
 # 也就是说，对1.5或者2.5的舍入运算都会得到2。
@@ -571,4 +571,3 @@ print('__import__(name, globals=None, locals=None, fromlist=(), level=0)')
 # 用于import任何文件名
 # surpose a file named 05_if1_guess_number.py, we want to import this file
 # mymodule = __import__('05_if1_guess_number')
-

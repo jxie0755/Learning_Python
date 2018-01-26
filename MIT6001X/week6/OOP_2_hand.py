@@ -167,5 +167,3 @@ class Hand(object):
             return True
         else:
             return False
-
-

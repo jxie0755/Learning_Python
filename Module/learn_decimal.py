@@ -171,9 +171,4 @@ print(0.1000000000000000055511151231257827021181583404541015625 * 2)  # >>> 0.2
 # Fused multiply-add. Return self*other+third with no rounding of the intermediate product self*other
 print(Decimal('5.1').fma(2, 3))  # >>> 13.2
 
-
 # TODO 未学完
-
-
-
-

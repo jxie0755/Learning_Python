@@ -642,10 +642,3 @@ class MyList(list, metaclass=ListMetaclass):
 # 类的名字；
 # 类继承的父类集合；
 # 类的方法集合。
-
-
-
-
-
-
-

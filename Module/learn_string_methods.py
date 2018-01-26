@@ -316,25 +316,3 @@ print('str.zfill(width)')
 # Return a copy of the sequence left filled with ASCII b'0' digits to make a sequence of length width. A leading sign prefix (b'+'/ b'-' is handled by inserting the padding after the sign character rather than before.
 print("42".zfill(5)) # >>> '00042'
 print("-42".zfill(5)) # >>> '-0042'
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

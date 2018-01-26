@@ -74,7 +74,3 @@ try:
     t.timeit(number=100000)    # or t.repeat(...)
 except Exception:
     t.print_exc()
-
-
-
-
