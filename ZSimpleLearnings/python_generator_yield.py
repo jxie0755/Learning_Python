@@ -63,6 +63,7 @@ def createGenerator(x):
         yield i*i
         if i == 5:
             return 'time to stop'
+            # raise StopIteration('time to stop')   # equal with return line
 
 g1 = createGenerator(15)
 # for i in range(14):
