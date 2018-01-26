@@ -11,10 +11,10 @@
 
 class Solution():
     class Solution():
-    
+
     OPEN_BRACKETS = {'(': 1, '{': 2, '[': 3}
     CLOSE_BRACKETS = {')': 1, '}': 2, ']': 3}  # setup data as class attributes
-    
+
     def isValid(self, s):  # beats 60.51%
         result = []
         for i in s:
@@ -39,4 +39,3 @@ if __name__ == '__main__':
     assert Solution().isValid("(({[(((1)-2)+3)-3]/3}-3)") == False, "One is redundant"
     assert Solution().isValid("2+3") == True, "No brackets, no problem"
     print('all passed')
-    
