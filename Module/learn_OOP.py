@@ -301,7 +301,7 @@ print(cc.whatever)  # >>> 13212
 
 
 print()
-print('使用@Property')
+print('使用@Property decorator')
 class Student(object):
     def __init__(self, name, score):
         self.name = name
