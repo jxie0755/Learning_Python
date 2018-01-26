@@ -6,7 +6,7 @@ print()
 
 # create an iterable using list comprehension:
 mylist2 = [x*x for x in mylist]
-print(type(mylist2), mylist2)  
+print(type(mylist2), mylist2)
 # >>> <class 'list'> [1, 4, 9]
 
 # Iterator is stored in the memory, can be iterated over multiple times
@@ -70,6 +70,3 @@ g1 = createGenerator(15)
 #     print(next(g1))
 # >>> iteration output 0,1,4,9,16,25 then raise StopIteration:time to stop
 print(list(g1))  # >>> [0, 1, 4, 9, 16, 25]  # stoped after i == 5.
-
-
-

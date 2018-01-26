@@ -29,7 +29,7 @@ def verify3(matrix):
 
 def verify4(matrix):  # 错位对比法
    return any(i[1:] == i[:-1] for i in matrix)
-   
+
 
 target = [[1, 2, 1, 1], [1, 1, 1, 1], [1, 3, 1, 6], [1, 7, 2, 5]]
 print(verify1(target))

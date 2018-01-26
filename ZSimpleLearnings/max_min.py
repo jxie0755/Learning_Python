@@ -38,4 +38,3 @@ num2 = [34, 567, 78, 1, 2, 4]
 total = [num, num1, num2]
 # using max(iterable, *iterables, key)
 print('longest list is:', max(total, key=len))
-

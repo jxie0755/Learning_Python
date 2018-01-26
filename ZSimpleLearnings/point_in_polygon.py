@@ -62,6 +62,3 @@ pointx = [8, 6]
 print(pointOnBorder(point1, polygon))  # >>> True (on the edge)
 print(pointOnBorder(point2, polygon))  # >>> False (inside)
 print(pointOnBorder(pointx, polygon))  # >>> False (outside)
-
-
-

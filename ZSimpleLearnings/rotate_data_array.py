@@ -1,6 +1,6 @@
 # rotate the data array
 data = [0,1,2,3]
-for i in range(len(data)):  
+for i in range(len(data)):
     data.insert(0, data.pop())
     print(data) # if check data after pop(), it will start with one move, end at original
 print('at the end')
@@ -22,7 +22,7 @@ for i in range(len(data)):
     data.insert(0, data.pop())
 
 print('at the end')
-print(data)  # but at the end the data still roll back to original, which is good!    
+print(data)  # but at the end the data still roll back to original, which is good!
 # >>>
 # [0, 1, 2, 3]
 # [3, 0, 1, 2]
@@ -43,7 +43,7 @@ print()
 data = [0,1,2,3]
 for i in range(len(data)):
     print(data)
-    data = data[-1:] + data[0:-1]  
+    data = data[-1:] + data[0:-1]
     # the good thing is that it is not limited to rotating one element at a time
 print('at the end')
 print(data)

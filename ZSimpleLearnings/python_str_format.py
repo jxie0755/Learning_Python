@@ -19,10 +19,10 @@ print('{name}, {age}'.format(age=18,name='denis'))  # >>> denis, 18
 
 # 通过对象属性
 
-class Person:  
-    def __init__(self,name,age):  
-        self.name,self.age = name,age  
-    def __str__(self):  
+class Person:
+    def __init__(self,name,age):
+        self.name,self.age = name,age
+    def __str__(self):
         # return 'This guy is {self.name}, is {self.age} old'.format(self=self)
         return f'This guy is {self.name}, is {self.age} old'  # f-string
 
@@ -79,7 +79,7 @@ print('{: f}; {: f}'.format(3.14, -3.14))  # show a space for positive numbers
 print('{:-f}; {:-f}'.format(3.14, -3.14))  # show only the minus -- same as '{:f}; {:f}'
 # >>>> '3.140000; -3.140000'
 print('{:-.2f}; {:-.2f}'.format(3.14, -3.14))  # and control precision
-# >>> 3.14; -3.14  
+# >>> 3.14; -3.14
 
 # 百分比
 print('{:.2%}'.format(19/22))  # >>> 86.36%'

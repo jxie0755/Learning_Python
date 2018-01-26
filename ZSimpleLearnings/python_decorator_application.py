@@ -37,7 +37,7 @@ def sqX(func):
     def __decorator():
         func()
         sq(4)
-    return __decorator  
+    return __decorator
 
 @sqX
 def foo():
@@ -104,7 +104,7 @@ class Money:
     @cents.setter
     def cents(self, new_cents):
         self.total_cents = 100 * self.dollars + new_cents
-        
+
 # 修改了__init__方法,但是通过装饰器,重设dollar和cents属性
 # 不再需要修改应用代码
 m1 = Money(27, 12)

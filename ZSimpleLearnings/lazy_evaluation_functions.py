@@ -29,4 +29,3 @@ print(result)  # >>> [1, 4]
 
 next(mapobj)
 print(result)  # >>> [1, 4, 9]
-

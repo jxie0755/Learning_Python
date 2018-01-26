@@ -6,8 +6,8 @@
 def fun(x):
     for i in range(5):
         pass
-    
-print('hello world')  # >>> hello world  
+
+print('hello world')  # >>> hello world
 
 # 定义一个函数iplaypython，但函数体部分暂时还没有完成，又不能空着不写内容，因此可以用pass来替代占个位置
 
@@ -27,4 +27,4 @@ print(Student.mro())  # >>> [<class '__main__.Student'>, <class '__main__.Person
 denis = Student('Denis Xie')
 print(denis.name)  # >>> Denis Xie
 
-＃ pass基本就是用于确立程序结构时,留下代码残缺导致无法运行
+# pass基本就是用于确立程序结构时,留下代码残缺导致无法运行

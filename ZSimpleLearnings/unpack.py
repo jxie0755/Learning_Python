@@ -1,14 +1,14 @@
 # Unpack can be used to assign multiple value to multiple variables in one line.
 
 # number of variables must equal to number of generated values!!
-a, b = 2, 3  
+a, b = 2, 3
 a, b = [2, 3]
 a, b = (2, 3)
 a, b = {2, 3}
 a, b = {2:'x', 3:'y'}  # go with keys
 # all above: a=2, b=3
 
-# can be used in iterators 
+# can be used in iterators
 x, y, z = range(3)
 print(x, y, z)  # >>> 0 1 2
 
@@ -19,7 +19,7 @@ print(x, y)  # >>> 2, 1
 # multiple unpack
 for x, y in [(1,2), (2,3), (3,4)]:
     print(x, y)
-    
+
 # keys and values are unpack of dict
 d ={'a': 1, 'b': 2}
 for k, v in d.items():

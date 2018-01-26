@@ -15,7 +15,7 @@ def hashable(x):
         hash(x)
         print(x, 'is hashable')
         return True
-        
+
     except TypeError:
         print(x, 'is not hashable')
         return False

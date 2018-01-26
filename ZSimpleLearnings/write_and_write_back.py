@@ -66,17 +66,17 @@ def write_dict_txt(filename, original_dict):
 def write_into_dict(filename):
     with open(f'{filename}.txt', 'r') as f_obj:
         raw_dict = f_obj.readlines()
-    
+
     raw_list = []
     for i in raw_dict:
        raw_list.append(i.rstrip().split())
-    
+
     listKp = []
     listV = []
     for i in raw_list:
         listKp.append(i[0])
         listV.append(i[1])
-    
+
     listK = []
     for i in listKp:
         listK.append(i.replace(':', ''))

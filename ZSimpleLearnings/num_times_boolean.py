@@ -21,4 +21,3 @@ print([i + False for i in range(5)])  # >>> [0, 1, 2, 3, 4]
 # 减法
 print([i - True for i in range(5)])   # >>> [-1, 0, 1, 2, 3]
 print([i - False for i in range(5)])  # >>> [0, 1, 2, 3, 4]
-

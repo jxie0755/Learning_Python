@@ -23,5 +23,3 @@ print('sum is:', sum_integer)
 # Therefore if you convert the iterator to a list,
 # you modify the pointer to the original so that it cannot be used later.
 # iterator can only be called once!
-
-

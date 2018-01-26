@@ -44,7 +44,7 @@ def printdebug(func):
         print('enter the login')
         func()
         print('exit the login')
-    return __decorator  
+    return __decorator
 
 @printdebug  # combine the printdebug and login
 def login():
@@ -63,7 +63,7 @@ def printdebug(func):
         print('enter the login')
         func(arg)  # pass arg to login
         print('exit the login')
-    return __decorator  
+    return __decorator
 
 @printdebug
 def login(user):
@@ -79,11 +79,11 @@ login('Denis')
 # 装饰器本身有参数
 def printdebug(level):  # add wrapper to recevie decorator's parameter
     def printdebug(func):
-        def __decorator(arg):    
+        def __decorator(arg):
             print('enter the login, level: ', level)
-            func(arg)  
+            func(arg)
             print('exit the login')
-        return __decorator  
+        return __decorator
     return printdebug    #return original decorator
 
 @printdebug(level=5)   #decorator's parameter, debug level set to 5
@@ -99,12 +99,12 @@ login('Denis')
 
 # 装饰有返回值的函数
 def printdebug(func):
-    def __decorator(user):    
+    def __decorator(user):
         print('enter the login')
         result = func(user)  # recevie the native function call result
         print('exit the login')
         return result        # return to caller
-    return __decorator  
+    return __decorator
 
 @printdebug
 def login(user):
@@ -131,11 +131,11 @@ print(result2)
 
 # 应用多个装饰器
 def printdebug(func):
-    def __decorator():    
+    def __decorator():
         print('enter the login')
         func()
         print('exit the login')
-    return __decorator  
+    return __decorator
 
 def others(func):    # define a other decorator
     def __decorator():
@@ -161,7 +161,7 @@ logout()
 # enter the login
 # in login:
 # exit the login
- 
+
 # enter the login
 # ***other decorator***
 # in logout:
@@ -171,17 +171,17 @@ logout()
 # 什么情况下装饰器不适用？装饰器不能对函数的一部分应用，只能作用于整个函数
 # 一个变通的办法是“提取函数”，我们将函数中的一行语句提取成函数，然后对提取出来的函数应用装饰器
 def printdebug(func):
-    def __decorator(user):    
+    def __decorator(user):
         print('enter the login')
         result = func(user)
         print('exit the login')
-        return result      
-    return __decorator  
+        return result
+    return __decorator
 
 def login(user):
     print('in login:' + user)
     msg = validate(user)  # exact to a method
-    return msg  
+    return msg
 
 @printdebug  #apply the decorator for exacted method
 def validate(user):

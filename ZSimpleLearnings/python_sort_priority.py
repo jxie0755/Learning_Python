@@ -37,5 +37,3 @@ print([i.__str__() for i in lst])  # >>> ['CCC', 'BBB', 'DDD', 'AAA']  # still s
 # conclusion: always sort based on __lt__ only, __gt__ will work solo by side-effect
 #  __gt__ solo is a side effect from a reflective test application:
 # checking the __gt__ when the __lt__ is missing in comparison
-
-
