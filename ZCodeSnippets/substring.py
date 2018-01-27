@@ -27,6 +27,8 @@ def sub_short_long2(x):
 
 if __name__ == '__main__':
     print(sub_short_long2('abcd'))
+# >>> ['a', 'b', 'c', 'd', 'ab', 'bc', 'cd', 'abc', 'bcd', 'abcd']
+
 
 # from long to short
 def sub_long_short(x):
@@ -53,6 +55,7 @@ def sub_long_short2(x):
 
 if __name__ == '__main__':
     print(sub_long_short2('abcd'))
+# >>> ['abcd', 'abc', 'bcd', 'ab', 'bc', 'cd', 'a', 'b', 'c', 'd']
 
 # 第三种方式找substring, 新的寻找顺序.
 def sub_new(x):
