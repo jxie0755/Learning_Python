@@ -1,5 +1,4 @@
 # http: // okomestudio.net / biboroku /?p = 986
-# this is proved to be wrong
 
 def inside_polygon(point, polygon):
     """
@@ -62,3 +61,5 @@ pointx = [8, 6]
 print(pointOnBorder(point1, polygon))  # >>> True (on the edge)
 print(pointOnBorder(point2, polygon))  # >>> False (inside)
 print(pointOnBorder(pointx, polygon))  # >>> False (outside)
+
+# TODO this is proved to be wrong
