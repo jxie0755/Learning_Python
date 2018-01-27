@@ -5,7 +5,6 @@
 # 它同时具有Command-Line Interface以及python interface
 
 import timeit
-from ZSimpleLearnings.fibonacci import fib_gen_r
 
 # 该模块定义了三个便利的函数和用一个公共类
 print()

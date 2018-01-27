@@ -5,8 +5,10 @@
 # This won't work if the function is used for side-effect (other than return a value)
 result = []
 a = [1,2,3,4,5,6,7]
+
 def f(x):
     result.append(x**2)
+
 map(f, a)  # this function only returns an iterable object that does nothing
 print(result)  # >>> []
 
@@ -14,8 +16,7 @@ list(map(f, a))  # list() consumes the iterator of map object
 print(result)  # >>> [1, 4, 9, 16, 25, 36, 49]
 
 
-
-# Examine the effect one by one
+# Examine the effect one by one by using next()
 result = []
 b = [1,2,3,4,5,6,7]
 mapobj = map(f, a)  # this function only returns an iterable object that does nothing
@@ -29,3 +30,5 @@ print(result)  # >>> [1, 4]
 
 next(mapobj)
 print(result)  # >>> [1, 4, 9]
+
+# however, AVOID using this side effect!

@@ -1,6 +1,5 @@
-
-
-# filter(function, sequence)：对sequence中的item依次执行function(item)，将执行结果为True的item组成一个List/String/Tuple（取决于sequence的类型）返回
+print('filter(function, sequence)')
+# 对sequence中的item依次执行function(item)，将执行结果为True的item组成一个List/String/Tuple（取决于sequence的类型）返回
 
 # 定义一个函数,鉴别一个数不能被2整除的数.
 def f(x): return x % 2 != 0
@@ -16,7 +15,10 @@ def f(x): return x
 print(list(filter(f, ['Denis', '' 'Xie'])))
 # >>> ['Denis', 'Xie']
 
-# map(function, sequence) ：对sequence中的item依次执行function(item)，将执行结果组成一个List
+
+print()
+print('map(function, sequence)')
+# 对sequence中的item依次执行function(item)，将执行结果组成一个List
 
 # 与上面那个例子相同的函数,鉴别能否被2整除
 def f(x): return x % 2 != 0
@@ -45,7 +47,10 @@ l = [1, -1, '2', '0', 33, '-5', 9]
 print(max(list(map(abs, list(map(int, l))))))
 # >>> 33
 
-# reduce(function, sequence, starting_value)：对sequence中的item顺序迭代调用function, 函数必须要有2个参数。要是有第3个参数，则表示初始值，可以继续调用初始值，返回一个值。
+
+print()
+print('reduce(function, sequence, starting_value)')
+# 对sequence中的item顺序迭代调用function, 函数必须要有2个参数。要是有第3个参数，则表示初始值，可以继续调用初始值，返回一个值。
 
 # reduce()函数即为化简函数，它的执行过程为：每一次迭代，都将上一次的迭代结果（注：第一次为init元素，如果没有指定init则为seq的第一个元素）与下一个元素一同传入二元func函数中去执行。
 
@@ -62,9 +67,24 @@ l = [2, 3, 4]
 print(reduce(pow, l))  # >>> 4096
 # equal to (2**3)**4, 注意括号
 
+
+print()
+print('lambda function')
 # lambda：这是Python支持一种有趣的语法，它允许你快速定义单行的最小函数，类似与C语言中的宏，这些叫做lambda的函数，是从LISP借用来的，可以用在任何需要函数的地方：
 g = lambda x: x * 2
 print(g(3))  # >>> 6
+
+# lambda函数可以有多个参数,而且被map配合使用:
+f = lambda x, y: x * y
+a = [(2, 3), (3, 4), (4, 5)]
+
+result = [f(x, y) for x, y in a]
+print(result)  # >>> [6, 12, 20]
+
+b = [2, 3, 4]
+c = [3, 4, 5]
+result = list(map(lambda x, y: x * y, b, c))
+print(result)  # >>> [6, 12, 20]
 
 # Testing lambda
 # create anonymous function (with no name)

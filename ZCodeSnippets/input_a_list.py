@@ -20,6 +20,6 @@ print('sum is:', sum_integer)
 # STOF answer
 
 # An iterator is like a generator, it is not necessarily a space in memory.
-# Therefore if you convert the iterator to a list,
+# Therefore if you convert the iterator to a list, by list(iterator)
 # you modify the pointer to the original so that it cannot be used later.
 # iterator can only be called once!
