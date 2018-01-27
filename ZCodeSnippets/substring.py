@@ -2,7 +2,7 @@
 # different ways to get substrings from a long string
 
 # from short to long
-def f(x):
+def sub_short_long(x):
     result = []
     n, m = 0, 0
     index = len(x)
@@ -10,39 +10,58 @@ def f(x):
         for m in range(0, index):
             if 1 + m + n <= index:
                 result.append(x[m:1 + m + n])
-        else:
-            n += 1
+        n += 1
     return result
 
-print(f('abcd'))
-# f('abcd') >>> ['a', 'b', 'c', 'd', 'ab', 'bc', 'cd', 'abc', 'bcd', 'abcd']
+if __name__ == '__main__':
+    print(sub_short_long('abcd'))
+# >>> ['a', 'b', 'c', 'd', 'ab', 'bc', 'cd', 'abc', 'bcd', 'abcd']
+
+# version 2
+def sub_short_long2(x):
+    result = []
+    for lenth in range(1, len(x) + 1):
+        for start in range(len(x) - lenth + 1):
+            result.append(x[start:start + lenth])
+    return result
+
+if __name__ == '__main__':
+    print(sub_short_long2('abcd'))
 
 # from long to short
-def g(x):
+def sub_long_short(x):
     result = []
     n, m = 0, 0
     index = len(x)
     while n < index:
         for m in range(0, n + 1):
             result.append(x[m:index - n + m])
-        else:
-            n += 1
+        n += 1
     return result
 
-print(g('abcd'))
-# g('abcd') >>> ['abcd', 'abc', 'bcd', 'ab', 'bc', 'cd', 'a', 'b', 'c', 'd']
+if __name__ == '__main__':
+    print(sub_long_short('abcd'))
+# >>> ['abcd', 'abc', 'bcd', 'ab', 'bc', 'cd', 'a', 'b', 'c', 'd']
 
-# 注意f(x)和g(x)不是[::-1]的关系.
+# version 2
+def sub_long_short2(x):
+    result = []
+    for lenth in range(len(x), 0, -1):
+        for start in range(len(x) - lenth + 1):
+            result.append(x[start:start + lenth])
+    return result
 
+if __name__ == '__main__':
+    print(sub_long_short2('abcd'))
 
 # 第三种方式找substring, 新的寻找顺序.
-def h(x):
-    index = len(x)
+def sub_new(x):
     result = []
-    for i in range(index):
-        for j in range(i+1,index+1):
-            result.append(x[i:j])
+    for start in range(len(x)):
+        for end in range(start+1,len(x)+1):
+            result.append(x[start:end])
     return result
 
-print(h('abcd'))
-# (h('abcd')) >>> ['a', 'ab', 'abc', 'abcd', 'b', 'bc', 'bcd', 'c', 'cd', 'd']
+if __name__ == '__main__':
+    print(sub_new('abcd'))
+# >>> ['a', 'ab', 'abc', 'abcd', 'b', 'bc', 'bcd', 'c', 'cd', 'd']
