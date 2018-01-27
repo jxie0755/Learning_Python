@@ -340,7 +340,7 @@ print(dd.get_score())  # >>> 99
 class Student(object):
     @property  # 此处将方法score变成属性
     def score(self):
-        return self._score
+        return self._score  # 注意这里self._score与score()的区别,不能同名!!
 
     @score.setter  # .setter是一个property的固定的set属性,不能乱改
     def score(self, value):

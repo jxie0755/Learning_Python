@@ -92,7 +92,7 @@ class Money:
     # Getter and setter for dollars...
     @property
     def dollars(self):
-        return self.total_cents // 100;
+        return self.total_cents // 100
     @dollars.setter
     def dollars(self, new_dollars):
         self.total_cents = 100 * new_dollars + self.cents
@@ -100,7 +100,7 @@ class Money:
     # And the getter and setter for cents.
     @property
     def cents(self):
-        return self.total_cents % 100;
+        return self.total_cents % 100
     @cents.setter
     def cents(self, new_cents):
         self.total_cents = 100 * self.dollars + new_cents
