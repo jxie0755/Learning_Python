@@ -158,20 +158,20 @@ print(dict(enumerate(l, start=1)))
 print('\n', 19)
 print('eval(expression, globals=None, locals=None)')
 # eval(expression, globals=None, locals=None)
-print('see in ZSimpleLearnings/python_eval.py')
+print('see in ZSimpleLearnings/py_eval_exec.py')
 print('AVOID USING!!!!')
 
 
 print('\n', 20)
 print('exec(object[, globals[, locals]])')
 # exec(object[, globals[, locals]])
-print('see in ZSimpleLearnings/python_eval.py')
+print('see in ZSimpleLearnings/py_eval_exec.py')
 print('AVOID USING!!!!')
 
 
 print('\n', 21)
 print('filter(function, iterable)')
-print('see in ZSimpleLearnings/lambda_map_filter_reduce.py')
+print('see in ZSimpleLearnings/py_high_order_functions.py')
 
 
 print('\n', 22)
@@ -205,12 +205,12 @@ print(format(2.55, '0.1f'))  # >>> 2.5
 print('\n', 24)
 print('class frozenset([iterable])')
 # print(frozenset([1, 2, 3]))
-print('see in ZSimpleLearnings/python_frozenset.py')
+print('see in ZStandardLibrary/learn_set_operation.py')
 
 
 print('\n', 25)
 print('getattr(object, name[, default])')
-print('see in ZSimpleLearnings/python_getattr.py')
+print('see in ZSimpleLearnings/py_getattr.py')
 
 
 print('\n', 26)
@@ -375,7 +375,7 @@ print('locals()')
 
 print('\n', 40)
 print('map(function, iterable, ...)')
-print('see in ZSimpleLearnings/lambda_map_filter_reduce.py')
+print('see in ZSimpleLearnings/py_high_order_functions.py')
 
 
 print('\n', 41, 43)
@@ -383,7 +383,7 @@ print('max(iterable, *[, key, default])')
 print('max(arg1, arg2, *args[, key])')
 print('min(iterable, *[, key, default])')
 print('min(arg1, arg2, *args[, key])')
-print('see in ZSimpleLearnings/max_min.py')
+print('see in ZSimpleLearnings/py_max_min.py')
 
 
 print('\n', 42)
@@ -397,7 +397,7 @@ print(memoryview('abcde'.encode('utf-8')))  # >>> <memory at 0x7f3271528048>
 print('\n', 44)
 print('next(iterator[, default])')
 # consume the next item in an iterator
-print('see in Module/learn_itertools.py')
+print('see in ZStandardLibrary/learn_itertools.py')
 
 
 print('\n', 45)
@@ -414,7 +414,7 @@ print(oct(1999)) # >>> 0o3717
 
 print('\n', 47)
 print('open(file, mode='r', buffering=-1, encoding=None, errors=None, newline=None, closefd=True, opener=None)')
-print('see in ZSimpleLearnings/write_and_write_back.py')
+print('see in ZCodeSnippets/write_and_write_back.py')
 
 
 print('\n', 48)
@@ -480,7 +480,7 @@ print('reversed(seq)')
 # 返回一个反向iterator
 a = [1,2,3]
 print(list(reversed(a)))
-print('see in ZSimpleLearnings/sort_vs_sorted_and_reverse.py')
+print('see in ZSimpleLearnings/py_sort_sorted_reverse.py')
 
 
 print('\n', 55)
@@ -516,7 +516,7 @@ print(b)  # >>> [1, 2]
 print('\n', 59)
 print('sorted(iterable[, key][, reverse])')
 # sort from small to large (num, alpha)
-print('see in ZSimpleLearnings/sort_vs_sorted_and_reverse.py')
+print('see in ZSimpleLearnings/py_sort_sorted_reverse.py')
 
 
 print('\n', 60)
@@ -557,13 +557,13 @@ print('class type(name, bases, dict)')
 
 print('\n', 66)
 print('vars([object])')
-print('see in ZSimpleLearnings/python_vars.py')
+print('see in ZSimpleLearnings/py_vars.py')
 
 
 print('\n', 67)
 print('zip(*iterables)')
 # very use full to link a group of arrays
-print('see in ZSimpleLearnings/python_zip.py')
+print('see in ZSimpleLearnings/py_zip.py')
 
 
 print('\n', 68)

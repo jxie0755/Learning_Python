@@ -39,7 +39,7 @@ print('class functools.partialmethod(func, *args, **keywords)')
 
 print('functools.reduce(function, iterable[, initializer])')
 # 将两个参数的函数累加到序列的项中，从左到右，以便将序列减少为单个值。
-# See in ZSimpleLearnings/lambda_map_filter_reduce.py
+# See in ZSimpleLearnings/py_high_order_functions.py
 
 
 

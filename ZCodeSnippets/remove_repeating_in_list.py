@@ -8,3 +8,4 @@ print(list(set(a))) # 因此,list之后也不会每次输出统一顺序
 # sorted()函数,使用key,维持原来的顺序,a.index
 a = ['b','c','d','b','c','a','a']
 print(sorted(set(a), key=a.index))
+
