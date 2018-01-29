@@ -5,7 +5,7 @@ def flat_list(nested_list):
     flattened_list = []
     for i in nested_list:
         if type(i) == list:
-            flattened_list = flattened_list + flat_list(i)
+            flattened_list += flat_list(i)
         else:
             flattened_list.append(i)
     return flattened_list
