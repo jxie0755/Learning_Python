@@ -150,7 +150,7 @@ def fact_recur(n):
         return n * fact_recur(n-1)
 # still linear even if it is recursive
 
-# A quadratic function O(n^2)
+# A quadratic function to verify if L1 is a subset of L2 O(n^2)
 def isSubset(L1, L2):
     for e1 in L1:
         matched = False
@@ -161,5 +161,25 @@ def isSubset(L1, L2):
         if not matched:
             return False
     return True
+# nested loop found
+
+# Exponential complexity, most expensive type
+# A function that could be exponential (Tower of Hanoi) is typically a function that more than one recursive call.
+def genSubset(L):
+    """L as a list"""
+    res = []
+    if len(L) == 0:
+        return [[]]  # list of empty list
+    smaller = genSubset(L[:-1])  # the list without last element
+    extra = L[-1:]  # a list of just the last element
+    new = []
+    for small in smaller:
+        new.append(small + extra)
+    return smaller + new
+
+print(genSubset([1,2,3]))  # >>> [[], [1], [2], [1, 2], [3], [1, 3], [2, 3], [1, 2, 3]]
+# O(2^n)
+
+
 
 
