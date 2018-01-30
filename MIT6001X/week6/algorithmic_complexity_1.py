@@ -121,7 +121,6 @@ def intToStr(i):
         result = digits[i%10] + result
         i //= 10
     return result
-
 # as integer become larger, every 10 times, one more digit will be shown, means one more op.
 # actually o(n) as to numbers of digits, but this is not the input size.
 
@@ -132,7 +131,6 @@ def addDigits(s):
     for c in s:
         val += int(c)
     return val
-
 # strings gets longer, more digits will be added, linear complexity
 # a loop with constant number of operation
 
@@ -142,7 +140,6 @@ def fact_iter(n):
     for i in range(1, n+1):
         val *= i
     return val
-
 # obviously linear
 
 def fact_recur(n):
@@ -151,8 +148,18 @@ def fact_recur(n):
         return 1
     else:
         return n * fact_recur(n-1)
-
 # still linear even if it is recursive
 
+# A quadratic function O(n^2)
+def isSubset(L1, L2):
+    for e1 in L1:
+        matched = False
+        for e2 in L2:
+            if e1 == e2:
+                matched = True
+                break
+        if not matched:
+            return False
+    return True
 
 
