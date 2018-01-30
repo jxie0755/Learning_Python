@@ -58,7 +58,6 @@ if __name__ == '__main__':
 # >>> ['abcd', 'abc', 'bcd', 'ab', 'bc', 'cd', 'a', 'b', 'c', 'd']
 
 
-
 # 第三种方式找substring, 新的寻找顺序.
 def substring_seq(x):
     result = []
