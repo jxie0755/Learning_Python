@@ -14,7 +14,7 @@ def genSubset(L):
 if __name__ == '__main__':
     print(genSubset([1,2,3]))  # >>> [[], [1], [2], [1, 2], [3], [1, 3], [2, 3], [1, 2, 3]]
 
-def subset_short_long(L):  # basically same idea as substring
+def subset_SL(L):  # basically same idea as substring
     result = []
     for lenth in range(1, len(L) + 1):
         for start in range(len(L) - lenth + 1):
@@ -22,10 +22,10 @@ def subset_short_long(L):  # basically same idea as substring
     return result
 
 if __name__ == '__main__':
-    print(subset_short_long([1,2,3,4]))
+    print(subset_SL([1,2,3,4]))
 # >>> [[1], [2], [3], [4], [1, 2], [2, 3], [3, 4], [1, 2, 3], [2, 3, 4], [1, 2, 3, 4]]
 
-def subset_long_short(L):
+def subset_LS(L):
     result = []
     for lenth in range(len(L), 0, -1):
         for start in range(len(L) - lenth + 1):
@@ -33,7 +33,7 @@ def subset_long_short(L):
     return result
 
 if __name__ == '__main__':
-    print(subset_long_short([1,2,3,4]))
+    print(subset_LS([1,2,3,4]))
 # >>> [[1, 2, 3, 4], [1, 2, 3], [2, 3, 4], [1, 2], [2, 3], [3, 4], [1], [2], [3], [4]]
 
 def sub_seq(L):
