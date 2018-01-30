@@ -58,7 +58,7 @@ if __name__ == '__main__':
 # >>> ['abcd', 'abc', 'bcd', 'ab', 'bc', 'cd', 'a', 'b', 'c', 'd']
 
 # 第三种方式找substring, 新的寻找顺序.
-def sub_new(x):
+def sub_seq(x):
     result = []
     for start in range(len(x)):
         for end in range(start+1,len(x)+1):
@@ -66,5 +66,5 @@ def sub_new(x):
     return result
 
 if __name__ == '__main__':
-    print(sub_new('abcd'))
+    print(sub_seq('abcd'))
 # >>> ['a', 'ab', 'abc', 'abcd', 'b', 'bc', 'bcd', 'c', 'cd', 'd']
