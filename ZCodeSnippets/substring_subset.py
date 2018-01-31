@@ -1,4 +1,4 @@
-# a series of fucntions to obtain substring or subset, work on both types (iterable)
+# a series of fucntions to obtain consecutive substring or subset, work on both types (iterable)
 # different ways to get substrings from a long string
 
 # from short to long
