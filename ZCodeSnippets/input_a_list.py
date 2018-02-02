@@ -2,20 +2,26 @@
 
 # MAP creates iterator that will be consumed by a list() command.
 # Without the list() to save it, the iterator can only be used once.
-numArray = list(map(int, input('input and output numbers:').split()))
-numArray2 = list(input('input and output strings:').split())
+def input_list_numbers():
+    return list(map(int, input('input and output numbers:').split()))
+
+def input_list_strings():
+    return list(input('input and output strings:').split())
 
 # Input should use ' 'space to separate, not ','comma
-print('numArray is', numArray)
-print('numArray2 is', numArray2)
+if __name__ == '__main__':
+    numArray = input_list_numbers()
+    print('numArray is', numArray)
+    stringArray = input_list_strings()
+    print('StringArray is', stringArray)
 
-sum_integer = 0
-# Write the logic to add these numbers here
-for number in numArray:
-    sum_integer += number*number
+    sum_integer = 0
+    # Write the logic to add these numbers here
+    for number in numArray:
+        sum_integer += number*number
 
-# Print the sum
-print('sum is:', sum_integer)
+    # Print the sum
+    print('sum is:', sum_integer)
 
 # STOF answer
 
