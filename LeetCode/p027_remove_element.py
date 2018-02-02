@@ -1,4 +1,4 @@
-# p27 Remove Element
+# p027 Remove Element
 # Easy
 
 # Given an array and a value, remove all instances of that value in-place and return the new length.
