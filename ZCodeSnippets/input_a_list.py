@@ -15,14 +15,6 @@ if __name__ == '__main__':
     stringArray = input_list_strings()
     print('StringArray is', stringArray)
 
-    sum_integer = 0
-    # Write the logic to add these numbers here
-    for number in numArray:
-        sum_integer += number*number
-
-    # Print the sum
-    print('sum is:', sum_integer)
-
 # STOF answer
 
 # An iterator is like a generator, it is not necessarily a space in memory.
