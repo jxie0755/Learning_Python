@@ -27,7 +27,9 @@ print(decimal.getcontext())
 # 计算精度控制
 decimal.getcontext().prec = 6
 num1 = Decimal(1) / Decimal(7)
+print(type(num1))  # >>> <class 'decimal.Decimal'>  # 计算结果仍然是decimal的实例
 print(num1)  # >>> 0.142857  # show as __str__ for human to read
+
 getcontext().prec = 12
 print(num1)  # >>> 0.142857  # 一旦num1在精度为6计算出来,则保持精度,就算改变精度也不会改变其自身
 num2 = Decimal(1) / Decimal(7)
