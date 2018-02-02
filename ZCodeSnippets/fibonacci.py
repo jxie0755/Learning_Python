@@ -72,7 +72,8 @@ print()
 def fib_gen_nr2(i):
     a, b = 0, 1
     for x in range(i):
-        a, b = b, a+b
+        a, b = b, a+b  # 必须是同排,这样会调用上一次的a,b值,a值不会由于a=b后改变!
+        print(a, b)
     return a
 
 if __name__ == '__main__':
