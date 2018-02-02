@@ -181,4 +181,58 @@ print(genSubset([1,2,3]))  # >>> [[], [1], [2], [1, 2], [3], [1, 3], [2, 3], [1,
 # O(2^n)
 
 
+# A few more example
+def h(n):
+    """assume n an int >= 0
+    return the sum of all the digits in n"""
+    answer = 0
+    s = str(n)
+    for c in s:
+        answer += int(c)
+    return answer
 
+print(h(1234))  # >>> 10
+# O(n) linear as the length of s
+# but it is O(log(n)) as the size of s, because every 10x bigger, add one more digit (length += 1)
+
+# fibonacci iteration
+def fib_iter(n):
+    if n == 0:
+        return 0
+    elif n == 1:
+        return 1
+    else:
+        fib_i = 0
+        fib_ii = 1
+        for i in range(n-1):
+            tmp = fib_i
+            fib_i = fib_ii
+            print(fib_ii)
+            fib_ii = tmp + fib_ii
+        return fib_ii
+
+print(fib_iter(4))
+# linear O(n)
+
+# however, the recursive way is not a good algorithm
+def fib_gen_r(i):
+    """
+    Fibonacci function generator
+    generate the fibonacci number at 'i'th posistion
+    """
+    if i == 0:
+        return 0
+    elif i == 1:
+        return 1
+    else:
+        return fib_gen_r(i - 1) + fib_gen_r(i - 2)
+# every call on fib_gen_r(), will generate 2 call on fib_gen_r()
+# complexity is O(2^n), the worst case
+
+# calculate the sum of a list of numbers
+def sum_list(L):
+    total = 0
+    for e in L:
+        total = total + e
+    return total
+# O(n)
