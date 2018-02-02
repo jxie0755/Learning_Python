@@ -40,6 +40,8 @@ if __name__ == '__main__':
 def deci_to_bin(target):
     """target should be an positive integer"""
     ans = ''
+    if target == 0:
+        return 0
     while target != 0:
         target, digit = divmod(target, 2)
         ans = str(digit) + ans
@@ -62,17 +64,17 @@ def deci_float_to_bi(target):
     num = int(target * (2 ** p))  # 这里得到一个整数num
     print('target is now', num)
     
+    # 这一部分就是普通的decimal convert to binary
     result = ''
     if num == 0:
         result = '0'
     while num > 0:
-        result = str(num % 2) + result
-        num = num // 2
+        num, digit = divmod(num, 2)
+        result = str(digit) + result
     
     # 预防措施,万一p大于result的长度,需要补0在前方
     for i in range(p - len(result)):
         result = '0' + result
-    
     
     # 由于之前放大了target, 2^p倍,所以现在要缩小回去,除以10^p得到最终结果
     # 这里用字符串处理,避免前置0被省略
