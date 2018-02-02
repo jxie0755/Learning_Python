@@ -1,103 +1,60 @@
 # rotate the data array
-data = [0,1,2,3]
-for i in range(len(data)):
-    data.insert(0, data.pop())
-    print(data) # if check data after pop(), it will start with one move, end at original
-print('at the end')
-print(data)
+# can also solve by using collection.deque, by using the .rotate() method
+def array_rotate_EH(lst, n):
+    """rotate the list elements, from End to Head"""
+    for i in range(n):
+        lst.insert(0, lst.pop())
+    return lst
 
-# >>>
-# [3, 0, 1, 2]
-# [2, 3, 0, 1]
-# [1, 2, 3, 0]
-# [0, 1, 2, 3]
-# at the end
-# [0, 1, 2, 3]
-
-print()
-
-data = [0,1,2,3]
-for i in range(len(data)):
-    print(data) # if check data before pop(), it will start with orginal, end at last move.
-    data.insert(0, data.pop())
-
-print('at the end')
-print(data)  # but at the end the data still roll back to original, which is good!
-# >>>
-# [0, 1, 2, 3]
-# [3, 0, 1, 2]
-# [2, 3, 0, 1]
-# [1, 2, 3, 0]
-# at the end
-# [0, 1, 2, 3]
-
-# >>>
-# [3, 0, 1, 2]
-# [2, 3, 0, 1]
-# [1, 2, 3, 0]
-# [0, 1, 2, 3]
-
-print()
-
-# The best method that gives flexibility
-data = [0,1,2,3]
-for i in range(len(data)):
-    print(data)
-    data = data[-1:] + data[0:-1]
-    # the good thing is that it is not limited to rotating one element at a time
-print('at the end')
-print(data)
-# >>>
-# [0, 1, 2, 3]
-# [3, 0, 1, 2]
-# [2, 3, 0, 1]
-# [1, 2, 3, 0]
-# at the end
-# [0, 1, 2, 3]
-
-
-
-# rotate more than once
-data = [0,1,2,3]
-for i in range(3): # number of rotation
-    for i in range(len(data)):
-        print(data) # if check data before pop(), it will start with orginal, end at last move.
-        data = data[-1:] + data[0:-1]
+if __name__ == '__main__':
+    print(array_rotate_EH([0,1,2,3], 1))
+    print(array_rotate_EH([0,1,2,3], 2))
+    print(array_rotate_EH([0,1,2,3], 3))
+    print(array_rotate_EH([0,1,2,3], 4))
+    # >>>
+    # [3, 0, 1, 2]
+    # [2, 3, 0, 1]
+    # [1, 2, 3, 0]
+    # [0, 1, 2, 3]
     print()
-print('at the end')
-print(data)
-# >>>
-# [0, 1, 2, 3]
-# [3, 0, 1, 2]
-# [2, 3, 0, 1]
-# [1, 2, 3, 0]
 
-# [0, 1, 2, 3]
-# [3, 0, 1, 2]
-# [2, 3, 0, 1]
-# [1, 2, 3, 0]
-f
-# [0, 1, 2, 3]
-# [3, 0, 1, 2]
-# [2, 3, 0, 1]
-# [1, 2, 3, 0]
 
-# at the end
-# [0, 1, 2, 3]
+def array_rotate_HE(lst, n):
+    """rotate the list elements, from Head to End"""
+    for i in range(n):
+        lst.append(lst.pop(0))
+    return lst
 
-# another way without using pop(), create a repeat data array and iterate the same length over
-print()
+if __name__ == '__main__':
+    print(array_rotate_HE([0,1,2,3], 1))
+    print(array_rotate_HE([0,1,2,3], 2))
+    print(array_rotate_HE([0,1,2,3], 3))
+    print(array_rotate_HE([0,1,2,3], 4))
+    # >>>
+    # [1, 2, 3, 0]
+    # [2, 3, 0, 1]
+    # [3, 0, 1, 2]
+    # [0, 1, 2, 3]
+    print()
+    
 
-data = [0,1,2,3]
-datarotate = data * 3  # '3' gives 2 rotates
-for i in range(len(datarotate)-len(data)):
-    print(datarotate[i:i+len(data)])
-# >>>
-# [0, 1, 2, 3]
-# [1, 2, 3, 0]
-# [2, 3, 0, 1]
-# [3, 0, 1, 2]
-# [0, 1, 2, 3]
-# [1, 2, 3, 0]
-# [2, 3, 0, 1]
-# [3, 0, 1, 2]
+
+# The best method that gives flexibility by using slice
+def array_rotate(lst, n):
+    """rotate the list elements, from End to Head if n > 0, and from Head to End if n < 0"""
+    if n > 0:
+        for i in range(n):
+            lst = lst[-1:] + lst[0:-1]
+    if n < 0:
+        for i in range(abs(n)):
+            lst = lst[1:] + lst[0:1]
+    return lst
+    
+
+if __name__ == '__main__':
+    print(array_rotate([0,1,2,3], 1))
+    print(array_rotate([0,1,2,3], -1))
+    # >>>
+    # [3, 0, 1, 2]
+    # [1, 2, 3, 0]
+    print()
