@@ -3,22 +3,17 @@
 # 1011 = 1*2^3 + 0*2^2 + 1*2^1 + 1*2^0
 
 # 引入re来限制输入,只能输入0和1
-import re
+def bi_to_deci(target):
+    """target should be a string of binary numbers"""
+    ans = 0
+    numlevel = len(target)
+    for index in range(0, numlevel):
+        ans += int(target[numlevel - index - 1]) * 2**index  
+                                                   # 此处2,代表2进制.
+    return ans
 
-while True:
-    target = input("please input a binary number:")
-    if not re.match("^[0-1]*$", target):
-        print("Error! Only digits 0 and 1 allowed!")
-        continue
-    else:
-        break
-ans = 0
-numlevel = len(target)
-for index in range(0, numlevel):
-    ans += int(target[numlevel - index - 1]) * 2**index  
-                                               # 此处2,代表2进制.
-print(ans)
-print(bin(ans))
+if __name__ == '__main__':
+    print(bi_to_deci('1010'))  # >>> 10
 
 # 先把target反过来,再计算就更简短
 target = target[::-1]
