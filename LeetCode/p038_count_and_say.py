@@ -60,4 +60,3 @@ if __name__ == '__main__':
     assert Solution().countAndSay(5) == '111221', 'fifth'
     assert Solution().countAndSay(6) == '312211', 'sixth'
     print('all passed')
-
