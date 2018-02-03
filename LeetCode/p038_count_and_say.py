@@ -19,7 +19,7 @@
 
 # Basically we need a generator here
 class Solution:
-    def countAndSay(self, n):
+    def countAndSay(self, n):  # a version to create the say logic, then loop the say() to get nth number
         def say(num):
             num = str(num) + ' '
             lenth = 1
@@ -37,12 +37,27 @@ class Solution:
             number = say(str(number))
         return str(number)
 
+    def countAndSay(self, n):  # combine the say() and loop together
+        number = 1
+        for i in range(1, n):
+            number = str(number) + ' '
+            lenth = 1
+            result = ''
+            for i in range(len(number) - 1):
+                if number[i] == number[i + 1]:
+                    lenth += 1
+                elif number[i] != number[i + 1]:
+                    result += str(lenth) + number[i]
+                    lenth = 1
+            number = int(result)
+        return str(number)
+
 if __name__ == '__main__':
-    assert Solution().countAndSay(1) == 1, 'first'
-    assert Solution().countAndSay(2) == 11, 'second'
-    assert Solution().countAndSay(3) == 21, 'third'
-    assert Solution().countAndSay(4) == 1211, 'forth'
-    assert Solution().countAndSay(5) == 111221, 'fifth'
-    assert Solution().countAndSay(6) == 312211, 'sixth'
+    assert Solution().countAndSay(1) == '1', 'first'
+    assert Solution().countAndSay(2) == '11', 'second'
+    assert Solution().countAndSay(3) == '21', 'third'
+    assert Solution().countAndSay(4) == '1211', 'forth'
+    assert Solution().countAndSay(5) == '111221', 'fifth'
+    assert Solution().countAndSay(6) == '312211', 'sixth'
     print('all passed')
 
