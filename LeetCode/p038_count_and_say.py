@@ -35,7 +35,7 @@ class Solution:
         number = 1
         for i in range(1, n):
             number = say(str(number))
-        return number
+        return str(number)
 
 if __name__ == '__main__':
     assert Solution().countAndSay(1) == 1, 'first'
