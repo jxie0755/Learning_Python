@@ -1,51 +1,29 @@
-# p038 Count and Say
+# p035 Search Insert Position
 # Easy
 
-# The count-and-say sequence is the sequence of integers with the first five terms as following:
-# 1. 1
-# 2. 11
-# 3. 21
-# 4. 1211
-# 5. 111221
-# 1 is read off as "one 1" or 11.
-# 11 is read off as "two 1s" or 21.
-# 21 is read off as "one 2, then one 1" or 1211.
-# Given an integer n, generate the nth term of the count-and-say sequence.
+# Given a sorted array and a target value, return the index if the target is found.
+# If not, return the index where it would be if it were inserted in order.
+# You may assume no duplicates in the array
 
 # """
-# :type n: int
-# :rtype: str
+# :type nums: List[int]
+# :type target: int
+# :rtype: int
 # """
 
-# Basically we need a generator here
 class Solution:
-    def countAndSay(self, n):
-        def say(num):
-            num = str(num) + ' '
-            lenth = 1
-            result = ''
-            for i in range(len(num)-1):
-                if num[i] == num[i + 1]:
-                    lenth += 1
-                elif num[i] != num[i + 1]:
-                    result += str(lenth) + num[i]
-                    lenth = 1
-            return int(result)
-
-        number = 1
-        for i in range(1, n):
-            number = say(str(number))
-        return number
+    def searchInsert(self, nums, target):
+        new_nums = sorted(nums + [target])
+        index = 0
+        while index <= len(new_nums):
+            if new_nums[index] == target:
+                return index
+            index += 1
 
 
-
-# if __name__ == '__main__':
-#     assert Solution().countAndSay(1) == 1, 'first'
-#     assert Solution().countAndSay(2) == 11, 'second'
-#     assert Solution().countAndSay(3) == 21, 'third'
-#     assert Solution().countAndSay(4) == 1211, 'forth'
-#     assert Solution().countAndSay(5) == 111221, 'fifth'
-#     assert Solution().countAndSay(6) == 312211, 'sixth'
-#     print('all passed')
-
-print(Solution().countAndSay(6))
+if __name__ == '__main__':
+    assert Solution().searchInsert([1,3,5,6], 5) == 2, 'In the list'
+    assert Solution().searchInsert([1,3,5,6], 2) == 1, 'Not in the list'
+    assert Solution().searchInsert([1,3,5,6], 7) == 4, 'At the end'
+    assert Solution().searchInsert([1,3,5,6], 0) == 0, 'At the beginning'
+    print('all passed')
