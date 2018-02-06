@@ -286,6 +286,14 @@ for k, v in groupby(aa):
 # >>> c ['c']
 # >>> d ['d']
 
+# group a list of numbers by positive and negative, and got the sum of each group
+nums = [1,2,3, -1,-2,-3, 1,2,3, -1,-2,-3]
+group_list = itertools.groupby(nums, key=lambda x: x>=0)  # do not list it, so that the iterator will be consumed
+print(group_list) 
+# >>> <itertools.groupby object at 0x7f705a9e6ef8>
+p_nums = [sum(group) for key, group in group_list]
+print(p_nums)  # >>> [6, -6, 6, -6]
+
 
 print()
 print('itertools.islice(iterable, stop)')
