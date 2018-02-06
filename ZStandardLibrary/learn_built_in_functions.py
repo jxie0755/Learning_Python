@@ -180,6 +180,16 @@ print(float(25))  # >>> 25.0
 print(float('-25'))  # >>> -25.0
 # convert an int or number in string to a float number
 
+# Also take strings below:
+# sign           ::=  "+" | "-"
+# infinity       ::=  "Infinity" | "inf"
+# nan            ::=  "nan"
+# numeric_value  ::=  floatnumber | infinity | nan
+# numeric_string ::=  [sign] numeric_value
+float('inf')  # 正无穷大
+float('-inf')  # 负无穷大(无穷小)
+float('nan')  # not a value
+
 
 print('\n', 23)
 print('format(value[, format_spec])')
