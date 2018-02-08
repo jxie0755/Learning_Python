@@ -42,9 +42,34 @@ def group_pos_neg_list(nums):
 
     return p_nums
 
-# Version 2
+# Version 2  use itertools.groupby
+import itertools
+def group_pos_neg_list(nums):
+    """
+    nums: list[int]
+    return a processed-list that groups in the sum of consecutive positive numbers (and 0) and negative numbers
+    example: [1,2,3, -1,-2,-3, 1,2,3, -1,-2,-3] will rturn [6,-6,6,-6]
+    """
+    return [sum(group) for key, group in itertools.groupby(nums, key=lambda x: x>=0)]
 
+# Version 3  use high order function reduce()
+# import functools
+# def group_pos_neg_list_X(nums):
+#     def reducer(x, y):
+#         if isinstance(x, list):
+#             if x[-1] * y >= 0:
+#                 return x[:-1] + [x[-1] + y]
+#             else:
+#                 return x + [y]
+#         else:
+#             if x * y >= 0:
+#                 return x + y
+#             else:
+#                 return [x, y]
+#     return functools.reduce(reducer, nums)
 
+# Not quite right because of the condition x*y >= 0, does not rule out 0 before a negative number
+# And it still have to import functools
 
 
 if __name__ == '__main__':
@@ -59,4 +84,3 @@ if __name__ == '__main__':
 
 # see more at:
 # https://stackoverflow.com/questions/48652109/shorten-a-list-of-integers-by-sums-of-contiguous-positive-or-negative-numbers#48652134
-
