@@ -16,7 +16,6 @@ print('class frozenset([iterable])')
 # frozenset 类型是不可变的，hashable - 其内容创建后不能更改；它因此可以用作字典键或作为另一个集合的元素
 
 
-
 # create a set
 
 # use set() to create from a list or a tuple
@@ -81,6 +80,11 @@ print(emptset.isdisjoint(emptfset))  # >>> True # for two empty set
 # 如果该集合中任何一个元素都与另一个集合other中的任何一个元素都不一样（即两集合不相交），则返回True。
 # 当且仅当两集合的交集为空集时，这两个集合不相交
 
+# create a copy
+st1 = {1,2,3}
+st2 = st1.copy()
+print(st2)  # >>> {1, 2, 3}
+
 # subset
 st1 = {1,2,3}
 st2 = {4,1,5,2,6,3}
@@ -103,30 +107,31 @@ st2 = {3,4,5,6}
 st3 = {4,5,6,7}
 # union(other, ...)
 # set | other | ...
+# 并集
 print(st1.union(st2, st3))  # >>> {1, 2, 3, 4, 5, 6, 7}
 print(st1 | st2 | st3)      # >>> {1, 2, 3, 4, 5, 6, 7}
 
 # intersection(other, ...)
 # set & other & ...
+# 交集
 print(st1.intersection(st2, st3))  # >>> {4}
 print(st1 & st2 & st3)             # >>> {4}
 
 # difference(*others)
 # set - other - ...
+# 差集
 print(st1.difference(st2, st3))  # >>> {1, 2}  # items in st1 but not in st2 and st3
 print(st1 - st2 - st3)           # >>> {1, 2}  # same
 print({1,2,3} - {1,2,3,4})       # >>> set()   # 子集-超集=空集
 
 # symmetric_difference(other)
 # set ^ other
+# 对称差集
 # 返回一个新的集合，元素在集合或other中，但不能在两个集合中都存在。
 print(st1.symmetric_difference(st2))  # >>> {1, 2, 5, 6}
 print(st1 ^ st2)                      # >>> {1, 2, 5, 6}
 
-# create a copy
-st1 = {1,2,3}
-st2 = st1.copy()
-print(st2)  # >>> {1, 2, 3}
+
 
 
 # other comparisons:
@@ -217,7 +222,6 @@ print(st1)  # >>> {3, 4}  # 似乎数字set的pop()是从最小的数字开始po
 
 st2.pop()
 print(st2)  # >>> {'a', 'c', 'd'}  # string set 更随机
-
 
 # clear()
 # 从集合中移除所有元素。
