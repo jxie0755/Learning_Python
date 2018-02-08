@@ -41,6 +41,7 @@ def bi_search(L, e):
 
 # O(log(n)), where n = len(L), but create new slices of L many times
 
+# Version 2, regular bisection search method
 def bi_search2(L, e):
     if L[-1] == e:  # edge case for the last item
         return True
@@ -58,6 +59,31 @@ def bi_search2(L, e):
         index = (high + low) // 2
     return False
 
-L = list(range(100))
-print(bi_search2(L, 50))
+if __name__ == '__main__':
+    L = list(range(100))
+    print(bi_search2(L, 99))
+    print(bi_search([], 3))
 
+# MIT version (too comlicated)
+def bisect_search2(L, e):
+    def bisect_search_helper(L, e, low, high):
+        if high == low:
+            return L[low] == e
+        mid = (low + high) // 2
+        if L[mid] == e:
+            return True
+        elif L[mid] > e:
+            if low == mid:  # nothing left to search
+                return False
+            else:
+                return bisect_search_helper(L, e, low, mid -1)
+        else:
+            return bisect_search_helper(L, e, mid + 1, high)
+    if len(L) == 0:
+        return False
+    else:
+        return bisect_search_helper(L, e, 0, len(L) - 1)
+
+if __name__ == '__main__':
+    L = list(range(100))
+    print(bisect_search2(L, 99))
