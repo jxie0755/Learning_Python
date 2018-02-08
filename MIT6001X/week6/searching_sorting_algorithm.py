@@ -59,6 +59,7 @@ def bi_search2(L, e):
         index = (high + low) // 2
     return False
 
+# O(log(n)) and no need for extra space
 if __name__ == '__main__':
     L = list(range(100))
     print(bi_search2(L, 99))
