@@ -167,8 +167,14 @@ listA = ['A', 'B', 'C', 'D', 'E', 'F']
 # listA[-1]   # listA 的最后一个item
 # listA[i:n]  # 从第i个数起,按顺序包括n个数,不包括position n的item
 
-# YOU SHOULD AVOID MUTATING A LIST WHEN ITERATING OVER IT!!!
+# IMPORTANT:
+# The slice of s from i to j is defined as the sequence of items with index k such that i <= k < j. 
+# If i or j is greater than len(s), use len(s). 
+# If i is omitted or None, use 0. If j is omitted or None, use len(s). 
+# If i is greater than or equal to j, the slice is empty.
 
+
+# YOU SHOULD AVOID MUTATING A LIST WHEN ITERATING OVER IT!!!
 def remove_dups(L1, L2):
     # L1_copy = L1[:]      # add this line could avoid the problem
     for e in L1:
