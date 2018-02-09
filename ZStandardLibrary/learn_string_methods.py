@@ -43,7 +43,7 @@ print(dd.ljust(7))  # >>> 'abc   '
 
 print()
 print('str.count(sub[, start[, end]])')
-# Return the number of non-overlapping occurrences of subsequence sub in the range [start, end]. Optional arguments start and end are interpreted as in slice notation.
+# Return the number of non-overlapping occurrences of substring sub in the range [start, end]. Optional arguments start and end are interpreted as in slice notation.erpreted as in slice notation.
 dd = ['a', 'b', 'c', 'a']
 print(dd.count('a'))  # >>> 2
 ee = 'abcda'
@@ -128,22 +128,21 @@ print(f'Area of a circle with radius {radius}: {area_of_circle(radius=radius)}')
 
 print()
 print('str.isalnum()')
-# Return true if all bytes in the sequence are alphabetical ASCII characters or ASCII decimal digits and the sequence is not empty, false otherwise. if there is a space, will return False
-
+# Return true if all characters in the string are alphanumeric and there is at least one character, false otherwise.
 'ABCabc1'.isalnum()   #>>> True
 'ABC abc1'.isalnum() # >>> False
 
 
 print()
 print('str.isalpha()')
-# Return true if all bytes in the sequence are alphabetic ASCII characters and the sequence is not empty, false otherwise.
+# Return true if all characters in the string are alphabetic and there is at least one character, false otherwise. 
 'ABCabc'.isalpha()   # >>> True
 'ABCabc1'.isalpha()  # >>> False
 
 
 print()
 print('str.isdigit()')
-# Return true if all bytes in the sequence are ASCII decimal digits and the sequence is not empty, false otherwise.
+# Return true if all characters in the string are digits and there is at least one character, false otherwise. 
 
 
 print()
@@ -168,12 +167,12 @@ print(dd.isidentifier())  # >>> True
 
 print()
 print('str.islower()')
-# Return true if there is at least one lowercase ASCII character in the sequence and no uppercase ASCII characters, false otherwise.
+# Return true if all cased characters in the string are lowercase and there is at least one cased character, false otherwise.
 
 
 print()
 print('str.isupper()')
-# Return true if there is at least one uppercase alphabetic ASCII character in the sequence and no lowercase ASCII characters, false otherwise.
+# Return true if all cased characters in the string are uppercase and there is at least one cased character, false otherwise.
 
 
 print()
@@ -191,13 +190,13 @@ print('str.isprintable()')
 
 print()
 print('str.isspace()')
-# Return true if all bytes in the sequence are ASCII whitespace and the sequence is not empty, false otherwise.
-# ASCII whitespace characters are those byte values in the sequence b' \t\n\r\x0b\f' (space, tab, newline, carriage return, vertical tab, form feed)
+# Return true if there are only whitespace characters in the string and there is at least one character, false otherwise.
+# Whitespace characters are those characters defined in the Unicode character database as “Other” or “Separator” and those with bidirectional property being one of “WS”, “B”, or “S”.
 
 
 print()
 print('str.istitle()')
-# Return true if the sequence is ASCII titlecase and the sequence is not empty, false otherwise.
+# Return true if the string is a titlecased string and there is at least one character. Return false otherwise.
 
 
 print()
@@ -217,6 +216,9 @@ print(test.translate(trantab))  # 将test中的字符依依对换
 
 print()
 print('str.replace(old, new[, count])')
+# Return a copy of the string with all occurrences of substring old replaced by new. 
+# If the optional argument count is given, only the first count occurrences are replaced.
+
 test = "this is string example....wow!!!"
 print(test
       .replace('a', '1')
@@ -228,10 +230,16 @@ print(test
 # >>> th3s 3s str3ng 2x1mpl2....w4w!!!
 # 与makestrans类似,但是一次替换一个
 
+test = "this is string example....wow!!!"
+print(test.replace('i', '9'))     # >>> th9s 9s str9ng example....wow!!!
+print(test.replace('i', '9', 2))  # >>> th9s 9s string example....wow!!!  # notice that not all 'i' was replaced, only 2 were.
+
 
 print()
 print('str.swapcase()')
-# Return a copy of the sequence with all the lowercase ASCII characters converted to their corresponding uppercase counterpart and vice-versa.
+# Return a copy of the string with uppercase characters converted to lowercase and vice versa. 
+# Note that it is not necessarily true that s.swapcase().swapcase() == s.
+
 print('Hello World'.swapcase()) # >>> 'hELLO wORLD'
 
 
@@ -256,7 +264,9 @@ print(dd.strip('aD'))    # >>> 'b
 
 print()
 print('str.split(sep=None, maxsplit=-1)')
+# Return a list of the words in the string, using sep as the delimiter string. 
 print('str.rsplit(sep=None, maxsplit=-1)')
+# Return a list of the words in the string, using sep as the delimiter string.
 
 dd = 'abcabc'
 print(dd.split('c'))   # >>> ['ab', 'ab', '']
@@ -303,7 +313,7 @@ print(dd.rpartition('c'))  # >>> ('abcab', 'c', '')  # r~~ find the last separat
 
 print()
 print('str.title()')
-# Return a titlecased version of the binary sequence where words start with an uppercase ASCII character and the remaining characters are lowercase.
+# Return a titlecased version of the string where words start with an uppercase character and the remaining characters are lowercase. 
 
 print()
 print('str.lower()')
@@ -311,11 +321,11 @@ print('str.lower()')
 
 print()
 print('str.upper()')
-# Return a copy of the sequence with all the lowercase ASCII characters converted to their corresponding uppercase counterpart.
+# Return a copy of the string with all the cased characters converted to uppercase.
 
 
 print()
 print('str.zfill(width)')
-# Return a copy of the sequence left filled with ASCII b'0' digits to make a sequence of length width. A leading sign prefix (b'+'/ b'-' is handled by inserting the padding after the sign character rather than before.
+# Return a copy of the string left filled with ASCII '0' digits to make a string of length width. A leading sign prefix ('+'/'-') is handled by inserting the padding after the sign character rather than before. 
 print("42".zfill(5)) # >>> '00042'
 print("-42".zfill(5)) # >>> '-0042'
