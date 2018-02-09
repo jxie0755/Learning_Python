@@ -12,7 +12,7 @@ print('str.capitalize()')
 print()
 print('str.casefold()')
 # Return a casefolded copy of the string. Casefolded strings may be used for caseless matching.
-# Casefolding is similar to lowercasing but more aggressive because it is intended to remove all case distinctions in a string.
+# Casefolding is similar to casing but more aggressive because it is intended to remove all case distinctions in a string.
 # German lowercase letter 'ß' is equivalent to "ss". Since it is already lowercase, lower() would do nothing to 'ß'; casefold() converts it to "ss".
 
 
@@ -305,6 +305,9 @@ print()
 print('str.title()')
 # Return a titlecased version of the binary sequence where words start with an uppercase ASCII character and the remaining characters are lowercase.
 
+print()
+print('str.lower()')
+# Return a copy of the string with all the cased characters converted to lowercase.
 
 print()
 print('str.upper()')
