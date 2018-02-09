@@ -7,6 +7,13 @@
 print()
 print('str.capitalize()')
 # Return a copy of the string with its first character capitalized and the rest lowercased.
+print()
+print('str.title()')
+# Return a titlecased version of the string where words start with an uppercase character and the remaining characters are lowercase. 
+
+# Notice the difference between capitalize() and title()
+print('hello world'.capitalize())  # >>> Hello world
+print('hello world'.title())       # >>> Hello World
 
 
 print()
@@ -174,6 +181,14 @@ print()
 print('str.isupper()')
 # Return true if all cased characters in the string are uppercase and there is at least one cased character, false otherwise.
 
+print()
+print('str.lower()')
+# Return a copy of the string with all the cased characters converted to lowercase.
+
+print()
+print('str.upper()')
+# Return a copy of the string with all the cased characters converted to uppercase.
+
 
 print()
 print('str.join(iterable)')
@@ -309,19 +324,6 @@ print('str.rpartition(sep)')
 dd = 'abcabc'
 print(dd.partition('c'))   # >>> ('ab', 'c', 'abc')
 print(dd.rpartition('c'))  # >>> ('abcab', 'c', '')  # r~~ find the last separatio
-
-
-print()
-print('str.title()')
-# Return a titlecased version of the string where words start with an uppercase character and the remaining characters are lowercase. 
-
-print()
-print('str.lower()')
-# Return a copy of the string with all the cased characters converted to lowercase.
-
-print()
-print('str.upper()')
-# Return a copy of the string with all the cased characters converted to uppercase.
 
 
 print()
