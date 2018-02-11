@@ -91,29 +91,62 @@ if __name__ == '__main__':
 
 
 # Monkey Sort (aka bogosort, stupid sort, slowsort, permutatio sort, shotgun sort)
-def is_sorted(L):
-    pass
-
 import random
 def bogo_sort(L):
+    # write an internal function to define what is the sort target
+    def is_sorted(L):
+        index = 1
+        while index < len(L):
+            if L[index - 1] > L[index]:
+                return False
+            index += 1
+        return True
+    # randomly shuffle the list until it reaches to target
+    count = 0
     while not is_sorted(L):
         random.shuffle(L)
+        count += 1
+    print(L, 'shuffled', count, 'times')
+
+if __name__ == '__main__':
+    print('bogo sort')
+    bogo_sort([1, 5, 3, 8, 4, 9, 6, 2, 7])
 
 # Bubble Sort
 def bubble_sort(L):
     swap = False
     while not swap:  # while loop for multiple passes O(n)
         swap = True
-        print(L)
         for j in range(1, len(L)):  # for loop for doing comparisons O(n)
             if L[j-1] > L[j]:
                 swap = False
                 temp = L[j]
                 L[j] = L[j-1]
                 L[j-1] = temp
+    print(L)
 # complexity is O(n^2), while n = len(L)
 
 if __name__ == '__main__':
-    bubble_sort([1,5,3,8,4,9,6,2])
+    print('bubble sort')
+    bubble_sort([1, 5, 3, 8, 4, 9, 6, 2, 7])
+    bubble_sort([3, 3, 2, 1, 4, 3, 2])  # works on repeated item list
+
+# Selection Sort
+def selection_sort(L):  # self try
+    index = 0
+    while index < len(L):
+        temp = L[index]
+        minimum = min(L[index:])
+        minimum_index = L.index(minimum)
+        L[index] = minimum
+        L[minimum_index] = temp
+        index += 1
+    print(L)
+    # does not apply to list with repeated item because index will be wrong
 
 
+
+if __name__ == '__main__':
+    print('selection sort')
+    selection_sort([1, 5, 3, 8, 4, 9, 6, 2, 7])
+    selection_sort([3, 3, 2, 1, 4, 3, 2])
