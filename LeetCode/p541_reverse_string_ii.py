@@ -29,6 +29,9 @@ class Solution:
             result += s[i:i+k][::-1] + s[i+k:i+2*k]
         return result
 
+    def reverseStr(self, s, k):  # a recursive O(n) way.
+        return s[:k][::-1] + s[k:2 * k] + self.reverseStr(s[2 * k:], k) if s else ""
+        # Don't forget the last part to prevent infinite recursion on empty string
 
 if __name__ == '__main__':
     assert Solution().reverseStr('abcdefg', 2) == 'bacdfeg', 'regular'
