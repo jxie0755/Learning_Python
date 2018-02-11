@@ -88,3 +88,31 @@ def bisect_search2(L, e):
 if __name__ == '__main__':
     L = list(range(100))
     print(bisect_search2(L, 99))
+
+
+# Monkey Sort (aka bogosort, stupid sort, slowsort, permutatio sort, shotgun sort)
+def is_sorted(L):
+    pass
+
+import random
+def bogo_sort(L):
+    while not is_sorted(L):
+        random.shuffle(L)
+
+# Bubble Sort
+def bubble_sort(L):
+    swap = False
+    while not swap:  # while loop for multiple passes O(n)
+        swap = True
+        print(L)
+        for j in range(1, len(L)):  # for loop for doing comparisons O(n)
+            if L[j-1] > L[j]:
+                swap = False
+                temp = L[j]
+                L[j] = L[j-1]
+                L[j-1] = temp
+# complexity is O(n^2), while n = len(L)
+
+if __name__ == '__main__':
+    bubble_sort([1,5,3,8,4,9,6,2])
+
