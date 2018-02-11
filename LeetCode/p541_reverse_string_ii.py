@@ -15,5 +15,19 @@
 # """
 
 class Solution:
-    def reverseStr(self, s, k):
-        pass
+    def reverseStr(self, s, k):  # O(n) method
+        start = 0
+        result = ''
+        while start <= len(s):
+            result += s[start:start + k][::-1] + s[start + k: start + 2 * k]
+            start += 2 * k
+        return result
+
+
+if __name__ == '__main__':
+    assert Solution().reverseStr('abcdefg', 2) == 'bacdfeg', 'regular'
+    assert Solution().reverseStr('abcdefghi', 2) == 'bacdfeghi',  'one extra'
+    assert Solution().reverseStr('abcdefgh', 2) == 'bacdfegh', 'double length'
+    assert Solution().reverseStr('abcdefg', 10) == 'gfedcba', 'k > len(s), complete reverse'
+    print('all passed')
+
