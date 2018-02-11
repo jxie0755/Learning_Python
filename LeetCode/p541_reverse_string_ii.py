@@ -15,12 +15,18 @@
 # """
 
 class Solution:
-    def reverseStr(self, s, k):  # O(n) method
+    def reverseStr(self, s, k):  # O(n) method, while loop to move 2k length string along
         start = 0
         result = ''
         while start <= len(s):
             result += s[start:start + k][::-1] + s[start + k: start + 2 * k]
             start += 2 * k
+        return result
+
+    def reverseStr(self, s, k):  # still O(n) but use slice with step, simpler codes use for loop
+        result = ''
+        for i in range(0, len(s), 2 * k):
+            result += s[i:i+k][::-1] + s[i+k:i+2*k]
         return result
 
 
