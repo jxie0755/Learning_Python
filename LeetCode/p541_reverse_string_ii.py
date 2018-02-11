@@ -26,7 +26,9 @@ class Solution:
 
 if __name__ == '__main__':
     assert Solution().reverseStr('abcdefg', 2) == 'bacdfeg', 'regular'
+    assert Solution().reverseStr('abcdefg', 1) == 'abcdefg', 'k=1, do nothing'
     assert Solution().reverseStr('abcdefghi', 2) == 'bacdfeghi',  'one extra'
+    assert Solution().reverseStr('abcdefgh', 3) == 'cbadefhg', 'partial reverse'
     assert Solution().reverseStr('abcdefgh', 2) == 'bacdfegh', 'double length'
     assert Solution().reverseStr('abcdefg', 10) == 'gfedcba', 'k > len(s), complete reverse'
     print('all passed')
