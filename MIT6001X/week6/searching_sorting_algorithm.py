@@ -108,13 +108,14 @@ def bogo_sort(L):
         count += 1
     print(L, 'shuffled', count, 'times')
 
-if __name__ == '__main__':
-    print('bogo sort')
-    bogo_sort([1, 5, 3, 8, 4, 9, 6, 2, 7])
+# if __name__ == '__main__':
+#     print('bogo sort')
+#     bogo_sort([1, 5, 3, 8, 4, 9, 6, 2, 7])
 
 # Bubble Sort
 def bubble_sort(L):
     swap = False
+    count = 0
     while not swap:  # while loop for multiple passes O(n)
         swap = True
         for j in range(1, len(L)):  # for loop for doing comparisons O(n)
@@ -123,7 +124,8 @@ def bubble_sort(L):
                 temp = L[j]
                 L[j] = L[j-1]
                 L[j-1] = temp
-    print(L)
+                count += 1
+    print(L, 'swapped', count, 'times')
 # complexity is O(n^2), while n = len(L)
 
 if __name__ == '__main__':
@@ -132,19 +134,27 @@ if __name__ == '__main__':
     bubble_sort([3, 3, 2, 1, 4, 3, 2])  # works on repeated item list
 
 # Selection Sort
-def selection_sort(L):  # self try
+def selection_sort(L):  # self try, O(n)
     index = 0
     while index < len(L):
-        temp = L[index]
-        minimum = min(L[index:])
-        minimum_index = L.index(minimum)
-        L[index] = minimum
-        L[minimum_index] = temp
+        minimum_index = L.index(min(L[index:]))
+        L[index], L[minimum_index] = min(L[index:]), L[index]
         index += 1
     print(L)
     # does not apply to list with repeated item because index will be wrong
 
-
+def selection_sort(L): # Version 2, MIT method
+    # the idea is to divide the list into two part and move smallest item to first half
+    # the way to find smallest element is dynamic, not by one swap
+    suffixSt = 0
+    while suffixSt != len(L):
+        for i in range(suffixSt, len(L)):
+            if L[i] < L[suffixSt]:
+                L[suffixSt], L[i] = L[i], L[suffixSt]
+        suffixSt += 1
+    print(L)
+    # this could avoid the index problem, but more swaps
+    # still O(n ^ 2), but more efficient than bubble sort, because the list gets shorter in every loop
 
 if __name__ == '__main__':
     print('selection sort')
