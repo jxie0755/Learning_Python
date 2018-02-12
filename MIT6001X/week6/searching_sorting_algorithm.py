@@ -156,7 +156,63 @@ def selection_sort(L): # Version 2, MIT method
     # this could avoid the index problem, but more swaps
     # still O(n ^ 2), but more efficient than bubble sort, because the list gets shorter in every loop
 
+def selSort(L):
+    for i in range(len(L) - 1):
+        minIndx = i
+        minVal = L[i]
+        j = i+1
+        while j < len(L):
+            if minVal > L[j]:
+                minIndx = j
+                minVal = L[j]
+            j += 1
+        if minIndx != i:
+            temp = L[i]
+            L[i] = L[minIndx]
+            L[minIndx] = temp
+    # this is the version that use only one swap for each loop
+    # it creates an internal variable of index for the minimum in the rest of the list
+    # this index will keep updating until finish one round of looping, and swap once if needed
+
 if __name__ == '__main__':
     print('selection sort')
     selection_sort([1, 5, 3, 8, 4, 9, 6, 2, 7])
     selection_sort([3, 3, 2, 1, 4, 3, 2])
+
+
+# Comparison between bubble sort and selection sort
+def bub_Sort(L): # bubble sort
+    """ L, list with unique elements """
+    clear = False
+    count = 0
+    while not clear:
+        clear = True
+        for j in range(1, len(L)):
+            if L[j-1] > L[j]:
+                clear = False
+                temp = L[j]
+                L[j] = L[j-1]
+                L[j-1] = temp
+                count += 1
+    print('swapped', count, 'times')
+
+def sel_Sort(L):
+    """ L, list with unique elements """
+    count = 0
+    for i in range(len(L) - 1):
+        j=i+1
+        while j < len(L):
+            if L[i] > L[j]:
+                temp = L[i]
+                L[i] = L[j]
+                L[j] = temp
+                count += 1
+            j += 1
+    print('swapped', count, 'times')
+
+
+if __name__ == '__main__':
+    print('bubble sort vs. selection sort')
+    bub_Sort([1, 5, 3, 8, 4, 9, 6, 2, 7])  # >>> 13 times
+    sel_Sort([1, 5, 3, 8, 4, 9, 6, 2, 7])  # >>> 13 times
+    # They both swap the value same amount of times
