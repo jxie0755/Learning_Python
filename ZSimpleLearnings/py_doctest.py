@@ -3,7 +3,7 @@
 # Python has a great way to quickly write tests for your code. These are called doctests, and look like this:
 
 def multiply(a, b):
-        """
+    """
     >>> multiply(4, 3)
     12
     >>> multiply('a', 3)
@@ -11,9 +11,12 @@ def multiply(a, b):
     """
     return a * b
 
-if __name__=='__main__':
-    import doctest
-    doctest.testmod(verbose=True)
+# in pycharm, doctest will be run even without import doctest module and command
+
+# if __name__=='__main__':
+#     import doctest
+#     doctest.testmod(verbose=True)
+
 
 # >>>
 # Trying:
