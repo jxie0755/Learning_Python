@@ -55,7 +55,7 @@ def get_formatted_name(first, last, middle=''):
         full_name = first + ' ' + middle + ' ' + last
     else:
          full_name = first + ' ' + last
-    return full_name.title()  # return a value很重要,不要用print
+    return full_name.title()
 
 
 # 定制多个测试
