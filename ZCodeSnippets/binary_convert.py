@@ -67,8 +67,10 @@ if __name__ == '__main__':
     
 # what if the decimal number is a float?
 def deci_float_to_bi(target):
-    """converts a decimal float number to binary float numebr
-    target should be a positive decimal float number"""
+    """
+    target should be a positive decimal float number
+    returns a string of the binary float number
+    """
     p = 0
     
     # 首先要把浮点数乘以2的p次方,变成一个整数
@@ -95,7 +97,7 @@ def deci_float_to_bi(target):
     result = result[0:-p] + '.' + result[-p:]
     print('Convert target to binary number:', result)
     
-    return float(result)
+    return result
 
 if __name__ == '__main__':
     print(deci_float_to_bi(1.123123))
