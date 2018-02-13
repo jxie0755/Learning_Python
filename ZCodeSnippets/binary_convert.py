@@ -95,8 +95,6 @@ def deci_float_to_bi(target):
     # 由于之前放大了target, 2^p倍,所以现在要缩小回去,除以10^p得到最终结果
     # 这里用字符串处理,避免前置0被省略
     result = result[0:-p] + '.' + result[-p:]
-    print('Convert target to binary number:', result)
-    
     return result
 
 if __name__ == '__main__':
