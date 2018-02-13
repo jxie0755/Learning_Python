@@ -1,8 +1,10 @@
 # A function to convert a binary number to decimal number
 # 1011 = 1*2^3 + 0*2^2 + 1*2^1 + 1*2^0
 def bi_to_deci_0(target):
-    """target should be a binary number made with '1' and '0'"""
-    target = str(target)
+    """
+    target should be a string representing binary number made with '1' and '0'
+    return the decimal number as integer
+    """
     ans = 0
     numlevel = len(target)
     for index in range(0, numlevel):
@@ -11,20 +13,29 @@ def bi_to_deci_0(target):
     return ans
 
 if __name__ == '__main__':
-    print(bi_to_deci_0(1010))  # >>> 10
+    print(bi_to_deci_0('1010'))  # >>> 10
 
 # 先把target反过来,再计算就更简短
 def bi_to_deci(target):
-    """target should be a binary number made with '1' and '0'"""
-    target = str(target)
+    """
+    target should be a string representing binary number made with '1' and '0'
+    return the decimal number as integer
+    """
     target = target[::-1]
     ans = 0
     for i in range(len(target)):
         ans += int(target[i]) * 2**i
     return ans
 
+def bi_to_deci(target):
+    """
+    target should be a string representing binary number made with '1' and '0'
+    return the decimal number as integer
+    """
+    return sum([int(target[::-1][i]) * 2**i for i in range(len(target))])
+
 if __name__ == '__main__':
-    print(bi_to_deci(1010))  # >>> 10
+    print(bi_to_deci('1010'))  # >>> 10
     
 
 # A function to convert a decimal number to binary
@@ -38,17 +49,20 @@ if __name__ == '__main__':
 # 故二进制为1010
 
 def deci_to_bin(target):
-    """target should be an positive integer"""
+    """
+    target should be an positive decimal integer
+    returns a string of the binary number
+    """
     ans = ''
     if target == 0:
         return 0
     while target != 0:
         target, digit = divmod(target, 2)
         ans = str(digit) + ans
-    return int(ans)
+    return ans
 
 if __name__ == '__main__':
-    print(deci_to_bin(10))  # >>> 1010
+    print(deci_to_bin(10))  # >>> '1010'
     
     
 # what if the decimal number is a float?
