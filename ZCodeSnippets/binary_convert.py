@@ -48,7 +48,7 @@ if __name__ == '__main__':
 # 1/2 = 0 余1  # 一定要除以2结果最终到0
 # 故二进制为1010
 
-def deci_to_bin(target):
+def deci_to_bi(target):
     """
     target should be an positive decimal integer
     returns a string of the binary number
@@ -59,7 +59,7 @@ def deci_to_bin(target):
             target, digit = divmod(target, 2)
             ans = str(digit) + ans
         return ans
-    return 0
+    return '0'
 
 if __name__ == '__main__':
     print(deci_to_bin(10))  # >>> '1010'
