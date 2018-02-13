@@ -53,13 +53,13 @@ def deci_to_bin(target):
     target should be an positive decimal integer
     returns a string of the binary number
     """
-    ans = ''
-    if target == 0:
-        return 0
-    while target != 0:
-        target, digit = divmod(target, 2)
-        ans = str(digit) + ans
-    return ans
+    if target:
+        ans = ''
+        while target != 0:
+            target, digit = divmod(target, 2)
+            ans = str(digit) + ans
+        return ans
+    return 0
 
 if __name__ == '__main__':
     print(deci_to_bin(10))  # >>> '1010'
