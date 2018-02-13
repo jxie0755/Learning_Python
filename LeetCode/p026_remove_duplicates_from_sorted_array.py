@@ -23,10 +23,10 @@ class Solution(object):
                 index += 1
                 start = i
         # 思路在于利用外部游标对应遍历时的瞬间赋值
-        return index, nums
+        print(nums)
+        return index
 
 if __name__ = '__main__':
-    nums = [1,1,2,2,3]
-    assert Solution().removeDuplicates(nums) == (3, [1, 2, 3, 2, 3]), 'regular test'
+    assert Solution().removeDuplicates([1,1,2,2,3]) == 3, 'regular test'
     print('all passed')
 
