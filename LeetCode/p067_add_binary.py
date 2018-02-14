@@ -1,4 +1,4 @@
-# p67 Add Binary
+# p067 Add Binary
 # Easy
 
 # Given two binary strings, return their sum (also a binary string)
