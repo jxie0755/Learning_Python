@@ -31,8 +31,8 @@ class Solution:
         return -1
         # this is quite slow due to the wrong setting of the limit
 
-    def repeatedStringMatch(self, A, B):
-        limit = 2 * len(A) + len(B)   # best limit should be 2A + B
+    def repeatedStringMatch(self, A, B):  # one loop to combine two conditions
+        limit = 2 * len(A) + len(B)   # best limit, this is lowest bound and unifies for both conditions
         count = 1
         add = A
         while len(A) <= limit:
