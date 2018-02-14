@@ -41,10 +41,10 @@ class Solution:
             A += add
             count += 1
         return -1
-        # but this is still quite slow
+        # much improve speed by setting the right limit
     
     def repeatedStringMatch(self, A, B):
-        # This gives a quick examination and that hugely improved speed for not wasting time on long strings
+        # This gives a quick examination on by set() for even faster filtration examination on long strings
         if not set(B).issubset(set(A)):
             return -1
         
