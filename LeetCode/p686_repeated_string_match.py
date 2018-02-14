@@ -29,7 +29,7 @@ class Solution:
                 A += add_on
                 count += 1
         return -1
-        # this is quite slow
+        # this is quite slow due to the wrong setting of the limit
 
     def repeatedStringMatch(self, A, B):
         limit = 2 * len(A) + len(B)   # best limit should be 2A + B
