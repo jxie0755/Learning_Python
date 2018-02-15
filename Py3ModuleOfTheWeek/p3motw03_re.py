@@ -1,6 +1,7 @@
 import re
 
 # re_simple_match.py
+print()
 print('**********************************************************')
 print('re_simple_match')
 
@@ -19,6 +20,7 @@ print(text[s:e])
 
 
 # re_simple_compiled.py
+print()
 print('**********************************************************')
 print('re_simple_compiled')
 
@@ -59,6 +61,7 @@ else:
 
 
 # re_findall.py
+print()
 print('**********************************************************')
 print('re_findall')
 
@@ -83,6 +86,7 @@ for match in re.finditer(pattern, text):
 
 
 # re_test_patterns.py
+print()
 print('**********************************************************')
 print('re_test_patterns')
 
@@ -107,6 +111,7 @@ find_patterns('vvabbaaabbbbaaaaa', 'ab')
 
 
 # re_repetition.py
+print()
 print('**********************************************************')
 print('re_repetition')
 
@@ -131,6 +136,7 @@ find_patterns('abbaabbba', 'ba$')
 
 
 # re_repetition_non_greedy.py
+print()
 print('**********************************************************')
 print('re_repetition_non_greedy')
 
@@ -151,6 +157,7 @@ find_patterns('abbaabbba', 'ab{2,3}?')
 
 
 # re_charset.py
+print()
 print('**********************************************************')
 print('re_charset')
 
@@ -164,6 +171,7 @@ find_patterns('abbaabbba', 'a[ab]+?')
 
 
 # re_charset_exclude.py
+print()
 print('**********************************************************')
 print('re_charset_exclude')
 
@@ -175,6 +183,7 @@ find_patterns('This is some text -- with punctuation.', '[^-. ]+')
 
 
 # re_charset_ranges.py
+print()
 print('**********************************************************')
 print('re_charset_ranges')
 
@@ -190,6 +199,7 @@ find_patterns('This is some text -- with punctuation.', '[A-Z][a-z]+')
 
 
 # re_charset_dot.py
+print()
 print('**********************************************************')
 print('re_charset_dot')
 
@@ -204,6 +214,7 @@ find_patterns('abbaabbba', 'a.*?b')
 
 
 # re_escape_codes.py
+print()
 print('**********************************************************')
 print('re_escape_codes')
 
@@ -226,6 +237,7 @@ find_patterns(r'\d+ \D+ \s+', r'\\.\+')
 
 
 # re_escapte_excaptes.py
+print()
 print('**********************************************************')
 print('re_escapte_excaptes')
 
@@ -234,6 +246,7 @@ find_patterns(r'\d+ \D+ \s+', r'\\.\+')
 
 
 # re_anchoring.py
+print()
 print('**********************************************************')
 print('re_anchoring')
 
@@ -257,6 +270,7 @@ find_patterns('This is some text -- with punctuation.', r'\Bt\B')
 # TODO
 
 # re_match.py
+print()
 print('**********************************************************')
 print('re_match')
 
@@ -271,6 +285,7 @@ print('Search :', s)
 
 
 # re_fullmatch.py
+print()
 print('**********************************************************')
 print('re_fullmatch')
 
