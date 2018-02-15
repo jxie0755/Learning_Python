@@ -1,5 +1,7 @@
-This is for CS61a in Fall 2016
-https://inst.eecs.berkeley.edu/~cs61a/fa16/
+# UC Berkeley CS61a
+
+This is for CS61a in sping 2018
+cs61a.org
 
 textbook
 http://composingprograms.com/
