@@ -1,6 +1,6 @@
 # Python Crash Course
 
-* Part I
+* Part I: Basics
     * Variables and Simple Data Types
     * Introducing Lists
     * Working with Lists
@@ -12,5 +12,5 @@
     * Files and Exceptions
     * Testing Your code
 
-* Part II
+* Part II: Projects
     * TBD
