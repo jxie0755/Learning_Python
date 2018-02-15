@@ -1,6 +1,8 @@
 import re
 
 # re_simple_match.py
+print('**********************************************************')
+print('re_simple_match')
 
 # 建立在能够被search的条件
 pattern = 'this'
@@ -17,6 +19,8 @@ print(text[s:e])
 
 
 # re_simple_compiled.py
+print('**********************************************************')
+print('re_simple_compiled')
 
 # Precompile the patterns
 # 同时搜索多个pattern
@@ -55,6 +59,8 @@ else:
 
 
 # re_findall.py
+print('**********************************************************')
+print('re_findall')
 
 text = 'abbaaabbbbaaaaa'
 target = 'ab'
@@ -77,6 +83,8 @@ for match in re.finditer(pattern, text):
 
 
 # re_test_patterns.py
+print('**********************************************************')
+print('re_test_patterns')
 
 # 利用finditer找出所有的match并且返回它们的位置
 
@@ -99,6 +107,8 @@ find_patterns('vvabbaaabbbbaaaaa', 'ab')
 
 
 # re_repetition.py
+print('**********************************************************')
+print('re_repetition')
 
 # 特殊符号简化寻找目标
 # 接陈以上函数find_patterns()
@@ -121,6 +131,8 @@ find_patterns('abbaabbba', 'ba$')
 
 
 # re_repetition_non_greedy.py
+print('**********************************************************')
+print('re_repetition_non_greedy')
 
 # When processing a repetition instruction, re will usually consume as much of the input as possible while matching the pattern.
 # Greediness can be turned off by following the repetition instruction with '?'
@@ -139,6 +151,8 @@ find_patterns('abbaabbba', 'ab{2,3}?')
 
 
 # re_charset.py
+print('**********************************************************')
+print('re_charset')
 
 # find either 'a' or 'b'
 find_patterns('abbaabbba', '[ab]')
@@ -150,6 +164,8 @@ find_patterns('abbaabbba', 'a[ab]+?')
 
 
 # re_charset_exclude.py
+print('**********************************************************')
+print('re_charset_exclude')
 
 # The carat (^) means to look for characters that are not in the set following the carat.
 # find sequences without '-', '.' or 'space'
@@ -159,6 +175,8 @@ find_patterns('This is some text -- with punctuation.', '[^-. ]+')
 
 
 # re_charset_ranges.py
+print('**********************************************************')
+print('re_charset_ranges')
 
 # find sequences of lowercase letters
 find_patterns('This is some text -- with punctuation.', '[a-z]+')
@@ -172,6 +190,8 @@ find_patterns('This is some text -- with punctuation.', '[A-Z][a-z]+')
 
 
 # re_charset_dot.py
+print('**********************************************************')
+print('re_charset_dot')
 
 # a followed by any one character
 find_patterns('abbaabbba', 'a.')
@@ -184,6 +204,8 @@ find_patterns('abbaabbba', 'a.*?b')
 
 
 # re_escape_codes.py
+print('**********************************************************')
+print('re_escape_codes')
 
 # find sequence of digits
 find_patterns('A prime #1 example! 6666666!', r'\d+')
@@ -204,12 +226,16 @@ find_patterns(r'\d+ \D+ \s+', r'\\.\+')
 
 
 # re_escapte_excaptes.py
+print('**********************************************************')
+print('re_escapte_excaptes')
 
 # escape code
 find_patterns(r'\d+ \D+ \s+', r'\\.\+')
 
 
 # re_anchoring.py
+print('**********************************************************')
+print('re_anchoring')
 
 # find word at start of string
 find_patterns('This is some text -- with punctuation.', r'^\w+')
@@ -231,6 +257,8 @@ find_patterns('This is some text -- with punctuation.', r'\Bt\B')
 # TODO
 
 # re_match.py
+print('**********************************************************')
+print('re_match')
 
 text = 'This is some text -- with punctuation.'
 pattern = 'is'
@@ -243,6 +271,8 @@ print('Search :', s)
 
 
 # re_fullmatch.py
+print('**********************************************************')
+print('re_fullmatch')
 
 text = 'This is some text -- with punctuation.'
 pattern = 'is'
