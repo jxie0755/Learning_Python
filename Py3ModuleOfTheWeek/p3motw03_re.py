@@ -1,3 +1,7 @@
+# https://pymotw.com/3/re/index.html
+# additional:
+# https://morvanzhou.github.io/tutorials/python-basic/basic/13-10-regular-expression/
+
 import re
 
 # re_simple_match.py
