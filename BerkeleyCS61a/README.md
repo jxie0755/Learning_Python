@@ -4,3 +4,5 @@ https://inst.eecs.berkeley.edu/~cs61a/fa16/
 textbook
 http://composingprograms.com/
 
+* Week 1
+    *
