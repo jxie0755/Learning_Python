@@ -36,11 +36,11 @@ def is_word(word_list, word):
     Returns: True if word is in word_list, False otherwise
 
     # Example:
-    # >>> is_word(word_list, 'bat') returns
+    # >>> is_word(word_list, 'bat')
     # True
-    # >>> is_word(word_list, 'asdf') returns
+    # >>> is_word(word_list, 'asdf')
     # False
-    # '''
+    '''
     word = word.lower()
     word = word.strip(" !@#$%^&*()-_+={}[]|\:;'<>?,./\"")
     return word in word_list
