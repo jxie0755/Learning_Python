@@ -14,9 +14,9 @@ def substring_SL(iterable):
 
 if __name__ == '__main__':
     print(substring_SL('abcd'))
+    # >>> ['a', 'b', 'c', 'd', 'ab', 'bc', 'cd', 'abc', 'bcd', 'abcd']
     print(substring_SL([1,2,3,4]))
-# >>> ['a', 'b', 'c', 'd', 'ab', 'bc', 'cd', 'abc', 'bcd', 'abcd']
-# >>> [[1], [2], [3], [4], [1, 2], [2, 3], [3, 4], [1, 2, 3], [2, 3, 4], [1, 2, 3, 4]]
+    # >>> [[1], [2], [3], [4], [1, 2], [2, 3], [3, 4], [1, 2, 3], [2, 3, 4], [1, 2, 3, 4]]
 
 
 # from long to short
@@ -30,9 +30,9 @@ def substring_LS(iterable):
 
 if __name__ == '__main__':
     print(substring_LS('abcd'))
+    # >>> ['abcd', 'abc', 'bcd', 'ab', 'bc', 'cd', 'a', 'b', 'c', 'd']
     print(substring_LS([1,2,3,4]))
-# >>> ['abcd', 'abc', 'bcd', 'ab', 'bc', 'cd', 'a', 'b', 'c', 'd']
-# >>> [[1, 2, 3, 4], [1, 2, 3], [2, 3, 4], [1, 2], [2, 3], [3, 4], [1], [2], [3], [4]]
+    # >>> [[1, 2, 3, 4], [1, 2, 3], [2, 3, 4], [1, 2], [2, 3], [3, 4], [1], [2], [3], [4]]
 
 
 # 第三种方式找substring, 新的寻找顺序.
@@ -46,9 +46,9 @@ def substring_seq(iterable):
 
 if __name__ == '__main__':
     print(substring_seq('abcd'))
+    # >>> ['a', 'ab', 'abc', 'abcd', 'b', 'bc', 'bcd', 'c', 'cd', 'd']
     print(substring_seq([1,2,3,4]))
-# >>> ['a', 'ab', 'abc', 'abcd', 'b', 'bc', 'bcd', 'c', 'cd', 'd']
-# >>> [[1], [1, 2], [1, 2, 3], [1, 2, 3, 4], [2], [2, 3], [2, 3, 4], [3], [3, 4], [4]]
+    # >>> [[1], [1, 2], [1, 2, 3], [1, 2, 3, 4], [2], [2, 3], [2, 3, 4], [3], [3, 4], [4]]
 
 
 # 第四种方式,寻找中心,然后向两边发散,(从palindrome algorithm中获得)
@@ -59,7 +59,7 @@ def substring_C(iterable):
         for j in range(2):
             left =i
             right = left + 1
-            # this part expand from the center to get all the substring that shares the same center point
+            # this part expand from the center to get all the substrings that share the same center point
             while left >= 0 and right < len(iterable):
                 result.append(iterable[left:right+1])
                 left -= 1
@@ -69,7 +69,8 @@ def substring_C(iterable):
 if __name__ == '__main__':
     print(substring_C('abcd'))
     # >>> ['a', 'ab', 'b', 'abc', 'bc', 'abcd', 'c', 'bcd', 'cd', 'd']
-
+    print(substring_C([1,2,3,4]))
+    # >>> [[1], [1, 2], [2], [1, 2, 3], [2, 3], [1, 2, 3, 4], [3], [2, 3, 4], [3, 4], [4]]
 
 # generator versions of above
 def gen_substring_SL(iterable):
