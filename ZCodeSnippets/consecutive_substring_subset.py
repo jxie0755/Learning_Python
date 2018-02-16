@@ -4,11 +4,12 @@
 
 
 # from short to long
+# 先确定长度(从短到长),再确定起始index
 def substring_SL(iterable):
     result = []
     for lenth in range(1, len(iterable) + 1):
-        for start in range(len(iterable) - lenth + 1):
-            result.append(iterable[start:start + lenth])
+        for i in range(len(iterable) - lenth + 1):
+            result.append(iterable[i:i+lenth])
     return result
 
 if __name__ == '__main__':
@@ -18,31 +19,13 @@ if __name__ == '__main__':
 # >>> [[1], [2], [3], [4], [1, 2], [2, 3], [3, 4], [1, 2, 3], [2, 3, 4], [1, 2, 3, 4]]
 
 
-# version 2
-def substring_SL2(iterable):
-    result = []
-    n, m = 0, 0
-    index = len(iterable)
-    while n < index:
-        for m in range(0, index):
-            if 1 + m + n <= index:
-                result.append(iterable[m:1 + m + n])
-        n += 1
-    return result
-
-if __name__ == '__main__':
-    print(substring_SL2('abcd'))
-    print(substring_SL2([1,2,3,4]))
-# >>> ['a', 'b', 'c', 'd', 'ab', 'bc', 'cd', 'abc', 'bcd', 'abcd']
-# >>> [[1], [2], [3], [4], [1, 2], [2, 3], [3, 4], [1, 2, 3], [2, 3, 4], [1, 2, 3, 4]]
-
-
 # from long to short
+# 仍然是先确定长度(通过-1 step,从长到到短),再确定起始index
 def substring_LS(iterable):
     result = []
     for lenth in range(len(iterable), 0, -1):
-        for start in range(len(iterable) - lenth + 1):
-            result.append(iterable[start:start + lenth])
+        for i in range(len(iterable) - lenth + 1):
+            result.append(iterable[i:i+lenth])
     return result
 
 if __name__ == '__main__':
@@ -52,28 +35,12 @@ if __name__ == '__main__':
 # >>> [[1, 2, 3, 4], [1, 2, 3], [2, 3, 4], [1, 2], [2, 3], [3, 4], [1], [2], [3], [4]]
 
 
-# version 2
-def substring_LS2(iterable):
-    result = []
-    n, m = 0, 0
-    index = len(iterable)
-    while n < index:
-        for m in range(0, n + 1):
-            result.append(iterable[m:index - n + m])
-        n += 1
-    return result
-
-if __name__ == '__main__':
-    print(substring_LS2('abcd'))
-    print(substring_LS2([1,2,3,4]))
-# >>> ['abcd', 'abc', 'bcd', 'ab', 'bc', 'cd', 'a', 'b', 'c', 'd']
-# >>> [[1, 2, 3, 4], [1, 2, 3], [2, 3, 4], [1, 2], [2, 3], [3, 4], [1], [2], [3], [4]]
-
 # 第三种方式找substring, 新的寻找顺序.
+# 交换loop的顺序,先确定起始index,再变化长度
 def substring_seq(iterable):
     result = []
     for i in range(len(iterable)):
-        for lenth in range(1, len(iterable)+1-i):
+        for lenth in range(1, len(iterable) - i + 1):
             result.append(iterable[i:i+lenth])
     return result
 
@@ -86,7 +53,7 @@ if __name__ == '__main__':
 # generator version of above:
 def gen_substrings(iterable):
     for i in range(len(iterable)):
-        for lenth in range(1, len(iterable)-i+1):
+        for lenth in range(1, len(iterable) - i + 1):
             yield iterable[i:i+lenth]
 
 if __name__ == '__main__':
