@@ -54,13 +54,11 @@ if __name__ == '__main__':
 # 第四种方式,寻找中心,然后向两边发散,(从palindrome algorithm中获得)
 def substring_C(iterable):
     result = []
-
     # this part assigns the moving of the center, and define the two sides from it
     for i in range(len(iterable)):
         for j in range(2):
             left =i
-            right = left + j
-            
+            right = left + 1
             # this part expand from the center to get all the substring that shares the same center point
             while left >= 0 and right < len(iterable):
                 result.append(iterable[left:right+1])
