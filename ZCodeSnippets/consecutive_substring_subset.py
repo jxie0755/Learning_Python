@@ -50,7 +50,27 @@ if __name__ == '__main__':
 # >>> ['a', 'ab', 'abc', 'abcd', 'b', 'bc', 'bcd', 'c', 'cd', 'd']
 # >>> [[1], [1, 2], [1, 2, 3], [1, 2, 3, 4], [2], [2, 3], [2, 3, 4], [3], [3, 4], [4]]
 
-# generator version of above:
+# generator version of above
+def gen_substring_SL(iterable):
+    for lenth in range(1, len(iterable) + 1):
+        for i in range(len(iterable) - lenth + 1):
+            yield iterable[i:i+lenth]
+
+if __name__ == '__main__':
+    print(list(gen_substring_SL('abcd')))
+    # >>> ['a', 'b', 'c', 'd', 'ab', 'bc', 'cd', 'abc', 'bcd', 'abcd']
+    
+    
+def gen_substring_LS(iterable):
+    for lenth in range(len(iterable), 0, -1):
+        for i in range(len(iterable) - lenth + 1):
+            yield iterable[i:i+lenth]
+
+if __name__ == '__main__':
+    print(list(gen_substring_LS('abcd')))
+    # >>> ['abcd', 'abc', 'bcd', 'ab', 'bc', 'cd', 'a', 'b', 'c', 'd']
+    
+    
 def gen_substrings(iterable):
     for i in range(len(iterable)):
         for lenth in range(1, len(iterable) - i + 1):
