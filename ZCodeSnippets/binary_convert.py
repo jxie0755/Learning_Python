@@ -98,4 +98,4 @@ def deci_float_to_bi(target):
     return result
 
 if __name__ == '__main__':
-    print(deci_float_to_bi(1.123123))
+    print(deci_float_to_bi(1.3))
