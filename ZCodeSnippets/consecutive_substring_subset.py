@@ -51,6 +51,28 @@ if __name__ == '__main__':
 # >>> [[1], [1, 2], [1, 2, 3], [1, 2, 3, 4], [2], [2, 3], [2, 3, 4], [3], [3, 4], [4]]
 
 
+# 第四种方式,寻找中心,然后向两边发散,(从palindrome algorithm中获得)
+def substring_C(iterable):
+    result = []
+
+    # this part assigns the moving of the center, and define the two sides from it
+    for i in range(len(iterable)):
+        for j in range(2):
+            left =i
+            right = left + j
+            
+            # this part expand from the center to get all the substring that shares the same center point
+            while left >= 0 and right < len(iterable):
+                result.append(iterable[left:right+1])
+                left -= 1
+                right += 1
+    return result
+
+if __name__ == '__main__':
+    print(substring_C('abcd'))
+    # >>> ['a', 'ab', 'b', 'abc', 'bc', 'abcd', 'c', 'bcd', 'cd', 'd']
+
+
 # generator versions of above
 def gen_substring_SL(iterable):
     for lenth in range(1, len(iterable) + 1):
@@ -69,4 +91,13 @@ def gen_substrings(iterable):
         for lenth in range(1, len(iterable) - i + 1):
             yield iterable[i:i+lenth]
 
+def gen_substring_C(iterable):
+    for i in range(len(iterable)):
+        for j in range(2):
+            left =i
+            right = left + j  
+            while left >= 0 and right < len(iterable):
+                yield iterable[left:right+1]
+                left -= 1
+                right += 1
 
