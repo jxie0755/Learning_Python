@@ -90,6 +90,7 @@ def gen_substrings(iterable):
         for lenth in range(1, len(iterable) - i + 1):
             yield iterable[i:i+lenth]
 
+            
 def gen_substring_C(iterable):
     for i in range(len(iterable)):
         for j in range(2):
