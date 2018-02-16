@@ -72,9 +72,9 @@ if __name__ == '__main__':
 # 第三种方式找substring, 新的寻找顺序.
 def substring_seq(iterable):
     result = []
-    for start in range(len(iterable)):
-        for end in range(start+1, len(iterable)+1):
-            result.append(iterable[start:end])
+    for i in range(len(iterable)):
+        for lenth in range(1, len(iterable)+1-i):
+            result.append(iterable[i:i+lenth])
     return result
 
 if __name__ == '__main__':
@@ -82,3 +82,14 @@ if __name__ == '__main__':
     print(substring_seq([1,2,3,4]))
 # >>> ['a', 'ab', 'abc', 'abcd', 'b', 'bc', 'bcd', 'c', 'cd', 'd']
 # >>> [[1], [1, 2], [1, 2, 3], [1, 2, 3, 4], [2], [2, 3], [2, 3, 4], [3], [3, 4], [4]]
+
+# generator version of above:
+def gen_substrings(iterable):
+    for i in range(len(iterable)):
+        for lenth in range(1, len(iterable)-i+1):
+            yield iterable[i:i+lenth]
+
+if __name__ == '__main__':
+    print(list(gen_substrings('1234')))
+    # >>> ['1', '12', '123', '1234', '2', '23', '234', '3', '34', '4']
+
