@@ -19,10 +19,21 @@
 
 class Solution:
     def optimalDivision(self, nums):
-        pass
+        result = str(nums[0])
+        segment = []
+        i = 1
+        while i < len(nums) - 1:
+            if nums[i] > nums[i+1]:
+                segment.append(nums[i])
+            if nums[i] <= nums[i+1]:
+                if segment:
+                    pass
 
 
 
-if __name__ == '__main__':
-    pass
+
+# if __name__ == '__main__':
+#     print(Solution().optimalDivision([1000,100,10,2]))
+#     print(Solution().optimalDivision([1000,100,10,100,100,10]))
+#     pass
 
