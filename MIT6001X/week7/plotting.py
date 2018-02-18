@@ -1,6 +1,6 @@
 # Learning plotting by using an external library (pylab)
-
 import pylab as plt
+
 # reference the method by calling plt.<procName>
 
 mySamples = []
@@ -23,6 +23,9 @@ plt.plot(mySamples, myLinear)  # ensure both list has the same length
 plt.plot(mySamples, myQuadratic)
 plt.plot(mySamples, myCubic)
 plt.plot(mySamples, myExponential)
+plt.show()  # this is to generate a window to show the plotting
+
+
 
 
 
