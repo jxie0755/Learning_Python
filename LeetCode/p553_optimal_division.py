@@ -1,5 +1,5 @@
 # p553 Optimal Division
-# Easy
+# Medium
 
 # Given a list of positive integers, the adjacent integers will perform the float division.
 # For example, [2,3,4] -> 2 / 3 / 4.
