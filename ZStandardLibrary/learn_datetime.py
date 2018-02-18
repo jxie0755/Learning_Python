@@ -141,7 +141,7 @@ print(datetime.datetime.today())   # >>> 2017-11-09 21:08:32.589043 精确到毫
 
 # datetime.now(tz=None)
 # 返回本地当前的日期和时间
-print(datetime.datetime.now(tz=))  # 若无tz,则基本等于today()
+print(datetime.datetime.now(tz=None))  # 若无tz,则基本等于today()
 
 # datetime.utcnow()
 # 返回当前UTC日期和时间
