@@ -128,6 +128,7 @@ class Student(object):
         self.__score = score
         self.__gender__ = gender
 
+    @staticmethod
     def print_score(self):
         print(f"{self.__name} has a score of {self.__score}")
 
