@@ -1,19 +1,21 @@
 print('Coordinate example')
+
+
 class Coordinate(object):
     def __init__(self, x, y):
         self.x = x
         self.y = y
 
     def distance(self, other):
-        x_diff_sq = (self.x - other.x)**2
-        y_diff_sq = (self.y - other.y)**2
-        return (x_diff_sq + y_diff_sq)**0.5
+        x_diff_sq = (self.x - other.x) ** 2
+        y_diff_sq = (self.y - other.y) ** 2
+        return (x_diff_sq + y_diff_sq) ** 0.5
 
     def __str__(self):
         return f'<{self.x},{self.y}>'
 
-    def __sub__(self, other):      # this is actually from operator module!!
-                                   # see other special methods in Language reference section 3.3
+    def __sub__(self, other):  # this is actually from operator module!!
+        # see other special methods in Language reference section 3.3
         return Coordinate(self.x - other.x, self.y - other.y)
 
     def getX(self):
@@ -33,9 +35,10 @@ class Coordinate(object):
     def __repr__(self):
         return 'Coordinate(' + str(self.x) + ',' + str(self.y) + ')'
 
-c = Coordinate(3,4)
+
+c = Coordinate(3, 4)
 print(c.x, c.y)  # >>> 3 4
-origin = Coordinate(0,0)
+origin = Coordinate(0, 0)
 
 # if using instance to call a method, then self is already the instance, so only need one paramenter
 print(c.distance(origin))  # >>> 5.0
@@ -46,10 +49,10 @@ print(Coordinate.distance(c, origin))  # >>> 5.0
 print(c)  # >>> <3,4>
 print(isinstance(c, Coordinate))  # >>> True
 
-c2 = Coordinate(1,1)
-print(c-c2) # >>> <2,3>
+c2 = Coordinate(1, 1)
+print(c - c2)  # >>> <2,3>
 
-cdash = Coordinate(3,4)
+cdash = Coordinate(3, 4)
 print(c == cdash)
 
 ccopy = eval(repr(c))
@@ -60,15 +63,19 @@ print(ccopy)
 # 分子Numerator and 分母denominator
 print()
 print('Fraction example')
+
+
 class Fraction(object):
     def __init__(self, numer, denom):
         self.numer = numer
         self.denom = denom
+
     def __str__(self):
         return f'{self.numer} / {self.denom}'
 
     def getNumer(self):
         return self.numer
+
     def getDenom(self):
         return self.denom
 
@@ -76,16 +83,19 @@ class Fraction(object):
         numerNew = other.getDenom() * self.getNumer() + other.getNumer() * self.getDenom()
         denomNew = other.getDenom() * self.getDenom()
         return Fraction(numerNew, denomNew)
+
     def __sub__(self, other):
         numerNew = other.getDenom() * self.getNumer() - other.getNumer() * self.getDenom()
         denomNew = other.getDenom() * self.getDenom()
         return Fraction(numerNew, denomNew)
+
     def convert(self):
         return self.getNumer() / self.getDenom()
 
-oneHalf = Fraction(1,2)
-twoThirds = Fraction(2,3)
-threeQuarters = Fraction(3,4)
+
+oneHalf = Fraction(1, 2)
+twoThirds = Fraction(2, 3)
+threeQuarters = Fraction(3, 4)
 print(f'{oneHalf}, {twoThirds}')  # >>> 1 / 2, 2 / 3
 
 print(oneHalf + twoThirds)  # >>> 7 / 6
@@ -103,6 +113,8 @@ print(threeQuarters.convert())  # >>> 0.75
 
 print()
 print('intSet example')
+
+
 class intSet(object):
     """An intSet is a set of integers
     The value is represented by a list of ints, self.vals.
@@ -147,13 +159,27 @@ class intSet(object):
     def __len__(self):
         return len(self.vals)
 
+
 emptset = intSet()
 print(emptset)  # >>> {}
 
 set1 = intSet()
-set1.insert(1); set1.insert(1); set1.insert(2); set1.insert(2); set1.insert(3); set1.insert(4); set1.insert(5)
+set1.insert(1)
+set1.insert(1)
+set1.insert(2)
+set1.insert(2)
+set1.insert(3)
+set1.insert(4)
+set1.insert(5)
 set2 = intSet()
-set2.insert(2); set2.insert(4); set2.insert(4); set2.insert(4); set2.insert(6); set2.insert(8); set2.insert(8); set2.insert(8)
+set2.insert(2)
+set2.insert(4)
+set2.insert(4)
+set2.insert(4)
+set2.insert(6)
+set2.insert(8)
+set2.insert(8)
+set2.insert(8)
 print(set1)  # >>> {1, 2, 3, 4, 5}
 
 set1.insert(5)
@@ -169,10 +195,11 @@ print(set1)  # >>> {1, 2, 4, 5, 6}
 
 print(set1.intersect(set2))  # >>> {2, 4, 6}
 
-
 # Mimic real life
 print()
 print('Hierarchy example')
+
+
 class Animal(object):
     def __init__(self, age):
         self.age = age
@@ -183,44 +210,56 @@ class Animal(object):
     # getter
     def get_age(self):
         return self.age
+
     def get_name(self):
         return self.name
+
     # setter
     def set_age(self, newage):
         self.age = newage
+
     def set_name(self, newname=''):
         self.name = newname
+
     def __str__(self):
         return 'animal:' + str(self.name) + ':' + str(self.age)
+
 
 myAnimal = Animal(3)
 myAnimal.set_name('foobar')
 print(myAnimal)
 
+
 class Cat(Animal):
     def speak(self):
         print('meow')
+
     def __str__(self):
         return 'cat:' + str(self.name) + ':' + str(self.age)
 
+
 jelly = Cat(1)
 jelly.set_name('JellyBelly')
-print(jelly)                  # >>> cat:JellyBelly:1
+print(jelly)  # >>> cat:JellyBelly:1
 print(Animal.__str__(jelly))  # >>> animal:JellyBelly:1  # still get access to Animal's method by using this way
 
 
 class Rabbit(Animal):
     def speak(self):
         print('meep')
+
     def __str__(self):
         return 'rabbit:' + str(self.name) + ':' + str(self.age)
+
 
 peter = Rabbit(5)
 jelly.speak()  # >>> meow
 peter.speak()  # >>> meep
 
+
 class Rabbit(Animal):
     tag = 1
+
     def __init__(self, age, parent1=None, parent2=None):
         Animal.__init__(self, age)
         self.parent1 = parent1
@@ -228,56 +267,72 @@ class Rabbit(Animal):
         self.rid = Rabbit.tag  # call Class tag
         Rabbit.tag += 1  # change Class tag, so that each tag is unique
         # every instance created, __init__ is called, and class variable changes
+
     def get_rid(self):
         return str(self.rid).zfill(3)
+
     def get_parent1(self):
         return self.parent1
+
     def get_parent2(self):
         return self.parent2
+
     def __add__(self, other):
         return Rabbit(0, self, other)
+
     def __eq__(self, other):  # using the rid as unique identification
         parent_same = self.parent1.rid == other.parent1.rid \
                       and self.parent2.rid == other.parent2.rid
         parent_diff = self.parent1.rid == other.parent2.rid \
                       and self.parent2.rid == other.parent1.rid
         return parent_same or parent_diff
-    # get_name and get_age inherit from Animal class
+        # get_name and get_age inherit from Animal class
+
 
 print()
 print('new Rabbit class example')
-peter = Rabbit(2); peter.set_name('Peter')
-hopsy = Rabbit(3); hopsy.set_name('Hopsy')
+peter = Rabbit(2)
+peter.set_name('Peter')
+hopsy = Rabbit(3)
+hopsy.set_name('Hopsy')
 cotton = Rabbit(1, peter, hopsy)
 print(peter.get_rid(), hopsy.get_rid(), cotton.get_rid())  # >>> 001 002 003
 print(cotton.get_parent2().get_name())  # >>> Hopsy
 cotton2 = hopsy + peter
 print(cotton2.get_rid(), cotton2.get_parent1().get_name(), cotton2.get_parent2().get_name())
 # >>> 0004 Hopsy Peter
-print(cotton == cotton2) # >>> True
+print(cotton == cotton2)  # >>> True
 
 print()
 print('Person class')
+
+
 class Person(Animal):
     def __init__(self, name, age):
         Animal.__init__(self, age)
         Animal.set_name(self, name)
         self.friends = []
+
     def get_friends(self):
         return self.friends
+
     def add_friend(self, fname):
         if fname not in self.friends:
             self.friends.append(fname)
+
     def speak(self):
         print('hello')
+
     def age_diff(self, other):
         diff = self.get_age() - other.get_age()
         if self.age > other.age:
             print(self.name, 'is', diff, 'years older than', other.name)
         else:
             print(self.name, 'is', -diff, 'years younger than', other.name)
+
     def __str__(self):
-        return 'person:'+str(self.name)+':'+str(self.age)
+        return 'person:' + str(self.name) + ':' + str(self.age)
+
 
 eric = Person('eric', 45)
 john = Person('john', 55)
@@ -286,12 +341,16 @@ eric.age_diff(john)  # >>> eric is 10 years younger than john
 john.age_diff(eric)  # >>> john is 10 years older than eric
 
 import random
+
+
 class Student(Person):
     def __init__(self, name, age, major=None):
         Person.__init__(self, name, age)
         self.major = major
+
     def change_major(self, major):
         self.major = major
+
     def speak(self):
         r = random.random()  # gives a float between 0 and 1
         if r < 0.25:
@@ -302,50 +361,65 @@ class Student(Person):
             print('i should eat')
         else:
             print('i am watching tv')
+
     def __str__(self):
-        return 'student:'+str(self.name)+':'+str(self.age)+':'+str(self.major)
+        return 'student:' + str(self.name) + ':' + str(self.age) + ':' + str(self.major)
+
 
 fred = Student('Fred', 18, 'Course VI')
 print(fred)  # >>> studentFred:18:Course VI
 fred.speak()  # >>> random
 
+
 # Python supports a limited form of multiple inheritance, demonstrated in the following code
 class A(object):
     def __init__(self):
         self.a = 1
+
     def x(self):
         print("A.x")
+
     def y(self):
         print("A.y")
+
     def z(self):
         print("A.z")
+
 
 class B(A):
     def __init__(self):
         A.__init__(self)
         self.a = 2
         self.b = 3
+
     def y(self):
         print("B.y")
+
     def z(self):
         print("B.z")
+
 
 class C(object):
     def __init__(self):
         self.a = 4
         self.c = 5
+
     def y(self):
         print("C.y")
+
     def z(self):
         print("C.z")
+
 
 class D(C, B):
     def __init__(self):
         C.__init__(self)
         B.__init__(self)
         self.d = 6
+
     def z(self):
         print("D.z")
+
 
 # When resolving a reference to an attribute of an object that's an instance of class D
 # Python first searches the object's instance variables then uses a simple left-to-right, depth first search through the class hierarchy.
@@ -356,6 +430,6 @@ print(obj.a)  # >>> 2  # __init__ goes for the last get called, which is B class
 print(obj.b)  # >>> 3
 print(obj.c)  # >>> 5
 print(obj.d)  # >>> 6
-obj.x()       # >>> A.x
-obj.y()       # >>> C.y
-obj.z()       # >>> D.z
+obj.x()  # >>> A.x
+obj.y()  # >>> C.y
+obj.z()  # >>> D.z
