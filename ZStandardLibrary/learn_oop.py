@@ -147,7 +147,8 @@ print('继承和多态')
 
 # create a class Animal(), and a subclass Dog()
 class Animal(object):
-    def run(self):
+    @staticmethod
+    def run():
         print('running...')
 
 class Dog(Animal):
@@ -159,7 +160,8 @@ little_dog.run()  # >>> running...
 
 # 子类和父类如果定义的时候都有个run()?
 class Animal(object):
-    def run(self):
+    @staticmethod
+    def run():
         print('running...')
 
 class Dog(Animal):
@@ -199,7 +201,8 @@ animal_run(Cat())     # >>> cat running...
 # python动态语言特性:
 # 凡是一个类含有同名方法均可以实现运行,不是必须要属于Animal的子类
 class Timer():
-    def run(self):
+    @staticmethod
+    def run():
         print('Start...')
 
 animal_run(Timer())  # >>> Start...
@@ -230,7 +233,8 @@ print('ABC'.__len__())  # >>> 3
 class People(object):
     def __len__(self):
         return 100
-    def ppl(self):
+    @staticmethod
+    def ppl():
         return 'People has power'
 denis = People()
 print(len(denis))  # >>> 100  # 只有特殊方法才可以这样
@@ -390,11 +394,13 @@ print()
 print('多重继承')
 
 class Animal(object):
-    def animalrun(self):
+    @staticmethod
+    def animalrun():
         print('I am running...')
 
 class Runnable():
-    def run(self):
+    @staticmethod
+    def run():
         print("I can run...")
 
 # 多重继承,继承不止一个父类
@@ -588,7 +594,8 @@ print('使用元类')
 
 # 比方说我们要定义一个Hello的class，就写一个hello.py模块
 class Hello(object):
-    def hello(self, name='world'):
+    @staticmethod
+    def hello(name='world'):
         print(f'Hello, {name}')
 
 # 当Python解释器载入hello模块时，就会依次执行该模块的所有语句，执行结果就是动态创建出一个Hello的class对象
