@@ -9,7 +9,7 @@ print('str.capitalize()')
 # Return a copy of the string with its first character capitalized and the rest lowercased.
 print()
 print('str.title()')
-# Return a titlecased version of the string where words start with an uppercase character and the remaining characters are lowercase. 
+# Return a titlecased version of the string where words start with an uppercase character and the remaining characters are lowercase.
 
 # Notice the difference between capitalize() and title()
 print('hello world'.capitalize())  # >>> Hello world
@@ -136,20 +136,20 @@ print(f'Area of a circle with radius {radius}: {area_of_circle(radius=radius)}')
 print()
 print('str.isalnum()')
 # Return true if all characters in the string are alphanumeric and there is at least one character, false otherwise.
-'ABCabc1'.isalnum()   #>>> True
-'ABC abc1'.isalnum() # >>> False
+'ABCabc1'.isalnum()   # >>> True
+'ABC abc1'.isalnum()  # >>> False
 
 
 print()
 print('str.isalpha()')
-# Return true if all characters in the string are alphabetic and there is at least one character, false otherwise. 
+# Return true if all characters in the string are alphabetic and there is at least one character, false otherwise.
 'ABCabc'.isalpha()   # >>> True
 'ABCabc1'.isalpha()  # >>> False
 
 
 print()
 print('str.isdigit()')
-# Return true if all characters in the string are digits and there is at least one character, false otherwise. 
+# Return true if all characters in the string are digits and there is at least one character, false otherwise.
 
 
 print()
@@ -231,7 +231,7 @@ print(test.translate(trantab))  # 将test中的字符依依对换
 
 print()
 print('str.replace(old, new[, count])')
-# Return a copy of the string with all occurrences of substring old replaced by new. 
+# Return a copy of the string with all occurrences of substring old replaced by new.
 # If the optional argument count is given, only the first count occurrences are replaced.
 
 test = "this is string example....wow!!!"
@@ -252,7 +252,7 @@ print(test.replace('i', '9', 2))  # >>> th9s 9s string example....wow!!!  # noti
 
 print()
 print('str.swapcase()')
-# Return a copy of the string with uppercase characters converted to lowercase and vice versa. 
+# Return a copy of the string with uppercase characters converted to lowercase and vice versa.
 # Note that it is not necessarily true that s.swapcase().swapcase() == s.
 
 print('Hello World'.swapcase()) # >>> 'hELLO wORLD'
@@ -279,7 +279,7 @@ print(dd.strip('aD'))    # >>> 'b
 
 print()
 print('str.split(sep=None, maxsplit=-1)')
-# Return a list of the words in the string, using sep as the delimiter string. 
+# Return a list of the words in the string, using sep as the delimiter string.
 print('str.rsplit(sep=None, maxsplit=-1)')
 # Return a list of the words in the string, using sep as the delimiter string.
 
@@ -328,6 +328,6 @@ print(dd.rpartition('c'))  # >>> ('abcab', 'c', '')  # r~~ find the last separat
 
 print()
 print('str.zfill(width)')
-# Return a copy of the string left filled with ASCII '0' digits to make a string of length width. A leading sign prefix ('+'/'-') is handled by inserting the padding after the sign character rather than before. 
+# Return a copy of the string left filled with ASCII '0' digits to make a string of length width. A leading sign prefix ('+'/'-') is handled by inserting the padding after the sign character rather than before.
 print("42".zfill(5)) # >>> '00042'
 print("-42".zfill(5)) # >>> '-0042'
