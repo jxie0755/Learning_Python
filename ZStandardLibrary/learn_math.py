@@ -23,20 +23,20 @@ print('数理论和表示函数')
 
 # math.ceil(x)
 # Return the ceiling of x, 大于等于 x 的最小整数.如果x是整数,则返回本身.
-print(math.ceil(4.1234))  # >>> 5
-print(math.ceil(-4.1234)) # >>> -4
-print(math.ceil(5))       # >>> 5
+print(math.ceil(4.1234))   # >>> 5
+print(math.ceil(-4.1234))  # >>> -4
+print(math.ceil(5))        # >>> 5
 
 # math.floor(x)
 # Return the floor of x, 小于等于 x的最大整数.如果x是整数,则返回本身.
-print(math.floor(4.1234))  # >>> 4
-print(math.floor(-4.1234)) # >>> -5
-print(math.floor(5))       # >>> 5
+print(math.floor(4.1234))   # >>> 4
+print(math.floor(-4.1234))  # >>> -5
+print(math.floor(5))        # >>> 5
 
 # math.copysign (x，y)
 # 返回x的绝对值大小和y的符号
-print(math.copysign(-5, -6)) # >>> -5.0
-print(math.copysign(-5, 7))  # >>> 5.0
+print(math.copysign(-5, -6))  # >>> -5.0
+print(math.copysign(-5, 7))   # >>> 5.0
 
 # math.fabs(x)
 # 返回x的绝对值
@@ -111,7 +111,7 @@ print('幂函数和对数函数')
 
 # math.exp(x)
 # 返回 e**x (e的x幂方)
-print(math.exp(2)) # >>> 7.38905609893065
+print(math.exp(2))  # >>> 7.38905609893065
 
 # math.expm1(x)
 # 返回e**x - 1
