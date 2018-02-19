@@ -3,6 +3,7 @@
 
 
 import functools
+
 print('functools.partial(func, *args, **keywords')
 # 返回一个新的partial对象，该对象在调用时将采用位置参数args和关键字参数关键字调用的func 。
 # 如果提供多个参数调用， 它们会被追加给 args。如果提供额外的关键字参数， 它们会扩展和覆盖 keywords。
@@ -22,7 +23,7 @@ a = '10101'
 print(int(a, base=2))  # 若每次调用都需要输入'base=2'太麻烦
 print(int(a, base=8))  # 4161
 
-newfunc = functools.partial(int, base=2) # 新建一个函数,运行int()的部分功能,专注于base=2
+newfunc = functools.partial(int, base=2)  # 新建一个函数,运行int()的部分功能,专注于base=2
 print(newfunc(a))
 
 print(newfunc(a, base=8))  # >>> 4161
@@ -53,12 +54,15 @@ print('functools.reduce(function, iterable[, initializer])')
 
 import functools
 
+
 def add(a, b):
     return a + b
+
+
 print(add(4, 2))  # >>> 6
 
 plus3 = functools.partial(add, 3)
 print(plus3(9))  # >>> 12
 print(plus3.func)  # >>> <function add at 0x7fb3b58c4e18>
 print(plus3.args)  # >>> (3,)
-print(plus3.keywords) # >>> {}
+print(plus3.keywords)  # >>> {}
