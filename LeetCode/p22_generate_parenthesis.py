@@ -10,10 +10,15 @@
 
 class Solution:
     def generateParenthesis(self, n):
-        pass
+        base = []
+        for i in range(1, n+1):  # this will include 0 and above
+            base.append(i*'()')
+        return base
 
+# if __name__ == '__main__':
+#     assert Solution().generateParenthesis(3) == ["((()))", "(()())", "(())()", "()(())", "()()()"]
+#     print('all passed')
 
-if __name__ == '__main__':
-    assert Solution().generateParenthesis(3) == ["((()))", "(()())", "(())()", "()(())", "()()()"]
-    print('all passed')
+print(Solution().generateParenthesis(0))
+print(Solution().generateParenthesis(3))
 
