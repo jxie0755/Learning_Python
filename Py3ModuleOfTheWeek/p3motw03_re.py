@@ -301,5 +301,3 @@ m = re.search(pattern, text)
 print('Search     :', m)
 s = re.fullmatch(pattern, text)
 print('Full match :', s)
-
-
