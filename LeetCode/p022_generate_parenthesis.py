@@ -21,3 +21,4 @@ class Solution:
 
 print(Solution().generateParenthesis(0))
 print(Solution().generateParenthesis(3))
+
