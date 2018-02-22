@@ -29,10 +29,4 @@ if __name__ == '__main__':
 print(Solution().generateParenthesis(0))
 print(Solution().generateParenthesis(3))
 
-
 # TODO Need to learn why it works
-
-
-
-
-
