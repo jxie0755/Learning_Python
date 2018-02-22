@@ -25,12 +25,14 @@ def can_pass(matrix, first, second):
 
     # write a function to get the value of a coordinate
     def coorvalue(coor):
+        """"coor is a tuple indicating a coordinate (x, y)"""
         return matrix_new[coor[0]][coor[1]]
 
     # write a function to check neighbor value
     temp, result = [], []
 
     def neighbor(coor):
+        """"coor is a tuple indicating a coordinate (x, y)"""
         if coor not in temp:  # only examine each coor once
             temp.append(coor)  # by using a temp list
             x, y = coor[0], coor[1]
