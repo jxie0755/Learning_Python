@@ -2,7 +2,7 @@
 
 This is for CS61a in sping 2018
 
-at: [cs61a.org](http://cs61a.org 'CS61A')
+at: [cs61a.org](http://cs61a.org)
 
 textbook
 http://composingprograms.com/
