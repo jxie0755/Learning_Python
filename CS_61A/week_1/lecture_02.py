@@ -24,7 +24,8 @@ print(f(3, 4))
 print(f(3, max))
 f = 2
 # f(3, 4)
-max = __builtins__.max
+import builtins
+max = builtins.max
 
 # User-defined functions
 print()
