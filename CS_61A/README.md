@@ -7,4 +7,5 @@ textbook
 http://composingprograms.com/
 
 * Week 1
-    *
+    * Functions
+    * Names
