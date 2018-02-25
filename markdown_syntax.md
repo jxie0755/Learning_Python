@@ -143,11 +143,14 @@ End a line with two or more spaces:
 ----
 
 超链接：[连接名称](网址 , 标题)
+
 [我是链接名](http://www.izhangbo.cn, "我是标题")
+
 [<i class="icon-refresh"></i> 点我刷新](/sonfilename/)
 
 另一种超链接写法：[链接名][链接代号]
 [here][3]
+
 然后在别的地方定义 3 这个详细链接信息，
 [3]: http://www.izhangbo.cn "聚牛团队"
 
