@@ -132,5 +132,5 @@ End a line with two or more spaces:
 
 ## TEST ##
 
-> **Quote**
+> ***I Quote***
 >> Quote details
