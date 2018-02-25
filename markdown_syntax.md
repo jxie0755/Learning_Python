@@ -1,3 +1,5 @@
+From [Markdown Syntax.md](https://github.com/fletcher/MultiMarkdown/blob/master/Documentation/Markdown%20Syntax.md)
+
 ## Phrase Emphasis ##
 
 	*italic*   **bold**
