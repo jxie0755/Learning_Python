@@ -44,7 +44,7 @@ print(max(words, key=len))
 
 # Reversals
 print()
-'draw'[::-1]
+print('draw'[::-1])
 print({w for w in words if w == w[::-1] and len(w)>4})
 print({w for w in words if w[::-1] in words and len(w) == 4})
 print({w for w in words if w[::-1] in words and len(w) > 6})
