@@ -64,8 +64,4 @@ g, h = min, max
 max = g
 b = max(f(2, g(h(1, 5), 3)), 4)
 print(a == b)
-# actually means:
-
-
-
-
+# This can be easily solved the environment diagrams
