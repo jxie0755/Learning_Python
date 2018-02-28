@@ -77,13 +77,13 @@ def with_if_function():
 
 # define c(), t() and f():
 def c():
-    return False
+    return True
 
 def t():
-    return 1/0  # the key
+    return 1
 
 def f():
-    return 1
+    return 1/0   # the key is whether f is called or not
 
 # test it out
 if __name__ == '__main__':
