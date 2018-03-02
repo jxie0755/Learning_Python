@@ -2,7 +2,7 @@
 
 import textwrap
 
-                 # 这个\很重要!!!!!!!!!!!!
+# 这个\很重要!!!!!!!!!!!!
 sample_text = '''\
     The textwrap module can be used to format text for output in
     situations where pretty-printing is desired.  It offers
@@ -24,7 +24,7 @@ print(dedented_text)
 dedented_text = textwrap.dedent(sample_text).strip()
 for width in [45, 60]:
     print('{} Columns:\n'.format(width))
-    print(textwrap.fill(dedented_text, width=width)) # 注意fill()有一个控制width的参数
+    print(textwrap.fill(dedented_text, width=width))  # 注意fill()有一个控制width的参数
     print()
 
 # Indenting Blocks
@@ -43,7 +43,7 @@ def should_indent(line):
     print('Indent {!r}?'.format(line))
     return len(line.strip()) % 2 == 0
 
-  
+
 dedented_text = textwrap.dedent(sample_text)
 wrapped = textwrap.fill(dedented_text, width=50)
 final = textwrap.indent(wrapped, 'EVEN ', predicate=should_indent)
@@ -68,7 +68,7 @@ original = textwrap.fill(dedented_text, width=50)
 print('Original:\n')
 print(original)
 
-shortened = textwrap.shorten(original, 100) # 注意最终是要算上[...]后不能超过100个字符.
+shortened = textwrap.shorten(original, 100)  # 注意最终是要算上[...]后不能超过100个字符.
 shortened_wrapped = textwrap.fill(shortened, width=50)
 
 print('\nShortened:\n')
