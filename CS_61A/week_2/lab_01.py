@@ -57,7 +57,7 @@ print(power_ten(2))
 
 # Quiz
 print('\nQuiz')
-print('\nQ1 what would python display')
+print('\nQ1: what would python display')
 print(True and 13)  # >>> 13
 print(False or 0)   # >>> 0
 print(not 10)       # >>> False
@@ -78,7 +78,7 @@ print((1+1) and 1)   # >>> 1
 print((True or False) and False)  # >>> False
 
 # Q2 Loops
-print('\nQ2 Loops')
+print('\nQ2: Loops')
 n = 3
 while n >= 0:
     n -= 1
@@ -157,12 +157,56 @@ while negative:
 #    (p=3, n=0)
 # end
 
+# Coding practice
+print('\nCoding Practice')
+print('\nQ3: Repeated')
+# Implement the repeated function, which takes a one-argument function f, a positive integer n, and a parameter x. It returns the result of composing, or applying, f n times on x, i.e., f(f(...f(x)...)).
+def repeated(f, n, x):
+    """Returns the result of composing f n times on x."""
+    "*** YOUR CODE HERE ***"
+
+if __name__ == '__main__':
+    def square(x):
+        return x * x
+    assert repeated(square, 2, 3) == 81, 'square(square(3)), or 3 ** 4'
+    assert repeated(square, 1, 4) == 16, 'square(4)'
+    assert repeated(square, 6, 2) == 18446744073709551616, 'big number'
+
+    def opposite(b):
+        return not b
+    assert repeated(opposite, 4, True) == True
+    assert repeated(opposite, 5, True) == False
+    assert repeated(opposite, 631, 1) == False
+    assert repeated(opposite, 3, 0) == True
+    print('all passed')
+
+print('\nQ4: Sum Digits')
+# Write a function that takes in a nonnegative integer and sums its digits. (Using floor division and modulo might be helpful here!)
+def sum_digits(n):
+    """Sum all the digits of n."""
+    "*** YOUR CODE HERE ***"
+
+if __name__ == '__main__':
+    assert sum_digits(10) == 1, '# 1 + 0 = 1'
+    assert sum_digits(4224) == 12, '4 + 2 + 2 + 4 = 12'
+    assert sum_digits(1234567890) == 45
+    print('all passed')
+
+print('\nQ5: Double Eights')
+# Write a function that takes in a number and determines if the digits contain two adjacent 8s.
+def double_eights(n):
+    """Return true if n has two eights in a row."""
+    "*** YOUR CODE HERE ***"
+
+if __name__ == '__main__':
+    assert double_eights(8) == False
+    assert double_eights(88) == True
+    assert double_eights(2882) == True
+    assert double_eights(880088) == True
+    assert double_eights(12345) == False
+    assert double_eights(80808080) == False
+    print('all passed')
 
 
-
-
-
-
-
-
-
+# Optional Questions
+print('\nOptional Questions')
