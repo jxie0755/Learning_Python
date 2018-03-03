@@ -10,3 +10,7 @@ http://composingprograms.com/
 * Week 1
     * Functions
     * Names
+* Week 2
+    * Control
+    * High-Order Functions
+    * Environments
