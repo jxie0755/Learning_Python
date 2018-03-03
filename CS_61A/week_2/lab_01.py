@@ -186,9 +186,11 @@ print('\nQ4: Sum Digits')
 # Write a function that takes in a nonnegative integer and sums its digits. (Using floor division and modulo might be helpful here!)
 def sum_digits(n):
     """Sum all the digits of n."""
+    # use nunber method, avoid string method at this time
     result = 0
-    for i in str(n):
-        result += int(i)
+    while n > 0:
+        result += n % 10
+        n = n // 10
     return result
 
 if __name__ == '__main__':
@@ -201,11 +203,19 @@ print('\nQ5: Double Eights')
 # Write a function that takes in a number and determines if the digits contain two adjacent 8s.
 def double_eights(n):
     """Return true if n has two eights in a row."""
-    n_string = str(n)
-    for i in range(len(n_string) - 1):
-        if n_string[i] == n_string[i+1] == '8':
+    # use nunber method, avoid string method at this time
+    count = 0
+    while n > 0:
+        digit = n % 10
+        if digit == 8:
+            count += 1
+        elif digit != 8:
+            count = 0
+        if count == 2:
             return True
+        n = n // 10
     return False
+
 
 if __name__ == '__main__':
     assert double_eights(8) == False
@@ -219,3 +229,8 @@ if __name__ == '__main__':
 
 # Optional Questions
 print('\nOptional Questions')
+print('\nQ6: WWPD: Truthiness')
+print(0 or True)                   # >>> True
+print(not '' or not 0 and False)   # >>> True # 注意运算优先级
+print(13 and False)                # >>> False
+
