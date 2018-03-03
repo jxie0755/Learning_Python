@@ -163,7 +163,9 @@ print('\nQ3: Repeated')
 # Implement the repeated function, which takes a one-argument function f, a positive integer n, and a parameter x. It returns the result of composing, or applying, f n times on x, i.e., f(f(...f(x)...)).
 def repeated(f, n, x):
     """Returns the result of composing f n times on x."""
-    "*** YOUR CODE HERE ***"
+    for i in range(n):
+        x = f(x)
+    return x
 
 if __name__ == '__main__':
     def square(x):
@@ -184,7 +186,10 @@ print('\nQ4: Sum Digits')
 # Write a function that takes in a nonnegative integer and sums its digits. (Using floor division and modulo might be helpful here!)
 def sum_digits(n):
     """Sum all the digits of n."""
-    "*** YOUR CODE HERE ***"
+    result = 0
+    for i in str(n):
+        result += int(i)
+    return result
 
 if __name__ == '__main__':
     assert sum_digits(10) == 1, '# 1 + 0 = 1'
@@ -196,7 +201,11 @@ print('\nQ5: Double Eights')
 # Write a function that takes in a number and determines if the digits contain two adjacent 8s.
 def double_eights(n):
     """Return true if n has two eights in a row."""
-    "*** YOUR CODE HERE ***"
+    n_string = str(n)
+    for i in range(len(n_string) - 1):
+        if n_string[i] == n_string[i+1] == '8':
+            return True
+    return False
 
 if __name__ == '__main__':
     assert double_eights(8) == False
