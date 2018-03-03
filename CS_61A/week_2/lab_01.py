@@ -117,3 +117,52 @@ go(5)
 # >>>
 # 2.5
 
+zero = 2
+while zero != 0:
+   zero = zero // 2
+   print(zero)
+# >>>
+# 1
+# 0
+
+# positive = 28
+# while positive:
+#     print("positive?")
+#     positive -= 3
+# >>>
+# positive? (28)
+# positive? (25)
+# positive? (22)
+# positive? (19)
+# positive? (16)
+# positive? (13)
+# positive? (10)
+# positive? (7)
+# positive? (4)
+# positive? (1)
+# positive? (-2)
+# ...continue forever
+
+positive = -9
+negative = -12
+while negative:
+    if positive:
+        print(negative)
+    positive += 3
+    negative += 3
+# >>>
+# -12 (p=-6, n=-9)
+# -9 (p=-3, n=-6)
+# -6 (p=0, n=-3)
+#    (p=3, n=0)
+# end
+
+
+
+
+
+
+
+
+
+
