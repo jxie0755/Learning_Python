@@ -31,8 +31,6 @@ if __name__ == '__main__':
     # print(xk(4, 6))    # >>> 6
     # print(xk(0, 0))    # >>> 25
 
-if __name__ == '__main__':
-    print('answers hidden')
     # def how_big(x):
     #     if x > 10:
     #         print('huge')
@@ -48,8 +46,6 @@ if __name__ == '__main__':
     # how_big(1)   # >>> small
     # how_big(-1)  # >>> nothin'
 
-if __name__ == '__main__':
-    print('answers hidden')
     # def so_big(x):
     #     if x > 10:
     #         print('huge')
@@ -63,8 +59,6 @@ if __name__ == '__main__':
     # so_big(12)  # >>> huge and return 'big'
     # so_big(1)   # >>> small and nothin'
 
-if __name__ == '__main__':
-    print('answers hidden')
     # def ab(c, d):
     #     if c > 5:
     #         print(c)
@@ -75,8 +69,6 @@ if __name__ == '__main__':
     # print('\nab')
     # ab(10, 20)  # >>> 10 and foo
 
-if __name__ == '__main__':
-    print('answers hidden')
     # def bake(cake, make):
     #     if cake == 0:
     #         cake = cake + 1
