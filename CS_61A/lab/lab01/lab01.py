@@ -3,22 +3,21 @@ print('\nQ1: WWPD: Veritasiness')
 # python3 ok -q short_circuiting -u
 
 if __name__ == '__main__':
-    print(True and 13)  # >>> 13
-    print(False or 0)   # >>> 0
-    print(not 10)       # >>> False
-    print(not None)     # >>> True
-    print()
+    print('answers hidden')
+    # print(True and 13)  # >>> 13
+    # print(False or 0)   # >>> 0
+    # print(not 10)       # >>> False
+    # print(not None)     # >>> True
     # print(True and 1 / 0 and False)     # >>> ZeroDivisionError
-    print(True or 1 / 0 or False)       # >>> True
-    print(True and 0)                   # >>> 0
-    print(False or 1)                   # >>> 1
-    print(1 and 3 and 6 and 10 and 15)  # >>> 15
-    print(0 or False or 2 or 1 / 0)     # >>> 2
-    print()
-    print(not 0)         # >>> True
-    print((1+1) and 1)   # >>> 1
+    # print(True or 1 / 0 or False)       # >>> True
+    # print(True and 0)                   # >>> 0
+    # print(False or 1)                   # >>> 1
+    # print(1 and 3 and 6 and 10 and 15)  # >>> 15
+    # print(0 or False or 2 or 1 / 0)     # >>> 2
+    # print(not 0)         # >>> True
+    # print((1+1) and 1)   # >>> 1
     # print((1/0) or True)  # ZeroDivisionError  # Still have to evaluate <left> even if returning <right>
-    print((True or False) and False)  # >>> False
+    # print((True or False) and False)  # >>> False
 
 # Q2 Loops
 print('\nQ2: WWPD: Loops')
