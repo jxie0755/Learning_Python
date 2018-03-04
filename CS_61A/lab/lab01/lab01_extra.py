@@ -9,8 +9,8 @@ print(False or 1)           # >>> True but actually show the value 1
 # print('' or 1 and 1/0)      # >>> Error
 print(not 0 and 12 or 0)    # >>> True but actually show the value 12
 
-print('\nQ7: WWPD: What If?')
 
+print('\nQ7: WWPD: What If?')
 
 def xk(c, d):
     if c == 4:
@@ -100,6 +100,7 @@ if __name__ == '__main__':
     assert both_positive(1, 1) == True
     print('all passed')
 
+print('\nQ9: Falling Factorial')
 
 def falling(n, k):
     """Compute the falling factorial of n to depth k."""
@@ -117,3 +118,4 @@ if __name__ == '__main__':
     assert falling(4, 3) == 24, '4 * 3 * 2'
     assert falling(4, 1) == 4
     print('all passed')
+
