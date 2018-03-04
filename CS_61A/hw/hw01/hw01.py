@@ -131,6 +131,7 @@ def f():
 
 # This sequence of values of n is often called a Hailstone sequence, Write a function that takes a single argument with formal parameter name n, prints out the hailstone sequence starting at n, and returns the number of steps in the sequence:
 
+
 def hailstone(n):
     """Print the hailstone sequence starting at n and return its
     length.
@@ -157,3 +158,6 @@ def hailstone(n):
             count += 1
     print(n)
     return count
+
+# python3 ok -q hailstone
+# passed
