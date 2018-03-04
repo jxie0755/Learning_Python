@@ -1,9 +1,10 @@
+## -*- coding: utf-8 -*-
 # 一篇文章搞懂Python中的面向对象编程
 # yangcongchufang.com/高级python编程基础/python-object-class.html
 
 
 print()
-print('基础知识')
+print('Basic Knowledge')
 
 # 类(Class)和实例(Instance)是面向对象最重要的概念
 # simplest way of creating a class
@@ -39,7 +40,6 @@ print(denis.score)  # >>> 99
 # 我们可以通过外部函数来访问这些数据
 def print_score(std):
     print(f"{std.name} has a score of {std.score}")
-
 print_score(denis)  # >>> Denis Xie has a score of 99
 
 # 既然我们创建的实例里有自身的数据，如果想访问这些数据，就没必要从外面的函数去访问
@@ -74,7 +74,7 @@ print(denis.gender)  # >>> male  # attribute only for denis
 
 
 print()
-print('访问限制')
+print('Restriction of visit')
 
 # 在Class内部，可以有属性和方法，而外部代码可以通过直接调用实例变量的方法来操作数据，这样，就隐藏了内部的复杂逻辑。
 # 但是，从前面Student类的定义来看，外部代码还是可以自由地修改一个实例的name、score属性
@@ -141,7 +141,7 @@ print(dir(denis))  # 可以发现private变量名字是如何被解释器改变�
 
 
 print()
-print('继承和多态')
+print('Inheritance and Polymorphism')
 
 # create a class Animal(), and a subclass Dog()
 class Animal(object):
@@ -213,7 +213,7 @@ animal_run(Timer())  # >>> Start...
 
 
 print()
-print('获取对象信息')
+print('Exraction Information from Objects')
 
 # 介绍一些用于获取对象信息的函数与方法
 
@@ -250,7 +250,7 @@ print(len(denis))  # >>> 100  # 只有特殊方法才可以这样
 
 
 print()
-print('实例属性和类属性')
+print('Instance properties and Class properties')
 
 # 不要把多态应用到属性上,而只是应用到方法上
 
@@ -276,7 +276,7 @@ print(s.name)  # >>> Student  # 再次调用s.name，由于实例的name属性�
 
 
 print()
-print('使用slots')
+print('use slots')
 
 class Student(object):
     __slots__ = ('name', 'age')  # 用tuple定义允许绑定的属性名称
@@ -306,7 +306,7 @@ print(cc.whatever)  # >>> 13212
 
 
 print()
-print('使用@Property decorator')
+print('Use @Property decorator')
 class Student(object):
     def __init__(self, name, score):
         self.name = name
@@ -389,7 +389,7 @@ print(dd.age)  # >> 29
 
 
 print()
-print('多重继承')
+print('Multiple Inheriance')
 
 class Animal(object):
     @staticmethod
@@ -420,7 +420,7 @@ didi.run()        # >>> I can run...     # Runnable类的方法
 
 
 print()
-print('定制类')
+print('Customized Class')
 
 # 形如__xxx__的变量或者函数名就要注意，这些在Python中是有特殊用途的
 
@@ -511,7 +511,7 @@ s()  # >>> My name is Denis.
 
 
 print()
-print('使用枚举类')
+print('Use Enumeration Class')
 # 当我们需要定义常量时，一个办法是用大写变量通过整数来定义
 JAN = 1
 FEB = 2
@@ -586,7 +586,7 @@ print(dict(Weekday.__members__.items()))
 
 
 print()
-print('使用元类')
+print('Use Meta-Class')
 
 # 动态语言和静态语言最大的不同，就是函数和类的定义，不是编译时定义的，而是运行时动态创建的
 
