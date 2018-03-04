@@ -139,3 +139,8 @@ Temporary Items
 /CS_61A/week_02/.ok_storage.db
 /CS_61A/week_02/lab01.ok
 /CS_61A/week_02/ok
+CS_61A/project/
+CS_61A/week_02/__pycache__/
+Py3ModuleOfTheWeek/__pycache__/
+ZSimpleLearnings/__pycache__/
+ZStandardLibrary/__pycache__/
