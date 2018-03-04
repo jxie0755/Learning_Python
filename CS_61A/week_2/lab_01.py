@@ -62,7 +62,6 @@ print(True and 13)  # >>> 13
 print(False or 0)   # >>> 0
 print(not 10)       # >>> False
 print(not None)     # >>> True
-
 print()
 # print(True and 1 / 0 and False)     # >>> ZeroDivisionError
 print(True or 1 / 0 or False)       # >>> True
@@ -70,7 +69,6 @@ print(True and 0)                   # >>> 0
 print(False or 1)                   # >>> 1
 print(1 and 3 and 6 and 10 and 15)  # >>> 15
 print(0 or False or 2 or 1 / 0)     # >>> 2
-
 print()
 print(not 0)         # >>> True
 print((1+1) and 1)   # >>> 1
@@ -233,4 +231,9 @@ print('\nQ6: WWPD: Truthiness')
 print(0 or True)                   # >>> True
 print(not '' or not 0 and False)   # >>> True # 注意运算优先级
 print(13 and False)                # >>> False
+print()
+print(False or 1)           # >>> True but actually show the value 1
+# print('' or 1 and 1/0)      # >>> Error
+print(not 0 and 12 or 0)    # >>> True but actually show the value 12
+
 
