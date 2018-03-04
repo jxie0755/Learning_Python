@@ -1,5 +1,5 @@
 # 一篇文章搞懂Python中的面向对象编程
-# http://yangcongchufang.com/%E9%AB%98%E7%BA%A7python%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/python-object-class.html
+# yangcongchufang.com/高级python编程基础/python-object-class.html
 
 
 print()
@@ -17,7 +17,7 @@ print(denis)    # >>> <__main__.Student object at 0x7f510c8f8400>
 # 可以自由地给一个实例变量绑定属性
 
 denis.name = 'Denis Xie'
-print(hasattr(denis, 'name'))  #>>>  True
+print(hasattr(denis, 'name'))  # >>>  True
 
 # 类同时也可以起到模板的作用，我们可以在创建一个类的时候，把一些认为公共的东西写进类定义中去，在python中通过一个特殊的__init__方法实现
 class Student(object):
@@ -51,7 +51,6 @@ class Student(object):
         self.name = name
         self.score = score
 
-    @staticmethod
     def print_score(self):
         print(f"{self.name} has a score of {self.score}")
 
@@ -93,7 +92,6 @@ class Student(object):
         self.__name = name
         self.__score = score
 
-    @staticmethod
     def print_score(self):
         print(f"{self.__name} has a score of {self.__score}")
 
@@ -518,7 +516,7 @@ print('使用枚举类')
 JAN = 1
 FEB = 2
 MAR = 3
-#...
+# ...
 NOV = 11
 DEC = 12
 
