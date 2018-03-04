@@ -236,4 +236,16 @@ print(False or 1)           # >>> True but actually show the value 1
 # print('' or 1 and 1/0)      # >>> Error
 print(not 0 and 12 or 0)    # >>> True but actually show the value 12
 
+print('\nQ7: WWPD: What If?')
+def xk(c, d):
+    if c == 4:
+        return 6
+    elif d >= 4:
+        return 6 + 7 + c
+    else:
+        return 25
 
+print(xk(10, 10))  # >>>
+print(xk(10, 6))   # >>>
+print(xk(4, 6))    # >>>
+print(xk(0, 0))    # >>>
