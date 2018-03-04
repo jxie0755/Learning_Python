@@ -73,9 +73,9 @@ m1 = Money(27, 12)
 print(m1.dollars, 'dollars,', m1.cents, 'cents')
 # >>> 27 dollars, 12 cents
 
-#　第二版本
+# 第二版本
 class Money:
-    def __init__(self, dollars, cents):  #　改进__init__方法
+    def __init__(self, dollars, cents):  # 改进__init__方法
         self.total_cents = dollars * 100 + cents
 # 这一修改带来一个后果：引用Money类的每一行代码都必须要调整 (特别是被其他团队复用代码的情况)
 
@@ -86,7 +86,7 @@ m1 = Money(27, 12)
 
 # 第二版本优化
 class Money:
-    def __init__(self, dollars, cents):  #　与第二版本相同的__init__方法
+    def __init__(self, dollars, cents):  # 与第二版本相同的__init__方法
         self.total_cents = dollars * 100 + cents
 
     # Getter and setter for dollars...
