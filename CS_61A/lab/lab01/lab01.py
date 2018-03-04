@@ -35,8 +35,6 @@ if __name__ == '__main__':
     # 0
     # -1
 
-if __name__ == '__main__':
-    print('answers hidden')
     # n = 4
     # while n > 0:
     #     n += 1
@@ -47,8 +45,6 @@ if __name__ == '__main__':
     # 7
     # ...forever continue
 
-if __name__ == '__main__':
-    print('answers hidden')
     # def go(n):
     #     if n % 2 != 0:
     #         print(n / 2)
@@ -65,8 +61,6 @@ if __name__ == '__main__':
     # >>>
     # 2.5
 
-if __name__ == '__main__':
-    print('answers hidden')
     # zero = 2
     # while zero != 0:
     #    zero = zero // 2
@@ -75,8 +69,6 @@ if __name__ == '__main__':
     # 1
     # 0
 
-if __name__ == '__main__':
-    print('answers hidden')
     # positive = 28
     # while positive:
     #     print("positive?")
@@ -95,8 +87,6 @@ if __name__ == '__main__':
     # positive? (-2)
     # ...continue forever
 
-if __name__ == '__main__':
-    print('answers hidden')
     # positive = -9
     # negative = -12
     # while negative:
