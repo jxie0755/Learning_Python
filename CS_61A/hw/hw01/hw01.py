@@ -27,8 +27,7 @@ def a_plus_abs_b(a, b):
 # Write a function that takes three positive numbers and returns the sum of the squares of the two largest numbers. Use only a single line for the body of the function.
 
 def two_of_three(a, b, c):
-    """Return x*x + y*y, where x and y are the two largest members of the
-    positive numbers a, b, and c.
+    """Return x*x + y*y, where x and y are the two largest members of the positive numbers a, b, and c.
 
     >>> two_of_three(1, 2, 3)
     13
@@ -71,8 +70,7 @@ def largest_factor(n):
 # Let's write a function that does the same thing as an if statement.
 
 def if_function(condition, true_result, false_result):
-    """Return true_result if condition is a true value, and
-    false_result otherwise.
+    """Return true_result if condition is a true value, and false_result otherwise.
 
     >>> if_function(True, 2, 3)
     2
@@ -133,8 +131,7 @@ def f():
 
 
 def hailstone(n):
-    """Print the hailstone sequence starting at n and return its
-    length.
+    """Print the hailstone sequence starting at n and return its length.
 
     >>> a = hailstone(10)
     10
