@@ -133,3 +133,10 @@ Temporary Items
 .idea/misc.xml
 .idea/modules.xml
 .idea/vcs.xml
+
+# CS61a
+*.ok
+ok
+*.ok_history
+*.ok_storage.db
+
