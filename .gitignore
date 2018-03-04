@@ -135,8 +135,7 @@ Temporary Items
 .idea/vcs.xml
 
 # CS61a
-*.ok
-ok
-*.ok_history
-*.ok_storage.db
-
+/CS_61A/week_02/.ok_history
+/CS_61A/week_02/.ok_storage.db
+/CS_61A/week_02/lab01.ok
+/CS_61A/week_02/ok
