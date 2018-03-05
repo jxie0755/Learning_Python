@@ -42,3 +42,62 @@ def sqrt(a):
     return improve(sqrt_update, sqrt_close)
 
 print(sqrt(5))
+
+
+# Compose two functions
+
+def compose1(f, g): 
+    def h(x): 
+        return f(g(x)) 
+    return h
+
+# This leads to idea of lambda function, we don't need to have a name for each function when use inside of another function
+# compose function will be then:
+
+def compose1(f, g): 
+    return lambda x: f(g(x))
+
+s = lambda x: x * x
+
+print(s)
+# >>> <function <lambda> at 0xf3f490>
+
+print(s(12))
+# >>> 144
+
+
+# Curried Functions
+def curried_pow(x):
+    def h(y):
+        return pow(x, y)
+    return h
+
+print(curried_pow(2)(3))
+# >>> equals to h(3), but x is given in curried_pow
+# when h look for x, it won't find, but it will find in the last environment of curried_pow
+# >>> 8
+
+
+# Currying and Uncurrying with 2 arguments
+
+def curry2(f):
+    """Return a curried version of the given two-argument function."""
+    def g(x):
+        def h(y):
+            return f(x, y)
+        return h
+    return g
+
+print(pow(2,3))  # >>> 8
+pow_curried = curry2(pow)  # new curried function
+print(pow_curried(2)(3))  # >>> 8  # Same as pow(2, 3)
+
+
+def uncurry2(g):
+    """Return a two-argument version of the given curried function."""
+    def f(x, y):
+        return g(x)(y)
+    return f
+
+print(uncurry2(pow_curried)(2, 4))  # >>> 16  # Same as pow(2,4)
+
