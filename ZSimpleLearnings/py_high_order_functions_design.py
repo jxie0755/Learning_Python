@@ -101,3 +101,48 @@ def uncurry2(g):
 
 print(uncurry2(pow_curried)(2, 4))  # >>> 16  # Same as pow(2,4)
 
+
+
+# The currying leads to python function decorator
+
+# Learned in OOP where class methods can be applied by decorator
+# Here it is straightly applied on normal functions
+
+# Python provides special syntax to apply higher-order functions as part of executing a def statement, called a decorator.
+# Perhaps the most common example is a trace
+
+def trace(fn):
+    def wrapped(x):
+        print('-> ', fn, '(', x, ')')
+        return fn(x)
+    return wrapped
+
+@trace
+def triple(x):
+    return 3 * x
+
+print(triple(12))
+# >>>
+# ->  <function triple at 0x7f738d9b6598> ( 12 )
+# 32
+
+
+# Equals to:
+
+def trace(fn):
+    def wrapped(x):
+        print('-> ', fn, '(', x, ')')
+        return fn(x)
+    return wrapped
+
+def tripleN(x):
+    return 3 * x
+
+tripleN = trace(tripleN)
+
+print(tripleN(12))
+# >>>
+# ->  <function triple at 0x7f738d9b6598> ( 12 )
+# 32
+
+# Essentially is to create a function that curry the original function inside.
