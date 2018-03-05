@@ -1,5 +1,6 @@
 
 # Showed by designing a number of function to calculate the square root of a number
+# http://composingprograms.com/pages/16-higher-order-functions.html
 
 # This is a high-order function that can be used to keep updating a value until it meets the requirement
 # this method uses the update x by calling average(x, a/x), different than binary search method.
