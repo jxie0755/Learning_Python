@@ -10,7 +10,6 @@
 # """
 
 class Solution():
-    class Solution():
 
     OPEN_BRACKETS = {'(': 1, '{': 2, '[': 3}
     CLOSE_BRACKETS = {')': 1, '}': 2, ']': 3}  # setup data as class attributes

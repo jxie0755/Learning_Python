@@ -1,4 +1,4 @@
-# p007 Reverse Integer 
+# p007 Reverse Integer
 # Easy
 
 # Given a 32-bit signed integer, reverse digits of an integer.
@@ -10,7 +10,7 @@
 # :type x: int
 # :rtype: int
 # """
-    
+
 class Solution(object):
     def reverse(self, x):  # string method, takes extra space
         if x >= 0:
@@ -19,13 +19,13 @@ class Solution(object):
         else:
             result = int('-' + str(x)[-1:0:-1])
             return result if result >= -2147483648 else 0
-    
+
     def reverse2(self, x):  # no extra space used, by using divmod method
         absX = abs(x)
         result = 0
         while absX > 0:
             result = result * 10 + absX % 10
-            absX //= 10  
+            absX //= 10
         if x < 0:
             result = -result
         return result if 2147483647 > result > -2147483648 else 0
