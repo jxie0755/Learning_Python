@@ -1,3 +1,3 @@
 # Python Challenge
 
-http://www.pythonchallenge.com/
+at: [Project Euler](https://www.pythonchallenge.com/)

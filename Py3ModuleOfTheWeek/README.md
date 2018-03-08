@@ -1,6 +1,6 @@
 # Python 3 Module of the Week
 
-https://pymotw.com/3/
+at: [P3MOTW](https://pymotw.com/3/)
 
 * Text
     * string
