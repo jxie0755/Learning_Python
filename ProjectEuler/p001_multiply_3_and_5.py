@@ -18,6 +18,7 @@ def pe_001(n):
 # This method is simple enough but may overflow when the range is large, i.e. 10000000
 # A better way is to calculate [the sum of 3 divisble + sum of 5 divisible - sum of 15 divisible]
 
+
 def pe_001b(n):
     # write a function to get the end number and the total number of divisible
     def sum_divisible(divisor):
