@@ -20,7 +20,8 @@ def pe_001(n):
 
 
 def pe_001b(n):
-    # write a function to get the end number and the total number of divisible
+    # write a function to get the end number and the total number of divisible and then calculate the sum by using formula of Arithmetic progression
+
     def sum_divisible(divisor):
         for i in range(1, divisor + 1):
             if (n - i) % divisor == 0:
