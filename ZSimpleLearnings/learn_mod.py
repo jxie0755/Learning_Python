@@ -1,5 +1,7 @@
 # this is to learn how import command will work differently
 
+print('this is global, will be seen even if selective import')
+
 var1 = 5
 def fun1():
     return var1
