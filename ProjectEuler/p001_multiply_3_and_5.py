@@ -43,7 +43,7 @@ if __name__ == '__main__':
     print('answer is:')
     print(pe_001b(1000))  # passed
 
-# test for time consumed
+# test time consumption by using timeit
 if __name__ == '__main__':
     import timeit
     print('\npe001, original method:')
@@ -51,4 +51,4 @@ if __name__ == '__main__':
     print('\npe001b, new method:')
     print(timeit.repeat('pe_001b(1000)', setup='from __main__ import pe_001b', repeat=3, number=10000))
     # new method is much faser
-    print(pe_001b(1000000000))  # also works for large numbers
+    print(pe_001b(1000000000))  # also works for large numbers, which pe_001() won't
