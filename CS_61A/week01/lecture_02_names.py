@@ -1,3 +1,6 @@
+# CS61A Lecture 02: Names
+
+
 # Imports
 from math import pi
 print(pi * 71 / 223)
