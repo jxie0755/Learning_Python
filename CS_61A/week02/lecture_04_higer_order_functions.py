@@ -31,4 +31,3 @@ def digits(a):
     return a_digits
 
 # instead of writing the same type of code blocks twice, better to create a function to specifically count the number of digits. Then apply it to both a and b and compare.
-
