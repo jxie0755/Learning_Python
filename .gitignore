@@ -143,3 +143,5 @@ Temporary Items
 *.pyc
 CS_61A/hw/hw01/.ok_history
 whiteboard.py
+CS_61A/hw/hw02/.ok_history
+*.db
