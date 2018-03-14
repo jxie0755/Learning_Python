@@ -21,4 +21,3 @@ print(list(genFib_PE002()))
 print(sum(genFib_PE002()))
 # >>> 4613732
 # passed
-
