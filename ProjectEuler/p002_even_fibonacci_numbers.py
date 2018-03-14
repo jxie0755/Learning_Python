@@ -8,7 +8,7 @@
 # but modify the while loop condition to limit maximum value at 4000000
 def genFib_PE002():  # this created a generator for fibonacci numbers
     a, b = 0, 1
-    yield a
+    # yield a  # no need to yield 0
     # yield b  # cancel yield b because it is not even
     while a + b <= 4000000:
         next = a + b
