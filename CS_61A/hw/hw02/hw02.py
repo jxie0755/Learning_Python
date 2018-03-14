@@ -54,6 +54,10 @@ def factorial(n):
     """
     return product(n, identity)
 
+# python3 ok -q product
+# python3 ok -q factorial
+# all passed
+
 def make_adder(n):
     """Return a function that takes an argument K and returns N + K.
 
@@ -65,3 +69,6 @@ def make_adder(n):
     """
     adder = lambda k: k + n
     return adder
+
+# python3 ok -q make_adder
+# passed
