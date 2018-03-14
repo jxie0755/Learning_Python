@@ -20,6 +20,7 @@ Classes:
 Pracice:
 * Checkio.org for python practice -- ongoing (finished all beginner and easy questions)
 * LeetCode -- ongoing
+* ProjectEuler -- ongoing
 
 
 ---
