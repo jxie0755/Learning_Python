@@ -98,7 +98,6 @@ if __name__ == '__main__':
 
 # use generator in fibonacci function
 def genFib():  # this created a generator for fibonacci numbers
-    index = 0
     a, b = 0, 1
     yield a
     yield b
