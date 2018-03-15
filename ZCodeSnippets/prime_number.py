@@ -20,7 +20,7 @@ if __name__ == '__main__':
 
 
 # generator version
-def genPrimes(max=None):  # set a max limit
+def gen_primes(max=None):  # set a max limit
     p = 2
     while max == None or p <= max:
         if all(p % x != 0 for x in range(2, p)):
@@ -28,7 +28,7 @@ def genPrimes(max=None):  # set a max limit
         p += 1
 
 if __name__ == '__main__':
-    P = genPrimes(17)
+    P = gen_primes(17)
     print(list(P))
     # >>> [2, 3, 5, 7, 11, 13, 17]
 
@@ -36,13 +36,13 @@ if __name__ == '__main__':
 
 # To tell if a number is prime number or not
 
-def isPrime(n):
+def is_prime(n):
     """To tell if a number is prime number or not
     n can be any integer"""
     return n != 0 and n != 1 and all(map(lambda x: n % x != 0, range(2, int(n ** 0.5) + 1)))
 
 if __name__ == '__main__':
-    print(list(filter(isPrime2, range(100))))
+    print(list(filter(is_prime, range(100))))
 
 
 def show_prime_list(n1, n2):
@@ -50,5 +50,5 @@ def show_prime_list(n1, n2):
     return pnumber
 
 if __name__ == '__main__':
-    print(show_prime(10,30))
+    print(show_prime_list(10,30))
     # >>> [11, 13, 17, 19, 23, 29]
