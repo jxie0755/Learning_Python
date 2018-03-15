@@ -57,7 +57,7 @@ def substring_C(iterable):
     # this part assigns the moving of the center, and define the two sides from it
     for i in range(len(iterable)):
         for j in range(2):
-            left =i
+            left = i
             right = left + 1
             # this part expand from the center to get all the substrings that share the same center point
             while left >= 0 and right < len(iterable):
@@ -78,7 +78,7 @@ def gen_substring_SL(iterable):
         for i in range(len(iterable) - lenth + 1):
             yield iterable[i:i+lenth]
 
-   
+
 def gen_substring_LS(iterable):
     for lenth in range(len(iterable), 0, -1):
         for i in range(len(iterable) - lenth + 1):
@@ -90,12 +90,12 @@ def gen_substrings(iterable):
         for lenth in range(1, len(iterable) - i + 1):
             yield iterable[i:i+lenth]
 
-            
+
 def gen_substring_C(iterable):
     for i in range(len(iterable)):
         for j in range(2):
-            left =i
-            right = left + j  
+            left = i
+            right = left + j
             while left >= 0 and right < len(iterable):
                 yield iterable[left:right+1]
                 left -= 1
