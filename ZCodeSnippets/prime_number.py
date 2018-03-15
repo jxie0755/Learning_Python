@@ -32,6 +32,7 @@ if __name__ == '__main__':
     print(list(P))
     # >>> [2, 3, 5, 7, 11, 13, 17]
 
+
 # 最简练
 
 # To tell if a number is prime number or not
