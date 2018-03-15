@@ -12,7 +12,7 @@ for x in range(2, 101):
 print(pnumber1)
 
 # generator version
-def genPrimes(max = None):  # set a max limit
+def genPrimes(max=None):  # set a max limit
     p = 2
     while max == None or p <= max:
         if all(p % x != 0 for x in range(2, p)):
@@ -78,7 +78,7 @@ print(pnumber2)
 pnumber2b = []
 for x in range(2, 101):
     if not all(x % i for i in range(2, x)):
-        continue         #使用contine因为此处是一重循环,如果break则会终止在第一个不是质数的x,也就是4.所以只会变成[2, 3]
+        continue         # 使用contine因为此处是一重循环,如果break则会终止在第一个不是质数的x,也就是4.所以只会变成[2, 3]
     else:
         pnumber2b.append(x)
 print(pnumber2b)
