@@ -8,13 +8,13 @@
 # Version 1 Brutal force iteration over the (sqrt + 1) of the target
 from math import sqrt
 
-def prime(n):
+def isPrime(n):
     return all(n % i != 0 for i in range(2, n))
 
 target = 600851475143
 maximum_possible_factor = round(sqrt(target))
 for i in range(maximum_possible_factor, 1, -1):
-    if target % i == 0 and prime(i):
+    if target % i == 0 and isPrime(i):
         print(i)
         break
 
