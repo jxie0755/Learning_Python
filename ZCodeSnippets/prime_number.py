@@ -50,5 +50,5 @@ def show_prime_list(n1, n2):
     return pnumber
 
 if __name__ == '__main__':
-    print(show_prime_list(10,30))
+    print(show_prime_list(10, 30))
     # >>> [11, 13, 17, 19, 23, 29]
