@@ -18,6 +18,7 @@ if __name__ == '__main__':
     print(prime_list_original(2,20))
     # >>> [2, 3, 5, 7, 11, 13, 17]
 
+
 # generator version
 def genPrimes(max=None):  # set a max limit
     p = 2
@@ -34,6 +35,7 @@ if __name__ == '__main__':
 # 最简练
 
 # To tell if a number is prime number or not
+
 def isPrime(n):
     """To tell if a number is prime number or not
     n can be any integer"""
@@ -41,6 +43,7 @@ def isPrime(n):
 
 if __name__ == '__main__':
     print(list(filter(isPrime2, range(100))))
+
 
 def show_prime_list(n1, n2):
     pnumber = [x for x in range(n1, n2+1) if all(x % i for i in range(2, int(x**0.5)+1))]
