@@ -15,7 +15,7 @@ def prime_list_original(n1, n2):
     return pnumber_list
 
 if __name__ == '__main__':
-    print(prime_list_original(2,20))
+    print(prime_list_original(2, 20))
     # >>> [2, 3, 5, 7, 11, 13, 17]
 
 
