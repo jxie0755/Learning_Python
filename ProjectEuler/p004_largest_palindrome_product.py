@@ -7,24 +7,27 @@
 
 
 # define a function to conduct the brutal force search
-def search_largest_palindrome():
+def search_largest_palindrome(min_prod, max_prod):
     """search the largest 6 digit padlindrome number"""
 
-    # define the boundary
-    maximum = 999 * 999
-    minimum = 100 * 100
+    # Create an generator the filter the 6 digit padlindrome numbers from big to small
+    def genPadlindromes():
+        maximum, minimum = max_prod ** 2, min_prod ** 2
+        for number in range(maximum, minimum - 1, -1):
+            if str(number) == str(number)[::-1]:
+                yield number
 
-    # Create an iterator the filter the 6 digit padlindrome numbers from big to small
-    palindrome_list = filter(lambda x: str(x) == str(x)[::-1], range(maximum, minimum - 1, -1))
+    palindrome_numbers = genPadlindromes()
+    running = True
+    while running:
+        sample = next(palindrome_numbers)
+        for divisor in range(min_prod, max_prod + 1):
+            other_divisor = sample // divisor
+            if sample % divisor == 0 and other_divisor in range(min_prod, max_prod+1):
+                print(sample, 'by', divisor, '*', other_divisor)
+                return sample
 
-    for number in palindrome_list:
-        for divisor in range(100, 1000):
-            other_divisor = number // divisor
-            if number % divisor == 0 and other_divisor in range(100, 1000):
-                print(number, 'by', divisor, '*', other_divisor)
-                return number
-
-print(search_largest_palindrome())
+print(search_largest_palindrome(100, 999))
 # >>>
 # 906609 by 913 * 993
 # 906609
