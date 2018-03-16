@@ -19,8 +19,9 @@ def genFib_PE002():  # this created a generator for fibonacci numbers
             yield next
         a, b = b, next
 
-print(list(genFib_PE002()))
-# >>> [0, 2, 8, 34, 144, 610, 2584, 10946, 46368, 196418, 832040, 3524578]
-print(sum(genFib_PE002()))
-# >>> 4613732
-# passed
+if __name__ == '__main__':
+    print(list(genFib_PE002()))
+    # >>> [0, 2, 8, 34, 144, 610, 2584, 10946, 46368, 196418, 832040, 3524578]
+    print(sum(genFib_PE002()))
+    # >>> 4613732
+    # passed
