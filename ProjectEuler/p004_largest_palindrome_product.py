@@ -18,13 +18,14 @@ def search_largest_palindrome(min_prod, max_prod):
                 yield number
 
     palindrome_numbers = genPadlindromes()
+    limit = range(min_prod, max_prod + 1)
     running = True
     while running:
         try:
             sample = next(palindrome_numbers)
-            for divisor in range(min_prod, max_prod + 1):
+            for divisor in limit:
                 other_divisor = sample // divisor
-                if sample % divisor == 0 and other_divisor in range(min_prod, max_prod+1):
+                if sample % divisor == 0 and other_divisor in limit:
                     print(sample, 'by', divisor, '*', other_divisor)
                     return sample
         except StopIteration:
