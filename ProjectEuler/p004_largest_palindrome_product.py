@@ -4,9 +4,7 @@
 # Find the largest palindrome made from the product of two 3-digit numbers.
 
 # Brutal force method
-# define a function to check if palindrome
-def isPalindrome(n):
-    return str(n) == str(n)[::-1]
+
 
 # define a function to conduct the brutal force search
 def search_largest_palindrome():
@@ -17,7 +15,7 @@ def search_largest_palindrome():
     minimum = 100 * 100
 
     # Create an iterator the filter the 6 digit padlindrome numbers from big to small
-    palindrome_list = filter(isPalindrome, range(maximum, minimum - 1, -1))
+    palindrome_list = filter(lambda x: str(x) == str(x)[::-1], range(maximum, minimum - 1, -1))
 
     for number in palindrome_list:
         for divisor in range(100, 1000):
@@ -30,4 +28,3 @@ print(search_largest_palindrome())
 # >>>
 # 906609 by 913 * 993
 # 906609
-
