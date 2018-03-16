@@ -31,3 +31,4 @@ print(search_largest_palindrome(100, 999))
 # >>>
 # 906609 by 913 * 993
 # 906609
+# passed
