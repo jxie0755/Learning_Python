@@ -1,4 +1,5 @@
 # List comprehension vs Straightforward for loop
+# https://stackoverflow.com/questions/27905965/python-why-is-list-comprehension-slower-than-for-loop
 
 def lcm(X):
     n = 0
