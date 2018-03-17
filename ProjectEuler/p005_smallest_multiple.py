@@ -24,15 +24,20 @@ if __name__ == '__main__':
      # >>> 232792560
      # passed
 
+
+# Created by Ye Luo
 def LCM(num):
-    a, y = 1,1
-    for a in range(1,num+1):
-        y = y*a/GCD(y,a)
     def GCD(a,b):
         while b:
             a,b = b,a%b
         return a
+
+    a, y = 1,1
+    for a in range(1,num+1):
+        y = y*a//GCD(y,a)
+
     return y
 
-result = LCM(20)
-print(result)
+if __name__ == '__main__':
+    result = LCM(20)
+    print(result)
