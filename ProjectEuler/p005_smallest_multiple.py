@@ -41,3 +41,22 @@ def LCM(num):
 if __name__ == '__main__':
     result = LCM(20)
     print(result)
+
+#================================#
+import time
+def lcm(X):
+    n = 0
+    while True:
+        n += 1
+        for i in range(2,X+1):
+            if n%i!=0:
+                break
+        else:
+            break
+    return n
+
+t1 = time.time()
+print(lcm(20))
+t2 = time.time()
+print(t2-t1)
+
