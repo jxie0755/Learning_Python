@@ -16,7 +16,7 @@ def even_distribute(n1, n2):
         sample += 1
 
 print(even_distribute(1, 20))
-# >>> this will take too much time
+# >>> this will take too much time (~100 sec)
 
 
 
