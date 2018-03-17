@@ -23,3 +23,16 @@ if __name__ == '__main__':
      print(smallest_multiple(1, 20))
      # >>> 232792560
      # passed
+
+def LCM(num):
+    a, y = 1,1
+    for a in range(1,num+1):
+        y = y*a/GCD(y,a)
+    def GCD(a,b):
+        while b:
+            a,b = b,a%b
+        return a
+    return y
+
+result = LCM(20)
+print(result)
