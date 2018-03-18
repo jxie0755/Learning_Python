@@ -32,6 +32,7 @@ def smallest_multiple(n1, n2):
     return reduce(lowest_common_multiple, range(n1, n2+1))
 
 if __name__ == '__main__':
+    assert smallest_multiple(1, 10) == 2520, 'regular'
     print(smallest_multiple(1, 20))
     # >>> 232792560    # straightforward math calculation takes almost no itme.
     # passed
