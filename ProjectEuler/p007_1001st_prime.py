@@ -16,6 +16,7 @@ def prime(n):
     while count != n:
         sample += 1
         if all(sample % divisor != 0 for divisor in range(2, int(sample**0.5) + 1)):
+            # use sqrt of sample to save time
             count += 1
     return sample
 
