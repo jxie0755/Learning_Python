@@ -14,8 +14,7 @@ def pythagorean_triplet(n):
         rest = n - a
         for b in range((rest-a)//2 + 1, rest//2 + 1):
             c = n - a - b
-            if a < b and a + b > c:
-                if a**2 + b**2 == c**2:
+            if a < b and a + b > c and a**2 + b**2 == c**2:
                     print(a, '*', b, '*', c)
                     return a * b * c
     else:
