@@ -32,6 +32,7 @@ def search_largest_palindrome(min_prod, max_prod):
             running = False
 
 if __name__ == '__main__':
+    assert search_largest_palindrome(10, 99) == 9009, 'regular'
     print(search_largest_palindrome(100, 999))
     # >>>
     # 906609 by 913 * 993
