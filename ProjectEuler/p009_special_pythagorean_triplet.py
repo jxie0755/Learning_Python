@@ -18,7 +18,7 @@ def pythagorean_triplet(n):
                     print(a, '*', b, '*', c)
                     return a * b * c
     else:
-        return None
+        return None  # In case can't find any.
 
 if __name__ == '__main__':
     assert pythagorean_triplet(12) == 60, 'regular'
