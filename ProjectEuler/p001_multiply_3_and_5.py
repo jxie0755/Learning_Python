@@ -34,23 +34,7 @@ def pe_001b(n1, n2, limit):
 
 
 if __name__ == '__main__':
-    assert pe_001(3, 5, 10) == 23, 'below 10'
-    print('answer is:')
-    print(pe_001(3, 5, 1000))  # passed
-
-    print()
-
-    print('new method:')
     assert pe_001b(3, 5, 10) == 23, 'below 10'
-    print('answer is:')
-    print(pe_001b(3, 5, 1000))  # passed
-
-# test time consumption by using timeit
-if __name__ == '__main__':
-    import timeit
-    print('\npe001, original method:')
-    print(timeit.repeat('pe_001(3, 5, 1000)', setup='from __main__ import pe_001', repeat=3, number=10000))
-    print('\npe001b, new method:')
-    print(timeit.repeat('pe_001b(3, 5, 1000)', setup='from __main__ import pe_001b', repeat=3, number=10000))
-    # new method is much faser
-    print(pe_001b(3, 5, 1000000000))  # test for large number, still works
+    print(pe_001b(3, 5, 1000))
+    # >>> 233168
+    # passed
