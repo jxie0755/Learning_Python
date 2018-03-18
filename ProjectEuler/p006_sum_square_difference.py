@@ -16,6 +16,9 @@ def sum_square_difference(n1, n2):
     return sum_square - square_sum
 
 if __name__ == '__main__':
+    assert sum_square_difference(1, 10) == 2640, 'regular'
     print(sum_square_difference(1, 100))
+    # >>> 25164150
+    # passed
 
 
