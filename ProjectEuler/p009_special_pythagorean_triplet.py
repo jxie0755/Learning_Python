@@ -12,7 +12,7 @@ def pythagorean_triplet(n):
     max_value = n // 3 + 1  # set maximum for a, not exceed 1/3 of n, to prevent b < a  or c < a
     for a in range(1, max_value):
         rest = n - a
-        for b in range((rest-a)//2 + 1, rest//2 + 1):
+        for b in range((rest-a)//2 + 1, rest//2 + 1):  # set the condition tighter to improve algorithm
             c = n - a - b
             if a < b and a + b > c and a**2 + b**2 == c**2:
                     print(a, '*', b, '*', c)
