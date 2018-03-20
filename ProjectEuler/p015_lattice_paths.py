@@ -68,8 +68,9 @@ def list_add(lst):
     return [lst[0]] + result + [lst[-1]]
 
 # test list_add 函数
-print(list_add([1,1]))    # >>> [1, 2, 1]
-print(list_add([1,2,1]))  # >>> [1, 3, 3, 1]
+if __name__ == '__main__':
+    print(list_add([1,1]))    # >>> [1, 2, 1]
+    print(list_add([1,2,1]))  # >>> [1, 3, 3, 1]
 
 
 def count_grid_path_math(n):
@@ -80,7 +81,10 @@ def count_grid_path_math(n):
     return num_list[len(num_list)//2]  # 取中间值
 
 # test final function
-print(count_grid_path_math(1))
-print(count_grid_path_math(2))
-print(count_grid_path_math(10))
-print(count_grid_path_math(20))  # >>> 137846528820
+if __name__ == '__main__':
+    assert count_grid_path_math(1) == 2, 'start'
+    assert count_grid_path_math(2) == 6, 'regular'
+    assert count_grid_path_math(10) == 184756, '10*10'
+    print(count_grid_path_math(20))
+    # >>> 137846528820
+    # passed
