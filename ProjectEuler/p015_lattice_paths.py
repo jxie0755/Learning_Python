@@ -57,25 +57,29 @@ if __name__ == '__main__':
     # >>> 计算量太大.算不出来
 
 
-
 # 第二版,把上一版中的逻辑抽象化成纯数学
+def list_add(lst):
+    index = 0
+    result = []
+    while index < len(lst) - 1:
+        result.append(lst[index] + lst[index+1])
+        index += 1
+    return [lst[0]] + result + [lst[-1]]
+
+# test list_add 函数
+print(list_add([1,1]))    # >>> [1, 2, 1]
+print(list_add([1,2,1]))  # >>> [1, 3, 3, 1]
+
+
 def count_grid_path_math(n):
-    count = 0
-    start = 2**n
-    while start != 0:
-        level_from_corner = 1
-        end = 2**level_from_corner
-        start -= end
-        count += end
-        level_from_corner += 1
-    return count
+    num_list = [1,1]
+    for i in range(n*2 - 1):
+        num_list = list_add(num_list)
 
+    return num_list[len(num_list)//2]
 
-if __name__ == '__main__':
-    assert count_grid_path(1) == 2, 'simple'
-    assert count_grid_path(2) == 6, 'regular'
-    print(count_grid_path(10))
-    # >>> 184756
-
-    # print(count_grid_path(20))
-    # >>> 计算量太大.还是算不出来....
+# test final function
+print(count_grid_path_math(1))
+print(count_grid_path_math(2))
+print(count_grid_path_math(10))
+print(count_grid_path_math(20))  # >>> 137846528820
