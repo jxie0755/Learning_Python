@@ -19,25 +19,26 @@ def count_grid_path(n):
     """
 
     count = 0
-    open_path = 1
     current = [(0,0)]
 
-    for i in range(n*2):
+    while len(current) != 0:
         temp = []
         for coor in current:
             temp += [(coor[0] + 1, coor[1]), (coor[0], coor[1] + 1)]
         current = temp
 
-        current_path = len(current)
-        end_path = 0
+        open_path, end_path = [], []
         for coor in current:
             if coor[0] == n or coor[1] == n:
-                end_path += 1
+                end_path.append(coor)
+            else:
+                open_path.append(coor)
 
-        open_path = current_path - end_path
+        current = open_path
+        count += len(end_path)
 
     return count
 
 
 
-print(count_grid_path(2))
+print(count_grid_path(3))
