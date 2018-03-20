@@ -58,6 +58,7 @@ if __name__ == '__main__':
 
 
 # 第二版,把上一版中的逻辑抽象化成纯数学
+# 这个函数的目的是把一个数列变成相邻数两相加,再在开头和结尾添加上原数列的开头和结尾
 def list_add(lst):
     index = 0
     result = []
@@ -76,7 +77,7 @@ def count_grid_path_math(n):
     for i in range(n*2 - 1):
         num_list = list_add(num_list)
 
-    return num_list[len(num_list)//2]
+    return num_list[len(num_list)//2]  # 取中间值
 
 # test final function
 print(count_grid_path_math(1))
