@@ -61,6 +61,11 @@ if __name__ == '__main__':
 # 这个函数的目的是把一个数列变成相邻数两相加,再在开头和结尾添加上原数列的开头和结尾
 
 def count_grid_path_math(n):
+    """return number of paths from top left to bottom right
+
+    Only allow to move right and down
+    n: size of the grid (sqaure as n*n)
+    """
 
     def list_add(lst):
         """
