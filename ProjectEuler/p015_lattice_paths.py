@@ -59,21 +59,22 @@ if __name__ == '__main__':
 
 # 第二版,把上一版中的逻辑抽象化成纯数学
 # 这个函数的目的是把一个数列变成相邻数两相加,再在开头和结尾添加上原数列的开头和结尾
-def list_add(lst):
-    index = 0
-    result = []
-    while index < len(lst) - 1:
-        result.append(lst[index] + lst[index+1])
-        index += 1
-    return [lst[0]] + result + [lst[-1]]
-
-# test list_add 函数
-if __name__ == '__main__':
-    print(list_add([1,1]))    # >>> [1, 2, 1]
-    print(list_add([1,2,1]))  # >>> [1, 3, 3, 1]
-
 
 def count_grid_path_math(n):
+
+    def list_add(lst):
+        """
+        test case:
+        print(list_add([1,1]))    # >>> [1, 2, 1]
+        print(list_add([1,2,1]))  # >>> [1, 3, 3, 1]
+        """
+        index = 0
+        result = []
+        while index < len(lst) - 1:
+            result.append(lst[index] + lst[index + 1])
+            index += 1
+        return [lst[0]] + result + [lst[-1]]
+
     num_list = [1,1]
     for i in range(n*2 - 1):
         num_list = list_add(num_list)
