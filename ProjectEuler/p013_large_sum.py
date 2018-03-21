@@ -12,14 +12,10 @@ def first_ten_digits(data):
     with open(data) as raw:
         numbers = raw.readlines()
 
-        sum = 0
-    for num in numbers:
-        sum += int(num.strip())
-
-    return str(num)[0:10]
+    return str(sum(int(i) for i in numbers))[:10]
 
 
 if __name__ == '__main__':
     print(first_ten_digits('p013_data.txt'))
-    # >>> 5350353422
+    # >>> 5537376230
     # passed
