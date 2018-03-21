@@ -38,7 +38,7 @@ def count_grid_path(n):
             else:
                 open_path.append(coor) # 可以继续分叉的坐标
 
-        current = open_path  # 可以继续分叉的坐标,进入下轮循环
+        current = open_path[:]  # 可以继续分叉的坐标,进入下轮循环
         count += len(end_path) # 不能分叉的坐标的数目记入结果
 
         # 最终current中所有的坐标都会遇到x值=n或者y值=n,所以open_path最终为空list
