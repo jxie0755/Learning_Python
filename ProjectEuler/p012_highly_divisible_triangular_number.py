@@ -49,4 +49,4 @@ if __name__ == '__main__':
     assert divisible_triangular(6) == 28, 'regular'
     print(divisible_triangular(500))
     # >>> 76576500
-    #
+    # passed
