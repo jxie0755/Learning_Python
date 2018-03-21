@@ -60,4 +60,4 @@ def product_in_grid(data, n):
 if __name__ == '__main__':
     print(product_in_grid('p011_data.txt', 4))
     # >>> 32719995
-    # passed
+    # TODO
