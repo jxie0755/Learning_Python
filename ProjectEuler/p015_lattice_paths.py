@@ -94,7 +94,3 @@ if __name__ == '__main__':
     print(count_grid_path_math(20))
     # >>> 137846528820
     # passed
-
-
-
-# Third vesion (
