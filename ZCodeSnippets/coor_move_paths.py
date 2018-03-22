@@ -27,6 +27,15 @@ def move_translate(start, moves):
         path.append(current)
     return path
 
+def generate_path(start, end):
+    """generate all the shortest possible paths, reprented by a string composed by 'R', 'U', 'D'
+
+    start: starting point tuple as coordinates (x, y)
+    end: ending point tuple as coordinates (x, y)
+
+    return: a list of strings, each string represents a sequence of movement from start to end
+    """
+
 
 def lattice_paths_search(coor_1, coor_2):
     """search all the possible shortest paths between coor_1 and coor_2
