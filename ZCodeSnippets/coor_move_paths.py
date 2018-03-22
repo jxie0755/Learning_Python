@@ -114,4 +114,3 @@ if __name__ == '__main__':
     find_coor_paths((-1,-1), (-1,4))   # 如果坐标在一条x轴上
     find_coor_paths((1,1), (3,3))      # 如果坐标在一个正方形的两个端点 (相当于2*的grid)
     find_coor_paths((-1,1), (1,-2))    # 如果坐标随意离散 (相当于2*3的grid)
-print(lattice_paths_search((-1,-1), (-1,4)))
