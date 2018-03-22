@@ -39,8 +39,8 @@ def lattice_paths_search(coor_1, coor_2):
     """
 
     # determine the direction:
-    T = [coor_1, coor_2]
-    start, end = sorted(T)[0], sorted(T)[1]
+    ordered_coor_list = [coor_1, coor_2]
+    start, end = sorted(ordered_coor_list)[0], sorted(ordered_coor_list)[1]
 
     # Sice start[0] will always <= end[0], it will always move right
     # but if start[0] == end[0]
@@ -55,19 +55,28 @@ def lattice_paths_search(coor_1, coor_2):
     elif start[1] < end[1]:
         move_vertical = 'U'  # 从start开始必须向上移动才能到end
     else:
-        move_vertical = 'None'  # 若y值相同,则处于同一条x轴,不必上下移动
+        move_vertical = None  # 若y值相同,则处于同一条x轴,不必上下移动
 
     # 先处理特殊情况
     if not move_horizontal and not move_vertical:
         print('coor_1 and coor_2 is the same point')  # 两坐标重合
         return 0
 
-    # TODO
     elif not move_horizontal:
-        path = None
-        print(move_translate(start, ))
+        movement = move_vertical * abs(start[1] - end[1])  # 只有竖直移动一条路线
+        print(move_translate(start, movement))
         return 1
 
+    elif not move_vertical:
+        movement = 'R' * (end[0] - start[0])
+        print(move_translate(start, movement))  # 只有水平移动一条路线
+        return 1
 
+    # 普通情况
+    else:
         # raw = list(permutations('RRDD', 4))
         # filtered_raw = sorted(set(raw), key=a.index)
+        pass
+
+print(lattice_paths_search((-1,1), (5,1)))
+print(lattice_paths_search((-1,-1), (-1,4)))
