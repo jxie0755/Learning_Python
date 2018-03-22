@@ -95,9 +95,19 @@ if __name__ == '__main__':
     # >>> 137846528820
     # passed
 
+# 第三版,最佳算法,直接利用排列组合
 
+from math import factorial
 
+def count_grid_path_combination_mehtod(n):
+    return factorial(2*n) // factorial(n)**2
 
+# 方法原理: 最短路径一定为2*n长度,其中一定有n个向右,n个向下
+# 不同的方法在从2n个空格中,找出n个以填满一种移动方式,则剩下的空格就填满另一种移动方式
+# 这个计算方式简化下来就是利用组合数C(2*n, n)得到答案
+
+# 此方法可以用于非正方形grid,因为 width + length = total
+# 然后 C(total, width) == C(total, length), 所以只要计算任意个即可
 
 
 # Additional work
@@ -173,5 +183,3 @@ def count_grid_path_with_path_print(n):
 
     return count
 
-# if __name__ == '__main__':
-    # print(count_grid_path_with_path_print
