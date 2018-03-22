@@ -80,7 +80,6 @@ def move_translate(coor_1, coor_2, moves):
 
 # 一个管理函数,将前两个函数结合起来,返回全部坐标点序列形式的最短路径
 def find_coor_paths(coor_1, coor_2):
-    
     """search all the possible shortest paths between coor_1 and coor_2
 
     coor_1: a tuple to represent coordination (x, y)
