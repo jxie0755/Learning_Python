@@ -1,34 +1,119 @@
 # From ProjectEuler P001
 # https://projecteuler.net/problem=11
 
-# diagonal from top left to down bottom
-    for y in range(0, length - n):
-        for x in range(0, length - n):
-            sample = [int(grid[y + i][x + i]) for i in range(n)]
-            product = reduce(lambda x, y: x * y, sample)
-            if product > max_so_far:
-                max_so_far = product
 
-    # diagonal top right to down left
-    for y in range(n-1, length):
-        for x in range(0, length - n):
-            sample = [int(grid[y - i][x + i]) for i in range(n)]
-            product = reduce(lambda x, y: x * y, sample)
-            if product > max_so_far:
-                max_so_far = product
+def gen_diagonal_search_topleft_bottomright(n, grid):
+    """diagonally search consecutive elements from top-left to bottom-right in a grid
 
-    # horizontally
-    for y in range(0, n):
-        for x in range(0, length - n):
-            sample = [int(grid[y][x + i]) for i in range(n)]
-            product = reduce(lambda x, y: x * y, sample)
-            if product > max_so_far:
-                max_so_far = product
+    n: numbers of consecutive elements
+    grid: a list of sub-lists which all contains same number of elements
 
-    # vertically
-    for y in range(0, length - n):
-        for x in range(0, n):
-            sample = [int(grid[y + i][x]) for i in range(n)]
-            product = reduce(lambda x, y: x * y, sample)
-            if product > max_so_far:
-                max_so_far = product
+    yield: each group of consecutive elements
+    """
+    width, height = len(grid[0]), len(grid)
+    if width < n or height < n:
+        yield None
+
+    for y in range(0, height - n + 1):
+        for x in range(0, width - n + 1):
+            sample = [grid[y + i][x + i] for i in range(n)]
+            yield sample
+
+
+def gen_diagonal_search_bottomleft_topright(n, grid):
+    """diagonally search consecutive elements from bottom-left to top-right in a grid
+
+    n: numbers of consecutive elements
+    grid: a list of sub-lists which all contains same number of elements
+
+    yield: each group of consecutive elements
+    """
+    width, height = len(grid[0]), len(grid)
+    if width < n or height < n:
+        yield None
+
+    for y in range(n-1, height):
+        for x in range(0, width - n + 1):
+            sample = [grid[y - i][x + i] for i in range(n)]
+            yield sample
+
+
+def gen_horizontal_search(n, grid):
+    """horizontally search consecutive elements in a grid
+
+    n: numbers of consecutive elements
+    grid: a list of sub-lists which all contains same number of elements
+
+    yield: each group of consecutive elements
+    """
+    width, height = len(grid[0]), len(grid)
+    if width < n:
+        yield None
+
+    for y in range(0, height):
+        for x in range(0, width - n + 1):
+            sample = [grid[y][x + i] for i in range(n)]
+            yield sample
+
+
+def gen_veritical_search(n, grid):
+    """vertically search consecutive elements in a grid
+
+    n: numbers of consecutive elements
+    grid: a list of sub-lists which all contains same number of elements
+
+    yield: each group of consecutive elements
+    """
+    width, height = len(grid[0]), len(grid)
+    if height < n:
+        yield None
+
+    for y in range(0, height - n + 1):
+        for x in range(0, width):
+            sample = [grid[y + i][x] for i in range(n)]
+            yield sample
+
+if __name__ == '__main__':
+
+    grid_test = [
+        ['01','02','03','04','05'],
+        ['06','07','08','09','10'],
+        ['11','12','13','14','15'],
+        ['16','17','18','19','20']
+    ]
+
+    print('Test function topleft_bottomright:')
+    t1 = gen_diagonal_search_topleft_bottomright(3, grid_test)
+    while True:
+        try:
+            print(next(t1))
+        except StopIteration:
+            print()
+            break
+
+    print('Test function bottomleft_topright:')
+    t2 = gen_diagonal_search_bottomleft_topright(3, grid_test)
+    while True:
+        try:
+            print(next(t2))
+        except StopIteration:
+            print()
+            break
+
+    print('Test function horizontal:')
+    t3 = gen_horizontal_search(3, grid_test)
+    while True:
+        try:
+            print(next(t3))
+        except StopIteration:
+            print()
+            break
+
+    print('Test function vertical:')
+    t4 = gen_veritical_search(3, grid_test)
+    while True:
+        try:
+            print(next(t4))
+        except StopIteration:
+            print()
+            break
