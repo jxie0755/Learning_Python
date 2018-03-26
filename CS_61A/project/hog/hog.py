@@ -43,7 +43,10 @@ def free_bacon(score):
     """
     assert score < 100, 'The game should be over.'
     # BEGIN PROBLEM 2
-    "*** YOUR CODE HERE ***"
+    str_score = str(score)
+    if len(str_score) == 1:
+        str_score = '0' + str_score
+    return 2 + abs(int(str_score[0]) - int(str_score[1]))
     # END PROBLEM 2
 
 
