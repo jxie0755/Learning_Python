@@ -75,7 +75,7 @@ def take_turn(num_rolls, opponent_score, dice=six_sided):
 def is_swap(score0, score1):
     """Return whether one of the scores is an integer multiple of the other."""
     # BEGIN PROBLEM 4
-    "*** YOUR CODE HERE ***"
+    return True if score0 * 2 == score1 or score1 * 2 == score0 else False
     # END PROBLEM 4
 
 
