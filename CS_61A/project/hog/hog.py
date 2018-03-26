@@ -45,8 +45,9 @@ def free_bacon(score):
     # BEGIN PROBLEM 2
     str_score = str(score)
     if len(str_score) == 1:
-        str_score = '0' + str_score
-    return 2 + abs(int(str_score[0]) - int(str_score[1]))
+        return 2 + int(str_score)
+    else:
+        return 2 + abs(int(str_score[0]) - int(str_score[1]))
     # END PROBLEM 2
 
 
