@@ -130,21 +130,20 @@ def play(strategy0, strategy1, score0=0, score1=0, dice=six_sided,
     say:        The commentary function to call at the end of the first turn.
     """
     player = 0  # Which player is about to take a turn, 0 (first) or 1 (second)
-    # BEGIN PROBLEM 5
     while score0 < goal and score1 < goal:
         if player == 0:
-            score0 += take_turn(strategy0(score0, score1), score1, dice)
+            num_rolls = strategy0(score0, score1)
+            score0 += take_turn(num_rolls, score1, dice) # the result should be added to score
         elif player == 1:
-            score1 += take_turn(strategy1(score1, score0), score0, dice)
+            num_rolls = strategy1(score1, score0)
+            score1 += take_turn(num_rolls, score0, dice)
         if is_swap(score0, score1):
             score0, score1 = score1, score0
         player = other(player)  # the next player
-        # say = say(score0, score1)  # call "say", and then "say" becomes the new commentary function
+        say = say(score0, score1)  # call "say", and then "say" becomes the new commentary function
     # END PROBLEM 5
     return score0, score1
 
-always_three = make_test_dice(3)
-print(play(always_roll(4), always_roll(3), score0=88, score1=20, dice=always_three))
 
 
 #######################
