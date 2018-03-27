@@ -125,9 +125,9 @@ test = {
           >>> # Goal edge case
           >>> s0, s1 = hog.play(always(4), always(3), score0=88, score1=20, dice=always_three)
           >>> s0
-          20
-          >>> s1
           100
+          >>> s1
+          20
           """,
           'hidden': False,
           'locked': False
