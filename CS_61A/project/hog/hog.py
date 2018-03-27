@@ -1,5 +1,22 @@
 """CS 61A Presents The Game of Hog."""
 
+def always_roll(n):
+    """Return a strategy that always rolls N dice.
+
+    A strategy is a function that takes two total scores as arguments (the
+    current player's score, and the opponent's score), and returns a number of
+    dice that the current player will roll this turn.
+
+    >>> strategy = always_roll(5)
+    >>> strategy(0, 0)
+    5
+    >>> strategy(99, 99)
+    5
+    """
+    def strategy(score, opponent_score):
+        return n
+    return strategy
+
 from dice import six_sided, four_sided, make_test_dice
 from ucb import main, trace, interact
 
@@ -114,15 +131,20 @@ def play(strategy0, strategy1, score0=0, score1=0, dice=six_sided,
     """
     player = 0  # Which player is about to take a turn, 0 (first) or 1 (second)
     # BEGIN PROBLEM 5
-    score0 = take_turn(strategy0(score0, score1), score1, dice=six_sided)
-    score1 = take_turn(strategy1(score1, score0), score0, dice=six_sided)
-
-    if score0 <= goal and score1 <= goal:
+    while score0 < goal and score1 < goal:
+        if player == 0:
+            score0 += take_turn(strategy0(score0, score1), score1, dice)
+        elif player == 1:
+            score1 += take_turn(strategy1(score1, score0), score0, dice)
         if is_swap(score0, score1):
             score0, score1 = score1, score0
-
+        player = other(player)  # the next player
+        # say = say(score0, score1)  # call "say", and then "say" becomes the new commentary function
     # END PROBLEM 5
     return score0, score1
+
+always_three = make_test_dice(3)
+print(play(always_roll(4), always_roll(3), score0=88, score1=20, dice=always_three))
 
 
 #######################
