@@ -51,44 +51,49 @@ def max_path_sum_i(T):
     """
 
     depth = len(T)
-    result = [T[0][0]]
-    check_level = 1
-    while check_level <= depth:
+    paths = [[T[0][0]]]
+    row = 1
+    while row < depth:
         temp = []
-        for i in result:
+        for i in paths:
             temp += [i[:], i[:]]
-        result = temp[:]
-    pass
+        paths = add_row(temp, T[row])
+        row += 1
+
+    # for print the result
+    for i in paths:
+        print(i)
+
+    return sum(max(paths, key=sum))
 
 
-def process_row(row):
+def add_row(current_paths, row):
     """process row to get ready for add tuple
 
     keep the first and last item and duplicate items in the middle in the same sequence
-    example: [1,2,3,4] should return [1,2,2,3,3,4]
+    example: [1,2,3] should become [1,2,2,3], then add to [[A],[B],[C],[D]] and return
+    [[A,1],[B,2],[C,2],[D,3]]
 
+    current_paths: a list of list of numbers
     row: a list of numbers
     return: a list of numbers
     """
 
-    result = [row[0]]
+    to_add = [row[0]]
     index = 1
     while index <= len(row) - 2:
-        result += [row[index], row[index]]
+        to_add += [row[index], row[index]]
         index += 1
-    result.append(row[-1])
+    to_add.append(row[-1])
 
-    return result
+    j = 0
+    while j < len(current_paths):
+        current_paths[j].append(to_add[j])
+        j += 1
 
+    return current_paths
 
 if __name__ == '__main__':
-    assert process_row([1, 2, 3, 4]) == [1, 2, 2, 3, 3, 4]
+    print(max_path_sum_i(process('p018_data_test.txt')))
     # print(max_path_sum_i(process('p018_data.txt')))
-
-a = [1, 2, 3]
-b = [4, 5, 6]
-
-# c = [a[i] + b[i] for i in range(len(a))]
-c = [sum(i) for i in (zip(a, b))]
-print(c)
 
