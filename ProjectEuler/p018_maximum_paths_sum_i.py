@@ -73,18 +73,24 @@ def max_path_sum_i(T):
         row += 1
 
     # for print the result, first translate coor to value
+    path_in_value = []
+    for i in possible_path:
+        values = [coor_value(j, T) for j in i]
+        path_in_value.append(values)
 
+    # for i in path_in_value:
+    #     print(i)
 
-
-
-    # return sum(max(paths, key=sum))
+    print('total path number', len(path_in_value))
+    return sum(max(path_in_value, key=sum))
 
 
 
 
 if __name__ == '__main__':
     print(max_path_sum_i(process('p018_data_test.txt')))
-    # print(max_path_sum_i(process('p018_data.txt')))
-
-    pass
+    # >>> 20 (from 1,3,6,10)
+    print(max_path_sum_i(process('p018_data.txt')))
+    # >>> 1074
+    # passed
 
