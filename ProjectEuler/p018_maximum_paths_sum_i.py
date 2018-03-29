@@ -43,57 +43,48 @@ def process(data):
 
 
 # Brutal force
+def coor_value(coor, grid):
+    """coor is coordinate of the grid in the form of (x, y)"""
+    return grid[coor[0]][coor[1]]
+
 def max_path_sum_i(T):
     """calculate the max sum of a route in triangle
 
     T as triangle: a nested list as triangle grid
     return: the max sum of the numbers in one route of the triangle grid
     """
+    row, depth = 1, len(T)
+    current = [(0,0)]
+    possible_path = [current]
 
-    depth = len(T)
-    paths = [[T[0][0]]]
-    row = 1
     while row < depth:
         temp = []
-        for i in paths:
-            temp += [i[:], i[:]]
-        paths = add_row(temp, T[row])
+        for coor in current:
+            temp += [(coor[0] + 1, coor[1]), (coor[0] + 1, coor[1] + 1)]
+        current = temp[:]
+        possible_routes_temp = []
+        for i in possible_path:
+            possible_routes_temp += [i[:], i[:]]
+        possible_path = possible_routes_temp[:]
+
+        for idx in range(len(temp)):
+            possible_path[idx].append(temp[idx])
+
         row += 1
 
-    # for print the result
-    for i in paths:
-        print(i)
-
-    return sum(max(paths, key=sum))
+    # for print the result, first translate coor to value
 
 
-def add_row(current_paths, row):
-    """process row to get ready for add tuple
 
-    keep the first and last item and duplicate items in the middle in the same sequence
-    example: [1,2,3] should become [1,2,2,3], then add to [[A],[B],[C],[D]] and return
-    [[A,1],[B,2],[C,2],[D,3]]
 
-    current_paths: a list of list of numbers
-    row: a list of numbers
-    return: a list of numbers
-    """
+    # return sum(max(paths, key=sum))
 
-    to_add = [row[0]]
-    index = 1
-    while index <= len(row) - 2:
-        to_add += [row[index], row[index]]
-        index += 1
-    to_add.append(row[-1])
 
-    j = 0
-    while j < len(current_paths):
-        current_paths[j].append(to_add[j])
-        j += 1
 
-    return current_paths
 
 if __name__ == '__main__':
     print(max_path_sum_i(process('p018_data_test.txt')))
     # print(max_path_sum_i(process('p018_data.txt')))
+
+    pass
 
