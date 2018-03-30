@@ -54,16 +54,18 @@ def find_triangle_paths(T):
 
         row += 1
 
-    # for print the result, first translate coor to value
+    # 对坐标进行翻译,变成数值
     path_in_value = []
     for i in possible_path:
         values = [coor_value(j, T) for j in i]
         path_in_value.append(values)
 
+    # 打印数值路径和路径总数
     for i in path_in_value:
         print(i)
-
     print('total path number', len(path_in_value))
+
+    # 对每条路径求和然后找出最大值
     return sum(max(path_in_value, key=sum))
 
 
