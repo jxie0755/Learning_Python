@@ -8,7 +8,7 @@ from math import factorial
 
 
 # 核心算法,生成路径,以移动方式表达
-def generate_path_move(coor_1, coor_2):
+def generate_lattice_path_move(coor_1, coor_2):
     """generate all the shortest possible paths, reprented by a string composed by 'R', 'U', 'D'
 
     coor_1: a tuple to represent coordination (x, y)
@@ -79,7 +79,7 @@ def move_translate(coor_1, coor_2, moves):
 
 
 # 一个管理函数,将前两个函数结合起来,返回全部坐标点序列形式的最短路径
-def find_coor_paths(coor_1, coor_2):
+def find_lattice_paths(coor_1, coor_2):
     """search all the possible shortest paths between coor_1 and coor_2
 
     coor_1: a tuple to represent coordination (x, y)
@@ -92,7 +92,7 @@ def find_coor_paths(coor_1, coor_2):
         print('The two point is overlapped')
 
     result = []
-    moves = generate_path_move(coor_1, coor_2)
+    moves = generate_lattice_path_move(coor_1, coor_2)
 
     for move in moves:
         path = move_translate(coor_1, coor_2, move)
@@ -107,8 +107,8 @@ def find_coor_paths(coor_1, coor_2):
 
 
 if __name__ == '__main__':
-    find_coor_paths((1, 1), (1, 1))  # 如果两个坐标完全重合
-    find_coor_paths((-1, 1), (5, 1))  # 如果坐标在一条x轴上
-    find_coor_paths((-1, -1), (-1, 4))  # 如果坐标在一条y轴上
-    find_coor_paths((1, 1), (3, 3))  # 如果坐标在一个正方形的两个端点 (相当于2*的grid)
-    find_coor_paths((-1, 1), (1, -2))  # 如果坐标随意离散 (相当于2*3的grid)
+    find_lattice_paths((1, 1), (1, 1))  # 如果两个坐标完全重合
+    find_lattice_paths((-1, 1), (5, 1))  # 如果坐标在一条x轴上
+    find_lattice_paths((-1, -1), (-1, 4))  # 如果坐标在一条y轴上
+    find_lattice_paths((1, 1), (3, 3))  # 如果坐标在一个正方形的两个端点 (相当于2*的grid)
+    find_lattice_paths((-1, 1), (1, -2))  # 如果坐标随意离散 (相当于2*3的grid)
