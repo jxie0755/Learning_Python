@@ -79,8 +79,7 @@ if __name__ == '__main__':
 
     print_sum(1)(3)(5)
     # >>>
-    # 1   corlie
-
+    # 1
     # 4
     # 9
 
