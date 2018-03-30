@@ -79,7 +79,8 @@ if __name__ == '__main__':
 
     print_sum(1)(3)(5)
     # >>>
-    # 1
+    # 1   corlie
+
     # 4
     # 9
 
@@ -198,4 +199,6 @@ def mario_at(octave):
     return mario(c, e, g, low_g)
 
 
+# play(mario_at(1))
+# play(mario_at(1 / 2))
 play(both(mario_at(1), mario_at(1 / 2)))
