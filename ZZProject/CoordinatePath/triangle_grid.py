@@ -66,7 +66,9 @@ def find_triangle_paths(T):
     print('total path number', len(path_in_value))
 
     # 对每条路径求和然后找出最大值
-    return sum(max(path_in_value, key=sum))
+    print('max sum comes from', max(path_in_value, key=sum))
+    print('max sum is', sum(max(path_in_value, key=sum)))
+    # return sum(max(path_in_value, key=sum))
 
 
 
