@@ -11,7 +11,10 @@ def lambda_curry2(func):
     >>> add_three(5)
     8
     """
-    "*** YOUR CODE HERE ***"
-    pass
+    def FUNC(x):
+        def g(y):
+            return func(x, y)
+        return g
+    return FUNC
 
 
