@@ -1,5 +1,25 @@
 """ Optional problems for lab02 """
 
+# Q4
+a = lambda x: x * 2 + 1
+def b(b, x):
+    return b(x + a(x))
+x = 3
+print(b(a, x))
+# >>> 21
+
+
+# Q5
+n = 9
+def make_adder(n):
+    return lambda k: k + n
+add_ten = make_adder(n+1)
+result = add_ten(n)
+print(result)
+# >>> 19
+
+
+
 from lab02 import *
 
 # Higher Order Functions
@@ -23,7 +43,7 @@ def compose1(f, g):
 
 def composite_identity(f, g):
     """
-    Return a function with one parameter x that returns True if f(g(x)) is
+    Return a function with one parameter x that return s True if f(g(x)) is
     equal to g(f(x)). You can assume the result of g(x) is a valid input for f
     and vice versa.
 
