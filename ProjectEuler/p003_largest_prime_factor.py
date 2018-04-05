@@ -10,7 +10,6 @@ from math import sqrt
 import time
 
 
-
 def largetst_prime_factor(target):
     def is_prime(n):
         return all(n % i != 0 for i in range(2, n))
