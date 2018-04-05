@@ -7,6 +7,9 @@
 
 # Version 1 Brutal force iteration over the (sqrt + 1) of the target
 from math import sqrt
+import time
+
+
 
 def largetst_prime_factor(target):
     def is_prime(n):
@@ -19,6 +22,9 @@ def largetst_prime_factor(target):
 
 if __name__ == '__main__':
     assert largetst_prime_factor(13195) == 29, 'regular'
+    t0 = time.time()
     print(largetst_prime_factor(600851475143))
+    t1 = time.time()
+    print(t1 - t0)
     # >>> 6857
     # passed
