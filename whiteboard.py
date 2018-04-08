@@ -155,3 +155,4 @@ def sum_digits_rec(n, digit_sum):
     else:
         n, last = split(n)
         return sum_digits_rec(n, digit_sum + last)
+
