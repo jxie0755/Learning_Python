@@ -20,4 +20,4 @@ if __name__ == '__main__':
     assert fact_digit_sum(10) == 27, 'regular'
     print(fact_digit_sum(100))
     # >>> 648
-    passed
+    # passed
