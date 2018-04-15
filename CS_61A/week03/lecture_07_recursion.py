@@ -120,7 +120,7 @@ def luhn_sum(n):
 
 
 def luhn_sum_double(n):
-    """Return the Luhn sum of n, doubling the last digit."""
+    """Return the Luhn sum of n, doubling the last digit ."""
     all_but_last, last = split(n)
     luhn_digit = sum_digits(2 * last)
     if n < 10:
