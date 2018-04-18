@@ -89,9 +89,3 @@ def luhn_sum(n):
         multiplier = 3 - multiplier
 
     return total
-
-
-
-
-
-
