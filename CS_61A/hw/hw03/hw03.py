@@ -243,7 +243,7 @@ def add_church(m, n):
     >>> church_to_int(add_church(two, three))
     5
     """
-    return lambda f: lambda x: m(f)(n(f)(x)
+    return lambda f: lambda x: m(f)(n(f)(x))
 
 def mul_church(m, n):
     """Return the Church numeral for m * n, for Church numerals m and n.
