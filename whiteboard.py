@@ -35,3 +35,36 @@ if __name__ == '__main__':
     assert p_balance('2+3') == True, "No brackets, no problem"
     print('all passed')
 
+
+    
+    
+# Ye's answer!
+def p_balance(tem_str):
+open_bracket = '([{'
+pair_bracket = {')':'(', ']':'[', '}':'{'}
+tem_list = []
+    
+for count in range(0,len(tem_str)):
+    if tem_str[count] in open_bracket:
+        tem_list.append(tem_str[count])
+    if tem_str[count] in pair_bracket:
+        if len(tem_list)==0:
+            return False
+        if tem_list.pop() != pair_bracket[tem_str[count]]:
+            return False
+if len(tem_list) == 0:
+    return True
+
+return False
+
+# Test case:
+if __name__ == '__main__':
+    assert p_balance('([{}])') == True, "example 1"
+    assert p_balance('([()}') == False, "example 2"
+    assert p_balance('((5+3)*2+1)') == True, "Simple"
+    assert p_balance('{[(3+1)+2]+}') == True, "Different types"
+    assert p_balance('(3+{1-1)}') == False, ") is alone inside {}"
+    assert p_balance('[1+1]+(2*2)-{3/3}') == True, "Different operators"
+    assert p_balance('(({[(((1)-2)+3)-3]/3}-3)') == False, "the first '(' is redundant"
+    assert p_balance('2+3') == True, "No brackets, no problem"
+    print('all passed')
