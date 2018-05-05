@@ -19,4 +19,3 @@ def stairs(n):
         return 2
     else:
         return stairs(n-1) + stairs(n-2)
-
