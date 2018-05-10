@@ -51,3 +51,23 @@ def permutations(lst):
         total.extend([[k] + p for p in permutations(lst[:i] + lst[i+1:])])
     return total
 
+def permutations2(lst):
+    """List all permutations of the given list
+    enumerate() function might be helpful
+    >>> permutations2(['angie', 'cat'])
+    [['angie', 'cat'], ['cat', 'angie']]
+    >>> permutations2([1, 2, 3])
+    [[1, 2, 3], [1, 3, 2], [2, 1, 3], [2, 3, 1], [3, 1, 2], [3, 2, 1]]
+    """
+
+    if len(lst) <= 1:
+        return [lst]
+    total = []
+    for i in range(len(lst)):
+        temp = lst[:]
+        total.extend([[temp.pop(i)] + permutations2(temp)])
+    return total
+
+# Failure (merge的时候lst层级不对)
+# Expected :[['angie', 'cat'], ['cat', 'angie']]
+# Actual   :[['angie', ['cat']], ['cat', ['angie']]]
