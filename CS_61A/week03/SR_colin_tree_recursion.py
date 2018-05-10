@@ -34,3 +34,13 @@ def kstairs(n, k):
     if n <= k:
         return 2**(n-1)
     return sum([kstairs(n - i, k) for i in range(1, k + 1)])
+
+def permutations(lst):
+    """List all permutations of the given list
+    enumerate() function might be helpful
+    >>> permutations(['angie', 'cat'])
+    [['angie', 'cat'], ['cat', 'angie']]
+    >>> permutations([1, 2, 3])
+    [[1, 2, 3], [1, 3, 2], [2, 1, 3], [2, 3, 1], [3, 1, 2], [3, 2, 1]]
+    """
+    pass
