@@ -43,4 +43,11 @@ def permutations(lst):
     >>> permutations([1, 2, 3])
     [[1, 2, 3], [1, 3, 2], [2, 1, 3], [2, 3, 1], [3, 1, 2], [3, 2, 1]]
     """
-    pass
+
+    if len(lst) <= 1:
+        return [lst]
+    total = []
+    for i, k in enumerate(lst):
+        total.extend([[k] + p for p in permutations(lst[:i] + lst[i+1:])])
+    return total
+
