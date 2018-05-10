@@ -11,6 +11,7 @@ def stairs(n):
     >>> stairs(3)
     3
     """
+    ### Your code here ###
     if n <= 0:
         return 0
     elif n == 1:
@@ -43,7 +44,7 @@ def permutations(lst):
     >>> permutations([1, 2, 3])
     [[1, 2, 3], [1, 3, 2], [2, 1, 3], [2, 3, 1], [3, 1, 2], [3, 2, 1]]
     """
-
+    ### Your code here ###
     if len(lst) <= 1:
         return [lst]
     total = []
@@ -51,3 +52,35 @@ def permutations(lst):
         total.extend([[k] + p for p in permutations(lst[:i] + lst[i+1:])])
     return total
 
+
+class Tree(object):
+    """ A tree with internal values. """
+    def __init__(self, entry, left=None, right=None):
+        self.entry = entry
+        self.left = left
+        self.right = right
+
+    def __repr__(self):
+        args = repr(self.entry)
+        if self.left or self.right:
+            args += ', {0}, {1}'.format(repr(self.left), repr(self.right))
+        return 'Tree({0})'.format(args)
+
+    def print(self):
+        def print_helper(tree, depth):
+            if tree.right:
+                print_helper(tree.right, depth + 1)
+            print("{0}{1}".format("\t" * depth, tree.entry))
+            if tree.left:
+                print_helper(tree.left, depth + 1)
+            print_helper(self, 0)
+
+
+def tree_to_reversed_list(tree):
+    """
+    >>> t = Tree(5, Tree(1, None, Tree(4)), Tree(7, Tree(6), Tree(8)))
+    >>> tree_to_reversed_list(t)
+    [8, 7, 6, 5, 4, 1]
+    """
+    ### Your code here ###
+    pass
