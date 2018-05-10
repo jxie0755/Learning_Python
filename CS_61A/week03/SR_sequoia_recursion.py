@@ -42,6 +42,7 @@ print(f(4))  # >>> 1
 def sum_lst(lst):
     if lst == []:
         return 0
+    ### Your code here ###
     return lst.pop() + sum_lst(lst)
 
 print(sum_lst([1,2,3,4]))
@@ -51,10 +52,11 @@ print(sum_lst([1,2,3,4]))
 def comprehension(lst, f, pred):
     if lst  == []:
         return []
+    ### Your code here ###
     first = [f(lst[0])] if pred(lst[0]) else []
     return first + comprehension(lst[1:], f, pred)
 
-# Practice 3
+# Variable as Parameters
 def count(total):
     i = 0
     while i < total:
@@ -81,9 +83,11 @@ count(5)
 # 4
 # 5
 
-# Practice 4
+# Practice 3
 # a function to tell whether the parenthesis is balanced inside the string
 def balanced(s, depth=0):
+    ### Your code here ###
+
     if not s:
         return depth == 0
     if depth < 0:
