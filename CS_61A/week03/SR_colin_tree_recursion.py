@@ -34,4 +34,3 @@ def kstairs(n, k):
     if n <= k:
         return 2**(n-1)
     return sum([kstairs(n - i, k) for i in range(1, k + 1)])
-
