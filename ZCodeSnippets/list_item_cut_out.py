@@ -30,3 +30,11 @@ for i in range(len(lst)):
     temp = lst[:]  # 注意利用切片复制一个lst,以免变动影响下次迭代
     temp.pop(i)
     print(temp)
+
+
+print()
+# Version 3
+# 不需要利用pop, 直接list index也可以
+lst = [1,2,3,4,5]
+for i in range(len(lst)):
+    print(lst[0:i] + lst[i+1:])
