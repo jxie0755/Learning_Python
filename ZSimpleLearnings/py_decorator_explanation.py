@@ -112,10 +112,10 @@ def login(user):
     msg = 'success' if user == 'Denis' else 'fail'
     return msg  # login with a return value
 
-result1 = login('Denis');
+result1 = login('Denis')
 print(result1)
 print()
-result2 = login('Cindy');
+result2 = login('Cindy')
 print(result2)
 # >>>
 # enter the login
@@ -188,7 +188,7 @@ def validate(user):
     message = "success" if user == "Cindy" else "fail"
     return message
 
-result1 = login('Denis');
+result1 = login('Denis')
 print(result1)
 # >>>
 # in login:Denis
