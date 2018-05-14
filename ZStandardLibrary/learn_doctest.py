@@ -40,3 +40,4 @@ if __name__ == '__main__':
 # 果不想将doctest测试用例嵌入到python的源码中，则可以建立一个独立的文本文件来保存测试用例
 # 建立leanr_doctest_indi.txt
 # 注意txt文件中需要import原文件
+# 若只单独测试一个函数, 可以利用独立测试文件,只测试模块中的一个函数
