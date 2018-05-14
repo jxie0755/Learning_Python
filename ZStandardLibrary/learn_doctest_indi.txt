@@ -1,0 +1,11 @@
+>>> import learn_doctest as L
+
+>>> L.f(2)
+4
+>>> L.f(5)
+10
+
+>>> L.g(2)
+6
+>>> L.g(5)
+15
