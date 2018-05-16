@@ -48,3 +48,4 @@ def sum_squares_up_to(n):
     while k <= n:
         total, k = total + square(k), k + 1
     return total
+
