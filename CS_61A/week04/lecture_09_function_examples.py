@@ -1,6 +1,7 @@
 # Test-driven development
 
 
+# 仍然是递归法的思路来解决问题,思路还是辗转相除法,只是用减法来实现,步数更多
 def gcd(m, n):
     """Return the largest k that evenly divides both m and n.
 
