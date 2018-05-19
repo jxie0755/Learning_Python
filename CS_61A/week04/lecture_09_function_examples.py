@@ -19,6 +19,8 @@ def gcd(m, n):
     6
     >>> gcd(5, 5)
     5
+    >>> gcd(0, 0)
+    0
     """
     if m == n:
         return m
@@ -26,6 +28,7 @@ def gcd(m, n):
         return gcd(n, m)
     else:
         return gcd(m-n, n)
+
 
 # Decorators
 
@@ -43,9 +46,23 @@ def trace1(fn):
 def square(x):
     return x*x
 
+print(square(5))
+# >>>
+# Calling <function square at 0x00000203F0989158> on argument 5
+# 25
+
 @trace1
 def sum_squares_up_to(n):
     total, k = 0, 1
     while k <= n:
         total, k = total + square(k), k + 1
     return total
+
+print(sum_squares_up_to(5))
+# >>>
+# Calling <function sum_squares_up_to at 0x000001BECBE292F0> on argument 5
+# Calling <function square at 0x000001BECBE29158> on argument 1
+# Calling <function square at 0x000001BECBE29158> on argument 2
+# Calling <function square at 0x000001BECBE29158> on argument 3
+# Calling <function square at 0x000001BECBE29158> on argument 4
+# Calling <function square at 0x000001BECBE29158> on argument 5
