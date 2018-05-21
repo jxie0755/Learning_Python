@@ -67,3 +67,66 @@ print(sum_squares_up_to(5))
 # Calling <function square at 0x000001BECBE29158> on argument 3
 # Calling <function square at 0x000001BECBE29158> on argument 4
 # Calling <function square at 0x000001BECBE29158> on argument 5
+
+
+# Review
+# what would python print?
+# print() does not output a value
+print(print(5))
+# >>>
+# 5
+# None
+
+def delay(arg):
+    print('delayed')
+    def g():
+        return arg
+    return g
+
+print(delay(delay)()(6)())
+
+
+
+# >>>
+# at the end evaluate delay(delay)()(6) before the final () --- 6
+# after      evaluate delay(delay)()    before (6)          --- delayed
+# after      evaluate delay(delay)      before ()           --- delayed
+
+print(delay(print)()(4))
+# >>>
+# delay(print)()(4)
+# delayed
+# 4
+# none
+
+from operator import add
+def square(x):
+    return x**2
+
+def pirate(arggg):
+    print('matey')
+    def plunder(arggg):  # not the same arggg as in pirate
+        return arggg
+    return plunder
+
+print(add(pirate(3)(square)(4), 1))
+# >>>
+# 'matey'  --- from pirate(3)
+# 17
+
+# print(pirate(pirate(pirate))(5)(7))
+# >>>
+# 'matey'
+# 'matey'
+# error  - cannot call 5 on 7
+
+def horse(mask):
+    horse = mask
+    def mask(horse):
+        return horse
+    return horse(mask)
+
+mask = lambda horse: horse(2)
+print(horse(mask))
+# >>>
+# 2
