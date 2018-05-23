@@ -15,6 +15,7 @@ def gcd(a, b):
     """
     "*** YOUR CODE HERE ***"
 
+
 def hailstone(n):
     """Print out the hailstone sequence starting at n, and return the
     number of elements in the sequence.
