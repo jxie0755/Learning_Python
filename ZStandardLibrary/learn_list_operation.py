@@ -20,7 +20,8 @@ listA.insert(0, 'G')   # if n = 0, then always add items at the beginning
 del listA[n]           # remove item at location n.
 listA.remove('B')      # remove specific items (one at a time)
 
-a=1; b=4
+a=1
+b=4
 listA[a:b] = []        # remove a serious of items together
 
 listA = ['A', 'B', 'C', 'D', 'E', 'F']
