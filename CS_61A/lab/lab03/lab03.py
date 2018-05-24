@@ -18,7 +18,12 @@ def gcd(a, b):
     >>> gcd(40, 40)
     40
     """
-    "*** YOUR CODE HERE ***"
+    if a < b:
+        return gcd(b, a)
+    if a % b == 0:
+        return b
+    return gcd(a % b, b)
+
 
 
 def hailstone(n):
