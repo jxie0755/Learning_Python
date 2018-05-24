@@ -1,7 +1,7 @@
 # investigation of isdigit(), isdecimal(), isnumeric
 
 print()
-num = "1"  #unicode
+num = "1"  # unicode
 print(num.isdigit())    # True
 print(num.isdecimal())  # True
 print(num.isnumeric())  # True
