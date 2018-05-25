@@ -20,5 +20,3 @@ if __name__ == '__main__':
     print(sum_square_difference(1, 100))
     # >>> 25164150
     # passed
-
-
