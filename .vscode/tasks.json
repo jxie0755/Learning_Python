@@ -22,7 +22,7 @@
 
 {
     "version": "0.1.0",
-    "command": "python",
+    "command": "python3",
     "isShellCommand": true,
     "args": ["${file}"],
     "showOutput": "always",
