@@ -39,7 +39,7 @@ def hailstone(n, r=0):
     1
     >>> a
     7
-    """
+    """,
     print(n)
     if n == 1:
         return r + 1
@@ -49,3 +49,42 @@ def hailstone(n, r=0):
         return hailstone(n * 3 + 1, r + 1)
 
 print(hailstone(10))
+
+
+# Midterm Review
+# Q3 Call expressions
+
+from operator import add
+def double(x):
+    return x + x
+
+def square(y):
+    return y * y
+
+def f(z):
+    add(square(double(z)), 1)
+
+print(f(4))
+# >>>
+# 65 -- wrong!! did not return anything.
+# Nothing
+
+def foo(x, y):
+    print("x or y")
+    return x or y
+
+a = foo
+# >>> Nothing (a is function, but python won't show it)
+
+# b = foo()
+# >>> Error (foo calls two parameters)
+
+c = a(print("x"), print("y"))
+# >>>
+# x    # analyze the end frame first
+# y
+# x or y
+
+print(c)
+# None
+
