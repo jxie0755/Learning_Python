@@ -88,3 +88,16 @@ c = a(print("x"), print("y"))
 print(c)
 # None
 
+def welcome():
+    print('welcome to')
+    return 'hello'
+
+def cs61a():
+    print('cs61a')
+    return 'world'
+
+print(welcome(), cs61a())
+# >>>
+# welcome to
+# cs61a
+# hello world
