@@ -2,7 +2,8 @@
 
 from lab03 import *
 
-## Higher order functions
+# Higher order functions
+# Q4 I heard you liked functions....(orginal in lab02, extra)
 
 def cycle(f1, f2, f3):
     """Returns a function that is itself a higher-order function.
@@ -30,7 +31,21 @@ def cycle(f1, f2, f3):
     >>> do_two_cycles(1)
     19
     """
-    "*** YOUR CODE HERE ***"
+    def f(n):
+        def g(x):
+            i = 0
+            while i < n:
+                if i % 3 == 0:
+                    x = f1(x)
+                elif i % 3 == 1:
+                    x = f2(x)
+                elif i % 3 == 2:
+                    x = f3(x)
+                i += 1
+            return x
+        return g
+    return f
+
 
 ## Lambda expressions
 
