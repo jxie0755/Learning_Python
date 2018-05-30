@@ -47,7 +47,7 @@ def cycle(f1, f2, f3):
     return f
 
 
-## Lambda expressions
+# Lambda expressions
 
 def is_palindrome(n):
     """
@@ -69,7 +69,7 @@ def is_palindrome(n):
         x, y = _____, f()
     return y == n
 
-## More recursion practice
+# More recursion practice
 
 def skip_mul(n):
     """Return the product of n * (n - 2) * (n - 4) * ...
