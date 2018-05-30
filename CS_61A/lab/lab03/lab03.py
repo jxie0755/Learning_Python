@@ -1,4 +1,4 @@
-""" Lab 3: Recursion and Midterm Review """
+# Lab 3: Recursion and Midterm Review
 def factorial(n):
     if n == 0:
         return 1
@@ -108,6 +108,7 @@ print(welcome(), cs61a())
 # Higher order functions
 print('-------------\n')
 # Q4 I heard you liked functions....(orginal in lab02, extra)
+
 def cycle(f1, f2, f3):
     """Returns a function that is itself a higher-order function.
 
