@@ -157,3 +157,4 @@ def ten_pairs(n):
         return 0
     else:
         return ten_pairs(n//10) + count_digit(n//10, 10 - n%10)
+        
