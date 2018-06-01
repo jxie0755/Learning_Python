@@ -31,6 +31,7 @@ def cycle(f1, f2, f3):
     >>> do_two_cycles(1)
     19
     """
+    "*** YOUR CODE HERE ***"
     def f(n):
         def g(x):
             i = 0
@@ -63,6 +64,7 @@ def is_palindrome(n):
     >>> is_palindrome(55)
     True
     """
+    "*** YOUR CODE HERE ***"
     x, y = n, 0
     f = lambda: x % 10 + y * 10
     while x > 0:
@@ -79,6 +81,7 @@ def skip_mul(n):
     >>> skip_mul(8) # 8 * 6 * 4 * 2
     384
     """
+    "*** YOUR CODE HERE ***"
     if n == 1:
         return 1
     elif n == 2:
@@ -96,6 +99,7 @@ def is_prime(n):
     >>> is_prime(521)
     True
     """
+    "*** YOUR CODE HERE ***"
     return all(n % i !=0 for i in range(2, int(n**0.5) + 1))
 
 def interleaved_sum(n, odd_term, even_term):
@@ -106,6 +110,7 @@ def interleaved_sum(n, odd_term, even_term):
     ... interleaved_sum(5, lambda x: x, lambda x: x*x)
     29
     """
+    "*** YOUR CODE HERE ***"
     if n == 1:
         return 1
     elif n % 2:
@@ -124,11 +129,31 @@ def ten_pairs(n):
     >>> ten_pairs(9641469)
     6
     """
-    array = [int(i) for i in (str(n))]
-    count = 0
-    while len(array) > 1:
-        partner = 10 - array.pop()
-        for i in array:
-            if i == partner:
-                count += 1
-    return count
+
+    # array = [int(i) for i in (str(n))]
+    # count = 0
+    # while len(array) > 1:
+    #     partner = 10 - array.pop()
+    #     for i in array:
+    #         if i == partner:
+    #             count += 1
+    # return count
+
+    "*** YOUR CODE HERE ***"
+    def count_digit(n, digit):
+            """Return how many times digit appears in n.
+            >>> count_digit(55055, 5)
+            4
+            """
+            if n == 0:
+                return 0
+            else:
+                if n%10 == digit:
+                    return count_digit(n//10, digit) + 1
+                else:
+                    return count_digit(n//10, digit)
+
+    if n < 10:
+        return 0
+    else:
+        return ten_pairs(n//10) + count_digit(n//10, 10 - n%10)
