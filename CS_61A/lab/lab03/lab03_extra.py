@@ -114,7 +114,6 @@ def interleaved_sum(n, odd_term, even_term):
         return even_term(n) + interleaved_sum(n-1, odd_term, even_term)
 
 
-
 def ten_pairs(n):
     """Return the number of ten-pairs within positive integer n.
 
@@ -125,4 +124,11 @@ def ten_pairs(n):
     >>> ten_pairs(9641469)
     6
     """
-    "*** YOUR CODE HERE ***"
+    array = [int(i) for i in (str(n))]
+    count = 0
+    while len(array) > 1:
+        partner = 10 - array.pop()
+        for i in array:
+            if i == partner:
+                count += 1
+    return count
