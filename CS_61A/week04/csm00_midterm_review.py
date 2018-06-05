@@ -86,13 +86,13 @@ from operator import add, mul
 def combine(n, f, result):
     """
     Combine the digits in non-negative integer n using f.
-    >>> combine(3, mul, 2)
+    >>> combine(3, mul, 2) # mul(3, 2)
     6
-    >>> combine(43, mul, 2)
+    >>> combine(43, mul, 2) # mul(4, mul(3, 2))
     24
-    >>> combine(6502, add, 3)
+    >>> combine(6502, add, 3) # add(6, add(5, add(0, add(2, 3))))
     16
-    >>> combine(239, pow, 0)
+    >>> combine(239, pow, 0) # pow(2, pow(3, pow(9, 0))))
     8
     """
     if n == 0:
@@ -116,3 +116,24 @@ def has_sum(total, n, m):
         return True
     else:
         return has_sum(total - n, n, m) or has_sum(total - m, n, m)
+
+
+def sum_range(lower, upper):
+    """
+    >>> sum_range(45, 60) # Printer 1 prints within this range
+    True
+    >>> sum_range(40, 55) # Printer 1 can print a number 56-60
+    False
+    >>> sum_range(170, 201) # Printer 1 + 2 will print between
+    180 and 200 copies total
+    True
+    """
+    def copies(pmin, pmax):
+        if pmin >= lower and pmax <= upper:
+            return True
+        elif upper < pmin:
+            return False
+        else:
+            return copies(pmin + 50, pmax+60) or copies(pmin+130, pmax+140)
+
+    return copies(0, 0)
