@@ -75,3 +75,44 @@ def fox_says(start, middle, end, num):
     'fraka-kaka-kaka-kaka-kaka-kow'
     """
     def repeat(k):
+        if k == 1:
+            return middle + '-'
+        else:
+            return middle + '-' + repeat(k-1)
+    return start + '-' + repeat(num) + end
+
+
+from operator import add, mul
+def combine(n, f, result):
+    """
+    Combine the digits in non-negative integer n using f.
+    >>> combine(3, mul, 2)
+    6
+    >>> combine(43, mul, 2)
+    24
+    >>> combine(6502, add, 3)
+    16
+    >>> combine(239, pow, 0)
+    8
+    """
+    if n == 0:
+        return result
+    else:
+        return combine(n // 10, f, f(n % 10, result))
+
+
+def has_sum(total, n, m):
+    """
+    >>> has_sum(1, 3, 5)
+    False
+    >>> has_sum(5, 3, 5) # 0 * 3 + 1 * 5 = 5
+    True
+    >>> has_sum(11, 3, 5) # 2 * 3 + 1 * 5 = 11
+    True
+    """
+    if total < n and total < m:
+        return False
+    elif total == n or total == m:
+        return True
+    else:
+        return has_sum(total - n, n, m) or has_sum(total - m, n, m)
