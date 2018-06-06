@@ -1,5 +1,4 @@
 # Express yourself
-# a
 def kbonacci(n, k):
     """Return element N of a K-bonacci sequence.
     >>> kbonacci(3, 4)
@@ -22,4 +21,38 @@ def kbonacci(n, k):
             total = total + kbonacci(i, k)
             i = i + 1
     return total
+
+# Combine Reverse and Remove
+def combine(left, right):
+    """Return all of LEFT's digits followed by all of RIGHT's
+    digits."""
+    factor = 1
+    while factor <= right:
+        factor = factor * 10
+    return left * factor + right
+
+def reverse(n):
+    """Return the digits of N in reverse.
+    >>> reverse(122543)
+    345221
+    """
+    if n < 10:
+        return n
+    else:
+        return combine(__________________ , _______________)
+
+def remove(n, digit):
+    """Return all digits of N that are not DIGIT, for DIGIT
+    less than 10.
+    >>> remove(243132, 3)
+    2412
+    >>> remove(remove(243132, 1), 2)
+    433
+    """
+    removed = 0
+    while n != 0:
+        ____________, __________ = ____________, ____________
+        if ______________________________________________:
+            removed = __________________________________
+    return reverse(removed)
 
