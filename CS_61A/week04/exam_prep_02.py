@@ -17,8 +17,9 @@ def kbonacci(n, k):
         return 1
     else:
         total = 0
-        i = ____________________________________________
+        i = n - k
         while i < n:
-            total = total + ______________________________
+            total = total + kbonacci(i, k)
             i = i + 1
     return total
+
