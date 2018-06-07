@@ -67,5 +67,5 @@ def remove(n, digit):
     while n != 0:
         sample, n = n % 10, n // 10
         if sample != digit:
-            removed = combine(sample, removed)
+            removed = combine(removed, sample)
     return reverse(removed)
