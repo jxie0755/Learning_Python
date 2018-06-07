@@ -98,10 +98,12 @@ def memory(x, f):
     None
     """
     def g(h):
-        print(________________________________________)
-        return _______________________________________
+        print(f(x))
+        return memory(x, h)
     return g
 
-# (b)
+# # (b)
+# Add parentheses and single-digit integers in the blanks below so that the expression on the second line evaluates to 2015
 lamb = lambda lamb: lambda: lamb + lamb
-lamb(1000)______ + (lambda b, c: b______ * b______ - c______)(lamb(______), 1)______
+X = lamb(1000)() + (lambda b, c: b() * b() - c)(lamb(2), 1)
+assert(X == 2015)
