@@ -77,3 +77,31 @@ def remove(n, digit):
         if sample != digit:
             removed = combine(sample, removed)  # use combine to reverse on the run
     return removed  # then no need to reverse the whole thing again
+
+
+# You complete Me
+# (a)
+square = lambda x: x * x
+double = lambda x: 2 * x
+def memory(x, f):
+    """Return a higher-order function that prints its
+    memories.
+    >>> f = memory(3, lambda x: x)
+    >>> f = f(square)
+    3
+    >>> f = f(double)
+    9
+    >>> f = f(print)
+    6
+    >>> f = f(square)
+    3
+    None
+    """
+    def g(h):
+        print(________________________________________)
+        return _______________________________________
+    return g
+
+# (b)
+lamb = lambda lamb: lambda: lamb + lamb
+lamb(1000)______ + (lambda b, c: b______ * b______ - c______)(lamb(______), 1)______
