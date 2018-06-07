@@ -63,9 +63,17 @@ def remove(n, digit):
     >>> remove(remove(243132, 1), 2)
     433
     """
+    # removed = 0
+    # while n != 0:
+    #     sample, n = n % 10, n // 10
+    #     if sample != digit:
+    #         removed = removed * 10 +  sample
+    # return reverse(removed)
+
+    # optional and better:
     removed = 0
     while n != 0:
         sample, n = n % 10, n // 10
         if sample != digit:
-            removed = combine(removed, sample)
-    return reverse(removed)
+            removed = combine(sample, removed)  # use combine to reverse on the run
+    return removed  # then no need to reverse the whole thing again
