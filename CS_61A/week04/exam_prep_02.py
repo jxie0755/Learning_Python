@@ -107,3 +107,20 @@ def memory(x, f):
 lamb = lambda lamb: lambda: lamb + lamb
 X = lamb(1000)() + (lambda b, c: b() * b() - c)(lamb(2), 1)
 assert(X == 2015)
+
+
+# Frog goes Croak
+def mouse(n):
+    if n >= 10:
+        squeak = n // 100
+        n = frog(squeak) + n % 10
+    return n
+
+def frog(croak):
+    if croak == 0:
+        return 1
+    else:
+        return 10 * mouse(croak + 1)
+
+print(mouse(357))
+# >>> 47
