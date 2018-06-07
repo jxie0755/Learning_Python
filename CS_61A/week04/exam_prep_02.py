@@ -22,10 +22,24 @@ def kbonacci(n, k):
             i = i + 1
     return total
 
+    # Non recursion version
+    # if n < k - 1:
+    #     return 0
+    # elif n == k - 1:
+    #     return 1
+    # else:
+    #     result = [0] * (k - 1) + [1]
+    #     for i in range(0, n-k+1):
+    #         temp = sum([result[x] for x in range(-1*k, 0)])
+    #         result.append(temp)
+    #     return result[-1]
+
+
+
+
 # Combine Reverse and Remove
 def combine(left, right):
-    """Return all of LEFT's digits followed by all of RIGHT's
-    digits."""
+    """Return all of LEFT's digits followed by all of RIGHT's digits."""
     factor = 1
     while factor <= right:
         factor = factor * 10
@@ -42,8 +56,7 @@ def reverse(n):
         return combine(__________________ , _______________)
 
 def remove(n, digit):
-    """Return all digits of N that are not DIGIT, for DIGIT
-    less than 10.
+    """Return all digits of N that are not DIGIT, for DIGIT less than 10.
     >>> remove(243132, 3)
     2412
     >>> remove(remove(243132, 1), 2)
