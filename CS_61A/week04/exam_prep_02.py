@@ -53,7 +53,8 @@ def reverse(n):
     if n < 10:
         return n
     else:
-        return combine(__________________ , _______________)
+        return combine(n % 10 , reverse(n // 10))
+
 
 def remove(n, digit):
     """Return all digits of N that are not DIGIT, for DIGIT less than 10.
@@ -64,8 +65,7 @@ def remove(n, digit):
     """
     removed = 0
     while n != 0:
-        ____________, __________ = ____________, ____________
-        if ______________________________________________:
-            removed = __________________________________
+        sample, n = n % 10, n // 10
+        if sample != digit:
+            removed = combine(sample, removed)
     return reverse(removed)
-
