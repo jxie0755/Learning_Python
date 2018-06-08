@@ -43,6 +43,7 @@ def bi_search(L, e):
 
 # Version 2, regular bisection search method
 def bi_search2(L, e):
+    """L is a sorted list"""
     if L[-1] == e:  # edge case for the last item
         return True
 
@@ -90,7 +91,10 @@ if __name__ == '__main__':
     print(bisect_search2(L, 99))
 
 
-# Monkey Sort (aka bogosort, stupid sort, slowsort, permutatio sort, shotgun sort)
+
+
+# Sorting algorithm
+# Monkey Sort (aka bogosort, stupid sort, slowsort, permutation sort, shotgun sort)
 import random
 def bogo_sort(L):
     # write an internal function to define what is the sort target
@@ -114,6 +118,7 @@ def bogo_sort(L):
 
 # Bubble Sort
 def bubble_sort(L):
+    """to sort to from small to large"""
     swap = False
     count = 0
     while not swap:  # while loop for multiple passes O(n)
@@ -121,9 +126,13 @@ def bubble_sort(L):
         for j in range(1, len(L)):  # for loop for doing comparisons O(n)
             if L[j-1] > L[j]:
                 swap = False
-                temp = L[j]
-                L[j] = L[j-1]
-                L[j-1] = temp
+
+                # temp = L[j]
+                # L[j] = L[j-1]
+                # L[j-1] = temp
+                # simplify to:
+                L[j-1], L[j] = L[j], L[j-1]
+
                 count += 1
     print(L, 'swapped', count, 'times')
 # complexity is O(n^2), while n = len(L)
