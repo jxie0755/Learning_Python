@@ -228,7 +228,7 @@ class Animal(object):
 myAnimal = Animal(3)
 myAnimal.set_name('foobar')
 print(myAnimal)
-
+# >>> animal:foobar:3
 
 class Cat(Animal):
     def speak(self):

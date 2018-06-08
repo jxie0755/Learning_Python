@@ -28,14 +28,16 @@ class Person(object):
         return self.lastName < other.lastName
 
 p1 = Person('Mark Zuckerberg')
-p1.setBirthday(5, 14, 84)
+p1.setBirthday(5, 14, 1984)
 p2 = Person('Drew Houston')
-p2.setBirthday(3, 4, 83)
+p2.setBirthday(3, 4, 1983)
 p3 = Person('Bill Gates')
-p3.setBirthday(10, 28, 55)
+p3.setBirthday(10, 28, 1955)
 p4 = Person('Andrew Gates')
 p5 = Person('Steve Wozniak')
 personList = [p1, p2, p3, p4, p5]
+
+print(p1.birthday)
 
 print(p1)  # >>> Mark Zuckerberg
 personList.sort()  # >>> this works because we defined __lt__ method, and it will sort by lastName
