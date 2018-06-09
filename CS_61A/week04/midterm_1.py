@@ -1,6 +1,8 @@
 # CS61A spring 2018 midterm exam 1
 
+#--------------------------------------------------------------------
 # Q1 Frame of Thrones
+#--------------------------------------------------------------------
 from operator import add, sub
 def winterfell(a, b):
     a
@@ -35,4 +37,23 @@ def snow(ow):
         return ow + snow
     ow += 2
     return tarly
-    
+
+# What would python show:
+print((print(2) or 3) // (0 or 1))
+# >>>
+# 2
+# 3
+print(winterfell(2, print))
+# >>>
+# 2
+# 3 None
+# None
+print(ny)
+# >>>
+# 21
+print(tar(lambda x: x-7, 8))
+# >>>
+# 8 (from if condition)
+# 1
+print(night(king(2, 3), 4))
+# >>>
