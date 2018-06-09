@@ -57,3 +57,9 @@ print(tar(lambda x: x-7, 8))
 # 1
 print(night(king(2, 3), 4))
 # >>>
+# -4
+print(jon(snow(5), 2))
+# >>>
+# 2
+# 2
+# 9
