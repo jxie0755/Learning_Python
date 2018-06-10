@@ -68,3 +68,17 @@ print(jon(snow(5), 2))
 # --------------------------------------------------------------------
 # Q2 Stranger Frames
 # --------------------------------------------------------------------
+def lucas(mike):
+    return will
+
+def dustin(lucas):
+    will = 1
+    def dustin(mike):
+        will = 2
+        return lucas
+    return lambda mad: dustin(3)(will)
+
+will = 5 + 6
+lucas = dustin(lucas)
+print(lucas(max))
+# >>>
