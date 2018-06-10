@@ -83,3 +83,10 @@ lucas = dustin(lucas)
 print(lucas(max))
 # >>>
 # 11
+# lucas global is a fucntion dustin(lucase) which is lambda(mad) return dustin(3)(will)
+
+# so lucase(max), which max is mad, is to return dustin(3)(will)
+
+# dustin(3) is in the second frame, which return lucas, which is a global function lucase(mike) to return will no matter what mike is. in this case, mike=3, but it does not matter
+
+# eventually it will just return will, which is 11.
