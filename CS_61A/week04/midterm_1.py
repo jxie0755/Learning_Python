@@ -82,3 +82,4 @@ will = 5 + 6
 lucas = dustin(lucas)
 print(lucas(max))
 # >>>
+# 11
