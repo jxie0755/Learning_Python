@@ -90,3 +90,8 @@ print(lucas(max))
 # dustin(3) is in the second frame, which return lucas, which is a global function lucase(mike) to return will no matter what mike is. in this case, mike=3, but it does not matter
 
 # eventually it will just return will, which is 11.
+
+
+# --------------------------------------------------------------------
+# Q3 Choose Wisely
+# --------------------------------------------------------------------
