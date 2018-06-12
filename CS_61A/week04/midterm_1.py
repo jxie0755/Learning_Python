@@ -136,3 +136,39 @@ print('X is', X)
 # --------------------------------------------------------------------
 # Q4 Editor
 # --------------------------------------------------------------------
+
+# Implement make_editor, which takes a non-negative integer n and a one-argument function pr.
+# It returns an editor for n that uses pr to display the result of each edit.
+
+def make_editor(n, pr):
+    """Return an editor for N.
+    >>> f = make_editor(2018, lambda n: print('n is now', n))
+    >>> f = f(delete(3)) # delete the last 3 digits from the end of 2018
+    n is now 2
+    >>> f = f(insert(4, 0)) # insert digit 4 at the end of 2 (position 0)
+    n is now 24
+    >>> f = f(insert(3, 1)) # insert digit 3 in the middle of 24 (position 1)
+    n is now 234
+    >>> f = f(insert(1, 3)) # insert digit 1 at the start of 234 (position 3)
+    n is now 1234
+    >>> f = make_editor(123, print)(delete(10)) # delete 10 digits from the end of 123
+    0
+    """
+    def editor(edit):
+        result = edit(n)
+        pr(result)
+        return make_editor(result, pr)
+    return editor
+
+# Implement insert, which takes a single digit d (from 0 to 9) and a non-negative position k. It returns an edit that inserts d into its argument n at position k, where k counts the number of digits from the end of n. Assume that k is not larger than the number of digits in n. Your solution must be recursive.
+
+def insert(d, k):
+    def edit(n):
+        if k == 0:
+            return d + 10 * n
+        else:
+            return n % 10 + 10 * insert(d, k-1)(n//10)
+    return edit
+
+# Implement delete, which takes a non-negative integer k and returns an edit that deletes the last k digits of its argument n. You may use pow or ** in your solution.
+delete = lambda n: lambda x: x // 10 ** n
