@@ -22,8 +22,7 @@
 
 def count_fib_digit(length):
     """return the index of fibonacci number to reach the target length of digit"""
-    i = 3
-    array = [0, 1, 1]
+    i, array = 3, [0, 1, 1]
     while True:
         array.append(array[i-2] + array[i-1])
         if len(str(array[-1])) == length:
