@@ -147,18 +147,21 @@ def pingpong(n):
     True
     """
     "*** YOUR CODE HERE ***"
-    def flip(n):
+    def diff(n):
+        """Returns the difference between pingpong(n) and pingpong(n-1), which could only be 1 or -1
+        so that pingpong(n) = pingpong(n-1) + diff(n)
+        """
         if n == 1:
             return 1
         elif (n-1) % 7 == 0 or has_seven(n-1):
-            return -1 * flip(n-1)
+            return -1 * diff(n-1)
         else:
-            return flip(n-1)
+            return diff(n-1)
 
     if n == 1:
         return 1
     else:
-        return pingpong(n-1) + flip(n)
+        return pingpong(n-1) + diff(n)
 
 
 def has_seven(k):
