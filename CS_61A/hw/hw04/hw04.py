@@ -4,6 +4,7 @@ HW_SOURCE_FILE = 'hw04.py'
 #  Questions  #
 ###############
 
+# Q1: Taxicab Distance
 def intersection(st, ave):
     """Represent an intersection using the Cantor pairing function."""
     return (st+ave)*(st+ave+1)//2 + ave
@@ -16,6 +17,16 @@ def avenue(inter):
 
 w = lambda z: int(((8*z+1)**0.5-1)/2)
 
+# All these are just way to complicate the calculation (but the key to to ignore because they are abstraction barriers.)
+# times_square = intersection(46, 7)
+# ess_a_bagel = intersection(51, 3)
+# print(times_square) # >>> 1438
+# print(ess_a_bagel) # >>> 1488
+# print(street(times_square)) # >>> 46
+# print(street(ess_a_bagel)) # >>> 51
+# print(avenue(times_square)) # >>> 7
+# print(avenue(ess_a_bagel)) # >>> 3
+
 def taxicab(a, b):
     """Return the taxicab distance between two intersections.
 
@@ -27,7 +38,10 @@ def taxicab(a, b):
     9
     """
     "*** YOUR CODE HERE ***"
+    return abs(street(a) - street(b)) + abs(avenue(a) - avenue(b))
 
+
+# Q2: Squares only
 def squares(s):
     """Returns a new list containing square roots of the elements of the
     original list that are perfect squares.
