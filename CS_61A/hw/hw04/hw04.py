@@ -237,4 +237,9 @@ def make_anonymous_factorial():
     >>> check(HW_SOURCE_FILE, 'make_anonymous_factorial', ['Assign', 'AugAssign', 'FunctionDef', 'Recursion'])
     True
     """
-    return 'YOUR_EXPRESSION_HERE'
+    # my own version needs functools.reduce
+    # import functools
+    # return lambda n: functools.reduce(mul, range(1, n+1))
+    return lambda n: (lambda f, v: f(f, v))(lambda f, v: 1 if v == 1 else v * f(f, v-1), n)
+
+print(make_anonymous_factorial()(5))
