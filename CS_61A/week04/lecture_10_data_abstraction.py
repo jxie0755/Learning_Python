@@ -74,6 +74,8 @@ def rational(n, d):
         elif name == 'd':
             return d
     return select
+# in this way, the rational number becomes a function instead of a two-element list
+# but this won't affect any of the programs outside of the abtraction barrier.
 
 def numer(x):
     """Return the numerator of rational number X in lowest terms and having
