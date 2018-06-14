@@ -243,3 +243,4 @@ def make_anonymous_factorial():
     return lambda n: (lambda f, v: f(f, v))(lambda f, v: 1 if v == 1 else v * f(f, v-1), n)
 
 print(make_anonymous_factorial()(5))
+# >>> 120
