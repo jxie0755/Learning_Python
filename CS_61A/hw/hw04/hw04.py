@@ -147,6 +147,19 @@ def pingpong(n):
     True
     """
     "*** YOUR CODE HERE ***"
+    def flip(n):
+        if n == 1:
+            return 1
+        elif (n-1) % 7 == 0 or has_seven(n-1):
+            return -1 * flip(n-1)
+        else:
+            return flip(n-1)
+
+    if n == 1:
+        return 1
+    else:
+        return pingpong(n-1) + flip(n)
+
 
 def has_seven(k):
     """Returns True if at least one of the digits of k is a 7, False otherwise.
@@ -170,7 +183,6 @@ def has_seven(k):
         return False
     else:
         return has_seven(k // 10)
-
 
 
 # Q5: Count change
