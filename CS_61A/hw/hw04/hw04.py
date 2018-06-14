@@ -221,6 +221,7 @@ def count_partitions_modified(n, m):
     else:
         return count_partitions_modified(n-m, m) + count_partitions_modified(n, m//2)
 
+
 ###################
 # Extra Questions #
 ###################
