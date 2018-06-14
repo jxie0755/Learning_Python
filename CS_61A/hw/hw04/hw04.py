@@ -202,10 +202,17 @@ def count_change(amount):
     9828
     """
     "*** YOUR CODE HERE ***"
+    largets_coin = 1
+    while largets_coin <= amount:
+        largets_coin *= 2
+    largets_coin = largets_coin // 2
+
+    return count_partitions_modified(amount, largets_coin)
 
 
-def count_partitions(n, m):
-    """Count the ways to partition n using parts up to m."""
+def count_partitions_modified(n, m):
+    """Count the ways to partition n using parts up to m.
+    modified m-1 (steps of 1) to m // 2 (steps of half)"""
     if n == 0:
         return 1
     elif n < 0:
@@ -213,7 +220,7 @@ def count_partitions(n, m):
     elif m == 0:
         return 0
     else:
-        return count_partitions(n-m, m) + count_partitions(n, m-1)
+        return count_partitions_modified(n-m, m) + count_partitions_modified(n, m//2)
 
 ###################
 # Extra Questions #
