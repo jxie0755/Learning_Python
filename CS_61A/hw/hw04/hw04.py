@@ -203,9 +203,8 @@ def count_change(amount):
     """
     "*** YOUR CODE HERE ***"
     largets_coin = 1
-    while largets_coin <= amount:
+    while largets_coin * 2 <= amount:
         largets_coin *= 2
-    largets_coin = largets_coin // 2
 
     return count_partitions_modified(amount, largets_coin)
 
