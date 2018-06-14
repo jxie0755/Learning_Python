@@ -42,6 +42,7 @@ def taxicab(a, b):
 
 
 # Q2: Squares only
+from math import sqrt
 def squares(s):
     """Returns a new list containing square roots of the elements of the
     original list that are perfect squares.
@@ -54,7 +55,15 @@ def squares(s):
     []
     """
     "*** YOUR CODE HERE ***"
+    result = []
+    for i in s:
+        root = i ** 0.5
+        if root == round(root):
+            result += [round(root)]
+    return result
 
+
+# Q3: G function
 def g(n):
     """Return the value of G(n), computed recursively.
 
@@ -93,6 +102,9 @@ def g_iter(n):
     """
     "*** YOUR CODE HERE ***"
 
+
+
+# Q4: Ping pong
 def pingpong(n):
     """Return the nth element of the ping-pong sequence.
 
@@ -149,6 +161,9 @@ def has_seven(k):
     else:
         return has_seven(k // 10)
 
+
+
+# Q5: Count change
 def count_change(amount):
     """Return the number of ways to make change for amount.
 
