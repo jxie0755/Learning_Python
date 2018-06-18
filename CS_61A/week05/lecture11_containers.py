@@ -58,7 +58,6 @@ def count_same(pairs):
             same_count = same_count + 1
     return same_count
 
-
 # Ranges
 
 list(range(5, 8))
