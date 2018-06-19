@@ -94,6 +94,7 @@ def divisors(n):
     return [x for x in range(1, n) if n % x == 0]
 
 # Dicts
+# (unordered!)
 
 def dict_demos():
     numerals = {'I': 1, 'V': 5, 'X': 10}
