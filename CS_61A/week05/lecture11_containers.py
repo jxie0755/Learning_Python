@@ -3,18 +3,18 @@
 # Lists
 
 odds = [41, 43, 47, 49]
-print(len(odds))
-print(odds[1])
-print(odds[0] - odds[3] + len(odds))
-print(odds[odds[3]-odds[2]])
+# print(len(odds)) # >>> 4
+# print(odds[1]) # >>> 43
+# print(odds[0] - odds[3] + len(odds)) # >>> -4
+# print(odds[odds[3]-odds[2]]) # >>> 47
 
 # Containers
 
 digits = [1, 8, 2, 8]
-print(1 in digits)
-print('1' in digits)
-print([1, 8] in digits)
-print([1, 2] in [[1, 2], 3])
+# print(1 in digits) # >>> True
+# print('1' in digits) # >>> False
+# print([1, 8] in digits) # >>> False
+# print([1, 2] in [[1, 2], 3]) # >>> True
 
 
 # Statement
@@ -39,7 +39,7 @@ def count_for(s, value):
     2
     """
     total = 0
-    for elem in s:
+    for elem in s:  # evaluate s first, then bind elem to each element in s
         if elem == value:
             total = total + 1
     return total
@@ -53,7 +53,7 @@ def count_same(pairs):
     2
     """
     same_count = 0
-    for x, y in pairs:
+    for x, y in pairs: # unpacking
         if x == y:
             same_count = same_count + 1
     return same_count
@@ -103,9 +103,9 @@ def dict_demos():
     sum(numerals.values())
     dict([(3, 9), (4, 16), (5, 25)])
     numerals.get('X', 0)
-    numerals.get('X-ray', 0)
+    numerals.get('X-ray', 0)  # second parameter as the default value if not in the dict
     {x: x*x for x in range(3,6)}
 
-    {1: 2, 1: 3}
-    {[1]: 2}
+    {1: 2, 1: 3} # throw out the lower value elements
+    {[1]: 2} # unhashable keys not allowed
     {1: [2]}
