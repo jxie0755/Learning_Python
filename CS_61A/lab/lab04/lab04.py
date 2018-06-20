@@ -1,6 +1,10 @@
 """ Lab 04: Lists and Data Abstraction """
 
-# Q2
+# Q1 and Q2 are what would python display questions by using
+# python3 ok -q indexing -u
+# python3 ok -q lists -u
+
+# Q3
 def if_this_not_that(i_list, this):
     """Define a function which takes a list of integers `i_list` and an integer
     `this`. For each element in `i_list`, print the element if it is larger
