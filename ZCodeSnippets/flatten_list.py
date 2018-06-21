@@ -10,6 +10,18 @@ def flat_list(nested_list):
             flattened_list.append(i)
     return flattened_list
 
+# Version 2, 新建一个frame,然后用helper function
+def flat_list(nested_list):
+    result = []
+    def helper(nested_list):
+        for i in nested_list:
+            if type(i) == list:
+                helper(i)
+            else:
+                result.append(i)
+    helper(nested_list)
+    return result
+
 if __name__ == '__main__':
     assert flat_list([1, 2, 3]) == [1, 2, 3], "First"
     assert flat_list([1, [2, 2, 2], 4]) == [1, 2, 2, 2, 4], "Second"
