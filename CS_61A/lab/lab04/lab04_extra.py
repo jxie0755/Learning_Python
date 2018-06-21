@@ -16,6 +16,18 @@ def flatten(lst):
     [1, 1, 1, 1, 1, 1]
     """
     "*** YOUR CODE HERE ***"
+    # 新建一个frame,利用tree recursion的helper(imperfect function)来实现
+    # 需要占用额外空间
+    result = []
+    def helper(lst):
+        for i in lst:
+            if type(i) == list:
+                helper(i)
+            else:
+                result.append(i)
+    helper(lst)
+    return result
+
 
 # Q7
 def merge(lst1, lst2):
