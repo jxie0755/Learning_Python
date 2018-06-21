@@ -3,6 +3,7 @@
 # Q1 and Q2 are what would python display questions by using
 # python3 ok -q indexing -u
 # python3 ok -q lists -u
+print([1 for i in ["hi", "bye", "you"]])
 
 # Q3
 def if_this_not_that(i_list, this):
