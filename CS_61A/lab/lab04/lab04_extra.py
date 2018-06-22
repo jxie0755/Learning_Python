@@ -44,18 +44,29 @@ def merge(lst1, lst2):
     """
     "*** YOUR CODE HERE ***"
     # Not using sorted()
-    result = lst1 + lst2
-    swap = True
-    while swap:
-        i = 0
-        swap = False
-        while i < len(result) - 1:
-            if result[i] > result[i+1]:
-                result[i], result[i+1] = result[i+1], result[i]
-                swap = True
-            i += 1
-    return result
+    # Bubble sort
+    # result = lst1 + lst2
+    # swap = True
+    # while swap:
+    #     i = 0
+    #     swap = False
+    #     while i < len(result) - 1:
+    #         if result[i] > result[i+1]:
+    #             result[i], result[i+1] = result[i+1], result[i]
+    #             swap = True
+    #         i += 1
+    # return result
 
+    # recursion
+    ls = []
+    if len(lst1) == 0:
+        return lst2
+    elif len(lst2) == 0:
+        return lst1
+    elif(lst1[0] < lst2[0]):
+        return [lst1[0]] + merge(lst1[1:], lst2)
+    else:
+        return [lst2[0]] + merge(lst1, lst2[1:])
 
 
 
