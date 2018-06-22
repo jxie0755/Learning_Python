@@ -109,6 +109,9 @@ def replace_elem(lst, index, elem):
     """
     assert index >= 0 and index < len(lst), 'Index is out of bounds'
     "*** YOUR CODE HERE ***"
+    result = lst[:]
+    result[index] = elem
+    return result
 
 # Q11
 def get_piece(board, row, column):
