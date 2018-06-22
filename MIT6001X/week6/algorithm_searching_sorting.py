@@ -155,12 +155,12 @@ def selection_sort(L):  # self try, O(n)
 def selection_sort(L): # Version 2, MIT method
     # the idea is to divide the list into two part and move smallest item to first half
     # the way to find smallest element is dynamic, not by one swap
-    suffixSt = 0
-    while suffixSt != len(L):
-        for i in range(suffixSt, len(L)):
-            if L[i] < L[suffixSt]:
-                L[suffixSt], L[i] = L[i], L[suffixSt]
-        suffixSt += 1
+    current = 0
+    while current != len(L):
+        for i in range(current, len(L)):
+            if L[i] < L[current]:
+                L[current], L[i] = L[i], L[current]
+        current += 1
     print(L)
     # this could avoid the index problem, but more swaps
     # still O(n ^ 2), but more efficient than bubble sort, because the list gets shorter in every loop
