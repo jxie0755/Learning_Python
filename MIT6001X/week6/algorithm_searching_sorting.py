@@ -119,13 +119,13 @@ def bogo_sort(L):
 # Bubble Sort
 def bubble_sort(L):
     """to sort to from small to large"""
-    swap = False
+    swap = True
     count = 0
-    while not swap:  # while loop for multiple passes O(n)
-        swap = True
+    while swap:  # while loop for multiple passes O(n)
+        swap = False
         for j in range(1, len(L)):  # for loop for doing comparisons O(n)
             if L[j-1] > L[j]:
-                swap = False
+                swap = True
 
                 # temp = L[j]
                 # L[j] = L[j-1]
