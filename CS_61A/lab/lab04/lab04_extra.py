@@ -2,7 +2,7 @@
 
 from lab04 import *
 
-# Q6
+# Q7
 def flatten(lst):
     """Returns a flattened version of lst.
 
@@ -29,7 +29,7 @@ def flatten(lst):
     return result
 
 
-# Q7
+# Q8
 def merge(lst1, lst2):
     """Merges two sorted lists.
 
@@ -43,11 +43,27 @@ def merge(lst1, lst2):
     [2, 4, 5, 6, 7]
     """
     "*** YOUR CODE HERE ***"
+    # Not using sorted()
+    result = lst1 + lst2
+    swap = True
+    while swap:
+        i = 0
+        swap = False
+        while i < len(result) - 1:
+            if result[i] > result[i+1]:
+                result[i], result[i+1] = result[i+1], result[i]
+                swap = True
+            i += 1
+    return result
+
+
+
 
 ######################
 ### Connect N Game ###
 ######################
 
+# Q9
 def create_row(size):
     """Returns a single, empty row with the given size. Each empty spot is
     represented by the string '-'.
@@ -66,7 +82,7 @@ def create_board(rows, columns):
     """
     "*** YOUR CODE HERE ***"
 
-
+# Q10
 def replace_elem(lst, index, elem):
     """Create and return a new list whose elements are the same as those in
     LST except at index INDEX, which should contain element ELEM instead.
@@ -81,7 +97,7 @@ def replace_elem(lst, index, elem):
     assert index >= 0 and index < len(lst), 'Index is out of bounds'
     "*** YOUR CODE HERE ***"
 
-
+# Q11
 def get_piece(board, row, column):
     """Returns the piece at location (row, column) in the board.
 
@@ -119,7 +135,7 @@ def put_piece(board, max_rows, column, player):
     """
     "*** YOUR CODE HERE ***"
 
-
+# @12
 def make_move(board, max_rows, max_cols, col, player):
     """Put player's piece in column COL of the board, if it is a valid move.
     Return a tuple of two values:
@@ -147,6 +163,7 @@ def make_move(board, max_rows, max_cols, col, player):
     """
     "*** YOUR CODE HERE ***"
 
+# Q13
 def print_board(board, max_rows, max_cols):
     """Prints the board. Row 0 is at the top, and column 0 at the far left.
 
@@ -186,6 +203,7 @@ def check_win_row(board, max_rows, max_cols, num_connect, row, player):
     """
     "*** YOUR CODE HERE ***"
 
+# Q14
 def check_win_column(board, max_rows, max_cols, num_connect, col, player):
     """ Returns True if the given player has a vertical win in the given column,
     and otherwise False.
@@ -211,6 +229,7 @@ def check_win_column(board, max_rows, max_cols, num_connect, col, player):
     """
     "*** YOUR CODE HERE ***"
 
+# Q15
 def check_win(board, max_rows, max_cols, num_connect, row, col, player):
     """Returns True if the given player has any kind of win after placing a
     piece at (row, col), and False otherwise.
