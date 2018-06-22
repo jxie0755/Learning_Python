@@ -127,6 +127,7 @@ def get_piece(board, row, column):
     '-'
     """
     "*** YOUR CODE HERE ***"
+    return board[row][column]
 
 
 def put_piece(board, max_rows, column, player):
@@ -150,6 +151,16 @@ def put_piece(board, max_rows, column, player):
     -1
     """
     "*** YOUR CODE HERE ***"
+    # get the index
+    index = -1
+    for i in board:
+        if i[column] == '-':
+            index += 1
+    # get the new board
+    if index != -1:
+        board[index] = replace_elem(board[index], column, player)
+    return (index, board)
+
 
 # @12
 def make_move(board, max_rows, max_cols, col, player):
