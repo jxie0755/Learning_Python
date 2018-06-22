@@ -3,3 +3,5 @@
 'closer_city-correct', (1024, 70)
 'flatten-correct', (1536, 70)
 'merge-correct', (2048, 70)
+'create_row-correct', (2560, 70)
+'create_board-correct', (3072, 70)
