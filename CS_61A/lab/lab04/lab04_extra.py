@@ -189,7 +189,7 @@ def make_move(board, max_rows, max_cols, col, player):
     -1
     """
     "*** YOUR CODE HERE ***"
-    if abs(col) <= max_cols:
+    if 0 <= col < max_cols:
         return put_piece(board, max_rows, col, player)
     else:
         return (-1, board)
