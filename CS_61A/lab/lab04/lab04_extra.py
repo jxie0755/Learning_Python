@@ -184,11 +184,16 @@ def make_move(board, max_rows, max_cols, col, player):
     >>> row, board = make_move(board, rows, columns, 0, 'X')
     >>> row
     -1
-    >>> row, board = make_move(board, rows, columns, -4, '0')
+    >>> row, board = make_move(board, rows, columns, -4, 'O')
     >>> row
     -1
     """
     "*** YOUR CODE HERE ***"
+    if abs(col) <= max_cols:
+        return put_piece(board, max_rows, col, player)
+    else:
+        return (-1, board)
+
 
 # Q13
 def print_board(board, max_rows, max_cols):

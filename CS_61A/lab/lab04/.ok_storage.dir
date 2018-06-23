@@ -8,3 +8,4 @@
 'replace_elem-correct', (3584, 70)
 'get_piece-correct', (4096, 70)
 'put_piece-correct', (4608, 70)
+'make_move-correct', (5120, 70)
