@@ -216,13 +216,11 @@ def print_board(board, max_rows, max_cols):
     #     board_view = board_view + ' '.join(i) + '\n'
     # print(board_view.strip())
 
-    board_view = ''
     for i in range(0, max_rows):
+        board_view = ''
         for j in range(0, max_cols):
             board_view += get_piece(board, i, j) + ' '
-        board_view = board_view.strip()
-        board_view += '\n'
-    print(board_view.strip())
+        print(board_view.strip())
 
 def check_win_row(board, max_rows, max_cols, num_connect, row, player):
     """ Returns True if the given player has a horizontal win
