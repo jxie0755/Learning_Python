@@ -6,7 +6,7 @@ from connect_n_logic import *
 
 def start_game():
     # Game Header
-    print('Welcome to play Connect N!!!')
+    print('Welcome to play Connect N!!!\n')
     print('Please create a game board:')
 
     # Create the board
