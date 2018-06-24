@@ -127,6 +127,7 @@ def print_board(board, max_rows, max_cols):
     - -
     >>> new_board = make_move(board, rows, columns, 0, 'X')[1]
     >>> print_board(new_board, rows, columns)
+
     - -
     X -
     0 1
@@ -137,15 +138,16 @@ def print_board(board, max_rows, max_cols):
     # for i in board:
     #     board_view = board_view + ' '.join(i) + '\n'
     # print(board_view.strip())
+    print('')
 
     for i in range(0, max_rows):
         board_view = ''
         for j in range(0, max_cols):
             board_view += get_piece(board, i, j) + ' '
         print(board_view.strip())
+
     print(' '.join(str(i) for i in range(max_cols)))
-
-
+    print('')
 
 
 def check_win_row(board, max_rows, max_cols, num_connect, row, player):
