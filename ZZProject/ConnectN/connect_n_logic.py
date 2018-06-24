@@ -129,6 +129,7 @@ def print_board(board, max_rows, max_cols):
     >>> print_board(new_board, rows, columns)
     - -
     X -
+    0 1
     """
     "*** YOUR CODE HERE ***"
     # This acrossed the abtraction barrier
@@ -142,6 +143,9 @@ def print_board(board, max_rows, max_cols):
         for j in range(0, max_cols):
             board_view += get_piece(board, i, j) + ' '
         print(board_view.strip())
+    print(' '.join(str(i) for i in range(max_cols)))
+
+
 
 
 def check_win_row(board, max_rows, max_cols, num_connect, row, player):
