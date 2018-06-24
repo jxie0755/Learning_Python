@@ -222,6 +222,7 @@ def print_board(board, max_rows, max_cols):
             board_view += get_piece(board, i, j) + ' '
         print(board_view.strip())
 
+
 def check_win_row(board, max_rows, max_cols, num_connect, row, player):
     """ Returns True if the given player has a horizontal win
     in the given row, and otherwise False.
