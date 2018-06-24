@@ -246,7 +246,13 @@ def check_win_row(board, max_rows, max_cols, num_connect, row, player):
     False
     """
     "*** YOUR CODE HERE ***"
-
+    for i in range(0, max_rows):
+        check = ''
+        for j in range(0, max_cols):
+            check += get_piece(board, i, j)
+        if player * num_connect in check:
+            return True
+    return False
 
 
 # Q14
