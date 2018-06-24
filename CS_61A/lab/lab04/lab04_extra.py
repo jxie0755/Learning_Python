@@ -162,7 +162,7 @@ def put_piece(board, max_rows, column, player):
     return (index, board)
 
 
-# @12
+# Q12
 def make_move(board, max_rows, max_cols, col, player):
     """Put player's piece in column COL of the board, if it is a valid move.
     Return a tuple of two values:
