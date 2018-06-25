@@ -215,6 +215,51 @@ def check_win_column(board, max_rows, max_cols, num_connect, col, player):
     return False
 
 
+def check_win_diagonal(board, max_rows, max_cols, num_connect, row, col, player):
+    """ Returns True if the given player has a diagonal win passing the spot
+    (row, column), and False otherwise.
+    """
+    # Find top left of diagonal passing through the newly placed piece.
+    adjacent = 0
+    row_top_left, col_top_left = row, col
+    while row_top_left > 0 and col_top_left > 0:
+        row_top_left -= 1
+        col_top_left -= 1
+
+    # Loop through top left to bottom right diagonal and check for win.
+    while row_top_left < max_rows and col_top_left < max_cols:
+        piece = get_piece(board, row_top_left, col_top_left)
+        if piece == player:
+            adjacent += 1
+        else:
+            adjacent = 0
+        if adjacent >= num_connect:
+            return True
+        row_top_left += 1
+        col_top_left += 1
+
+    # Find top right of diagonal passing through the newly placed piece.
+    adjacent = 0
+    row_top_right, col_top_right = row, col
+    while row_top_right > 0 and col_top_right < max_cols - 1:
+        row_top_right -= 1
+        col_top_right += 1
+
+    # Loop through top right to bottom left diagonal and check for win.
+    while row_top_right < max_rows and col_top_right >= 0:
+        piece = get_piece(board, row_top_right, col_top_right)
+        if piece == player:
+            adjacent += 1
+        else:
+            adjacent = 0
+        if adjacent >= num_connect:
+            return True
+        row_top_right += 1
+        col_top_right -= 1
+
+    return False
+
+
 def check_win(board, max_rows, max_cols, num_connect, row, col, player):
     """Returns True if the given player has any kind of win after placing a
     piece at (row, col), and False otherwise.
