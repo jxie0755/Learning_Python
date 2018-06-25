@@ -36,7 +36,7 @@ def start_game():
         # check move
         while True:
             try:
-                move = int(input(f'Player [{player_to_move}] move, choose the column number:'))
+                move = int(input(f'Player [{player_to_move}] move, choose the column number:')) - 1
             except:
                 print('must input an integer')
                 continue
