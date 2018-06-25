@@ -83,10 +83,3 @@ def start_game():
             game_running = False
         else:
             continue
-
-
-
-
-
-start_game()
-
