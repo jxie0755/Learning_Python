@@ -35,12 +35,17 @@ def start_game():
 
         # check move
         while True:
-            move = int(input(f'Player [{player_to_move}] move, choose the column number:'))
+            try:
+                move = int(input(f'Player [{player_to_move}] move, choose the column number:'))
+            except:
+                print('must input an integer')
+                continue
+
             if move >= cols or move < 0:
                 print('please choose the column number again')
                 continue
             else:
-                index, board = make_move(board, rows, cols, move, player_to_move)
+                index, board = make_move(board, cols, move, player_to_move)
                 if index == -1:
                     print('This column is full! Please re-pick!')
                     continue
@@ -53,18 +58,11 @@ def start_game():
 
         # check win
 
-        if check_win(board, rows, cols, num_connect, rows, cols, player_to_move):
-            print(f'Play {player_to_move} wins!')
+        if check_win(board, num_connect, rows, cols, player_to_move):
+            print(f'Play [{player_to_move}] wins!')
             game_running = False
-        elif not check_win(board, rows, cols, num_connect, rows, cols, player_to_move) and total_moves == rows * cols:
+        elif not check_win(board, num_connect, rows, cols, player_to_move) and total_moves == rows * cols:
             print('Tie Game!')
             game_running = False
         else:
             continue
-
-
-
-
-
-start_game()
-
