@@ -2,7 +2,7 @@
 # Version 2, simplify the game to fixed board 6 * 7, and to connect 4 as the classic
 # Add a player name system
 
-from connect_n_logic import *
+from connect_n_logic_classic import *
 import itertools
 
 # python3 -i connect_n_game.py
