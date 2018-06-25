@@ -9,7 +9,8 @@ import itertools
 
 def start_game():
     # Game Header
-    print('Welcome to play Connect N!!!\n')
+    print('\nWelcome to play Connect N!!!\n')
+    print('Player [X]\n    vs.\nPlayer [O]')
 
     # Create the board
     rows, cols = 6, 7
@@ -20,7 +21,6 @@ def start_game():
     # Start gaming logic
 
     # Setup player logic
-    print('Player 1 is X\nPlayer 2 is O')
     players = itertools.cycle('XO')
 
     # Game status
@@ -35,7 +35,7 @@ def start_game():
 
         # check move
         while True:
-            move = int(input(f'Player {player_to_move} move, choose the column number:'))
+            move = int(input(f'Player [{player_to_move}] move, choose the column number:'))
             if move >= cols or move < 0:
                 print('please choose the column number again')
                 continue
