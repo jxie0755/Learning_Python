@@ -1,6 +1,6 @@
 # This is to write to logic for the game flow
 # Version 2, simplify the game to fixed board 6 * 7, and to connect 4 as the classic
-# Add a player name system
+
 
 from connect_n_logic_classic import *
 import itertools
@@ -40,8 +40,11 @@ def start_game():
             except:
                 print('must input an integer')
                 continue
-
-            if move >= cols or move < 0:
+            if move == 999:
+                game_running = False
+                print('Game quited')
+                break
+            elif move >= cols or move < 0:
                 print('please choose the column number again')
                 continue
             else:
@@ -54,10 +57,10 @@ def start_game():
 
         # put on the board then print
         total_moves += 1
-        print_board(board, rows, cols)
+        if move != 999:
+            print_board(board, rows, cols)
 
         # check win
-
         if check_win(board, num_connect, rows, cols, player_to_move):
             print(f'Play [{player_to_move}] wins!')
             game_running = False
@@ -66,3 +69,8 @@ def start_game():
             game_running = False
         else:
             continue
+
+start_game()
+
+# Starting the game by running:
+# python3 -i C:/Users/jxie0/Documents/GitHub/Learning_Python/zzproject/connectn/connect_n_game_classic.py
