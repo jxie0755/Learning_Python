@@ -74,3 +74,4 @@ start_game()
 
 # Starting the game by running:
 # python3 -i C:/Users/jxie0/Documents/GitHub/Learning_Python/zzproject/connectn/connect_n_game_classic.py
+# python3 -i /Users/Jxie0755/Documents/DXcodings/Learning_Python/ZZProject/ConnectN/connect_n_game_classic.py
