@@ -36,7 +36,7 @@ def start_game():
         # check move
         while True:
             try:
-                move = int(input(f'Player [{player_to_move}] move, choose the column number:')) - 1
+                move = int(input(f'Player [{player_to_move}] to move, choose the column number:')) - 1
             except:
                 print('must input an integer')
                 continue
@@ -71,6 +71,7 @@ def start_game():
             continue
 
 start_game()
+input('Game OVER!')
 
 # Starting the game by running:
 # python3 -i C:/Users/jxie0/Documents/GitHub/Learning_Python/zzproject/connectn/connect_n_game_classic.py
