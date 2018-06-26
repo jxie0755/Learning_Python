@@ -3,7 +3,6 @@
 
 
 from connect_n_logic_classic import *
-import sys
 import itertools
 
 # python3 -i connect_n_game.py
@@ -37,7 +36,7 @@ def start_game():
         # check move
         while True:
             try:
-                move = int(input(f'Player [{player_to_move}] to move, choose a column number:')) - 1
+                move = int(input(f'Player [{player_to_move}] move, choose the column number:')) - 1
             except:
                 print('must input an integer')
                 continue
@@ -65,20 +64,13 @@ def start_game():
         if check_win(board, num_connect, rows, cols, player_to_move):
             print(f'Play [{player_to_move}] wins!')
             game_running = False
-
         elif not check_win(board, num_connect, rows, cols, player_to_move) and total_moves == rows * cols:
             print('Tie Game!')
             game_running = False
-
         else:
             continue
 
 start_game()
-input('Game OVER!')
 
 # Starting the game by running:
-# WIN:
-# python3 -i C:/Users/jxie0/Documents/GitHub/Learning_Python/zzproject/connectn/classic/connect_n_game_classic.py
-
-# MAC:
-# python3 -i
+# python3 -i C:/Users/jxie0/Documents/GitHub/Learning_Python/zzproject/connectn/connect_n_game_classic.py
