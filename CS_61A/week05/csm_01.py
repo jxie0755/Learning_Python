@@ -63,3 +63,51 @@ def mario_number(level):
         return 0
     else:
         return mario_number(level//10) + mario_number(level//100)
+
+
+def make_change(n):
+    """Write a function, make_change that takes in an integer amount, n, and returns the minimum number of coins we can use to make change for that n, using 1-cent, 3-cent, and 4-cent coins.
+    Look at the doctests for more examples.
+    >>> make_change(5)
+    2
+    >>> make_change(6) # tricky! Not 4 + 1 + 1 but 3 + 3
+    2
+    """
+    # if n == 0:
+    #     return 0
+    # elif n <= 2:
+    #     return 1 + make_change(n-1)
+    # elif n == 3 or n == 6 or n == 9:
+    #     return 1 + make_change(n-3)
+    # else:
+    #     return 1 + make_change(n-4)
+
+    if n == 0:
+        return 0
+    elif n <= 2:
+        return 1 + make_change(n - 1) # (return n) is also fine
+    elif n == 3:
+        return 1 + make_change(n - 3)
+    else:
+        use_3 = 1 + make_change(n - 3)
+        use_4 = 1 + make_change(n - 4)
+        return min(use_3, use_4)
+
+# my own version (simpler but not as clear)
+# but mathmatically should be right
+def make_change_2(n):
+    if n == 0:
+        return 0
+    elif n <= 2:
+        return 1 + make_change(n-1)
+    elif n == 3 or n == 6 or n == 9:
+        return 1 + make_change(n-3)
+    else:
+        return 1 + make_change(n-4)
+
+# test unit
+if __name__ == '__main__':
+    for i in range(0, 33):
+        if make_change(i) != make_change_2(i):
+            print('Whoops!')
+    print('done')
