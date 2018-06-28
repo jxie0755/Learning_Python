@@ -65,6 +65,8 @@ def mario_number(level):
         return mario_number(level//10) + mario_number(level//100)
 
 
+# Q3
+
 def make_change(n):
     """Write a function, make_change that takes in an integer amount, n, and returns the minimum number of coins we can use to make change for that n, using 1-cent, 3-cent, and 4-cent coins.
     Look at the doctests for more examples.
