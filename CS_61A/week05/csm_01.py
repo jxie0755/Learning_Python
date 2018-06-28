@@ -107,6 +107,25 @@ def make_change_2(n):
     else:
         return 1 + make_change(n-4)
 
+# 通用方式
+def make_change_x(n, a, b):
+    """n为需要找的钱, ab分别为两个面值, 且1<a<b
+    需要返回最少找几张钱
+
+    注意: 手上必有1块的面值, 为确保能找得开
+    """
+    # your code:
+    if n == 0:
+        return 0
+    elif n < a:
+        return 1 + make_change(n-1, a, b)
+    elif n < b:
+        return 1 + make_change(n-a, a, b)
+    else:
+        use_a = 1 + make_change(n-a, a, b)
+        use_b = 1 + make_change(n-b, a, b)
+        return min(use_a, use_b)
+
 # test unit
 if __name__ == '__main__':
     for i in range(0, 33):
