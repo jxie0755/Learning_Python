@@ -86,9 +86,9 @@ def make_change(n):
 
     if n == 0:
         return 0
-    elif n <= 2:
+    elif n < 3:
         return 1 + make_change(n - 1) # (return n) is also fine
-    elif n == 3:
+    elif n < 4:
         return 1 + make_change(n - 3)
     else:
         use_3 = 1 + make_change(n - 3)
