@@ -440,7 +440,7 @@ def start_game():
         # Get number of rows for board from user.
         while True:
             try:
-                 max_rows = int(input('How many rows? '))
+                max_rows = int(input('How many rows? '))
             except ValueError as e:
                 print('Invalid input. Please try again.')
                 continue
