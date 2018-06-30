@@ -18,3 +18,4 @@ print(max(range(10), key=lambda x: 7 - (x-2)*(x-4)))
 print(all([x < 5 for x in range(5)]))
 perfect_square = lambda x: x == round(x ** 0.5) ** 2
 print(any([perfect_square(x) for x in range(50, 60)])) # Try ,65
+
