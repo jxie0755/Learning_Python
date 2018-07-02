@@ -158,19 +158,19 @@ print('f3', fib_tree(3))
 print('f4', fib_tree(4))
 
 print_tree(
-tree(1,[
-    tree(2,[
-        tree(3,[
+tree(1, [
+    tree(2, [
+        tree(3, [
             tree(4),
             tree(4)]),
-        tree(3,[
+        tree(3, [
             tree(4),
             tree(4)])]),
-    tree(2,[
-        tree(3,[
+    tree(2, [
+        tree(3, [
             tree(4),
             tree(4)]),
-        tree(3,[
+        tree(3, [
             tree(4),
             tree(4)])])]))
 # >>>
@@ -194,4 +194,3 @@ tree(1,[
 # Lecture 12 Extra
 # From textbook <Composing Programs>
 # http://composingprograms.com/pages/23-sequences.html
-
