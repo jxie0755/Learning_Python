@@ -157,7 +157,22 @@ print('f2', fib_tree(2))
 print('f3', fib_tree(3))
 print('f4', fib_tree(4))
 
-print_tree(tree(1, [tree(2, [tree(3, [tree(4), tree(4)]),tree(3, [tree(4), tree(4)])]),tree(2, [tree(3, [tree(4), tree(4)]),tree(3, [tree(4), tree(4)])])]))
+print_tree(
+tree(1,[
+    tree(2,[
+        tree(3,[
+            tree(4),
+            tree(4)]),
+        tree(3,[
+            tree(4),
+            tree(4)])]),
+    tree(2,[
+        tree(3,[
+            tree(4),
+            tree(4)]),
+        tree(3,[
+            tree(4),
+            tree(4)])])]))
 # >>>
 # 1
 #  2
