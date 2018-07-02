@@ -95,8 +95,8 @@ def increment_leaves(t):
         return tree(label(t), bs)
 
 def increment(t):
-     """Return a tree like t but with all labels incremented."""
-     return tree(label(t) + 1, [increment(b) for b in branches(t)])
+    """Return a tree like t but with all labels incremented."""
+    return tree(label(t) + 1, [increment(b) for b in branches(t)])
 
 
 def print_tree(t):
