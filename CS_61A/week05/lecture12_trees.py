@@ -150,3 +150,9 @@ print_tree(fib_tree(5))
 #    1
 #     0
 #     1
+
+
+print('f1', fib_tree(1))
+print('f2', fib_tree(2))
+print('f3', fib_tree(3))
+print('f4', fib_tree(4))
