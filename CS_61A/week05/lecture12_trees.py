@@ -194,3 +194,5 @@ tree(1, [
 # Lecture 12 Extra
 # From textbook <Composing Programs>
 # http://composingprograms.com/pages/23-sequences.html
+
+# Partition Trees
