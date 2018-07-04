@@ -196,3 +196,45 @@ tree(1, [
 # http://composingprograms.com/pages/23-sequences.html
 
 # Partition Trees
+def partition_tree(n, m):
+    """Return a partition tree of n using parts of up to m"""
+    if n == 0:
+        return (tree(True))
+    elif n < 0 or m == 0:
+        return (tree(False))
+    else:
+        left = partition_tree(n-m, m)
+        right = partition_tree(n, m-1)
+        return (tree(m, [left, right]))
+
+print_tree(partition_tree(2,2))
+# >>>
+# 2
+#  True
+#  1
+#   1
+#    True
+#    False
+#   False
+
+def print_parts(tree, partition=[]):
+    if is_leaf(tree):
+        if label(tree):
+            print(' + '.join(partition))
+    else:
+        left, right = branches(tree)
+        m = str(label(tree))
+        print_parts(left, partition + [m])
+        print_parts(right, partition)
+
+print_parts(partition_tree(6, 4))
+# >>>
+# 4 + 2
+# 4 + 1 + 1
+# 3 + 3
+# 3 + 2 + 1
+# 3 + 1 + 1 + 1
+# 2 + 2 + 2
+# 2 + 2 + 1 + 1
+# 2 + 1 + 1 + 1 + 1
+# 1 + 1 + 1 + 1 + 1 + 1
