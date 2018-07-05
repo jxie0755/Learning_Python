@@ -252,3 +252,37 @@ def right_binarize(tree):
 # print(right_binarize([1, 2, 3, 4, 5, 6, 7])) some how does not work
 # >>>
 # [1, [2, [3, [4, [5, [6, 7]]]]]]
+
+
+# Linked list
+
+# Common representation of a sequence constructed fro nested aris is called a linked list
+four = [1, [2, [3, [4, 'empty']]]]
+# a pair containing the first element of the sequence (in this case 1) and the rest of the sequence
+
+empty = 'empty'
+def is_link(s):
+    """s is a linked list if it is empty or a (first, rest) pair."""
+    return s == empty or (len(s) == 2 and is_link(s[1]))
+
+def link(first, rest):
+    """Construct a linked list from its first element and the rest"""
+    assert is_link(rest), 'rest must be a linked list'
+    return [first, rest]
+
+def first(s):
+    """return the first element of a linked list s."""
+    assert is_link(s), 'only apllies to linked list'
+    assert s != empty, 'empty lnked list has no first element'
+    return s[1]
+
+def rest(s):
+    """Return the rest of the elemetns of a linked list s"""
+    assert is_link(s), 'rest only applies to linked lists'
+    assert s != empty, 'empty linked list has no rest'
+
+four = [1, [2, [3, [4, 'empty']]]]
+four = link(1, link(2, link(3, link(4, empty))))
+print(four)
+# >>>
+# [1, [2, [3, [4, 'empty']]]]
