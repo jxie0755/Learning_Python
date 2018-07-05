@@ -1,1 +1,4 @@
-# CS61a Discussion 02
+# CS61a Discussion 03 Trees & Sequences
+
+
+# 
