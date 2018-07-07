@@ -174,3 +174,10 @@ def tree_max(t):
     """Return the max of a tree."""
     return max([label(t)] + [tree_max(branch) for branch in branches(t)])
     # 要注意这里max不是对整个list求max,而是每一层都求max,一路递归到上到根部
+
+
+def height(t):
+    """Return the height of a tree"""
+    if is_leaf(t):
+        return 0
+    return 1 + max([height(branch) for branch in branches(t)])
