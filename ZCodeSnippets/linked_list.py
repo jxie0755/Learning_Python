@@ -30,11 +30,14 @@ def rest(s):
     assert s != empty, 'empty linked list has no rest'
     return s[1]
 
-four = [1, [2, [3, [4, 'empty']]]]
-four = link(1, link(2, link(3, link(4, empty))))
-print(four)
-# >>>
-# [1, [2, [3, [4, 'empty']]]]
+
+# Test
+if __name__ == '__main__':
+    four = [1, [2, [3, [4, 'empty']]]]
+    four = link(1, link(2, link(3, link(4, empty))))
+    print(four)
+    # >>>
+    # [1, [2, [3, [4, 'empty']]]]
 
 
 def len_link(s):
@@ -45,8 +48,6 @@ def len_link(s):
     else:
         return 0
 
-print(len_link(four))
-# >>> 4
 
 def getitem_link(s, i):
     """Return the element at index i of linked list s"""
@@ -56,5 +57,10 @@ def getitem_link(s, i):
     else:
         return getitem_link(rest(s), i-1)
 
-print(getitem_link(four, 1))
-# >>> 2
+# Test
+if __name__ == '__main__':
+    print(len_link(four))
+    # >>> 4
+
+    print(getitem_link(four, 1))
+    # >>> 2
