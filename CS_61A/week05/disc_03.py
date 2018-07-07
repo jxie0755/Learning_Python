@@ -42,6 +42,14 @@ def tree(label, branches=[]):
         assert is_tree(branch)
     return [label] + list(branches)
 
+def is_tree(tree):
+    if type(tree) != list or len(tree) < 1:
+        return False
+    for branch in branches(tree):  # every branch must be a tree as well
+        if not is_tree(branch):
+            return False
+    return True
+
 # Selectors
 def label(tree):
     return tree[0]
@@ -56,4 +64,23 @@ def is_leaf(tree):
 # Q1
 def tree_max(t):
     """Return the max of a tree."""
-    
+    return max([label(t)] + [tree_max(branch) for branch in branches(t)])
+    # 要注意这里max不是对整个list求max,而是每一层都求max,一路递归到上到根部
+
+if __name__ == '__main__':
+    T = tree(1, [
+    tree(2, [
+        tree(3, [
+            tree(4),
+            tree(4)]),
+        tree(3, [
+            tree(4),
+            tree(4)])]),
+    tree(2, [
+        tree(3, [
+            tree(4),
+            tree(4)]),
+        tree(3, [
+            tree(4),
+            tree(4)])])])
+    print(tree_max(T))
