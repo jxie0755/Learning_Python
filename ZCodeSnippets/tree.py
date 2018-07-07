@@ -27,13 +27,15 @@ def is_leaf(tree):
     return not branches(tree)
 
 
-T = tree(3, [tree(1), tree(2, [tree(1), tree(1)])])
-print(T) # >>>
-# [3, [1], [2, [1], [1]]]
+# Test
+if __name__ == '__main__':
+    T = tree(3, [tree(1), tree(2, [tree(1), tree(1)])])
+    print(T) # >>>
+    # [3, [1], [2, [1], [1]]]
 
-T = tree(1, [tree(5, [tree(7)]), tree(6)])
-print(T) # >>>
-# [1, [5, [7]], [6]]
+    T = tree(1, [tree(5, [tree(7)]), tree(6)])
+    print(T) # >>>
+    # [1, [5, [7]], [6]]
 
 
 
@@ -44,8 +46,6 @@ def count_leaves(t):
     else:
         return sum([count_leaves(b) for b in branches(t)])
 
-print(count_leaves(fib_tree(4)))
-# >>> 5
 
 def leaves(tree):
     """Return a list containing the leaf labels of tree"""
@@ -54,9 +54,16 @@ def leaves(tree):
     else:
         return sum([leaves(b) for b in branches(tree)], [])
 
-print(leaves(fib_tree(4)))
-# >>>
-# [0, 1, 1, 0, 1]
+
+# Test
+if __name__ == '__main__':
+    print(count_leaves(fib_tree(4)))
+    # >>> 5
+
+    print(leaves(fib_tree(4)))
+    # >>>
+    # [0, 1, 1, 0, 1]
+
 
 def increment_leaves(t):
     """Return a tree like t but with leaf labels incremented"""
@@ -76,38 +83,39 @@ def print_tree(t, indent=0):
     for b in branches(t):
         print_tree(b, indent+1)
 
-print_tree(
-tree(1, [
-    tree(2, [
-        tree(3, [
-            tree(4),
-            tree(4)]),
-        tree(3, [
-            tree(4),
-            tree(4)])]),
-    tree(2, [
-        tree(3, [
-            tree(4),
-            tree(4)]),
-        tree(3, [
-            tree(4),
-            tree(4)])])]))
-# >>>
-# 1
-#  2
-#   3
-#    4
-#    4
-#   3
-#    4
-#    4
-#  2
-#   3
-#    4
-#    4
-#   3
-#    4
-#    4
+if __name__ == '__main__':
+    print_tree(
+    tree(1, [
+        tree(2, [
+            tree(3, [
+                tree(4),
+                tree(4)]),
+            tree(3, [
+                tree(4),
+                tree(4)])]),
+        tree(2, [
+            tree(3, [
+                tree(4),
+                tree(4)]),
+            tree(3, [
+                tree(4),
+                tree(4)])])]))
+    # >>>
+    # 1
+    #  2
+    #   3
+    #    4
+    #    4
+    #   3
+    #    4
+    #    4
+    #  2
+    #   3
+    #    4
+    #    4
+    #   3
+    #    4
+    #    4
 
 
 # Partition Trees
@@ -122,15 +130,16 @@ def partition_tree(n, m):
         right = partition_tree(n, m-1)
         return (tree(m, [left, right]))
 
-print_tree(partition_tree(2,2))
-# >>>
-# 2
-#  True
-#  1
-#   1
-#    True
-#    False
-#   False
+if __name__ == '__main__':
+    print_tree(partition_tree(2,2))
+    # >>>
+    # 2
+    #  True
+    #  1
+    #   1
+    #    True
+    #    False
+    #   False
 
 def print_parts(tree, partition=[]):
     if is_leaf(tree):
@@ -142,17 +151,18 @@ def print_parts(tree, partition=[]):
         print_parts(left, partition + [m])
         print_parts(right, partition)
 
-print_parts(partition_tree(6, 4))
-# >>>
-# 4 + 2
-# 4 + 1 + 1
-# 3 + 3
-# 3 + 2 + 1
-# 3 + 1 + 1 + 1
-# 2 + 2 + 2
-# 2 + 2 + 1 + 1
-# 2 + 1 + 1 + 1 + 1
-# 1 + 1 + 1 + 1 + 1 + 1
+if __name__ == '__main__':
+    print_parts(partition_tree(6, 4))
+    # >>>
+    # 4 + 2
+    # 4 + 1 + 1
+    # 3 + 3
+    # 3 + 2 + 1
+    # 3 + 1 + 1 + 1
+    # 2 + 2 + 2
+    # 2 + 2 + 1 + 1
+    # 2 + 1 + 1 + 1 + 1
+    # 1 + 1 + 1 + 1 + 1 + 1
 
 
 def tree_max(t):
