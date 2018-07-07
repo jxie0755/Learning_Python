@@ -36,3 +36,24 @@ print([[y * 2 for y in [x, x + 1]] for x in [1, 2, 3, 4]])
 
 
 # Trees
+# Constructor
+def tree(label, branches=[]):
+    for branch in branches:
+        assert is_tree(branch)
+    return [label] + list(branches)
+
+# Selectors
+def label(tree):
+    return tree[0]
+
+def branches(tree):
+    return tree[1:]
+
+# For convenience
+def is_leaf(tree):
+    return not branches(tree)
+
+# Q1
+def tree_max(t):
+    """Return the max of a tree."""
+    
