@@ -118,38 +118,38 @@ print_tree(fib_tree(4))
 
 # new version
 def print_tree(t, indent=0):
-    print(' ' * indent + str(label(t)))
+    print('  ' * indent + str(label(t)))
     for b in branches(t):
         print_tree(b, indent+1)
 
 print_tree(fib_tree(4))
 # >>>
 # 3
-#  1
-#   0
 #   1
-#  2
-#   1
-#   1
-#    0
-#    1
+#     0
+#     1
+#   2
+#     1
+#     1
+#       0
+#       1
 print_tree(fib_tree(5))
 # >>>
 # 5
-#  2
-#   1
-#   1
-#    0
-#    1
-#  3
-#   1
-#    0
-#    1
 #   2
-#    1
-#    1
-#     0
 #     1
+#     1
+#       0
+#       1
+#   3
+#     1
+#       0
+#       1
+#     2
+#       1
+#       1
+#         0
+#         1
 
 
 print('f1', fib_tree(1))
@@ -175,20 +175,20 @@ tree(1, [
             tree(4)])])]))
 # >>>
 # 1
-#  2
-#   3
-#    4
-#    4
-#   3
-#    4
-#    4
-#  2
-#   3
-#    4
-#    4
-#   3
-#    4
-#    4
+#   2
+#     3
+#       4
+#       4
+#     3
+#       4
+#       4
+#   2
+#     3
+#       4
+#       4
+#     3
+#       4
+#       4
 
 
 # Lecture 12 Extra
