@@ -1,5 +1,5 @@
-From CS61a
-http://composingprograms.com/pages/23-sequences.html
+# From CS61a
+# http://composingprograms.com/pages/23-sequences.html
 
 
 # Trees
@@ -38,7 +38,7 @@ print(T) # >>>
 
 
 def count_leaves(t):
-"""Count the leaves of a tree"""
+    """Count the leaves of a tree"""
     if is_leaf(t):
         return 1
     else:
@@ -159,4 +159,3 @@ def tree_max(t):
     """Return the max of a tree."""
     return max([label(t)] + [tree_max(branch) for branch in branches(t)])
     # 要注意这里max不是对整个list求max,而是每一层都求max,一路递归到上到根部
-

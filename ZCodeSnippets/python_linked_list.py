@@ -1,5 +1,5 @@
-From CS61a
-http://composingprograms.com/pages/23-sequences.html
+# From CS61a
+# http://composingprograms.com/pages/23-sequences.html
 
 
 # Linked list
@@ -43,7 +43,7 @@ def len_link(s):
     if len(s) == 2:
         return 1 + len_link(rest(s))
     else:
-    return 0
+        return 0
 
 print(len_link(four))
 # >>> 4
