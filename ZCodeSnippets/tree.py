@@ -83,6 +83,8 @@ def print_tree(t, indent=0):
     for b in branches(t):
         print_tree(b, indent+1)
 
+
+# Test
 if __name__ == '__main__':
     print_tree(
     tree(1, [
@@ -130,6 +132,8 @@ def partition_tree(n, m):
         right = partition_tree(n, m-1)
         return (tree(m, [left, right]))
 
+
+# Test
 if __name__ == '__main__':
     print_tree(partition_tree(2,2))
     # >>>
@@ -151,6 +155,7 @@ def print_parts(tree, partition=[]):
         print_parts(left, partition + [m])
         print_parts(right, partition)
 
+# Test
 if __name__ == '__main__':
     print_parts(partition_tree(6, 4))
     # >>>
