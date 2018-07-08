@@ -185,6 +185,12 @@ def find_path(tree, x):
         if path:
             return [label(tree)] + path
 
+def prune(t, k):
+    """a function that takes in a tree and a depth k and returns a new tree."""
+    if k == 0:
+        return tree(label(t))
+    else:
+        return tree(label(t), [prune(branch, k-1) for branch in branches(t)])
 
 # Test
 if __name__ == '__main__':
@@ -218,3 +224,6 @@ if __name__ == '__main__':
     print(find_path(T, 10))  # >>> [1, 2, 5, 10]
     print(find_path(T, 5))   # >>> [1, 2, 5]
     print(find_path(T, 20))  # >>> None
+
+    print(prune(T, 2))
+    # >>> [1, [2, [4], [5]], [3, [6], [7]]]
