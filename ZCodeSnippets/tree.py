@@ -55,16 +55,6 @@ def leaves(tree):
         return sum([leaves(b) for b in branches(tree)], [])
 
 
-# Test
-if __name__ == '__main__':
-    print(count_leaves(fib_tree(4)))
-    # >>> 5
-
-    print(leaves(fib_tree(4)))
-    # >>>
-    # [0, 1, 1, 0, 1]
-
-
 def increment_leaves(t):
     """Return a tree like t but with leaf labels incremented"""
     if is_leaf(t):
@@ -89,19 +79,19 @@ if __name__ == '__main__':
     print_tree(
     tree(1, [
         tree(2, [
-            tree(3, [
-                tree(4),
-                tree(4)]),
-            tree(3, [
-                tree(4),
-                tree(4)])]),
-        tree(2, [
-            tree(3, [
-                tree(4),
-                tree(4)]),
-            tree(3, [
-                tree(4),
-                tree(4)])])]))
+            tree(4, [
+                tree(8),
+                tree(9)]),
+            tree(5, [
+                tree(10),
+                tree(11)])]),
+        tree(3, [
+            tree(6, [
+                tree(12),
+                tree(13)]),
+            tree(7, [
+                tree(14),
+                tree(15)])])]))
     # >>>
     # 1
     #  2
@@ -187,23 +177,25 @@ def square_tree(t):
     return tree(label(t) **2, [square_tree(branch) for branch in branches(t)])
 
 
+
+
 # Test
 if __name__ == '__main__':
     T = tree(1, [
     tree(2, [
-        tree(3, [
-            tree(4),
-            tree(4)]),
-        tree(3, [
-            tree(4),
-            tree(4)])]),
-    tree(2, [
-        tree(3, [
-            tree(4),
-            tree(4)]),
-        tree(3, [
-            tree(4),
-            tree(4)])])])
+        tree(4, [
+            tree(8),
+            tree(9)]),
+        tree(5, [
+            tree(10),
+            tree(11)])]),
+    tree(3, [
+        tree(6, [
+            tree(12),
+            tree(13)]),
+        tree(7, [
+            tree(14),
+            tree(15)])])])
 
     print(tree_max(T))
     # >>> 4
@@ -213,5 +205,5 @@ if __name__ == '__main__':
 
     print(T)
     print(square_tree(T))
-    # >>> [1, [2, [3, [4], [4]], [3, [4], [4]]], [2, [3, [4], [4]], [3, [4], [4]]]]
-    # >>> [1, [4, [9, [16], [16]], [9, [16], [16]]], [4, [9, [16], [16]], [9, [16], [16]]]]
+    # >>> [1, [2, [4, [8], [9]], [5, [10], [11]]], [3, [6, [12], [13]], [7, [14], [15]]]]
+    # >>> [1, [4, [16, [64], [81]], [25, [100], [121]]], [9, [36, [144], [169]], [49, [196], [225]]]]
