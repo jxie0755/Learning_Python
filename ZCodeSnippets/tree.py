@@ -185,3 +185,33 @@ def height(t):
 def square_tree(t):
     """Return a tree with the square of every element in t"""
     return tree(label(t) **2, [square_tree(branch) for branch in branches(t)])
+
+
+# Test
+if __name__ == '__main__':
+    T = tree(1, [
+    tree(2, [
+        tree(3, [
+            tree(4),
+            tree(4)]),
+        tree(3, [
+            tree(4),
+            tree(4)])]),
+    tree(2, [
+        tree(3, [
+            tree(4),
+            tree(4)]),
+        tree(3, [
+            tree(4),
+            tree(4)])])])
+
+    print(tree_max(T))
+    # >>> 4
+
+    print(height(T))
+    # >>> 3
+
+    print(T)
+    print(square_tree(T))
+    # >>> [1, [2, [3, [4], [4]], [3, [4], [4]]], [2, [3, [4], [4]], [3, [4], [4]]]]
+    # >>> [1, [4, [9, [16], [16]], [9, [16], [16]]], [4, [9, [16], [16]], [9, [16], [16]]]]
