@@ -85,18 +85,9 @@ def find_path(tree, x):
     if label(tree) == x:
         return [label(tree)]
 
-    for path in [find_path(t, x) for t in branches(tree)]:
+    for path in [find_path(branch, x) for branch in branches(tree)]:
         if path:
             return [label(tree)] + path
-
-
-
-    # if label(tree) == x:
-    #     return [x]
-    # elif x in branches(tree):
-    #     return [label(tree), x]
-    # else:
-    #     return [label(tree)], [find_path(branch, x) for branch in branches(tree)]
 
 
 
@@ -131,4 +122,3 @@ if __name__ == '__main__':
     print(find_path(T, 10))  # >>> [1, 2, 5, 10]
     print(find_path(T, 5))   # >>> [1, 2, 5]
     print(find_path(T, 20))  # >>> None
-    
