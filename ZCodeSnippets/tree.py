@@ -176,7 +176,14 @@ def square_tree(t):
     """Return a tree with the square of every element in t"""
     return tree(label(t) **2, [square_tree(branch) for branch in branches(t)])
 
+def find_path(tree, x):
+    """Find path to the value x if x in the tree, else None"""
+    if label(tree) == x:
+        return [label(tree)]
 
+    for path in [find_path(branch, x) for branch in branches(tree)]:
+        if path:
+            return [label(tree)] + path
 
 
 # Test
@@ -206,4 +213,8 @@ if __name__ == '__main__':
     print(T)
     print(square_tree(T))
     # >>> [1, [2, [4, [8], [9]], [5, [10], [11]]], [3, [6, [12], [13]], [7, [14], [15]]]]
-    # >>> [1, [4, [16, [64], [81]], [25, [100], [121]]], [9, [36, [144], [169]], [49, [196], [225]]]]
+    # >>> [1, [4, [16, [64], [81]], [25, [100], [121]]], [9, [36, [144], [169]], [49, [196], [225]]]]\
+
+    print(find_path(T, 10))  # >>> [1, 2, 5, 10]
+    print(find_path(T, 5))   # >>> [1, 2, 5]
+    print(find_path(T, 20))  # >>> None
