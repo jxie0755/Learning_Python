@@ -181,3 +181,7 @@ def height(t):
     if is_leaf(t):
         return 0
     return 1 + max([height(branch) for branch in branches(t)])
+
+def square_tree(t):
+    """Return a tree with the square of every element in t"""
+    return tree(label(t) **2, [square_tree(branch) for branch in branches(t)])
