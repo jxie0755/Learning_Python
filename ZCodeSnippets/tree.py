@@ -172,9 +172,11 @@ def height(t):
         return 0
     return 1 + max([height(branch) for branch in branches(t)])
 
+
 def square_tree(t):
     """Return a tree with the square of every element in t"""
     return tree(label(t) **2, [square_tree(branch) for branch in branches(t)])
+
 
 def find_path(tree, x):
     """Find path to the value x if x in the tree, else None"""
@@ -185,12 +187,15 @@ def find_path(tree, x):
         if path:
             return [label(tree)] + path
 
+
 def prune(t, k):
     """a function that takes in a tree and a depth k and returns a new tree."""
     if k == 0:
         return tree(label(t))
     else:
         return tree(label(t), [prune(branch, k-1) for branch in branches(t)])
+
+
 
 # Test
 if __name__ == '__main__':
