@@ -148,3 +148,50 @@ print(f())
 # >>> 99
 print(x)
 # >>> 99
+
+
+
+
+# 赋值和申明顺序
+
+# global
+x = 50
+def f():
+    global x     # 先申明后改变,这可以
+    x = 100
+    return x+1
+
+print(f())
+# >> 101
+
+x = 50
+def f():
+    x = 100     # 先新建一个同名变量,再global则不行
+    global x
+    return x+1
+
+print(f())
+# >> name 'x' is assigned to before global declaration
+
+# nonlocal 也是同理
+def f():
+    x = 100
+    def g():
+        nonlocal x
+        x = 50
+        return x
+    return g
+
+print(f()())
+# >>> 50
+
+def f():
+    x = 100
+    def g():
+        x = 50
+        nonlocal x
+        return x
+    return g
+
+print(f()())
+# >>> SyntaxError: name 'x' is assigned to before nonlocal declaration
