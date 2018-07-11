@@ -134,3 +134,17 @@ def f():
 
 print(x)
 # >>> won't be executed
+
+
+# On the other hand, global does not care at all
+x = 100
+def f():
+    global x
+    global xx  # no xx as variable
+    x = 99
+    return x
+
+print(f())
+# >>> 99
+print(x)
+# >>> 99
