@@ -42,6 +42,26 @@ outside()
 # Inside!
 # Inside!
 
+# 多层nonlocal
+def f():
+    x = 100
+    def g():
+        nonlocal x
+        x = 50
+        print(x)
+        def h():
+            nonlocal x
+            x = x + 1
+            return x
+        return h
+
+    return g
+
+print(f()()())
+# >>> 50  # from the first time
+# >>> 51  # x changed again based on the last frame
+
+
 # 在有字典时,没有必要nonlocal
 def outside():
     d = {"outside": 1}
@@ -58,58 +78,59 @@ outside()
 # 在许多Python程序中，很少用到非局部语句
 # 但是，有了这种语句之后，我们就可以减少不同作用域之间变量名的冲突。非局部语句，也让我们更加容易地访问、操作外层作用域中的变量。
 
-def f(x):
-    def g(y):
-        # nonlocal x
-        z = x + y
-        return z
-    return g
 
-print(f(4)(5))  # function to call x in previous frames
-# >>> 9
 
-def f(x):
-    def g(y):
-        # nonlocal x
-        x = 5 + y
+# global语句
+# Python中能改变变量作用域的是关键字有def，class和lamda，其内部变量为封闭作用域
+# if/elif/else，while/for，try/except/else/finally等不改变变量的作用域，其内变量与外部变量作用域一致
+
+# global是一个声明语句，该声明在当前整个代码块中都有效
+# 在同一代码块中，列在global语句中的所有标识符不能在该global语句前出现
+# 列在global 语句后的标识符不能被定义成形参, 不能出现在for循环控制的目标、类定义和函数定义，或者import语句中
+
+# 例子
+x = 100
+def f():
+    def g():
+        global x
+        x = x * 99
         return x
     return g
 
-print(f(4)(5))  # function create x in new frames
-# >>> 10  # still work
+print(f()())
+# >>> 9900
+print(x)
+# >>> 9900
 
 
-
-def f(x):
-    def g(y):
-        x = x + y
+# 若不加global
+x = 100
+def f():
+    def g():
+        # global x
+        x = x * 99
         return x
     return g
 
-# function create the same variable in previous frames and use the value in previous frames
-# print(f(4)(5)) # >>> error
-# UnboundLocalError: local variable 'x' referenced before assignment
+# print(f()())
+# >>> UnboundLocalError: local variable 'x' referenced before assignment
+print(x)
+# # >>> 100
 
-def f(x):
-    def g(y):
-        nonlocal x   # unless nonlocal it
-        x = x + y
+
+# 若用nonlocal
+x = 100
+def f():
+    def g():
+        nonlocal x
+        # 注意, nonlocal statement会在run时在global层面检测,如果错误则没有任何代码会被执行
+        x = x * 99
         return x
     return g
 
-print(f(4)(5))
-# >>> 9
+# print(f()())
+# >>> SyntaxError: no binding for nonlocal 'x' found
+# 注意这里nonlocal只搜索外部一层的, 不会继续寻找global
 
-
-x = 10
-def f(x):
-    def g(y):
-        global x   # this pull x from global
-        x = x + y
-        return x
-    return g
-
-print(f(4)(5))
-# >>> 15
-print(x)  # this will permanantly change the global value
-# >>> 15
+print(x)
+# >>> won't be executed
