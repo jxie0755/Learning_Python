@@ -66,6 +66,7 @@ print(b)  # >>> [[1, 2, 3], 2, 3]
 def mutable_link():
     """Return a functional implementation of a mutable linked list"""
     contents = 'empty'
+
     def dispatch(message, value=None):
         nonlocal contents
         if message == 'len':
@@ -80,6 +81,7 @@ def mutable_link():
             return f
         elif message == 'str':
             return join_link(contents, ", ")
+
     return dispatch
 
 def to_mutable_link(source):
@@ -88,3 +90,36 @@ def to_mutable_link(source):
     for element in reversed(source):
         s('push_first', element)
     return s
+
+# Implement Dictionaries
+def dictionary():
+    """Return a functional implementation of a dictionary."""
+    records = []
+
+    def getitem(key):
+        matches = [r for r in records if r[0] == key]
+        if len(matches) == 1:
+            key, value = matches[0]
+            return value
+
+    def setitem(key, value):
+        nonlocal records
+        non_matches = [r for r in records if r[0] != key]
+        records = non_matches + [[key, value]]
+
+    def dispatch(message, key=None, value=None):
+        if message == 'getitem':
+            return getitem(key)
+        elif message == 'setitem':
+            setitem(key, value)
+
+    return dispatch
+
+
+d = dictionary()
+d('setitem', 3, 9)
+d('setitem', 4, 16)
+
+print(d) # >>> <function dictionary.<locals>.dispatch at 0x00000129BB1956A8>
+print(d('getitem', 3))  # >>> 9
+print(d('getitem', 4))  # >>> 16
