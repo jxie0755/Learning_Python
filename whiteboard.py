@@ -1,1 +1,0 @@
-print(list(enumerate([6, 'one', 'a'], 3))[1])
