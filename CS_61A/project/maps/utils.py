@@ -81,8 +81,6 @@ def mean(s):
     -0.5
     """
     # BEGIN Question 1
-    if s:
-        return sum(s) / len(s)
-    else:
-        raise AssertionError
+    assert len(s) > 0
+    return sum(s) / len(s)
     # END Question 1
