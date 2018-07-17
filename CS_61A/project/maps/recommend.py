@@ -50,6 +50,13 @@ def group_by_centroid(restaurants, centroids):
     """
     # BEGIN Question 4
     "*** YOUR CODE HERE ***"
+    centroid_pairs = []
+    for restaurant in restaurants:
+        pair = [find_closest(restaurant_location(restaurant), centroids), restaurant]
+        centroid_pairs.append(pair)
+
+    return group_by_first(centroid_pairs)
+
     # END Question 4
 
 
