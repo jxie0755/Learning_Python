@@ -64,7 +64,7 @@ def make_restaurant(name, location, categories, price, reviews):
     categories, price, and reviews for that restaurant."""
     # BEGIN Question 2
     "*** YOUR CODE HERE ***"
-    return [name, location, categories, price, [review_rating(i) for i in reviews]]
+    return [name, location, categories, price, reviews]
     # END Question 2
 
 def restaurant_name(restaurant):
@@ -101,5 +101,5 @@ def restaurant_ratings(restaurant):
     restaurant based on the reviews of the restaurant."""
     # BEGIN Question 2
     "*** YOUR CODE HERE ***"
-    return restaurant[4]
+    return [review_rating(i) for i in restaurant[4]]
     # END Question 2
