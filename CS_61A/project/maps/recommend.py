@@ -20,6 +20,7 @@ def find_closest(location, centroids):
     """
     # BEGIN Question 3
     "*** YOUR CODE HERE ***"
+    return min(centroids, key=lambda x: distance(location, x))
     # END Question 3
 
 
