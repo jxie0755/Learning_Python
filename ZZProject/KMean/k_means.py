@@ -88,7 +88,17 @@ def k_mean(raw_coordinates, k, max_learn=10):
         clusters = group_by_centroid(raw_coordinates, centroids)
         centroids = [find_centroid(cluster) for cluster in clusters]
         n += 1
-    return centroids
+
+    return zip(centroids, clusters)
+
+
+# Additional verification method
+def total_distance(centroid, clusters):
+    t_distance = 0
+    for i in clusters:
+        t_distance += distance(centroid, i)
+    return t_distance
+
 
 if __name__ == '__main__':
     # generate raw data from 4 areas
@@ -98,8 +108,19 @@ if __name__ == '__main__':
     area_4 = [[4, -4], [2, -6], [6, -6], [4, -8]]  # center [4, -6]
     raw_data = area_1 + area_2 + area_3 + area_4
 
-    print(k_mean(raw_data, 4))
+    total_ddd = 0
+    for i in k_mean(raw_data, 4):
+        print(i)
+        total_ddd += total_distance(i[0], i[1])
+    print(total_ddd)
     # >>>
-    # [[-5.0, 5.0], [4.0, 4.0], [-20.0, -20.0], [4.0, -6.0]] # idealy this should be the answer
     # not perfect, as centroids can be lost during the re-learning, if one is not grouped to any.
     # also the calculation method is not perfect (calculating the average mean x and y for centroid), as it might miss looking for the centroids
+
+
+    # True centroids
+    # ([-5.0, 5.0], [[-6, 6], [-4, 6], [-6, 4], [-4, 4]])
+    # ([4.0, 4.0], [[3, 5], [5, 5], [3, 3], [5, 3]])
+    # ([-20.0, -20.0], [[-30, -10], [-10, -10], [-30, -30], [-10, -30]])
+    # ([4.0, -6.0], [[4, -4], [2, -6], [6, -6], [4, -8]])
+    # 75.88225099390857
