@@ -31,6 +31,21 @@ def coordinate_gen(raw_coordinates, k):
         coors.append(coor)
     return coors
 
+
+def cluster_regroup(raw_coordinates, k):
+    # shuffle the raw_coordinates
+    shuffled_raw = random.sample(raw_coordinates, len(raw_coordinates))
+    new = [[] for i in range(k)]
+    while len(shuffled_raw) != 0:
+        for i in new:
+            try:
+                i.append(shuffled_raw.pop())
+            except IndexError:
+                break
+    return new
+
+
+
 def find_closest(coordinate, centroids):
     """Return the centroid in centroids that is closest to location."""
     return min(centroids, key=lambda x: distance(coordinate, x))
@@ -54,6 +69,7 @@ def group_by_centroid(raw_coordinates, centroids):
     for coordinate in raw_coordinates:
         pair = [find_closest(coordinate, centroids), coordinate]
         centroid_pairs.append(pair)
+
     return group_by_first(centroid_pairs)
 
 def find_centroid(cluster):
@@ -85,7 +101,13 @@ def k_mean(raw_coordinates, k, max_learn=10):
 
     while n < max_learn:
         old_centroids = centroids
-        clusters = group_by_centroid(raw_coordinates, centroids)
+        while True:
+            clusters = group_by_centroid(raw_coordinates, centroids)
+            if len(clusters) == k:
+                break
+            else:
+                clusters = cluster_regroup(raw_coordinates, k)
+                break
         centroids = [find_centroid(cluster) for cluster in clusters]
         n += 1
 
@@ -107,7 +129,6 @@ if __name__ == '__main__':
     area_3 = [[-30, -10], [-10, -10], [-30, -30], [-10, -30]]
     area_4 = [[4, -4], [2, -6], [6, -6], [4, -8]]  # center [4, -6]
     raw_data = area_1 + area_2 + area_3 + area_4
-
     total_ddd = 0
     for i in k_mean(raw_data, 4):
         print(i)
@@ -124,3 +145,17 @@ if __name__ == '__main__':
     # ([-20.0, -20.0], [[-30, -10], [-10, -10], [-30, -30], [-10, -30]])
     # ([4.0, -6.0], [[4, -4], [2, -6], [6, -6], [4, -8]])
     # 75.88225099390857
+
+
+    # example of wrong calculation
+    # ([-0.5, 4.5], [[-6, 6], [-4, 6], [-6, 4], [-4, 4], [3, 5], [5, 5], [3, 3], [5, 3]])
+    # ([-30.0, -10.0], [[-30, -10]])
+    # ([1.2, -6.8], [[-10, -10], [4, -4], [2, -6], [6, -6], [4, -8]])
+    # ([-20.0, -30.0], [[-30, -30], [-10, -30]])
+    # 81.78582009988413
+
+    # ([-0.5, 4.5], [[-6, 6], [-4, 6], [-6, 4], [-4, 4], [3, 5], [5, 5], [3, 3], [5, 3]])
+    # ([-20.0, -10.0], [[-30, -10], [-10, -10]])
+    # ([-20.0, -30.0], [[-30, -30], [-10, -30]])
+    # ([4.0, -6.0], [[4, -4], [2, -6], [6, -6], [4, -8]])
+    # 85.13395618590803
