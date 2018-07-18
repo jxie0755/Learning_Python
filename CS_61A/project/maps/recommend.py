@@ -227,3 +227,4 @@ def main(*args):
     else:
         centroids = [restaurant_location(r) for r in restaurants]
     draw_map(centroids, restaurants, ratings)
+    
