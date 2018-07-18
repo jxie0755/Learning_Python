@@ -107,12 +107,24 @@ def find_predictor(user, restaurants, feature_fn):
     """
     reviews_by_user = {review_restaurant_name(review): review_rating(review)
                        for review in user_reviews(user).values()}
+                                     # user is in the form of
+                                     # ['Denis', {'A': ['A', 5], 'B': ['B', 6], 'C': ['C', 7]}]
+    # in the form of:
+    #  {'A': 5, 'B': 6, 'C': 7}
 
     xs = [feature_fn(r) for r in restaurants]
     ys = [reviews_by_user[restaurant_name(r)] for r in restaurants]
+    z = zip(xs, ys)
 
     # BEGIN Question 7
-    b, a, r_squared = 0, 0, 0  # REPLACE THIS LINE WITH YOUR SOLUTION
+    s_xx = sum([(i - mean(xs)) ** 2 for i in xs])
+    s_yy = sum([(i - mean(ys)) ** 2 for i in ys])
+    s_xy = sum([(i - mean(xs)) * (j - mean(ys)) for i, j in z])
+
+    b = s_xy / s_xx
+    a = mean(ys) - b * mean(xs)
+    r_squared = s_xy ** 2 / (s_xx * s_yy)
+
     # END Question 7
 
     def predictor(restaurant):
@@ -227,4 +239,3 @@ def main(*args):
     else:
         centroids = [restaurant_location(r) for r in restaurants]
     draw_map(centroids, restaurants, ratings)
-    
