@@ -165,14 +165,14 @@ def rate_all(user, restaurants, feature_fns):
     reviewed = user_reviewed_restaurants(user, restaurants)
     # BEGIN Question 9
     "*** YOUR CODE HERE ***"
-    all_names = [restaurant_name(r) for r in restaurants]
-    all_ratings = []
+    ratings_dict = {}
     for r in restaurants:
+        name = restaurant_name(r)
         if r in reviewed:
-            all_ratings.append(user_rating(user, restaurant_name(r)))
+            ratings_dict[name] = user_rating(user, name)
         else:
-            all_ratings.append(predictor(r))
-    return {name: rating for name, rating in zip(all_names, all_ratings)}
+            ratings_dict[name] = predictor(r)
+    return ratings_dict
     # END Question 9
 
 
