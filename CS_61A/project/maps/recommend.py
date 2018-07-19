@@ -117,6 +117,7 @@ def find_predictor(user, restaurants, feature_fn):
     z = zip(xs, ys)
 
     # BEGIN Question 7
+    "*** YOUR CODE HERE ***"
     s_xx = sum([(i - mean(xs)) ** 2 for i in xs])
     s_yy = sum([(i - mean(ys)) ** 2 for i in ys])
     s_xy = sum([(i - mean(xs)) * (j - mean(ys)) for i, j in z])
@@ -144,6 +145,7 @@ def best_predictor(user, restaurants, feature_fns):
     """
     reviewed = user_reviewed_restaurants(user, restaurants)
     # BEGIN Question 8
+    "*** YOUR CODE HERE ***"
     predictors = [find_predictor(user, reviewed, feature_fn) for feature_fn in feature_fns]
     best_predictor = max(predictors, key=lambda x:x[1])[0]
     return best_predictor
@@ -163,6 +165,14 @@ def rate_all(user, restaurants, feature_fns):
     reviewed = user_reviewed_restaurants(user, restaurants)
     # BEGIN Question 9
     "*** YOUR CODE HERE ***"
+    all_names = [restaurant_name(r) for r in restaurants]
+    all_ratings = []
+    for r in restaurants:
+        if r in reviewed:
+            all_ratings.append(user_rating(user, restaurant_name(r)))
+        else:
+            all_ratings.append(predictor(r))
+    return {name: rating for name, rating in zip(all_names, all_ratings)}
     # END Question 9
 
 
