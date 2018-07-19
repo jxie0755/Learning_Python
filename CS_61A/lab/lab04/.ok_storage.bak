@@ -12,3 +12,5 @@
 'print_board-correct', (5632, 70)
 'check_win_row-correct', (6144, 70)
 'check_win_column-correct', (6656, 70)
+'List Comprehension-correct', (7168, 70)
+'List Indexing-correct', (7680, 70)
