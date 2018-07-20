@@ -65,6 +65,7 @@ def copy_tree(t):
 # Questions #
 #############
 
+# Q1
 def replace_leaf(t, old, new):
     """Returns a new tree where every leaf value equal to old has
     been replaced with new.
@@ -107,9 +108,12 @@ def replace_leaf(t, old, new):
     else:
         return (tree(label(t), [replace_leaf(b, old, new) for b in branches(t)]))
 
+
+# Q2 Hanoi tower
 def print_move(origin, destination):
     """Print instructions to move a disk."""
     print("Move the top disk from rod", origin, "to rod", destination)
+
 
 def move_stack(n, start, end):
     """Print the moves required to move n disks on the start pole to the end
