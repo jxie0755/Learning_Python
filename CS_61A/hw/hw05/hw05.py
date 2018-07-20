@@ -95,6 +95,10 @@ def replace_leaf(t, old, new):
     True
     """
     "*** YOUR CODE HERE ***"
+    if is_leaf(t) and t == [old]:
+        return [new]
+    else:
+        return tree(label(t), [replace_leaf(b, old, new) for b in branches(t)])
 
 def print_move(origin, destination):
     """Print instructions to move a disk."""
@@ -512,4 +516,3 @@ def polynomial(x, c):
     '18.0 to 23.0'
     """
     "*** YOUR CODE HERE ***"
-
