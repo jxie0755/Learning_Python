@@ -152,6 +152,7 @@ def move_stack(n, start, end):
         print_move(start, end)
         move_stack(n-1, mid, end)
 
+print(move_stack(3, 1, 3))
 
 ###########
 # Mobiles #

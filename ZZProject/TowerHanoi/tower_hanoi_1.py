@@ -27,7 +27,7 @@ Towers(4)
 print('it will take:', move, 'moves')
 
 # 另解
-def hanoi(n, a='A', s='S', b='B'):
+def hanoi(n, a='1', s='2', b='3'):
     global move
     if n == 1:
         print('move', a, '-->', b)
@@ -39,5 +39,5 @@ def hanoi(n, a='A', s='S', b='B'):
         hanoi(n-1, s, a, b)
 
 move = 0
-print(hanoi(4))
+print(hanoi(3))
 print('it will take:', move, 'moves')

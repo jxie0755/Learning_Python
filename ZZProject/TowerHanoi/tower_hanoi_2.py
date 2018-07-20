@@ -9,6 +9,7 @@ def hanoi_solver(n):
     that the start pole has at least n disks of increasing size, and the end
     pole is either empty or has a top disk larger than the top n start disks.
     """
+
     move = 0
 
     def print_move(origin, destination):
@@ -23,15 +24,15 @@ def hanoi_solver(n):
         """
         nonlocal move
         if n == 1:
-            print_move(start, end)
+            print_move(start, end)   # 若只有一张,直接移动
             move += 1
         else:
-            move_stack(n-1, start, mid)
-            print_move(start, end)
+            move_stack(n-1, start, end, mid)  # 假设去掉最下面一个,剩下上面的需要从start移动到mid
+            print_move(start, end)            # 然后把最下面从start移动到end
             move += 1
-            move_stack(n-1, mid, end)
+            move_stack(n-1, mid, start, end)  # 最后把mid的上层移动到end
 
-    move_stack(n)
+    move_stack(n, 1, 3)
     return move
 
 if __name__ == '__main__':
