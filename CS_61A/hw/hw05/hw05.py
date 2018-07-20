@@ -140,6 +140,14 @@ def move_stack(n, start, end):
     """
     assert 1 <= start <= 3 and 1 <= end <= 3 and start != end, "Bad start/end"
     "*** YOUR CODE HERE ***"
+    mid = [i for i in [1,2,3] if i not in [start, end]].pop()
+    if n == 1:
+        print_move(start, end)
+    else:
+        move_stack(n-1, start, mid)
+        print_move(start, end)
+        move_stack(n-1, mid, end)
+
 
 ###########
 # Mobiles #
