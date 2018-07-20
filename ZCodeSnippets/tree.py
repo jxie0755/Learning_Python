@@ -112,8 +112,8 @@ def copy_tree(t):
     return tree(label(t), [copy_tree(b) for b in branches(t)])
 
 def replace_leaf(t, old, new):
-    if is_leaf(t) and t == [old]:
-        return [new]
+    if is_leaf(t) and label(t) == old:
+        return tree(new)
     else:
         return tree(label(t), [replace_leaf(b, old, new) for b in branches(t)])
 
