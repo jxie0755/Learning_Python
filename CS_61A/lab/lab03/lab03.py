@@ -41,7 +41,7 @@ def hailstone(n, r=0):
     1
     >>> a
     7
-    """,
+    """
     print(n)
     if n == 1:
         return r + 1
@@ -49,8 +49,6 @@ def hailstone(n, r=0):
         return hailstone(n // 2, r + 1)
     else:
         return hailstone(n * 3 + 1, r + 1)
-
-print(hailstone(10))
 
 
 # Midterm Review
