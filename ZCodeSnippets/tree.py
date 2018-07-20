@@ -107,6 +107,15 @@ def prune(t, k):
     else:
         return tree(label(t), [prune(branch, k-1) for branch in branches(t)])
 
+def copy_tree(t):
+    """Returns a copy of t. Only for testing purposes."""
+    return tree(label(t), [copy_tree(b) for b in branches(t)])
+
+def replace_leaf(t, old, new):
+    if is_leaf(t) and t == [old]:
+        return [new]
+    else:
+        return tree(label(t), [replace_leaf(b, old, new) for b in branches(t)])
 
 # Test
 if __name__ == '__main__':
@@ -179,3 +188,6 @@ if __name__ == '__main__':
     print('pruned tree', prune(T, 2))
     # >>>
     # [1, [2, [4], [5]], [3, [6], [7]]]
+
+    print('replaced leaf', replace_leaf(T, 22, 99))
+    # >>> a new tree, repalced the last leaf from 22 to 99
