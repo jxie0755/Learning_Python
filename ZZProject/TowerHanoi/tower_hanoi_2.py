@@ -27,18 +27,35 @@ def hanoi_solver(n):
             print_move(start, end)   # 若只有一张,直接移动
             move += 1
         else:
-            move_stack(n-1, start, end, mid)  # 假设去掉最下面一个,剩下上面的需要从start移动到mid
-            print_move(start, end)            # 然后把最下面从start移动到end
-            move += 1
-            move_stack(n-1, mid, start, end)  # 最后把mid的上层移动到end
+            # 把一堆disk分为上下两部分,下部分bot是最下面的一个disk,其他为上部分top
+            move_stack(n-1, start, end, mid)  # 把top从start移动到mid,让出bot
+            move_stack(1, start, mid, end)    # 把bot从start移动到end
+            move_stack(n-1, mid, start, end)  # 最后把top从mid移到end (放到bot之上)
 
-    move_stack(n, 1, 3)
+    move_stack(n, 1, 2, 3)
     return move
 
 if __name__ == '__main__':
-    print('\n1 disk:')
     print(hanoi_solver(1))
-    print('\n2 disks:')
+    # >>>
+    # Move the top disk from 1 --> 3
+    # 1
+
     print(hanoi_solver(2))
+    # >>>
+    # Move the top disk from 1 --> 2
+    # Move the top disk from 1 --> 3
+    # Move the top disk from 2 --> 3
+    # 3
+
     print('\n3 disks:')
     print(hanoi_solver(3))
+    # >>>
+    # Move the top disk from 1 --> 3
+    # Move the top disk from 1 --> 2
+    # Move the top disk from 3 --> 2
+    # Move the top disk from 1 --> 3
+    # Move the top disk from 2 --> 1
+    # Move the top disk from 2 --> 3
+    # Move the top disk from 1 --> 3
+    # 7
