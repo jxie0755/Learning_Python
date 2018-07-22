@@ -264,6 +264,7 @@ def balanced(m):
 # OOP #
 #######
 
+# Q5
 class Account:
     """An account has a balance and a holder.
 
@@ -307,7 +308,21 @@ class Account:
         """Return the number of years until balance would grow to amount."""
         assert self.balance > 0 and amount > 0 and self.interest > 0
         "*** YOUR CODE HERE ***"
+        year = 0
+        current = self.balance
+        while current < amount:
+            current *= (1 + self.interest)
+            year += 1
+        return year
 
+        # Recursion method:
+        # if amount <= self.balance:
+        #     return 0
+        # else:
+        #     return 1 + self.time_to_retire(amount / (1+self.interest))
+
+
+# Q6
 class FreeChecking(Account):
     """A bank account that charges for withdrawals, but the first two are free!
 
