@@ -65,7 +65,7 @@ def copy_tree(t):
 # Questions #
 #############
 
-# Q1
+# Q1 Replace Leaf
 def replace_leaf(t, old, new):
     """Returns a new tree where every leaf value equal to old has
     been replaced with new.
@@ -186,6 +186,8 @@ def end(s):
     assert is_side(s), "must call end on a side"
     return branches(s)[0]
 
+
+# Q3 Weights
 def weight(size):
     """Construct a weight of some size."""
     assert size > 0
