@@ -48,11 +48,11 @@ def count_leaves(t):
 
 def leaves(tree):
     """Return a list containing the leaf labels of tree"""
+    # in the form as a list
     if is_leaf(tree):
         return [label(tree)]
     else:
-        return sum([leaves(b) for b in branches(tree)], [])
-
+        return sum([leaves(b) for b in branches(tree)], [])  # sum of lists is still a list
 
 def increment_leaves(t):
     """Return a tree like t but with leaf labels incremented"""
