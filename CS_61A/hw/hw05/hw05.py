@@ -192,14 +192,18 @@ def weight(size):
     """Construct a weight of some size."""
     assert size > 0
     "*** YOUR CODE HERE ***"
+    return tree('weight', [tree(size)])
 
 def size(w):
     """Select the size of a weight."""
     "*** YOUR CODE HERE ***"
+    assert is_weight(w)
+    return label(branches(w))[0]
 
 def is_weight(w):
     """Whether w is a weight, not a mobile."""
     "*** YOUR CODE HERE ***"
+    return is_tree(w) and label(w) == 'weight'
 
 def examples():
     t = mobile(side(1, weight(2)),
