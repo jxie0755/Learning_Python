@@ -198,7 +198,7 @@ def size(w):
     """Select the size of a weight."""
     "*** YOUR CODE HERE ***"
     assert is_weight(w)
-    return label(branches(w))[0]
+    return label(branches(w)[0])
 
 def is_weight(w):
     """Whether w is a weight, not a mobile."""
