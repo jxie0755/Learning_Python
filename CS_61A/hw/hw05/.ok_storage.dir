@@ -3,3 +3,4 @@
 'total_weight-correct', (1024, 70)
 'balanced-correct', (1536, 70)
 'Account-correct', (2048, 70)
+'FreeChecking-correct', (2560, 70)

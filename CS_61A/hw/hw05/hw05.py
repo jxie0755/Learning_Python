@@ -351,6 +351,27 @@ class FreeChecking(Account):
     free_withdrawals = 2
 
     "*** YOUR CODE HERE ***"
+    def __init__(self, account_holder):
+        self.holder = account_holder
+        self.balance = 0
+
+    def withdraw(self, amount):
+        """Subtract amount from balance if funds are available.
+        first two withdraw is free of charge, count even if the withdrawal is not successful
+        after two free withdrawal, it add an additonal charge showed in self.withdrow_fee
+        """
+        if self.free_withdrawals != 0:
+            self.free_withdrawals -= 1
+            if amount > self.balance:
+                return 'Insufficient funds'
+            self.balance -= amount
+        else:
+            if amount > self.balance - self.withdraw_fee:
+                return 'Insufficient funds'
+            self.balance -= amount + self.withdraw_fee
+
+        return self.balance
+
 
 ############
 # Mutation #
