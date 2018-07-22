@@ -249,6 +249,16 @@ def balanced(m):
     False
     """
     "*** YOUR CODE HERE ***"
+    if is_mobile(m):
+        L, R = sides(m)[0], sides(m)[1]
+        M_balance = length(L)* total_weight(end(L)) == length(R)* total_weight(end(R))
+        L_balance = balanced(end(L))
+        R_balance = balanced(end(R))
+        return M_balance and L_balance and R_balance
+
+    else:
+        return True
+
 
 #######
 # OOP #
