@@ -232,6 +232,8 @@ def total_weight(m):
         assert is_mobile(m), "must get total weight of a mobile or a weight"
         return sum([total_weight(end(s)) for s in sides(m)])
 
+
+# Q4 Balanced
 def balanced(m):
     """Return whether m is balanced.
 
@@ -264,7 +266,7 @@ def balanced(m):
 # OOP #
 #######
 
-# Q5
+# Q5 Retirement
 class Account:
     """An account has a balance and a holder.
 
@@ -322,7 +324,7 @@ class Account:
         #     return 1 + self.time_to_retire(amount / (1+self.interest))
 
 
-# Q6
+# Q6 Free Checking
 class FreeChecking(Account):
     """A bank account that charges for withdrawals, but the first two are free!
 
