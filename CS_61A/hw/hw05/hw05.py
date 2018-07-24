@@ -402,7 +402,16 @@ def make_counter():
     5
     """
     "*** YOUR CODE HERE ***"
-    
+    count_dict = {}
+    def counter(s):
+        nonlocal count_dict
+        if s in count_dict:
+            count_dict[s] += 1
+        else:
+            count_dict[s] = 1
+        return count_dict[s]
+    return counter
+
 
 def make_fib():
     """Returns a function that returns the next Fibonacci number
