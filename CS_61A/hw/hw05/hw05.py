@@ -413,6 +413,7 @@ def make_counter():
     return counter
 
 
+# Q8 Next Fibonacci
 def make_fib():
     """Returns a function that returns the next Fibonacci number
     every time it is called.
@@ -433,6 +434,19 @@ def make_fib():
     12
     """
     "*** YOUR CODE HERE ***"
+    first_two = [1, 0]
+    fib_list = [0, 1]
+
+    def gen_fib():
+        nonlocal first_two, fib_list
+        if first_two:
+            return first_two.pop()
+        else:
+            fib_list.append(fib_list[-1] + fib_list[-2])
+            return fib_list[-1]
+    return gen_fib
+
+
 
 def make_withdraw(balance, password):
     """Return a password-protected withdraw function.
