@@ -447,7 +447,7 @@ def make_fib():
     return gen_fib
 
 
-
+# Q9 Password Protected Account
 def make_withdraw(balance, password):
     """Return a password-protected withdraw function.
 
@@ -461,7 +461,7 @@ def make_withdraw(balance, password):
     >>> error
     'Incorrect password'
     >>> new_bal = w(25, 'hax0r')
-    >>> new
+    >>> new_bal
     50
     >>> w(75, 'a')
     'Incorrect password'
@@ -477,6 +477,26 @@ def make_withdraw(balance, password):
     True
     """
     "*** YOUR CODE HERE ***"
+    wrong_password_list = []
+
+    def withdraw(amount, ps):
+        nonlocal balance, wrong_password_list
+        if len(wrong_password_list) >= 3:
+            return f"Your account is locked. Attempts: {wrong_password_list}"
+        else:
+            if ps == password:
+                if amount > balance:
+                    return 'Insufficient funds'
+                else:
+                    balance -= amount
+                    return balance
+            else:
+                wrong_password_list.append(ps)
+                return 'Incorrect password'
+    return withdraw
+
+
+
 
 def make_joint(withdraw, old_password, new_password):
     """Return a password-protected withdraw function that has joint access to
