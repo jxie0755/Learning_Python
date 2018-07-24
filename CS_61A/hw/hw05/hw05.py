@@ -379,6 +379,8 @@ class FreeChecking(Account):
 # Mutation #
 ############
 
+
+# Q7 Counter
 def make_counter():
     """Return a counter function.
 
@@ -400,6 +402,7 @@ def make_counter():
     5
     """
     "*** YOUR CODE HERE ***"
+    
 
 def make_fib():
     """Returns a function that returns the next Fibonacci number
