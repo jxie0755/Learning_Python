@@ -497,7 +497,7 @@ def make_withdraw(balance, password):
 
 
 
-
+# Q10 Joint Account
 def make_joint(withdraw, old_password, new_password):
     """Return a password-protected withdraw function that has joint access to
     the balance of withdraw.
@@ -537,6 +537,19 @@ def make_joint(withdraw, old_password, new_password):
     "Your account is locked. Attempts: ['my', 'secret', 'password']"
     """
     "*** YOUR CODE HERE ***"
+    attemp = withdraw(0, old_password)
+
+    if type(attemp) == str:
+        return attemp
+    else:
+        def join_withdraw(amount, ps):
+            if ps == new_password:
+                return withdraw(amount, old_password)
+            else:
+                return withdraw(amount, ps)
+        return join_withdraw
+
+
 
 ###################
 # Extra Questions #
