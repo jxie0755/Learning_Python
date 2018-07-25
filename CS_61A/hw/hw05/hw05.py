@@ -611,13 +611,16 @@ def sub_interval(x, y):
     return interval(min(p1, p2, p3, p4), max(p1, p2, p3, p4))
 
 
+# Q13 Div Interval
 def div_interval(x, y):
     """Return the interval that contains the quotient of any value in x divided by
     any value in y. Division is implemented as the multiplication of x by the
     reciprocal of y."""
     "*** YOUR CODE HERE ***"
+    assert (lower_bound(y) < 0 and upper_bound(y) < 0) or (lower_bound(y) > 0 and upper_bound(y) > 0)
     reciprocal_y = interval(1/upper_bound(y), 1/lower_bound(y))
     return mul_interval(x, reciprocal_y)
+
 
 def par1(r1, r2):
     return div_interval(mul_interval(r1, r2), add_interval(r1, r2))
