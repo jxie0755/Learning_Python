@@ -559,13 +559,17 @@ def interval(a, b):
     """Construct an interval from a to b."""
     return [a, b]
 
+
+# Q11 Interval Abstraction
 def lower_bound(x):
     """Return the lower bound of interval x."""
     "*** YOUR CODE HERE ***"
+    return x[0]
 
 def upper_bound(x):
     """Return the upper bound of interval x."""
     "*** YOUR CODE HERE ***"
+    return x[1]
 
 def str_interval(x):
     """Return a string representation of interval x."""
