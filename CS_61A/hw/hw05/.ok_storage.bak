@@ -9,3 +9,4 @@
 'make_withdraw-correct', (4096, 70)
 'make_joint-correct', (4608, 70)
 'interval-correct', (5120, 70)
+'mul_interval-correct', (5632, 70)
