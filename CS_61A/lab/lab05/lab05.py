@@ -1,4 +1,6 @@
 """ Lab 05: Mutable Sequences and Trees """
+# Q1 What would Python Display?
+
 # Q2
 def map(fn, seq):
     """Applies fn onto each element in seq and returns a list.
