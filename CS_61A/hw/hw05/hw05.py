@@ -622,6 +622,7 @@ def div_interval(x, y):
     return mul_interval(x, reciprocal_y)
 
 
+# Q14 Par Diff
 def par1(r1, r2):
     return div_interval(mul_interval(r1, r2), add_interval(r1, r2))
 
@@ -640,13 +641,17 @@ def check_par():
     >>> lower_bound(x) != lower_bound(y) or upper_bound(x) != upper_bound(y)
     True
     """
-    r1 = interval(1, 1) # Replace this line!
-    r2 = interval(1, 1) # Replace this line!
+    r1 = interval(3, 5) # Replace this line!
+    r2 = interval(5, 3) # Replace this line!
     return r1, r2
 
-def multiple_references_explanation():
-    return """The multiple reference problem..."""
 
+# Q15 Multiple References
+def multiple_references_explanation():
+    return """The multiple reference problem would say that she is wrong because there are more unkown values in par2 than par1"""
+
+
+# Q16 Quadratic
 def quadratic(x, a, b, c):
     """Return the interval that is the range of the quadratic defined by
     coefficients a, b, and c, for domain interval x.
@@ -658,6 +663,7 @@ def quadratic(x, a, b, c):
     """
     "*** YOUR CODE HERE ***"
 
+# Q17 Polynomial
 def polynomial(x, c):
     """Return the interval that is the range of the polynomial defined by
     coefficients c, for domain interval x.
