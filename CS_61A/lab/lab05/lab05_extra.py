@@ -3,6 +3,7 @@
 from lab05 import *
 
 # Shakespeare and Dictionaries
+# Q5 Successor Tables
 def build_successors_table(tokens):
     """Return a dictionary: keys are words; values are lists of successors.
 
@@ -17,14 +18,24 @@ def build_successors_table(tokens):
     >>> table['.']
     ['We']
     """
+    # my way, actually easier
+    # table = {}
+    # for word in tokens:
+    #     if word not in table:
+    #         "*** YOUR CODE HERE ***"
+    #         table[word] = [tokens[i] for i in range(len(tokens)) if tokens[i-1] == word]
+    # return table
+
+    # standard answer
     table = {}
     prev = '.'
     for word in tokens:
         if prev not in table:
-            "*** YOUR CODE HERE ***"
-        "*** YOUR CODE HERE ***"
+            table[prev] = []
+        table[prev] = table[prev] + [word]
         prev = word
     return table
+
 
 def construct_sent(word, table):
     """Prints a random sentence starting with word, sampling from
