@@ -53,14 +53,16 @@ def acorn_finder(t):
     False
     """
     "*** YOUR CODE HERE ***"
-    result = []
-    def search(t):
-        nonlocal result
-        result += [label(t)]
-        for b in branches(t):
-            search(b)
-    search(t)
-    return 'acorn' in result
+    # result = []
+    # def search(t):
+    #     nonlocal result
+    #     result += [label(t)]
+    #     for b in branches(t):
+    #         search(b)
+    # search(t)
+    # return 'acorn' in result
+    
+    return label(t) == 'acorn' or True in [acorn_finder(b) for b in branches(t)]
 
 
 # Q4
