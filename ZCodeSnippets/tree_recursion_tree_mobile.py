@@ -117,6 +117,23 @@ def replace_leaf(t, old, new):
     else:
         return tree(label(t), [replace_leaf(b, old, new) for b in branches(t)])
 
+def tree_finder(t, keywd):
+    """Returns True if t contains a node with the value of keywd and
+    False otherwise."""
+    result = []
+
+    # define a helper function to extract all the labels into a list
+    def search(t):
+        nonlocal result
+        result += [label(t)]
+        for b in branches(t):
+            search(b)
+    # this is an imperfect function which only use the side effect to change the list result.
+
+    search(t) # execute the helper function
+    return keywd in result
+
+
 # Test
 if __name__ == '__main__':
     T = tree(1, [
@@ -192,6 +209,11 @@ if __name__ == '__main__':
     print('replaced leaf', replace_leaf(T, 22, 99))
     # >>> a new tree, repalced the last leaf from 22 to 99
 
+    sproul = tree('roots', [tree('branch1', [tree('leaf'), tree('acorn')]), tree('branch2')])
+    numbers = tree(1, [tree(2), tree(3, [tree(4), tree(5)]), tree(6, [tree(7)])])
+    print('search acorn', tree_finder(sproul, 'acorn'))
+    print('search 10', tree_finder(numbers, 10))
+    print('search 6', tree_finder(numbers, 6))
 
 
 
