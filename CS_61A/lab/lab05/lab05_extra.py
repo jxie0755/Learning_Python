@@ -68,14 +68,15 @@ def shakespeare_tokens(path='shakespeare.txt', url='http://composingprograms.com
         return shakespeare.read().decode(encoding='ascii').split()
 
 # Uncomment the following two lines
-# tokens = shakespeare_tokens()
-# table = build_successors_table(tokens)
+tokens = shakespeare_tokens()
+table = build_successors_table(tokens)
 
 def random_sent():
     import random
     return construct_sent(random.choice(table['.']), table)
 
-# Q8
+
+# Q7 Pruning Leaves
 def prune_leaves(t, vals):
     """Return a modified copy of t with all leaves that have a label
     that appears in vals removed.  Return None if the entire tree is
