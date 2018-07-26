@@ -2,3 +2,4 @@
 'filter-correct', (512, 70)
 'reduce-correct', (1024, 70)
 'acorn_finder-correct', (1536, 70)
+'replace_leaf-correct', (2048, 70)
