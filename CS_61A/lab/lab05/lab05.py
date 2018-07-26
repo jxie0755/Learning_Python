@@ -53,6 +53,15 @@ def acorn_finder(t):
     False
     """
     "*** YOUR CODE HERE ***"
+    result = []
+    def search(t):
+        nonlocal result
+        result += [label(t)]
+        for b in branches(t):
+            search(b)
+    search(t)
+    return 'acorn' in result
+
 
 # Q4
 def replace_leaf(t, old, new):
