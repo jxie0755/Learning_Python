@@ -1,7 +1,7 @@
 """ Lab 05: Mutable Sequences and Trees """
 # Q1 What would Python Display?
 
-# Q2
+# Q2 Map, Filter, Reduce
 def map(fn, seq):
     """Applies fn onto each element in seq and returns a list.
 
@@ -9,6 +9,7 @@ def map(fn, seq):
     [1, 4, 9]
     """
     "*** YOUR CODE HERE ***"
+    return [fn(i) for i in seq]
 
 def filter(pred, seq):
     """Keeps elements in seq only if they satisfy pred.
@@ -17,6 +18,7 @@ def filter(pred, seq):
     [2, 4]
     """
     "*** YOUR CODE HERE ***"
+    return [i for i in seq if pred(i)]
 
 def reduce(combiner, seq):
     """Combines elements in seq using combiner.
@@ -29,6 +31,11 @@ def reduce(combiner, seq):
     4
     """
     "*** YOUR CODE HERE ***"
+    if len(seq) == 1:
+        return seq[0]
+    else:
+        return combiner(reduce(combiner, seq[0:-1]), seq.pop())
+
 
 # Q3
 def acorn_finder(t):
