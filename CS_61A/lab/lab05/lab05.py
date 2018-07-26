@@ -37,7 +37,7 @@ def reduce(combiner, seq):
         return combiner(reduce(combiner, seq[0:-1]), seq.pop())
 
 
-# Q3
+# Q3 Acorn Finder
 def acorn_finder(t):
     """Returns True if t contains a node with the value 'acorn' and
     False otherwise.
@@ -65,7 +65,7 @@ def acorn_finder(t):
     return label(t) == 'acorn' or True in [acorn_finder(b) for b in branches(t)]
 
 
-# Q4
+# Q4 Replace Leaf
 def replace_leaf(t, old, new):
     """Returns a new tree where every leaf value equal to old has
     been replaced with new.
