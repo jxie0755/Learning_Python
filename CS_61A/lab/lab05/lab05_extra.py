@@ -3,6 +3,7 @@
 from lab05 import *
 
 # Shakespeare and Dictionaries
+
 # Q5 Successor Tables
 def build_successors_table(tokens):
     """Return a dictionary: keys are words; values are lists of successors.
@@ -36,7 +37,7 @@ def build_successors_table(tokens):
         prev = word
     return table
 
-
+# Q6 Construct the Sentence
 def construct_sent(word, table):
     """Prints a random sentence starting with word, sampling from
     table.
@@ -51,7 +52,10 @@ def construct_sent(word, table):
     result = ''
     while word not in ['.', '!', '?']:
         "*** YOUR CODE HERE ***"
+        result += word + ' '
+        word = random.choice(table[word])
     return result.strip() + word
+
 
 def shakespeare_tokens(path='shakespeare.txt', url='http://composingprograms.com/shakespeare.txt'):
     """Return the words of Shakespeare's plays as a list."""

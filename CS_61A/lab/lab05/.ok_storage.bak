@@ -4,3 +4,4 @@
 'acorn_finder-correct', (1536, 70)
 'replace_leaf-correct', (2048, 70)
 'build_successors_table-correct', (2560, 70)
+'construct_sent-correct', (3072, 70)
