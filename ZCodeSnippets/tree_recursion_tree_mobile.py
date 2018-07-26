@@ -120,19 +120,20 @@ def replace_leaf(t, old, new):
 def tree_finder(t, keywd):
     """Returns True if t contains a node with the value of keywd and
     False otherwise."""
-    result = []
+    # result = []
 
-    # define a helper function to extract all the labels into a list
-    def search(t):
-        nonlocal result
-        result += [label(t)]
-        for b in branches(t):
-            search(b)
-    # this is an imperfect function which only use the side effect to change the list result.
+    # # define a helper function to extract all the labels into a list
+    # def search(t):
+    #     nonlocal result
+    #     result += [label(t)]
+    #     for b in branches(t):
+    #         search(b)
+    # # this is an imperfect function which only use the side effect to change the list result.
 
-    search(t) # execute the helper function
-    return keywd in result
+    # search(t) # execute the helper function
+    # return keywd in result
 
+    return label(t) == keywd or True in [tree_finder(b, keywd) for b in branches(t)]
 
 # Test
 if __name__ == '__main__':
