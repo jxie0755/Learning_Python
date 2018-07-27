@@ -148,7 +148,7 @@ def sprout_leaves(t, vals):
     else:
         return tree(label(t), [sprout_leaves(b, vals) for b in branches(t)])
 
-# Q10
+# Q9
 def add_trees(t1, t2):
     """
     >>> numbers = tree(1,
@@ -185,3 +185,4 @@ def add_trees(t1, t2):
       5
     """
     "*** YOUR CODE HERE ***"
+    
