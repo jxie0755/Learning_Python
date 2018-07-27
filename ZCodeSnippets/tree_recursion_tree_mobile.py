@@ -107,6 +107,16 @@ def prune(t, k):
     else:
         return tree(label(t), [prune(branch, k-1) for branch in branches(t)])
 
+def prune_leaves(t, vals):
+    """Return a modified copy of t with all leaves that have a label
+    that appears in vals removed.  Return None if the entire tree is
+    pruned away."""
+
+    if is_leaf(t) and label(t) in vals:
+        return None
+    else:
+        return tree(label(t), [prune_leaves(b, vals) for b in branches(t) if prune_leaves(b, vals) != None])
+
 def copy_tree(t):
     """Returns a copy of t. Only for testing purposes."""
     return tree(label(t), [copy_tree(b) for b in branches(t)])
@@ -206,6 +216,26 @@ if __name__ == '__main__':
     print('pruned tree', prune(T, 2))
     # >>>
     # [1, [2, [4], [5]], [3, [6], [7]]]
+
+    numbers = tree(1, [tree(2), tree(3, [tree(4), tree(5)]), tree(6, [tree(7)])])
+    print('prune leaves')
+    print_tree(numbers)
+    # >>>
+    # 1
+    #   2
+    #   3
+    #     4
+    #     5
+    #   6
+    #     7
+    print_tree(prune_leaves(numbers, (3,4,6,7)))
+    # >>>
+    # 1
+    #   2
+    #   3
+    #     5
+    #   6
+
 
     print('replaced leaf', replace_leaf(T, 22, 99))
     # >>> a new tree, repalced the last leaf from 22 to 99
