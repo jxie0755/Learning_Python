@@ -107,11 +107,8 @@ def prune_leaves(t, vals):
     else:
         return tree(label(t), [prune_leaves(b, vals) for b in branches(t) if prune_leaves(b, vals) != [None]])
 
-numbers = tree(1, [tree(2), tree(3, [tree(4), tree(5)]), tree(6, [tree(7)])])
-print_tree(numbers)
-print_tree(prune_leaves(numbers, (3,4,6,7)))
 
-# Q9
+# Q8 Sprout Leaves
 def sprout_leaves(t, vals):
     """Sprout new leaves containing the data in vals at each leaf in
     the original tree t and return the resulting tree.
@@ -146,6 +143,10 @@ def sprout_leaves(t, vals):
           2
     """
     "*** YOUR CODE HERE ***"
+    if is_leaf(t):
+        return tree(label(t), [tree(i) for i in vals])
+    else:
+        return tree(label(t), [sprout_leaves(b, vals) for b in branches(t)])
 
 # Q10
 def add_trees(t1, t2):
