@@ -127,6 +127,14 @@ def replace_leaf(t, old, new):
     else:
         return tree(label(t), [replace_leaf(b, old, new) for b in branches(t)])
 
+def sprout_leaves(t, vals):
+    """Sprout new leaves containing the data in vals at each leaf in
+    the original tree t and return the resulting tree."""
+    if is_leaf(t):
+        return tree(label(t), [tree(i) for i in vals])
+    else:
+        return tree(label(t), [sprout_leaves(b, vals) for b in branches(t)])
+
 def tree_finder(t, keywd):
     """Returns True if t contains a node with the value of keywd and
     False otherwise."""
@@ -235,6 +243,24 @@ if __name__ == '__main__':
     #   3
     #     5
     #   6
+
+    print('sprout leaves', print_tree(sprout_leaves(numbers, [9, 10])))
+    # >>>
+    # 1
+    #   2
+    #     9
+    #     10
+    #   3
+    #     4
+    #       9
+    #       10
+    #     5
+    #       9
+    #       10
+    #   6
+    #     7
+    #       9
+    #       10
 
 
     print('replaced leaf', replace_leaf(T, 22, 99))
