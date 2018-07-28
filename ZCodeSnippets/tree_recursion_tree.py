@@ -63,7 +63,6 @@ def increment_leaves(t):
         return tree(label(t), bs)
 
 
-
 # Tree functions
 def tree_max(t):
     """Return the max of a tree."""
@@ -87,7 +86,23 @@ def find_path(tree, x):
         if path:
             return [label(tree)] + path
 
+def tree_finder(t, keywd):
+    """Returns True if t contains a node with the value of keywd and
+    False otherwise."""
+    # result = []
 
+    # # define a helper function to extract all the labels into a list
+    # def search(t):
+    #     nonlocal result
+    #     result += [label(t)]
+    #     for b in branches(t):
+    #         search(b)
+    # # this is an imperfect function which only use the side effect to change the list result.
+
+    # search(t) # execute the helper function
+    # return keywd in result
+
+    return label(t) == keywd or True in [tree_finder(b, keywd) for b in branches(t)]
 
 # New tree
 def increment(t):
@@ -135,23 +150,6 @@ def sprout_leaves(t, vals):
     else:
         return tree(label(t), [sprout_leaves(b, vals) for b in branches(t)])
 
-def tree_finder(t, keywd):
-    """Returns True if t contains a node with the value of keywd and
-    False otherwise."""
-    # result = []
-
-    # # define a helper function to extract all the labels into a list
-    # def search(t):
-    #     nonlocal result
-    #     result += [label(t)]
-    #     for b in branches(t):
-    #         search(b)
-    # # this is an imperfect function which only use the side effect to change the list result.
-
-    # search(t) # execute the helper function
-    # return keywd in result
-
-    return label(t) == keywd or True in [tree_finder(b, keywd) for b in branches(t)]
 
 def add_trees(t1, t2):
     """
