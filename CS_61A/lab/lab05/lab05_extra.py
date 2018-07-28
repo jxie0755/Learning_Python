@@ -185,4 +185,10 @@ def add_trees(t1, t2):
       5
     """
     "*** YOUR CODE HERE ***"
-    
+    lab = label(t1) + label(t2)
+    b1, b2 = branches(t1), branches(t2)
+    while len(b1) > len(b2):
+        b2 = b2 + [tree(0)]
+    while len(b2) > len(b1):
+        b1 = b1 + [tree(0)]
+    return tree(lab, [add_trees(b[0], b[1]) for b in zip(b1, b2)])
