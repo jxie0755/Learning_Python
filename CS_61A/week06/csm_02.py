@@ -29,8 +29,10 @@ def list_of_lists(lst):
     >>> list_of_lists([])
     []
     """
-    result = []
-    if lst:
-        for i in lst:
-            result.append([i for i in range(0,i)])
-    return result
+    # result = []
+    # if lst:
+    #     for i in lst:
+    #         result.append([i for i in range(0,i)])
+    # return result
+
+    return [[x for x in range(y)] for y in lst]
