@@ -36,3 +36,29 @@ def list_of_lists(lst):
     # return result
 
     return [[x for x in range(y)] for y in lst]
+
+
+# Trees
+def tree(label, branches=[]):
+    return [label] + list(branches)
+def label(tree):
+    return tree[0]
+def branches(tree):
+    return tree[1:] #returns a list of branches
+
+t = tree(9, [tree(2), tree(4, [tree(1)]), tree(4, [tree(7), tree(3)])])
+print(label(t))
+# >>> 9
+print(branches(t)[2])
+# >>> [4, [7], [3]]
+print(branches(branches(t)[2])[0])
+# >>> [7]
+print(label(branches(t)[0]))
+# >>> 2
+
+def sum_of_nodes(t):
+    """return sum of all nodes including labels and leafs"""
+    return label(t) + sum([sum_of_nodes(b) for b in branches(t)])
+
+print(sum_of_nodes(t))
+# >>> 30
