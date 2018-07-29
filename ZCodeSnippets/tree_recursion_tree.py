@@ -64,6 +64,10 @@ def increment_leaves(t):
 
 
 # Tree functions
+def sum_of_nodes(t):
+    """return sum of all nodes including labels and leafs"""
+    return label(t) + sum([sum_of_nodes(b) for b in branches(t)])
+
 def tree_max(t):
     """Return the max of a tree."""
     return max([label(t)] + [tree_max(branch) for branch in branches(t)])
