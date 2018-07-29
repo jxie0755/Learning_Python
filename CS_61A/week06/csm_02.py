@@ -11,9 +11,9 @@ def all_primes(nums):
     """
     return list(filter(lambda x: all(x % i != 0 for i in range(2, x)), nums))
     # assume is_prime is defined:
-    def is_prime(n):
-        return all(n % i != 0 for i in range(2, n))
-    return list(filter(is_prime, nums))
+    # def is_prime(n):
+    #     return all(n % i != 0 for i in range(2, n))
+    # return list(filter(is_prime, nums))
 
 # Write a function that takes in a list of positive integers and outputs a list of lists
 # where:
@@ -23,9 +23,14 @@ def all_primes(nums):
 def list_of_lists(lst):
     """
     >>> list_of_lists([1, 2, 3])
-    [[0], [0, 1], [0, 1, 2])
-    >>>list_of_lists([1])
+    [[0], [0, 1], [0, 1, 2]]
+    >>> list_of_lists([1])
     [[0]]
-    >>>list_of_lists([])
+    >>> list_of_lists([])
     []
     """
+    result = []
+    if lst:
+        for i in lst:
+            result.append([i for i in range(0,i)])
+    return result
