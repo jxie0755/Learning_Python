@@ -1,4 +1,4 @@
-# CS61a Discussion 03 Trees & Sequences
+# CS61A Discussion 03 Trees & Sequences
 
 
 # Q1 Index
