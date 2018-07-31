@@ -28,3 +28,22 @@ def da(da):
 print(da(lambda da: da(lamb)))
 # >>>
 # 2 + 3 = 5
+
+# Write a function that takes in a value x and updates and prints the result based on input functions
+
+def memory(n):
+    """
+    >>> f = memory(10)
+    >>> f = f(lambda x: x * 2)
+    20
+    >>> f = f(lambda x: x - 7)
+    13
+    >>> f = f(lambda x: x > 5)
+    True
+    """
+    def f(fn):
+        nonlocal n
+        n = fn(n)
+        print(n)
+        return f
+    return f
