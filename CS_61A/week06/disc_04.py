@@ -12,3 +12,19 @@ def stepper(num):
 s = stepper(3)
 print(s()) # >>> 4
 print(s()) # >>> 5
+
+
+lamb = 'da'
+def da(da):
+    def lamb(lamb):
+        nonlocal da
+        def da(nk):
+            da = nk + ['da']
+            da.append(nk[0:2])
+            return nk.pop()
+    da(lamb)
+    return da([[1], 2]) + 3
+
+print(da(lambda da: da(lamb)))
+# >>>
+# 2 + 3 = 5
