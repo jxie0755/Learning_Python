@@ -2,6 +2,7 @@
 
 
 # Nonlocal
+
 def stepper(num):
     def step():
         nonlocal num
@@ -47,3 +48,23 @@ def memory(n):
         print(n)
         return f
     return f
+
+
+# Mutable Lists
+
+lst1 = [1,2,3]
+lst2 = [1,2,3]
+print(lst1 == lst2) # >>> True  (equal)
+print(lst1 is lst2) # >>> False (not the same object)
+
+lst2 = lst1
+lst1.append(4)
+print(lst1) # >>> [1,2,3,4]
+print(lst2) # >>> [1,2,3,4]
+
+lst1 = lst1 + [5]  # this is a new list generated, covered the old lst1, therefore a different object
+
+print(lst2)
+print(lst1 == lst2) # >>> True  (because lst2 will always = lst1)
+print(lst2 is lst1) # >>> False
+
