@@ -68,3 +68,26 @@ print(lst2)
 print(lst1 == lst2) # >>> True  (because lst2 will always = lst1)
 print(lst2 is lst1) # >>> False
 
+
+# Write a function that takes in a value x, a value el, and a list
+# and adds as many el’s to the end of the list as there are x’s.
+# Make sure to modify the original list using list mutation techniques.
+
+def add_this_many(x, el, lst):
+    """ Adds el to the end of lst the number of times x occurs
+    in lst.
+    >>> lst = [1, 2, 4, 2, 1]
+    >>> add_this_many(1, 5, lst)
+    >>> lst
+    [1, 2, 4, 2, 1, 5, 5]
+    >>> add_this_many(2, 2, lst)
+    >>> lst
+    [1, 2, 4, 2, 1, 5, 5, 2, 2]
+    """
+    count = 0
+    for i in lst:
+        if i == x:
+            count += 1
+    while count != 0:
+        lst.append(el)
+        count -= 1
