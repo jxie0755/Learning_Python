@@ -107,8 +107,52 @@ def reverse(lst):
     # this is risky because it changed the list while iteration
     # but the length remained the same, so it worked,
 
-    # a switch method is much better
+    # a swapping method is much better
     L = len(lst)
     for i in range(L//2):
         # lst[i], lst[L-i-1] = lst[L-i-1], lst[i]
         lst[i], lst[-i - 1] = lst[-i - 1], lst[i] # better way to index
+
+
+# Dictionaries
+
+
+# Write a function that takes in a sequence s and a function fn and returns a dictionary.
+# The values of the dictionary are lists of elements from s.
+# Each element e in a list should be constructed such that fn(e) is the same for all elements in
+# that list.
+# Finally, the key for each value should be fn(e).
+
+def group_by(s, fn):
+    """
+    >>> group_by([12, 23, 14, 45], lambda p: p // 10)
+    {1: [12, 14], 2: [23], 4: [45]}
+    >>> group_by(range(-3, 4), lambda x: x * x)
+    {9: [-3, 3], 4: [-2, 2], 1: [-1, 1], 0: [0]}
+    """
+    result = {}
+    for i in s:
+        if fn(i) not in result:
+            result[fn(i)] = [i]
+        else:
+            result[fn(i)].append(i)
+    return result
+
+
+# Write a function that takes in a deep dictionary d and replace all occurences of x as a value (not a key) with y.
+# Hint: You will need to combine iteration and recursion.
+# Also, for a dictionary z, type(z) == dict will evaluate to True.
+
+def replace_all_deep(d, x, y):
+    """
+    >>> d = {1: {2: 'x', 'x': 4}, 2: {4: 4, 5: 'x'}}
+    >>> replace_all_deep(d, 'x', 'y')
+    >>> d
+    {1: {2: 'y', 'x': 4}, 2: {4: 4, 5: 'y'}}
+    """
+    for k, v in d.items():
+        if type(v) == dict:
+            replace_all_deep(v, x, y)
+        else:
+            if v == x:
+                d[k] = y
