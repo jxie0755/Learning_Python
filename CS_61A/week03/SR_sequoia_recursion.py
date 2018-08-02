@@ -50,7 +50,7 @@ print(sum_lst([1,2,3,4]))
 
 # Practice 2
 def comprehension(lst, f, pred):
-    if lst  == []:
+    if lst == []:
         return []
     ### Your code here ###
     first = [f(lst[0])] if pred(lst[0]) else []
@@ -101,4 +101,3 @@ def balanced(s, depth=0):
 
 print(balanced('(h(;;;)i)'))
 # >>> True
-

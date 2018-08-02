@@ -44,7 +44,7 @@ def tree(label, branches=[]):
 def label(tree):
     return tree[0]
 def branches(tree):
-    return tree[1:] #returns a list of branches
+    return tree[1:] # returns a list of branches
 
 t = tree(9, [tree(2), tree(4, [tree(1)]), tree(4, [tree(7), tree(3)])])
 print(label(t))
