@@ -1,3 +1,5 @@
+# CS61A Exam Prep 02: Recursion & Lamda Functions
+
 # Express yourself
 def kbonacci(n, k):
     """Return element N of a K-bonacci sequence.
@@ -53,7 +55,7 @@ def reverse(n):
     if n < 10:
         return n
     else:
-        return combine(n % 10 , reverse(n // 10))
+        return combine(n % 10, reverse(n // 10))
 
 
 def remove(n, digit):
