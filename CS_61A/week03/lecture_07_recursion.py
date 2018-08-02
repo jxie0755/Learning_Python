@@ -125,7 +125,8 @@ def luhn_sum_double(n):
     luhn_digit = sum_digits(2 * last)
     if n < 10:
         return luhn_digit
-         return luhn_sum(all_but_last) + luhn_digit
+    else:
+        return luhn_sum(all_but_last) + luhn_digit
 
 
 # Converting iteration to recursion
@@ -154,4 +155,3 @@ def sum_digits_rec(n, digit_sum):
     else:
         n, last = split(n)
         return sum_digits_rec(n, digit_sum + last)
-
