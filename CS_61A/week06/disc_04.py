@@ -91,3 +91,24 @@ def add_this_many(x, el, lst):
     while count != 0:
         lst.append(el)
         count -= 1
+
+# Write a function that takes in a list and reverses it in place,
+# i.e. mutate the given list itself, instead of returning a new list
+
+def reverse(lst):
+    """ Reverses lst in place.
+    >>> x = [3, 2, 4, 5, 1]
+    >>> reverse(x)
+    >>> x
+    [1, 5, 4, 2, 3]
+    """
+    # for i in range(-1, -len(lst)-1, -1):
+    #     lst.append(lst.pop(i))
+    # this is risky because it changed the list while iteration
+    # but the length remained the same, so it worked,
+
+    # a switch method is much better
+    L = len(lst)
+    for i in range(L//2):
+        # lst[i], lst[L-i-1] = lst[L-i-1], lst[i]
+        lst[i], lst[-i - 1] = lst[-i - 1], lst[i] # better way to index
