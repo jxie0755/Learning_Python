@@ -38,4 +38,3 @@ def sum_range(t):
             return [b + x, a + x]
     x, y = helper(t)
     return x - y
-
