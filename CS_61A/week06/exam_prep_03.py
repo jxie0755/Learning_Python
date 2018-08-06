@@ -23,7 +23,7 @@ def is_tree(tree):
 def is_leaf(tree):
     return not branches(tree)
 
-# Q1
+# Q1 Tree Recursion with Trees
 
 def sum_range(t):
     """Returns the range of the sums of t, that is,
@@ -44,3 +44,30 @@ if __name__ == '__main__':
     # the sums of the tree below are 20 (5+1+7+4+3), 8 (5+1+2), 7 (5+2+0), and 16 (5+2+9)
     # answer should be 20 - 7 = 13
     print(sum_range(t1)) # >>> 13
+
+
+# Q2 This One Goes to Eleven
+
+# Fill in the blanks of the implementation of no_eleven below,
+# a function that returns a list of all distinct length-n lists of ones and sixes
+# in which 1 and 1 do not appear0 consecutively.
+
+def no_eleven(n):
+    """Return a list of lists of 1's and 6's that do not
+    contain 1 after 1.
+    >>> no_eleven(2)
+    [[6, 6], [6, 1], [1, 6]]
+    >>> no_eleven(3)
+    [[6, 6, 6], [6, 6, 1], [6, 1, 6], [1, 6, 6], [1, 6, 1]]
+    >>> no_eleven(4)[:4] # first half
+    [[6, 6, 6, 6], [6, 6, 6, 1], [6, 6, 1, 6], [6, 1, 6, 6]]
+    >>> no_eleven(4)[4:] # second half
+    [[6, 1, 6, 1], [1, 6, 6, 6], [1, 6, 6, 1], [1, 6, 1, 6]]
+    """
+    if n == 0:
+        return [[]]
+    elif n == 1:
+        return [[6], [1]]
+    else:
+        a, b = no_eleven(n-1), no_eleven(n-2)
+        return [[6] + s for s in a] + [[1, 6] + s for s in b]
