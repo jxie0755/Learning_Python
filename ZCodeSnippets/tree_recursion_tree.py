@@ -108,6 +108,21 @@ def tree_finder(t, keywd):
 
     return label(t) == keywd or True in [tree_finder(b, keywd) for b in branches(t)]
 
+def sum_range(t):
+    """Returns the range of the sums of t, that is,
+    the difference between the largest and the smallest sums of t."""
+    def helper(t):
+        if is_leaf(t):
+            return [label(t), label(t)]
+        else:
+            a = min([helper(b)[1] for b in branches(t)])
+            b = max([helper(b)[0] for b in branches(t)])
+            x = label(t)
+            return [b + x, a + x]
+    x, y = helper(t)
+    return x - y
+
+
 # New tree
 def increment(t):
     """Return a tree like t but with all labels incremented."""
@@ -227,6 +242,12 @@ if __name__ == '__main__':
     print('path', find_path(T, 10))  # >>> [1, 2, 5, 10]
     print('path', find_path(T, 5))   # >>> [1, 2, 5]
     print('path', find_path(T, 50))  # >>> None
+
+
+    t1 = tree(5, [tree(1, [tree(2), tree(7, [tree(4, [tree(3)])])]), tree(2, [tree(0), tree(9)])])
+    # the sums of the tree below are 20 (5+1+7+4+3), 8 (5+1+2), 7 (5+2+0), and 16 (5+2+9)
+    # answer should be 20 - 7 = 13
+    print(sum_range(t1)) # >>> 13
 
     # New tree
 
