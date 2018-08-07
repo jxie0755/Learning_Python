@@ -71,3 +71,49 @@ def no_eleven(n):
     else:
         a, b = no_eleven(n-1), no_eleven(n-2)
         return [[6] + s for s in a] + [[1, 6] + s for s in b]
+
+
+# Q3 Expression Trees
+
+# Your partner has created an interpreter for a language that can add or multiply positive integers.
+# Expressions are represented as instances of the Tree class and must have one of the following three forms:
+# • (Primitive) A positive integer entry and no branches, representing an integer
+# • (Combination) The entry '+', representing the sum of the values of its branches
+# • (Combination) The entry '*', representing the product of the values of its branches
+
+# The sum of no values is 0. The product of no values is 1.
+
+# Unfortunately, multiplication in Python is broken on your computer.
+# Implement eval_with_add, which evaluates an expression without using multiplication.
+# You may fill the blanks with names or call expressions
+# but the only way you are allowed to combine two numbers is using addition.
+# You may assume you have access to the tree, label, branches, and is_leaf functions, as defined below.
+
+
+def eval_with_add(t):
+    """Evaluate an expression tree of * and + using only
+    addition.
+    >>> plus = Tree('+', [Tree(2), Tree(3)])
+    >>> eval_with_add(plus)
+    5
+    >>> times = Tree('*', [Tree(2), Tree(3)])
+    >>> eval_with_add(times)
+    6
+    >>> deep = Tree('*', [Tree(2), plus, times])
+    >>> eval_with_add(deep)
+    60
+    >>> eval_with_add(Tree('*'))
+    1
+    """
+    if label(t) == '+':
+        return sum([eval_with_add(b) for b in branches(t)])
+
+    elif label(t) == '*':
+        total = 1
+        for b in branches(t):
+            total, term = 0, total
+            for i in range(eval_with_add(b)):
+                total = total + term
+        return total
+    else:
+        return label(t)
