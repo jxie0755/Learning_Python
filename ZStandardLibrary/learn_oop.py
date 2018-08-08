@@ -27,7 +27,7 @@ class Student(object):
 
 # __init__方法的第一个参数永远都是self,表示创建实例本身
 # 在__init__方法内部，可以把各种属性绑定到self，因为self指向创建的实例本身。
-# 有了__init__方法，在创建实例的时候，就不能传入空的参数了，必须传入与__init__方法匹配的参数，但self不需要传
+# 有了__init__方法，在创建实例的时候，必须传入与__init__方法匹配的参数，但self不需要传
 denis = Student('Denis Xie', 99)
 print(denis.name)  # >>> Denis Xie
 print(denis.score)  # >>> 99
