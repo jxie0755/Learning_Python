@@ -39,3 +39,13 @@ class MonsterTruck(Car):
     def drive(self):
         self.rev()
         return Car.drive(self)
+
+class FoodTruck(MonsterTruck):
+    delicious = 'meh'
+    def serve(self):
+        if FoodTruck.size == 'delicious':
+            print('Yum!')
+        if self.food != 'Tacos':
+            return 'But no tacos...'
+        else:
+            return 'Mmm!'
