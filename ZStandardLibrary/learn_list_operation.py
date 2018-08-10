@@ -192,3 +192,18 @@ print(L1)
 
 # python uses an internal counter to keep track of index when in loop
 # mutating changes the list during iteration changed list length, but index counter was not updated
+
+
+# mutable items in a list is a pointing system.
+a = [1,2,3, ['a', 'b']]
+b = list(a) # this creates a new list, but it is the same.
+print(a == b) # True [1, 2, 3, ['a', 'b']]
+print(a is b) # >>> False
+
+a[0] = 5
+print(a) # >>> [5, 2, 3, ['a', 'b']]
+print(b) # >>> [1, 2, 3, ['a', 'b']]  # 5 will not be in b
+
+a[3][0] = 'F'
+print(a) # >>> [5, 2, 3, ['F', 'b']]
+print(b) # >>> [1, 2, 3, ['F', 'b']]  # F will be added in b
