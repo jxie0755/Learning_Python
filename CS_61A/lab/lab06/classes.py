@@ -36,6 +36,10 @@ class Player(object):
         if destination_place.locked:
             print(destination_place.name, 'is locked! Go look for a key to unlock it')
         "*** YOUR CODE HERE ***"
+        if location in self.exits:
+
+
+
 
 
     def talk_to(self, person):
