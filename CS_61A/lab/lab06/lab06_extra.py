@@ -23,7 +23,6 @@ def vending_machine(snacks):
     counter = 0
     def vend():
         nonlocal counter
-        snack_dict = dict(enumerate(snacks))
-        counter, snack = counter + 1, snack_dict[counter % 3]
+        counter, snack = counter + 1, snacks[counter % 3]
         return snack
     return vend
