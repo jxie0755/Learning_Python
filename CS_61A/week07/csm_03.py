@@ -75,7 +75,7 @@ def accumulate(lst):
         elem = lst[i]
         if isinstance(elem, list):
             inside = accumulate(elem)
-            sum_so_far = sum_so_far + inside
+            sum_so_far += inside
         else:
             sum_so_far += elem
             lst[i] = sum_so_far
