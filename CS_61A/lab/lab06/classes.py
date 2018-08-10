@@ -35,7 +35,7 @@ class Player(object):
         destination_place = self.place.get_neighbor(location)
         if destination_place.locked:
             print(destination_place.name, 'is locked! Go look for a key to unlock it')
-        "*** YOUR CODE HERE ***"
+        "*** YOUR CODE HER              E ***"
         if self.place != destination_place and not destination_place.locked:
             self.place = destination_place
             print('You are at ' + self.place.name)
