@@ -58,7 +58,11 @@ class Player(object):
         """
         if type(person) != str:
             print('Person has to be a string.')
-        "*** YOUR CODE HERE ***"
+        # "*** YOUR CODE HERE ***"
+        elif person in self.place.characters:
+            print(person + ' says: ' + self.place.characters[person].talk())
+        else:
+            print(person + ' is not here.')
 
 
     def take(self, thing):
@@ -157,6 +161,7 @@ class Player(object):
             if type(item) == Key:
                 key = item
         "*** YOUR CODE HERE ***"
+
 
 
 class Character(object):
