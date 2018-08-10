@@ -39,9 +39,7 @@ class Player(object):
         # "*** YOUR CODE HERE ***"
         elif self.place != destination_place and not destination_place.locked:
             self.place = destination_place
-            print('You are at ' + self.place.name)
-        else:
-            print('You are at ' + self.place.name)
+        print('You are at ' + self.place.name)
 
 
     def talk_to(self, person):
@@ -163,13 +161,22 @@ class Player(object):
         """
         if type(place) != str:
             print("Place must be a string")
-            return
+            return None
         key = None
         for item in self.backpack:
             if type(item) == Key:
                 key = item
-        "*** YOUR CODE HERE ***"
-
+        # "*** YOUR CODE HERE ***"
+        if type(place) == str:
+            if key != None:
+                destination_place = self.place.get_neighbor(place)
+                if destination_place.locked:
+                    destination_place.locked = False
+                    print(place, 'is now unlocked!')
+                else:
+                    print(place, 'is already unlocked!')
+            else:
+                print(place, "can't be unlocked without a key!")
 
 
 class Character(object):
@@ -189,7 +196,11 @@ class Thing(object):
     def use(self, place):
         print("You can't use a {0} here".format(self.name))
 
-""" Implement Key here! """
+# """ Implement Key here! """
+class Key(Thing):
+    def use(self, place):
+        print("You can't use a {0} here".format(self.name))
+
 
 class Treasure(Thing):
     def __init__(self, name, description, value, weight):
@@ -258,3 +269,4 @@ class Place(object):
     def add_exits(self, places):
         for place in places:
             self.exits[place.name] = (place, place.description)
+

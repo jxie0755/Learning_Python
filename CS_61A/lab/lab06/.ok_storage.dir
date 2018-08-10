@@ -3,3 +3,4 @@
 'vending_machine-correct', (1024, 70)
 'Player.talk_to-correct', (1536, 70)
 'Player.take-correct', (2048, 70)
+'Player.unlock-correct', (2560, 70)
