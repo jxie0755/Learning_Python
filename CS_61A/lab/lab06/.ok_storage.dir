@@ -2,3 +2,4 @@
 'Player.go_to-correct', (512, 70)
 'vending_machine-correct', (1024, 70)
 'Player.talk_to-correct', (1536, 70)
+'Player.take-correct', (2048, 70)
