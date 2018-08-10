@@ -35,8 +35,8 @@ class Player(object):
         destination_place = self.place.get_neighbor(location)
         if destination_place.locked:
             print(destination_place.name, 'is locked! Go look for a key to unlock it')
-        "*** YOUR CODE HER              E ***"
-        if self.place != destination_place and not destination_place.locked:
+        # "*** YOUR CODE HERE ***"
+        elif self.place != destination_place and not destination_place.locked:
             self.place = destination_place
             print('You are at ' + self.place.name)
         else:
@@ -88,7 +88,14 @@ class Player(object):
         """
         if type(thing) != str:
             print('Thing should be a string.')
-        "*** YOUR CODE HERE ***"
+        # "*** YOUR CODE HERE ***"
+        elif thing in self.place.things:
+            thing_taken = self.place.take(thing)
+            self.backpack.append(thing_taken)
+            print('Player takes the ' + thing)
+        else:
+            print(thing + ' is not here.')
+
 
     def check_backpack(self):
         """Print each item with its description and return a list of item names.
