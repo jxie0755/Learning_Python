@@ -139,6 +139,7 @@ print(operator.is_not(6, 6))
 
 # operator.add(a, b)
 # operator.__add__(a, b)
+# 还有一个operator.__radd___(a, b), 相当于b + a
 # 返回a + b，对于a和b t5 >数字
 
 # operator.and_(a, b)
