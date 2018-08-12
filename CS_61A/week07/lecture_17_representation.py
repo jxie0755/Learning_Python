@@ -91,7 +91,7 @@ class Ratio:
         if isinstance(other, Ratio):
             n = self.numer * other.denom + self.denom * other.numer
             d = self.denom * other.denom
-        elif isinstance(other, int):
+        elif isinstance(other, int):  # 预防 ratio + int
             n = self.numer + self.denom * other
             d = self.denom
         else:
