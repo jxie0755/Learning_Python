@@ -104,3 +104,4 @@ class Ratio:
 
     def __float__(self):
         return self.numer / self.denom
+
