@@ -88,19 +88,21 @@ class Ratio:
         return '{0}/{1}'.format(self.numer, self.denom)
 
     def __add__(self, other):
-        if isinstance(other, Ratio):
+        if isinstance(other, Ratio): # type dispatching, 针对不同type做不同处理.
             n = self.numer * other.denom + self.denom * other.numer
             d = self.denom * other.denom
         elif isinstance(other, int):  # 预防 ratio + int
             n = self.numer + self.denom * other
             d = self.denom
-        else:
-            return float(self) + other
+        else:  # 适配 float
+            return float(self) + other  # type coercion
+            # 原因是有些float无法用分数表达, 所以不要适配成ratio而是适配成float
+
         g = gcd(n, d)
         r = Ratio(n // g, d // g)
         return r
 
-    __radd__ = __add__
+    __radd__ = __add__  # 这样就针对了 int + ratio 和 ratio+ int 是一样的
 
     def __float__(self):
         return self.numer / self.denom
