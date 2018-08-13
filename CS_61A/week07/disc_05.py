@@ -85,7 +85,9 @@ class Email:
     """Every email object has 3 instance attributes: the message, the sender name, and the recipient name.
     """
     def __init__(self, msg, sender_name, recipient_name):
-        pass
+        self.msg = msg
+        self.sender_name = sender_name
+        self.recipient_name = recipient_name
 
 
 class Mailman:
@@ -97,12 +99,12 @@ class Mailman:
 
     def send(self, email):
         """Take an email and put it in the inbox of the client it is addressed to."""
-        pass
+        self.clients[email.recipient_name].receive(email)
 
 
     def register_client(self, client, client_name):
         """Takes a client object and client_name and adds it to the clients instance attribute."""
-        pass
+        self.clients[client_name] = client
 
 
 class Client:
@@ -110,14 +112,18 @@ class Client:
     """
 
     def __init__(self, mailman, name):
+        self.name = name
+        self.mailman = mailman
+        self.mailman.register_client(self, self.name)
         self.inbox = []
 
     def compose(self, msg, recipient_name):
         """Send an email with the given message msg to the given recipient client."""
-        pass
+        mail = Email(msg, self.name, recipient_name)
+        self.mailman.send(mail)
+
 
     def receive(self, email):
         """Take an email and add it to the inbox of this client."""
-        pass
-
+        self.inbox.append(email)
 
