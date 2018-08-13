@@ -114,7 +114,7 @@ class Client:
     def __init__(self, mailman, name):
         self.name = name
         self.mailman = mailman
-        self.mailman.register_client(self, self.name)
+        self.mailman.register_client(self, self.name)  # also register the Client in the mailman
         self.inbox = []
 
     def compose(self, msg, recipient_name):
