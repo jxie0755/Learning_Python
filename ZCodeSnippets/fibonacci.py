@@ -114,12 +114,62 @@ def fib_gen_nr3(x):
             break
 if __name__ == '__main__':
     fib_gen_nr3(13)
-# >>>
-# 0
-# 1
-# 1
-# 2
-# 3
-# 5
-# 8
-# 13
+    # >>>
+    # 0
+    # 1
+    # 1
+    # 2
+    # 3
+    # 5
+    # 8
+    # 13
+
+
+# Memorization method + recursion
+# This will increase efficiency as the recursion method repeatedly calculate f(n-1), f(n-2)...to f(0) many times.
+
+def fib_gen_r_mem(n):
+    mem_dict = {0: 0, 1: 1}
+
+    def helper(n):
+        if n in mem_dict:
+            return mem_dict[n]
+        else:
+            ans = helper(n-1) + helper(n-2)
+            mem_dict[n] = ans
+            return ans
+
+    return helper(n)
+
+if __name__ == '__main__':
+
+    import time
+
+    start_time = time.time()
+    print(fib_gen_r(30))
+    # >>> 832040
+    # this could take some time
+    print(f"--- {time.time() - start_time}s seconds ---\n")
+
+    print(fib_gen_r(35))
+    # >>> 9227465
+    # this could take some time
+    print(f"--- {time.time() - start_time}s seconds ---\n")
+
+    start_time = time.time()
+    print(fib_gen_r(40))
+    # >>> 102334155
+    # this could take some time
+    print(f"--- {time.time() - start_time}s seconds ---\n")
+
+    start_time = time.time()
+    print(fib_gen_r_mem(40))
+    # >>> 354224848179261915075
+    # which is impossible to calculate in regular recursion method
+    print(f"--- {time.time() - start_time}s seconds ---\n")
+
+    start_time = time.time()
+    print(fib_gen_r_mem(500))
+    # >>> 139423224561697880139724382870407283950070256587697307264108962948325571622863290691557658876222521294125
+    # which is impossible to calculate in regular recursion method
+    print(f"--- {time.time() - start_time}s seconds ---\n")
