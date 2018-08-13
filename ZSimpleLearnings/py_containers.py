@@ -1,6 +1,7 @@
 # Obtained from CS61A Extra Class for Containers
 # https://inst.eecs.berkeley.edu/~cs61a/sp18/extra.html
 
+# This in a way introduced how some container objects (including some built-in) were made
 
 #############
 # Container #
