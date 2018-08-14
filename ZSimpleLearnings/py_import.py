@@ -3,6 +3,7 @@ import itertools
 import functools
 
 # import a sub-directory
+# directory find the subdirectory because current folder in in sys.path
 from ToImport.to_be_imported import foo_to_be_imported
 
 # import a different directory in another folder
@@ -13,6 +14,7 @@ from ToImport.to_be_imported import foo_to_be_imported
 
 # Correct way
 import sys
+print(sys.path)
 
 # This used absolute directory
 # sys.path.insert(0, 'c:\\Users\\jxie0\\Documents\\GitHub\\Learning_Python\\ZStandardLibrary')
