@@ -13,7 +13,7 @@ if __name__ == '__main__':
 
 
 # write into a fucntion
-def time_spend(fn_to_check, *args, **kwds):
+def time_spent(fn_to_check, *args, **kwds):
     import time
     start_time = time.time()
     result = fn_to_check(*args)
@@ -37,4 +37,4 @@ if __name__ == '__main__':
         else:
             return fib_gen_r(i - 1) + fib_gen_r(i - 2)
 
-    time_spend(fib_gen_r, 35)
+    time_spent(fib_gen_r, 35)
