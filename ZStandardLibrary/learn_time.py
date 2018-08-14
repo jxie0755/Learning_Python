@@ -6,15 +6,14 @@
 
 import time
 
+# For direct use
 if __name__ == '__main__':
     start_time = time.time()
     # run main() codes
     print(f"--- {time.time() - start_time}s seconds ---\n")
 
-
 # write into a fucntion
 def time_spent(fn_to_check, *args, **kwds):
-    import time
     start_time = time.time()
     result = fn_to_check(*args)
     print(result)
