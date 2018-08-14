@@ -14,6 +14,14 @@ from ToImport.to_be_imported import foo_to_be_imported
 # Correct way
 import sys
 
-sys.path.insert(0, 'c:\\Users\\jxie0\\Documents\\GitHub\\Learning_Python\\ZStandardLibrary')
+# This used absolute directory
+# sys.path.insert(0, 'c:\\Users\\jxie0\\Documents\\GitHub\\Learning_Python\\ZStandardLibrary')
 
+# This is simpler because sys.path already
+sys.path.insert(0, 'ZStandardLibrary')  # include the project folder
 from learn_time import time_spent
+
+sys.path.insert(0,'ZCodeSnippets')
+from fibonacci import fib_gen_r
+
+time_spent(fib_gen_r, 35)
