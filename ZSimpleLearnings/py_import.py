@@ -21,9 +21,9 @@ print(sys.path)
 
 # This is simpler because sys.path already
 sys.path.insert(0, 'ZStandardLibrary')  # include the project folder
-from learn_time import time_spent
+from learn_time import time_spent  # direct use learn_time under ZStandardLibrary/
 
 sys.path.insert(0,'ZCodeSnippets')
-from fibonacci import fib_gen_r
+from fibonacci import fib_gen_r # direct use fibonacci underZCodeSnippets/
 
 time_spent(fib_gen_r, 35)
