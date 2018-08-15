@@ -44,6 +44,8 @@ def make_box(contents):
             return put
     return dispatch
 
+# A bot container is a pair of functions who controls put-in and take-out.
+
 ########
 # List #
 ########
