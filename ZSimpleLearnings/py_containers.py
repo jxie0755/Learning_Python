@@ -60,6 +60,7 @@ def pair(x, y):
             return y
     return dispatch
 
+# Summary:
 # This is to create a list as a function, which contains two elements as a pair
 # It is a nested pair, that the second elemetn is a new pair which also contains two elements
 # It is a linked-list structure, similar to tree object.
@@ -73,6 +74,7 @@ def append(s, x):
     else:
         first, second = s('first'), s('second')
         return pair(first, append(second, x))
+
 if __name__ == '__main__':
     L1 = pair(1, nil)
     L2 = append(L1, 2)
@@ -104,12 +106,13 @@ def list_print(s):
         comma = True
     print(']')
 
-# This is to print a number of strings (use end='' to ensure one lineer)
-# use while loop to iterate all sub-pairs as the second item of a pair
-
 if __name__ == '__main__':
     list_print(L2)  # >>> [1, 2]
     list_print(L2B) # >>> [1, 2]
+
+# Summary:
+# This is to print a number of strings (use end='' to ensure one lineer)
+# use while loop to iterate all sub-pairs as the second item of a pair
 
 def list_len(s):
     """Length of a list.
