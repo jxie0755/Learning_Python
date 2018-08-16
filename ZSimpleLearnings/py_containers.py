@@ -121,52 +121,22 @@ def list_len(s):
     else:
         return 1 + list_len(s('second'))
 
-
 def list_get(s, i):
-    """Return element i of list s.
-
-    >>> s = pair(3, pair(4, pair(5, nil)))
-    >>> list_get(s, 1)
-    4
-    """
+    """Return element i of list s."""
     if i == 0:
         return s('first')
     else:
         return list_get(s('second'), i-1)
 
 def list_sub(s, i, v):
-    """Return a copy of s with element i replaced by v.
-
-    >>> s = pair(3, pair(4, pair(5, nil)))
-    >>> list_print(list_sub(s, 1, 6))
-    [3, 6, 5]
-    """
+    """Return a copy of s with element i replaced by v."""
     if i == 0:
         return pair(v, s('second'))
     else:
         return pair(s('first'), list_sub(s('second'), i-1, v))
 
 def make_list():
-    """Return a dispatch function representing a list.
-
-    >>> c = make_list()
-    >>> c('print')
-    []
-    >>> c('append')(3)
-    >>> c('print')
-    [3]
-    >>> c('append')(4)
-    >>> c('append')(5)
-    >>> c('print')
-    [3, 4, 5]
-    >>> c('len')
-    3
-    >>> c('get')(2)
-    5
-    >>> c('set')(1, 6)
-    >>> c('print')
-    [3, 6, 5]
-    """
+    """Return a dispatch function representing a list."""
     s = make_box(nil)
     def dispatch(m):
         if m == 'append':
@@ -181,6 +151,9 @@ def make_list():
             return list_print(s('contents'))
     return dispatch
 
+# Summary:
+# Same idea as box, use dispatch function to pack all list functions together.
+# But the idea of list is achieved by developing the box by using put and content keyords.
 
 if __name__ == '__main__':
     print('CONTAINER - List:')
@@ -202,6 +175,26 @@ if __name__ == '__main__':
 
     s = pair(3, pair(4, pair(5, nil)))
     print(list_len(s)) # >>> 3
+    print(list_get(s, 1)) # >>> 4
+    list_print(list_sub(s, 1, 6)) # >>> [3, 6, 5]
+
+
+    c = make_list()
+    c('print')
+    # >>> []
+    c('append')(3)
+    c('append')(4)
+    c('append')(5)
+    c('print') # >>> [3, 4, 5]
+
+    print(c('len')) # >>> 3
+    print(c('get')(2)) # >>> 5
+
+    c('set')(1, 6)
+    c('print') # >>> [3, 6, 5]
+
+
+    print('-------------------------')
 
 ########
 # Dict #
