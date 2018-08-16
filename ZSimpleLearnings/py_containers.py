@@ -104,6 +104,9 @@ def list_print(s):
         comma = True
     print(']')
 
+# This is to print a number of strings (use end='' to ensure one lineer)
+# use while loop to iterate all sub-pairs as the second item of a pair
+
 if __name__ == '__main__':
     list_print(L2)  # >>> [1, 2]
     list_print(L2B) # >>> [1, 2]
