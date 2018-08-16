@@ -105,35 +105,22 @@ def list_print(s):
 # This is to print a number of strings (use end='' to ensure one lineer)
 # use while loop to iterate all sub-pairs as the second item of a pai
 
+# Non recursion
 def list_len(s):
-    """Length of a list.
+    length = 0
+    while s is not nil:
+        s = s('second')
+        length += 1
+    return length
 
-    >>> s = pair(3, pair(4, pair(5, nil)))
-    >>> list_len(s)
-    3
-    """
+# Simple recursion way
+def list_len(s):
+    """Length of a list."""
     if s is nil:
         return 0
     else:
         return 1 + list_len(s('second'))
 
-if __name__ == '__main__':
-    print('CONTAINER - List:')
-
-    L1 = pair(1, nil)
-    L2 = append(L1, 2)
-
-    print(L2('first'))
-    # >>> 1
-    print(L2('second')('first'))
-    # >>> 2
-
-    # L2 相当于:
-    L2B = pair(1, pair(2, nil))
-
-    # Print list
-    list_print(L2)  # >>> [1, 2]
-    list_print(L2B) # >>> [1, 2]
 
 def list_get(s, i):
     """Return element i of list s.
@@ -193,6 +180,28 @@ def make_list():
         elif m == 'print':
             return list_print(s('contents'))
     return dispatch
+
+
+if __name__ == '__main__':
+    print('CONTAINER - List:')
+
+    L1 = pair(1, nil)
+    L2 = append(L1, 2)
+
+    print(L2('first'))
+    # >>> 1
+    print(L2('second')('first'))
+    # >>> 2
+
+    # L2 相当于:
+    L2B = pair(1, pair(2, nil))
+
+    # Print list
+    list_print(L2)  # >>> [1, 2]
+    list_print(L2B) # >>> [1, 2]
+
+    s = pair(3, pair(4, pair(5, nil)))
+    print(list_len(s)) # >>> 3
 
 ########
 # Dict #
