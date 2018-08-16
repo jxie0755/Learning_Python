@@ -8,15 +8,7 @@
 #############
 
 def box(contents):
-    """Return a container that is manipulated by two functions.
-
-    >>> get, put = box('Hello')
-    >>> get()
-    'Hello'
-    >>> put('Goodbye')
-    >>> get()
-    'Goodbye'
-    """
+    """Return a container that is manipulated by two functions."""
     def get():
         return contents
     def put(value):
@@ -43,6 +35,25 @@ def make_box(contents):
                 contents = value
             return put
     return dispatch
+
+if __name__ == '__main__':
+    print('CONTAINER - box:')
+
+    get, put = box('Hello')
+    print(get())
+    # >>> 'Hello'
+    put('Goodbye')
+    print(get())
+    # >>> 'Goodbye'
+
+    c = make_box('Hello')
+    print(c('contents'))
+    # >>> 'Hello'
+    c('put')('Goodbye')
+    print(c('contents'))
+    # >>> 'Goodbye'
+
+    print('-------------------------')
 
 # A bot container is a pair of functions who controls put-in and take-out.
 # the put function has no memory, therefore the box can only contain one item
@@ -75,27 +86,11 @@ def append(s, x):
         first, second = s('first'), s('second')
         return pair(first, append(second, x))
 
-if __name__ == '__main__':
-    L1 = pair(1, nil)
-    L2 = append(L1, 2)
-
-    print(L2('first'))
-    # >>> 1
-    print(L2('second')('first'))
-    # >>> 2
-
-    # L2 相当于:
-    L2B = pair(1, pair(2, nil))
+# This is to add an element by creating a new pair in the very last nested pair, at the second item.
+# And it is appended to the list, it leaves an opening (nil as the second element, so that for further appending)
 
 def list_print(s):
-    """A printing representation of a list.
-
-    >>> s = pair(3, pair(4, pair(5, nil)))
-    >>> list_print(s)
-    [3, 4, 5]
-    >>> list_print(append(s, 6))
-    [3, 4, 5, 6]
-    """
+    """A printing representation of a list."""
     print('[', end='')
     comma = False
     while s is not nil:
@@ -106,13 +101,9 @@ def list_print(s):
         comma = True
     print(']')
 
-if __name__ == '__main__':
-    list_print(L2)  # >>> [1, 2]
-    list_print(L2B) # >>> [1, 2]
-
 # Summary:
 # This is to print a number of strings (use end='' to ensure one lineer)
-# use while loop to iterate all sub-pairs as the second item of a pair
+# use while loop to iterate all sub-pairs as the second item of a pai
 
 def list_len(s):
     """Length of a list.
@@ -125,6 +116,24 @@ def list_len(s):
         return 0
     else:
         return 1 + list_len(s('second'))
+
+if __name__ == '__main__':
+    print('CONTAINER - List:')
+
+    L1 = pair(1, nil)
+    L2 = append(L1, 2)
+
+    print(L2('first'))
+    # >>> 1
+    print(L2('second')('first'))
+    # >>> 2
+
+    # L2 相当于:
+    L2B = pair(1, pair(2, nil))
+
+    # Print list
+    list_print(L2)  # >>> [1, 2]
+    list_print(L2B) # >>> [1, 2]
 
 def list_get(s, i):
     """Return element i of list s.
