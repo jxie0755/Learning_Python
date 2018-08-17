@@ -201,20 +201,7 @@ if __name__ == '__main__':
 ########
 
 def make_dict():
-    """Return a dispatch function representing a dict.
-
-    >>> d = make_dict()
-    >>> d('set')('I', 1)
-    >>> d('set')('V', 5)
-    >>> d('get')('V')
-    5
-    >>> d('set')('X', 10)
-    >>> d('set')('V', 'five')
-    >>> d('get')('V')
-    'five'
-    >>> d('items')('len')
-    3
-    """
+    """Return a dispatch function representing a dict."""
     s = make_list() # A list of (key, value) pairs
     def lookup(k):
         """Return the index for a key."""
@@ -236,6 +223,43 @@ def make_dict():
         elif m == 'items':
             return s
     return dispatch
+
+# Summary
+# The dictionary is devloped based on the list, instead of storing a value as the first element in a pari, it stores a pair as the first element of a pair, which links key and value.
+
+# So the dictionary is still a nested pair which both the first element and second element is a pair.
+# The first element stores keys and value,/
+# The second element is nested to store next pair.
+# i.e.:  pair(pair('I', 1), pair(pair('V', 5), pair(pair('X', 10), nil)))
+
+if __name__ == '__main__':
+    print('CONTAINER - Dictionary:')
+
+    d = make_dict()
+    d('set')('I', 1)
+    d('set')('V', 5)
+    print(d('get')('V'))
+    # >>> 5
+
+    d('set')('X', 10)
+    d('set')('V', 'five')
+    print(d('get')('V'))
+    # >>> 'five'
+    print(d('items')('len'))
+    # >>> 3
+
+    # Essentially it is:
+    D1 = pair(pair('I', 1), pair(pair('V', 'five'), pair(pair('X', 10), nil)))
+    list_print(D1)
+    # >>>
+    # [<function pair.<locals>.dispatch at 0x00000241D3199510>, <function pair.<locals>.dispatch at 0x00000241D3199840>, <function pair.<locals>.dispatch at 0x00000241D31999D8>
+
+    print(list_len(D1)) # >>> 3
+
+    print(list_get(D1, 1)('first'))   # >>> V     # The Key
+    print(list_get(D1, 1)('second'))  # >>> five  # The Value
+
+    print('-------------------------')
 
 #########################
 # Dispatch Dictionaries #
