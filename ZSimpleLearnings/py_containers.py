@@ -266,19 +266,29 @@ if __name__ == '__main__':
 #########################
 
 def box_dict(contents):
-    """Return a dispatch function representing a container.
-
-    >>> c = box_dict('Hello')
-    >>> c['contents']
-    'Hello'
-    >>> c['put']('Goodbye')
-    >>> c['contents']
-    'Goodbye'
-    """
+    """Return a dispatch function representing a container."""
     def put(value):
         d['contents'] = value
     d = {'contents': contents, 'put': put}
     return d
+
+# Summary
+# This is to make a box as one dictionary with two keys.
+# The first key tied to the content, the second key tied to the function to put content
+
+
+if __name__ == '__main__':
+    print('CONTAINER - Box by Dictionary:')
+
+    c = box_dict('Hello')
+    print(c['contents'])
+    # >>> Hello
+    c['put']('Goodbye')
+    print(c['contents'])
+    # >>> Goodbye
+
+    print('-------------------------')
+
 
 #######################
 # Constraint Networks #
