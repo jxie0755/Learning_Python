@@ -185,6 +185,23 @@ def add_trees(t1, t2):
         b1 = b1 + [tree(0)]
     return tree(lab, [add_trees(b[0], b[1]) for b in zip(b1, b2)])
 
+def about_equal(t1, t2):
+    """Returns whether two trees are 'about equal.'
+    Two trees are about equal if and only if they contain the same labels the same number of times.
+    """
+    def label_counts(t):
+        if is_leaf(t):
+            return {label(t): 1}
+        else:
+            counts = {}
+            for b in branches(t) + [tree(label(t))]:
+                for label, count in label_counts(b).items():
+                    if label not in counts:
+                        counts[label] = 0
+                    counts[label] += count
+            return counts
+    return label_counts(t1) == label_counts(t2)
+
 # Test
 if __name__ == '__main__':
     T = tree(1, [
@@ -315,3 +332,11 @@ if __name__ == '__main__':
     # 5
     #   7
     #   5
+
+    x = tree(1, [tree(2), tree(2), tree(3)])
+    y = tree(3, [tree(2), tree(1), tree(2)])
+    print(about_equal(x, y))
+    # >>> True
+    z = tree(3, [tree(2), tree(1), tree(2), tree(3)])
+    print(about_equal(x, z))
+    # >>> False
