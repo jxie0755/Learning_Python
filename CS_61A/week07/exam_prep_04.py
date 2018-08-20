@@ -54,15 +54,14 @@ def about_equal(t1, t2):
     False
     """
     def label_counts(t):
-        if _________________:
-            return _________________
-    else:
-        counts = _________________
-        for b in branches(t) + _________________:
-            for label, count in _________________:
-                if _________________:
-                    counts[_________________] = 0
-                counts[___________] += _____________
-        return counts
-    return _________________
-
+        if is_leaf(t):
+            return {label(t): 1}
+        else:
+            counts = {}
+            for b in branches(t) + [tree(label(t))]:
+                for label, count in label_counts(b).items():
+                    if label not in counts:
+                        counts[label] = 0
+                    counts[label] += count
+            return counts
+    return label_counts(t1) == label_counts(t2)
