@@ -65,3 +65,36 @@ def about_equal(t1, t2):
                     counts[label] += count
             return counts
     return label_counts(t1) == label_counts(t2)
+
+
+# Dictionaries
+# What color is it?
+# Implement decrypt, which takes in a string s and a dictionary d that contains words as values and their secret codes as keys.
+# It returns a list of all possible ways in which s can be decoded by splitting it into secret codes and separating the corresponding words by spaces.
+
+def decrypt(s, d):
+    """List all possible decoded strings of s.
+    >>> codes = {
+    ... 'alan': 'spooky',
+    ... 'al': 'drink',
+    ... 'antu': 'your',
+    ... 'turing': 'ghosts',
+    ... 'tur': 'scary',
+    ... 'ing': 'skeletons',
+    ... 'ring': 'ovaltine'
+    ... }
+    >>> decrypt('alanturing', codes)
+    ['drink your ovaltine', 'spooky ghosts', 'spooky scary
+    skeletons']
+    """
+    if s == '':
+        return []
+    ms = []
+    if s in d:
+        ms.append(d[s])
+    for k in range(1, len(s)):
+        first, suffix = s[:k], s[k:]
+        if first in d:
+            for rest in decrypt(suffix, d):
+                ms.append(d[first] + ' ' + rest)
+    return ms
