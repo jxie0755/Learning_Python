@@ -43,8 +43,7 @@ print('a', a)
 
 def about_equal(t1, t2):
     """Returns whether two trees are 'about equal.'
-    Two trees are about equal if and only if they contain
-    the same labels the same number of times.
+    Two trees are about equal if and only if they contain the same labels the same number of times.
     """
     def label_counts(t):
         if is_leaf(t):
