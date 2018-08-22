@@ -76,6 +76,7 @@ if __name__ == '__main__':
     print(fib.max_count)  # >>> 25       # Longest chain of the tree
 
 
+
 # Order of growth
 
 from math import sqrt
