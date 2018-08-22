@@ -15,51 +15,22 @@ def fib(n):
 # Time
 
 def count(f):
-    """Return a counted version of f with a call_count attribute.
-
-    >>> def fib(n):
-    ...     if n == 0 or n == 1:
-    ...         return n
-    ...     else:
-    ...         return fib(n-2) + fib(n-1)
-    >>> fib = count(fib)
-    >>> fib(20)
-    6765
-    >>> fib.call_count
-    21891
-    """
+    """Return a counted version of f with a call_count attribute."""
     def counted(n):
         counted.call_count += 1
         return f(n)
     counted.call_count = 0
     return counted
 
+# if __name__ == '__main__':
+#     fib = count(fib)  # Must use the same name
+#     print(fib(20))        # >>> 6765
+#     print(fib.call_count) # >>> 21891
+
 # Memoization
 
 def memo(f):
-    """Memoize f.
-
-    >>> def fib(n):
-    ...     if n == 0 or n == 1:
-    ...         return n
-    ...     else:
-    ...         return fib(n-2) + fib(n-1)
-    >>> fib = count(fib)
-    >>> fib(20)
-    6765
-    >>> fib.call_count
-    21891
-    >>> counted_fib = count(fib)
-    >>> fib  = memo(counted_fib)
-    >>> fib(20)
-    6765
-    >>> counted_fib.call_count
-    21
-    >>> fib(35)
-    9227465
-    >>> counted_fib.call_count
-    36
-    """
+    """Memoize f."""
     cache = {}
     def memoized(n):
         if n not in cache:
@@ -67,27 +38,19 @@ def memo(f):
         return cache[n]
     return memoized
 
+if __name__ == '__main__':
+    fib = count(fib)
+    counted_fib = fib
+    fib = memo(fib)
+    fib = count(fib)
+    print(fib(20))        # >>> 6765
+    print(fib.call_count) # >>> 39 (some from cache dict some from direct call, therefore more called)
+    print(counted_fib.call_count) # >>> 21 (from 20 to 0, total of 21 times)
+
 # Space
 
 def count_frames(f):
     """Return a counted version of f with a max_count attribute.
-
-    >>> def fib(n):
-    ...     if n == 0 or n == 1:
-    ...         return n
-    ...     else:
-    ...         return fib(n-2) + fib(n-1)
-    >>> fib = count_frames(fib)
-    >>> fib(20)
-    6765
-    >>> fib.open_count
-    0
-    >>> fib.max_count
-    20
-    >>> fib(25)
-    75025
-    >>> fib.max_count
-    25
     """
     def counted(n):
         counted.open_count += 1
@@ -98,6 +61,20 @@ def count_frames(f):
     counted.open_count = 0
     counted.max_count = 0
     return counted
+
+if __name__ == '__main__':
+    def fib(n):
+        if n == 0 or n == 1:
+            return n
+        else:
+            return fib(n-2) + fib(n-1)
+    fib = count_frames(fib)
+    print(fib(20))        # >>> 6765
+    print(fib.open_count) # >>> 0
+    print(fib.max_count)  # >>> 20
+    print(fib(25))        # >>> 75025
+    print(fib.max_count)  # >>> 25       # Longest chain of the tree
+
 
 # Order of growth
 
