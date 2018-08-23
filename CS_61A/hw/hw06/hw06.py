@@ -1,4 +1,4 @@
-passphrase = '*** PASSPHRASE HERE ***'
+passphrase = 'CC74EB'
 
 def survey(p):
     """
