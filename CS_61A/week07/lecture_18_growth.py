@@ -16,9 +16,9 @@ def fib(n):
 
 def count(f):
     """Return a counted version of f with a call_count attribute."""
-    def counted(n):
+    def counted(*args):
         counted.call_count += 1
-        return f(n)
+        return f(*args)
     counted.call_count = 0
     return counted
 
@@ -81,21 +81,24 @@ if __name__ == '__main__':
 
 from math import sqrt
 
+
 def divides(k, n):
     """Return whether k evenly divides n."""
     return n % k == 0
 
 def factors(n):
-    """Count the positive integers that evenly divide n.
-
-    >>> factors(576)
-    21
-    """
+    """Count the positive integers that evenly divide n."""
     total = 0
     for k in range(1, n+1):
         if divides(k, n):
             total += 1
     return total
+
+if __name__ == '__main__':
+    divides = count(divides)
+    print(factors(576))       # >>> 21
+    print(divides.call_count) # >>> 576  # O(1)
+
 
 def factors_fast(n):
     """Count the positive integers that evenly divide n.
@@ -112,6 +115,12 @@ def factors_fast(n):
     if k * k == n:
         total += 1
     return total
+
+if __name__ == '__main__':
+    divides = count(divides)
+    print(factors_fast(576))       # >>> 21
+    print(divides.call_count)      # >>> 23  # O(n^1/2)
+
 
 # Exponentiation
 
