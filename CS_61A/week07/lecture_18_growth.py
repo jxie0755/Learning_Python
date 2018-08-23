@@ -86,6 +86,7 @@ def divides(k, n):
     """Return whether k evenly divides n."""
     return n % k == 0
 
+# Time O(n), space O(1)
 def factors(n):
     """Count the positive integers that evenly divide n."""
     total = 0
@@ -94,12 +95,7 @@ def factors(n):
             total += 1
     return total
 
-if __name__ == '__main__':
-    divides = count(divides)
-    print(factors(576))       # >>> 21
-    print(divides.call_count) # >>> 576  # O(1)
-
-
+# Time O(n^1/2), space O(1)
 def factors_fast(n):
     """Count the positive integers that evenly divide n.
 
@@ -118,12 +114,17 @@ def factors_fast(n):
 
 if __name__ == '__main__':
     divides = count(divides)
+    print(factors(576))       # >>> 21
+    print(divides.call_count) # >>> 576  # O(1)
+
+    divides = count(divides)
     print(factors_fast(576))       # >>> 21
     print(divides.call_count)      # >>> 23  # O(n^1/2)
 
 
 # Exponentiation
 
+# time O(n), space O(n)
 def exp(b, n):
     """Return b to the n.
 
@@ -138,6 +139,7 @@ def exp(b, n):
 def square(x):
     return x*x
 
+# O(log(n), space O(log(n))
 def exp_fast(b, n):
     """Return b to the n.
 
@@ -147,9 +149,10 @@ def exp_fast(b, n):
     if n == 0:
         return 1
     elif n % 2 == 0:
-        return square(exp_fast(b, n//2))
+        return square(exp_fast(b, n//2))  # this saves time (use n^b = n^1/2b^2)
     else:
         return b * exp_fast(b, n-1)
+
 
 # Overlap
 
