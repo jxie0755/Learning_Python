@@ -25,7 +25,7 @@ Classes:
 
 * Python 3 standard library -- learn as needed
 
-Pracice:
+Practice:
 * Checkio.org for python practice -- ongoing (finished all beginner and easy questions)
 
 * LeetCode -- ongoing
