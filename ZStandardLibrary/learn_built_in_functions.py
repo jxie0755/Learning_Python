@@ -546,6 +546,15 @@ print('sum(iterable[, start])')
 # 对于某些使用情况，有很好的替代sum()的方法。
 # 连接字符串序列的首选快速方法是调用''.join(sequence)。
 
+# Useful: use sum to merge list
+a, b = [1], [2]
+# print(sum(a, b))
+# >>> TypeError: can only concatenate list (not "int") to list
+# print(sum([a, b]))
+# # >>> TypeError: unsupported operand type(s) for +: 'int' and 'list
+print(sum([a, b], []))
+# >>> [1, 2]
+
 
 print('\n', 63)
 print('super([type[, object-or-type]])')
