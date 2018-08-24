@@ -9,6 +9,9 @@ def survey(p):
     import hashlib
     return hashlib.sha224(p.encode('utf-8')).hexdigest()
 
+
+
+# Q1 Next Fibonacci Object
 class Fib():
     """A Fibonacci number.
 
@@ -35,10 +38,17 @@ class Fib():
         self.value = value
 
     def next(self):
-        "*** YOUR CODE HERE ***"
+        P = self.value
+        if P == 0:
+            N = Fib(1)
+        else:
+            N = Fib(self.prev + P)
+        N.prev = P
+        return N
 
     def __repr__(self):
         return str(self.value)
+
 
 class VendingMachine:
     """A vending machine that vends some product for some price.
