@@ -114,15 +114,14 @@ def login(user):
 
 result1 = login('Denis')
 print(result1)
-print()
-result2 = login('Cindy')
-print(result2)
 # >>>
 # enter the login
 # in login:Denis
 # exit the login
 # success
 
+result2 = login('Cindy')
+print(result2)
 # enter the login
 # in login:Cindy
 # exit the login
@@ -148,24 +147,26 @@ def others(func):    # define a other decorator
 def login():
     print('in login:')
 
-@printdebug    #switch decorator order
-@others
-def logout():
-    print('in logout:')
-
 login()
-print()
-logout()
 # >>>
 # ***other decorator***
 # enter the login
 # in login:
 # exit the login
+    
+    
+@printdebug    #switch decorator order
+@others
+def logout():
+    print('in logout:')
 
+logout()
+# >>>
 # enter the login
 # ***other decorator***
 # in logout:
 # exit the login
+
 
 
 # 什么情况下装饰器不适用？装饰器不能对函数的一部分应用，只能作用于整个函数
