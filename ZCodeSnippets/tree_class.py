@@ -63,13 +63,13 @@ class Tree:
         """return a flat list contains all the nodes"""
         return [self.label] + sum([b.extract_nodes() for b in self.branches], [])
 
+
     def extract_leaves(self):
         """Return a list containing all the leaf labels of tree"""
         if self.is_leaf():
             return [self.label]
         else:
             return sum([b.extract_leaves() for b in self.branches], [])
-            # sum of list is still a list
 
 
     def increment_trees(self, n):
@@ -84,6 +84,31 @@ class Tree:
             return Tree(self.label, [b.increment_leaves(n) for b in self.branches])
 
 
+    def max_tree_v(self):
+        """return the max labels in this tree"""
+        return max([self.label] + [b.max_tree_v() for b in self.branches])
+        # return max(self.extract_nodes())
+
+    def max_leaf_v(self):
+        """return the max leaf label in this tree"""
+        return max(self.extract_leaves())
+
+
+    def max_height(self):
+        """Return the max height of a tree"""
+        if self.is_leaf():
+            return 1
+        else:
+            return 1 + max([b.max_height() for b in self.branches])
+
+    def find_path(self, x):
+        """Find path to the value x if x in the tree, else None"""
+        if self.label == x:
+            return [self.label]
+
+        for path in [b.find_path(x) for b in self.branches]:
+            if path:
+                return [self.label] + path
 
 if __name__ == '__main__':
     T = Tree(1, [Tree(2, [Tree(4), Tree(5)]), Tree(3, [Tree(6), Tree(7)])])
@@ -129,6 +154,14 @@ if __name__ == '__main__':
     #     8
     #     9
 
+    print(T.max_tree_v())  # >>> 7
+    print(T.max_leaf_v())  # >>> 7
+
+    print(T.max_height())  # >>> 3
+
+    print(T.find_path(2))  # >>> [1, 2]
+
+    
 
 
 
