@@ -46,6 +46,11 @@ class Tree:
         """To tell whether the tree instance is a leaf or a tree with branches"""
         return not self.branches
 
+
+    def count_nodes(self):
+        # return len(self.extract_nodes())
+        return sum([1] + [b.count_nodes() for b in self.branches])
+
     def count_leaves(self):
         """Count the leaves of a tree"""
         if self.is_leaf():
@@ -53,13 +58,19 @@ class Tree:
         else:
             return sum([b.count_leaves() for b in self.branches])
 
-    def all_leaves(self):
+
+    def extract_nodes(self):
+        """return a flat list contains all the nodes"""
+        return [self.label] + sum([b.extract_nodes() for b in self.branches], [])
+
+    def extract_leaves(self):
         """Return a list containing all the leaf labels of tree"""
         if self.is_leaf():
             return [self.label]
         else:
-            return sum([b.all_leaves() for b in self.branches], [])
+            return sum([b.extract_leaves() for b in self.branches], [])
             # sum of list is still a list
+
 
     def increment_trees(self, n):
         """Return a tree like self but with every tree labels incremented of n"""
@@ -71,11 +82,6 @@ class Tree:
             return Tree(self.label + n)
         else:
             return Tree(self.label, [b.increment_leaves(n) for b in self.branches])
-
-    def extract_nodes(self):
-        """return a flat list contains all the nodes"""
-        return [self.label] + sum([b.extract_nodes() for b in self.branches], [])
-
 
 
 
@@ -98,18 +104,12 @@ if __name__ == '__main__':
     print(T.get_label())     # >>> 1
     print(T.get_branches())  # >>> [Tree(2, [Tree(4), Tree(5)]), Tree(3, [Tree(6), Tree(7)])]
 
+    print(T.count_nodes())   # >>> 7
     print(T.count_leaves())  # >>> 4
-    print(T.all_leaves())    # >>> [4, 5, 6, 7]
 
-    print(T.increment_leaves(2))
-    # >>>
-    # 1
-    #   2
-    #     6
-    #     7
-    #   3
-    #     8
-    #     9
+    print(T.extract_nodes()) # >>> [1, 2, 4, 5, 3, 6, 7]
+    print(T.extract_leaves())    # >>> [4, 5, 6, 7]
+
     print(T.increment_trees(2))
     # >>>
     # 3
@@ -119,8 +119,18 @@ if __name__ == '__main__':
     #   5
     #     8
     #     9
+    print(T.increment_leaves(2))
+    # >>>
+    # 1
+    #   2
+    #     6
+    #     7
+    #   3
+    #     8
+    #     9
 
-    print(T.extract_nodes()) # >>> [1, 2, 4, 5, 3, 6, 7]
+
+
 
 
 
