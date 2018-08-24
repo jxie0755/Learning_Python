@@ -546,6 +546,11 @@ print('sum(iterable[, start])')
 # 对于某些使用情况，有很好的替代sum()的方法。
 # 连接字符串序列的首选快速方法是调用''.join(sequence)。
 
+# Use the second variable to suggest starting base before sum:
+a = [1,2,3,4]
+print(sum(a)) # >>> 10
+print(sum(a, 2)) # >>>12 # equals to 2 + sum(a)
+
 # Useful: use sum to merge list
 a, b = [1], [2]
 # print(sum(a, b))
