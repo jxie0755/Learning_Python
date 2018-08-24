@@ -34,6 +34,6 @@ print(b)
 # even if the arg is a single packed iterable, it will add another layer of package on it ([1, 2, 'a', 'b'])
 
 print(asterisk2(*[1,2,'a','b']))
-# Again, equal to asterisk2(1,2,'a','b'), as it forced to break down into individual args.
+# Again, equal to asterisk2(1,2,'a','b'), as it forced to break down the list into individual args.
 # But then force to pack back into a tuple
 # >>> (1, 2, 'a', 'b')
