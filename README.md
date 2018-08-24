@@ -9,7 +9,7 @@ I will use a series of study material:
 Classes:
 * A Byte of Python -- finished
 
-* Python Crash Course -- finished
+* Python Crash Course -- finished part I (main course)
 
 * MIT CS 6.00.1x Introduction to Computer Science and Programming Using Python -- finished with final grade at 99%
   * https://courses.edx.org/certificates/0e00852250ce496ab2a6ebeb00a6985f
