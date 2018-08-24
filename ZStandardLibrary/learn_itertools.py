@@ -95,11 +95,20 @@ print(functools.reduce(mult, aa))
 
 print()
 print('itertools.chain(*iterables)')
-# 创建一个迭代器，从第一个迭代器返回元素，直到它耗尽，然后继续下一个迭代器，直到所有的迭代器都用尽。
+# 创建一个迭代器, 其包含所有可迭代变量，从第一个可迭代返回元素，直到它耗尽，然后继续下一个可迭代元素，直到所有的可迭代元素遍历完成。
 # To merge all the items in lists of a list
 list2d = [[1,2,3],['a','b','c'], [7], [8,9]]
 print(list(itertools.chain(*list2d)))
 # >>> [1, 2, 3, 'a', 'b', 'c', 7, 8, 9]
+
+a = [1,2,3]
+b = [4,5,6]
+c = [7,8,9]
+all = chain(a, b, c)
+for i in all:
+    print(i)
+    # >>> print 1 - 9 one by one.
+
 
 aa = [1,2,3]
 bb = ['a', 'b', 'c']
