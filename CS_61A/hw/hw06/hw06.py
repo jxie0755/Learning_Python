@@ -88,3 +88,36 @@ class VendingMachine:
     'Here is your soda.'
     """
     "*** YOUR CODE HERE ***"
+    def __init__(self, product, price):
+        self.product = product
+        self.price = price
+        self.stock = 0
+        self.balance = 0
+
+    def restock(self, added):
+        self.stock += added
+        return f'Current {self.product} stock: {self.stock}'
+
+
+    def vend(self):
+        if self.stock:
+            if self.balance >= self.price:
+                self.stock -= 1
+                change = self.balance - self.price
+                self.balance = 0
+                if change != 0:
+                    return f'Here is your {self.product} and ${change} change.'
+                else:
+                    return f'Here is your {self.product}.'
+            else:
+                return f'You must deposit ${self.price - self.balance} more.'
+        else:
+            return 'Machine is out of stock.'
+
+
+    def deposit(self, deposit):
+        if self.stock:
+            self.balance += deposit
+            return f'Current balance: ${self.balance}'
+        else:
+            return f'Machine is out of stock. Here is your ${deposit}.'
