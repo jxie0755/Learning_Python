@@ -38,12 +38,12 @@ class Fib():
         self.value = value
 
     def next(self):
-        P = self.value
-        if P == 0:
+        if self.value == 0:
             N = Fib(1)
         else:
-            N = Fib(self.prev + P)
-        N.prev = P
+            N = Fib(self.prev + self.value)
+
+        N.prev = self.value
         return N
 
     def __repr__(self):
