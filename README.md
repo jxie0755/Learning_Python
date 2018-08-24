@@ -4,7 +4,7 @@ Hello, I am a beginner in programming, this is just for self-learning purpose.
 Thanks!
 
 ---
-I will use a series of study material:
+I will use a series of study material including textbooks and online resources:
 
 Classes:
 * A Byte of Python -- finished
