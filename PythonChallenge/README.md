@@ -1,3 +1,3 @@
 # Python Challenge
 
-at: [Python Challenge](https://www.pythonchallenge.com/)
+at: [Python Challenge](http://www.pythonchallenge.com/)
