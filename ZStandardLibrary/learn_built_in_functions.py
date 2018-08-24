@@ -546,6 +546,9 @@ print('sum(iterable[, start])')
 # 对于某些使用情况，有很好的替代sum()的方法。
 # 连接字符串序列的首选快速方法是调用''.join(sequence)。
 
+# Learn from:
+# https://stackoverflow.com/questions/52007283/how-is-sum-used-to-merge-lists/52009310#52009310
+
 # Actually sum(a, b) is equal to
 # for i in a:
 #     b += i
