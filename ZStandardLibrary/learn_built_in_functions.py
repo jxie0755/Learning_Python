@@ -546,12 +546,19 @@ print('sum(iterable[, start])')
 # 对于某些使用情况，有很好的替代sum()的方法。
 # 连接字符串序列的首选快速方法是调用''.join(sequence)。
 
-# Use the second variable to suggest starting base before sum:
+# Actually sum(a, b) is equal to
+# for i in a:
+#     b += i
+# return b
+
+# So that:
 a = [1,2,3,4]
 print(sum(a)) # >>> 10
 print(sum(a, 2)) # >>>12 # equals to 2 + sum(a)
 
-# Useful: use sum to merge list
+# But default of start is 0, which in an int.
+# So if you want to sum up other types of objects, you must change start
+# Example: use sum to merge list
 a, b = [1], [2]
 # print(sum(a, b))
 # >>> TypeError: can only concatenate list (not "int") to list
@@ -559,6 +566,7 @@ a, b = [1], [2]
 # # >>> TypeError: unsupported operand type(s) for +: 'int' and 'list
 print(sum([a, b], []))
 # >>> [1, 2]
+# equals to [] + [1] + [2]
 
 
 print('\n', 63)
