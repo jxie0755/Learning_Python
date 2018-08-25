@@ -145,6 +145,7 @@ if __name__ == '__main__':
     #     8
     #     9
     print(T.increment_leaves(2))
+    
     # >>>
     # 1
     #   2
@@ -159,9 +160,10 @@ if __name__ == '__main__':
 
     print(T.max_height())  # >>> 3
 
-    print(T.find_path(2))  # >>> [1, 2]
+    print(T.find_path(7))  # >>> [1, 3, 7]  # does not have to end at leaf
 
-    
+
+
 
 
 
