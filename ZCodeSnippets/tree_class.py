@@ -4,6 +4,8 @@
 
 # This is to convert tree_recursion_tree.py into a full Tree class which contains all the methods within.
 
+# Use by:
+# from ZCodeSnippets.tree_class import Tree
 
 class Tree:
     """A tree is a label and a list of branches."""
