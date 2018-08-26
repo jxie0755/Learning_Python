@@ -110,6 +110,27 @@ class Tree:
             if path:
                 return [self.label] + path
 
+    def finder(self, keywd):
+        """Returns True if t contains a node with the value of keywd and False otherwise."""
+        return self.label == keywd or True in [b.finder(keywd) for b in self.branches]
+        # return keywd in self.extract_nodes()
+
+    def sum_range(self):
+        """Returns the range of the sums of t, that is:
+        the difference between the largest and the smallest sums of t.
+        return as a pair of value [min, max]
+        """
+        def helper(T):
+            if T.is_leaf():
+                return [T.label, T.label]
+            else:
+                a = min([helper(b)[0] for b in T.branches])
+                b = max([helper(b)[1] for b in T.branches])
+                x = T.label
+                return [a + x, b + x]
+        return helper(self)
+
+
 if __name__ == '__main__':
     T = Tree(1, [Tree(2, [Tree(4), Tree(5)]), Tree(3, [Tree(6), Tree(7)])])
     print(T)
@@ -145,7 +166,7 @@ if __name__ == '__main__':
     #     8
     #     9
     print(T.increment_leaves(2))
-    
+
     # >>>
     # 1
     #   2
@@ -161,6 +182,12 @@ if __name__ == '__main__':
     print(T.max_height())  # >>> 3
 
     print(T.find_path(7))  # >>> [1, 3, 7]  # does not have to end at leaf
+
+    print(T.finder(4)) # >>> True
+    print(T.finder(10)) # >>> False
+
+    print(T.sum_range()) # >>> [11, 7]
+
 
 
 
