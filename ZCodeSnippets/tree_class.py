@@ -50,6 +50,7 @@ class Tree:
 
 
     def count_nodes(self):
+        """Return total number of nodes in this tree"""
         # return len(self.extract_nodes())
         return sum([1] + [b.count_nodes() for b in self.branches])
 
@@ -190,6 +191,8 @@ class Tree:
         return self.extract_nodes() == other.extract_nodes()
         # This method needs improvement
         # It will not show True if two tree is mirrored.
+
+    # TODO print all paths
 
 if __name__ == '__main__':
     T = Tree(1, [Tree(2, [Tree(4), Tree(5)]), Tree(3, [Tree(6), Tree(7)])])
