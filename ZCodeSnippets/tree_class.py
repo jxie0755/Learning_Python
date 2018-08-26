@@ -120,15 +120,13 @@ class Tree:
         the difference between the largest and the smallest sums of t.
         return as a pair of value [min, max]
         """
-        def helper(T):
-            if T.is_leaf():
-                return [T.label, T.label]
-            else:
-                a = min([helper(b)[0] for b in T.branches])
-                b = max([helper(b)[1] for b in T.branches])
-                x = T.label
-                return [a + x, b + x]
-        return helper(self)
+        if self.is_leaf():
+            return [self.label, self.label]
+        else:
+            min_v = min([b.sum_range()[0] for b in self.branches])
+            max_v = max([b.sum_range()[1] for b in self.branches])
+            x = self.label
+            return [min_v + x, max_v + x]
 
 
 if __name__ == '__main__':
