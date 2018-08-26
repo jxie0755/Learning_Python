@@ -76,6 +76,12 @@ class Tree:
         """Return a tree like self but with every tree labels incremented of n"""
         return Tree(self.label + n, [b.increment_trees(n) for b in self.branches])
 
+
+    def square_tree(self):
+        """Return a tree with the square of every element in t"""
+        return Tree(self.label **2, [b.square_tree() for b in self.branches])
+
+
     def increment_leaves(self, n):
         """Return a tree like self but with only leaf labels incremented of n """
         if self.is_leaf():
@@ -128,6 +134,60 @@ class Tree:
             x = self.label
             return [min_v + x, max_v + x]
 
+    def prune(self, k):
+        """Return a tree that takes in a tree only to the depth k"""
+        if k == 0:
+            return Tree(self.label)
+        else:
+            return Tree(self.label, [b.prune(k-1) for b in self.branches])
+
+    def copy_tree(self):
+        """Returns a copy of t. Only for testing purposes."""
+        return Tree(self.label, [b.copy_tree() for b in self.branches])
+
+
+    def replace_label(self, old, new):
+        """replace a tree label to a new value is the value == old"""
+        if self.label == old:
+            return Tree(new, [b.replace_label(old, new) for b in self.branches])
+        else:
+            return Tree(self.label, [b.replace_label(old, new) for b in self.branches])
+
+    def replace_leaf(self, old, new):
+        """replace a leaf label to a new value is the value == old"""
+        if self.is_leaf() and self.label == old:
+            return Tree(new)
+        else:
+            return Tree(self.label, [b.replace_leaf(old, new) for b in self.branches])
+
+
+    def sprout_leaves(self, vals):
+        """Sprout new leaves containing the data in vals at each leaf in
+        the original tree t and return the resulting tree."""
+        if self.is_leaf():
+            return Tree(self.label, [Tree(i) for i in vals])
+        else:
+            return Tree(self.label, [b.sprout_leaves(vals) for b in self.branches])
+
+
+    # Set basic calculation and comparison
+    def __add__(self, other):
+        """
+        Add two tree together
+        If a node at any particular position is present in one tree but not the other, it should be present in the new tree as well.
+        """
+        lab = self.label + other.label
+        b1, b2 = self.branches, other.branches
+        while len(b1) > len(b2):
+            b2 = b2 + [Tree(0)]
+        while len(b2) > len(b1):
+            b1 = b1 + [Tree(0)]
+        return Tree(lab, [b[0] + b[1] for b in zip(b1, b2)])
+
+    def __eq__(self, other):
+        return self.extract_nodes() == other.extract_nodes()
+        # This method needs improvement
+        # It will not show True if two tree is mirrored.
 
 if __name__ == '__main__':
     T = Tree(1, [Tree(2, [Tree(4), Tree(5)]), Tree(3, [Tree(6), Tree(7)])])
@@ -163,6 +223,16 @@ if __name__ == '__main__':
     #   5
     #     8
     #     9
+
+    print(T.square_tree())
+    # 1
+    #   4
+    #     16
+    #     25
+    #   9
+    #     36
+    #     49
+
     print(T.increment_leaves(2))
 
     # >>>
@@ -184,16 +254,64 @@ if __name__ == '__main__':
     print(T.finder(4)) # >>> True
     print(T.finder(10)) # >>> False
 
-    print(T.sum_range()) # >>> [11, 7]
+    print(T.sum_range()) # >>> [7, 11]
 
+    print(T.prune(1))
+    # >>>
+    # 1
+    #   2
+    #   3
 
+    T_copy = T.copy_tree()
+    print(T_copy)
+    # >>> same as T
 
+    print(T.replace_label(2, 10))
+    # >>>
+    # 1
+    #   10
+    #     4
+    #     5
+    #   3
+    #     6
+    #     7
 
+    print(T.replace_leaf(4, 10))
+    # >>>
+    # 1
+    #   2
+    #     10
+    #     5
+    #   3
+    #     6
+    #     7
 
+    print(T.sprout_leaves([10, 20]))
+    # >>>
+    # 1
+    #   2
+    #     4
+    #       10
+    #       20
+    #     5
+    #       10
+    #       20
+    #   3
+    #     6
+    #       10
+    #       20
+    #     7
+    #       10
+    #       20
 
+    print(T + T_copy)
+    # >>>
+    # 2
+    #   4
+    #     8
+    #     10
+    #   6
+    #     12
+    #     14
 
-
-
-
-
-
+    print(T == T_copy) # >>> True
