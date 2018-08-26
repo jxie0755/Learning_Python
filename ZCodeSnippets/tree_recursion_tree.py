@@ -120,7 +120,7 @@ def sum_range(t):
             x = label(t)
             return [b + x, a + x]
     x, y = helper(t)
-    return x - y
+    return x, y
 
 
 # New tree
@@ -193,14 +193,15 @@ def about_equal(t1, t2):
         if is_leaf(t):
             return {label(t): 1}
         else:
-            counts = {}
+            counts = dict()
             for b in branches(t) + [tree(label(t))]:
-                for label, count in label_counts(b).items():
-                    if label not in counts:
-                        counts[label] = 0
-                    counts[label] += count
+                for lab, count in label_counts(b).items():
+                    if lab not in counts:
+                        counts[lab] = 0
+                    counts[lab] += count
             return counts
     return label_counts(t1) == label_counts(t2)
+
 
 # Test
 if __name__ == '__main__':
