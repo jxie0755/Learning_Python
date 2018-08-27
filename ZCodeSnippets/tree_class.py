@@ -193,10 +193,19 @@ class Tree:
         # It will not show True if two tree is mirrored.
 
     # TODO print all paths
+
+    def convert_to_list(self):
+        """This converts the tree strcture to a nested list type"""
+        if self.is_leaf():
+            return [self.label]
+        else:
+            tail = [b.convert_to_list() for b in self.branches]
+            return [[self.label] + i for i in tail]
+
     def all_paths(self):
-        result = []
-        def helper(T):
-            pass
+        nested_list = self.convert_to_list()
+        return nested_list
+
 
 
 
@@ -326,3 +335,17 @@ if __name__ == '__main__':
     #     14
 
     print(T == T_copy) # >>> True
+
+    # T = Tree(1, [Tree(2, [Tree(4), Tree(5, [Tree(8), Tree(9)])]), Tree(3, [Tree(6), Tree(7)])])
+
+    T0 = Tree(1)
+    print('T0', T0.all_paths())
+
+    T1 = Tree(1, [Tree(2), Tree(3)])
+    print('T1', T1.all_paths())
+
+    T2 = Tree(1, [Tree(2, [Tree(4), Tree(5)]), Tree(3, [Tree(6), Tree(7)])])
+    print('T2', T2.all_paths())
+
+    T3 = Tree(1, [Tree(2, [Tree(4), Tree(5)]), Tree(3, [Tree(6), Tree(7, [Tree(8), Tree(9), Tree(10)])])])
+    print('T3', T3.all_paths())
