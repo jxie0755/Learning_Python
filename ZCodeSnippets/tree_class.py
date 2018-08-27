@@ -193,6 +193,12 @@ class Tree:
         # It will not show True if two tree is mirrored.
 
     # TODO print all paths
+    def all_paths(self):
+        result = []
+        def helper(T):
+            pass
+
+
 
 if __name__ == '__main__':
     T = Tree(1, [Tree(2, [Tree(4), Tree(5)]), Tree(3, [Tree(6), Tree(7)])])
