@@ -202,12 +202,6 @@ class Tree:
             tail = [b.convert_to_list() for b in self.branches]
             return [[self.label] + i for i in tail]
 
-    def all_paths(self):
-        nested_list = self.convert_to_list()
-        return nested_list
-
-
-
 
 if __name__ == '__main__':
     T = Tree(1, [Tree(2, [Tree(4), Tree(5)]), Tree(3, [Tree(6), Tree(7)])])
@@ -339,13 +333,13 @@ if __name__ == '__main__':
     # T = Tree(1, [Tree(2, [Tree(4), Tree(5, [Tree(8), Tree(9)])]), Tree(3, [Tree(6), Tree(7)])])
 
     T0 = Tree(1)
-    print('T0', T0.all_paths())
+    print('T0', T0.convert_to_list())
 
     T1 = Tree(1, [Tree(2), Tree(3)])
-    print('T1', T1.all_paths())
+    print('T1', T1.convert_to_list())
 
     T2 = Tree(1, [Tree(2, [Tree(4), Tree(5)]), Tree(3, [Tree(6), Tree(7)])])
-    print('T2', T2.all_paths())
+    print('T2', T2.convert_to_list())
 
     T3 = Tree(1, [Tree(2, [Tree(4), Tree(5)]), Tree(3, [Tree(6), Tree(7, [Tree(8), Tree(9), Tree(10)])])])
-    print('T3', T3.all_paths())
+    print('T3', T3.convert_to_list())
