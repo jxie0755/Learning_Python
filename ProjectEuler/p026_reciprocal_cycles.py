@@ -30,21 +30,39 @@ def longest_reciprocal(n):
     str_dict = {}
     for i in range(2, n):
         float_num = Decimal(1) / Decimal(i)
-        str_dict[i] = str(float_num)[2:]
+        str_dict[i] = str(float_num)[2:-1]
 
     # remove the non-reciprocals
-    k_to_remove = [k for k, v in str_dict.items() if len(v) < 99]
+    k_to_remove = [k for k, v in str_dict.items() if len(v) < 98]
     for i in k_to_remove:
         del str_dict[i]
 
+    result = {}
     for k,v in str_dict.items():
-        print(k,v)
+        result[k] = find_reciprocal_pattern(v)
+
+    answer = max(result, key=lambda x: len(result.get(x)))
+    print('Pattern is', result[answer], 'from', answer)
+
+    return answer
 
 
-
-
-
+def find_reciprocal_pattern(s):
+    """give a string of numbers as the decimal part of a float
+    find out the pattern of the reciprocal part
+    if it is not reciprocal, return ''
+    """
+    limit = len(s) // 2
+    for start in range(limit+1):
+        for end in range(start+1, start + limit):
+            sample, rest = s[start:end], s[start:]
+            sample_len, rest_len = len(sample), len(rest)
+            repeat_n, tail = divmod(rest_len, sample_len)
+            if sample * repeat_n + sample[0:tail] == rest:
+                return sample
+    return ''
 
 
 if __name__ == '__main__':
-    longest_reciprocal(10)
+    assert longest_reciprocal(10) == 7
+    longest_reciprocal(1000)
