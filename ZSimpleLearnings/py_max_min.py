@@ -1,17 +1,17 @@
 a = [1, 2, 3, 2, 3, 4, 2, 3, 1]
 # max() will return max value in an iterable object
-print('max value is', max(a))
+print('max value is', max(a))  # >>> 4
 # min() will return min value in an iterable object
-print('min value is', min(a))
+print('min value is', min(a))  # >>> 1
 
 # also works for strings
 b = 'abcdegf'
-print('max char is', max(b))
-print('min char is', min(b))
+print('max char is', max(b))  # >>> g
+print('min char is', min(b))  # >>> a
 
 # or just give a few values as argument for max or min value
-print('max value is', max(1, 3, 4, 2))
-print('min value is', min(2, 1, 4, 3))
+print('max value is', max(1, 3, 4, 2)) # >>> 4
+print('min value is', min(2, 1, 4, 3)) # >>> 1
 
 # Pay attention to the key argument!
 b = 'aabbccccccdddeggfff'
@@ -38,3 +38,12 @@ num2 = [34, 567, 78, 1, 2, 4]
 total = [num, num1, num2]
 # using max(iterable, *iterables, key)
 print('longest list is:', max(total, key=len))
+
+
+# Find the key of a dict by max value
+a = {'a': 10, 'b':40, 'c': 20}
+print(max(a, key=a.get)) # >>> b
+
+a = {'a': '0000010', 'b':'40', 'c': '020'}
+print(max(a, key=lambda x: len(a.get(x))))  # >>> a
+
