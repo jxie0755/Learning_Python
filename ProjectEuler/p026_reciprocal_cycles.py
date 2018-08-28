@@ -20,7 +20,7 @@
 # Solution
 # Use decimal to get the reliable float calculation and control the display to 99 place after digit
 from decimal import *
-getcontext().prec = 99
+getcontext().prec = 3000
 
 def longest_reciprocal(n):
     """return the pattern and length of pattern for 1/x
@@ -33,7 +33,7 @@ def longest_reciprocal(n):
         str_dict[i] = str(float_num)[2:-1]
 
     # remove the non-reciprocals
-    k_to_remove = [k for k, v in str_dict.items() if len(v) < 98]
+    k_to_remove = [k for k, v in str_dict.items() if len(v) < 2999]
     for i in k_to_remove:
         del str_dict[i]
 
@@ -52,7 +52,7 @@ def find_reciprocal_pattern(s):
     find out the pattern of the reciprocal part
     if it is not reciprocal, return ''
     """
-    limit = len(s) // 2
+    limit = int(len(s) // 3)
     for start in range(limit+1):
         for end in range(start+1, start + limit):
             sample, rest = s[start:end], s[start:]
@@ -66,3 +66,5 @@ def find_reciprocal_pattern(s):
 if __name__ == '__main__':
     assert longest_reciprocal(10) == 7
     longest_reciprocal(1000)
+    # >>> 983
+    # correct
