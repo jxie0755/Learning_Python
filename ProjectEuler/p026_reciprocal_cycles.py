@@ -20,7 +20,7 @@
 # Solution
 # Use decimal to get the reliable float calculation and control the display to 99 place after digit
 from decimal import *
-getcontext().prec = 3000
+getcontext().prec = 3000  # !!! The key is to ensure the length of the string is long enought to show the reciprocal pattern!!
 
 def longest_reciprocal(n):
     """return the pattern and length of pattern for 1/x
