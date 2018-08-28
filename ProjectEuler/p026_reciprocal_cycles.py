@@ -42,7 +42,7 @@ def longest_reciprocal(n):
         result[k] = find_reciprocal_pattern(v)
 
     answer = max(result, key=lambda x: len(result.get(x)))
-    print('Pattern is', result[answer], 'from', answer)
+    print('Pattern is', result[answer], 'from', answer, ', Pattern length is', len(result[answer]))
 
     return answer
 
