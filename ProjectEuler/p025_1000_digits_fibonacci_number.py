@@ -33,3 +33,4 @@ if __name__ == '__main__':
     assert count_fib_digit(3) == 12
     print(count_fib_digit(1000))
     # >>> 4782
+    # passed
