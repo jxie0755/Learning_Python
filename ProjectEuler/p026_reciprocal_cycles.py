@@ -134,5 +134,4 @@ if __name__ == '__main__':
     print(longest_reciprocal_2(1000))
     print(f"--- {time.time() - start_time}s seconds ---\n")
 
-
     print('passed')
