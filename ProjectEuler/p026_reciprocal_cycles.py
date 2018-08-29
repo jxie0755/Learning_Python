@@ -21,7 +21,6 @@
 # Use decimal to get the reliable float calculation and control the display to 99 place after digit
 from decimal import *
 
-
 def longest_reciprocal(n):
     """return the pattern and length of pattern for 1/x
     for x in the range(2, n)"""
@@ -64,6 +63,8 @@ def find_reciprocal_pattern(s):
                 return sample
     return ''
 
+# For a better algorithm by using the division method, please check:
+# ZCodeSnippets.reciprocal_pattern.py
 
 if __name__ == '__main__':
     print('Test enumeration method:')
