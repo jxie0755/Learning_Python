@@ -91,7 +91,7 @@ def find_reciprocal(numerator, denominator):
     assert numerator < denominator, 'numerator must be smaller than denominator'
 
     decimal_part, remainder_list = '', [numerator % denominator]
-    numerator *= 10 # start with numerator * 10
+    numerator *= 10 # start with numerator * 10 to avoid the first decimal point
 
     for i in range(denominator):
         quotient, numerator = divmod(numerator, denominator)
