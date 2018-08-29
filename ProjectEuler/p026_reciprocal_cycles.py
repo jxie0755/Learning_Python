@@ -20,11 +20,13 @@
 # Solution
 # Use decimal to get the reliable float calculation and control the display to 99 place after digit
 from decimal import *
-getcontext().prec = 3000  # !!! The key is to ensure the length of the string is long enought to show the reciprocal pattern!!
+
 
 def longest_reciprocal(n):
     """return the pattern and length of pattern for 1/x
     for x in the range(2, n)"""
+
+    getcontext().prec = n * 3  # !!! The key is to ensure the length of the string is long enought to show the reciprocal pattern!!
 
     # get a list of the decimal part of each 1/x, in string.
     str_dict = {}
@@ -33,7 +35,7 @@ def longest_reciprocal(n):
         str_dict[i] = str(float_num)[2:-1]
 
     # remove the non-reciprocals
-    k_to_remove = [k for k, v in str_dict.items() if len(v) < 2999]
+    k_to_remove = [k for k, v in str_dict.items() if len(v) < n * 3 - 1]
     for i in k_to_remove:
         del str_dict[i]
 
@@ -64,7 +66,54 @@ def find_reciprocal_pattern(s):
 
 
 if __name__ == '__main__':
+    print('Test enumeration method:')
     assert longest_reciprocal(10) == 7
-    longest_reciprocal(1000)
+    # longest_reciprocal(1000)
     # >>> 983
     # correct
+    print('passed\n')
+
+
+
+
+# Version 2
+# Optimized algorithm by using divide calculation.
+
+def find_reciprocal(numerator, denominator):
+    """find out the pattern of the reciprocal part when numerator / denominator
+    numerator: integer
+    denominator: integer
+    num
+    return: a string of the pattern numbers
+    """
+
+    assert numerator < denominator, 'numerator must be smaller than denominator'
+
+    decimal_part, remainder_list = '', [numerator % denominator]
+    numerator *= 10 # start with numerator * 10
+
+    for i in range(denominator):
+        quotient, numerator = divmod(numerator, denominator)
+        if numerator == 0:
+            return 'the result is not reciprocal'
+        else:
+            decimal_part += str(quotient)
+            if numerator not in remainder_list:
+                remainder_list.append(numerator)
+                numerator *= 10
+            else:
+                start = remainder_list.index(numerator)
+                pattern = decimal_part[start:]
+                return pattern
+
+if __name__ == '__main__':
+    print('Test new algorithm:')
+    assert find_reciprocal(1, 7) == '142857'   # = 0.(142857)
+    assert find_reciprocal(1, 70) == '142857'  # = 0.0(142857)
+    assert find_reciprocal(2, 3) == '6'        # = 0.(6)
+    assert find_reciprocal(1, 12) == '3'       # = 0.08(3)
+
+    a = find_reciprocal(1, 983)
+    print('Pattern length for 1/983 is', len(a))
+
+    print('all passed')
