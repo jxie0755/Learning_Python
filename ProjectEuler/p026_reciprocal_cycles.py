@@ -19,6 +19,7 @@
 
 # Solution
 # Use decimal to get the reliable float calculation and control the display to 99 place after digit
+import time
 from decimal import *
 
 def longest_reciprocal(n):
@@ -43,8 +44,6 @@ def longest_reciprocal(n):
         result[k] = find_reciprocal_pattern(v)
 
     answer = max(result, key=lambda x: len(result.get(x)))
-    print('Pattern is', result[answer], 'from', answer, ', Pattern length is', len(result[answer]))
-
     return answer
 
 
@@ -68,10 +67,15 @@ def find_reciprocal_pattern(s):
 
 if __name__ == '__main__':
     print('Test enumeration method:')
+
     assert longest_reciprocal(10) == 7
-    # longest_reciprocal(1000)
+
+    start_time = time.time()
+    print(longest_reciprocal(1000))
+    print(f"--- {time.time() - start_time}s seconds ---\n")
     # >>> 983
     # correct
+
     print('passed\n')
 
 
@@ -107,14 +111,28 @@ def find_reciprocal(numerator, denominator):
                 pattern = decimal_part[start:]
                 return pattern
 
+def longest_reciprocal_2(n):
+    result = {}
+    for i in range(2, n):
+        result[i] = len(find_reciprocal(1, i))
+    return max(result, key=result.get)
+
+
+
 if __name__ == '__main__':
     print('Test new algorithm:')
+
     assert find_reciprocal(1, 7) == '142857'   # = 0.(142857)
     assert find_reciprocal(1, 70) == '142857'  # = 0.0(142857)
     assert find_reciprocal(2, 3) == '6'        # = 0.(6)
     assert find_reciprocal(1, 12) == '3'       # = 0.08(3)
 
     a = find_reciprocal(1, 983)
-    print('Pattern length for 1/983 is', len(a))
+    assert len(a) == 982
 
-    print('all passed')
+    start_time = time.time()
+    print(longest_reciprocal_2(1000))
+    print(f"--- {time.time() - start_time}s seconds ---\n")
+
+
+    print('passed')
