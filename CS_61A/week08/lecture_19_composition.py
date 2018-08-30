@@ -189,3 +189,4 @@ def prune_repeats(t, seen):
     seen.append(t)
     for b in t.branches:
         prune_repeats(b, seen)
+
