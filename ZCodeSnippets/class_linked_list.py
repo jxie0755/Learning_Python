@@ -35,7 +35,25 @@ class Link:
     def second(self):
         return self.rest.first
 
-    @second.setter
+    @second.setter  # Must already exist (means .second should be a property)
     def second(self, value):
         self.rest.first = value
 
+if __name__ == '__main__':
+    s = Link(3, Link(4, Link(5)))
+    print(repr(s)) # >>> Link(3, Link(4, Link(5)))
+
+    print(s.first) # >>> 3
+    print(s.rest)  # >>> <4, 5>
+    print(s) # >>> <3, 4, 5>
+
+    b = Link(8, s.rest)
+    print(b) # >>> <8, 4, 5>
+
+    print(s.rest.rest.rest == Link.empty)  # >>> True
+
+
+    # Test property
+    print(b.second)  # >>> 4  (when becomes a property, no need for the function "()" at the end)
+    b.second = 9
+    print(b)  # >>> <8, 9, 5>
