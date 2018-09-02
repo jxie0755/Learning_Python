@@ -342,7 +342,7 @@ print(dd.get_score())  # >>> 99
 # 于是，我们就拥有一个可控的属性操作
 
 class Student(object):
-    @property  # 此处将方法score变成属性
+    @property  # 此处将方法score变成属性, 相当于getter
     def score(self):
         return self._score  # 注意这里self._score与score()的区别,不能同名!!
 
