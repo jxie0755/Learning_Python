@@ -1,3 +1,5 @@
+# From CS61A Week 08 Lecture 19
+
 # Linked list
 # a linked list is either empty or a first value and the rest of the linked list
 # one link contains a pair of objects: 1. The value 2. another linked list
