@@ -2,7 +2,7 @@
 
 # tree_recursion_tree.py summarized all the tree functions.
 
-# This is to convert tree_recursion_tree.py into a full Tree class which contains all the methods within.
+# This is to convert functional setup in tree_recursion_tree.py into a full Tree class which contains all the methods within.
 
 # Use by:
 # from ZCodeSnippets.tree_class import Tree

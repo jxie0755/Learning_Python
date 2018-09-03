@@ -1,6 +1,6 @@
 # From CS61a
 # http://composingprograms.com/pages/23-sequences.html
-
+# Also see the OOP setup in class_link.py
 
 # Linked list
 

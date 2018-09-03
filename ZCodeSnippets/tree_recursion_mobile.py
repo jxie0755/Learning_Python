@@ -1,5 +1,6 @@
 # Mobile balance from CS61a week05 HW05
 # A similar structure as tree that use tree as a structure
+# See the OOP setup in class_tree.py
 
 def mobile(left, right):
     """Construct a mobile from a left side and a right side."""

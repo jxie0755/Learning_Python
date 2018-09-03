@@ -5,6 +5,8 @@
 # one link contains a pair of objects: 1. The value 2. another linked list
 # At the end, use link.empty as a special instance.
 
+# See also the functional setup in ZCodeSnippets.linked_list.py
+
 class Link:
     """A linked list class"""
     empty = ()
