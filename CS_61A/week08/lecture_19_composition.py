@@ -55,8 +55,10 @@ class Link:
     @second.setter
     def second(self, value):
         self.rest.first = value
+# Also in ZCodeSnippets.class_link.py
 
 
+# See more in ZCodeSnippets.class_tree.py
 class Tree:
     """A tree is a label and a list of branches."""
     def __init__(self, label, branches=[]):
@@ -84,6 +86,9 @@ class Tree:
 
     def is_leaf(self):
         return not self.branches
+
+
+
 
 def memo(f):
     cache = {}
