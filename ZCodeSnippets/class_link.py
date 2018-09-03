@@ -11,12 +11,12 @@ class Link:
     """A linked list class"""
     empty = ()
 
-    def __init__(self, first, rest=empty):
+    def __init__(self, value, rest=empty):
         assert rest is Link.empty or isinstance(rest, Link)
         # This is different from type(rest) == Link
         # Check detail from ZSimpleLearnings.py_instance_vs_type.py
 
-        self.first = first
+        self.value = value
         self.rest = rest
 
     def __repr__(self):
@@ -24,22 +24,22 @@ class Link:
             rest_str = ', ' + repr(self.rest)
         else:
             rest_str = ''
-        return 'Link({0}{1})'.format(self.first, rest_str)
+        return 'Link({0}{1})'.format(self.value, rest_str)
 
     def __str__(self):
         string = '<'
         while self.rest is not Link.empty:
-            string += str(self.first) + ', '
+            string += str(self.value) + ', '
             self = self.rest
-        return string + str(self.first) + '>'
+        return string + str(self.value) + '>'
 
     @property
     def second(self):
-        return self.rest.first
+        return self.rest.value
 
     @second.setter  # Must already exist (means .second should be a property)
     def second(self, value):
-        self.rest.first = value
+        self.rest.value = value
 
 
     # Additional functions
@@ -52,9 +52,9 @@ class Link:
     def convert_to_list(self):
         """convert linked list to a list"""
         if self.rest:
-            return [self.first] + self.rest.convert_to_list()
+            return [self.value] + self.rest.convert_to_list()
         else:
-            return [self.first]
+            return [self.value]
 
     def getitem(self, idx):
         """mimmic the single item slice function to get value at index numer
@@ -63,7 +63,7 @@ class Link:
         """
         if idx + 1 <= len(self):
             if idx == 0:
-                return self.first
+                return self.value
             else:
                 return self.rest.getitem(idx-1)
         return None
@@ -74,7 +74,7 @@ if __name__ == '__main__':
     s = Link(3, Link(4, Link(5)))
     print(repr(s)) # >>> Link(3, Link(4, Link(5)))
 
-    print(s.first) # >>> 3
+    print(s.value) # >>> 3
     print(s.rest)  # >>> <4, 5>
     print(s) # >>> <3, 4, 5>
 
