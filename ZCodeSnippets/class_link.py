@@ -94,4 +94,3 @@ if __name__ == '__main__':
     print(b.convert_to_list()) # >>> [8, 9, 5]
     print(b.getitem(2)) # >>> 5
     print(b.getitem(3)) # >>> None (over-index)
-
