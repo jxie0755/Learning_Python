@@ -39,6 +39,36 @@ class Link:
     def second(self, value):
         self.rest.first = value
 
+
+    # Additional functions
+    def __len__(self):
+        if self.rest:
+            return 1 + len(self.rest)
+        else:
+            return 1
+
+
+    def convert_to_list(self):
+        """convert linked list to a list"""
+        if self.rest:
+            return [self.first] + self.rest.convert_to_list()
+        else:
+            return [self.first]
+
+    def like_index(self, idx):
+        """mimmic the single item slice function to get value at index numer
+        ide is an integer
+        return value at the idx
+        """
+        if idx + 1 <= len(self):
+            if idx == 0:
+                return self.first
+            else:
+                return self.rest.like_index(idx-1)
+        return None
+
+
+
 if __name__ == '__main__':
     s = Link(3, Link(4, Link(5)))
     print(repr(s)) # >>> Link(3, Link(4, Link(5)))
@@ -57,3 +87,10 @@ if __name__ == '__main__':
     print(b.second)  # >>> 4  (when becomes a property, no need for the function "()" at the end)
     b.second = 9
     print(b)  # >>> <8, 9, 5>
+
+    # Additional functions
+    print(len(b))  # >>> 3
+    print(b.convert_to_list()) # >>> [8, 9, 5]
+    print(b.like_index(2)) # >>> 5
+    print(b.like_index(3)) # >>> None (over-index)
+
