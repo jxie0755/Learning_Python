@@ -47,7 +47,6 @@ class Link:
         else:
             return 1
 
-
     def convert_to_list(self):
         """convert linked list to a list"""
         if self.rest:
@@ -55,7 +54,7 @@ class Link:
         else:
             return [self.first]
 
-    def like_index(self, idx):
+    def getitem(self, idx):
         """mimmic the single item slice function to get value at index numer
         ide is an integer
         return value at the idx
@@ -64,7 +63,7 @@ class Link:
             if idx == 0:
                 return self.first
             else:
-                return self.rest.like_index(idx-1)
+                return self.rest.getitem(idx-1)
         return None
 
 
@@ -91,6 +90,6 @@ if __name__ == '__main__':
     # Additional functions
     print(len(b))  # >>> 3
     print(b.convert_to_list()) # >>> [8, 9, 5]
-    print(b.like_index(2)) # >>> 5
-    print(b.like_index(3)) # >>> None (over-index)
+    print(b.getitem(2)) # >>> 5
+    print(b.getitem(3)) # >>> None (over-index)
 
