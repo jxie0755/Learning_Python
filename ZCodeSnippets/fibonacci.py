@@ -141,6 +141,32 @@ def fib_gen_r_mem(n):
 
     return helper(n)
 
+
+
+# Use Memoization method as a decorator
+# First define the memo method as a high-order function:
+def memo(f):
+    cache = {}
+    def memoized(n):
+        if n not in cache:
+            cache[n] = f(n)
+        return cache[n]
+    return memoized
+# Then create the regular fib method, and use memo as decorator
+@ memo
+def fib_gen_r(i):
+    if i == 0:
+        return 0
+    elif i == 1:
+        return 1
+    else:
+        return fib_gen_r(i - 1) + fib_gen_r(i - 2)
+
+# print(fib_gen_r(50))  # >>> 12586269025
+# This is the same as above integrated memoization method
+
+
+
 if __name__ == '__main__':
 
     import time
