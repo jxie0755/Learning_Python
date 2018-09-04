@@ -166,6 +166,20 @@ def fib_gen_r(i):
 # This is the same as above integrated memoization method
 
 
+# Additional: Fib tree by using the tree class
+from class_tree import Tree
+
+@memo
+def fib_tree(n):
+    """A Fibonacci tree."""
+    if n == 0 or n == 1:
+        return Tree(n)
+    else:
+        left = fib_tree(n-2)
+        right = fib_tree(n-1)
+        fib_n = left.label + right.label
+        return Tree(fib_n, [left, right])
+
 
 if __name__ == '__main__':
 
@@ -199,3 +213,14 @@ if __name__ == '__main__':
     # >>> 139423224561697880139724382870407283950070256587697307264108962948325571622863290691557658876222521294125
     # which is impossible to calculate in regular recursion method
     print(f"--- {time.time() - start_time}s seconds ---\n")
+
+    print(fib_tree(4))
+    # 3
+    #   1
+    #     0
+    #     1
+    #   2
+    #     1
+    #     1
+    #       0
+    #       1
