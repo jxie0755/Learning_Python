@@ -181,6 +181,17 @@ def fib_tree(n):
         return Tree(fib_n, [left, right])
 
 
+def fib_leaves(t):
+    if t.is_leaf():
+        return [t.label]
+    else:
+        s = []
+        for b in t.branches:
+            s.extend(fib_leaves(b))
+        return s
+
+
+
 if __name__ == '__main__':
 
     import time
@@ -214,7 +225,9 @@ if __name__ == '__main__':
     # which is impossible to calculate in regular recursion method
     print(f"--- {time.time() - start_time}s seconds ---\n")
 
-    print(fib_tree(4))
+    a = fib_tree(4)
+    b = fib_leaves(a)
+    print(a)
     # 3
     #   1
     #     0
@@ -224,3 +237,6 @@ if __name__ == '__main__':
     #     1
     #       0
     #       1
+
+    print(b) # >>> [0, 1, 1, 0, 1]
+    assert sum(b) == 3
