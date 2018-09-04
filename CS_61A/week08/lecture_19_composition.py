@@ -132,6 +132,9 @@ def leaves(tree):
     else:
         return sum([leaves(b) for b in tree.branches], [])
 
+
+
+
 def height(tree):
     """The height of a tree."""
     if tree.is_leaf():
@@ -154,6 +157,8 @@ def prune(t, n):
     for b in t.branches:
         prune(b, n)
 
+
+ 
 def prune_repeats(t, seen):
     """Remove repeated sub-trees
 

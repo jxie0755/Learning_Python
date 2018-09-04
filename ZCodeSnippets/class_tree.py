@@ -173,6 +173,14 @@ class Tree:
             return Tree(self.label, [b.sprout_leaves(vals) for b in self.branches])
 
 
+    def prune_repeats(self, seen=[]):
+        """remove the tree in the branches that has shown before"""
+        self.branches = [b for b in self.branches if b not in seen]
+        seen.append(self)
+        for b in self.branches:
+            b.prune_repeats(seen)
+
+
     # Set basic calculation and comparison
     def __add__(self, other):
         """
@@ -201,6 +209,40 @@ class Tree:
         else:
             tail = [b.convert_to_list() for b in self.branches]
             return [[self.label] + i for i in tail]
+
+
+
+# Fibonacci tree setup by Tree class
+def memo(f):
+    cache = {}
+    def memoized(n):
+        if n not in cache:
+            cache[n] = f(n)
+        return cache[n]
+    return memoized
+
+def fib_tree(n):
+    """A Fibonacci tree.
+
+    >>> print(fib_tree(4))
+    3
+      1
+        0
+        1
+      2
+        1
+        1
+          0
+          1
+    """
+    if n == 0 or n == 1:
+        return Tree(n)
+    else:
+        left = fib_tree(n-2)
+        right = fib_tree(n-1)
+        fib_n = left.label + right.label
+        return Tree(fib_n, [left, right])
+
 
 
 if __name__ == '__main__':
@@ -343,3 +385,45 @@ if __name__ == '__main__':
 
     T3 = Tree(1, [Tree(2, [Tree(4), Tree(5)]), Tree(3, [Tree(6), Tree(7, [Tree(8), Tree(9), Tree(10)])])])
     print('T3', T3.convert_to_list())
+
+    ft = fib_tree(6)
+    print(ft)
+    # >>>
+    # 8
+    #   3
+    #     1
+    #       0
+    #       1
+    #     2
+    #       1
+    #       1
+    #         0
+    #         1
+    #   5
+    #     2
+    #       1
+    #       1
+    #         0
+    #         1
+    #     3
+    #       1
+    #         0
+    #         1
+    #       2
+    #         1
+    #         1
+    #           0
+    #           1
+    ft.prune_repeats()
+    print(ft)
+    # >>>
+    # 8
+    #   3
+    #     1
+    #       0
+    #       1
+    #     2
+    #   5
+    #     2
+    #     3
+    #       2
