@@ -239,4 +239,4 @@ if __name__ == '__main__':
     #       1
 
     print(b) # >>> [0, 1, 1, 0, 1]
-    assert sum(b) == 3
+    assert sum(b) == fib_gen_r(4)  # The 4th fib number is 3, also as the root of fib_tree(4)
