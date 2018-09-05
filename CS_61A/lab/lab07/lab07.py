@@ -29,7 +29,7 @@ def store_digits(n):
     >>> store_digits(876)
     Link(8, Link(7, Link(6)))
     """
-    "*** YOUR CODE HERE ***"
+    "*** YOUR CODE HERE ***" 
 
 # Q5
 def cumulative_sum(t):
