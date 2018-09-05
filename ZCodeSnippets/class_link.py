@@ -69,6 +69,14 @@ class Link:
         return None
 
 
+    def __add__(self, other):
+        """to extend the linked list with another linked list"""
+        if self.rest:
+            return Link(self.value, self.rest.__add__(other))
+        else:
+            return Link(self.value, other)
+
+
 
 if __name__ == '__main__':
     s = Link(3, Link(4, Link(5)))
@@ -94,3 +102,7 @@ if __name__ == '__main__':
     print(b.convert_to_list()) # >>> [8, 9, 5]
     print(b.getitem(2)) # >>> 5
     print(b.getitem(3)) # >>> None (over-index)
+
+    link_1 = Link(3, Link(4, Link(5)))
+    link_2 = Link(6, Link(7, Link(8)))
+    print(link_1 + link_2) # >>> <3, 4, 5, 6, 7, 8>
