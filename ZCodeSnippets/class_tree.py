@@ -427,29 +427,3 @@ if __name__ == '__main__':
     #     2
     #     3
     #       2
-
-
-
-def cumulative_sum(t):
-    """Mutates t where each node's root becomes the sum of all entries in the
-    corresponding subtree rooted at t.
-
-    >>> t = Tree(1, [Tree(3, [Tree(5)]), Tree(7)])
-    >>> cumulative_sum(t)
-    >>> t
-    Tree(16, [Tree(8, [Tree(5)]), Tree(7)])
-    """
-    "*** YOUR CODE HERE ***"
-    def helper(t):
-        all_nodes = [t.label] + sum([helper(b) for b in t.branches], [])
-        return all_nodes
-
-    if t.is_leaf():
-        t.label = sum(helper(t))
-    else:
-        t.label = sum(helper(t))
-        for b in t.branches:
-            cumulative_sum(b)
-
-
-

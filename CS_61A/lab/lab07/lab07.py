@@ -52,14 +52,13 @@ def cumulative_sum(t):
     Tree(16, [Tree(8, [Tree(5)]), Tree(7)])
     """
     "*** YOUR CODE HERE ***"
-    def helper(t):
-        all_sub_nodes = [t.label] + sum([helper(b) for b in t.branches], [])
-        return all_sub_nodes
+    def all_sub_nodes(t):
+        return [t.label] + sum([all_sub_nodes(b) for b in t.branches], [])
 
     if t.is_leaf():
-        t.label = sum(helper(t))
+        t.label = sum(all_sub_nodes(t))
     else:
-        t.label = sum(helper(t))
+        t.label = sum(all_sub_nodes(t))
         for b in t.branches:
             cumulative_sum(b)
 
