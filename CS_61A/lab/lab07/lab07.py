@@ -36,6 +36,10 @@ def store_digits(n):
     Link(8, Link(7, Link(6)))
     """
     "*** YOUR CODE HERE ***"
+    result = Link.empty
+    while n != 0:
+        n, result = n // 10, Link(n % 10, result)
+    return result
 
 # Q5
 def cumulative_sum(t):
