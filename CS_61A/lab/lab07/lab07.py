@@ -4,7 +4,7 @@
 
 # Q2 Trees What would Python Display?
 # python3 ok -q trees -u
- 
+
 # Q3
 def link_to_list(link):
     """Takes a linked list and returns a Python list with the same elements.
