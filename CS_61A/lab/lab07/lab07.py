@@ -16,6 +16,12 @@ def link_to_list(link):
     []
     """
     "*** YOUR CODE HERE ***"
+    if link == Link.empty:
+        return []
+    if link.rest:
+        return [link.first] + link_to_list(link.rest)
+    else:
+        return [link.first]
 
 # Q4
 def store_digits(n):
