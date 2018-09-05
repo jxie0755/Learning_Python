@@ -68,7 +68,6 @@ class Link:
                 return self.rest.getitem(idx-1)
         return None
 
-
     def __add__(self, other):
         """to extend the linked list with another linked list"""
         if self.rest:
