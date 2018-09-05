@@ -68,6 +68,13 @@ class Link:
                 return self.rest.getitem(idx-1)
         return None
 
+    def tail(self):
+        """return the tail link of a linked list"""
+        if self.rest:
+            return self.rest.tail()
+        else:
+            return self
+
     def __add__(self, other):
         """to extend the linked list with another linked list"""
         if self.rest:
@@ -116,3 +123,8 @@ if __name__ == '__main__':
     print(link_1 + link_2) # >>> <3, 4, 5, 6, 7, 8>
 
     print(link_1.reverse()) # >>> <5, 4, 3>
+
+    tl = link_1.tail()
+    print(tl)  # >>> <5>
+    tl.rest = Link(0, Link(0, Link(0)))
+    print(link_1)
