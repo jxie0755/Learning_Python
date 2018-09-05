@@ -1,4 +1,6 @@
 # Required Questions
+
+# Q1 Veritasiness What Would Python Display?
 print('\nQ1: WWPD: Veritasiness')
 # python3 ok -q short_circuiting -u
 
@@ -19,7 +21,7 @@ if __name__ == '__main__':
     # print((1/0) or True)  # ZeroDivisionError  # Still have to evaluate <left> even if returning <right>
     # print((True or False) and False)  # >>> False
 
-# Q2 Loops
+# Q2 Loops What Would Python Display?
 print('\nQ2: WWPD: Loops')
 # python3 ok -q loops -u
 
@@ -104,6 +106,7 @@ if __name__ == '__main__':
 # Coding practice
 print('\nCoding Practice')
 
+# Q3 Repeated
 print('\nQ3: Repeated')
 # Implement the repeated function, which takes a one-argument function f, a positive integer n, and a parameter x. It returns the result of composing, or applying, f n times on x, i.e., f(f(...f(x)...)).
 def repeated(f, n, x):
@@ -137,7 +140,7 @@ def repeated(f, n, x):
 # python3 ok -q repeated
 print('passed')
 
-
+# Q4 Sum Digits
 print('\nQ4: Sum Digits')
 # Write a function that takes in a nonnegative integer and sums its digits. (Using floor division and modulo might be helpful here!)
 def sum_digits(n):
@@ -161,6 +164,7 @@ def sum_digits(n):
 print('passed')
 
 
+# Q5 Double Eights
 print('\nQ5: Double Eights')
 # Write a function that takes in a number and determines if the digits contain two adjacent 8s.
 def double_eights(n):

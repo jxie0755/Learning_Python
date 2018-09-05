@@ -1,5 +1,11 @@
 """Lab 2: Lambda Expressions and Higher Order Functions"""
 
+# Q1 Lambda the Free What Would Python Display?
+# python3 ok -q lambda -u
+
+# Q2 Higher Order Functions What Would Python Display?
+# python3 ok -q hof -u
+
 # Lambda Functions
 
 def lambda_curry2(func):

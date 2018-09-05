@@ -53,7 +53,9 @@ def hailstone(n, r=0):
 
 # Midterm Review
 
-# Q3 Call expressions
+# Q3 Call expressions What Would Python Display?
+# python3 ok -q call_expressions -u
+
 from operator import add
 def double(x):
     return x + x

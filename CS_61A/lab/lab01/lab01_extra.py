@@ -1,7 +1,7 @@
 # Optional Questions
 print('\nOptional Questions')
 
-
+# Q6 Truthiness What Would Python Display?
 print('\nQ6: WWPD: Truthiness')
 # python3 ok -q truthiness -u
 if __name__ == '__main__':
@@ -14,6 +14,7 @@ if __name__ == '__main__':
     # print(not 0 and 12 or 0)    # >>> True but actually show the value 12
 
 
+# Q7 What if? What Would Python Display?
 print('\nQ7: WWPD: What If?')
 # python3 ok -q what_if -u
 if __name__ == '__main__':

@@ -1,8 +1,11 @@
 """ Lab 04: Lists and Data Abstraction """
 
-# Q1 and Q2 are what would python display questions by using
+# Q1 List Indexing
 # python3 ok -q indexing -u
+
+# Q2 Lists? What Would Python Display
 # python3 ok -q lists -u
+
 print([1 for i in ["hi", "bye", "you"]])
 
 # Q3

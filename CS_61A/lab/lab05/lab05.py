@@ -1,5 +1,6 @@
 """ Lab 05: Mutable Sequences and Trees """
-# Q1 What would Python Display?
+# Q1 Dictionaries What would Python Display?
+# python3 ok -q dicts -u
 
 # Q2 Map, Filter, Reduce
 def map(fn, seq):
