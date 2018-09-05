@@ -76,6 +76,15 @@ class Link:
         else:
             return Link(self.value, other)
 
+    def reverse(self):
+        """return a linked list that is reversed from itself in index sequence"""
+        lst = self.convert_to_list()[::-1]
+        reverse_link = Link(lst[0])
+        for i in lst[1:]:
+            reverse_link += Link(i)
+        return reverse_link
+
+
 
 
 if __name__ == '__main__':
@@ -106,3 +115,5 @@ if __name__ == '__main__':
     link_1 = Link(3, Link(4, Link(5)))
     link_2 = Link(6, Link(7, Link(8)))
     print(link_1 + link_2) # >>> <3, 4, 5, 6, 7, 8>
+
+    print(link_1.reverse()) # >>> <5, 4, 3>
