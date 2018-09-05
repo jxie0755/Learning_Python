@@ -75,12 +75,18 @@ class Link:
         else:
             return self
 
+    def copy(self):
+        """return a copy of the linked list but a differnt object ID"""
+        if self.rest:
+            return Link(self.value, self.rest.copy())
+        else:
+            return Link(self.value)
+
     def __add__(self, other):
         """to extend the linked list with another linked list"""
-        if self.rest:
-            return Link(self.value, self.rest.__add__(other))
-        else:
-            return Link(self.value, other)
+        result = self.copy()
+        result.tail().rest = other
+        return result
 
     def reverse(self):
         """return a linked list that is reversed from itself in index sequence"""
@@ -120,11 +126,14 @@ if __name__ == '__main__':
 
     link_1 = Link(3, Link(4, Link(5)))
     link_2 = Link(6, Link(7, Link(8)))
-    print(link_1 + link_2) # >>> <3, 4, 5, 6, 7, 8>
-
-    print(link_1.reverse()) # >>> <5, 4, 3>
 
     tl = link_1.tail()
     print(tl)  # >>> <5>
     tl.rest = Link(0, Link(0, Link(0)))
     print(link_1)
+
+    link_3 = Link(3, Link(4, Link(5)))
+    link_4 = Link(6, Link(7, Link(8)))
+    print(link_3 + link_4) # >>> <3, 4, 5, 6, 7, 8>
+
+    print(link_4.reverse()) # >>> <8, 7, 6>
