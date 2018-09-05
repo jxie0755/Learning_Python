@@ -158,7 +158,7 @@ def prune(t, n):
         prune(b, n)
 
 
- 
+
 def prune_repeats(t, seen):
     """Remove repeated sub-trees
 
