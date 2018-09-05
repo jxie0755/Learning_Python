@@ -1,4 +1,9 @@
 """ Lab 07: Recursive Objects """
+# Q1 Linked list What would Python Display?
+# python3 ok -q link -u
+
+# Q2 Trees What would Python Display?
+# python3 ok -q trees -u
 
 # Q3
 def link_to_list(link):
@@ -112,7 +117,7 @@ class Tree:
     def __eq__(self, other):
         return type(other) is type(self) and self.label == other.label \
                and self.branches == other.branches
-    
+
     def __str__(self):
         def print_tree(t, indent=0):
             tree_str = '  ' * indent + str(t.label) + "\n"
