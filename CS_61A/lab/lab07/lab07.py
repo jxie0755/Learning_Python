@@ -29,7 +29,7 @@ def store_digits(n):
     >>> store_digits(876)
     Link(8, Link(7, Link(6)))
     """
-    "*** YOUR CODE HERE ***" 
+    "*** YOUR CODE HERE ***"
 
 # Q5
 def cumulative_sum(t):
@@ -92,7 +92,7 @@ class Link:
     def __str__(self):
         string = '<'
         while self.rest is not Link.empty:
-            string += str(self.first) + ' '
+            string += str(self.first) + ', '
             self = self.rest
         return string + str(self.first) + '>'
 
