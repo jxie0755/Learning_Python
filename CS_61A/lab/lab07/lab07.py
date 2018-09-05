@@ -18,7 +18,7 @@ def link_to_list(link):
     "*** YOUR CODE HERE ***"
     if link == Link.empty:
         return []
-    if link.rest:
+    elif link.rest:
         return [link.first] + link_to_list(link.rest)
     else:
         return [link.first]
