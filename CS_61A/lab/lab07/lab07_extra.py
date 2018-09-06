@@ -112,3 +112,6 @@ def reverse_other(t):
     Tree(1, [Tree(8, [Tree(3, [Tree(5), Tree(4)]), Tree(6, [Tree(7)])]), Tree(2)])
     """
     "*** YOUR CODE HERE ***"
+    switched_labels = [b.label for b in t.branches][::-1]
+    [[reverse_other(n) for n in b.branches] for b in t.branches]
+    t.branches = [Tree(switched_labels[i], t.branches[i].branches) for i in range(len(t.branches))]
