@@ -69,6 +69,13 @@ def has_cycle(link):
     False
     """
     "*** YOUR CODE HERE ***"
+    check_list = [link]
+    while link.rest not in check_list and link.rest != Link.empty:
+        link = link.rest
+        check_list.append(link)
+        if link.rest in check_list:
+            return True
+    return False
 
 def has_cycle_constant(link):
     """Return whether link contains a cycle.
