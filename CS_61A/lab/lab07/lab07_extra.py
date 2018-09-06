@@ -89,6 +89,13 @@ def has_cycle_constant(link):
     False
     """
     "*** YOUR CODE HERE ***"
+    # This method used a way that a cycled linked list can not have a __repr__ output
+    ret = False
+    try:
+        link.__repr__()
+    except:
+        ret = True
+    return ret
 
 # Q9
 def reverse_other(t):

@@ -4,3 +4,4 @@
 'remove_all-correct', (1536, 70)
 'deep_map_mut-correct', (2048, 70)
 'has_cycle-correct', (2560, 70)
+'has_cycle_constant-correct', (3072, 70)
