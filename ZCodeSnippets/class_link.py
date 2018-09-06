@@ -223,4 +223,3 @@ if __name__ == '__main__':
     print(u.has_cycle())  # >>> False
 
     print(s.has_cycle_constant())  # >>> True
-
