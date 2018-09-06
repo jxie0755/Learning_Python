@@ -44,10 +44,14 @@ class Link:
 
     # Additional functions
     def __len__(self):
-        if self.rest:
-            return 1 + len(self.rest)
+        if not self.has_cycle():
+            if self.rest:
+                return 1 + len(self.rest)
+            else:
+                return 1
         else:
-            return 1
+            print('cycled linked list has no length')
+            return 0
 
     def convert_to_list(self):
         """convert linked list to a list"""
@@ -201,3 +205,5 @@ if __name__ == '__main__':
 
     u = Link(2, Link(2, Link(2)))
     print(u.has_cycle())  # >>> False
+
+    print(len(s))
