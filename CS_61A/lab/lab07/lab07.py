@@ -112,7 +112,7 @@ class Link:
     def __str__(self):
         string = '<'
         while self.rest is not Link.empty:
-            string += str(self.first) + ', '
+            string += str(self.first) + ' '
             self = self.rest
         return string + str(self.first) + '>'
 

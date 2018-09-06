@@ -15,9 +15,21 @@ def remove_all(link , value):
     <0 3 1 3>
     >>> remove_all(l1, 3)
     >>> print(l1)
-    <0 1>
+    <0 1>K
     """
     "*** YOUR CODE HERE ***"
+
+    if link.rest and link.rest.first == value:
+        link.rest = link.rest.rest
+        remove_all(link, value)
+    elif link.rest == Link.empty and link.first == value:
+        link = Link.empty
+        remove_all(link.rest, value)
+    else:
+        if link.rest:
+            remove_all(link.rest, value)
+
+
 
 # Q7
 def deep_map_mut(fn, link):
@@ -25,7 +37,7 @@ def deep_map_mut(fn, link):
     result of calling fn on the item.  Does NOT create new Links (so
     no use of Link's constructor)
 
-    Does not return the modified Link object.
+    Does not return the modlified Link object.
 
     >>> link1 = Link(3, Link(Link(4), Link(5, Link(6))))
     >>> deep_map_mut(lambda x: x * x, link1)
