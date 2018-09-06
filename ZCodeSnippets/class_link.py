@@ -133,7 +133,7 @@ class Link:
     def has_cycle(self):
         """Return whether link contains a cycle."""
         check_list = [self]
-        while self.rest not in check_list and self.rest != Link.empty:
+        while self.rest != Link.empty:
             self = self.rest
             check_list.append(self)
             if self.rest in check_list:
@@ -200,10 +200,13 @@ if __name__ == '__main__':
     s.rest.rest.rest = s
     print(s.has_cycle())  # >>> True
 
+    print(len(s))  # check the length of a cycled linked list
+    # >>>
+    # cycled linked list has no length
+    # 0
+
     t = Link(1, Link(2, Link(3)))
     print(t.has_cycle())  # >>> False
 
     u = Link(2, Link(2, Link(2)))
     print(u.has_cycle())  # >>> False
-
-    print(len(s))
