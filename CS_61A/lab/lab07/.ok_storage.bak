@@ -2,3 +2,4 @@
 'store_digits-correct', (512, 70)
 'cumulative_sum-correct', (1024, 70)
 'remove_all-correct', (1536, 70)
+'deep_map_mut-correct', (2048, 70)

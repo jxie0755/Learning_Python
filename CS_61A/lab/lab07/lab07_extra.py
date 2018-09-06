@@ -3,7 +3,7 @@
 from lab07 import *
 
 # Q6
-def remove_all(link , value):
+def remove_all(link, value):
     """Remove all the nodes containing value. Assume there exists some
     nodes to be removed and the first element is never removed.
 
@@ -30,7 +30,6 @@ def remove_all(link , value):
             remove_all(link.rest, value)
 
 
-
 # Q7
 def deep_map_mut(fn, link):
     """Mutates a deep link by replacing each item found with the
@@ -45,6 +44,14 @@ def deep_map_mut(fn, link):
     <9 <16> 25 36>
     """
     "*** YOUR CODE HERE ***"
+    if not isinstance(link.first, Link):
+        link.first = fn(link.first)
+    else:
+        deep_map_mut(fn, link.first)
+
+    if link.rest:
+            deep_map_mut(fn, link.rest)
+
 
 # Q8
 def has_cycle(link):
