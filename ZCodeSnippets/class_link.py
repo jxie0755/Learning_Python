@@ -110,7 +110,20 @@ class Link:
             if self.rest:
                 self.rest.remove(value)
 
+    def deep_map_mut(self, fn):
+        """Mutates a deep link by replacing each item found with the
+        result of calling fn on the item.  Does NOT create new Links (so
+        no use of Link's constructor)
 
+        Does not return the modlified Link object.
+        """
+        if not isinstance(self.value, Link):
+            self.value = fn(self.value)
+        else:
+            self.value.deep_map_mut(fn)
+
+        if self.rest:
+            self.rest.deep_map_mut(fn)
 
 if __name__ == '__main__':
     s = Link(3, Link(4, Link(5)))
@@ -157,3 +170,7 @@ if __name__ == '__main__':
     print(l1)           # >>> <0, 3, 1, 3>
     l1.remove(3)
     print(l1)           # >>> <0, 1>
+
+    link1 = Link(3, Link(Link(4), Link(5, Link(6))))
+    link1.deep_map_mut(lambda x: x * x)
+    print(link1)
