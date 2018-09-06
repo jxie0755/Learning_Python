@@ -1,4 +1,4 @@
-# CS61A Discussion 05 Object Oriented Programming
+# CS61A Discussion 05: Object Oriented Programming
 
 
 # OOP

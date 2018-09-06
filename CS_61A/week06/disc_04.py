@@ -1,4 +1,4 @@
-# CS61A Discussion 04 Nonlocals & Mutation
+# CS61A Discussion 04: Nonlocals & Mutation
 
 
 # Nonlocal
