@@ -125,6 +125,17 @@ class Link:
         if self.rest:
             self.rest.deep_map_mut(fn)
 
+
+    def has_cycle(self):
+        """Return whether link contains a cycle."""
+        check_list = [self]
+        while self.rest not in check_list and self.rest != Link.empty:
+            self = self.rest
+            check_list.append(self)
+            if self.rest in check_list:
+                return True
+        return False
+
 if __name__ == '__main__':
     s = Link(3, Link(4, Link(5)))
     print(repr(s)) # >>> Link(3, Link(4, Link(5)))
@@ -150,20 +161,24 @@ if __name__ == '__main__':
     print(b.getitem(2)) # >>> 5
     print(b.getitem(3)) # >>> None (over-index)
 
+
     link_1 = Link(3, Link(4, Link(5)))
     link_2 = Link(6, Link(7, Link(8)))
 
+    # Test tail
     tl = link_1.tail()
     print(tl)  # >>> <5>
     tl.rest = Link(0, Link(0, Link(0)))
     print(link_1)
 
+    # Test __add__
     link_3 = Link(3, Link(4, Link(5)))
     link_4 = Link(6, Link(7, Link(8)))
     print(link_3 + link_4) # >>> <3, 4, 5, 6, 7, 8>
 
     print(link_4.reverse()) # >>> <8, 7, 6>
 
+    # Test remove
     l1 = Link(0, Link(2, Link(2, Link(3, Link(1, Link(2, Link(3)))))))
     print(l1)           # >>> <0, 2, 2, 3, 1, 2, 3>
     l1.remove(2)
@@ -171,6 +186,18 @@ if __name__ == '__main__':
     l1.remove(3)
     print(l1)           # >>> <0, 1>
 
+    # Test deep_map_mut
     link1 = Link(3, Link(Link(4), Link(5, Link(6))))
     link1.deep_map_mut(lambda x: x * x)
     print(link1)
+
+    # Test has_cycle
+    s = Link(1, Link(2, Link(3)))
+    s.rest.rest.rest = s
+    print(s.has_cycle())  # >>> True
+
+    t = Link(1, Link(2, Link(3)))
+    print(t.has_cycle())  # >>> False
+
+    u = Link(2, Link(2, Link(2)))
+    print(u.has_cycle())  # >>> False
