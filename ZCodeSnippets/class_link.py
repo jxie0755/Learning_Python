@@ -96,6 +96,19 @@ class Link:
             reverse_link += Link(i)
         return reverse_link
 
+    def remove(self, value):
+        """Remove all the nodes containing value.
+        Assume there exists some nodes to be removed and the first element is never removed."""
+
+        if self.rest and self.rest.value == value:
+            self.rest = self.rest.rest
+            self.remove(value)
+        elif self.rest == Link.empty and self.value == value:
+            self = Link.empty
+            self.rest.remove(value)
+        else:
+            if self.rest:
+                self.rest.remove(value)
 
 
 
@@ -137,3 +150,10 @@ if __name__ == '__main__':
     print(link_3 + link_4) # >>> <3, 4, 5, 6, 7, 8>
 
     print(link_4.reverse()) # >>> <8, 7, 6>
+
+    l1 = Link(0, Link(2, Link(2, Link(3, Link(1, Link(2, Link(3)))))))
+    print(l1)           # >>> <0, 2, 2, 3, 1, 2, 3>
+    l1.remove(2)
+    print(l1)           # >>> <0, 3, 1, 3>
+    l1.remove(3)
+    print(l1)           # >>> <0, 1>
