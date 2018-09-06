@@ -70,7 +70,7 @@ def has_cycle(link):
     """
     "*** YOUR CODE HERE ***"
     check_list = [link]
-    while link.rest not in check_list and link.rest != Link.empty:
+    while link.rest != Link.empty:
         link = link.rest
         check_list.append(link)
         if link.rest in check_list:
