@@ -44,14 +44,14 @@ class Link:
 
     # Additional functions
     def __len__(self):
-        if not self.has_cycle():
+        try:
             if self.rest:
                 return 1 + len(self.rest)
             else:
                 return 1
-        else:
-            print('cycled linked list has no length')
-            return 0
+        except:
+            # print('cycled linked list has no length')
+            raise ValueError
 
     def convert_to_list(self):
         """convert linked list to a list"""
@@ -140,6 +140,17 @@ class Link:
                 return True
         return False
 
+    def has_cycle_constant(self):
+        """Return whether link contains a cycle.
+        implement has_cycle_constant with only constant space.
+        """
+        ret = False
+        try:
+            self.__repr__()
+        except:
+            ret = True
+        return ret
+
 if __name__ == '__main__':
     s = Link(3, Link(4, Link(5)))
     print(repr(s)) # >>> Link(3, Link(4, Link(5)))
@@ -200,13 +211,16 @@ if __name__ == '__main__':
     s.rest.rest.rest = s
     print(s.has_cycle())  # >>> True
 
-    print(len(s))  # check the length of a cycled linked list
+    # print(len(s))  # check the length of a cycled linked list
     # >>>
     # cycled linked list has no length
-    # 0
+    # ValueError
 
     t = Link(1, Link(2, Link(3)))
     print(t.has_cycle())  # >>> False
 
     u = Link(2, Link(2, Link(2)))
     print(u.has_cycle())  # >>> False
+
+    print(s.has_cycle_constant())  # >>> True
+
