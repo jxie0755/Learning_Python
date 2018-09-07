@@ -42,3 +42,26 @@ if __name__ == '__main__':
 
     # print(surya.pass_ball(surya, ajay)  # Error
 
+# Q2
+# Write TeamBaller, a subclass of Baller.
+# An instance of TeamBaller cheers on the team every time it passes a ball
+
+class TeamBaller(Baller):
+    """
+    >>> cheerballer = TeamBaller('Thomas', has_ball=True)
+    >>> cheerballer.pass_ball(surya)
+    Yay!
+    True
+    >>> cheerballer.pass_ball(surya)
+    I don't have the ball
+    False
+    """
+    def pass_ball(self, other_player):
+        if self.has_ball:
+            self.has_ball = False
+            other_player.has_ball = True
+            print('Yay!')
+            return True
+        else:
+            print("I don't have the ball")
+            return False
