@@ -89,11 +89,7 @@ class PingPongTracker:
         self.current = self.current + 1 if self.add else self.current - 1
 
         if has_seven(self.index) or self.index % 7 == 0:
-            if self.add == True:
-                self.add = False
-            elif self.add == False:
-                self.add = True
+            self.add = not self.add
 
         self.index += 1
-
         return self.current
