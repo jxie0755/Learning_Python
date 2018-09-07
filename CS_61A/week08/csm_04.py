@@ -226,3 +226,42 @@ def toast(n):  # O(n*2^n + n) = O(n*2^n)
         stack += 1
         j += 1
     return stack
+
+# Q3
+def hailstone(n):
+    print(n)
+    if n < 2:
+        return None
+    if n % 2 == 0:
+        hailstone(n // 2)
+    else:
+        hailstone((n * 3) + 1)
+
+def fib(n):
+    if n < 2:
+        return n
+    return fib(n - 1) + fib(n - 2)
+
+def foo(n, f):
+    return n + f(500)
+
+# In big-Θ notation, describe the runtime for the following with respect to the input n:
+# (a) foo(10, hailstone)  O(1) or O(1+log500+1500) or O(1 + O(logn) + O(n))
+# (b) foo(3000, fib)      O(1) or O(1 + 2^500) or O(1 + O(2^n))
+
+# assume t is a tree
+def word_finder(t, p, word):
+    if label(t) == word:
+        p -= 1
+        if p == 0:
+            return True
+    for branch in branches(t):
+        if word_finder(branch, p, word):
+            return True
+    return False
+
+# (a) What does this function do?
+# To find if the number of occurence of label(t)=word >= p in t
+
+# (b) If a tree has n total nodes, what is the worst case runtime in big-Θ notation
+# O(n)
