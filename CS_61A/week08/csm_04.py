@@ -77,7 +77,13 @@ class TeamBaller(Baller):
 def has_seven(k):
     """Returns True if at least one of the digits of k is a 7, False otherwise.
     """
-    return '7' in str(k)
+    # return '7' in str(k)
+    if not k:
+        return False
+    if k % 10 == 7:
+        return True
+    else:
+        return has_seven(k//10)
 
 class PingPongTracker:
     def __init__(self):
@@ -93,3 +99,5 @@ class PingPongTracker:
 
         self.index += 1
         return self.current
+
+
