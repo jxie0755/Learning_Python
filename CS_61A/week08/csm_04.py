@@ -101,3 +101,55 @@ class PingPongTracker:
         return self.current
 
 
+# Q4 Flying cOOP
+# What Would Python Display?
+
+class Bird:
+    def __init__(self, call):
+        self.call = call
+        self.can_fly = True
+
+    def fly(self):
+        if self.can_fly:
+            return "Don't stop me now!"
+        else:
+            return "Ground control to Major Tom..."
+
+    def speak(self):
+        print(self.call)
+
+class Chicken(Bird):
+    def speak(self, other):
+        Bird.speak(self)
+        other.speak()
+
+class Penguin(Bird):
+    can_fly = False
+    def speak(self):
+        call = "Ice to meet you"
+        print(call)
+
+if __name__ == '__main__':
+    andre = Chicken("cluck")
+    gunter = Penguin("noot")
+
+    andre.speak(Bird("coo"))
+    # >>>
+    # cluck
+    # coo
+
+    # andre.speak()  # >>> Error
+
+    print(gunter.fly())  # >>> "Don't stop me now!"
+    # 优先级问题
+    print(gunter.can_fly)  # >>> True
+    # 通过继承, __init__ 中赋予了 penguin实例默认can_fly = True
+    # 所以gunter.can_fly 优先选了class attribute而overrule了class attribute
+
+    andre.speak(gunter)
+    # >>>
+    # cluck
+    # Ice to meet you
+
+    Bird.speak(gunter)
+    # >>> noot
