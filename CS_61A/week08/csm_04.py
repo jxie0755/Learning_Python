@@ -153,3 +153,76 @@ if __name__ == '__main__':
 
     Bird.speak(gunter)
     # >>> noot
+
+
+
+# Order of Growth
+
+# Q1
+#  In big-Θ notation, what is the runtime for foo?
+def foo(n):
+    for i in range(n):
+        print('hello')
+# O(n)
+
+# What’s the runtime of foo if we change range(n):
+# i. To range(n / 2)?       O(n)
+# ii. To range(10)?         O(1)
+# iii. To range(10000000)?  O(1)
+
+# Q2
+def strange_add(n):  # O(2^n)
+    if n == 0:
+        return 1
+    else:
+        return strange_add(n - 1) + strange_add(n - 1)
+
+
+def stranger_add(n):  # O(n)
+    if n < 3:
+        return n  #O(1)
+    elif n % 3 == 0:
+        return stranger_add(n - 1) + stranger_add(n - 2) + stranger_add(n - 3)
+                    # O(1)                  O(1)                  O(n)
+        return n  #O(1)
+
+
+def waffle(n):  # O(n^2)
+    i = 0
+    total = 0
+    while i < n:
+        for j in range(50 * n):
+            total += 1
+        i += 1
+    return total
+
+
+def belgian_waffle(n):  # O(n^3)
+    i = 0
+    total = 0
+    while i < n:
+        for j in range(n ** 2):
+            total += 1
+        i += 1
+    return total
+
+
+def pancake(n): # O(2^n)
+    if n == 0 or n == 1:
+        return n
+    # Flip will always perform three operations and return -n.
+    return flip(n) + pancake(n - 1) + pancake(n - 2)
+            #O(1)       #O(n)             O(n)
+
+
+def toast(n):  # O(n*2^n + n) = O(n*2^n)
+    i = 0
+    j = 0
+    stack = 0
+    while i < n:
+        stack += pancake(n)
+        i += 1
+    while j < n:
+        stack += 1
+        j += 1
+    return stack
