@@ -788,7 +788,7 @@ def make_normal_assault_plan():
     plan.add_wave(Hornet, 3, 12, 1)
     plan.add_wave(Wasp, 3, 16, 1)
 
-    #Boss Stage
+    # Boss Stage
     for time in range(21, 30, 2):
         plan.add_wave(Bee, 3, time, 2)
     plan.add_wave(Wasp, 3, 22, 2)
@@ -807,7 +807,7 @@ def make_hard_assault_plan():
     plan.add_wave(NinjaBee, 4, 12, 2)
     plan.add_wave(Wasp, 4, 16, 2)
 
-    #Boss Stage
+    # Boss Stage
     for time in range(21, 30, 2):
         plan.add_wave(Bee, 4, time, 3)
     plan.add_wave(Wasp, 4, 22, 2)
@@ -827,7 +827,7 @@ def make_insane_assault_plan():
     plan.add_wave(NinjaBee, 5, 12, 2)
     plan.add_wave(Wasp, 5, 16, 2)
 
-    #Boss Stage
+    # Boss Stage
     for time in range(21, 30, 2):
         plan.add_wave(Bee, 5, time, 3)
     plan.add_wave(Wasp, 5, 22, 2)
@@ -841,6 +841,5 @@ def make_insane_assault_plan():
 from utils import *
 @main
 def run(*args):
-    Insect.reduce_armor = class_method_wrapper(Insect.reduce_armor,
-            pre=print_expired_insects)
+    Insect.reduce_armor = class_method_wrapper(Insect.reduce_armor, pre=print_expired_insects)
     start_with_strategy(args, interactive_strategy)
