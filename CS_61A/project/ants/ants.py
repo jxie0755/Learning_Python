@@ -742,7 +742,6 @@ def dry_layout(queen, register_place, tunnels=3, length=9):
     wet_layout(queen, register_place, tunnels, length, 0)
 
 
-
 #################
 # Assault Plans #
 #################
