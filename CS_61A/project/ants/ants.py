@@ -742,6 +742,7 @@ def dry_layout(queen, register_place, tunnels=3, length=9):
     wet_layout(queen, register_place, tunnels, length, 0)
 
 
+
 #################
 # Assault Plans #
 #################
@@ -827,7 +828,7 @@ def make_insane_assault_plan():
     plan.add_wave(NinjaBee, 5, 12, 2)
     plan.add_wave(Wasp, 5, 16, 2)
 
-    # Boss Stage
+    #   Boss Stage
     for time in range(21, 30, 2):
         plan.add_wave(Bee, 5, time, 3)
     plan.add_wave(Wasp, 5, 22, 2)
