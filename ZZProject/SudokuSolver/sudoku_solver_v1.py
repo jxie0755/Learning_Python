@@ -38,6 +38,9 @@ class Sudoku(object):
         # Also create a permanent puzzle copy for future use
         self.puzzle = [self.board[i][:] for i in range(9)]
 
+        # Also create a permanment board copy for roll back, it begin with the same as puzzle
+        self.board_memory = [self.board[i][:] for i in range(9)]
+
     def __str__(self):
         """to just print the current checker board
         also add a coordinate axis for easier read
@@ -95,8 +98,7 @@ class Sudoku(object):
         self.grids = [g1, g2, g3, g4, g5, g6, g7, g8, g9]
         return self.grids[n-1]
 
-
-
+    # Define moves to add numbers to the board
     def insert(self, x, y, value):
         """to insert a value into the checkerboard
         for convenience, indext start from 1, and act like coordinates
