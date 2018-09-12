@@ -11,7 +11,7 @@ class Sudoku(object):
     there will also be an final examination method to ensure when every empty slot is filled.
     the key is in the solve function, where the algorithm is in, to find the answer
     """
-    def __init__(self, puzzle):
+    def __init__(self, puzzle=[]):
         """
         First:
         generate an empty checkerboard
@@ -55,17 +55,6 @@ class Sudoku(object):
         """
         assert 1 <= value <= 9 and type(value) == int
         self.board[9-y][x-1] = value
-
-    # def gen_problem(self, problem):
-    #
-    #     for data in problem:
-    #         self.insert(data[0], data[1], data[2])
-    #     print('puzzle is generated:')
-    #     print(self)
-    #     print('\n')
-
-
-
 
 if __name__ == '__main__':
     # list out 4 problems for test case
