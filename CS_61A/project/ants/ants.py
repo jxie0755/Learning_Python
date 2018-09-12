@@ -298,6 +298,12 @@ class ShortThrower(ThrowerAnt):
 
 # BEGIN Problem 8
 # The WallAnt class
+class WallAnt(Ant):
+    food_cost = 4
+    def __init__(self):
+        self.armor = 4
+    name = 'Wall'
+    implemented = True
 # END Problem 8
 
 
