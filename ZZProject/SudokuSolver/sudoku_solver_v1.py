@@ -11,6 +11,8 @@ class Sudoku(object):
     there will also be an final examination method to ensure when every empty slot is filled.
     the key is in the solve function, where the algorithm is in, to find the answer
     """
+
+
     def __init__(self, puzzle=[]):
         """
         First:
@@ -32,6 +34,23 @@ class Sudoku(object):
         print('puzzle is generated:')
         print(self)
         print('\n')
+
+    # Build up class attributes to for future to check up the rows, columns and grids.
+    def row(self, n):
+        """output a row of numbers
+        n: int 1-9
+        return: a list of numbers extracted from the row
+        """
+        self.rows = self.board[:] # make a copy
+        return self.rows[n-1]
+
+    def col(self, n):
+        """output a column of numbers
+        n: int 1-9
+        return: a list of numbers extracted from the row
+        """
+        self.columns = [[self.board[i][j] for i in range(9)] for j in range(9)]
+        return self.columns[n-1]
 
     def __str__(self):
         """to just print the current checker board
@@ -117,4 +136,7 @@ if __name__ == '__main__':
     hard = Sudoku(hard_data)
     evil = Sudoku(evil_data)
 
+    print(evil.col(8))
+    evil.insert(8,1,3)
+    print(evil.col(8))
 
