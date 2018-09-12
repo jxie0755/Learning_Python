@@ -38,6 +38,23 @@ class Sudoku(object):
         # Also create a permanent puzzle copy for future use
         self.puzzle = [self.board[i][:] for i in range(9)]
 
+    def __str__(self):
+        """to just print the current checker board
+        also add a coordinate axis for easier read
+        """
+
+        to_print = ''
+        y_num = 9
+        x_num = '   1, 2, 3, 4, 5, 6, 7, 8, 9'
+
+        for i in self.board:
+            to_print += str(y_num) + ' ' + str(i) + '\n'
+            y_num -= 1
+
+        to_print += x_num
+        return to_print
+
+
     # Build up class attributes to for future to check up the rows, columns and grids.
     def row(self, n):
         """output a row of numbers
@@ -79,33 +96,6 @@ class Sudoku(object):
         return self.grids[n-1]
 
 
-    def __str__(self):
-        """to just print the current checker board
-        also add a coordinate axis for easier read
-        """
-
-        to_print = ''
-        y_num = 9
-        x_num = '   1, 2, 3, 4, 5, 6, 7, 8, 9'
-
-        for i in self.board:
-            to_print += str(y_num) + ' ' + str(i) + '\n'
-            y_num -= 1
-
-        to_print += x_num
-        return to_print
-
-    def print_puzzle(self):
-        to_print = ''
-        y_num = 9
-        x_num = '   1, 2, 3, 4, 5, 6, 7, 8, 9'
-
-        for i in self.puzzle:
-            to_print += str(y_num) + ' ' + str(i) + '\n'
-            y_num -= 1
-
-        to_print += x_num
-        print(to_print)
 
     def insert(self, x, y, value):
         """to insert a value into the checkerboard
