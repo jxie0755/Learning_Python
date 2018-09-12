@@ -408,7 +408,7 @@ class TankAnt(BodyguardAnt):
     # BEGIN Problem 10
     implemented = True   # Change to True to view in the GUI
     food_cost = 6
-    armor  = 2
+    armor = 2
     # END Problem 10
 
     def action(self, colony):
