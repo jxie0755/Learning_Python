@@ -124,9 +124,17 @@ class Sudoku(object):
                     if i not in check_list:
                         check_list.append(i)
                     else:
-                        print(i, 'is conflicted')
                         return False
         return True
+
+
+    def check_all_filled(self):
+        """To ensure all the place is filled with a number"""
+        return all(all(j != 0 for j in i) for i in self.board)
+
+    def check_solve(self):
+        """To check if the puzzle is solved"""
+        return self.check_all_filled() and self.no_conflict()
 
 
 if __name__ == '__main__':
@@ -189,3 +197,4 @@ if __name__ == '__main__':
     # medium = Sudoku(medium_data)
     # hard = Sudoku(hard_data)
     # evil = Sudoku(evil_data)
+
