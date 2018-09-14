@@ -36,10 +36,7 @@ class Sudoku(object):
         print('\n')
 
         # Also create a permanent puzzle copy for future use
-        self.puzzle = [self.board[i][:] for i in range(9)]
-
-        # Also create a permanment board copy for roll back, it begin with the same as puzzle
-        self.board_memory = [self.board[i][:] for i in range(9)]
+        self.puzzle = self.board_mem()
 
     def __str__(self):
         """to just print the current checker board
@@ -105,6 +102,32 @@ class Sudoku(object):
         """
         assert 1 <= value <= 9 and type(value) == int
         self.board[9-y][x-1] = value
+
+    def board_mem(self):
+        """a snpashot of current board
+        for future roll back
+        """
+        return [self.board[i][:] for i in range(9)]
+
+    def no_conflict(self):
+        """return if there is a conflict in the board, where 2 same number (!=0) showed up:
+        in the same row, column or grid
+
+        return True if no conflicts were found
+        return False if conflicts were found
+        """
+        all_subs = [self.row(n) for n in range(1,10)] + [self.row(n) for n in range(1,10)] + [self.grid(n) for n in range(1,10)]
+        for sub in all_subs:
+            check_list = []
+            for i in sub:
+                if i != 0:
+                    if i not in check_list:
+                        check_list.append(i)
+                    else:
+                        print(i, 'is conflicted')
+                        return False
+        return True
+
 
 if __name__ == '__main__':
     # list out 4 problems for test case
