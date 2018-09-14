@@ -132,7 +132,7 @@ class Sudoku(object):
         """To ensure all the place is filled with a number"""
         return all(all(j != 0 for j in i) for i in self.board)
 
-    def check_solve(self):
+    def check_solution(self):
         """To check if the puzzle is solved"""
         return self.check_all_filled() and self.no_conflict()
 
