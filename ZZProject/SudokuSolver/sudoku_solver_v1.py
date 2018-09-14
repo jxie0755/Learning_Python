@@ -109,6 +109,9 @@ class Sudoku(object):
         """
         return [self.board[i][:] for i in range(9)]
 
+
+    # define some verification method
+
     def no_conflict(self):
         """return if there is a conflict in the board, where 2 same number (!=0) showed up:
         in the same row, column or grid
@@ -126,7 +129,6 @@ class Sudoku(object):
                     else:
                         return False
         return True
-
 
     def check_all_filled(self):
         """To ensure all the place is filled with a number"""
