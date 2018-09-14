@@ -111,7 +111,6 @@ class Sudoku(object):
 
 
     # define some verification method
-
     def no_conflict(self):
         """return if there is a conflict in the board, where 2 same number (!=0) showed up:
         in the same row, column or grid
