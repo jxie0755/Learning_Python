@@ -198,4 +198,3 @@ if __name__ == '__main__':
     # medium = Sudoku(medium_data)
     # hard = Sudoku(hard_data)
     # evil = Sudoku(evil_data)
-
