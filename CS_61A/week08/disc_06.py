@@ -35,6 +35,10 @@ def sum_nums(lnk):
 
 
 
+
+
+# Linked list
+
 # Write a function that takes in a Python list of linked lists and multiplies them element-wise.
 # It should return a new linked list.
 
