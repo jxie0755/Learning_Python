@@ -33,3 +33,28 @@ def sum_nums(lnk):
     else:
         return lnk.first
 
+
+
+# Write a function that takes in a Python list of linked lists and multiplies them element-wise.
+# It should return a new linked list.
+
+def multiply_lnks(lst_of_lnks):
+    """
+    >>> a = Link(2, Link(3, Link(5)))
+    >>> b = Link(6, Link(4, Link(2)))
+    >>> c = Link(4, Link(1, Link(0, Link(2))))
+    >>> p = multiply_lnks([a, b, c])
+    >>> p.first
+    48
+    >>> p.rest.first
+    12
+    >>> p.rest.rest.rest
+    ()
+    """
+    if all([lnk for lnk in lst_of_lnks]):
+        value, sub_list = 1, []
+        for lnk in lst_of_lnks:
+                value *= lnk.first
+                sub_list.append(lnk.rest)
+        return Link(value, multiply_lnks(sub_list))
+    return ()
