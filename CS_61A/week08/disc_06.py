@@ -101,3 +101,4 @@ def multiply_lnks(lst_of_lnks):
                 sub_list.append(lnk.rest)
         return Link(value, multiply_lnks(sub_list))
     return ()
+
