@@ -102,3 +102,20 @@ def multiply_lnks(lst_of_lnks):
         return Link(value, multiply_lnks(sub_list))
     return ()
 
+# Write a function that takes a sorted linked list of integers and mutates it so that all duplicates are removed.
+
+def remove_duplicates(lnk):
+    """
+    >>> lnk = Link(1, Link(1, Link(1, Link(1, Link(5)))))
+    >>> remove_duplicates(lnk)
+    >>> lnk
+    Link(1, Link(5))
+    """
+    if lnk.first == lnk.rest.first:
+        lnk.rest = lnk.rest.rest
+    else:
+        return None
+    remove_duplicates(lnk)
+
+import doctest
+doctest.testmod(verbose=True)
