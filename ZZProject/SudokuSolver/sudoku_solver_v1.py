@@ -62,7 +62,7 @@ class Sudoku(object):
         return: a list of numbers extracted from the row
         """
         self.rows = self.board[:] # make a copy
-        return self.rows[n-1]
+        return self.rows[9-n]
 
     def col(self, n):
         """output a column of numbers
@@ -111,6 +111,46 @@ class Sudoku(object):
 
 
     # define some verification method
+    def get_value(self, coor):
+        """return the number at a coordinate in the checkerboard
+        coor: a tuple with two value (x, y)
+        return: the number on the checkerboard
+        """
+        return self.board[9-coor[1]][coor[0]-1]
+
+    def get_row_col_sub(self, coor):
+        """return a list of 3 list, that contains the related row, column and sub grid of that coor
+        """
+        row_at = self.row(coor[1])
+        col_at = self.col(coor[0])
+
+        if coor[0] in [1,2,3]:
+            if coor[1] in [1,2,3]:
+                n = 7
+            elif coor[1] in [4,5,6]:
+                n = 4
+            elif coor[1] in [7,8,9]:
+                n = 1
+
+        elif coor[0] in [4,5,6]:
+            if coor[1] in [1,2,3]:
+                n = 8
+            elif coor[1] in [4,5,6]:
+                n = 5
+            elif coor[1] in [7,8,9]:
+                n = 2
+
+        elif coor[0] in [7,8,9]:
+            if coor[1] in [1,2,3]:
+                n = 9
+            elif coor[1] in [4,5,6]:
+                n = 6
+            elif coor[1] in [7,8,9]:
+                n = 3
+
+        grid_at = self.grid(n)
+        return [row_at, col_at, grid_at]
+
     def no_conflict(self):
         """return if there is a conflict in the board, where 2 same number (!=0) showed up:
         in the same row, column or grid
@@ -129,13 +169,38 @@ class Sudoku(object):
                         return False
         return True
 
-    def check_all_filled(self):
+    def all_filled(self):
         """To ensure all the place is filled with a number"""
         return all(all(j != 0 for j in i) for i in self.board)
 
-    def check_solution(self):
+    def valid_solution(self):
         """To check if the puzzle is solved"""
-        return self.check_all_filled() and self.no_conflict()
+        print('The answer is:')
+        return self.all_filled() and self.no_conflict()
+
+    def direct_deduce(self):
+        """To analyze each vacant coordinate, and if there is only one possible value for it
+        fill it in with the value on the checkerboard"""
+
+        def deduce():
+            to_be_filled = []
+            for x in range(1,10):
+                for y in range(1,10):
+                    coordinate = (x, y)
+                    if self.get_value(coordinate) == 0:
+                        all_subs = self.get_row_col_sub(coordinate)
+                        cant_be = [i for i in sum(all_subs, []) if i != 0]
+                        all_nums = list(range(1,10))
+                        can_be = [i for i in all_nums if i not in cant_be]
+                        if len(can_be) == 1:
+                            to_be_filled.append((coordinate, can_be[0]))
+            return to_be_filled
+
+        to_fill = deduce()
+        while to_fill:
+            for coor, value in to_fill:
+                self.insert(coor[0], coor[1], value)
+            to_fill = deduce()
 
 
 if __name__ == '__main__':
@@ -198,3 +263,10 @@ if __name__ == '__main__':
     # medium = Sudoku(medium_data)
     # hard = Sudoku(hard_data)
     # evil = Sudoku(evil_data)
+
+    easy.direct_deduce()
+    print(easy)
+
+    print(easy.valid_solution())
+
+
