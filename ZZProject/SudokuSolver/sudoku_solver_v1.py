@@ -269,7 +269,4 @@ if __name__ == '__main__':
 
     easy.direct_deduce()
     print(easy)
-
     print(easy.valid_solution())
-
-
