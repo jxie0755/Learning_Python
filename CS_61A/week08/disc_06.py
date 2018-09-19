@@ -134,3 +134,27 @@ def even_weighted(lst):
     #         result.append(i*lst[i])
     # return result
     return [i * lst[i] for i in range(len(lst)) if i % 2 == 0]
+
+
+# The quicksort sorting algorithm is an efficient and commonly used algorithm to
+# order the elements of a list.
+# We choose one element of the list to be the pivot element and partition the remaining elements into two lists:
+# one of elements less than the pivot and one of elements greater than the pivot.
+# We recursively sort the two lists, which gives us a sorted list of all the elements less than the pivot and all the elements greater than the pivot, which we can then combine with the pivot for
+# a completely sorted list.
+
+# First, implement the quicksort list function. Choose the first element of the list
+# as the pivot. You may assume that all elements are distinct.
+
+def quicksort_list(lst):
+    """
+    >>> quicksort_list([3, 1, 4])
+    [1, 3, 4]
+    """
+    if len(lst) == 1:
+        return lst
+    pivot = lst[0]
+    less = [i for i in lst if i < pivot]
+    greater = [i for i in lst if i > pivot]
+    return quicksort_list(less) + [pivot] + quicksort_list(greater)
+
