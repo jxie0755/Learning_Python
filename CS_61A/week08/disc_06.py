@@ -151,10 +151,30 @@ def quicksort_list(lst):
     >>> quicksort_list([3, 1, 4])
     [1, 3, 4]
     """
-    if len(lst) == 1:
+    if len(lst) <= 1:
         return lst
     pivot = lst[0]
     less = [i for i in lst if i < pivot]
     greater = [i for i in lst if i > pivot]
     return quicksort_list(less) + [pivot] + quicksort_list(greater)
 
+# Write a function that takes in a list and returns the maximum product that can be
+# formed using nonconsecutive elements of the list.
+# The input list will contain only numbers greater than or equal to 1.
+
+def max_product(lst):
+    """Return the maximum product that can be formed using lst
+    without using any consecutive numbers
+    >>> max_product([10,3,1,9,2]) # 10 * 9
+    90
+    >>> max_product([5,10,5,10,5]) # 5 * 5 * 5
+    125
+    >>> max_product([])
+    1
+    """
+    if lst == []:
+        return 1
+    elif len(lst) == 1: # Base case optional
+        return lst[0]
+    else:
+        return max(max_product(lst[1:]), lst[0]*max_product(lst[2:]))
