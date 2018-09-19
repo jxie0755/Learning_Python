@@ -119,3 +119,18 @@ def remove_duplicates(lnk):
 
 import doctest
 doctest.testmod(verbose=True)
+
+
+# Midterm Review
+def even_weighted(lst):
+    """
+    >>> x = [1, 2, 3, 4, 5, 6]
+    >>> even_weighted(x)
+    [0, 6, 20]
+    """
+    # result = []
+    # for i in range(len(lst)):
+    #     if i % 2 == 0:
+    #         result.append(i*lst[i])
+    # return result
+    return [i * lst[i] for i in range(len(lst)) if i % 2 == 0]
