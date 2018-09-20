@@ -254,8 +254,10 @@ class Sudoku(object):
 
         snapshot_board = []
         snapshot_to_do = []
+        count = 0
 
         while not self.valid_solution():
+            count += 1
 
             self.direct_deduce()
 
@@ -274,6 +276,7 @@ class Sudoku(object):
                 self.hyper_move(snapshot_to_do.pop())
         print('problem solved!')
         print(self)
+        print('counted:', count)
 
 
 
@@ -332,14 +335,28 @@ if __name__ == '__main__':
         [0,1,0,0,9,0,0,0,0],
     ]
 
+    evil_data_1 = [
+        [0,0,1,8,3,0,0,0,0],
+        [9,6,5,0,0,0,0,0,0],
+        [0,0,0,0,1,0,9,0,0],
+        [4,0,0,0,0,0,0,1,0],
+        [0,0,9,6,0,4,3,0,0],
+        [0,8,0,0,0,0,0,0,2],
+        [0,0,7,0,9,0,0,0,0],
+        [0,0,0,0,0,0,5,4,8],
+        [0,0,0,0,2,5,1,0,0],
+    ]
 
-    easy = Sudoku(easy_data_10)
-    medium = Sudoku(medium_data_10)
-    hard = Sudoku(hard_data_10)
-    evil = Sudoku(evil_data_10)
+    easy10 = Sudoku(easy_data_10)
+    medium10 = Sudoku(medium_data_10)
+    hard10 = Sudoku(hard_data_10)
+    evil10 = Sudoku(evil_data_10)
 
 
-    # easy.solve()
-    # medium.solve()
-    # hard.solve()
-    # evil.solve()
+    # easy10.solve()
+    # medium10.solve()
+    # hard10.solve()
+    # evil10.solve()
+
+    evil1 = Sudoku(evil_data_1)
+    evil1.solve()
