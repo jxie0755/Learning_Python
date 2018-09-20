@@ -223,6 +223,8 @@ class Sudoku(object):
         for key, value in all_possible.items():
             if len(value) == 0:
                 return False
+        if self.all_filled():
+            return False
         return True
 
     def hypothesize(self):
@@ -272,7 +274,7 @@ class Sudoku(object):
             else:
                 self.board = snapshot_board.pop()
                 self.hyper_move(snapshot_to_do.pop())
-        print('problem solved')
+        print('problem solved!')
 
 
 
@@ -333,8 +335,12 @@ if __name__ == '__main__':
 
 
     easy = Sudoku(easy_data)
-    # medium = Sudoku(medium_data)
-    # hard = Sudoku(hard_data)
-    # evil = Sudoku(evil_data)
+    medium = Sudoku(medium_data)
+    hard = Sudoku(hard_data)
+    evil = Sudoku(evil_data)
 
+    
     easy.solve()
+    medium.solve()
+    hard.solve()
+    evil.solve()
