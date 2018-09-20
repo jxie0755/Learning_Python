@@ -273,6 +273,7 @@ class Sudoku(object):
                 self.board = snapshot_board.pop()
                 self.hyper_move(snapshot_to_do.pop())
         print('problem solved!')
+        print(self)
 
 
 
@@ -280,7 +281,7 @@ if __name__ == '__main__':
     # list out 4 problems for test case
 
     # websudoku easy puzzle 10
-    easy_data =[
+    easy_data_10 = [
         [0,1,0,0,6,0,0,9,0],
         [9,0,5,1,0,0,0,0,0],
         [0,4,8,7,0,9,6,0,0],
@@ -293,7 +294,7 @@ if __name__ == '__main__':
     ]
 
     # websudoku medium puzzle 10
-    medium_data = [
+    medium_data_10 = [
         [5,0,2,1,8,0,0,0,0],
         [9,1,0,0,5,0,2,0,0],
         [0,4,6,0,0,2,0,0,1],
@@ -306,7 +307,7 @@ if __name__ == '__main__':
     ]
 
      # websudoku hard puzzle 10
-    hard_data = [
+    hard_data_10 = [
         [0,0,0,3,7,0,0,0,5],
         [8,0,0,0,5,1,3,0,0],
         [0,5,0,0,0,0,0,6,2],
@@ -319,7 +320,7 @@ if __name__ == '__main__':
     ]
 
      # websudoku evil puzzle 10
-    evil_data = [
+    evil_data_10 = [
         [0,0,0,0,5,0,0,9,0],
         [0,5,0,6,8,0,0,0,0],
         [9,3,7,0,0,0,0,0,0],
@@ -332,13 +333,13 @@ if __name__ == '__main__':
     ]
 
 
-    easy = Sudoku(easy_data)
-    medium = Sudoku(medium_data)
-    hard = Sudoku(hard_data)
-    evil = Sudoku(evil_data)
+    easy = Sudoku(easy_data_10)
+    medium = Sudoku(medium_data_10)
+    hard = Sudoku(hard_data_10)
+    evil = Sudoku(evil_data_10)
 
 
-    easy.solve()
-    medium.solve()
-    hard.solve()
-    evil.solve()
+    # easy.solve()
+    # medium.solve()
+    # hard.solve()
+    # evil.solve()
