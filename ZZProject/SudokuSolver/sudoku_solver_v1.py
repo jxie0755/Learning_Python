@@ -179,12 +179,14 @@ class Sudoku(object):
 
     def valid_solution(self):
         """To check if the puzzle is solved"""
-        print('The answer is:')
         return self.all_filled() and self.no_conflict()
 
 
     def analysis(self):
-        """return a dict of every vacant coordinate linked to the possible value it can be put in"""
+        """return a dict of every vacant coordinate linked to the possible value it can be put in
+        the result dict should be in the form of :
+        {(x,y): [v1, v2, v3], (x,y): [v1, v2, v3], (x,y): [v1, v2, v3]}
+        """
         result = {}
         for x in range(1,10):
             for y in range(1,10):
@@ -223,39 +225,54 @@ class Sudoku(object):
                 return False
         return True
 
+    def hypothesize(self):
+        """analyze the board and picke the coordinate with least possible values
+        then generate a list of sublist which contains coor and a possible value
+        in the form of:
+        [[(x,y), value],[(x,y), value],[(x,y), value]]
+        """
+        result = []
+        all_possible = self.analysis()
+        coor = min(all_possible, key=lambda x: len(all_possible.get(x)))
+        value = all_possible[coor]
+        for i in value:
+            result.append([coor, i])
+        return result
+
+    def hyper_move(self, to_move):
+        """try to move a hypothsized spot with a possible number
+        to_move: a list as a pair of coordinates and possible values in the form of:
+        [(x,y), value]
+        according to to_move, the board insert this hyperthetical value
+        """
+        self.insert(to_move[0][0], to_move[0][1], to_move[1])
 
 
+    def solve(self):
 
-    # def solve(self):
+        snapshot_board = []
+        snapshot_to_do = []
 
-    #     snapshot_board = []
-    #     snapshot_to_do = []
+        while not self.valid_solution():
 
-    #     while not self.valid_solution():
+            self.direct_deduce()
 
-    #         self.direct_deduce()
-    #         situation = self.analysis()
+            if self.valid_solution():
+                break
 
-    #         if self.feasible(situation):
-    #             attemp_move = self.hypothesize(situation)
-    #             for i in range(len(attemp_move)-1):
-    #                 snapshot_board.append(self.board_mem())
-    #             snapshot_to_do.append(attemp_move)
-    #             self.hyper_move(snapshot_to_do)
+            situation = self.analysis()
 
-    #         else:
-    #             self.board = snapshot_board.pop()
-    #             self.hyper_move(snapshot_to_do)
+            if self.feasible():
+                attemp_move = self.hypothesize()
+                for i in range(len(attemp_move)-1):
+                    snapshot_board.append(self.board_mem())
+                snapshot_to_do += attemp_move
+                self.hyper_move(snapshot_to_do.pop())
 
-
-
-
-
-
-
-
-
-
+            else:
+                self.board = snapshot_board.pop()
+                self.hyper_move(snapshot_to_do.pop())
+        print('problem solved')
 
 
 
@@ -320,12 +337,4 @@ if __name__ == '__main__':
     # hard = Sudoku(hard_data)
     # evil = Sudoku(evil_data)
 
-    a = easy.analysis()
-    for key, value in a.items():
-        if len(value) == 1:
-            print(key, value)
-
-
-    # easy.direct_deduce()
-    # print(easy)
-    # print(easy.valid_solution())
+    easy.solve()
