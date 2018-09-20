@@ -46,4 +46,3 @@ print(max(a, key=a.get)) # >>> b
 
 a = {'a': '0000010', 'b':'40', 'c': '020'}
 print(max(a, key=lambda x: len(a.get(x))))  # >>> a
-
