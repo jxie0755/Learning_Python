@@ -262,8 +262,6 @@ class Sudoku(object):
             if self.valid_solution():
                 break
 
-            situation = self.analysis()
-
             if self.feasible():
                 attemp_move = self.hypothesize()
                 for i in range(len(attemp_move)-1):
@@ -339,7 +337,7 @@ if __name__ == '__main__':
     hard = Sudoku(hard_data)
     evil = Sudoku(evil_data)
 
-    
+
     easy.solve()
     medium.solve()
     hard.solve()
