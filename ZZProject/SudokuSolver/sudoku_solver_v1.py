@@ -249,9 +249,11 @@ class Sudoku(object):
         """
         self.insert(to_move[0][0], to_move[0][1], to_move[1])
 
-
+    # Final solution
     def solve(self):
-
+        """This will solve the problem and fill the self.board with correct answer
+        it will then print(self) to show the answer
+        """
         snapshot_board = []
         snapshot_to_do = []
         count = 0
@@ -353,10 +355,10 @@ if __name__ == '__main__':
     evil10 = Sudoku(evil_data_10)
 
 
-    # easy10.solve()
-    # medium10.solve()
-    # hard10.solve()
-    # evil10.solve()
+    easy10.solve()
+    medium10.solve()
+    hard10.solve()
+    evil10.solve()
 
     evil1 = Sudoku(evil_data_1)
     evil1.solve()
