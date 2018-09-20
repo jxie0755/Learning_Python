@@ -176,10 +176,26 @@ class Sudoku(object):
         """To ensure all the place is filled with a number"""
         return all(all(j != 0 for j in i) for i in self.board)
 
+
     def valid_solution(self):
         """To check if the puzzle is solved"""
         print('The answer is:')
         return self.all_filled() and self.no_conflict()
+
+
+    def analysis(self):
+        """return a dict of every vacant coordinate linked to the possible value it can be put in"""
+        result = {}
+        for x in range(1,10):
+            for y in range(1,10):
+                coordinate = (x, y)
+                if self.get_value(coordinate) == 0:
+                    all_subs = self.get_row_col_sub(coordinate)
+                    cant_be = [i for i in sum(all_subs, []) if i != 0]
+                    all_nums = list(range(1,10))
+                    can_be = [i for i in all_nums if i not in cant_be]
+                    result[coordinate] = can_be
+        return result
 
     def direct_deduce(self):
         """To analyze each vacant coordinate, and if there is only one possible value for it
@@ -187,51 +203,49 @@ class Sudoku(object):
 
         def deduce():
             to_be_filled = []
-            for x in range(1,10):
-                for y in range(1,10):
-                    coordinate = (x, y)
-                    if self.get_value(coordinate) == 0:
-                        all_subs = self.get_row_col_sub(coordinate)
-                        cant_be = [i for i in sum(all_subs, []) if i != 0]
-                        all_nums = list(range(1,10))
-                        can_be = [i for i in all_nums if i not in cant_be]
-                        if len(can_be) == 1:
-                            to_be_filled.append((coordinate, can_be[0]))
+            all_possible = self.analysis()
+            for key, value in all_possible.items():
+                if len(value) == 1:
+                    to_be_filled.append((key, value[0]))
             return to_be_filled
 
-        to_fill = deduce()
-        while to_fill:
-            for coor, value in to_fill:
+        to_be_filled = deduce()
+        while to_be_filled:
+            for coor, value in to_be_filled:
                 self.insert(coor[0], coor[1], value)
-            to_fill = deduce()
+            to_be_filled = deduce()
 
-    def solve(self):
-
-        snapshot_board = []
-        snapshot_to_do = []
-
-        while not self.valid_solution():
-
-            self.direct_deduce()
-            situation = self.analysis()
-
-            if self.feasible(situation):
-                attemp_move = self.hypothesize(situation)
-                for i in range(len(attemp_move)-1):
-                    snapshot_board.append(self.board_mem())
-                snapshot_to_do.append(attemp_move)
-                self.hyper_move(snapshot_to_do)
-
-            else:
-                self.board = snapshot_board.pop()
-                self.hyper_move(snapshot_to_do)
+    def feasible(self):
+        """return True if all vacant spot can still fill in a possible number"""
+        all_possible = self.analysis()
+        for key, value in all_possible.items():
+            if len(value) == 0:
+                return False
+        return True
 
 
 
 
+    # def solve(self):
 
+    #     snapshot_board = []
+    #     snapshot_to_do = []
 
+    #     while not self.valid_solution():
 
+    #         self.direct_deduce()
+    #         situation = self.analysis()
+
+    #         if self.feasible(situation):
+    #             attemp_move = self.hypothesize(situation)
+    #             for i in range(len(attemp_move)-1):
+    #                 snapshot_board.append(self.board_mem())
+    #             snapshot_to_do.append(attemp_move)
+    #             self.hyper_move(snapshot_to_do)
+
+    #         else:
+    #             self.board = snapshot_board.pop()
+    #             self.hyper_move(snapshot_to_do)
 
 
 
@@ -306,6 +320,12 @@ if __name__ == '__main__':
     # hard = Sudoku(hard_data)
     # evil = Sudoku(evil_data)
 
-    easy.direct_deduce()
-    print(easy)
-    print(easy.valid_solution())
+    a = easy.analysis()
+    for key, value in a.items():
+        if len(value) == 1:
+            print(key, value)
+
+
+    # easy.direct_deduce()
+    # print(easy)
+    # print(easy.valid_solution())
