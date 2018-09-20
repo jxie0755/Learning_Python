@@ -205,6 +205,45 @@ class Sudoku(object):
                 self.insert(coor[0], coor[1], value)
             to_fill = deduce()
 
+    def solve(self):
+
+        snapshot_board = []
+        snapshot_to_do = []
+
+        while not self.valid_solution():
+
+            self.direct_deduce()
+            situation = self.analysis()
+
+            if self.feasible(situation):
+                attemp_move = self.hypothesize(situation)
+                for i in range(len(attemp_move)-1):
+                    snapshot_board.append(self.board_mem())
+                snapshot_to_do.append(attemp_move)
+                self.hyper_move(snapshot_to_do)
+
+            else:
+                self.board = snapshot_board.pop()
+                self.hyper_move(snapshot_to_do)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 if __name__ == '__main__':
     # list out 4 problems for test case
