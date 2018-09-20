@@ -257,10 +257,12 @@ class Sudoku(object):
         snapshot_board = []
         snapshot_to_do = []
         count = 0
+        hypo_layer = 0
+        hypo_layer_all = []
 
         while not self.valid_solution():
             count += 1
-
+            hypo_layer_all.append(hypo_layer)
             self.direct_deduce()
 
             if self.valid_solution():
@@ -272,13 +274,17 @@ class Sudoku(object):
                     snapshot_board.append(self.board_mem())
                 snapshot_to_do += attemp_move
                 self.hyper_move(snapshot_to_do.pop())
+                hypo_layer += 1
 
             else:
+                hypo_layer -= 1
                 self.board = snapshot_board.pop()
                 self.hyper_move(snapshot_to_do.pop())
+
         print('problem solved!')
         print(self)
-        print('counted:', count)
+        print('start with:', hypo_layer_all[1:20])
+        print('max_layer_counted:', max(hypo_layer_all))
 
 
 
@@ -361,7 +367,7 @@ if __name__ == '__main__':
     evil10.solve()
 
     evil1 = Sudoku(evil_data_1)
-    
+
     evil1.solve()
 
     # Addtional test case: Hardest SUDOKU ever!
@@ -377,5 +383,8 @@ if __name__ == '__main__':
         [0,9,0,0,0,0,4,0,0],
     ]
 
+    import time
     ultimate_sudoku = Sudoku(ultimate_puzzle)
+    start_time = time.time()
     ultimate_sudoku.solve()
+    print(f"--- {time.time() - start_time}s seconds ---\n")
