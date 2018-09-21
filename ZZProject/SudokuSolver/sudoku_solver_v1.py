@@ -48,13 +48,20 @@ class Sudoku(object):
 
         to_print = ''
         y_num = 9
-        x_num = '   1, 2, 3, 4, 5, 6, 7, 8, 9'
+        separ = '    -----------------------------'
+        x_num = '    1, 2, 3,   4, 5, 6,   7, 8, 9'
+
 
         for i in self.board:
-            to_print += str(y_num) + ' ' + str(i) + '\n'
+            row = str(i)
+            row = row[0:9] + '  ' + row[9:18] + '  ' + row[18:]
+            to_print += str(y_num) + '  ' + row + '\n'
+            if y_num in [7, 4]:
+                to_print += '\n'
             y_num -= 1
 
-        to_print += x_num
+
+        to_print += separ + '\n' + x_num
         return to_print
 
 
