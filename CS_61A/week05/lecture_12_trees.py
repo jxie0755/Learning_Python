@@ -310,3 +310,35 @@ def getitem_link(s, i):
 
 print(getitem_link(four, 1))
 # >>> 2
+
+
+
+def eval_tree(tree):
+    """Evaluates an expression tree with functions the root.
+    >>> eval_tree(tree(1))
+    1
+    >>> expr = tree('*', [tree(2), tree(3)])
+    >>> eval_tree(expr)
+    6
+    >>> eval_tree(tree('+', [expr, tree(4), tree(5)]))
+    15
+    """
+    if label(tree) == '+':
+        return sum([eval_tree(b) for b in branches(tree)])
+
+    elif label(tree) == '*':
+        temp = 1
+        for b in branches(tree):
+            temp *= eval_tree(b)
+        return temp
+
+    else:
+        return label(tree)
+
+print(eval_tree(tree(1)))
+# >>> 1
+expr = tree('*', [tree(2), tree(3)])
+print(eval_tree(expr))
+# >>> 6
+print(eval_tree(tree('+', [expr, tree(4), tree(5)])))
+# >>> 15

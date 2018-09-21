@@ -178,3 +178,33 @@ def max_product(lst):
         return lst[0]
     else:
         return max(max_product(lst[1:]), lst[0]*max_product(lst[2:]))
+
+# 4.4
+# An expression tree is a tree that contains a function for each non-leaf node,
+# which can be either ’+’ or ’*’. All leaves are numbers. Implement eval_tree,
+# which evaluates an expression tree to its value. You may want to use the functions
+# sum and prod, which take a list of numbers and compute the sum and product
+# respectively.
+
+def eval_tree(tree):
+    """Evaluates an expression tree with functions the root.
+    >>> eval_tree(tree(1))
+    1
+    >>> expr = tree('*', [tree(2), tree(3)])
+    >>> eval_tree(expr)
+    6
+    >>> eval_tree(tree('+', [expr, tree(4), tree(5)]))
+    15
+    """
+    if label(tree) == '+':
+        return sum([eval_tree(b) for b in branches(tree)])
+
+    elif label(tree) == '*':
+        temp = 1
+        for b in branches(tree):
+            temp *= eval_tree(b)
+        return temp
+
+    else:
+        return label(tree)
+
