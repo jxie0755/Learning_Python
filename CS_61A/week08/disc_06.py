@@ -224,4 +224,3 @@ def redundant_map(t, f):
     new_f = lambda x: f(f(x))
     t.branches = [redundant_map(branch, new_f) for branch in t.branches]
     return t
-    
