@@ -37,7 +37,7 @@ def sum_nums(lnk):
 
 # What is the order of growth for the following functions?
 
-#2.1
+# 2.1
 def sum_of_factorial(n):  # O(n^2)
     if n == 0:
         return 1
