@@ -208,3 +208,20 @@ def eval_tree(tree):
     else:
         return label(tree)
 
+# Complete redundant map, which takes a tree t and a function f, and applies f to
+# the node (2d) times, where d is the depth of the node. The root has a depth of 0
+def redundant_map(t, f):
+    """
+    >>> double = lambda x: x*2
+    >>> tree = Tree(1, [Tree(1), Tree(2, [Tree(1, [Tree(1)])])])
+    >>> print_levels(redundant_map(tree, double))
+    [2] # 1 * 2 ˆ (1) ; Apply double one time
+    [4, 8] # 1 * 2 ˆ (2), 2 * 2 ˆ (2) ; Apply double two times
+    [16] # 1 * 2 ˆ (2 ˆ 2) ; Apply double four times
+    [256] # 1 * 2 ˆ (2 ˆ 3) ; Apply double eight times
+    """
+    t.label = f(t.label)
+    new_f = lambda x: f(f(x))
+    t.branches = [redundant_map(branch, new_f) for branch in t.branches]
+    return t
+    
