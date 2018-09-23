@@ -57,7 +57,6 @@ class Link:
         self.rest.first = value
 # Also in ZCodeSnippets.class_link.py
 
-
 # See more in ZCodeSnippets.class_tree.py
 class Tree:
     """A tree is a label and a list of branches."""
