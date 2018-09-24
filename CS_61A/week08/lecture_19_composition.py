@@ -131,9 +131,6 @@ def leaves(tree):
     else:
         return sum([leaves(b) for b in tree.branches], [])
 
-
-
-
 def height(tree):
     """The height of a tree."""
     if tree.is_leaf():
