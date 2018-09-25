@@ -26,4 +26,3 @@ c = Other()
 
 print(Parent.foo(c, 10)) # >>> 100
 print(Child.foo(c, 10))  # >> 101
-
