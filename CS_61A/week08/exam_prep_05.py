@@ -55,6 +55,6 @@ Proletariat().work(john)
 # >>>
 # Comrade Peon, I work
 
-# print(john.elf.work(john))
+print(john.elf.work(john))
 # >>>
 # Comrade Peon, I work
