@@ -290,6 +290,7 @@ class Sudoku(object):
 
         print('problem solved!')
         print(self)
+        print('Total hypothesis: ', count)
         print('start with:', hypo_layer_all[1:20])
         print('max_layer_counted:', max(hypo_layer_all))
 
