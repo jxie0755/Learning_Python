@@ -52,9 +52,9 @@ def adjoin(s, v):
     >>> s = Link(1, Link(2, Link(3)))
     >>> t = adjoin(s, 4)
     >>> t
-    Link(4, Link(1, Link(2, Link(3))))
+    Link(1, Link(2, Link(3, Link(4))))
     """
-    if empty(s) or v < s.first:
+    if empty(s) or v  < s.first:
         return Link(v, s)
     elif v == s.first:
         return s
@@ -67,15 +67,18 @@ def intersect(s, t):
     >>> s = Link(1, Link(2, Link(3)))
     >>> t = adjoin(s, 4)
     >>> intersect(t,  Link(1, Link(4, Link(9))))
-    Link(4, Link(1))
+    Link(1, Link(4))
     """
-    if s is Link.empty:
+    if s is Link.empty or t is Link.empty:
         return Link.empty
-    rest = intersect(s.rest, t)
-    if contains(t, s.first):
-        return Link(s.first, rest)
     else:
-        return rest
+        e1, e2 = s.first, t.first
+        if e1 == e2:
+            return Link(e1, intersect(s.rest, t.rest))
+        elif e1 < e2:
+            return intersect(s.rest, t)
+        elif e2 < e1:
+            return intersect(s, t.rest)
 
 def union(s, t):
     """Return a set containing all elements either in s or t.
