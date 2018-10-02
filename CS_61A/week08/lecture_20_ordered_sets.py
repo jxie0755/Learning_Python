@@ -143,7 +143,7 @@ def add(s, v):
     if s.first > v:
         s.first, s.rest = v, Link(s.first, s.rest)
     elif s.first < v and empty(s.rest):
-        s.rest = Link(v, s.rest)
+        s.rest = Link(v)
     elif s.first < v:
         add(s.rest, v)
     return s
