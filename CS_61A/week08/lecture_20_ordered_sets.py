@@ -39,7 +39,7 @@ def contains(s, v):
     >>> contains(s, 5)
     False
     """
-    if empty(s):
+    if empty(s) or s.first > v:
         return False
     elif s.first == v:
         return True
@@ -47,17 +47,19 @@ def contains(s, v):
         return contains(s.rest, v)
 
 def adjoin(s, v):
-    """Return a set containing all elements of s and element v.
+    """Return a set containing all elements of s  and element v.
 
     >>> s = Link(1, Link(2, Link(3)))
     >>> t = adjoin(s, 4)
     >>> t
     Link(4, Link(1, Link(2, Link(3))))
     """
-    if contains(s, v):
+    if empty(s) or v < s.first:
+        return Link(v, s)
+    elif v == s.first:
         return s
     else:
-        return Link(v, s)
+        return Link(s.first, adjoin(s.rest, v))
 
 def intersect(s, t):
     """Return a set containing all elements common to s and t.
