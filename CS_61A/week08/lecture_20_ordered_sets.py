@@ -25,7 +25,7 @@ class Link:
             self = self.rest
         return string + str(self.first) + '>'
 
-# Sets as sorted sequences
+# Sets as un-sorted sequences
 
 def empty(s):
     return s is Link.empty
@@ -39,7 +39,7 @@ def contains(s, v):
     >>> contains(s, 5)
     False
     """
-    if empty(s) or s.first > v:
+    if empty(s):
         return False
     elif s.first == v:
         return True
@@ -47,19 +47,17 @@ def contains(s, v):
         return contains(s.rest, v)
 
 def adjoin(s, v):
-    """Return a set containing all elements of s  and element v.
+    """Return a set containing all elements of s and element v.
 
     >>> s = Link(1, Link(2, Link(3)))
     >>> t = adjoin(s, 4)
     >>> t
-    Link(1, Link(2, Link(3, Link(4))))
+    Link(4, Link(1, Link(2, Link(3))))
     """
-    if empty(s) or v  < s.first:
-        return Link(v, s)
-    elif v == s.first:
+    if contains(s, v):
         return s
     else:
-        return Link(s.first, adjoin(s.rest, v))
+        return Link(v, s)
 
 def intersect(s, t):
     """Return a set containing all elements common to s and t.
@@ -67,18 +65,15 @@ def intersect(s, t):
     >>> s = Link(1, Link(2, Link(3)))
     >>> t = adjoin(s, 4)
     >>> intersect(t,  Link(1, Link(4, Link(9))))
-    Link(1, Link(4))
+    Link(4, Link(1))
     """
-    if s is Link.empty or t is Link.empty:
+    if s is Link.empty:
         return Link.empty
+    rest = intersect(s.rest, t)
+    if contains(t, s.first):
+        return Link(s.first, rest)
     else:
-        e1, e2 = s.first, t.first
-        if e1 == e2:
-            return Link(e1, intersect(s.rest, t.rest))
-        elif e1 < e2:
-            return intersect(s.rest, t)
-        elif e2 < e1:
-            return intersect(s, t.rest)
+        return rest
 
 def union(s, t):
     """Return a set containing all elements either in s or t.
