@@ -46,6 +46,7 @@ def generate_lattice_path_move(coor_1, coor_2):
     # 通过set()来过滤到重复的路径移动方式,利用sorted()来维持顺序
     filtered_raw = sorted(set(raw), key=raw.index)
 
+    print('From', coor_1, 'To', coor_2, ':')
     print('Total path number:', total_paths_num)
     return filtered_raw
 
@@ -99,9 +100,10 @@ def find_lattice_paths(coor_1, coor_2):
         result.append(path)
 
     # for printing the paths
+    print('Path list:')
     for path in result:
         print(path)
-
+    print('\n')
     # return the result for further use
     return result
 
@@ -112,3 +114,4 @@ if __name__ == '__main__':
     find_lattice_paths((-1, -1), (-1, 4))  # 如果坐标在一条y轴上
     find_lattice_paths((1, 1), (3, 3))  # 如果坐标在一个正方形的两个端点 (相当于2*的grid)
     find_lattice_paths((-1, 1), (1, -2))  # 如果坐标随意离散 (相当于2*3的grid)
+    # find_lattice_paths((0,0), (5,5))
