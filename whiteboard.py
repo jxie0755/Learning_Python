@@ -72,4 +72,4 @@ def count_grid_path_with_path_print(n):
     return count
 
 
-count_grid_path_with_path_print(2)
+count_grid_path_with_path_print(4)
