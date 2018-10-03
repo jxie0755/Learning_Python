@@ -170,10 +170,13 @@ def count_grid_path_with_path_print(n):
     # 退出while loop以后,good_routes已经完成
     # 但是,它们并没有抵达(n,n),因为当到达之前的点就被判定为路线成立而终止
     # 逐项检查其中每条路径,帮助其填满所有坐标
-    # def create_end_coors(coor, n):
-    #     end_coor = (n, n)
-    #     result = []
-    #     if coor[0] == n:
+    for route in good_route:
+        if route[-1][0] == n:
+            add_on = [(n, i) for i in range(route[-1][1]+1, n+1)]
+            route += add_on
+        elif route[-1][1] == n:
+            add_on = [(i, n) for i in range(route[-1][0]+1, n+1)]
+            route += add_on
 
 
 
