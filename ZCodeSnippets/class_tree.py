@@ -490,6 +490,9 @@ if __name__ == '__main__':
     #         None
     #         None
 
+
+# Extension Application
+
 # Fib Tree
 def fib_tree(n):
     """Fibonacci binary tree.
@@ -514,6 +517,36 @@ def bst(values):
     mid = len(values) // 2
     left, right = bst(values[:mid]), bst(values[mid+1:])
     return BTree(values[mid], left, right)
+
+def largest(t):
+    """Return the largest element in a binary search tree.
+
+    >>> largest(bst([1, 3, 5, 7, 9]))
+    9
+    """
+    if t.right is BTree.empty:
+        return t.label
+    else:
+        return largest(t.right)
+
+# Second largest
+def second(t):
+    """Return the second largest element in a binary search tree.
+
+    >>> second(bst([1, 3, 5]))
+    3
+    >>> second(bst([1, 3, 5, 7, 9]))
+    7
+    >>> second(Tree(1))
+    """
+    if t.is_leaf():
+        return None
+    elif t.right is BTree.empty:
+        return largest(t.left)
+    elif t.right.is_leaf():
+        return t.label
+    else:
+        return second(t.right)
 
 if __name__ == '__main__':
 
