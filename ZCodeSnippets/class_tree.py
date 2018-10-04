@@ -490,8 +490,23 @@ if __name__ == '__main__':
     #         None
     #         None
 
+# Fib Tree
+def fib_tree(n):
+    """Fibonacci binary tree.
 
-# Binary search tree
+    >>> fib_tree(3)
+    BTree(2, BTree(1), BTree(1, BTree(0), BTree(1)))
+    """
+    if n == 0 or n == 1:
+        return BTree(n)
+    else:
+        left = fib_tree(n-2)
+        right = fib_tree(n-1)
+        fib_n = left.label + right.label
+        return BTree(fib_n, left, right)
+
+
+# Binary Search Tree
 def bst(values):
     """Create a balanced binary search tree from a sorted list."""
     if not values:
