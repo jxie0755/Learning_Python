@@ -489,3 +489,34 @@ if __name__ == '__main__':
     #       11
     #         None
     #         None
+
+
+# Binary search tree
+def bst(values):
+    """Create a balanced binary search tree from a sorted list."""
+    if not values:
+        return BTree.empty
+    mid = len(values) // 2
+    left, right = bst(values[:mid]), bst(values[mid+1:])
+    return BTree(values[mid], left, right)
+
+if __name__ == '__main__':
+
+    t = bst([1, 3, 5, 7, 9, 11, 13])
+    print(t)
+    # >>>
+    # 7
+    #   3
+    #     1
+    #       None
+    #       None
+    #     5
+    #       None
+    #       None
+    #   11
+    #     9
+    #       None
+    #       None
+    #     13
+    #       None
+    #       None
