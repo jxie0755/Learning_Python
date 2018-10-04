@@ -508,7 +508,6 @@ def fib_tree(n):
         fib_n = left.label + right.label
         return BTree(fib_n, left, right)
 
-
 # Binary Search Tree
 def bst(values):
     """Create a balanced binary search tree from a sorted list."""
