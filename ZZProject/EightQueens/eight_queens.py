@@ -10,6 +10,8 @@ class Chessboard(object):
     """
 
     all_spots = [(x, y) for x in range(1, 9) for y in range(1, 9)]
+    available_spots = all_spots[:]
+    spots_taken = []
 
     def __init__(self, empty=[
         [0, 0, 0, 0, 0, 0, 0, 0],
@@ -53,6 +55,8 @@ class Chessboard(object):
         """
         x, y = coor[0], coor[1]
         self.board[8-y][x-1] = 1
+        self.spots_taken.append(coor)
+        self.available_spots.remove(coor)
 
     def get(self, coor):
         """obtain the value at a coor"""
@@ -63,48 +67,50 @@ class Chessboard(object):
     def row_coor(self, coor):
         """output a list of cross of coor in the direction of row"""
         x, y = coor[0], coor[1]
-        cross_list = [(i, y) for i in range(1, 9)]
-        return cross_list
+        row_coor_list = [(i, y) for i in range(1, 9)]
+        row_coor_list.remove(coor)
+        return row_coor_list
 
     def col_coor(self, coor):
         """output a list of cross of coor in the direction of row"""
         x, y = coor[0], coor[1]
-        cross_list = [(x, i) for i in range(1, 9)]
-        return cross_list
+        col_coor_list = [(x, i) for i in range(1, 9)]
+        col_coor_list.remove(coor)
+        return col_coor_list
 
     def cross_coor_1(self, coor): # of \ cross
         """output a list of cross of coor in the direction of /"""
         x, y = coor[0], coor[1]
-        cross_list = [coor]
+        cross_coor_list = []
         before, after = coor[:], coor[:]
         while before[0] > 1 and before[1] < 8:
             x, y = before[0], before[1]
             before = (x-1, y+1)
-            cross_list = [before] + cross_list
+            cross_coor_list = [before] + cross_coor_list
 
         while after[0] < 8 and after[1] > 1:
             x, y = after[0], after[1]
             after = (x+1, y-1)
-            cross_list = cross_list + [after]
+            cross_coor_list = cross_coor_list + [after]
 
-        return cross_list
+        return cross_coor_list
 
     def cross_coor_2(self, coor): # # of / cross
         """output a list of cross of coor in the direction of /"""
         x, y = coor[0], coor[1]
-        cross_list = [coor]
+        cross_coor_list = []
         before, after = coor[:], coor[:]
         while before[0] > 1 and before[1] > 1:
             x, y = before[0], before[1]
             before = (x-1, y-1)
-            cross_list = [before] + cross_list
+            cross_coor_list = [before] + cross_coor_list
 
         while after[0] < 8 and after[1] < 8:
             x, y = after[0], after[1]
             after = (x+1, y+1)
-            cross_list = cross_list + [after]
+            cross_coor_list = cross_coor_list + [after]
 
-        return cross_list
+        return cross_coor_list
 
 
     # Build up class attributes to for future to check up the rows, columns and grids.
@@ -124,6 +130,23 @@ class Chessboard(object):
         """return: a list of numbers extracted from / cross of coor"""
         return [t.get(i) for i in t.cross_coor_2(coor)]
 
+    # Analysis function to update the available spot list
+    def analysis(self):
+        print(len(self.available_spots))
+        available_spots_copy = self.available_spots[:]
+        for coor in self.spots_taken:
+            coor_to_remove = self.row_coor(coor) + self.row_coor(coor)+ self.cross_coor_1(coor) + self.cross_coor_2(coor)
+            for coor in self.available_spots:
+                if coor in coor_to_remove and coor in available_spots_copy:
+                    available_spots_copy.remove(coor)
 
+        self.available_spots = available_spots_copy
+
+        print(len(coor_to_remove))
+        print(len(self.available_spots))
 
 if __name__ == '__main__':
+    t = Chessboard()
+    t.insert((6,5))
+    print(t)
+    print(t.analysis())
