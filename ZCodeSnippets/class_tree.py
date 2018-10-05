@@ -567,3 +567,45 @@ if __name__ == '__main__':
     #     13
     #       None
     #       None
+
+# Sets as binary search trees
+
+def contains(s, v):
+    """Return true if set s contains value v as an element.
+
+    >>> t = BTree(2, BTree(1), BTree(3))
+    >>> contains(t, 3)
+    True
+    >>> contains(t, 0)
+    False
+    >>> contains(bst(range(20, 60, 2)), 34)
+    True
+    """
+    if s is BTree.empty:
+        return False
+    elif s.label == v:
+        return True
+    elif s.label < v:
+        return contains(s.right, v)
+    elif s.label > v:
+        return contains(s.left, v)
+
+def adjoin(s, v):
+    """Return a set containing all elements of s and element v.
+
+    >>> b = bst(range(1, 10, 2))
+    >>> adjoin(b, 5) # already contains 5
+    BTree(5, BTree(3, BTree(1)), BTree(9, BTree(7)))
+    >>> adjoin(b, 6)
+    BTree(5, BTree(3, BTree(1)), BTree(9, BTree(7, BTree(6))))
+    >>> contents(adjoin(adjoin(b, 6), 2))
+    [1, 2, 3, 5, 6, 7, 9]
+    """
+    if s is BTree.empty:
+        return BTree(v)
+    elif s.label == v:
+        return s
+    elif s.label < v:
+        return BTree(s.label, s.left, adjoin(s.right, v))
+    elif s.label > v:
+        return BTree(s.label, adjoin(s.left, v), s.right)
