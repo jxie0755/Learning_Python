@@ -9,8 +9,8 @@ class Chessboard(object):
     the key is in the solve function, where the algorithm is in, to find the answer
     """
 
-    all_spots = [(x, y) for x in range(1, 9) for y in range(1, 9)]
-    available_spots = all_spots[:]
+    all_spots = {(x, y) for x in range(1, 9) for y in range(1, 9)}
+    available_spots = all_spots.copy()
     spots_taken = []
 
     def __init__(self, empty=[
@@ -130,23 +130,33 @@ class Chessboard(object):
         """return: a list of numbers extracted from / cross of coor"""
         return [t.get(i) for i in t.cross_coor_2(coor)]
 
+    def exam(self, coor):
+        return [
+            self.row(coor),
+            self.col(coor),
+            self.cross_1(coor),
+            self.cross_2(coor),
+        ]
+
     # Analysis function to update the available spot list
-    def analysis(self):
+    def queen_analysis(self):
         print(len(self.available_spots))
-        available_spots_copy = self.available_spots[:]
         for coor in self.spots_taken:
-            coor_to_remove = self.row_coor(coor) + self.row_coor(coor)+ self.cross_coor_1(coor) + self.cross_coor_2(coor)
-            for coor in self.available_spots:
-                if coor in coor_to_remove and coor in available_spots_copy:
-                    available_spots_copy.remove(coor)
+            coor_to_remove = set(self.row_coor(coor) + self.col_coor(coor)+ self.cross_coor_1(coor) + self.cross_coor_2(coor))
+            print(len(coor_to_remove))
+            self.available_spots -= coor_to_remove
+            print(len(self.available_spots))
 
-        self.available_spots = available_spots_copy
+    def n_queen_solve(self):
 
-        print(len(coor_to_remove))
-        print(len(self.available_spots))
+
+
 
 if __name__ == '__main__':
     t = Chessboard()
     t.insert((6,5))
+    t.insert((5,4))
+
     print(t)
-    print(t.analysis())
+
+    print(t.exam((6,5)))
