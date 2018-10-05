@@ -601,9 +601,9 @@ def adjoin(s, v):
     >>> contents(adjoin(adjoin(b, 6), 2))
     [1, 2, 3, 5, 6, 7, 9]
     """
-    if s is BTree.empty:
+    if s is BTree.empty:  # If empty then add it at the end of a leaf
         return BTree(v)
-    elif s.label == v:
+    elif s.label == v:    # If a label is v, then it is already there
         return s
     elif s.label < v:
         return BTree(s.label, s.left, adjoin(s.right, v))
