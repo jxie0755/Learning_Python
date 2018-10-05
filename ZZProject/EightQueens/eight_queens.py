@@ -58,6 +58,12 @@ class Chessboard(object):
         self.spots_taken.append(coor)
         self.available_spots.remove(coor)
 
+    def un_insert(self, coor):
+        x, y = coor[0], coor[1]
+        self.board[8-y][x-1] = 0
+        self.spots_taken.remove(coor)
+        self.available_spots.add(coor)
+
     def get(self, coor):
         """obtain the value at a coor"""
         return self.board[8-coor[1]][coor[0]-1]
@@ -140,23 +146,61 @@ class Chessboard(object):
 
     # Analysis function to update the available spot list
     def queen_analysis(self):
-        print(len(self.available_spots))
         for coor in self.spots_taken:
             coor_to_remove = set(self.row_coor(coor) + self.col_coor(coor)+ self.cross_coor_1(coor) + self.cross_coor_2(coor))
-            print(len(coor_to_remove))
             self.available_spots -= coor_to_remove
-            print(len(self.available_spots))
+        return len(self.available_spots) > 0
 
-    def n_queen_solve(self):
+    def eight_queen_solve(self):
+        result = []
+        for coor1 in self.all_spots:
+            self.insert(coor1)
+            if self.queen_analysis():
+                for coor2 in self.available_spots:
+                    self.insert(coor2)
+                    if self.queen_analysis():
+                        for coor3 in self.available_spots:
+                            self.insert(coor3)
+                            if self.queen_analysis():
+                                for coor4 in self.available_spots:
+                                    self.insert(coor4)
+                                    if self.queen_analysis():
+                                        for coor5 in self.available_spots:
+                                            self.insert(coor5)
+                                            if self.queen_analysis():
+                                                for coor6 in self.available_spots:
+                                                    self.insert(coor6)
+                                                    if self.queen_analysis():
+                                                        for coor7 in self.available_spots:
+                                                            self.insert(coor7)
+                                                            if self.queen_analysis():
+                                                                for coor8 in self.available_spots:
+                                                                    self.insert(coor8)
+                                                                    snapshot = Chessboard(self.board[:])
+                                                                    result.append(snapshot)
+                                                            else:
+                                                                self.un_insert(coor7)
+                                                    else:
+                                                        self.un_insert(coor6)
+                                            else:
+                                                self.un_insert(coor5)
+                                    else:
+                                        self.un_insert(coor4)
+                            else:
+                                self.un_insert(coor3)
+                    else:
+                        self.un_insert(coor2)
+            else:
+                self.un_insert(coor1)
+
+            for i in result:
+                print(i)
+
+
 
 
 
 
 if __name__ == '__main__':
     t = Chessboard()
-    t.insert((6,5))
-    t.insert((5,4))
-
-    print(t)
-
-    print(t.exam((6,5)))
+    t.eight_queen_solve()
