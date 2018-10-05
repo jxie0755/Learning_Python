@@ -9,7 +9,7 @@ class Chessboard(object):
     the key is in the solve function, where the algorithm is in, to find the answer
     """
 
-    all_spots = []
+    all_spots = [(x, y) for x in range(1, 9) for y in range(1, 9)]
 
     def __init__(self, empty=[
         [0, 0, 0, 0, 0, 0, 0, 0],
@@ -23,17 +23,9 @@ class Chessboard(object):
     ]):
         """
         An empty checkerboard -
-        the structure should be a nested list of 10 lists where each list contain 10 spot, default to filled with 0
-
-        When initiated:
-        The empty checkerboard is skipped by directly loading a pre-written board with numbers on.
-        The pre-written board follows the same structure as a nested list like empty.
+        the structure should be a nested list of 8 lists where each list contain 8 spots, default to filled with 0
         """
         self.board = empty
-
-        print('A chess is generated:')
-        print(self)
-        print('\n')
 
     def __str__(self):
         """to just print the current checker board
@@ -54,12 +46,84 @@ class Chessboard(object):
         to_print += separ + '\n' + x_num
         return to_print
 
+    # Basic get and set
+    def insert(self, coor):
+        """to insert a value into the checkerboard
+        for convenience, indext start from 1, and act like coordinates
+        """
+        x, y = coor[0], coor[1]
+        self.board[8-y][x-1] = 1
 
-    def put(self, coor):
+    def get(self, coor):
+        """obtain the value at a coor"""
+        return self.board[8-coor[1]][coor[0]-1]
 
+
+    # Generate coor list
+    def row_coor(self, coor):
+        """output a list of cross of coor in the direction of row"""
+        x, y = coor[0], coor[1]
+        cross_list = [(i, y) for i in range(1, 9)]
+        return cross_list
+
+    def col_coor(self, coor):
+        """output a list of cross of coor in the direction of row"""
+        x, y = coor[0], coor[1]
+        cross_list = [(x, i) for i in range(1, 9)]
+        return cross_list
+
+    def cross_coor_1(self, coor): # of \ cross
+        """output a list of cross of coor in the direction of /"""
+        x, y = coor[0], coor[1]
+        cross_list = [coor]
+        before, after = coor[:], coor[:]
+        while before[0] > 1 and before[1] < 8:
+            x, y = before[0], before[1]
+            before = (x-1, y+1)
+            cross_list = [before] + cross_list
+
+        while after[0] < 8 and after[1] > 1:
+            x, y = after[0], after[1]
+            after = (x+1, y-1)
+            cross_list = cross_list + [after]
+
+        return cross_list
+
+    def cross_coor_2(self, coor): # # of / cross
+        """output a list of cross of coor in the direction of /"""
+        x, y = coor[0], coor[1]
+        cross_list = [coor]
+        before, after = coor[:], coor[:]
+        while before[0] > 1 and before[1] > 1:
+            x, y = before[0], before[1]
+            before = (x-1, y-1)
+            cross_list = [before] + cross_list
+
+        while after[0] < 8 and after[1] < 8:
+            x, y = after[0], after[1]
+            after = (x+1, y+1)
+            cross_list = cross_list + [after]
+
+        return cross_list
+
+
+    # Build up class attributes to for future to check up the rows, columns and grids.
+    def row(self, coor):
+        """"return: a list of numbers extracted from the row"""
+        return [t.get(i) for i in t.row_coor(coor)]
+
+    def col(self, coor):
+        """return: a list of numbers extracted from the column"""
+        return [t.get(i) for i in t.col_coor(coor)]
+
+    def cross_1(self, coor):
+        """return: a list of numbers extracted \ cross of coor"""
+        return [t.get(i) for i in t.cross_coor_1(coor)]
+
+    def cross_2(self, coor):
+        """return: a list of numbers extracted from / cross of coor"""
+        return [t.get(i) for i in t.cross_coor_2(coor)]
 
 
 
 if __name__ == '__main__':
-    t = Chessboard()
-
