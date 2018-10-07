@@ -186,3 +186,4 @@ def adjoin(s, v):
         return BTree(s.label, s.left, adjoin(s.right, v))
     elif s.label > v:
         return BTree(s.label, adjoin(s.left, v), s.right)
+
