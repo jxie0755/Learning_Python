@@ -201,6 +201,7 @@ class Chessboard(object):
 
 
 
+
 if __name__ == '__main__':
     t = Chessboard()
     t.eight_queen_solve()

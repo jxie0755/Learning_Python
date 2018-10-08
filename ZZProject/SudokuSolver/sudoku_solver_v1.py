@@ -295,7 +295,6 @@ class Sudoku(object):
         print('max_layer_counted:', max(hypo_layer_all))
 
 
-
 if __name__ == '__main__':
     # list out 4 problems for test case
 
