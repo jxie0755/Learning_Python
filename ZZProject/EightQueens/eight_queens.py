@@ -9,8 +9,8 @@ class Chessboard(object):
     the key is in the solve function, where the algorithm is in, to find the answer
     """
 
-    all_spots = {(x, y) for x in range(1, 9) for y in range(1, 9)}
-    available_spots = all_spots.copy()
+    all_spots = [(x, y) for x in range(1, 9) for y in range(1, 9)]
+    available_spots = all_spots[:]
     spots_taken = []
 
     def __init__(self, empty=[
@@ -62,7 +62,7 @@ class Chessboard(object):
         x, y = coor[0], coor[1]
         self.board[8-y][x-1] = 0
         self.spots_taken.remove(coor)
-        self.available_spots.add(coor)
+        self.available_spots.append(coor)
 
     def get(self, coor):
         """obtain the value at a coor"""
@@ -147,8 +147,11 @@ class Chessboard(object):
     # Analysis function to update the available spot list
     def queen_analysis(self):
         for coor in self.spots_taken:
-            coor_to_remove = set(self.row_coor(coor) + self.col_coor(coor)+ self.cross_coor_1(coor) + self.cross_coor_2(coor))
-            self.available_spots -= coor_to_remove
+            coors_to_remove = set(self.row_coor(coor) + self.col_coor(coor)+ self.cross_coor_1(coor) + self.cross_coor_2(coor))
+            for coor_r in coors_to_remove:
+                if coor_r in self.available_spots:
+                    self.available_spots.remove(coor_r)
+
         return len(self.available_spots) > 0
 
     def eight_queen_solve(self):
