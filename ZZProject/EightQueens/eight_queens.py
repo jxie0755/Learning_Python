@@ -155,6 +155,16 @@ class Chessboard(object):
                     self.available_spots.remove(coor_r)
         return self.available_spots
 
+    def re_evaluate(self):
+        self.available_spots = self.all_spots
+        for coor in self.spots_taken:
+            self.available_spots.remove(coor)
+            coors_to_remove = set(self.row_coor(coor) + self.col_coor(coor)+ self.cross_coor_1(coor) + self.cross_coor_2(coor))
+            for coor_r in coors_to_remove:
+                if coor_r in self.available_spots:
+                    self.available_spots.remove(coor_r)
+        return self.available_spots
+
     def eight_queen_solve(self):
         result = []
         snapshots = [self.available_spots[:]]
@@ -219,13 +229,28 @@ if __name__ == '__main__':
     t = Chessboard()
     # t.eight_queen_solve()
     t.insert((1,1))
+    t.queen_analysis()
+    print(t.available_spots)
+    print('now taken', t.spots_taken)
     t.insert((2,3))
+    t.queen_analysis()
+    print(t.available_spots)
+    print('now taken', t.spots_taken)
     t.insert((3,5))
+    t.queen_analysis()
+    print(t.available_spots)
+    print('now taken', t.spots_taken)
     t.insert((4,2))
+    t.queen_analysis()
+    print(t.available_spots)
+    print('now taken', t.spots_taken)
     t.insert((5,4))
     t.queen_analysis()
     print(t.available_spots)
+    print('now taken', t.spots_taken)
     t.un_insert((5,4))
     print(t.available_spots)
-
+    print('now taken', t.spots_taken)
+    t.re_evaluate()
+    print(t.available_spots)
 
