@@ -165,10 +165,13 @@ class Chessboard(object):
                     self.available_spots.remove(coor_r)
         return self.available_spots
 
-    def eight_queen_solve(self):
+    def queen_solve(self, n):
         result = []
         snapshots = [self.available_spots[:]]
-        
+        while self.spots_taken != 8:
+            pass
+
+
 # TODO 未完成最终算法
 
 if __name__ == '__main__':
