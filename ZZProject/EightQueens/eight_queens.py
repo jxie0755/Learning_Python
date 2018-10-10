@@ -210,47 +210,29 @@ class Chessboard(object):
                                                                     result.append(Chessboard(self.board[:]))
                                                                 else:
                                                                     self.un_insert(coor8)
+                                                                    self.re_evaluate()
                                                     else:
                                                         self.un_insert(coor6)
+                                                        self.re_evaluate()
                                             else:
                                                 self.un_insert(coor5)
+                                                self.re_evaluate()
                                     else:
                                         self.un_insert(coor4)
+                                        self.re_evaluate()
                             else:
                                 self.un_insert(coor3)
+                                self.re_evaluate()
                     else:
                         self.un_insert(coor2)
+                        self.re_evaluate()
             else:
                 self.un_insert(coor1)
+                self.re_evaluate()
         print('done!')
 
 
 if __name__ == '__main__':
     t = Chessboard()
-    # t.eight_queen_solve()
-    t.insert((1,1))
-    t.queen_analysis()
-    print(t.available_spots)
-    print('now taken', t.spots_taken)
-    t.insert((2,3))
-    t.queen_analysis()
-    print(t.available_spots)
-    print('now taken', t.spots_taken)
-    t.insert((3,5))
-    t.queen_analysis()
-    print(t.available_spots)
-    print('now taken', t.spots_taken)
-    t.insert((4,2))
-    t.queen_analysis()
-    print(t.available_spots)
-    print('now taken', t.spots_taken)
-    t.insert((5,4))
-    t.queen_analysis()
-    print(t.available_spots)
-    print('now taken', t.spots_taken)
-    t.un_insert((5,4))
-    print(t.available_spots)
-    print('now taken', t.spots_taken)
-    t.re_evaluate()
-    print(t.available_spots)
+    t.eight_queen_solve()
 
