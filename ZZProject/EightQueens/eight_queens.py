@@ -148,40 +148,55 @@ class Chessboard(object):
     # Analysis function to update the available spot list
     def queen_analysis(self):
         """analysis the checkerboard and return a new list of available spots left"""
-        new_available = self.available_spots[:]
         for coor in self.spots_taken:
             coors_to_remove = set(self.row_coor(coor) + self.col_coor(coor)+ self.cross_coor_1(coor) + self.cross_coor_2(coor))
             for coor_r in coors_to_remove:
-                if coor_r in new_available:
+                if coor_r in self.available_spots:
                     self.available_spots.remove(coor_r)
-        self.snapshots.append(new_available)
-        return new_available
+        return self.available_spots
 
     def eight_queen_solve(self):
         result = []
+        snapshots = [self.available_spots[:]]
         for coor1 in self.all_spots:
             self.insert(coor1)
-            if self.queen_analysis():
-                for coor2 in self.queen_analysis():
+            print('coor1:', coor1)
+            self.queen_analysis()
+            if self.available_spots:
+                for coor2 in self.available_spots:
                     self.insert(coor2)
-                    if self.queen_analysis():
-                        for coor3 in self.queen_analysis():
+                    print('coor2:', coor2)
+                    self.queen_analysis()
+                    if self.available_spots:
+                        for coor3 in self.available_spots:
                             self.insert(coor3)
-                            if self.queen_analysis():
-                                for coor4 in self.queen_analysis():
+                            print('coor3:', coor3)
+                            self.queen_analysis()
+                            if self.available_spots:
+                                for coor4 in self.available_spots:
                                     self.insert(coor4)
-                                    if self.queen_analysis():
-                                        for coor5 in self.queen_analysis():
+                                    print('coor4:', coor4)
+                                    self.queen_analysis()
+                                    if self.available_spots:
+                                        for coor5 in self.available_spots:
                                             self.insert(coor5)
-                                            if self.queen_analysis():
-                                                for coor6 in self.queen_analysis():
+                                            print('coor5:', coor5)
+                                            self.queen_analysis()
+                                            if self.available_spots:
+                                                for coor6 in self.available_spots:
                                                     self.insert(coor6)
-                                                    if self.queen_analysis():
-                                                        for coor7 in self.queen_analysis():
+                                                    print('coor6:', coor6)
+                                                    self.queen_analysis()
+                                                    if self.available_spots:
+                                                        for coor7 in self.available_spots:
                                                             self.insert(coor7)
-                                                            if self.queen_analysis():
+                                                            print('coor7:', coor7)
+                                                            self.queen_analysis()
+                                                            if self.available_spots:
                                                                 for coor8 in self.queen_analysis():
                                                                     self.insert(coor8)
+                                                                    print('coor8:', coor8)
+                                                                    self.queen_analysis()
                                                                     result.append(Chessboard(self.board[:]))
                                                                 else:
                                                                     self.un_insert(coor8)
@@ -200,7 +215,17 @@ class Chessboard(object):
         print('done!')
 
 
-
 if __name__ == '__main__':
     t = Chessboard()
-    t.eight_queen_solve()
+    # t.eight_queen_solve()
+    t.insert((1,1))
+    t.insert((2,3))
+    t.insert((3,5))
+    t.insert((4,2))
+    t.insert((5,4))
+    t.queen_analysis()
+    print(t.available_spots)
+    t.un_insert((5,4))
+    print(t.available_spots)
+
+
