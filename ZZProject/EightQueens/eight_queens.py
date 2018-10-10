@@ -230,7 +230,7 @@ class Chessboard(object):
                 self.un_insert(coor1)
                 self.re_evaluate()
         print('done!')
-
+# TODO 未完成最终算法
 
 if __name__ == '__main__':
     t = Chessboard()
