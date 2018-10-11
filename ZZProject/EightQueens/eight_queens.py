@@ -166,20 +166,20 @@ class Chessboard(object):
         return self.available_spots
 
     def queen_solve(self, n):
+        candidates = [self.all_spots[:]] + [[]*7]
         result = []
-        snapshots = [self.available_spots[:]]
-        to_test = self.all_spots[:]
-        tested = []
 
         # this while loop makes sure go over all first coor
         while len(to_test) != 0:
             self.insert(to_test.pop())  # coor_1
-            level = 1
+
             # from here we start analysis
             while self.queen_analysis() and self.spots_taken != 8:
                 coor_x = self.available_spots[0]
                 self.insert(coor_x)
-                level += 1
+                if self.spots_taken == 8:
+                    result.append(Chessboard(self.board[:]))
+                else:
 
 
 # TODO 未完成最终算法
