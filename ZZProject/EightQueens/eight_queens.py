@@ -8,10 +8,20 @@ class Chessboard(object):
     there will also be an final examination method to ensure when every empty slot is filled.
     the key is in the solve function, where the algorithm is in, to find the answer
     """
+    empty_board = [
+        [0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0],
+    ]
 
     all_spots = [(x, y) for x in range(1, 9) for y in range(1, 9)]
     available_spots = all_spots[:]
-    spots_taken = []
+    spots_taken = [() for i in range(8)]
     snapshots = [available_spots[:]]
 
     def __init__(self, empty=[
@@ -56,14 +66,11 @@ class Chessboard(object):
         """
         x, y = coor[0], coor[1]
         self.board[8-y][x-1] = 1
-        self.spots_taken.append(coor)
-        self.available_spots.remove(coor)
 
     def un_insert(self, coor):
         x, y = coor[0], coor[1]
         self.board[8-y][x-1] = 0
-        self.spots_taken.remove(coor)
-        self.available_spots.append(coor)
+
 
     def get(self, coor):
         """obtain the value at a coor"""
@@ -75,20 +82,18 @@ class Chessboard(object):
         """output a list of cross of coor in the direction of row"""
         x, y = coor[0], coor[1]
         row_coor_list = [(i, y) for i in range(1, 9)]
-        row_coor_list.remove(coor)
         return row_coor_list
 
     def col_coor(self, coor):
         """output a list of cross of coor in the direction of row"""
         x, y = coor[0], coor[1]
         col_coor_list = [(x, i) for i in range(1, 9)]
-        col_coor_list.remove(coor)
         return col_coor_list
 
     def cross_coor_1(self, coor): # of \ cross
         """output a list of cross of coor in the direction of /"""
         x, y = coor[0], coor[1]
-        cross_coor_list = []
+        cross_coor_list = [coor]
         before, after = coor[:], coor[:]
         while before[0] > 1 and before[1] < 8:
             x, y = before[0], before[1]
@@ -105,7 +110,7 @@ class Chessboard(object):
     def cross_coor_2(self, coor): # # of / cross
         """output a list of cross of coor in the direction of /"""
         x, y = coor[0], coor[1]
-        cross_coor_list = []
+        cross_coor_list = [coor]
         before, after = coor[:], coor[:]
         while before[0] > 1 and before[1] > 1:
             x, y = before[0], before[1]
@@ -148,43 +153,94 @@ class Chessboard(object):
     # Analysis function to update the available spot list
     def queen_analysis(self):
         """analysis the checkerboard and return a new list of available spots left"""
+        all_coors = self.all_spots[:]
         for coor in self.spots_taken:
-            coors_to_remove = set(self.row_coor(coor) + self.col_coor(coor)+ self.cross_coor_1(coor) + self.cross_coor_2(coor))
-            for coor_r in coors_to_remove:
-                if coor_r in self.available_spots:
-                    self.available_spots.remove(coor_r)
-        return self.available_spots
+            if coor:
+                coors_to_remove = set(self.row_coor(coor) + self.col_coor(coor)+ self.cross_coor_1(coor) + self.cross_coor_2(coor))
+                for coor_r in coors_to_remove:
+                    if coor_r in all_coors:
+                        all_coors.remove(coor_r)
+        return all_coors
 
-    def re_evaluate(self):
-        self.available_spots = self.all_spots
-        for coor in self.spots_taken:
-            self.available_spots.remove(coor)
-            coors_to_remove = set(self.row_coor(coor) + self.col_coor(coor)+ self.cross_coor_1(coor) + self.cross_coor_2(coor))
-            for coor_r in coors_to_remove:
-                if coor_r in self.available_spots:
-                    self.available_spots.remove(coor_r)
-        return self.available_spots
+    # def re_evaluate(self):
+    #     self.available_spots = self.all_spots
+    #     for coor in self.spots_taken:
+    #         self.available_spots.remove(coor)
+    #         coors_to_remove = set(self.row_coor(coor) + self.col_coor(coor)+ self.cross_coor_1(coor) + self.cross_coor_2(coor))
+    #         for coor_r in coors_to_remove:
+    #             if coor_r in self.available_spots:
+    #                 self.available_spots.remove(coor_r)
+    #     return self.available_spots
 
     def queen_solve(self, n):
-        candidates = [self.all_spots[:]] + [[]* (n - 1)]
+        candidates = [self.all_spots[:]] + [[] for i in range(n - 1)]
         result = []
 
         # this while loop makes sure go over all first coor
-        while len(candidates[0]) != 0:
-            self.insert(candidates[0].pop(0))  # coor_1
+        for coor_0 in candidates[0]:
+            self.spots_taken[0] = coor_0
+            print('Now checking:', coor_0)
+            for i in range(1,n):
+                self.spots_taken[i] = ()
+            candidates[1] = self.queen_analysis()[:]
 
             # from here we start analysis
-            while self.queen_analysis() and self.spots_taken != 8:
-                coor_x = self.available_spots[0]
-                self.insert(coor_x)
-                if self.spots_taken == 8:
-                    result.append(Chessboard(self.board[:]))
-                else:
+            for coor_1 in candidates[1]:
+                for i in range(2,n):
+                    self.spots_taken[i] = ()
+                self.spots_taken[1] = coor_1
+                candidates[2] = self.queen_analysis()[:]
+
+                for coor_2 in candidates[2]:
+                    for i in range(3,n):
+                        self.spots_taken[i] = ()
+                    self.spots_taken[2] = coor_2
+                    candidates[3] = self.queen_analysis()[:]
+
+                    for coor_3 in candidates[3]:
+                        for i in range(4,n):
+                            self.spots_taken[i] = ()
+                        self.spots_taken[3] = coor_3
+                        candidates[4] = self.queen_analysis()[:]
+
+                        for coor_4 in candidates[4]:
+                            for i in range(5,n):
+                                self.spots_taken[i] = ()
+                            self.spots_taken[4] = coor_4
+                            candidates[5] = self.queen_analysis()[:]
+
+                            for coor_5 in candidates[5]:
+                                for i in range(6,n):
+                                    self.spots_taken[i] = ()
+                                self.spots_taken[5] = coor_5
+                                candidates[6] = self.queen_analysis()[:]
+
+                                for coor_6 in candidates[6]:
+                                    for i in range(7,n):
+                                        self.spots_taken[i] = ()
+                                    self.spots_taken[6] = coor_6
+                                    candidates[7] = self.queen_analysis()[:]
+
+                                    for coor_7 in candidates[7]:
+                                        self.spots_taken[7] = coor_7
+                                        for coor in self.spots_taken:
+                                            if coor:
+                                                self.insert(coor)
+                                        result.append(Chessboard(self.board))
+                                        self.spots_taken[7] = ()
+                                        self.board = self.empty_board
+
+        print('Total solution:', len(result))
+        return result
+
+
+
 
 
 # TODO 未完成最终算法
 
 if __name__ == '__main__':
     t = Chessboard()
-    t.eight_queen_solve()
+    answer = t.queen_solve(8)
+
 
