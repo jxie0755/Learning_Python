@@ -162,16 +162,6 @@ class Chessboard(object):
                         all_coors.remove(coor_r)
         return all_coors
 
-    # def re_evaluate(self):
-    #     self.available_spots = self.all_spots
-    #     for coor in self.spots_taken:
-    #         self.available_spots.remove(coor)
-    #         coors_to_remove = set(self.row_coor(coor) + self.col_coor(coor)+ self.cross_coor_1(coor) + self.cross_coor_2(coor))
-    #         for coor_r in coors_to_remove:
-    #             if coor_r in self.available_spots:
-    #                 self.available_spots.remove(coor_r)
-    #     return self.available_spots
-
     def queen_solve(self, n):
         candidates = [self.all_spots[:]] + [[] for i in range(n - 1)]
         result = []
