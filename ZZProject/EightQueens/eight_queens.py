@@ -228,5 +228,3 @@ class Chessboard(object):
 if __name__ == '__main__':
     t = Chessboard()
     answer = t.queen_solve(8)
-
-
