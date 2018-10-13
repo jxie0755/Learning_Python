@@ -216,7 +216,6 @@ class Chessboard(object):
                                             if type(coor) == tuple:
                                                 self.insert(coor)
                                         result.append(Chessboard(self.board))
-                                        self.spots_taken[7] = 7
                                         self.board = self.empty_board
 
         print('Total solution:', len(result))
