@@ -21,7 +21,7 @@ class Chessboard(object):
 
     all_spots = [(x, y) for x in range(1, 9) for y in range(1, 9)]
     available_spots = all_spots[:]
-    spots_taken = [() for i in range(8)]
+    spots_taken = [0,1,2,3,4,5,6,7]
     snapshots = [available_spots[:]]
 
     def __init__(self, empty=[
@@ -155,7 +155,7 @@ class Chessboard(object):
         """analysis the checkerboard and return a new list of available spots left"""
         all_coors = self.all_spots[:]
         for coor in self.spots_taken:
-            if coor:
+            if type(coor) == tuple:
                 coors_to_remove = set(self.row_coor(coor) + self.col_coor(coor)+ self.cross_coor_1(coor) + self.cross_coor_2(coor))
                 for coor_r in coors_to_remove:
                     if coor_r in all_coors:
@@ -179,62 +179,58 @@ class Chessboard(object):
         # this while loop makes sure go over all first coor
         for coor_0 in candidates[0]:
             self.spots_taken[0] = coor_0
-            print('Now checking:', coor_0)
             for i in range(1,n):
-                self.spots_taken[i] = ()
+                self.spots_taken[i] = i
             candidates[1] = self.queen_analysis()[:]
 
             # from here we start analysis
             for coor_1 in candidates[1]:
                 for i in range(2,n):
-                    self.spots_taken[i] = ()
+                    self.spots_taken[i] = i
                 self.spots_taken[1] = coor_1
                 candidates[2] = self.queen_analysis()[:]
 
                 for coor_2 in candidates[2]:
                     for i in range(3,n):
-                        self.spots_taken[i] = ()
+                        self.spots_taken[i] = i
                     self.spots_taken[2] = coor_2
                     candidates[3] = self.queen_analysis()[:]
 
                     for coor_3 in candidates[3]:
                         for i in range(4,n):
-                            self.spots_taken[i] = ()
+                            self.spots_taken[i] = i
                         self.spots_taken[3] = coor_3
                         candidates[4] = self.queen_analysis()[:]
 
                         for coor_4 in candidates[4]:
                             for i in range(5,n):
-                                self.spots_taken[i] = ()
+                                self.spots_taken[i] = i
                             self.spots_taken[4] = coor_4
                             candidates[5] = self.queen_analysis()[:]
 
                             for coor_5 in candidates[5]:
                                 for i in range(6,n):
-                                    self.spots_taken[i] = ()
+                                    self.spots_taken[i] = i
                                 self.spots_taken[5] = coor_5
                                 candidates[6] = self.queen_analysis()[:]
 
                                 for coor_6 in candidates[6]:
                                     for i in range(7,n):
-                                        self.spots_taken[i] = ()
+                                        self.spots_taken[i] = i
                                     self.spots_taken[6] = coor_6
                                     candidates[7] = self.queen_analysis()[:]
 
                                     for coor_7 in candidates[7]:
                                         self.spots_taken[7] = coor_7
                                         for coor in self.spots_taken:
-                                            if coor:
+                                            if type(coor) == tuple:
                                                 self.insert(coor)
                                         result.append(Chessboard(self.board))
-                                        self.spots_taken[7] = ()
+                                        self.spots_taken[7] = 7
                                         self.board = self.empty_board
 
         print('Total solution:', len(result))
         return result
-
-
-
 
 
 # TODO 未完成最终算法
