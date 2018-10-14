@@ -64,6 +64,14 @@ def digits(n):
         s = Link(last, s)
     return s
 
+# Create a class called MissManners that promotes politeness among our objects. A MissManners object takes another object on construction. It has one method, called ask. It responds by calling methods on the object it contains, but only if the caller said please first.
+
+# We can also compose multiple instances of MissManners objects upon each other (see double_fussy in doctests). A multilevel MissManners object must be politely requested to ask its own MissManners object. This continues until we reach the bottom level MissManners object.
+
+# Hint: Use getattr (Python docs) and hasattr (Python docs) to access methods using strings. You may want to search online for some examples of their usage.
+
+# Hint: Your implementation will need to use the *args notation that allows functions to take a flexible number of arguments. If you need a refresher, take a look at your implementation of make_averaged in the Hog project
+
 class VendingMachine:
     """A vending machine that vends some product for some price.
 
@@ -169,3 +177,8 @@ class MissManners:
         if not message.startswith(magic_word):
             return 'You must learn to say please first.'
         "*** YOUR CODE HERE ***"
+        message = message[7:]
+        if hasattr(self.obj, message):
+            return getattr(self.obj, message)(*args)
+        else:
+            return 'Thanks for asking, but I know not how to ' + message + '.'
