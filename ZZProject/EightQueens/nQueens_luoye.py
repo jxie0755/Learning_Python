@@ -1,3 +1,5 @@
+# From Yeluo to solve N-Queens
+
 def diagonal(column):
     n = len(column)
     for i in range(0,n):
@@ -49,4 +51,4 @@ def queens(n):
     return result_counter
 
 if __name__ == "__main__":
-    print(queens(4))
+    print(queens(8))
