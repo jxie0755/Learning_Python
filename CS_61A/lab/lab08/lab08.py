@@ -1,6 +1,8 @@
 """ Lab 08: Midterm Review """
 
 # Linked lists
+
+# Q1
 def deep_len(lnk):
     """ Returns the deep length of a possibly deep linked list.
 
@@ -16,6 +18,22 @@ def deep_len(lnk):
     5
     """
     "*** YOUR CODE HERE ***"
+    lenth = 0
+    def dl(lnk):
+        nonlocal lenth
+        if isinstance(lnk.first, Link):
+            dl(lnk.first)
+            dl(lnk.rest)
+        elif isinstance(lnk.first, int) and lnk.rest != Link.empty:
+            lenth += 1
+            dl(lnk.rest)
+        else:
+            lenth += 1
+            return None
+
+    dl(lnk)
+    return lenth
+
 
 # Link class
 class Link:
