@@ -18,3 +18,9 @@ print(s[3:1:-1] == s[2:4][::-1])  # True
 # 若 y - x == -1  则 s[x]
 # 若 y - x > 1    则 正向
 # 若 y - x < -1   则 方向
+
+
+t = [1, 2, 3]
+print(t[1:10])  # The slice can go over it's own index
+# >>>
+# [2, 3]
