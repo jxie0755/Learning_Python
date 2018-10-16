@@ -14,8 +14,10 @@ def output(column,counter):
     print(counter)
     for i in range(0,n):
         for j in range(0,n):
-            if column[i] == j: print('O',end=' ')
-            else: print('X',end=' ')
+            if column[i] == j:
+                print('O',end=' ')
+            else:
+                print('X',end=' ')
         print(end='\n')
 
 def possible_remove(column,n,i):
@@ -51,4 +53,5 @@ def queens(n):
     return result_counter
 
 if __name__ == "__main__":
-    print(queens(8))
+    # print(queens(8))
+    pass
