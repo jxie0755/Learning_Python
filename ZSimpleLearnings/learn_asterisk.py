@@ -28,7 +28,7 @@ def asterisk2(*args): # this allows carry multiple arguments
 a = asterisk2(1,2,'a','b')
 print(a)
 print(type(a))
-# >>> (1, 2, 'a', 'b') 
+# >>> (1, 2, 'a', 'b')
 # >>> <class 'tuple'>
 # this forced all individual items to pack
 
@@ -42,6 +42,31 @@ print(asterisk2(*[1,2,'a','b']))
 # Again, equal to asterisk2(1,2,'a','b'), as it forced to break down the list into individual args.
 # But then force to pack back into a tuple
 # >>> (1, 2, 'a', 'b')
+
+
+# Example for *args in iteration:
+class Keyboard:
+    """A Keyboard takes in an arbitrary amount of buttons, and has a
+    dictionary of positions as keys, and values as Buttons.
+    """
+
+    def __init__(self, *args):
+        "*** YOUR CODE HERE ***"
+        self.buttons = {a.pos: a for a in args}  # do not use * in iteration.
+
+
+class Button:
+    def __init__(self, pos, key):
+        self.pos = pos
+        self.key = key
+        self.pressed = 0
+
+
+b1 = Button(0, "H")
+b2 = Button(1, "I")
+k = Keyboard(b1, b2)
+print(k.buttons[0].key)
+
 
 
 
