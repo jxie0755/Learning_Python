@@ -85,7 +85,24 @@ def make_advanced_counter_maker():
     1
     """
     "*** YOUR CODE HERE ***"
-
+    global_count = 0
+    def make_counter():
+        count = 0
+        def counter(message):
+            nonlocal count
+            nonlocal global_count
+            if message == 'count':
+                count += 1
+                return count
+            elif message == 'global-count':
+                global_count += 1
+                return global_count
+            elif message == 'reset':
+                count = 0
+            elif message == 'global-reset':
+                global_count = 0
+        return counter
+    return make_counter
 
 
 # Q7 WWPD
