@@ -109,19 +109,19 @@ def make_advanced_counter_maker():
 def got(lst, el, f):
     welcome = []
     for e in lst:
-        if e == el:
-            el = f(lst[1:], 2, welcome)
-    return lst[3:] + welcome
+        if e == el: # met twice 6 and 1
+            el = f(lst[1:], 2, welcome)  # since lst[1:] is a copy, so lst never changed, therefore lst[1:] also never changed
+    return lst[3:] + welcome  # welcome append the pop twice, therefore end as [6,6]
 
 def avocadis(lst, i, lst0):
-    lst0.append(lst.pop(i))
-    return len(lst0)
+    lst0.append(lst.pop(i))   # Since lst[1:] will always be [6,1,6], the pop will always be 6
+    return len(lst0)  # el changed twice from 6 to 1, from 1 to 2
 
 bananis = [1, 6, 1, 6]
-n = bananis[3]
+n = bananis[3]  # 6
 we = got(bananis, n, avocadis)
-
-
+print(we)
+# >>> [6,6,6]
 
 # Lists
 def trade(first, second):
