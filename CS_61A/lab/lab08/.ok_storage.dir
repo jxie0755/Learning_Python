@@ -3,3 +3,4 @@
 'make_advanced_counter_maker-correct', (1024, 70)
 'trade-correct', (1536, 70)
 'make_to_string-correct', (2048, 70)
+'tree_map-correct', (2560, 70)

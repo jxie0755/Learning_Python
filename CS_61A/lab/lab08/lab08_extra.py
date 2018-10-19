@@ -173,6 +173,7 @@ def trade(first, second):
 
 
 # Recursive objects
+# Q9
 def make_to_string(front, mid, back, empty_repr):
     """ Returns a function that turns linked lists to strings.
 
@@ -196,6 +197,39 @@ def make_to_string(front, mid, back, empty_repr):
             return front + str(lnk.first) + mid + helper(lnk.rest) + back
     return helper
 
+# Tree class
+# Q10
+class Tree:
+    def __init__(self, label, branches=[]):
+        for c in branches:
+            assert isinstance(c, Tree)
+        self.label = label
+        self.branches = list(branches)
+
+    def __repr__(self):
+        if self.branches:
+            branches_str = ', ' + repr(self.branches)
+        else:
+            branches_str = ''
+        return 'Tree({0}{1})'.format(self.label, branches_str)
+
+    def is_leaf(self):
+        return not self.branches
+
+    def __eq__(self, other):
+        return type(other) is type(self) and self.label == other.label \
+               and self.branches == other.branches
+
+    def __str__(self):
+        def print_tree(t, indent=0):
+            tree_str = '  ' * indent + str(t.label) + "\n"
+            for b in t.branches:
+                tree_str += print_tree(b, indent + 1)
+            return tree_str
+        return print_tree(self).rstrip()
+
+    def copy_tree(self):
+        return Tree(self.label, [b.copy_tree() for b in self.branches])
 
 def tree_map(fn, t):
     """Maps the function fn over the entries of t and returns the
@@ -220,6 +254,11 @@ def tree_map(fn, t):
         256
     """
     "*** YOUR CODE HERE ***"
+    if t.is_leaf():
+        return Tree(fn(t.label))
+    return Tree(fn(t.label), [tree_map(fn, b) for b in t.branches])
+
+
 
 def long_paths(tree, n):
     """Return a list of all paths in tree with length at least n.
@@ -273,35 +312,4 @@ def boom(n):
         a += 1
     return sum
 
-# Tree class
-class Tree:
-    def __init__(self, label, branches=[]):
-        for c in branches:
-            assert isinstance(c, Tree)
-        self.label = label
-        self.branches = list(branches)
 
-    def __repr__(self):
-        if self.branches:
-            branches_str = ', ' + repr(self.branches)
-        else:
-            branches_str = ''
-        return 'Tree({0}{1})'.format(self.label, branches_str)
-
-    def is_leaf(self):
-        return not self.branches
-
-    def __eq__(self, other):
-        return type(other) is type(self) and self.label == other.label \
-               and self.branches == other.branches
-
-    def __str__(self):
-        def print_tree(t, indent=0):
-            tree_str = '  ' * indent + str(t.label) + "\n"
-            for b in t.branches:
-                tree_str += print_tree(b, indent + 1)
-            return tree_str
-        return print_tree(self).rstrip()
-
-    def copy_tree(self):
-        return Tree(self.label, [b.copy_tree() for b in self.branches])
