@@ -120,10 +120,11 @@ def avocadis(lst, i, lst0):
 bananis = [1, 6, 1, 6]
 n = bananis[3]  # 6
 we = got(bananis, n, avocadis)
-print(we)
+# print(we)
 # >>> [6,6,6]
 
 # Lists
+# Q8
 def trade(first, second):
     """Exchange the smallest prefixes of first and second that have equal sum.
 
@@ -154,12 +155,22 @@ def trade(first, second):
     m, n = 1, 1
 
     "*** YOUR CODE HERE ***"
+    deal = False
+    while m <= len(first) and n <= len(second):
+        if sum(first[:m]) < sum(second[:n]):
+            m += 1
+        elif sum(first[:m]) > sum(second[:n]):
+            n += 1
+        else:
+            deal = True
+            break
 
-    if False: # change this line!
+    if deal: # change this line!
         first[:m], second[:n] = second[:n], first[:m]
         return 'Deal!'
     else:
         return 'No deal!'
+
 
 # Recursive objects
 def make_to_string(front, mid, back, empty_repr):
