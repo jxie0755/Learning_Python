@@ -189,6 +189,13 @@ def make_to_string(front, mid, back, empty_repr):
     '()'
     """
     "*** YOUR CODE HERE ***"
+    def helper(lnk):
+        if lnk == Link.empty:
+            return empty_repr
+        else:
+            return front + str(lnk.first) + mid + helper(lnk.rest) + back
+    return helper
+
 
 def tree_map(fn, t):
     """Maps the function fn over the entries of t and returns the
