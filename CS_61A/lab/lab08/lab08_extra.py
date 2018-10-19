@@ -3,6 +3,7 @@
 from lab08 import *
 
 # OOP
+# Q5
 class Keyboard:
     """A Keyboard takes in an arbitrary amount of buttons, and has a
     dictionary of positions as keys, and values as Buttons.
@@ -51,7 +52,9 @@ class Button:
         self.key = key
         self.pressed = 0
 
+
 # Nonlocal
+# Q6
 def make_advanced_counter_maker():
     """Makes a function that makes counters that understands the
     messages "count", "global-count", "reset", and "global-reset".
@@ -82,6 +85,26 @@ def make_advanced_counter_maker():
     1
     """
     "*** YOUR CODE HERE ***"
+
+
+
+# Q7 WWPD
+def got(lst, el, f):
+    welcome = []
+    for e in lst:
+        if e == el:
+            el = f(lst[1:], 2, welcome)
+    return lst[3:] + welcome
+
+def avocadis(lst, i, lst0):
+    lst0.append(lst.pop(i))
+    return len(lst0)
+
+bananis = [1, 6, 1, 6]
+n = bananis[3]
+we = got(bananis, n, avocadis)
+
+
 
 # Lists
 def trade(first, second):

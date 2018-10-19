@@ -1,7 +1,6 @@
 """ Lab 08: Midterm Review """
 
 # Linked lists
-
 # Q1
 def deep_len(lnk):
     """ Returns the deep length of a possibly deep linked list.
@@ -36,6 +35,7 @@ def deep_len(lnk):
 
 
 # Link class
+# Q2
 class Link:
     """A linked list.
 
