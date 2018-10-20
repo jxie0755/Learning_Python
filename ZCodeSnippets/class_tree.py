@@ -214,10 +214,12 @@ class Tree:
     #     return paths  # can't not print all paths right away as it is a recursive function
 
     def all_paths(self):
-        """return a list of Linked list that are all the paths in the tree
-        need to use the Link class as well
-        """
+        """to get all path of a tree in list form in a big list"""
+        
         def helper(tree):
+            """return a list of Linked list that are all the paths in the tree
+            need to use the Link class as well
+            """
             paths = []
             if tree.is_leaf():
                 paths.append(tree.label)
