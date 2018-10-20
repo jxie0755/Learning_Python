@@ -7,6 +7,8 @@
 # Use by:
 # from ZCodeSnippets.tree_class import Tree
 
+from class_link import Link
+
 class Tree:
     """A tree is a label and a list of branches."""
     def __init__(self, label, branches=[]):
@@ -199,7 +201,44 @@ class Tree:
         # This method needs improvement
         # It will not show True if two tree is mirrored.
 
-    # TODO print all paths
+    # def all_paths(self):
+    #     """return a list of Linked list that are all the paths in the tree
+    #     need to use the Link class as well
+    #     """
+    #     paths = []
+    #     if self.is_leaf():
+    #         paths.append(Link(self.label))
+    #     for b in self.branches:
+    #         for path in b.all_paths():
+    #             paths.append(Link(self.label, path))
+    #     return paths  # can't not print all paths right away as it is a recursive function
+
+    def all_paths(self):
+        """return a list of Linked list that are all the paths in the tree
+        need to use the Link class as well
+        """
+        def helper(tree):
+            paths = []
+            if tree.is_leaf():
+                paths.append(tree.label)
+            for b in tree.branches:
+                for path in helper(b):
+                    paths.append([tree.label, path])
+            return paths  # can't not print all paths right away as it is a recursive function
+
+        def flatten(lnk_lst):
+            """To flatten a linked list like list in the form of:
+            [a, [b, [c, d]]]
+            return a flattened list in the form of:
+            [a, b, c, d]
+            """
+            if isinstance(lnk_lst[1], list):
+                return [lnk_lst[0]] + flatten(lnk_lst[1])
+            else:
+                return lnk_lst
+
+        all_paths = helper(self)
+        return [flatten(path) for path in all_paths]
 
     def convert_to_list(self):
         """This converts the tree strcture to a nested list type"""
@@ -456,6 +495,17 @@ if __name__ == '__main__':
     #     14
 
     print(T == T_copy) # >>> True
+
+    # Print all paths
+    X = Tree(1, [Tree(2, [Tree(4), Tree(5)]), Tree(3, [Tree(6), Tree(7, [Tree(8), Tree(9)])])])
+    print('\nX tree:')
+    print(X)
+    path_list = X.all_paths()
+    print('All paths in X tree:')
+    for i in path_list:
+        print(i)
+    print('')
+
 
     # T = Tree(1, [Tree(2, [Tree(4), Tree(5, [Tree(8), Tree(9)])]), Tree(3, [Tree(6), Tree(7)])])
 
