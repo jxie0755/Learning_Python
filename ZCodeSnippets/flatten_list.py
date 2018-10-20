@@ -11,7 +11,7 @@ def flat_list(nested_list):
     return flattened_list
 
 # Version 2, 新建一个frame,然后用helper function
-def flat_list(nested_list):
+def flat_list_2(nested_list):
     result = []
     def helper(nested_list):
         for i in nested_list:
@@ -22,9 +22,34 @@ def flat_list(nested_list):
     helper(nested_list)
     return result
 
+# Version 3 Recursive, no need to create an empty list in the beginning
+def flat_list_3(lst):
+    if not lst:
+        return []
+    elif isinstance(lst[0], int):
+        return [lst[0]] + flat_list_3(lst[1:])
+    elif isinstance(lst[0], list):
+        return flat_list_3(lst[0]) + flat_list_3(lst[1:])
+
+
 if __name__ == '__main__':
+    print('Check flat_list()')
     assert flat_list([1, 2, 3]) == [1, 2, 3], "First"
     assert flat_list([1, [2, 2, 2], 4]) == [1, 2, 2, 2, 4], "Second"
     assert flat_list([[[2]], [4, [5, 6, [6], 6, 6, 6], 7]]) == [2, 4, 5, 6, 6, 6, 6, 6, 7], "Third"
     assert flat_list([-1, [1, [-2], 1], -1]) == [-1, 1, -2, 1, -1], "Four"
-    print('Done! Check it')
+    print('All passed\n')
+
+    print('Check flat_lis_2()')
+    assert flat_list_2([1, 2, 3]) == [1, 2, 3], "First"
+    assert flat_list_2([1, [2, 2, 2], 4]) == [1, 2, 2, 2, 4], "Second"
+    assert flat_list_2([[[2]], [4, [5, 6, [6], 6, 6, 6], 7]]) == [2, 4, 5, 6, 6, 6, 6, 6, 7], "Third"
+    assert flat_list_2([-1, [1, [-2], 1], -1]) == [-1, 1, -2, 1, -1], "Four"
+    print('All passed\n')
+
+    print('Check flat_lis_3()')
+    assert flat_list_3([1, 2, 3]) == [1, 2, 3], "First"
+    assert flat_list_3([1, [2, 2, 2], 4]) == [1, 2, 2, 2, 4], "Second"
+    assert flat_list_3([[[2]], [4, [5, 6, [6], 6, 6, 6], 7]]) == [2, 4, 5, 6, 6, 6, 6, 6, 7], "Third"
+    assert flat_list_3([-1, [1, [-2], 1], -1]) == [-1, 1, -2, 1, -1], "Four"
+    print('All passed\n')
