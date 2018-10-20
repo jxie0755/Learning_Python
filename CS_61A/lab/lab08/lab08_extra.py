@@ -290,15 +290,15 @@ def long_paths(tree, n):
     [Link(0, Link(11, Link(12, Link(13, Link(14)))))]
     """
     "*** YOUR CODE HERE ***"
-    
+    paths = []
+    if n <= 0 and tree.is_leaf():
+        paths.append(Link(tree.label))
+    for b in tree.branches:
+        for path in long_paths(b, n - 1):
+            paths.append(Link(tree.label, path))
+    return paths
 
 
-t = Tree(3, [Tree(4), Tree(4), Tree(5)])
-left = Tree(1, [Tree(2), t])
-mid = Tree(6, [Tree(7, [Tree(8)]), Tree(9)])
-right = Tree(11, [Tree(12, [Tree(13, [Tree(14)])])])
-whole = Tree(0, [left, Tree(13), mid, right])
-print(whole)
 
 # Orders of Growth
 def zap(n):
