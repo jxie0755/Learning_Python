@@ -164,7 +164,6 @@ class Chessboard(object):
         # this while loop makes sure go over all first coor
         for coor_0 in candidates[0]:
             self.spots_taken[0] = coor_0
-            print('Now checking:', coor_0)
             for i in range(1,n):
                 self.spots_taken[i] = i
             candidates[1] = self.queen_analysis()[:]
