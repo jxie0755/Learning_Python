@@ -155,46 +155,54 @@ class Chessboard(object):
         candidates = [self.all_spots[:]] + [[] for i in range(n - 1)]
         screen_list = []
         result = []
+        count = 0
 
         # this while loop makes sure go over all first coor
         for coor_0 in candidates[0]:
             self.spots_taken[0] = coor_0
+            count += 1
             for i in range(1,n):
                 self.spots_taken[i] = i
             candidates[1] = self.queen_analysis()[:]
 
             # from here we start analysis
             for coor_1 in candidates[1]:
+                count += 1
                 for i in range(2,n):
                     self.spots_taken[i] = i
                 self.spots_taken[1] = coor_1
                 candidates[2] = self.queen_analysis()[:]
 
                 for coor_2 in candidates[2]:
+                    count += 1
                     for i in range(3,n):
                         self.spots_taken[i] = i
                     self.spots_taken[2] = coor_2
                     candidates[3] = self.queen_analysis()[:]
 
                     for coor_3 in candidates[3]:
+                        count += 1
                         for i in range(4,n):
                             self.spots_taken[i] = i
                         self.spots_taken[3] = coor_3
                         candidates[4] = self.queen_analysis()[:]
 
                         for coor_4 in candidates[4]:
+                            count += 1
                             for i in range(5,n):
                                 self.spots_taken[i] = i
                             self.spots_taken[4] = coor_4
                             candidates[5] = self.queen_analysis()[:]
 
                             for coor_5 in candidates[5]:
+                                count += 1
                                 for i in range(6,n):
                                     self.spots_taken[i] = i
                                 self.spots_taken[5] = coor_5
                                 candidates[6] = self.queen_analysis()[:]
 
                                 for coor_6 in candidates[6]:
+                                    count += 1
                                     self.spots_taken[6] = coor_6
                                     if set(self.spots_taken) not in screen_list:
                                         for coor in self.spots_taken:
@@ -213,6 +221,7 @@ class Chessboard(object):
                                         ]
 
         print('Total solution:', len(result))
+        print('Total count:', count)
         return result
 
 if __name__ == '__main__':

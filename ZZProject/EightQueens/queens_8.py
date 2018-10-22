@@ -238,5 +238,13 @@ class Chessboard(object):
 # TODO 未完成最终算法
 
 if __name__ == '__main__':
+    import time
     t = Chessboard()
+    start_time = time.time()
     answer = t.queen_solve(8)
+    for t in answer:
+        print(t)
+    print(f"--- {time.time() - start_time}s seconds ---\n")
+
+    #
+    
