@@ -152,7 +152,7 @@ class Chessboard(object):
         return all_coors
 
     def queen_solve(self, n):
-        candidates = [self.all_spots[:]] + [[] for i in range(n - 1)]
+        candidates = [[(x,7) for x in range(1,8)]] + [[] for i in range(n - 1)]
         screen_list = []
         result = []
         count = 0

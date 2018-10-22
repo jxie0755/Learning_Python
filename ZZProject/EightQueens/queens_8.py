@@ -163,7 +163,7 @@ class Chessboard(object):
         return all_coors
 
     def queen_solve(self, n):
-        candidates = [self.all_spots[:]] + [[] for i in range(n - 1)]
+        candidates = [[(x,8) for x in range(1,9)] + [[] for i in range(n - 1)]
         screen_list = []
         result = []
 
@@ -247,4 +247,3 @@ if __name__ == '__main__':
     print(f"--- {time.time() - start_time}s seconds ---\n")
 
     #
-    
