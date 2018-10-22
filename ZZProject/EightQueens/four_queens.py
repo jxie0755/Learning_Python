@@ -159,6 +159,7 @@ class Chessboard(object):
     def queen_solve(self, n):
         candidates = [self.all_spots[:]] + [[] for i in range(n - 1)]
         result = []
+        screen_list = []
 
         # this while loop makes sure go over all first coor
         for coor_0 in candidates[0]:
@@ -182,20 +183,25 @@ class Chessboard(object):
 
                     for coor_3 in candidates[3]:
                         self.spots_taken[3] = coor_3
-                        for coor in self.spots_taken:
-                            if type(coor) == tuple:
-                                self.insert(coor)
-                        result.append(Chessboard(self.board))
-                        self.board = self.empty_board
+                        if set(self.spots_taken) not in screen_list:
+                            for coor in self.spots_taken:
+                                if type(coor) == tuple:
+                                    self.insert(coor)
+                            result.append(Chessboard(self.board[:]))
+                            screen_list.append(set(self.spots_taken[:]))
+                            self.board = [
+                                [0, 0, 0, 0],
+                                [0, 0, 0, 0],
+                                [0, 0, 0, 0],
+                                [0, 0, 0, 0],
+                            ]
 
         print('Total solution:', len(result))
         return result
 
 
-# TODO 未完成最终算法
-
 if __name__ == '__main__':
     t = Chessboard()
     answer = t.queen_solve(4)
-    for b in answer:
-        print(b)
+    for t in answer:
+        print(t)
