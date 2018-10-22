@@ -8,20 +8,10 @@ class Chessboard(object):
     there will also be an final examination method to ensure when every empty slot is filled.
     the key is in the solve function, where the algorithm is in, to find the answer
     """
-    empty_board = [
-        [0, 0, 0, 0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0, 0, 0, 0],
-    ]
 
-    all_spots = [(x, y) for x in range(1, 9) for y in range(1, 9)]
+    all_spots = [(x, y) for x in range(1, 7) for y in range(1, 7)]
     available_spots = all_spots[:]
-    spots_taken = [0,1,2,3,4,5,6,7]
+    spots_taken = [0,1,2,3,4,5]
     snapshots = [available_spots[:]]
 
     def __init__(self, empty=[
@@ -46,9 +36,9 @@ class Chessboard(object):
         """
 
         to_print = ''
-        y_num = 8
-        separ = '    ----------------------'
-        x_num = '    1, 2, 3, 4, 5, 6, 7, 8'
+        y_num = 6
+        separ = '    ----------------'
+        x_num = '    1, 2, 3, 4, 5, 6'
 
 
         for i in self.board:
@@ -65,29 +55,29 @@ class Chessboard(object):
         for convenience, indext start from 1, and act like coordinates
         """
         x, y = coor[0], coor[1]
-        self.board[8-y][x-1] = 1
+        self.board[6-y][x-1] = 1
 
     def un_insert(self, coor):
         x, y = coor[0], coor[1]
-        self.board[8-y][x-1] = 0
+        self.board[6-y][x-1] = 0
 
 
     def get(self, coor):
         """obtain the value at a coor"""
-        return self.board[8-coor[1]][coor[0]-1]
+        return self.board[6-coor[1]][coor[0]-1]
 
 
     # Generate coor list
     def row_coor(self, coor):
         """output a list of cross of coor in the direction of row"""
         x, y = coor[0], coor[1]
-        row_coor_list = [(i, y) for i in range(1, 9)]
+        row_coor_list = [(i, y) for i in range(1, 7)]
         return row_coor_list
 
     def col_coor(self, coor):
         """output a list of cross of coor in the direction of row"""
         x, y = coor[0], coor[1]
-        col_coor_list = [(x, i) for i in range(1, 9)]
+        col_coor_list = [(x, i) for i in range(1, 7)]
         return col_coor_list
 
     def cross_coor_1(self, coor): # of \ cross
@@ -95,12 +85,12 @@ class Chessboard(object):
         x, y = coor[0], coor[1]
         cross_coor_list = [coor]
         before, after = coor[:], coor[:]
-        while before[0] > 1 and before[1] < 8:
+        while before[0] > 1 and before[1] < 6:
             x, y = before[0], before[1]
             before = (x-1, y+1)
             cross_coor_list = [before] + cross_coor_list
 
-        while after[0] < 8 and after[1] > 1:
+        while after[0] < 6 and after[1] > 1:
             x, y = after[0], after[1]
             after = (x+1, y-1)
             cross_coor_list = cross_coor_list + [after]
@@ -117,7 +107,7 @@ class Chessboard(object):
             before = (x-1, y-1)
             cross_coor_list = [before] + cross_coor_list
 
-        while after[0] < 8 and after[1] < 8:
+        while after[0] < 6 and after[1] < 6:
             x, y = after[0], after[1]
             after = (x+1, y+1)
             cross_coor_list = cross_coor_list + [after]
@@ -164,10 +154,12 @@ class Chessboard(object):
 
     def queen_solve(self, n):
         candidates = [self.all_spots[:]] + [[] for i in range(n - 1)]
+        screen_list = []
         result = []
 
         # this while loop makes sure go over all first coor
         for coor_0 in candidates[0]:
+            print('Now checking:', coor_0)
             self.spots_taken[0] = coor_0
             for i in range(1,n):
                 self.spots_taken[i] = i
@@ -199,24 +191,21 @@ class Chessboard(object):
                             candidates[5] = self.queen_analysis()[:]
 
                             for coor_5 in candidates[5]:
-                                for i in range(6,n):
-                                    self.spots_taken[i] = i
                                 self.spots_taken[5] = coor_5
-                                candidates[6] = self.queen_analysis()[:]
-
-                                for coor_6 in candidates[6]:
-                                    for i in range(7,n):
-                                        self.spots_taken[i] = i
-                                    self.spots_taken[6] = coor_6
-                                    candidates[7] = self.queen_analysis()[:]
-
-                                    for coor_7 in candidates[7]:
-                                        self.spots_taken[7] = coor_7
-                                        for coor in self.spots_taken:
-                                            if type(coor) == tuple:
-                                                self.insert(coor)
-                                        result.append(Chessboard(self.board))
-                                        self.board = self.empty_board
+                                if set(self.spots_taken) not in screen_list:
+                                    for coor in self.spots_taken:
+                                        if type(coor) == tuple:
+                                            self.insert(coor)
+                                    result.append(Chessboard(self.board))
+                                    screen_list.append(set(self.spots_taken[:]))
+                                    self.board = [
+                                        [0, 0, 0, 0, 0, 0],
+                                        [0, 0, 0, 0, 0, 0],
+                                        [0, 0, 0, 0, 0, 0],
+                                        [0, 0, 0, 0, 0, 0],
+                                        [0, 0, 0, 0, 0, 0],
+                                        [0, 0, 0, 0, 0, 0],
+                                    ]
 
         print('Total solution:', len(result))
         return result
@@ -226,4 +215,4 @@ class Chessboard(object):
 
 if __name__ == '__main__':
     t = Chessboard()
-    answer = t.queen_solve(8)
+    answer = t.queen_solve(6)
