@@ -9,18 +9,19 @@ class Chessboard(object):
     the key is in the solve function, where the algorithm is in, to find the answer
     """
 
-    all_spots = [(x, y) for x in range(1, 7) for y in range(1, 7)]
+    all_spots = [(x, y) for x in range(1, 8) for y in range(1, 8)]
     available_spots = all_spots[:]
-    spots_taken = [0,1,2,3,4,5]
+    spots_taken = [0,1,2,3,4,5,6]
     snapshots = [available_spots[:]]
 
     def __init__(self, empty=[
-        [0, 0, 0, 0, 0, 0,],
-        [0, 0, 0, 0, 0, 0,],
-        [0, 0, 0, 0, 0, 0,],
-        [0, 0, 0, 0, 0, 0,],
-        [0, 0, 0, 0, 0, 0,],
-        [0, 0, 0, 0, 0, 0,],
+        [0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0],
     ]):
         """
         An empty checkerboard -
@@ -34,9 +35,9 @@ class Chessboard(object):
         """
 
         to_print = ''
-        y_num = 6
-        separ = '    ----------------'
-        x_num = '    1, 2, 3, 4, 5, 6'
+        y_num = 7
+        separ = '    -------------------'
+        x_num = '    1, 2, 3, 4, 5, 6, 7'
 
 
         for i in self.board:
@@ -53,29 +54,29 @@ class Chessboard(object):
         for convenience, indext start from 1, and act like coordinates
         """
         x, y = coor[0], coor[1]
-        self.board[6-y][x-1] = 1
+        self.board[7-y][x-1] = 1
 
     def un_insert(self, coor):
         x, y = coor[0], coor[1]
-        self.board[6-y][x-1] = 0
+        self.board[7-y][x-1] = 0
 
 
     def get(self, coor):
         """obtain the value at a coor"""
-        return self.board[6-coor[1]][coor[0]-1]
+        return self.board[7-coor[1]][coor[0]-1]
 
 
     # Generate coor list
     def row_coor(self, coor):
         """output a list of cross of coor in the direction of row"""
         x, y = coor[0], coor[1]
-        row_coor_list = [(i, y) for i in range(1, 7)]
+        row_coor_list = [(i, y) for i in range(1, 8)]
         return row_coor_list
 
     def col_coor(self, coor):
         """output a list of cross of coor in the direction of row"""
         x, y = coor[0], coor[1]
-        col_coor_list = [(x, i) for i in range(1, 7)]
+        col_coor_list = [(x, i) for i in range(1, 8)]
         return col_coor_list
 
     def cross_coor_1(self, coor): # of \ cross
@@ -83,12 +84,12 @@ class Chessboard(object):
         x, y = coor[0], coor[1]
         cross_coor_list = [coor]
         before, after = coor[:], coor[:]
-        while before[0] > 1 and before[1] < 6:
+        while before[0] > 1 and before[1] < 7:
             x, y = before[0], before[1]
             before = (x-1, y+1)
             cross_coor_list = [before] + cross_coor_list
 
-        while after[0] < 6 and after[1] > 1:
+        while after[0] < 7 and after[1] > 1:
             x, y = after[0], after[1]
             after = (x+1, y-1)
             cross_coor_list = cross_coor_list + [after]
@@ -105,7 +106,7 @@ class Chessboard(object):
             before = (x-1, y-1)
             cross_coor_list = [before] + cross_coor_list
 
-        while after[0] < 6 and after[1] < 6:
+        while after[0] < 7 and after[1] < 7:
             x, y = after[0], after[1]
             after = (x+1, y+1)
             cross_coor_list = cross_coor_list + [after]
@@ -157,6 +158,7 @@ class Chessboard(object):
 
         # this while loop makes sure go over all first coor
         for coor_0 in candidates[0]:
+            print('Now checking:', coor_0)
             self.spots_taken[0] = coor_0
             for i in range(1,n):
                 self.spots_taken[i] = i
@@ -188,27 +190,32 @@ class Chessboard(object):
                             candidates[5] = self.queen_analysis()[:]
 
                             for coor_5 in candidates[5]:
+                                for i in range(6,n):
+                                    self.spots_taken[i] = i
                                 self.spots_taken[5] = coor_5
-                                if set(self.spots_taken) not in screen_list:
-                                    for coor in self.spots_taken:
-                                        if type(coor) == tuple:
-                                            self.insert(coor)
-                                    result.append(Chessboard(self.board))
-                                    screen_list.append(set(self.spots_taken[:]))
-                                    self.board = [
-                                        [0, 0, 0, 0, 0, 0],
-                                        [0, 0, 0, 0, 0, 0],
-                                        [0, 0, 0, 0, 0, 0],
-                                        [0, 0, 0, 0, 0, 0],
-                                        [0, 0, 0, 0, 0, 0],
-                                        [0, 0, 0, 0, 0, 0],
-                                    ]
+                                candidates[6] = self.queen_analysis()[:]
+
+                                for coor_6 in candidates[6]:
+                                    self.spots_taken[6] = coor_6
+                                    if set(self.spots_taken) not in screen_list:
+                                        for coor in self.spots_taken:
+                                            if type(coor) == tuple:
+                                                self.insert(coor)
+                                        result.append(Chessboard(self.board))
+                                        screen_list.append(set(self.spots_taken[:]))
+                                        self.board = [
+                                            [0, 0, 0, 0, 0, 0, 0],
+                                            [0, 0, 0, 0, 0, 0, 0],
+                                            [0, 0, 0, 0, 0, 0, 0],
+                                            [0, 0, 0, 0, 0, 0, 0],
+                                            [0, 0, 0, 0, 0, 0, 0],
+                                            [0, 0, 0, 0, 0, 0, 0],
+                                            [0, 0, 0, 0, 0, 0, 0],
+                                        ]
 
         print('Total solution:', len(result))
         return result
 
 if __name__ == '__main__':
     t = Chessboard()
-    answer = t.queen_solve(6)
-    for t in answer:
-        print(t)
+    answer = t.queen_solve(7)
