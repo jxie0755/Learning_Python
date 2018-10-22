@@ -208,7 +208,12 @@ class Chessboard(object):
         return result
 
 if __name__ == '__main__':
+    import time
     t = Chessboard()
+    start_time = time.time()
     answer = t.queen_solve(6)
     for t in answer:
         print(t)
+    print(f"--- {time.time() - start_time}s seconds ---\n")
+
+    # --- 2.3636577129364014s seconds ---

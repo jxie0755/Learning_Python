@@ -158,7 +158,6 @@ class Chessboard(object):
 
         # this while loop makes sure go over all first coor
         for coor_0 in candidates[0]:
-            print('Now checking:', coor_0)
             self.spots_taken[0] = coor_0
             for i in range(1,n):
                 self.spots_taken[i] = i
@@ -217,5 +216,12 @@ class Chessboard(object):
         return result
 
 if __name__ == '__main__':
+    import time
     t = Chessboard()
+    start_time = time.time()
     answer = t.queen_solve(7)
+    for t in answer:
+        print(t)
+    print(f"--- {time.time() - start_time}s seconds ---\n")
+
+    # --- 87.0234911441803s seconds ---
