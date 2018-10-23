@@ -126,6 +126,10 @@ class Chessboard(object):
         N = 0
         while N != self.size:
             N += 1
+            available_spots = self.analysis()
+            for coor in self.row_coor(N):
+                pass
+    # TODO 
 
 
 if __name__ == '__main__':
