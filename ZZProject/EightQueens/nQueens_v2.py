@@ -39,9 +39,29 @@ class Chessboard(object):
         to_print += separ + '\n' + x_num
         return to_print
 
+    # Basic set and get
+    def insert(self, coor):
+        """to insert a value into the checkerboard
+        for convenience, indext start from 1, and act like coordinates
+        """
+        x, y = coor[0], coor[1]
+        self.board[self.size-y][x-1] = 1
+
+    def get(self, coor):
+        """obtain the value at a coor"""
+        return self.board[self.size-coor[1]][coor[0]-1]
+
 
 if __name__ == '__main__':
     t = Chessboard(5)
     print(t)
+    # show empty board n*n filled with 0
 
-    #
+    t.insert((1,1))
+    print(t)
+    # show 1 at the location (1,1)
+
+    print(t.get((1,1)))
+    # >>> 1
+
+    
