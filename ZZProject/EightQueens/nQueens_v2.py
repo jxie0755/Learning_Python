@@ -63,13 +63,13 @@ class Chessboard(object):
         return row_coor_list
 
     def col_coor(self, n):
-        """output a list of cross of coor in the direction of row"""
+        """output a list of coor of column n from 1 at the left"""
         x = n
         col_coor_list = [(x, i) for i in range(1, self.size+1)]
         return col_coor_list
 
     def cross_coor_1(self, coor): # of \ cross
-        """output a list of cross of coor in the direction of /"""
+        """output a list of cross of coor in the direction of \\"""
         x, y = coor[0], coor[1]
         cross_coor_list = [coor]
         before, after = coor[:], coor[:]
@@ -86,7 +86,7 @@ class Chessboard(object):
         return cross_coor_list
 
     def cross_coor_2(self, coor): # # of / cross
-        """output a list of cross of coor in the direction of /"""
+        """output a list of cross of coor in the direction of //"""
         x, y = coor[0], coor[1]
         cross_coor_list = [coor]
         before, after = coor[:], coor[:]
@@ -122,6 +122,12 @@ class Chessboard(object):
                     all_availble.remove(r_coor)
         return all_availble
 
+    def queen_solve(self):
+        N = 0
+        while N != self.size:
+            N += 1
+
+
 if __name__ == '__main__':
     t = Chessboard(5)
     print(t)
@@ -140,5 +146,7 @@ if __name__ == '__main__':
     print(t.col_coor(2))
     # >>> [(2, 1), (2, 2), (2, 3), (2, 4), (2, 5)]
 
-    print(len(t.check_coor((2,2))))
-    print(len(t.analysis()))
+    print(len(t.check_coor((2,2))))  # >>> 15, non_availble spots find
+    print(len(t.analysis()))         # >>> 10, give 10 availble after removing 15 from 25
+
+
