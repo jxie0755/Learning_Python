@@ -51,6 +51,20 @@ class Chessboard(object):
         """obtain the value at a coor"""
         return self.board[self.size-coor[1]][coor[0]-1]
 
+    # define obtaining the coor list of each row or column
+    def row_coor(self, n):
+        """output a list of coor of row n starting from 1 at the bottom"""
+        y = n
+        row_coor_list = [(i, y) for i in range(1, self.size+1)]
+        return row_coor_list
+
+    def col_coor(self, n):
+        """output a list of cross of coor in the direction of row"""
+        x = n
+        col_coor_list = [(x, i) for i in range(1, self.size+1)]
+        return col_coor_list
+
+
 
 if __name__ == '__main__':
     t = Chessboard(5)
@@ -64,4 +78,9 @@ if __name__ == '__main__':
     print(t.get((1,1)))
     # >>> 1
 
-    
+    print(t.row_coor(1))
+    # >>> [(1, 1), (2, 1), (3, 1), (4, 1), (5, 1)]
+
+    print(t.col_coor(1))
+    # >>> [(1, 1), (1, 2), (1, 3), (1, 4), (1, 5)]
+
