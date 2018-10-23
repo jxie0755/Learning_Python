@@ -2,6 +2,7 @@
 # TO security set 8 queens in a chess checkerboard where no queen can directly attack the other queens.
 
 
+
 class Chessboard(object):
     """each instance should be a single plate that can be filled in with numbers
     there will be check method to ensure no conflict in going on.
@@ -129,7 +130,7 @@ class Chessboard(object):
             available_spots = self.analysis()
             for coor in self.row_coor(N):
                 pass
-    # TODO 
+    # TODO
 
 
 if __name__ == '__main__':
