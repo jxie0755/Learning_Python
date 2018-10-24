@@ -50,7 +50,7 @@ class Chessboard(object):
             to_print += str(y_num) + '  ' + row + '\n'
             y_num -= 1
 
-        to_print += separ + '\n' + x_num
+        to_print += str(y_num) + '  ' + row + '\n'
         return to_print
 
     # Basic get and set
@@ -210,4 +210,3 @@ if __name__ == '__main__':
     print(f"--- {time.time() - start_time}s seconds ---\n")
 
     # --- 0.003989219665527344s seconds ---
-    

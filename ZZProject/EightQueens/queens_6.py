@@ -44,7 +44,7 @@ class Chessboard(object):
             to_print += str(y_num) + '  ' + row + '\n'
             y_num -= 1
 
-        to_print += separ + '\n' + x_num
+        to_print += str(y_num) + '  ' + row + '\n'
         return to_print
 
     # Basic get and set
