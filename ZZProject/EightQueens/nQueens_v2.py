@@ -130,7 +130,8 @@ class Chessboard(object):
             available_spots = self.analysis()
             for coor in self.row_coor(N):
                 pass
-    # TODO
+
+    # TODO 未完成算法
 
 
 if __name__ == '__main__':
