@@ -235,8 +235,6 @@ class Chessboard(object):
         return result
 
 
-        # TODO 未完成最终算法
-
 if __name__ == '__main__':
     import time
     t = Chessboard()
