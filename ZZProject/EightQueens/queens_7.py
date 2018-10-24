@@ -152,7 +152,7 @@ class Chessboard(object):
         return all_coors
 
     def queen_solve(self, n):
-        candidates = [[(x,7) for x in range(1,8)]] + [[] for i in range(n - 1)]
+        candidates = [[(x,7) for x in range(1,8)]] + [[] for i in range(n - 1)]  # only search the first coor in the first row, this will cover all the solutions
         screen_list = []
         result = []
         count = 0
@@ -235,4 +235,4 @@ if __name__ == '__main__':
 
     # >>>
     # Total solution: 40
-    # --- 87.0234911441803s seconds ---
+    # --- 13.000230312347412s seconds ---
