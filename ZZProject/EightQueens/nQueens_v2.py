@@ -151,6 +151,13 @@ if __name__ == '__main__':
     print(t.col_coor(2))
     # >>> [(2, 1), (2, 2), (2, 3), (2, 4), (2, 5)]
 
+    print(t.cross_coor_1((2,2)))
+    # >>> [(1, 3), (2, 2), (3, 1)]
+
+    print(t.cross_coor_2((2,2)))
+    # >>> [(1, 1), (2, 2), (3, 3), (4, 4), (5, 5)]
+
+
     print(len(t.check_coor((2,2))))  # >>> 15, non_availble spots find
     print(len(t.analysis()))         # >>> 10, give 10 availble after removing 15 from 25
 
