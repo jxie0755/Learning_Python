@@ -56,7 +56,7 @@ class Chessboard(object):
             to_print += str(y_num) + '  ' + row + '\n'
             y_num -= 1
 
-        to_print += str(y_num) + '  ' + row + '\n'
+        to_print += separ + '\n' + x_num + '\n'
         return to_print
 
     # Basic get and set
@@ -235,7 +235,7 @@ class Chessboard(object):
         return result
 
 
-# TODO 未完成最终算法
+        # TODO 未完成最终算法
 
 if __name__ == '__main__':
     import time
