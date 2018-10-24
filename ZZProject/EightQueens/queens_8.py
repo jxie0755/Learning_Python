@@ -163,7 +163,7 @@ class Chessboard(object):
         return all_coors
 
     def queen_solve(self, n):
-        candidates = [[(x,8) for x in range(1,9)]] + [[] for i in range(n - 1)]
+        candidates = [[(x,8) for x in range(1,9)]] + [[] for i in range(n - 1)]  # only search the first coor in the first row, this will cover all the solutions
         screen_list = []
         result = []
 
