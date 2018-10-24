@@ -209,4 +209,6 @@ if __name__ == '__main__':
         print(t)
     print(f"--- {time.time() - start_time}s seconds ---\n")
 
+    # >>>
+    # Total solution: 2
     # --- 0.003989219665527344s seconds ---
