@@ -9,7 +9,6 @@ class Chessboard(object):
     there will also be an final examination method to ensure when every empty slot is filled.
     the key is in the solve function, where the algorithm is in, to find the answer
     """
-    spots_taken = [()]
 
     def __init__(self, n):
         """
@@ -20,6 +19,12 @@ class Chessboard(object):
         self.board = []
         for i in range(n):
             self.board.append([0]*n)
+
+        self.all_available = [[], ]
+        for i in range(1, self.size + 1):
+            self.all_available.append(self.row_coor(i))
+
+        self.spots_taken = [()]
 
 
     def __str__(self):
@@ -138,19 +143,10 @@ class Chessboard(object):
                     avcoor.remove(coor)
 
 
-    def gen_all_available(self):
-        """
-        To generate a list, which contains all the sublist of coors in each row.
-        This list should begin with an empty list, to adjust the index number
-        Returns: a list of coor list of each row
-        """
-        all_available = [[]]
-        for i in range(1,self.size+1):
-            all_available.append(self.row_coor(i))
-        return all_available
-
     def queen_solve(self, level=1):
         if level == 1:
+            pass
+
 
 
 
@@ -183,7 +179,7 @@ if __name__ == '__main__':
 
     print(len(t.check_coor((2,2))))  # >>> 15, non_availble spots find
 
-    avv = t.gen_all_available()
+    avv = t.all_available
     print(avv)
     # >>>
     # [ [],
@@ -195,7 +191,7 @@ if __name__ == '__main__':
     # ]
 
     t.un_insert((2,2))
-    t.insert((2,1))
+    t.insert((1,1))
     print(t)
 
     t.analysis(avv)
