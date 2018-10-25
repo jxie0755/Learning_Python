@@ -9,7 +9,7 @@ class Chessboard(object):
     there will also be an final examination method to ensure when every empty slot is filled.
     the key is in the solve function, where the algorithm is in, to find the answer
     """
-    spots_taken = []
+    spots_taken = [()]
 
     def __init__(self, n):
         """
@@ -50,6 +50,11 @@ class Chessboard(object):
         x, y = coor[0], coor[1]
         self.board[self.size-y][x-1] = 1
         self.spots_taken.append(coor)
+
+    def un_insert(self, coor):
+        x, y = coor[0], coor[1]
+        self.board[self.size - y][x - 1] = 0
+        self.spots_taken.remove(coor)
 
     def get(self, coor):
         """obtain the value at a coor"""
@@ -106,30 +111,48 @@ class Chessboard(object):
     # analyze the chessboard, and generates a list of available coor that can still put queens
     def check_coor(self, coor):
         """return a list of coors that can not be put with queens"""
-        row_coor_list = self.row_coor(coor[1])
+        # no need for row_coor as we won't check this row again
         col_coor_list = self.col_coor(coor[0])
         cross_coor_list_1 = self.cross_coor_1(coor)
         cross_coor_list_2 = self.cross_coor_2(coor)
-        all_non_available = set(row_coor_list + col_coor_list + cross_coor_list_1 + cross_coor_list_2)
-        return all_non_available
+        non_available = set(col_coor_list + cross_coor_list_1 + cross_coor_list_2)
+        return non_available
 
-    def analysis(self):
-        """return a list of the available list after checking all the coor in self.spots_taken"""
-        all_availble = [(x, y) for x in range(1, self.size+1) for y in range(1, self.size+1)]
-        for coor in self.spots_taken:
-            to_remove = self.check_coor(coor)
-            for r_coor in to_remove:
-                if r_coor in all_availble:
-                    all_availble.remove(r_coor)
-        return all_availble
+    def analysis(self, available_list):
+        """
+        Imperfect function:
+        update the available list after checking a coor that has been taken.
+        The list will update in a way that to remove all the non_available coor in the available_list
 
-    def queen_solve(self):
-        N = 0
-        while N != self.size:
-            N += 1
-            available_spots = self.analysis()
-            for coor in self.row_coor(N):
-                pass
+        available_list: to be updated
+        Returns:
+
+        """
+        all_to_remove = []
+        for coor in self.spots_taken[1:]:
+            all_to_remove += self.check_coor(coor)
+        all_to_remove = set(all_to_remove)
+        for coor in all_to_remove:
+            for avcoor in available_list:
+                if coor in avcoor:
+                    avcoor.remove(coor)
+
+
+    def gen_all_available(self):
+        """
+        To generate a list, which contains all the sublist of coors in each row.
+        This list should begin with an empty list, to adjust the index number
+        Returns: a list of coor list of each row
+        """
+        all_available = [[]]
+        for i in range(1,self.size+1):
+            all_available.append(self.row_coor(i))
+        return all_available
+
+    def queen_solve(self, level=1):
+        if level == 1:
+
+
 
     # TODO 未完成算法
 
@@ -159,6 +182,24 @@ if __name__ == '__main__':
     # >>> [(1, 1), (2, 2), (3, 3), (4, 4), (5, 5)]
 
     print(len(t.check_coor((2,2))))  # >>> 15, non_availble spots find
-    print(len(t.analysis()))         # >>> 10, give 10 availble after removing 15 from 25
+
+    avv = t.gen_all_available()
+    print(avv)
+    # >>>
+    # [ [],
+    #   [(1, 1), (2, 1), (3, 1), (4, 1), (5, 1)],
+    #   [(1, 2), (2, 2), (3, 2), (4, 2), (5, 2)],
+    #   [(1, 3), (2, 3), (3, 3), (4, 3), (5, 3)],
+    #   [(1, 4), (2, 4), (3, 4), (4, 4), (5, 4)],
+    #   [(1, 5), (2, 5), (3, 5), (4, 5), (5, 5)],
+    # ]
+
+    t.un_insert((2,2))
+    t.insert((2,1))
+    print(t)
+
+    t.analysis(avv)
+    for i in avv:
+        print(i)
 
 
