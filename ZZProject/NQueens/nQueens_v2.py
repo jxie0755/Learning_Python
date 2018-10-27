@@ -180,31 +180,7 @@ class Chessboard(object):
 if __name__ == '__main__':
     t = Chessboard(5)
     print(t)
-    # show empty board n*n filled with 0
 
-    t.insert((2,2))
-    print(t)
-    # show 1 at the location (1,1)
-
-    print(t.get((2,2)))
-    # >>> 1
-
-    print(t.row_coor(2))
-    # >>> [(1, 2), (2, 2), (3, 2), (4, 2), (5, 2)]
-
-    print(t.col_coor(2))
-    # >>> [(2, 1), (2, 2), (2, 3), (2, 4), (2, 5)]
-
-    print(t.cross_coor_1((2,2)))
-    # >>> [(1, 3), (2, 2), (3, 1)]
-
-    print(t.cross_coor_2((2,2)))
-    # >>> [(1, 1), (2, 2), (3, 3), (4, 4), (5, 5)]
-
-    print(len(t.check_coor((2,2))))  # >>> 15, non_availble spots find
-
-    avv = t.all_available
-    print(avv)
     # >>>
     # [ [],
     #   [(1, 1), (2, 1), (3, 1), (4, 1), (5, 1)],
@@ -214,11 +190,16 @@ if __name__ == '__main__':
     #   [(1, 5), (2, 5), (3, 5), (4, 5), (5, 5)],
     # ]
 
-    t.un_insert((2,2))
     t.insert((2,1))
     print(t)
 
     t.analysis()
+    for i in t.all_available:
+        print(i)
+
+    t.insert((4,2))
+    t.analysis()
+    print(t)
     for i in t.all_available:
         print(i)
     print(t.row_coor(1))
