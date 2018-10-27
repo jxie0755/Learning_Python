@@ -1,7 +1,7 @@
 # This is to solve the Eight Queens problem in Chess
 # TO security set 8 queens in a chess checkerboard where no queen can directly attack the other queens.
 
-import copy
+from copy import deepcopy
 
 class Chessboard(object):
     """each instance should be a single plate that can be filled in with numbers
@@ -24,9 +24,9 @@ class Chessboard(object):
         for i in range(1, self.size + 1):
             self.all_available.append(self.row_coor(i))
 
-        self.all_available_0 = copy.deepcopy(self.all_available)
-
         self.spots_taken = []
+        self.row1 = self.row_coor(1)
+
 
 
     def __str__(self):
@@ -61,7 +61,6 @@ class Chessboard(object):
     def un_insert(self, coor):
         x, y = coor[0], coor[1]
         self.board[self.size - y][x - 1] = 0
-        self.spots_taken.remove(coor)
 
     def get(self, coor):
         """obtain the value at a coor"""
@@ -125,34 +124,54 @@ class Chessboard(object):
         non_available = set(col_coor_list + cross_coor_list_1 + cross_coor_list_2)
         return non_available
 
-    def analysis(self, coor):
+    # def spots_taken(self):
+    #     """
+    #     To generate the list of coors available to put.
+    #     Returns: a list of coor in the form of [(x1, y1), (x2, y2), ...]
+    #     """
+    #     result = []
+    #     for coor in [(x, y) for x in range(1, self.size+1) for y in range(1, self.size+1)]:
+    #         x, y = coor[0], coor[1]
+    #         if self.board[self.size-y][x-1] == 1:
+    #             result.append(coor)
+    #     return result
+
+    def analysis(self):
         """
         Imperfect function:
-        update the available list after checking a coor that has been taken.
-        The list will update in a way that to remove all the non_available coor in the available_list
-
-        available_list: to be updated
-        Returns:
-
+        according to the spots on the chessboard, analysis the available spots in the board
+        Returns: None, just to update the self.all_available
         """
-        all_to_remove = self.check_coor(coor)
-        y = coor[1]
-        for coor_to_remove in all_to_remove:
-            yr = coor_to_remove[1]
-            if yr > y:
-                if coor_to_remove in self.all_available[yr]:
-                    self.all_available[yr].remove(coor_to_remove)
 
+        all_to_remove = []
+
+        for coor in self.spots_taken:
+            all_to_remove += self.check_coor(coor)
+        all_to_remove = set(all_to_remove)
+
+        for coor_tr in all_to_remove:
+            y = coor_tr[1]
+            if coor_tr in self.all_available[y]:
+                self.all_available[y].remove(coor_tr)
 
     def queen_solve(self, level=1):
+
         if level == 1:
-            self.analysis(self.all_available[1].pop(0))
-            self.queen_solve(2)
+            if self.row1:
+                self.insert(self.row1.pop(0))
+                self.analysis()
+                self.queen_solve(2)
+            else:
+                print('Analysis finished')
+
         elif 1 < level < self.size:
             if self.all_available[level]:
-                pass
-
-
+                self.insert(self.all_available[level].pop(0))
+                self.analysis()
+                self.queen_solve(level+1)
+            else:
+                self.un_insert(self.spots_taken.pop(0))
+                self.analysis()
 
 
 
@@ -198,13 +217,10 @@ if __name__ == '__main__':
     # ]
 
     t.un_insert((2,2))
-    t.insert((1,1))
+    t.insert((2,1))
     print(t)
 
-    t.analysis((1,1))
+    t.analysis()
     for i in t.all_available:
         print(i)
-
-    print('')
-    for i in t.all_available_0:
-        print(i)
+    print(t.row_coor(1))
