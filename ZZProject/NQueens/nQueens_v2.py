@@ -172,11 +172,9 @@ class Chessboard(object):
             else:
                 self.un_insert(self.spots_taken.pop(0))
                 self.analysis()
+                # TODO 未完成算法  退回机制没写好
 
 
-
-
-    # TODO 未完成算法
 
 
 if __name__ == '__main__':
