@@ -160,10 +160,9 @@ class Chessboard(object):
         if level == 1:
             if self.row1:
                 check_coor = self.row1.pop(0)
-                print('checking', check_coor)
                 self.insert(check_coor)
-                self.analysis(check_coor)
                 self.snapshot.append(deepcopy(self.all_available))
+                self.analysis(check_coor)
                 self.queen_solve(2)
             else:
                 print('Analysis finished')
@@ -172,8 +171,9 @@ class Chessboard(object):
             if self.all_available[level]:
                 check_coor = self.all_available[level].pop(0)
                 self.insert(check_coor)
-                self.analysis(check_coor)
+                self.all_available[level].remove(check_coor)
                 self.snapshot.append(deepcopy(self.all_available))
+                self.analysis(check_coor)
                 self.queen_solve(level+1)
             else:
                 self.un_insert(self.spots_taken.pop())
@@ -187,17 +187,13 @@ class Chessboard(object):
                 t = Chessboard(self.size)
                 t.board = deepcopy(self.board)
                 self.result.append(t)
-                self.un_insert(check_coor)
-                self.all_available = self.snapshot.pop()
-                self.queen_solve(level-1)
-            else:
                 self.un_insert(self.spots_taken.pop())
-                self.all_available = self.snapshot.pop()
-                self.queen_solve(level-1)
+            self.all_available = self.snapshot.pop()
+            self.queen_solve(level-1)
 
 
 if __name__ == '__main__':
-    t = Chessboard(5)
+    t = Chessboard(4)
     # print(t)
 
     # >>>
@@ -209,6 +205,43 @@ if __name__ == '__main__':
     #   [(1, 5), (2, 5), (3, 5), (4, 5), (5, 5)],
     # ]
 
-    t.queen_solve(1)
-    for i in t.result:
-        print(i)
+    # t.queen_solve()
+    # print(t.result)
+    # for i in t.result:
+    #     print(i)
+
+
+
+    # CCC = t.row1.pop(1)
+    # print(CCC)
+    # t.insert(CCC)
+    # t.analysis(CCC)
+    # t.snapshot.append(deepcopy(t.all_available))
+    # print(t.all_available)
+    # [[], [(1, 1), (3, 1), (4, 1)], [(4, 2)], [(1, 3), (3, 3)], [(1, 4), (3, 4), (4, 4)]]
+
+
+    # print('before everything, available')
+    # print(t.all_available)
+    #
+    # CCC = t.row1.pop(0)
+    # t.snapshot.append(deepcopy(t.all_available))
+    # t.insert(CCC)
+    # t.analysis(CCC)
+    #
+    #
+    # print('after adding (1,1), available:')
+    # print(t.all_available)
+    #
+    # t.un_insert(t.spots_taken.pop())
+    # t.all_available = t.snapshot.pop()
+    #
+    # print('after rollback, available:')
+    # print(t.all_available)
+    #
+    # print('add (2,2) in the system')
+    # CCC = t.row1.pop(0)
+    # t.insert(CCC)
+    # t.analysis(CCC)
+    # t.snapshot.append(deepcopy(t.all_available))
+    # print(t.all_available)
