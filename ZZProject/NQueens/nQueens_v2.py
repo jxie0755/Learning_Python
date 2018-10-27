@@ -225,3 +225,7 @@ if __name__ == '__main__':
         print(i)
     print('Total solution number:', len(t.result))
     # >>> Maximum Recursion Depth is reached
+    # This is because the recursion is never going back, is actually moving forward
+    # Therefore will reach to maximum depth.
+    # This is not a perfect recursion
+    # Therefore need to use the same idea but move to a non-recursio method, see next version
