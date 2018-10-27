@@ -53,5 +53,5 @@ def queens(n):
     return result_counter
 
 if __name__ == "__main__":
-    # print(queens(8))
+    print(queens(8))
     pass
