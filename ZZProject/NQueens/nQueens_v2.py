@@ -15,6 +15,7 @@ class Chessboard(object):
         An empty checkerboard -
         the structure should be a nested list of n lists where each list contain n spots, default to filled with 0
         """
+        assert n > 1, 'n must be larger than 1'
         self.size = n
         self.board = []
         for i in range(n):
@@ -171,7 +172,6 @@ class Chessboard(object):
             if self.all_available[level]:
                 check_coor = self.all_available[level].pop(0)
                 self.insert(check_coor)
-                self.all_available[level].remove(check_coor)
                 self.snapshot.append(deepcopy(self.all_available))
                 self.analysis(check_coor)
                 self.queen_solve(level+1)
@@ -188,60 +188,32 @@ class Chessboard(object):
                 t.board = deepcopy(self.board)
                 self.result.append(t)
                 self.un_insert(self.spots_taken.pop())
+            self.un_insert(self.spots_taken.pop())
             self.all_available = self.snapshot.pop()
             self.queen_solve(level-1)
 
 
 if __name__ == '__main__':
+    # Check 4 queens
     t = Chessboard(4)
-    # print(t)
+    t.queen_solve()
+    for i in t.result:
+        print(i)
+    print('Total solution number:', len(t.result))
+    # >>> 2
 
-    # >>>
-    # [ [],
-    #   [(1, 1), (2, 1), (3, 1), (4, 1), (5, 1)],
-    #   [(1, 2), (2, 2), (3, 2), (4, 2), (5, 2)],
-    #   [(1, 3), (2, 3), (3, 3), (4, 3), (5, 3)],
-    #   [(1, 4), (2, 4), (3, 4), (4, 4), (5, 4)],
-    #   [(1, 5), (2, 5), (3, 5), (4, 5), (5, 5)],
-    # ]
+    # Check 5 queens
+    t = Chessboard(5)
+    t.queen_solve()
+    for i in t.result:
+        print(i)
+    print('Total solution number:', len(t.result))
+    # >>> 10
 
-    # t.queen_solve()
-    # print(t.result)
-    # for i in t.result:
-    #     print(i)
-
-
-
-    # CCC = t.row1.pop(1)
-    # print(CCC)
-    # t.insert(CCC)
-    # t.analysis(CCC)
-    # t.snapshot.append(deepcopy(t.all_available))
-    # print(t.all_available)
-    # [[], [(1, 1), (3, 1), (4, 1)], [(4, 2)], [(1, 3), (3, 3)], [(1, 4), (3, 4), (4, 4)]]
-
-
-    # print('before everything, available')
-    # print(t.all_available)
-    #
-    # CCC = t.row1.pop(0)
-    # t.snapshot.append(deepcopy(t.all_available))
-    # t.insert(CCC)
-    # t.analysis(CCC)
-    #
-    #
-    # print('after adding (1,1), available:')
-    # print(t.all_available)
-    #
-    # t.un_insert(t.spots_taken.pop())
-    # t.all_available = t.snapshot.pop()
-    #
-    # print('after rollback, available:')
-    # print(t.all_available)
-    #
-    # print('add (2,2) in the system')
-    # CCC = t.row1.pop(0)
-    # t.insert(CCC)
-    # t.analysis(CCC)
-    # t.snapshot.append(deepcopy(t.all_available))
-    # print(t.all_available)
+    # Check 6 queens
+    t = Chessboard(6)
+    t.queen_solve()
+    for i in t.result:
+        print(i)
+    print('Total solution number:', len(t.result))
+    # >>> 4
