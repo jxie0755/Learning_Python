@@ -186,14 +186,6 @@ class Chessboard(object):
 
 
 if __name__ == '__main__':
-    # Check 4 queens
-    t = Chessboard(4)
-    t.queen_solve()
-    for i in t.result:
-        print(i)
-    print('Total solution number:', len(t.result))
-    # >>> 2
-
     # Check 5 queens
     t = Chessboard(5)
     t.queen_solve()
@@ -202,22 +194,10 @@ if __name__ == '__main__':
     print('Total solution number:', len(t.result))
     # >>> 10
 
-    # Check 6 queens
-    t = Chessboard(6)
-    t.queen_solve()
-    for i in t.result:
-        print(i)
-    print('Total solution number:', len(t.result))
-    # >>> 4
+    # Check 8 queens
+    # t = Chessboard(8)
+    # t.queen_solve()
+    # for i in t.result:
+    #     print(i)
+    # print('Total solution number:', len(t.result))
 
-    # Check 7 queens
-    t = Chessboard(7)
-    t.queen_solve()
-    for i in t.result:
-        print(i)
-    print('Total solution number:', len(t.result))
-    # >>> Maximum Recursion Depth is reached
-    # This is because the recursion is never going back, is actually moving forward
-    # Therefore will reach to maximum depth.
-    # This is not a perfect recursion
-    # Therefore need to use the same idea but move to a non-recursio method, see next version
