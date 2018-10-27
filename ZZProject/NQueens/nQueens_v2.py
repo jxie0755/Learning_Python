@@ -217,3 +217,11 @@ if __name__ == '__main__':
         print(i)
     print('Total solution number:', len(t.result))
     # >>> 4
+
+    # Check 7 queens
+    t = Chessboard(7)
+    t.queen_solve()
+    for i in t.result:
+        print(i)
+    print('Total solution number:', len(t.result))
+    # >>> Maximum Recursion Depth is reached
