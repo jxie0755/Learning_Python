@@ -1,7 +1,7 @@
 # This is to solve the Eight Queens problem in Chess
 # TO security set 8 queens in a chess checkerboard where no queen can directly attack the other queens.
 
-
+import copy
 
 class Chessboard(object):
     """each instance should be a single plate that can be filled in with numbers
@@ -24,7 +24,9 @@ class Chessboard(object):
         for i in range(1, self.size + 1):
             self.all_available.append(self.row_coor(i))
 
-        self.spots_taken = [()]
+        self.all_available_0 = copy.deepcopy(self.all_available)
+
+        self.spots_taken = []
 
 
     def __str__(self):
@@ -123,7 +125,7 @@ class Chessboard(object):
         non_available = set(col_coor_list + cross_coor_list_1 + cross_coor_list_2)
         return non_available
 
-    def analysis(self, available_list):
+    def analysis(self, coor):
         """
         Imperfect function:
         update the available list after checking a coor that has been taken.
@@ -133,19 +135,24 @@ class Chessboard(object):
         Returns:
 
         """
-        all_to_remove = []
-        for coor in self.spots_taken[1:]:
-            all_to_remove += self.check_coor(coor)
-        all_to_remove = set(all_to_remove)
-        for coor in all_to_remove:
-            for avcoor in available_list:
-                if coor in avcoor:
-                    avcoor.remove(coor)
+        all_to_remove = self.check_coor(coor)
+        y = coor[1]
+        for coor_to_remove in all_to_remove:
+            yr = coor_to_remove[1]
+            if yr > y:
+                if coor_to_remove in self.all_available[yr]:
+                    self.all_available[yr].remove(coor_to_remove)
 
 
     def queen_solve(self, level=1):
         if level == 1:
-            pass
+            self.analysis(self.all_available[1].pop(0))
+            self.queen_solve(2)
+        elif 1 < level < self.size:
+            if self.all_available[level]:
+                pass
+
+
 
 
 
@@ -194,8 +201,10 @@ if __name__ == '__main__':
     t.insert((1,1))
     print(t)
 
-    t.analysis(avv)
-    for i in avv:
+    t.analysis((1,1))
+    for i in t.all_available:
         print(i)
 
-
+    print('')
+    for i in t.all_available_0:
+        print(i)
