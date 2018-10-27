@@ -24,8 +24,13 @@ class Chessboard(object):
         for i in range(1, self.size + 1):
             self.all_available.append(self.row_coor(i))
 
+        self.all_available_0 = deepcopy(self.all_available)
+
         self.spots_taken = []
         self.row1 = self.row_coor(1)
+
+        self.snapshot = []
+        self.result = []
 
 
 
@@ -136,18 +141,14 @@ class Chessboard(object):
     #             result.append(coor)
     #     return result
 
-    def analysis(self):
+    def analysis(self, coor):
         """
         Imperfect function:
-        according to the spots on the chessboard, analysis the available spots in the board
+        according to the new spot on the chessboard, analysis the available spots in the board
         Returns: None, just to update the self.all_available
         """
 
-        all_to_remove = []
-
-        for coor in self.spots_taken:
-            all_to_remove += self.check_coor(coor)
-        all_to_remove = set(all_to_remove)
+        all_to_remove = self.check_coor(coor)
 
         for coor_tr in all_to_remove:
             y = coor_tr[1]
@@ -158,28 +159,46 @@ class Chessboard(object):
 
         if level == 1:
             if self.row1:
-                self.insert(self.row1.pop(0))
-                self.analysis()
+                check_coor = self.row1.pop(0)
+                print('checking', check_coor)
+                self.insert(check_coor)
+                self.analysis(check_coor)
+                self.snapshot.append(deepcopy(self.all_available))
                 self.queen_solve(2)
             else:
                 print('Analysis finished')
 
         elif 1 < level < self.size:
             if self.all_available[level]:
-                self.insert(self.all_available[level].pop(0))
-                self.analysis()
+                check_coor = self.all_available[level].pop(0)
+                self.insert(check_coor)
+                self.analysis(check_coor)
+                self.snapshot.append(deepcopy(self.all_available))
                 self.queen_solve(level+1)
             else:
-                self.un_insert(self.spots_taken.pop(0))
-                self.analysis()
-                # TODO 未完成算法  退回机制没写好
+                self.un_insert(self.spots_taken.pop())
+                self.all_available = self.snapshot.pop()
+                self.queen_solve(level-1)
 
-
+        elif level == self.size:
+            if self.all_available[level]:
+                check_coor = self.all_available[level].pop(0)
+                self.insert(check_coor)
+                t = Chessboard(self.size)
+                t.board = deepcopy(self.board)
+                self.result.append(t)
+                self.un_insert(check_coor)
+                self.all_available = self.snapshot.pop()
+                self.queen_solve(level-1)
+            else:
+                self.un_insert(self.spots_taken.pop())
+                self.all_available = self.snapshot.pop()
+                self.queen_solve(level-1)
 
 
 if __name__ == '__main__':
     t = Chessboard(5)
-    print(t)
+    # print(t)
 
     # >>>
     # [ [],
@@ -190,16 +209,6 @@ if __name__ == '__main__':
     #   [(1, 5), (2, 5), (3, 5), (4, 5), (5, 5)],
     # ]
 
-    t.insert((2,1))
-    print(t)
-
-    t.analysis()
-    for i in t.all_available:
+    t.queen_solve(1)
+    for i in t.result:
         print(i)
-
-    t.insert((4,2))
-    t.analysis()
-    print(t)
-    for i in t.all_available:
-        print(i)
-    print(t.row_coor(1))
