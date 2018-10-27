@@ -1,6 +1,5 @@
 # doctest module
-# https://docs.python.org/3/library/doctest.html#module-doctest
-
+# https://docs.python.org/3/library/doctest.html
 
 # Quick Example 1
 
