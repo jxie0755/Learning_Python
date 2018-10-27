@@ -130,18 +130,6 @@ class Chessboard(object):
         non_available = set(col_coor_list + cross_coor_list_1 + cross_coor_list_2)
         return non_available
 
-    # def spots_taken(self):
-    #     """
-    #     To generate the list of coors available to put.
-    #     Returns: a list of coor in the form of [(x1, y1), (x2, y2), ...]
-    #     """
-    #     result = []
-    #     for coor in [(x, y) for x in range(1, self.size+1) for y in range(1, self.size+1)]:
-    #         x, y = coor[0], coor[1]
-    #         if self.board[self.size-y][x-1] == 1:
-    #             result.append(coor)
-    #     return result
-
     def analysis(self, coor):
         """
         Imperfect function:
