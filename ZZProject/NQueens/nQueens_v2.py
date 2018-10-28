@@ -17,6 +17,7 @@ class Chessboard(object):
         """
         assert n > 1, 'n must be larger than 1'
         self.size = n
+
         self.board = []
         for i in range(n):
             self.board.append([0]*n)
@@ -25,11 +26,7 @@ class Chessboard(object):
         for i in range(1, self.size + 1):
             self.all_available.append(self.row_coor(i))
 
-        self.all_available_0 = deepcopy(self.all_available)
-
         self.spots_taken = []
-        self.row1 = self.row_coor(1)
-
         self.snapshot = []
         self.result = []
 
@@ -198,14 +195,14 @@ if __name__ == '__main__':
     print('Total solution number:', len(t.result))
     # >>> 4
 
-    # Check 7 queens
-    t = Chessboard(7)
-    t.queen_solve()
-    for i in t.result:
-        print(i)
-    print('Total solution number:', len(t.result))
-    # >>> Maximum Recursion Depth is reached
-    # This is because the recursion is never going back, is actually moving forward
-    # Therefore will reach to maximum depth.
-    # This is not a perfect recursion
-    # Therefore need to use the same idea but move to a non-recursio method, see next version
+    # # Check 7 queens
+    # t = Chessboard(7)
+    # t.queen_solve()
+    # for i in t.result:
+    #     print(i)
+    # print('Total solution number:', len(t.result))
+    # # >>> Maximum Recursion Depth is reached
+    # # This is because the recursion is never going back, is actually moving forward
+    # # Therefore will reach to maximum depth.
+    # # This is not a perfect recursion
+    # # Therefore need to use the same idea but move to a non-recursio method, see next version

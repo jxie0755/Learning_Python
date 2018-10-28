@@ -19,6 +19,7 @@ class Chessboard(object):
         """
         assert n > 1, 'n must be larger than 1'
         self.size = n
+
         self.board = []
         for i in range(n):
             self.board.append([0]*n)
@@ -27,11 +28,7 @@ class Chessboard(object):
         for i in range(1, self.size + 1):
             self.all_available.append(self.row_coor(i))
 
-        self.all_available_0 = deepcopy(self.all_available)
-
         self.spots_taken = []
-        self.row1 = self.row_coor(1)
-
         self.snapshot = []
         self.result = []
 
