@@ -187,18 +187,21 @@ class Chessboard(object):
 
 
 if __name__ == '__main__':
-    # # Check 5 queens
-    # t = Chessboard(5)
-    # t.queen_solve()
-    # t.show_solution()
-    # # >>> 10
-    #
-    # # Check 8 queens
-    # t = Chessboard(8)
-    # t.queen_solve()
-    # t.show_solution()
+    # Check 5 queens
+    t = Chessboard(5)
+    t.queen_solve()
+    t.show_solution()
+    # >>> 10
+
+    # Check 8 queens
+    t = Chessboard(8)
+    t.queen_solve()
+    t.show_solution()
+    # >>> 92
 
     # Check 10 queens for timer
     t = Chessboard(10)
     t.queen_solve()
     t.show_solution()
+    # >>> 724
+    # only 4.416 second
