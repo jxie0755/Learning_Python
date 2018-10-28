@@ -49,9 +49,12 @@ class Chessboard(object):
             row = str(i)
             y1 = str(y_num)
             y2 = str(y_num_1)
-            to_print += str(y_num_1) + (len(y1) - len(y2)) * ' ' + '  ' + row + '\n'
+            add_on = (len(y1) - len(y2))
+            to_print += str(y_num_1) + add_on * ' ' + '  ' + row + '\n'
             y_num_1 -= 1
 
+        separ = add_on * ' ' + separ
+        x_num = add_on * ' ' + x_num
         to_print += separ + '\n' + x_num
         return to_print
 
