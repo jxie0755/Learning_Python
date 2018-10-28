@@ -145,7 +145,8 @@ class Chessboard(object):
 
     def queen_solve(self):
         level = 1
-        while True:
+        running = True
+        while running:
 
             if level < self.size:
                 if self.all_available[level]:
@@ -159,8 +160,8 @@ class Chessboard(object):
                     self.all_available = self.snapshot.pop()
                     level -= 1
                 else:
+                    running = False
                     print('Analysis Finished')
-                    break
 
             elif level == self.size:
                 if self.all_available[level]:
@@ -174,22 +175,20 @@ class Chessboard(object):
                 self.all_available = self.snapshot.pop()
                 level -= 1
 
+    def show_solution(self):
+        for answer in self.result:
+            print(answer)
+        print('Total solution number:', len(t.result))
+
 
 if __name__ == '__main__':
     # Check 5 queens
     t = Chessboard(5)
-    print(t)
     t.queen_solve()
-    for i in t.result:
-        print(i)
-    print('Total solution number:', len(t.result))
+    t.show_solution()
     # >>> 10
 
     # Check 8 queens
     t = Chessboard(8)
     t.queen_solve()
-    for i in t.result:
-        print(i)
-    print('Total solution number:', len(t.result))
-
-
+    t.show_solution()
