@@ -183,7 +183,9 @@ class Chessboard(object):
     def show_solution(self):
         for answer in self.result:
             print(answer)
-        print('Total solution number:', len(t.result))
+        solution_number = len(t.result)
+        print('Total solution number:')
+        return solution_number
 
 
 if __name__ == '__main__':
@@ -200,8 +202,8 @@ if __name__ == '__main__':
     # >>> 92
 
     # Check 10 queens for timer
-    t = Chessboard(10)
-    t.queen_solve()
-    t.show_solution()
+    # t = Chessboard(10)
+    # t.queen_solve()
+    # print(t.show_solution())
     # >>> 724
     # only 4.416 second
