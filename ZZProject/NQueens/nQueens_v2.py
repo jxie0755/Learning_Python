@@ -169,39 +169,37 @@ class Chessboard(object):
             self.all_available = self.snapshot.pop()
             self.queen_solve(level - 1)
 
+    def show_solution(self):
+        for answer in self.result:
+            print(answer)
+        print('Total solution number:', len(t.result))
+
 
 if __name__ == '__main__':
     # Check 4 queens
     t = Chessboard(4)
     t.queen_solve()
-    for i in t.result:
-        print(i)
-    print('Total solution number:', len(t.result))
+    t.show_solution()
     # >>> 2
 
     # Check 5 queens
     t = Chessboard(5)
     t.queen_solve()
-    for i in t.result:
-        print(i)
-    print('Total solution number:', len(t.result))
+    t.show_solution()
     # >>> 10
 
     # Check 6 queens
     t = Chessboard(6)
     t.queen_solve()
-    for i in t.result:
-        print(i)
-    print('Total solution number:', len(t.result))
+    t.show_solution()
     # >>> 4
 
     # # Check 7 queens
     # t = Chessboard(7)
     # t.queen_solve()
-    # for i in t.result:
-    #     print(i)
-    # print('Total solution number:', len(t.result))
+    # t.show_solution()
     # # >>> Maximum Recursion Depth is reached
+
     # # This is because the recursion is never going back, is actually moving forward
     # # Therefore will reach to maximum depth.
     # # This is not a perfect recursion
