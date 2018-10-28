@@ -140,43 +140,45 @@ class Chessboard(object):
 
         for coor_tr in all_to_remove:
             y = coor_tr[1]
-            if coor_tr in self.all_available[y]:
+            if y > coor[1] and coor_tr in self.all_available[y]:
                 self.all_available[y].remove(coor_tr)
 
-    def queen_solve(self, level=1):
+    def queen_solve(self):
+        level = 1
+        while True:
 
-        if level < self.size:
-            if self.all_available[level]:
-                check_coor = self.all_available[level].pop(0)
-                self.insert(check_coor)
-                self.snapshot.append(deepcopy(self.all_available))
-                self.analysis(check_coor)
-                self.queen_solve(level + 1)
-            elif not self.all_available[level] and level != 1:
+            if level < self.size:
+                if self.all_available[level]:
+                    check_coor = self.all_available[level].pop(0)
+                    self.insert(check_coor)
+                    self.snapshot.append(deepcopy(self.all_available))
+                    self.analysis(check_coor)
+                    level += 1
+                elif not self.all_available[level] and level != 1:
+                    self.un_insert(self.spots_taken.pop())
+                    self.all_available = self.snapshot.pop()
+                    level -= 1
+                else:
+                    print('Analysis Finished')
+                    break
+
+            elif level == self.size:
+                if self.all_available[level]:
+                    check_coor = self.all_available[level].pop(0)
+                    self.insert(check_coor)
+                    t = Chessboard(self.size)
+                    t.board = deepcopy(self.board)
+                    self.result.append(t)
+                    self.un_insert(self.spots_taken.pop())
                 self.un_insert(self.spots_taken.pop())
                 self.all_available = self.snapshot.pop()
-                self.queen_solve(level - 1)
-            else:
-                print('Analysis Finished')
-
-        elif level == self.size:
-            if self.all_available[level]:
-                check_coor = self.all_available[level].pop(0)
-                self.insert(check_coor)
-                t = Chessboard(self.size)
-                t.board = deepcopy(self.board)
-                self.result.append(t)
-                self.un_insert(self.spots_taken.pop())
-            self.un_insert(self.spots_taken.pop())
-            self.all_available = self.snapshot.pop()
-            self.queen_solve(level - 1)
-
-    # TODO finish the iteration method
+                level -= 1
 
 
 if __name__ == '__main__':
     # Check 5 queens
     t = Chessboard(5)
+    print(t)
     t.queen_solve()
     for i in t.result:
         print(i)
@@ -184,9 +186,10 @@ if __name__ == '__main__':
     # >>> 10
 
     # Check 8 queens
-    # t = Chessboard(8)
-    # t.queen_solve()
-    # for i in t.result:
-    #     print(i)
-    # print('Total solution number:', len(t.result))
+    t = Chessboard(8)
+    t.queen_solve()
+    for i in t.result:
+        print(i)
+    print('Total solution number:', len(t.result))
+
 
