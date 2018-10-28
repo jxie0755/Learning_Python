@@ -33,7 +33,6 @@ class Chessboard(object):
         self.result = []
 
 
-
     def __str__(self):
         """to just print the current checker board
         also add a coordinate axis for easier read
@@ -41,14 +40,17 @@ class Chessboard(object):
 
         to_print = ''
         y_num = self.size  # 根据棋盘大小输出
+        y_num_1 = y_num
         nums = str(list(range(1,self.size+1)))[1:-1]
         x_num = '    ' + nums
         separ = '    ' + len(nums) * '-'
 
         for i in self.board:
             row = str(i)
-            to_print += str(y_num) + '  ' + row + '\n'
-            y_num -= 1
+            y1 = str(y_num)
+            y2 = str(y_num_1)
+            to_print += str(y_num_1) + (len(y1) - len(y2)) * ' ' + '  ' + row + '\n'
+            y_num_1 -= 1
 
         to_print += separ + '\n' + x_num
         return to_print
@@ -182,13 +184,18 @@ class Chessboard(object):
 
 
 if __name__ == '__main__':
-    # Check 5 queens
-    t = Chessboard(5)
-    t.queen_solve()
-    t.show_solution()
-    # >>> 10
+    # # Check 5 queens
+    # t = Chessboard(5)
+    # t.queen_solve()
+    # t.show_solution()
+    # # >>> 10
+    #
+    # # Check 8 queens
+    # t = Chessboard(8)
+    # t.queen_solve()
+    # t.show_solution()
 
-    # Check 8 queens
-    t = Chessboard(8)
+    # Check 10 queens for timer
+    t = Chessboard(10)
     t.queen_solve()
     t.show_solution()
