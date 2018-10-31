@@ -192,13 +192,13 @@ if __name__ == '__main__':
     # Check 5 queens
     t = Chessboard(5)
     t.queen_solve()
-    t.show_solution()
+    print(t.show_solution())
     # >>> 10
 
     # Check 8 queens
     t = Chessboard(8)
     t.queen_solve()
-    t.show_solution()
+    print(t.show_solution())
     # >>> 92
 
     # Check 10 queens for timer
