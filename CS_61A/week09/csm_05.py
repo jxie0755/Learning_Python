@@ -35,3 +35,4 @@ print(a.rest.rest.rest.rest.first)
 # >>> 2
 
 
+# Q2
