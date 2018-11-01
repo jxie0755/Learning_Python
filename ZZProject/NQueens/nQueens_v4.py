@@ -1,7 +1,6 @@
 # This is to solve the Eight Queens problem in Chess
-# TO security set 8 queens in a chess checkerboard where no queen can directly attack the other queens.
-# The previous version did not solve the n queen when n >= 7, as the imperfect recursion reaches to maximum recursion depth
-# This method is basically the same as the v2, except the queen_solve() is modified to a normal iteration method.
+# Update from V3, simplify the col_coor and cross_coor_1 and cross_coor_2 for moving one direction.
+
 
 from copy import deepcopy
 
@@ -84,38 +83,29 @@ class Chessboard(object):
         row_coor_list = [(i, y) for i in range(1, self.size+1)]
         return row_coor_list
 
-    def col_coor(self, n):
+    def col_coor(self, coor):
         """output a list of coor of column n from 1 at the left"""
-        x = n
-        col_coor_list = [(x, i) for i in range(1, self.size+1)]
+        x, y = coor[0], coor[1]
+        col_coor_list = [(x, i) for i in range(y+1, self.size+1)]
         return col_coor_list
 
     def cross_coor_1(self, coor): # of \ cross
         """output a list of cross of coor in the direction of \\"""
         x, y = coor[0], coor[1]
-        cross_coor_list = [coor]
-        before, after = coor[:], coor[:]
+        cross_coor_list = []
+        before = coor[:]
         while before[0] > 1 and before[1] < self.size:
             x, y = before[0], before[1]
             before = (x-1, y+1)
             cross_coor_list = [before] + cross_coor_list
-
-        while after[0] < self.size and after[1] > 1:
-            x, y = after[0], after[1]
-            after = (x+1, y-1)
-            cross_coor_list = cross_coor_list + [after]
 
         return cross_coor_list
 
     def cross_coor_2(self, coor): # # of / cross
         """output a list of cross of coor in the direction of //"""
         x, y = coor[0], coor[1]
-        cross_coor_list = [coor]
-        before, after = coor[:], coor[:]
-        while before[0] > 1 and before[1] > 1:
-            x, y = before[0], before[1]
-            before = (x-1, y-1)
-            cross_coor_list = [before] + cross_coor_list
+        cross_coor_list = []
+        after = coor[:]
 
         while after[0] < self.size and after[1] < self.size:
             x, y = after[0], after[1]
@@ -128,7 +118,7 @@ class Chessboard(object):
     def check_coor(self, coor):
         """return a list of coors that can not be put with queens"""
         # no need for row_coor as we won't check this row again
-        col_coor_list = self.col_coor(coor[0])
+        col_coor_list = self.col_coor(coor)
         cross_coor_list_1 = self.cross_coor_1(coor)
         cross_coor_list_2 = self.cross_coor_2(coor)
         non_available = set(col_coor_list + cross_coor_list_1 + cross_coor_list_2)
@@ -206,4 +196,4 @@ if __name__ == '__main__':
     # t.queen_solve()
     # print(t.show_solution())
     # >>> 724
-    # only 4.481 second
+    # only 4.293 second
