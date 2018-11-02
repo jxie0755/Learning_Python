@@ -94,11 +94,18 @@ class Link:
 
     def reverse(self):
         """return a linked list that is reversed from itself in index sequence"""
-        lst = self.convert_to_list()[::-1]
-        reverse_link = Link(lst[0])
-        for i in lst[1:]:
-            reverse_link += Link(i)
-        return reverse_link
+        # lst = self.convert_to_list()[::-1]
+        # reverse_link = Link(lst[0])
+        # for i in lst[1:]:
+        #     reverse_link += Link(i)
+        # return reverse_link
+
+        rev = Link.empty
+        current = self
+        while current is not Link.empty:
+            rev = Link(current.value, rev)
+            current = current.rest
+        return rev
 
     def remove(self, value):
         """Remove all the nodes containing value.
