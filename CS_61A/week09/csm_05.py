@@ -97,3 +97,22 @@ def skip(lst):
         return Link(lst.first, skip(lst.rest.rest))
     elif lst.rest.rest is Link.empty:
         return Link(lst.first)
+
+
+# Q3
+# Now write function skip by mutating the original list, instead of returning a new list.
+# Do NOT call the Link constructor.
+def skip(lst):
+    """
+    >>> a = Link(1, Link(2, Link(3, Link(4))))
+    >>> b = skip(a)
+    >>> b
+    >>> a
+    Link(1, Link(3))
+    """
+    if lst.rest.rest is not Link.empty:
+        lst.rest = lst.rest.rest
+        skip(lst.rest)
+    elif lst.rest.rest is Link.empty:
+        lst.rest = Link.empty
+
