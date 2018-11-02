@@ -116,3 +116,23 @@ def skip(lst):
     elif lst.rest.rest is Link.empty:
         lst.rest = Link.empty
 
+
+# Q4
+# Write a function reverse, which takes in a Link and returns a new Link that has the order of the contents reversed.
+# Hint: You may want to use a helper function if you’re solving this recursively.
+
+def reverse(lst):
+    """
+    >>> a = Link(1, Link(2, Link(3)))
+    >>> b = reverse(a)
+    >>> b
+    Link(3, Link(2, Link(1)))
+    >>> a
+    Link(1, Link(2, Link(3)))
+    """
+    rev = Link.empty
+    while lst is not Link.empty:
+        rev = Link(lst.first, rev)
+        lst = lst.rest
+    return rev
+
