@@ -766,3 +766,28 @@ if __name__ == '__main__':
       # 10
         # 2
         # 5
+
+
+def contains(elem, n, t):
+    """
+    >>> t1 = Tree(1, [Tree(1, [Tree(2)])])
+    >>> contains(1, 2, t1)
+    True
+    >>> contains(2, 2, t1)
+    False
+    >>> contains(2, 1, t1)
+    True
+    >>> t2 = Tree(1, [Tree(2), Tree(1, [Tree(1), Tree(2)])])
+    >>> contains(1, 3, t2)
+    True
+    >>> contains(2, 2, t2) # Not on a path
+    False
+    """
+    if n == 0:
+        return True
+    elif t.is_leaf() and n == 1:
+        return t.label == elem
+    elif t.label == elem:
+        return True in [contains(elem, n - 1, b) for b in t.branches]
+    else:
+        return True in [contains(elem, n, b) for b in t.branches]
