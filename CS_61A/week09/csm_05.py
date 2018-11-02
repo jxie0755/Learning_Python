@@ -136,3 +136,76 @@ def reverse(lst):
         lst = lst.rest
     return rev
 
+
+# Midterm Review
+# Tree
+class Tree:
+    def __init__(self, label, branches=[]):
+        for c in branches:
+            assert isinstance(c, Tree)
+        self.label = label
+        self.branches = list(branches)
+
+    def __repr__(self):
+        if self.branches:
+            branches_str = ', ' + repr(self.branches)
+        else:
+            branches_str = ''
+        return 'Tree({0}{1})'.format(self.label, branches_str)
+
+    def is_leaf(self):
+        return not self.branches
+
+    def __eq__(self, other):
+        return type(other) is type(self) and self.label == other.label \
+               and self.branches == other.branches
+
+    def __str__(self):
+        def print_tree(t, indent=0):
+            tree_str = '  ' * indent + str(t.label) + "\n"
+            for b in t.branches:
+                tree_str += print_tree(b, indent + 1)
+            return tree_str
+        return print_tree(self).rstrip()
+
+    def copy_tree(self):
+        return Tree(self.label, [b.copy_tree() for b in self.branches])
+
+
+# Q1
+# Write a function that returns true only if there  exists a path from root to leaf that contains at least n instances of elem in a tree t
+
+def contains(elem, n, t):
+    """
+    >>> t1 = Tree(1, [Tree(1, [Tree(2)])])
+    >>> contains(1, 2, t1)
+    True
+    >>> contains(2, 2, t1)
+    False
+    >>> contains(2, 1, t1)
+    True
+    >>> t2 = Tree(1, [Tree(2), Tree(1, [Tree(1), Tree(2)])])
+    >>> contains(1, 3, t2)
+    True
+    >>> contains(2, 2, t2) # Not on a path
+    False
+    """
+    if n == 0:
+        return True
+    elif t.is_leaf() and n == 1:
+        return t.label == elem
+    elif t.label == elem:
+        return True in [contains(elem, n-1, b) for b in t.branches]
+    else:
+        return True in [contains(elem, n, b) for b in t.branches]
+
+# Q2
+# Define the function factor_tree which returns a factor tree.
+# Recall that in a factor tree, multiplying the leaves together is the prime factorization of the root, n.
+# See below for an example of a factor tree for n = 20.
+
+def factor_tree(n):
+    for i in range(2, n):
+        if n % i == 0:
+            return Tree(n, [factor_tree(i), factor_tree(n // i)])
+    return Tree(n)
