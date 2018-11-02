@@ -215,7 +215,7 @@ class Tree:
 
     def all_paths(self):
         """to get all path of a tree in list form in a big list"""
-        
+
         def helper(tree):
             """return a list of Linked list that are all the paths in the tree
             need to use the Link class as well
@@ -746,3 +746,23 @@ def adjoin(s, v):
         return BTree(s.label, s.left, adjoin(s.right, v))
     elif s.label > v:
         return BTree(s.label, adjoin(s.left, v), s.right)
+
+
+def factor_tree(n):
+    """
+    Returns a factor tree.
+    Recall that in a factor tree, multiplying the leaves together is the prime factorization of the root, n
+    """
+    for i in range(2, n):
+        if n % i == 0:
+            return Tree(n, [factor_tree(i), factor_tree(n // i)])
+    return Tree(n)
+
+if __name__ == '__main__':
+    print(factor_tree(20))
+    # >>>
+    # 20
+      # 2
+      # 10
+        # 2
+        # 5
