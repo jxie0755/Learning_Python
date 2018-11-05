@@ -24,4 +24,3 @@ def extend(link1, link2):
 
 
 # Assuming the two input linked lists to extend both contain n elements, circle the order of growth that best describes the runtime of calling extend.
-
