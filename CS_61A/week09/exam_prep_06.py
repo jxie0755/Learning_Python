@@ -71,12 +71,14 @@ def a(m, n):
     for i in range(m):
         for j in range(n // 100):
             print("hi")
+# O(m*n)
 
 def b(m, n):
     for i in range(m // 3):
         print("hi")
     for j in range(n * 5):
         print("bye")
+# O(m+n)
 
 def d(m, n):
     for i in range(m):
@@ -84,4 +86,6 @@ def d(m, n):
         while j < i:
             print("hi")
             j = j + 100
+# O(m^2)
+
 
