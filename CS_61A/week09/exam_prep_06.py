@@ -41,13 +41,47 @@ def boom(n):
     if n == 0:
         return "BOOM!"
     return boom(n - 1)
+# O(n)
 
 def explode(n):
     if n == 0:
-        return boom(n)
+        return boom(n)  # O(1)
     i = 0
     while i < n:
-        boom(n)
+        # boom(n)  o(n)
         i += 1
     return boom(n)
+
+# explode(n)
+# O(n^2)
+
+
+# Q4 Not with a fizzle, but with a bang (Su13 Midterm 2 Q2c)
+def dreams(n):
+    if n<= 0:
+        return n
+    if n > 0:
+        return n + dreams(n // 2)
+
+# O((log(n))
+
+
+# Q5 Various Programs (Sp14 Final Q5c)
+def a(m, n):
+    for i in range(m):
+        for j in range(n // 100):
+            print("hi")
+
+def b(m, n):
+    for i in range(m // 3):
+        print("hi")
+    for j in range(n * 5):
+        print("bye")
+
+def d(m, n):
+    for i in range(m):
+        j = 0
+        while j < i:
+            print("hi")
+            j = j + 100
 
