@@ -1,4 +1,4 @@
-# CS61A spring 2018 midterm exam 1
+# CS61A spring 2018 midterm exam 2
 
 # Q1 Buggy Quidditch
 
@@ -41,17 +41,260 @@ chasing = quaffle.score
 time = lambda: Ball.points
 malfoy = lambda: Ball.time()
 
-print(Snitch().points)
+# print(Snitch().points)
+#
+#
+# print(chase(quaffle))
+#
+#
+# print(Snitch().score('Seeker'))
+#
+#
+# print(chase(Ball))
+#
+#
+# print(Snitch().score(malfoy()))
 
 
-print(chase(quaffle))
 
 
-print(Snitch().score('Seeker'))
+# Q2
+s = 1
+def to(s):
+    ix = s[1:2]
+    ward[1] = 6
+    def re(st):
+        if st is not ward:
+            nonlocal s
+            s = s.extend(ix)
+            return re(ward)
+        else:
+            st.append(ix)
+    return re
+
+ward = [3, 4] + list([5])
+print(to(ward)(s))
 
 
-print(chase(Ball))
 
 
-print(Snitch().score(malfoy()))
+# Q3
 
+# Definition. A grid is a list of lists.
+# Each list in a grid is called a row, and all rows must have the same length.
+# [[1, 2], [3, 4]] is a grid of integers, but [[1, 2], [3, 4, 5]] is not a grid
+
+# (a)
+# Implement column, which takes a grid g and a non-negative integer c that is smaller than the length
+# of a row in g. It returns a list containing the element at index c of each row in the grid.
+
+
+def column(g, c):
+    """Return the column of g at index c.
+    >>> column([[3, 4, 5], [6, 7, 8], [9, 10, 11]], 1)
+    [4, 7, 10]
+    """
+    ### your answer ###
+    pass
+
+# (b)
+def print_grid(g):
+    """Print each row on a separate line with columns aligned.
+
+    >>> print_grid([[1, 234, 50, 4, 5], [67, 8, 90, 0, 500], [3, 4, 5, -500, 7]])
+    1 234 50 4 5
+    67 8 90 0 500
+    3 4 5 -500 7
+    """
+    ### your answer ###
+    cs = __
+    widths = [__([len(str(__[__])) for rwo in g]) for c in cs]
+
+
+# (c)
+def expand(g, h, w, fill):
+    """Expand grid g so that it has at least h rows and w columns.
+    >>> g = [[1, 2, 3], [40, 50, 60]]
+
+    >>> print_grid(expand(g, 2, 5, 10))
+    1 2 3 10 10
+    40 50 60 10 10
+
+    >>> print_grid(expand(g, 5, 6, 0))
+    1 2 3 10 10 0
+    40 50 60 10 10 0
+    0 0 0 0 0 0
+    0 0 0 0 0 0
+    0 0 0 0 0 0
+
+    >>> print_grid(expand(g, 0, 0, 5)) # expand never reduces the dimensions of g.
+    1 2 3 10 10 0
+    40 50 60 10 10 0
+    0 0 0 0 0 0
+    0 0 0 0 0 0
+    0 0 0 0 0 0
+    """
+    for row in g:
+        row.__(__)
+    for k in __:
+        g.__(__)
+    return g
+
+
+# (d)
+# Circle the O expression that describes how many new values must be added when a grid with n rows
+# and n columns is expanded to 2*n rows and 2*n columns using the expand function. Assume that expand
+# is implemented correctly.
+
+# O(1)   O(log n)   O(n)   O(n^2)   O(2^n)   None of these
+
+
+
+# Q4 Sequences
+# Implement stretch, which takes a Link instance s with no cycles.
+# It mutates s so that, for each position k in the original s, the kth element is repeated k times.
+# You do not need to use the name i.
+
+class Link:
+    """A linked list."""
+    empty = ()
+
+    def __init__(self, first, rest=empty):
+        assert rest is Link.empty or isinstance(rest, Link)
+        self.first = first
+        self.rest = rest
+
+    @property
+    def second(self):
+        return self.rest.first
+
+    @second.setter
+    def second(self, value):
+        self.rest.first = value
+
+
+    def __repr__(self):
+        if self.rest is not Link.empty:
+            rest_repr = ', ' + repr(self.rest)
+        else:
+            rest_repr = ''
+        return 'Link(' + repr(self.first) + rest_repr + ')'
+
+    def __str__(self):
+        string = '<'
+        while self.rest is not Link.empty:
+            string += str(self.first) + ', '
+            self = self.rest
+        return string + str(self.first) + '>'
+
+# (a)
+def stretch(s, repeat=0):
+    """Replicate the kth element k times, for all k in s.
+    >>> a = Link(3, Link(4, Link(5, Link(6))))
+    >>> stretch(a)
+    >>> print(a)
+    <3, 4, 4, 5, 5, 5, 6, 6, 6, 6>
+    """
+    if __:
+        for i in range(repeat):
+            __ = __
+            __ = __
+        __
+
+
+# (b)
+# Implement combo, which takes two non-negative integers a and b.
+# It returns the smallest integer thatcontains all of the digits of a in order,
+# as well as all of the digits of b in order.
+
+def combo(a, b):
+    """Return the smallest integer with all of the digits of a and b (in order).
+    >>> combo(531, 432) # 45312 contains both _531_ and 4_3_2.
+    45312
+    >>> combo(531, 4321) # 45321 contains both _53_1 and 4_321.
+    45321
+    >>> combo(1234, 9123) # 91234 contains both _1234 and 9123_.
+    91234
+    >>> combo(0, 321) # The number 0 has no digits, so 0 is not in the result.
+    321
+    """
+    if __:
+        return a + b
+    elif __:
+        return combo(__, __)__
+    return __(__, __)
+
+
+
+# Q5 Trees
+class Tree:
+    def __init__(self, label, branches=[]):
+        for c in branches:
+            assert isinstance(c, Tree)
+        self.label = label
+        self.branches = list(branches)
+
+    def __repr__(self):
+        if self.branches:
+            branches_str = ', ' + repr(self.branches)
+        else:
+            branches_str = ''
+        return 'Tree({0}{1})'.format(self.label, branches_str)
+
+    def is_leaf(self):
+        return not self.branches
+
+    def __eq__(self, other):
+        return type(other) is type(self) and self.label == other.label \
+               and self.branches == other.branches
+
+    def __str__(self):
+        def print_tree(t, indent=0):
+            tree_str = '  ' * indent + str(t.label) + "\n"
+            for b in t.branches:
+                tree_str += print_tree(b, indent + 1)
+            return tree_str
+        return print_tree(self).rstrip()
+
+    def copy_tree(self):
+        return Tree(self.label, [b.copy_tree() for b in self.branches])
+
+# (a)
+# Implement siblings, which takes a Tree instance t.
+# It returns a list of the labels of all nodes in t that have a sibling.
+# These labels can appear in any order.
+
+def siblings(t):
+    """Return a list of the labels of all nodes that have siblings in t.
+    >>> a = Tree(4, [Tree(5), Tree(6), Tree(7, [Tree(8)])])
+    >>> siblings(Tree(1, [Tree(3, [a]), Tree(9, [Tree(10)])]))
+    [3, 9, 5, 6, 7]
+    """
+    result = [__]
+    for b in t.branches:
+        __
+    return result
+
+# (b)
+# Implement the Sib class that inherits from Tree.
+# In addition to label and branches, a Sib instance t has an attribute siblings that stores the number of siblings t has in Sib trees containing t as a node.
+
+# Assume that the branches of a Sib instance will never be mutated or re-assigned.
+
+class Sib(Tree):
+    """A tree that knows how many siblings it has.
+    >>> a = Sib(4, [Sib(5), Sib(6), Sib(7, [Sib(8)])])
+    >>> a.label
+    4
+    >>> a.branches[1].label
+    6
+    >>> a.siblings
+    0
+    >>> a.branches[1].siblings
+    2
+    """
+    def __init__(self, label, branches=[]):
+        self.siblings = __
+        __:
+            __
+        Tree.__
