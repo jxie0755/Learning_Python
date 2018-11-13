@@ -57,7 +57,6 @@ malfoy = lambda: Ball.time()
 
 
 
-
 # Q2
 s = 1
 def to(s):
