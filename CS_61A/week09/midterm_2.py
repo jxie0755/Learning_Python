@@ -41,20 +41,43 @@ chasing = quaffle.score
 time = lambda: Ball.points
 malfoy = lambda: Ball.time()
 
-# print(Snitch().points)
-#
-#
-# print(chase(quaffle))
-#
-#
-# print(Snitch().score('Seeker'))
-#
-#
-# print(chase(Ball))
-#
-#
-# print(Snitch().score(malfoy()))
+print('A')
+print(Snitch().points)
+# >>>
+# 150
 
+
+print(chasing(quaffle))
+# quaffle.score(quaffle)
+# >>>
+# print('Magic', quaffle.points)
+# Magic 10
+
+print('B')
+print(Snitch().score('Seeker'))
+# Ball.score('Seeker')
+# >>>
+# Seeker 0
+# return None
+# return None
+
+print('C')
+print(chase(Ball))
+# Ball.time = lambda: 'Harry'
+# Ball.points = 1
+# quaffle.points = 20
+# >>>
+# 1
+# return None
+
+print('D')
+# print(Snitch().score(malfoy()))
+# Snitch().score(Ball.time()())   # 在上一题, Ball.time = Snitch.time, 所以Ball.time改了
+# Snitch().score('Harry')  # Snitch()本身是snitch的实例,所以Snitch().points是150
+# Ball.score(self, 'Harry') # 虽然转调用Ball.score,但是self.points仍然是Snitch.points
+# >>>
+# Harry 150
+# return None
 
 
 # Q2
