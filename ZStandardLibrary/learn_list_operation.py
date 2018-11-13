@@ -166,7 +166,7 @@ listA = ['A', 'B', 'C', 'D', 'E', 'F']
 # listA[:]    # a copy of listA
 # listA[::-1] # 相当于reversed(listA)
 # listA[-1]   # listA 的最后一个item
-# listA[i:n]  # 从第i个数起,按顺序包括n个数,不包括position n的item
+# listA[i:n]  # 从第i个数起,按顺序包括n-i个数(不包括position n的item)
 
 # IMPORTANT:
 # The slice of s from i to j is defined as the sequence of items with index k such that i <= k < j.
