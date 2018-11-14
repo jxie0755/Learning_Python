@@ -117,7 +117,6 @@ print(ward)
 # Implement column, which takes a grid g and a non-negative integer c that is smaller than the length
 # of a row in g. It returns a list containing the element at index c of each row in the grid.
 
-
 def column(g, c):
     """Return the column of g at index c.
     >>> column([[3, 4, 5], [6, 7, 8], [9, 10, 11]], 1)
