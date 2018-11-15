@@ -177,7 +177,6 @@ def expand(g, h, w, fill):
     return g
 
 
-
 # (d)
 # Circle the O expression that describes how many new values must be added when a grid with n rows
 # and n columns is expanded to 2*n rows and 2*n columns using the expand function. Assume that expand
