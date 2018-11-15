@@ -123,20 +123,28 @@ def column(g, c):
     [4, 7, 10]
     """
     ### your answer ###
-    pass
+    return [row[c] for row in g ]
+
 
 # (b)
 def print_grid(g):
     """Print each row on a separate line with columns aligned.
 
     >>> print_grid([[1, 234, 50, 4, 5], [67, 8, 90, 0, 500], [3, 4, 5, -500, 7]])
-    1 234 50 4 5
-    67 8 90 0 500
-    3 4 5 -500 7
+    1  234 50 4    5
+    67 8   90 0    500
+    3  4   5  -500 7
     """
     ### your answer ###
-    cs = __
-    widths = [__([len(str(__[__])) for rwo in g]) for c in cs]
+    cs = range(len(g[0]))
+    widths = [max([len(str(row[c])) for row in g]) for c in cs]
+
+    for row in g:
+        line = ''
+        for c in cs:
+            s = str(row[c])
+            line = line + s + ' ' * (widths[c]-len(s)+1)
+        print(line)
 
 
 # (c)
@@ -145,28 +153,29 @@ def expand(g, h, w, fill):
     >>> g = [[1, 2, 3], [40, 50, 60]]
 
     >>> print_grid(expand(g, 2, 5, 10))
-    1 2 3 10 10
+    1  2  3  10 10
     40 50 60 10 10
 
     >>> print_grid(expand(g, 5, 6, 0))
-    1 2 3 10 10 0
+    1  2  3  10 10 0
     40 50 60 10 10 0
-    0 0 0 0 0 0
-    0 0 0 0 0 0
-    0 0 0 0 0 0
+    0  0  0  0  0  0
+    0  0  0  0  0  0
+    0  0  0  0  0  0
 
-    >>> print_grid(expand(g, 0, 0, 5)) # expand never reduces the dimensions of g.
-    1 2 3 10 10 0
+    >>> print_grid(expand(g, 0, 0, 5))
+    1  2  3  10 10 0
     40 50 60 10 10 0
-    0 0 0 0 0 0
-    0 0 0 0 0 0
-    0 0 0 0 0 0
+    0  0  0  0  0  0
+    0  0  0  0  0  0
+    0  0  0  0  0  0
     """
     for row in g:
-        row.__(__)
-    for k in __:
-        g.__(__)
+        row.extend([fill] * (w - len(row)))
+    for k in range(h - len(g)):
+        g.append([fill] * w)
     return g
+
 
 
 # (d)
@@ -175,7 +184,7 @@ def expand(g, h, w, fill):
 # is implemented correctly.
 
 # O(1)   O(log n)   O(n)   O(n^2)   O(2^n)   None of these
-
+#                            X
 
 
 # Q4 Sequences
