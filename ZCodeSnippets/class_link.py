@@ -158,6 +158,14 @@ class Link:
             ret = True
         return ret
 
+
+def stretch(linked, repeat=0):
+    """Replicate the kth element k times, for all k in a linked list."""
+    if linked:
+        stretch(linked.rest, repeat + 1)
+        for i in range(repeat):
+            linked.rest = Link(linked.value, linked.rest)
+
 if __name__ == '__main__':
     s = Link(3, Link(4, Link(5)))
     print(repr(s)) # >>> Link(3, Link(4, Link(5)))
@@ -230,3 +238,7 @@ if __name__ == '__main__':
     print(u.has_cycle())  # >>> False
 
     print(s.has_cycle_constant())  # >>> True
+
+    a = Link(3, Link(4, Link(5, Link(6))))
+    stretch(a)
+    print(a)  # >>> <3, 4, 4, 5, 5, 5, 6, 6, 6, 6>
