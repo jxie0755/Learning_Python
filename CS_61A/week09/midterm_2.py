@@ -231,11 +231,11 @@ def stretch(s, repeat=0):
     >>> print(a)
     <3, 4, 4, 5, 5, 5, 6, 6, 6, 6>
     """
-    if __:
+    if s:
+        stretch(s.rest, repeat + 1)
         for i in range(repeat):
-            __ = __
-            __ = __
-        __
+            s.rest = Link(s.first, s.rest)
+
 
 
 # (b)
