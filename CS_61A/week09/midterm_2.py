@@ -144,7 +144,7 @@ def print_grid(g):
         for c in cs:
             s = str(row[c])
             line = line + s + ' ' * (widths[c]-len(s)+1)
-        print(line)
+        print(line.strip())
 
 
 # (c)
