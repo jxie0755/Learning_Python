@@ -240,7 +240,7 @@ def stretch(s, repeat=0):
 
 # (b)
 # Implement combo, which takes two non-negative integers a and b.
-# It returns the smallest integer thatcontains all of the digits of a in order,
+# It returns the smallest integer that contains all of the digits of a in order,
 # as well as all of the digits of b in order.
 
 def combo(a, b):
@@ -254,11 +254,12 @@ def combo(a, b):
     >>> combo(0, 321) # The number 0 has no digits, so 0 is not in the result.
     321
     """
-    if __:
+    if a == 0 or b == 0:
         return a + b
-    elif __:
-        return combo(__, __)__
-    return __(__, __)
+    elif a % 10 == b % 10:
+        return combo(a//10, b//10) * 10 + a % 10
+    return min(combo(a//10, b) * 10 + a % 10, combo(a, b//10) * 10 + b % 10)
+    # min的使用很精髓
 
 
 
