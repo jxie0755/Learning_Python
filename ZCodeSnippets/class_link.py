@@ -41,6 +41,17 @@ class Link:
     def second(self, value):
         self.rest.value = value
 
+    @ property
+    def last(self):
+        if self.rest:
+            self = self.rest.last
+        return self
+
+    @last.setter
+    def last(self, value):
+        if self.rest:
+            self = self.rest.last
+        self.value = value
 
     # Additional functions
     def __len__(self):
@@ -184,9 +195,16 @@ if __name__ == '__main__':
 
 
     # Test property
-    print(b.second)  # >>> 4  (when becomes a property, no need for the function "()" at the end)
-    b.second = 9
-    print(b)  # >>> <8, 9, 5>
+    print('second')
+    a = Link(3, Link(4, Link(5, Link(6))))
+    print(a.second)  # >>> 4  (when becomes a property, no need for the function "()" at the end)
+    a.second = 9
+    print(a)  # >>> <3, 9, 5, 6>
+    print('last')
+    print(a.last)  # >>> <6>
+    a.last = 12
+    print(a)  # >>> <3, 9, 5, 12>
+
 
     # Additional functions
     print(len(b))  # >>> 3
