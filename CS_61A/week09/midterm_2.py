@@ -307,10 +307,12 @@ def siblings(t):
     >>> siblings(Tree(1, [Tree(3, [a]), Tree(9, [Tree(10)])]))
     [3, 9, 5, 6, 7]
     """
-    result = [__]
+    result = [b.label for b in t.branches if len(t.branches) > 1]
     for b in t.branches:
-        __
+        result += siblings(b)
     return result
+
+
 
 # (b)
 # Implement the Sib class that inherits from Tree.
@@ -331,7 +333,8 @@ class Sib(Tree):
     2
     """
     def __init__(self, label, branches=[]):
-        self.siblings = __
-        __:
-            __
-        Tree.__
+        self.siblings = 0
+        self.label = label
+        self.branches = branches
+        for b in self.branches:
+            b.siblings = len(self.branches) - 1
