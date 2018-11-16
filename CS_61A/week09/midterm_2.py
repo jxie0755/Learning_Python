@@ -333,8 +333,10 @@ class Sib(Tree):
     2
     """
     def __init__(self, label, branches=[]):
+        Tree.__init__(self, label, branches)
         self.siblings = 0
-        self.label = label
-        self.branches = branches
         for b in self.branches:
             b.siblings = len(self.branches) - 1
+
+import doctest
+doctest.testmod(verbose=True)
