@@ -165,6 +165,9 @@ def stretch(linked, repeat=0):
         stretch(linked.rest, repeat + 1)
         for i in range(repeat):
             linked.rest = Link(linked.value, linked.rest)
+    # This can not be made into a method, because the empty linked list is a tuple, and a tuple won't find ().stretch method
+    # See details in STOF:
+    # https: // stackoverflow.com / questions / 53330651 / linked - list - method - vs - functions  # 53330756
 
 if __name__ == '__main__':
     s = Link(3, Link(4, Link(5)))
