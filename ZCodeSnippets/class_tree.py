@@ -330,39 +330,6 @@ def pretty(tree):
     print(out.getvalue(), end="")
 
 
-# Fibonacci tree setup by Tree class
-def memo(f):
-    cache = {}
-    def memoized(n):
-        if n not in cache:
-            cache[n] = f(n)
-        return cache[n]
-    return memoized
-
-def fib_tree(n):
-    """A Fibonacci tree.
-
-    >>> print(fib_tree(4))
-    3
-      1
-        0
-        1
-      2
-        1
-        1
-          0
-          1
-    """
-    if n == 0 or n == 1:
-        return Tree(n)
-    else:
-        left = fib_tree(n-2)
-        right = fib_tree(n-1)
-        fib_n = left.label + right.label
-        return Tree(fib_n, [left, right])
-
-
-
 if __name__ == '__main__':
     T = Tree(1, [Tree(2, [Tree(4), Tree(5)]), Tree(3, [Tree(6), Tree(7)])])
     print(T)
@@ -523,6 +490,45 @@ if __name__ == '__main__':
     T3 = Tree(1, [Tree(2, [Tree(4), Tree(5)]), Tree(3, [Tree(6), Tree(7, [Tree(8), Tree(9), Tree(10)])])])
     print('T3', T3.convert_to_list())
 
+
+
+
+
+# Other Tree related:
+
+# Fibonacci tree setup by Tree class
+def memo(f):
+    cache = {}
+    def memoized(n):
+        if n not in cache:
+            cache[n] = f(n)
+        return cache[n]
+    return memoized
+
+def fib_tree(n):
+    """A Fibonacci tree.
+
+    >>> print(fib_tree(4))
+    3
+      1
+        0
+        1
+      2
+        1
+        1
+          0
+          1
+    """
+    if n == 0 or n == 1:
+        return Tree(n)
+    else:
+        left = fib_tree(n-2)
+        right = fib_tree(n-1)
+        fib_n = left.label + right.label
+        return Tree(fib_n, [left, right])
+
+
+if __name__ == '__main__':
     ft = fib_tree(6)
     print(ft)
     # >>>
@@ -628,9 +634,8 @@ if __name__ == '__main__':
     #         None
 
 
-# Extension Application
 
-# Fib Tree
+# Fib Tree by Binary tree
 def fib_tree(n):
     """Fibonacci binary tree.
 
@@ -705,6 +710,7 @@ if __name__ == '__main__':
     #       None
     #       None
 
+
 # Sets as binary search trees
 
 def contains(s, v):
@@ -748,6 +754,7 @@ def adjoin(s, v):
         return BTree(s.label, adjoin(s.left, v), s.right)
 
 
+# Factor tree
 def factor_tree(n):
     """
     Returns a factor tree.
@@ -768,6 +775,8 @@ if __name__ == '__main__':
         # 5
 
 
+
+# Containing search
 def contains(elem, n, t):
     """
     >>> t1 = Tree(1, [Tree(1, [Tree(2)])])
@@ -791,3 +800,40 @@ def contains(elem, n, t):
         return True in [contains(elem, n - 1, b) for b in t.branches]
     else:
         return True in [contains(elem, n, b) for b in t.branches]
+
+
+
+# Siblings
+def siblings(t):
+    """Return a list of the labels of all nodes that have siblings in t.
+    >>> a = Tree(4, [Tree(5), Tree(6), Tree(7, [Tree(8)])])
+    >>> siblings(Tree(1, [Tree(3, [a]), Tree(9, [Tree(10)])]))
+    [3, 9, 5, 6, 7]
+    """
+    result = [b.label for b in t.branches if len(t.branches) > 1]
+    for b in t.branches:
+        result += siblings(b)
+    return result
+
+
+# Implement the Sib class that inherits from Tree.
+# In addition to label and branches, a Sib instance t has an attribute siblings that stores the number of siblings t has in Sib trees containing t as a node.
+# Assume that the branches of a Sib instance will never be mutated or re-assigned.
+
+class Sib(Tree):
+    """A tree that knows how many siblings it has.
+    >>> a = Sib(4, [Sib(5), Sib(6), Sib(7, [Sib(8)])])
+    >>> a.label
+    4
+    >>> a.branches[1].label
+    6
+    >>> a.siblings
+    0
+    >>> a.branches[1].siblings
+    2
+    """
+    def __init__(self, label, branches=[]):
+        Tree.__init__(self, label, branches)
+        self.siblings = 0
+        for b in self.branches:
+            b.siblings = len(self.branches) - 1
