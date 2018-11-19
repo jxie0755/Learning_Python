@@ -2,6 +2,7 @@
 # Beautiful vertical tree
 
 from io import StringIO
+
 # A StringIO is a file-like object that builds a string instead of printing
 # anything out.
 
