@@ -114,7 +114,7 @@ class Tree:
         print(out.getvalue(), end="")
 
 if __name__ == '__main__':
-    T = Tree(1, [Tree(2, [Tree(4), Tree(5)]), Tree(3, [Tree(6), Tree(7, [Tree(8), Tree(9)])])])
+    T = Tree(1, [Tree(2, [Tree(4), Tree(5)]), Tree(3, [Tree(6), Tree(7, [Tree(8), Tree(9), Tree(10), Tree(11)]), Tree(20), Tree(21, [Tree(8), Tree(9), Tree(10), Tree(11)])])])
     print(T)
     #     1
     #  /    \
