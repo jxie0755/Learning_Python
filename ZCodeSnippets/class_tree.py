@@ -712,6 +712,7 @@ if __name__ == '__main__':
 
 
 # Sets as binary search trees
+# http://composingprograms.com/pages/29-recursive-objects.html#linked-list-class
 
 def contains(s, v):
     """Return true if set s contains value v as an element.
