@@ -35,8 +35,9 @@
 
 (define (pow b n)
   (cond
-    ((even? n) square (pow b n/2))
-    ((ood? n)  * (square (pow b (/ (- n 1) 2))) n )
+    ((= n 0) 1)
+    ((even? n ) (square (pow b (/ n 2))))
+    ((odd? n ) ( * (square (pow b (/ (- n 1) 2))) b))
     )
 )
 
