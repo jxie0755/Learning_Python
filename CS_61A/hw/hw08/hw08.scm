@@ -1,13 +1,27 @@
+; CS61A HW08
+
+
+; Q1 Cadr and Caddr
+
+
 (define (cddr s)
   (cdr (cdr s)))
 
 (define (cadr s)
-  'YOUR-CODE-HERE
+  (car (cdr s))
 )
 
 (define (caddr s)
-  'YOUR-CODE-HERE
+  (car (cddr s))
 )
+
+
+
+
+
+
+
+
 
 (define (sign x)
   'YOUR-CODE-HERE
