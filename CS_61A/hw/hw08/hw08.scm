@@ -6,7 +6,6 @@
 
 (define (cddr s)
   (cdr (cdr s)))
-
 (define (cadr s)
   (car (cdr s))
 )
@@ -17,21 +16,32 @@
 
 
 
-
-
-
-
+; Q2 Sign
+; Using cond, define a procedure sign that returns -1 for negative arguments, 0 for zero, and 1 for positive arguments
 
 
 (define (sign x)
-  'YOUR-CODE-HERE
+  (cond
+    ((< x 0) -1)
+    ((> x 0) 1)
+    (else 0))
 )
+
+
+
+; Q3 Pow
 
 (define (square x) (* x x))
 
 (define (pow b n)
-  'YOUR-CODE-HERE
+  (cond
+    ((even? n) square (pow b n/2))
+    ((ood? n)  * (square (pow b (/ (- n 1) 2))) n )
+    )
 )
+
+
+
 
 (define (ordered? s)
   'YOUR-CODE-HERE
