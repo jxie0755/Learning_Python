@@ -47,18 +47,34 @@
 
 (define (ordered? s)
   (cond
-    ((null? (cdr s)) #t)
-    ((< (car s) (cadr s)) (ordered? (cdr s)))
-    ((= (car s) (cadr s)) (ordered? (cdr s)))
-    ((> (car s) (cadr s)) #f)
+    ((null? (cdr s))
+      #t)
+    ((< (car s) (cadr s))
+      (ordered? (cdr s)))
+    ((= (car s) (cadr s))
+      (ordered? (cdr s)))
+    ((> (car s) (cadr s))
+      #f)
   )
 )
 
 
+; Q5 No Dots!
 
 (define (nodots s)
-  'YOUR-CODE-HERE
+  (if (null? s)
+    nil
+    (if (pair? s)
+      (if (pair? (car s))
+        (cons (nodots (car s)) (nodots (cdr s)))
+        (cons (car s) (nodots (cdr s)))
+      )
+      (cons s nil)
+    )
+  )
 )
+
+
 
 ; Sets as sorted lists
 
