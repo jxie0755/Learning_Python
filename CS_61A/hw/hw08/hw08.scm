@@ -77,14 +77,17 @@
 
 
 ; Sets as sorted lists
+; Q6 Contains
 
 (define (empty? s) (null? s))
 
 (define (contains? s v)
-    (cond ((empty? s) #f)
-          'YOUR-CODE-HERE
-          (else nil) ; replace this line
-          ))
+  (cond
+    ((empty? s) #f)
+    ((= (car s) v) #t)
+    ((> (car s) v) #f)
+    (else (contains? (cdr s) v)))
+)
 
 ; Equivalent Python code, for your reference:
 ;
@@ -100,6 +103,9 @@
 ;         return True
 ;     else:
 ;         return contains(s.rest, v)
+
+
+
 
 (define (add s v)
     (cond ((empty? s) (list v))
