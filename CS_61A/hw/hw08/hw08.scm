@@ -86,7 +86,8 @@
     ((empty? s) #f)
     ((= (car s) v) #t)
     ((> (car s) v) #f)
-    (else (contains? (cdr s) v)))
+    (else (contains? (cdr s) v))
+  )
 )
 
 ; Equivalent Python code, for your reference:
@@ -106,12 +107,18 @@
 
 
 
+; Q7 Add
 
 (define (add s v)
-    (cond ((empty? s) (list v))
-          'YOUR-CODE-HERE
-          (else nil) ; replace this line
-          ))
+  (cond
+    ((empty? s) (list v))
+    ((contains? s v) s)
+    ((> (car s) v) (cons v s))
+    ((< (car s) v) (cons (car s) (add (cdr s) v) ))
+  )
+)
+
+
 
 (define (intersect s t)
     (cond ((or (empty? s) (empty? t)) nil)
@@ -132,6 +139,10 @@
 ;             return intersect(set1.rest, set2)
 ;         elif e2 < e1:
 ;             return intersect(set1, set2.rest)
+
+
+
+
 
 (define (union s t)
     (cond ((empty? s) t)
