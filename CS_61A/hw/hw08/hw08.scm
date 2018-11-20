@@ -43,10 +43,18 @@
 
 
 
+; Q4 Ordered
 
 (define (ordered? s)
-  'YOUR-CODE-HERE
+  (cond
+    ((null? (cdr s)) #t)
+    ((< (car s) (cadr s)) (ordered? (cdr s)))
+    ((= (car s) (cadr s)) (ordered? (cdr s)))
+    ((> (car s) (cadr s)) #f)
+  )
 )
+
+
 
 (define (nodots s)
   'YOUR-CODE-HERE
