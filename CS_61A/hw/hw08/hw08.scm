@@ -120,6 +120,8 @@
 
 
 
+; Q8 Intersect and Union
+
 (define (intersect s t)
     (cond ((or (empty? s) (empty? t)) nil)
           'YOUR-CODE-HERE
@@ -139,8 +141,6 @@
 ;             return intersect(set1.rest, set2)
 ;         elif e2 < e1:
 ;             return intersect(set1, set2.rest)
-
-
 
 
 
