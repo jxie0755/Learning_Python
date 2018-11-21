@@ -6,3 +6,4 @@
 'contains?-correct', (2560, 70)
 'add-correct', (3072, 70)
 'intersect-correct', (3584, 70)
+'union-correct', (4096, 70)
