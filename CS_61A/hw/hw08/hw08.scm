@@ -6,11 +6,14 @@
 
 (define (cddr s)
 	(cdr (cdr s)))
+
 (define (cadr s)
+  'YOUR-CODE-HERE
 	(car (cdr s))
 )
 
 (define (caddr s)
+  'YOUR-CODE-HERE
 	(car (cddr s))
 )
 
@@ -21,6 +24,7 @@
 
 
 (define (sign x)
+  'YOUR-CODE-HERE
 	(cond
 	((< x 0) -1)
 	((> x 0) 1)
@@ -34,6 +38,7 @@
 (define (square x) (* x x))
 
 (define (pow b n)
+  'YOUR-CODE-HERE
 	(cond
 	((= n 0) 1)
 	((even? n ) (square (pow b (/ n 2))))
@@ -46,15 +51,12 @@
 ; Q4 Ordered
 
 (define (ordered? s)
+  'YOUR-CODE-HERE
 	(cond
-	((null? (cdr s))
-		#t)
-	((< (car s) (cadr s))
-		(ordered? (cdr s)))
-	((= (car s) (cadr s))
-		(ordered? (cdr s)))
-	((> (car s) (cadr s))
-		#f)
+	((null? (cdr s)) #t)
+	((< (car s) (cadr s)) (ordered? (cdr s)))
+	((= (car s) (cadr s)) (ordered? (cdr s)))
+	((> (car s) (cadr s)) #f)
 	)
 )
 
@@ -62,6 +64,7 @@
 ; Q5 No Dots!
 
 (define (nodots s)
+  'YOUR-CODE-HERE
 	(if (null? s)
 	nil
 	(if (pair? s)
@@ -84,6 +87,7 @@
 (define (contains? s v)
 	(cond
 	((empty? s) #f)
+	'YOUR-CODE-HERE
 	((= (car s) v) #t)
 	((> (car s) v) #f)
 	(else (contains? (cdr s) v))
@@ -112,6 +116,7 @@
 (define (add s v)
 	(cond
 	((empty? s) (list v))
+	'YOUR-CODE-HERE
 	((contains? s v) s)
 	((> (car s) v) (cons v s))
 	((< (car s) v) (cons (car s) (add (cdr s) v) ))
@@ -124,9 +129,9 @@
 
 (define (intersect s t)
 	(cond ((or (empty? s) (empty? t)) nil)
-			'YOUR-CODE-HERE
-			(else nil) ; replace this line
-			))
+    'YOUR-CODE-HERE
+    (else nil) ; replace this line
+    ))
 
 ; Equivalent Python code, for your reference:
 ;
