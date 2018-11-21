@@ -5,13 +5,13 @@
 
 
 (define (cddr s)
-  (cdr (cdr s)))
+	(cdr (cdr s)))
 (define (cadr s)
-  (car (cdr s))
+	(car (cdr s))
 )
 
 (define (caddr s)
-  (car (cddr s))
+	(car (cddr s))
 )
 
 
@@ -21,10 +21,10 @@
 
 
 (define (sign x)
-  (cond
-    ((< x 0) -1)
-    ((> x 0) 1)
-    (else 0))
+	(cond
+	((< x 0) -1)
+	((> x 0) 1)
+	(else 0))
 )
 
 
@@ -34,11 +34,11 @@
 (define (square x) (* x x))
 
 (define (pow b n)
-  (cond
-    ((= n 0) 1)
-    ((even? n ) (square (pow b (/ n 2))))
-    ((odd? n ) ( * (square (pow b (/ (- n 1) 2))) b))
-    )
+	(cond
+	((= n 0) 1)
+	((even? n ) (square (pow b (/ n 2))))
+	((odd? n ) ( * (square (pow b (/ (- n 1) 2))) b))
+	)
 )
 
 
@@ -46,32 +46,32 @@
 ; Q4 Ordered
 
 (define (ordered? s)
-  (cond
-    ((null? (cdr s))
-      #t)
-    ((< (car s) (cadr s))
-      (ordered? (cdr s)))
-    ((= (car s) (cadr s))
-      (ordered? (cdr s)))
-    ((> (car s) (cadr s))
-      #f)
-  )
+	(cond
+	((null? (cdr s))
+		#t)
+	((< (car s) (cadr s))
+		(ordered? (cdr s)))
+	((= (car s) (cadr s))
+		(ordered? (cdr s)))
+	((> (car s) (cadr s))
+		#f)
+	)
 )
 
 
 ; Q5 No Dots!
 
 (define (nodots s)
-  (if (null? s)
-    nil
-    (if (pair? s)
-      (if (pair? (car s))
-        (cons (nodots (car s)) (nodots (cdr s)))
-        (cons (car s) (nodots (cdr s)))
-      )
-      (cons s nil)
-    )
-  )
+	(if (null? s)
+	nil
+	(if (pair? s)
+		(if (pair? (car s))
+		(cons (nodots (car s)) (nodots (cdr s)))
+		(cons (car s) (nodots (cdr s)))
+		)
+		(cons s nil)
+	)
+	)
 )
 
 
@@ -82,12 +82,12 @@
 (define (empty? s) (null? s))
 
 (define (contains? s v)
-  (cond
-    ((empty? s) #f)
-    ((= (car s) v) #t)
-    ((> (car s) v) #f)
-    (else (contains? (cdr s) v))
-  )
+	(cond
+	((empty? s) #f)
+	((= (car s) v) #t)
+	((> (car s) v) #f)
+	(else (contains? (cdr s) v))
+	)
 )
 
 ; Equivalent Python code, for your reference:
@@ -110,12 +110,12 @@
 ; Q7 Add
 
 (define (add s v)
-  (cond
-    ((empty? s) (list v))
-    ((contains? s v) s)
-    ((> (car s) v) (cons v s))
-    ((< (car s) v) (cons (car s) (add (cdr s) v) ))
-  )
+	(cond
+	((empty? s) (list v))
+	((contains? s v) s)
+	((> (car s) v) (cons v s))
+	((< (car s) v) (cons (car s) (add (cdr s) v) ))
+	)
 )
 
 
@@ -123,10 +123,10 @@
 ; Q8 Intersect and Union
 
 (define (intersect s t)
-    (cond ((or (empty? s) (empty? t)) nil)
-          'YOUR-CODE-HERE
-          (else nil) ; replace this line
-          ))
+	(cond ((or (empty? s) (empty? t)) nil)
+			'YOUR-CODE-HERE
+			(else nil) ; replace this line
+			))
 
 ; Equivalent Python code, for your reference:
 ;
@@ -145,8 +145,8 @@
 
 
 (define (union s t)
-    (cond ((empty? s) t)
-          ((empty? t) s)
-          'YOUR-CODE-HERE
-          (else nil) ; replace this line
-          ))
+	(cond ((empty? s) t)
+			((empty? t) s)
+			'YOUR-CODE-HERE
+			(else nil) ; replace this line
+			))
