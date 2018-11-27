@@ -1,17 +1,33 @@
 ; CS61A Lecture 24 Scheme
 
 
-; Call expressions
+; Scheme is a Dialect of Lisp
 
-(+ 1 2 3 4)
-(+)
-(*)
-(- 12)
-(- 20 1 2 3 4 5)
-(* (* 2 2 2 2 2 3 3) 7)
-(number? 12)
-(integer? 3.3)
-(zero? 2)
+; Call expressions
+; also called combination
+
+(quotient 10 2) ; is 10 / 5, >>>  2
+
+; nest combination
+(quotient (+ 8 7) 5) ; >>> 3
+
+; combination can span multiple lines
+(+ (* 3
+      (+ (* 2 4)      ; >>> 8
+         (+ 3 5)))    ; >>> 8 total is 16, 16 * 3 = 48
+   (+ (- 10 7)        ; >>> 3
+      6))             ; >>> 3+6=9, 9 + 48 = 57
+
+
+(+ 1 2 3 4)             ; >>> 10
+(+)                     ; >>> 0
+(*)                     ; >>> 1
+(- 12)                  ; >>> -12
+(- 20 1 2 3 4 5)        ; >>> 5
+(* (* 2 2 2 2 2 3 3) 7) ; >>> 2016
+(number? 12)    ; >>> #t
+(integer? 3.3)  ; >>> f
+(zero? 2)       ; >>> #t
 
 ; Definitions
 
