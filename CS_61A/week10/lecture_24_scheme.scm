@@ -68,23 +68,24 @@
 
 ; List demos
 
-(cons 1 2)
-(cons 1 (cons 2 nil))
-(cons 1 (cons 2 (cons 3 4)))
-(cons (cons 1 2) 2)
-(cons (cons 1 2) nil)
-(cons (cons 1 (cons 2 nil)) nil)
-(cons (cons 1 2) (cons 3 nil))
+(cons 1 2)                        ; >>> (1 . 2) as a pair, not a well formed list
+(cons 1 (cons 2 nil))             ; >>> [1, 2]
+(cons 1 (cons 2 (cons 3 4)))      ; >>> [1, 2, (3 . 4)]
+(cons (cons 1 2) 2)               ; >>> ((1 . 2) . 2)
+(cons (cons 1 2) nil)             ; >>> [(1 . 2)]
+(cons (cons 1 (cons 2 nil)) nil)  ; >>> [[1, 2]]
+(cons (cons 1 2) (cons 3 nil))    ; >>> [(1 . 2), [3]]
 
-(pair? (cons 1 2))
-(pair? (cons 1 (cons 2 nil)))
-(pair? nil)
-(null? nil)
-(null? (cons 1 2))
+(pair? (cons 1 2))                ; >>> #t
+(pair? (cons 1 (cons 2 nil)))     ; >>> #t
+(pair? nil)                       ; >>> #f
+(null? nil)                       ; >>> #t
+(null? (cons 1 2))                ; >>> #f
 
+; easy way to create a linked list as a list
 (list 1 2)
 (list 1 2 3 4)
-(cdr (list 1 2 3 4))
+(cdr (list 1 2 3 4))  ; >>> (2 3 4)
 
 (define x (cons 1 2))
 (list (car x) (cdr x))
@@ -98,6 +99,19 @@
 (define squares (list 1 4 9 16 25))
 
 (length squares)
+
+
+; Symbolic Programming
+(define a 1)
+(define b 2)
+(list a b)   ; >>> (1 2)
+(list 'a 'b) ; >>> (a b)
+(list 'a b)  ; >>> (a 2)
+
+(car '(a b c)) ; >>> a
+(cdr '(a b c)) ; >>> (b c)
+
+
 
 ; Sierpinski (Presented in subsequent lecture)
 
