@@ -3,6 +3,7 @@
 
 ; Scheme is a Dialect of Lisp
 
+
 ; Call expressions
 ; also called combination
 
@@ -29,10 +30,16 @@
 (integer? 3.3)  ; >>> f
 (zero? 2)       ; >>> #t
 
+
+
 ; Definitions
 
-(define (square x) (* x x))
+; bind a value
+(define pi 3.14)
+(* 2 pi) ; >>> 6.28
 
+; define a function
+(define (square x) (* x x))
 (define (average x y) (/ (+ x y) 2))
 
 (define (abs x)
@@ -48,6 +55,16 @@
         guess
         (sqrt-iter (improve guess))))
   (sqrt-iter 1))
+
+; define a lambda function
+; two equivalent expressions:
+(define (plus4 x) (+ x 4))
+(define plus4 (lambda (x) (+ x 4)))
+
+((lambda (x y z) (+ x y (square z))) 1 2 3)
+; >>> 1 + 2 + 3^2 = 12
+
+
 
 ; List demos
 
