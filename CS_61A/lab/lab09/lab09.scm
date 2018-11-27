@@ -1,5 +1,24 @@
 ;; Scheme ;;
 
+
+; Q1 WWSD: List
+
+; scm> (equal? '(1 . (2 . 3)) (list 1 (cons 2 3)))
+; >>> #t
+; scm> '(1 . (2 . 3))
+; >>> (1 2 . 3)
+; scm> (list 1 (cons 2 3))
+; >>> (1 (2 . 3)) ; list会强行完美造list,加一个nil在最后
+
+; scm> (cons 1 '(list 2 3))
+; >>> (1 list 2 3)
+
+; scm> (cons (list 2 (cons 3 4)) nil)
+; >>> ((2 (3 . 4)))
+
+; scm> '(cons 4 (cons (cons 6 8) ()))
+; >>> (cons 4 (cons (cons 6 8) ()))
+
 ; Q2
 (define (over-or-under x y)
   'YOUR-CODE-HERE
