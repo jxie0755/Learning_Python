@@ -41,6 +41,17 @@
     )
 )
 
+; alternative
+(define (filter f lst)
+    (if (null? lst)       ; don't use if in cond!!!
+      nil
+      (if (f (car lst) )
+        (cons (car lst) (filter f (cdr lst)))
+          (filter f (cdr lst))
+      )
+    )
+)
+
 
 ; Q4
 (define (make-adder num)
