@@ -26,21 +26,21 @@
   (cond
     ((< x y)-1)
     ((> x y)1)
-    ((= x y)0))
+    ((= x y)0)
+    )
 )
 
 
 ; Q3 Filter
 
 (define (filter f lst)
-  'YOUR-CODE-HERE
+  (cond
+    ((null? lst) nil)
+    ((f (car lst))(cons (car lst) (filter f (cdr lst))))
+    ((not (f (car lst)))(filter f (cdr lst)))
+    )
 )
 
-;;; Tests
-(define (even? x)
-  (= (modulo x 2) 0))
-(filter even? '(0 1 1 2 3 5 8))
-; expect (0 2 8)
 
 ; Q4
 (define (make-adder num)
