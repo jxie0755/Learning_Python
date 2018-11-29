@@ -1,10 +1,11 @@
 ;; Extra Scheme Questions ;;
 
 
-; Q5
+; Q5 Make a List to be ((1) 2 (3 . 4) 5)
 (define lst
-  'YOUR-CODE-HERE
+  (cons (cons 1 nil) (cons 2 (cons (cons 3 4) (cons 5 nil))))
 )
+
 
 ; Q6
 (define (composed f g)
