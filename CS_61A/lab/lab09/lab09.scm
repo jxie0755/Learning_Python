@@ -55,10 +55,5 @@
 
 ; Q4
 (define (make-adder num)
-  'YOUR-CODE-HERE
+  (lambda (x) (+ x num))
 )
-
-;;; Tests
-(define adder (make-adder 5))
-(adder 8)
-; expect 13
