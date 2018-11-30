@@ -7,12 +7,13 @@
 )
 
 
-; Q6
+; Q6 Compose
 (define (composed f g)
   (lambda (x)(f (g x)))
 )
 
-; Q7
+
+; Q7 Remove
 (define (remove item lst)
   (cond
     ((null? lst)nil)
@@ -21,14 +22,6 @@
   )
 )
 
-
-;;; Tests
-(remove 3 nil)
-; expect ()
-(remove 3 '(1 3 5))
-; expect (1 5)
-(remove 5 '(5 3 5 5 1 4 5 4))
-; expect (3 1 4 4)
 
 ; Q8
 (define (max a b) (if (> a b) a b))
