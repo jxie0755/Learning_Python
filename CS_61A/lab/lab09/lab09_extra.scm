@@ -14,7 +14,11 @@
 
 ; Q7
 (define (remove item lst)
-  'YOUR-CODE-HERE
+  (cond
+    ((null? lst)nil)
+    ((= (car lst) item)(remove item (cdr lst)))
+    ((not (= (car lst) item))(cons (car lst)(remove item (cdr lst))))
+  )
 )
 
 
