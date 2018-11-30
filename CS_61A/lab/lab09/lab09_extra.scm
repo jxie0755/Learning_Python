@@ -23,18 +23,20 @@
 )
 
 
-; Q8
+; Q8 Greatest Common Divisor
 (define (max a b) (if (> a b) a b))
 (define (min a b) (if (> a b) b a))
+
 (define (gcd a b)
-  'YOUR-CODE-HERE
+  (cond
+    ((= a 0) b)
+    ((= b 0) a)
+    ((= (modulo a b) 0) b)
+    ((> a b) (gcd b (modulo a b)))
+    ((< a b) (gcd a (modulo b a)))
+  )
 )
 
-;;; Tests
-(gcd 24 60)
-; expect 12
-(gcd 1071 462)
-; expect 21
 
 ; Q9
 (define (no-repeats s)
