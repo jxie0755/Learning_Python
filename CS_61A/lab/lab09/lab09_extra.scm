@@ -39,8 +39,21 @@
 
 
 ; Q9
+(define (in? x lst)
+  (cond
+    ((null? lst) #f)
+    ((= (car lst) x) #t)
+    (else (in? x (cdr lst)))
+  )
+)
+
+(define result nil)
 (define (no-repeats s)
-  'YOUR-CODE-HERE
+  (cond
+    ((null? s)nil)
+    ((in? (car s) result)(no-repeats (cdr s)))
+    (else ((define result (cons (car s) result)) (no-repeats (cdr s))))
+  )
 )
 
 ; Q10
