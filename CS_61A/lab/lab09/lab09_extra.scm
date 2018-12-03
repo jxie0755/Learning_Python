@@ -39,22 +39,17 @@
 
 
 ; Q9
-(define (in? x lst)
-  (cond
-    ((null? lst) #f)
-    ((= (car lst) x) #t)
-    (else (in? x (cdr lst)))
-  )
-)
+(define (in-lst s x)
+  (if (null? s)
+     #f
+     (or (= x (car s)) (in-lst (cdr s) x))))
 
-(define result nil)
 (define (no-repeats s)
-  (cond
-    ((null? s)nil)
-    ((in? (car s) result)(no-repeats (cdr s)))
-    (else ((define result (cons (car s) result)) (no-repeats (cdr s))))
-  )
-)
+  (if (null? s)
+        s
+        (if (in-lst (cdr s) (car s))
+            (no-repeats (cdr s))
+            (cons (car s) (no-repeats (cdr s))))))
 
 ; Q10
 (define (substitute s old new)
