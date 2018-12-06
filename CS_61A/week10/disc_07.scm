@@ -85,4 +85,3 @@ tree, assuming that the entries are all numbers.
         (map (lambda (t) (path-product t prod))
           (branches tree)))))
   (path-product t 1))
-
