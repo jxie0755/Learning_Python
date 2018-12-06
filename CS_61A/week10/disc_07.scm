@@ -78,6 +78,10 @@ tree, assuming that the entries are all numbers.
 (define (sum lst)
   (if (null? lst) 0 (+ (car lst) (sum (cdr lst)))))
 
+; Using the abstract data type above, write a function that creates a new tree where
+the entries are the product of the entries along the path to the root in the original
+tree
+
 (define (path-product-tree t)
   (define (path-product t product)
     (let ((prod (* product (label t))))
