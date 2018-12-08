@@ -6,11 +6,11 @@
 # python3 scheme_reader.py
 
 
-
 from ucb import main, trace, interact
 from scheme_tokens import tokenize_lines, DELIMITERS
 from buffer import Buffer, InputReader
 
+# Pairs and Scheme lists
 
 class Pair(object):
     """A pair has two instance attributes: first and second.  For a Pair to be
