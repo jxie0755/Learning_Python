@@ -1,7 +1,6 @@
 ; CS61A Lecture 26 Calculators
 
 
-
 (* 1 2 3)
 (+)
 (+ 2 (/ 4 8))
