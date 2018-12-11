@@ -77,10 +77,9 @@
 
 ; Q3 Derive Product
 (define (derive-product expr var)
-  'YOUR-CODE-HERE
-)
-
-
+  (make-sum (make-product (derive (multiplier expr) var) (multiplicand expr))
+            (make-product (derive (multiplicand expr) var) (multiplier expr)))
+  )
 
 
 
@@ -88,19 +87,27 @@
 ; Exponentiations are represented as lists that start with ^.
 
 (define (make-exp base exponent)
-  'YOUR-CODE-HERE
+  (cond
+    ((number? base) (expt base exponent))
+    ((= exponent 1) base)
+    ((= exponent 0) 1)
+    (else (list '^ base exponent))
+  )
 )
 
 (define (base exp)
-  'YOUR-CODE-HERE
+  (car (cdr exp))
 )
 
 (define (exponent exp)
-  'YOUR-CODE-HERE
+  (car (cdr (cdr exp)))
 )
 
 (define (exp? exp)
-  'YOUR-CODE-HERE
+  (and
+    (list? exp)
+    (equal? (car exp) '^)
+  )
 )
 
 (define x^2 (make-exp 'x 2))
@@ -110,5 +117,5 @@
 
 ; Q5 Drive Exp
 (define (derive-exp exp var)
-  'YOUR-CODE-HERE
+  (make-product (exponent exp) (make-exp (base exp) (- (exponent exp) 1)))
 )
