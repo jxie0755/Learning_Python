@@ -1,12 +1,30 @@
+; CS61A HW09
+
+
+; Q1 How Many Dots
+
+
+
 (define (how-many-dots s)
-  'YOUR-CODE-HERE
+  (cond
+    ((null? s) 0)
+    ((and (number? (car s)) (number? (cdr s))) 1)
+    ((and (pair? (car s)) (number? (cdr s)))(+ 1 (how-many-dots (car s))))
+    ((pair? (car s)) (+ (how-many-dots (car s)) (how-many-dots (cdr s))))
+    (else (how-many-dots (cdr s)))
+  )
 )
+
+
+
+
+; Q2 Derive Sum
+; derive returns the derivative of EXPR with respect to VAR
 
 (define (cadr s) (car (cdr s)))
 (define (caddr s) (cadr (cdr s)))
 
 
-; derive returns the derivative of EXPR with respect to VAR
 (define (derive expr var)
   (cond ((number? expr) 0)
         ((variable? expr) (if (same-variable? expr var) 1 0))
@@ -35,7 +53,12 @@
 (define (addend s) (cadr s))
 (define (augend s) (caddr s))
 
+
+
+
+; Q3 Derive Product
 ; Products are represented as lists that start with *.
+
 (define (make-product m1 m2)
   (cond ((or (=number? m1 0) (=number? m2 0)) 0)
         ((=number? m1 1) m2)
@@ -55,7 +78,12 @@
   'YOUR-CODE-HERE
 )
 
+
+
+
+; Q5 Derive Exp
 ; Exponentiations are represented as lists that start with ^.
+
 (define (make-exp base exponent)
   'YOUR-CODE-HERE
 )
