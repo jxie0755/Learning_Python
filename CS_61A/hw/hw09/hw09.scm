@@ -71,7 +71,7 @@
 ; Q2 Derive Sum
 (define (derive-sum expr var)
   (make-sum (derive (addend expr) var) (derive (augend expr) var))
-  )
+)
 
 
 
@@ -79,7 +79,7 @@
 (define (derive-product expr var)
   (make-sum (make-product (derive (multiplier expr) var) (multiplicand expr))
             (make-product (derive (multiplicand expr) var) (multiplier expr)))
-  )
+)
 
 
 
