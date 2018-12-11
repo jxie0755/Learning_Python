@@ -3,8 +3,6 @@
 
 ; Q1 How Many Dots
 
-
-
 (define (how-many-dots s)
   (cond
     ((null? s) 0)
@@ -18,7 +16,6 @@
 
 
 
-; Q2 Derive Sum
 ; derive returns the derivative of EXPR with respect to VAR
 
 (define (cadr s) (car (cdr s)))
@@ -33,14 +30,17 @@
         ((exp? expr) (derive-exp expr var))
         (else 'Error)))
 
+
 ; Variables are represented as symbols
 (define (variable? x) (symbol? x))
 (define (same-variable? v1 v2)
   (and (variable? v1) (variable? v2) (eq? v1 v2)))
 
+
 ; Numbers are compared with =
 (define (=number? expr num)
   (and (number? expr) (= expr num)))
+
 
 ; Sums are represented as lists that start with +.
 (define (make-sum a1 a2)
@@ -54,11 +54,7 @@
 (define (augend s) (caddr s))
 
 
-
-
-; Q3 Derive Product
 ; Products are represented as lists that start with *.
-
 (define (make-product m1 m2)
   (cond ((or (=number? m1 0) (=number? m2 0)) 0)
         ((=number? m1 1) m2)
@@ -70,10 +66,17 @@
 (define (multiplier p) (cadr p))
 (define (multiplicand p) (caddr p))
 
+
+
+; Q2 Derive Sum
 (define (derive-sum expr var)
   'YOUR-CODE-HERE
 )
 
+
+
+
+; Q3 Derive Product
 (define (derive-product expr var)
   'YOUR-CODE-HERE
 )
@@ -81,7 +84,7 @@
 
 
 
-; Q5 Derive Exp
+; Q5 Make Exp
 ; Exponentiations are represented as lists that start with ^.
 
 (define (make-exp base exponent)
@@ -103,6 +106,9 @@
 (define x^2 (make-exp 'x 2))
 (define x^3 (make-exp 'x 3))
 
+
+
+; Q5 Drive Exp
 (define (derive-exp exp var)
   'YOUR-CODE-HERE
 )
