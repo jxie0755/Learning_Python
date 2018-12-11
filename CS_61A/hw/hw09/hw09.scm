@@ -70,9 +70,8 @@
 
 ; Q2 Derive Sum
 (define (derive-sum expr var)
-  'YOUR-CODE-HERE
-)
-
+  (make-sum (derive (addend expr) var) (derive (augend expr) var))
+  )
 
 
 
@@ -80,6 +79,7 @@
 (define (derive-product expr var)
   'YOUR-CODE-HERE
 )
+
 
 
 
