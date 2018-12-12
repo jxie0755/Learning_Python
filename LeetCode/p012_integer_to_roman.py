@@ -9,7 +9,7 @@
 # :rtype: str
 # """
 
-class Solution(object):
+class Solution:
     def intToRoman(self, num):
         R = {0: '', 1: 'I', 2: 'II', 3: 'III', 4: 'IV', 5: 'V', 6: 'VI', 7: 'VII', 8: 'VIII', 9: 'IX',
              10: 'X', 20: 'XX', 30: 'XXX', 40: 'XL', 50: 'L', 60: 'LX', 70: 'LXX', 80: 'LXXX', 90: 'XC',
@@ -37,7 +37,7 @@ class Solution(object):
         # 使用map对data中每个数位进行转换,然后合并
         return ''.join(list(map(rom, range(4), ['M', 'C', 'X', 'I'], ['', 'D', 'L', 'V'], ['', 'M', 'C', 'X'])))
 
-    def intToRoman3(self, num): 
+    def intToRoman3(self, num):
         result = ''
         roman_list = [(1000, 'M'), (900, 'CM'), (500, 'D'), (400, 'CD'),
                       (100, 'C'), (90, 'XC'), (50, 'L'), (40, 'XL'),

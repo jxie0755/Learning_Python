@@ -11,7 +11,7 @@
 # :rtype: int
 # """
 
-class Solution(object):
+class Solution:
     def reverse(self, x):  # string method, takes extra space
         if x >= 0:
             result = int(str(x)[::-1])

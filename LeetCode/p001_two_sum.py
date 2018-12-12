@@ -9,8 +9,8 @@
 # type target: int
 # rtype: List[int]
 # """
- 
-class Solution(object):
+
+class Solution:
     def twoSum(self, nums, target):  # brutal force, slowest
         for i in nums:
             index_i = nums.index(i)
@@ -20,7 +20,7 @@ class Solution(object):
                         return [index_i, nums.index(j)]
                     else:
                         return [index_i, nums.index(i, index_i+1)]
-    
+
     def twoSum2(self, nums, target):  # brutal force, check half first
         half = target / 2
         if nums.count(half) == 2:

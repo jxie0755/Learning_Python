@@ -9,7 +9,7 @@
 # :rtype: bool
 # """
 
-class Solution(object):
+class Solution:
     def isPalindrome(self, x):  # string method, takes extra space
         if x < 0:
             return False

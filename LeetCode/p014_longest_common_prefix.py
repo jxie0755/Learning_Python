@@ -8,7 +8,7 @@
 # :rtype: str
 # """
 
-class Solution(object):
+class Solution:
     def longestCommonPrefix(self, strs):  # beats 53.82%
 
         result = ''

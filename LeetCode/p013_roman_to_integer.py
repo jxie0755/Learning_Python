@@ -9,7 +9,7 @@
 # :rtype: int
 # """
 
-class Solution(object):
+class Solution:
     def romanToInt(self, roman_string):
         result = 0
         # remove the possibility of 4 and 9
