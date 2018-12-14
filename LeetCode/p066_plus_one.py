@@ -4,6 +4,7 @@
 # You may assume the integer does not contain any leading zero, except the number 0 itself.
 
 
+
 class Solution:
     def plusOne(self, digits):
         """
