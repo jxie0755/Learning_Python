@@ -60,10 +60,3 @@ if __name__ == '__main__':
     assert Solution().mySqrt2(36) == 6
     assert Solution().mySqrt2(2147395600) == 46340
     print('all passed')
-
-    # print(Solution().mySqrt3(0))
-    # print(Solution().mySqrt3(1))
-    # print(Solution().mySqrt3(4))
-    # print(Solution().mySqrt3(8))
-    # print(Solution().mySqrt3(36))
-    # print(Solution().mySqrt3(2147395600))
