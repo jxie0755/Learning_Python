@@ -8,32 +8,26 @@
 class Solution:
     # DO not use the straight high-low method, because it will return float number incorrectly to be integerized.
     # Handle the integer method from the begining
-    def mySqrt1(self, x):
+    def mySqrt(self, x):
         """
         :type x: int
         :rtype: int
         """
+        high, low = x, 1
+        temp_result= (high + low) / 2
+        while abs(temp_result** 2 - x) >= 1:
+            if temp_result**2 > x:
+                high = temp_result
+            elif temp_result**2 < x:
+                low = temp_result
 
-        if x== 0:
-            return 0
-        elif x == 1:
-            return 1
+            temp_result = (high + low) / 2
+
+        temp_result = int(temp_result)
+        if (temp_result+1)**2 > x:
+            return temp_result
         else:
-            high, low = x, 1
-            temp_result= (high + low) / 2
-            while abs(temp_result** 2 - x) >= 1:
-                if temp_result**2 > x:
-                    high = temp_result
-                elif temp_result**2 < x:
-                    low = temp_result
-
-                temp_result = (high + low) / 2
-
-            temp_result = int(temp_result)
-            if (temp_result+1)**2 > x:
-                return temp_result
-            else:
-                return temp_result+1
+            return temp_result+1
 
 
     # A modified binary search:
@@ -53,10 +47,10 @@ class Solution:
         return int(x ** 0.5)
 
 if __name__ == '__main__':
-    assert Solution().mySqrt2(0) == 0
-    assert Solution().mySqrt2(1) == 1
-    assert Solution().mySqrt2(4) == 2
-    assert Solution().mySqrt2(8) == 2
-    assert Solution().mySqrt2(36) == 6
-    assert Solution().mySqrt2(2147395600) == 46340
+    assert Solution().mySqrt(0) == 0
+    assert Solution().mySqrt(1) == 1
+    assert Solution().mySqrt(4) == 2
+    assert Solution().mySqrt(8) == 2
+    assert Solution().mySqrt(36) == 6
+    assert Solution().mySqrt(2147395600) == 46340
     print('all passed')
