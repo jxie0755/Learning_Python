@@ -48,6 +48,7 @@ class Solution:
             else:
                 left = middle
 
+    # Cheating by use python internal function
     def mySqrt3(self, x):
         return int(x ** 0.5)
 
