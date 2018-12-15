@@ -39,13 +39,7 @@ def checkio(numbers):
         negprocess(i)
 
     return sum(negstep) + sum(filter(lambda x: x > 0, numbers))
-
-# if __name__ == '__main__':
-#     assert checkio([5, -3, -1, 2]) == 6, 'Fifth'
-#     assert checkio([5, 6, -10, -7, 4]) == 8, 'First'
-#     assert checkio([-11, 69, 77, -51, 23, 67, 35, 27, -25, 95]) == 393, 'Second'
-#     assert checkio([-21, -23, -69, -67, 1, 41, 97, 49, 27]) == 125, 'Third'
-#     print('All ok')
+    # TODO 算法不正确
 
 # 其他算法不理解
 def checkio2(numbers):
@@ -71,4 +65,13 @@ def checkio3(numbers):
         curmax = nextmax
     return curmax
 
-print(checkio3([13,24,-23,-12,-12,12,13]))
+if __name__ == '__main__':
+    assert checkio([5, -3, -1, 2]) == 6, '1st test, (5-1+2=6)'
+    assert checkio([5, 6, -10, -7, 4]) == 8, '2nd test, (5+6-7+4=8)'
+    assert checkio([-11, 69, 77, -51, 23, 67, 35, 27, -25, 95]) == 393, '3rd test, (69+77+23+67+35+27+95=393)'
+    assert checkio([1,-1,-10,-100,-50,-5000,-100,9999]) == 9840, '4th test, (1-10-50-100+9999=9840)'
+    assert checkio([1, -1, -10, -100, -5000, -5, -100, 9999]) == 9894, '5th test, (1-1-100-5+9999=9894)'
+    assert checkio([1, -1, -10, -100, -101, -101, -10, 9999]) == 9879, '6th test, (1-10-101-10+9999)'
+    assert checkio([1, -1, -10, -500, -500, -500, -10, 9999]) == 9480, '6th test, (1-10-500-10+9999)'
+    print('All ok')
+
