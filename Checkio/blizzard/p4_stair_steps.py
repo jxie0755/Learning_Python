@@ -8,50 +8,43 @@
 # Input: Numbers on each stair as a list of integers.
 # Output: The final sum for the best way as an integer.
 
+
 def checkio(numbers):
-    # get sub groups of consecutive neg nums (1 to 3), into a matrix
-    # maximum lenth of consecutive neg nums is 3, if more than 3, start a new group
-    temp, neglst = [], []
-    for i in range(len(numbers)):
-        if numbers[i] < 0:
-            temp.append(numbers[i])
-        elif numbers[i] > 0:
-            neglst.append(temp)
-            temp = []
-    if numbers[-1] < 0:
-        neglst.append(temp)
+    # 利用斐波那契数列方法,每走到n级都是从n-1级和n-2级过来的,那么只需要找走到n-1级和n-2级谁比较大就从谁那里走过来.
+    # 然后依次递归到最小case
 
-    # 写一个函数处理算法,当连续两个负数取其小,当连续三个负数,去中间数,除非头尾加起来更小.
-    negstep = []
+    def find_max(n):
+        """
 
-    def negprocess(x):
-        if len(x) == 2:
-            negstep.append(max(x))
-        elif len(x) >= 3:
-            if x[0] + x[2] >= x[1]:
-                negstep.append(x[0] + x[2])
-                return negprocess(x[3:])
-            else:
-                negstep.append(x[1])
-                return negprocess(x[2:])
+        Args:
+            n: the index of numbers, (but with special cases)
 
-    for i in neglst:
-        negprocess(i)
+        Returns: a number which is the max of possible sum
 
-    return sum(negstep) + sum(filter(lambda x: x > 0, numbers))
-    # TODO 算法不正确
+        """
+        if n == -1:
+            return 0  # 假设开头必须为0
+        elif n == 0:
+            return numbers[n]
+        elif 0 < n < len(numbers):
+            return max(find_max(n - 1), find_max(n - 2)) + numbers[n]
+        elif n == len(numbers):
+            return max(find_max(n - 1), find_max(n - 2)) + 0  # 假设结尾也必须是0
 
-# 其他算法不理解
+    return find_max(len(numbers))
+
+
+
+# 其他算法
 def checkio2(numbers):
     c = [0] * (len(numbers) + 1)
     c[1] = numbers[0]
     for i in range(2, len(numbers) + 1):
-        print((c[i - 1], c[i - 2]), numbers[i - 1])
         c[i] = max(c[i - 1], c[i - 2]) + numbers[i - 1]
 
     return max(c[-1], c[-2])
 
-# 其他算法,不理解
+# 其他算法
 def checkio3(numbers):
     prevmax = curmax = 0
     for n in numbers + [0]:
@@ -60,18 +53,19 @@ def checkio3(numbers):
         curmax = nextmax
     return curmax
 
+
 if __name__ == '__main__':
     assert checkio([5, -3, -1, 2]) == 6, '1st test, (5-1+2=6)'
     assert checkio([5, 6, -10, -7, 4]) == 8, '2nd test, (5+6-7+4=8)'
     assert checkio([-11, 69, 77, -51, 23, 67, 35, 27, -25, 95]) == 393, '3rd test, (69+77+23+67+35+27+95=393)'
     assert checkio([1,-1,-10,-100,-50,-5000,-100,9999]) == 9840, '4th test, (1-10-50-100+9999=9840)'
-
-    print(checkio([1, -1, -10, -100, -5000, -5, -100, 9999])) # 9885
-    print(1-1-100-5+9999) # 9894
-    print(1-10-100-5+9999) # 9885
     assert checkio([1, -1, -10, -100, -5000, -5, -100, 9999]) == 9894, '5th test, (1-1-100-5+9999=9894)'
-
     assert checkio([1, -1, -10, -100, -101, -101, -10, 9999]) == 9879, '6th test, (1-10-101-10+9999)'
     assert checkio([1, -1, -10, -500, -500, -500, -10, 9999]) == 9480, '7th test, (1-10-500-10+9999)'
-    print('All ok')
 
+    assert checkio([-1, -10, -100, -1000]) == -101, '-1-100'
+    assert checkio([-1, -10, -100, -1000, -10000]) == -1010, '-10-1000'
+    assert checkio([-1, -10, -100, -1000, -10000, -100000]) == -10101, '-1-100-10000'
+    assert checkio([-1, -10, -100, -1000, -10000, -100000, -1000000]) == -101010, '-10-1000-100000'
+
+    print('All ok')
