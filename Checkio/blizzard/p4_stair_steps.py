@@ -44,23 +44,18 @@ def checkio(numbers):
 # 其他算法不理解
 def checkio2(numbers):
     c = [0] * (len(numbers) + 1)
-    print(c)
     c[1] = numbers[0]
-    print(c)
-    print(numbers)
     for i in range(2, len(numbers) + 1):
         print((c[i - 1], c[i - 2]), numbers[i - 1])
         c[i] = max(c[i - 1], c[i - 2]) + numbers[i - 1]
-        print(c)
+
     return max(c[-1], c[-2])
 
 # 其他算法,不理解
 def checkio3(numbers):
     prevmax = curmax = 0
-    print(numbers + [0])
     for n in numbers + [0]:
         nextmax = max(curmax + n, prevmax + n)
-        print(curmax + n, prevmax + n)
         prevmax = curmax
         curmax = nextmax
     return curmax
