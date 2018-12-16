@@ -1,4 +1,7 @@
+# CS61A Lecture 25 additional material
 ; Sierpinski's Triangle (aka Sierpinski's Gasket).
+
+
 
 (define (repeat k fn)
   ; Repeat fn k times.
