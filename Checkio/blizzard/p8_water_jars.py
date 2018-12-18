@@ -24,18 +24,37 @@ def checkio(first, second, goal):
     sequence = []
     results = []
 
+    def pour(status, first, second):
+        """
+        return the level of water in first and second
+        after pour from first to second
+        """
+        available = second - status[1]
+        if available == 0:
+            return status
+        elif available > status[0]:
+            return [0, status[0]+status[1]]
+        else:
+            return [status[0]-available, second]
+
     def process(method):
+
         now = current[-1][:]
+
         if method == '01':
             now[0] = first
         elif method == '02':
             now[1] = second
         elif method == '12':
-            available = second - now[1]
+            now = pour(now, first, second)
+        elif method == '21':
+            now = pour(now[::-1], second, first)[::-1]
+        elif method == '10':
+            now[0] = 0
+        elif method == '20':
+            now[1] = 0
 
-
-        if  now not in current:
-            current.append(now)
+        return now
 
 
 
