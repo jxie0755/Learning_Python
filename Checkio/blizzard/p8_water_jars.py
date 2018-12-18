@@ -8,28 +8,42 @@
 # The solution must contain the minimum possible number of steps
 # Input: The volume of first jar, the volume of second jar and the goal as integers.
 
-def checkio(first, second, goal):
-    # Handle the problem of which jar is small and which is large
-    small, large = min(first, second), max(first, second)
-    if first < second:
-        FS,FL,ES,EL,SL,LS = ['01'], ['02'], ['10'], ['20'], ['12'], ['21']
-    elif first > second:
-        FS,FL,ES,EL,SL,LS = ['02'], ['01'], ['20'], ['10'], ['21'], ['12']
-
-    # if goal can be achieved by one fill
-    if goal == small:
-        return [FS]
-    if goal == large:
-        return [FL]
-
-    # if goal can not be achieved by one fill
-    return []
-
-
 # 新思路:
 # 一个pair代表两个瓶子的水量,只要target in pair即可终止
 # 灌水倒水一共只有六种动作
 # 终结条件,重复出现两瓶子的水量
+
+
+def checkio(first, second, goal):
+
+    current = [[0, 0]]  # water in [first, second]
+
+    methods = ['01', '02', '12', '21', '10', '20'] # '0' is the lake
+    # The string '01' reprenst from lake to first jar, same applies to the other strings '
+
+    sequence = []
+    results = []
+
+    def process(method):
+        now = current[-1][:]
+        if method == '01':
+            now[0] = first
+        elif method == '02':
+            now[1] = second
+        elif method == '12':
+            available = second - now[1]
+
+
+        if  now not in current:
+            current.append(now)
+
+
+
+
+
+
+
+
 
 
 # if __name__ == '__main__':
