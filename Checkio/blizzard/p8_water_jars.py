@@ -22,9 +22,15 @@ def checkio(first, second, goal):
     if goal == large:
         return [FL]
 
-
     # if goal can not be achieved by one fill
     return []
+
+
+# 新思路:
+# 一个pair代表两个瓶子的水量,只要target in pair即可终止
+# 灌水倒水一共只有六种动作
+# 终结条件,重复出现两瓶子的水量
+
 
 # if __name__ == '__main__':
 #     #This part is using only for self-checking and not necessary for auto-testing
