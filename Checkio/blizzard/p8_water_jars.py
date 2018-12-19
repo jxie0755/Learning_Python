@@ -21,8 +21,7 @@ def checkio(first, second, goal):
     methods = ['01', '02', '12', '21', '10', '20'] # '0' is the lake
     # The string '01' reprenst from lake to first jar, same applies to the other strings '
 
-    sequence = []
-    results = []
+
 
     def pour(status, first, second):
         """
@@ -56,6 +55,9 @@ def checkio(first, second, goal):
 
         return now
 
+    while True:
+        for method in methods:
+            new_status = process(method)
 
 
 
