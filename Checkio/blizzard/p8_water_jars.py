@@ -13,6 +13,7 @@
 # 灌水倒水一共只有六种动作
 # 终结条件,重复出现两瓶子的水量
 
+from copy import deepcopy
 
 def checkio(first, second, goal):
 
@@ -21,6 +22,7 @@ def checkio(first, second, goal):
     methods = ['01', '02', '12', '21', '10', '20'] # '0' is the lake
     # The string '01' reprenst from lake to first jar, same applies to the other strings '
 
+    temp_method_list = [current]
 
     def pour(status, first, second):
         """
@@ -35,9 +37,9 @@ def checkio(first, second, goal):
         else:
             return [status[0]-available, second]
 
-    def process(method):
+    def process(lst, method):
 
-        now = current[-1][:]
+        now = lst[-1][:]
 
         if method == '01':
             now[0] = first
@@ -54,9 +56,19 @@ def checkio(first, second, goal):
 
         return now
 
-    while True:
-        for method in methods:
-            new_status = process(method)
+    def move(lst):
+        new_method_list = []
+        for i in lst:
+            for method in methods:
+                new_status = process(i, method)
+                if new_status not in i:
+                    new_i = deepcopy(i) + [new_status]
+                    new_method_list.append(new_i)
+        return new_method_list
+
+    tt = move(temp_method_list)
+    for i in tt:
+        print(i)
 
 
 
@@ -101,7 +113,7 @@ def checkio(first, second, goal):
 #     assert check_solution(checkio, (5, 7, 6), 10), "Example"
 #     assert check_solution(checkio, (3, 4, 1), 2), "One and two"
 
-checkio(5, 7, 6)
+checkio(5, 2, 4)
 # ['02', '21', '10', '21', '02', '21', '10', '21', '02', '21']
 
 # TODO 未完成
