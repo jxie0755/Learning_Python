@@ -22,7 +22,6 @@ def checkio(first, second, goal):
     # The string '01' reprenst from lake to first jar, same applies to the other strings '
 
 
-
     def pour(status, first, second):
         """
         return the level of water in first and second
