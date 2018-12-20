@@ -23,6 +23,7 @@ def checkio(first, second, goal):
     # The string '01' reprenst from lake to first jar, same applies to the other strings '
 
     temp_method_list = [current]
+    result = []
 
     def pour(status, first, second):
         """
@@ -64,56 +65,35 @@ def checkio(first, second, goal):
                 if new_status not in i:
                     new_i = deepcopy(i) + [new_status]
                     new_method_list.append(new_i)
+                    if goal in new_status:
+                        result.append(new_i)
         return new_method_list
 
-    tt = move(temp_method_list)
-    for i in tt:
-        print(i)
+    while not result:
+        temp_method_list = move(temp_method_list)
+
+
+
+    print(result[0])
+    index, answer = 0, result[0]
+    action_answer = []
+    while index < len(answer):
+        before, after = [answer[index]], answer[index+1]
+        for method in methods:
+            if process(before, method) == after:
+                action_answer.append(method)
+                break
+        index += 1
+
+    print(action_answer)
 
 
 
 
+checkio(5, 7, 6)
+# ['02', '21', '10', '21', '02', '21', '10', '21', '02', '21']   # 这是要求的结果
 
-
-
-
-
-# if __name__ == '__main__':
-#     #This part is using only for self-checking and not necessary for auto-testing
-#     def check_solution(func, initial_data, max_steps):
-#         first_volume, second_volume, goal = initial_data
-#         actions = {
-#             "01": lambda f, s: (first_volume, s),
-#             "02": lambda f, s: (f, second_volume),
-#             "12": lambda f, s: (
-#                 f - (second_volume - s if f > second_volume - s else f),
-#                 second_volume if f > second_volume - s else s + f),
-#             "21": lambda f, s: (
-#                 first_volume if s > first_volume - f else s + f,
-#                 s - (first_volume - f if s > first_volume - f else s),
-#             ),
-#             "10": lambda f, s: (0, s),
-#             "20": lambda f, s: (f, 0)
-#         }
-#         first, second = 0, 0
-#         result = func(*initial_data)
-#         if len(result) > max_steps:
-#             print("You answer contains too many steps. It can be shorter.")
-#             return False
-#         for act in result:
-#             if act not in actions.keys():
-#                 print("I don't know this action {0}".format(act))
-#                 return False
-#             first, second = actions[act](first, second)
-#         if goal == first or goal == second:
-#             return True
-#         print("You did not reach the goal.")
-#         return False
-#
-#     assert check_solution(checkio, (5, 7, 6), 10), "Example"
-#     assert check_solution(checkio, (3, 4, 1), 2), "One and two"
-
-checkio(5, 2, 4)
-# ['02', '21', '10', '21', '02', '21', '10', '21', '02', '21']
+# 这是目前我的输出
+# [[[0, 0], [0, 7], [5, 2], [0, 2], [2, 0], [2, 7], [5, 4], [0, 4], [4, 0], [4, 7], [5, 6]]]
 
 # TODO 未完成
