@@ -84,5 +84,6 @@ def checkio(first, second, goal):
 
 if __name__ == '__main__':
     assert checkio(5, 7, 6) == ['0002211021022110210221', [0, 0], [0, 7], [5, 2], [0, 2], [2, 0], [2, 7], [5, 4], [0, 4], [4, 0], [4, 7], [5, 6]]
+    assert checkio(3, 4, 1) == ['000221', [0, 0], [0, 4], [3, 1]]
     assert checkio(4, 8, 3) == 'Not possible'
     print('all passed')
