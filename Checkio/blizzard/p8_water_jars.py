@@ -72,13 +72,26 @@ def checkio(first, second, goal):
                             result.append(new_i)
         return new_method_list
 
+
     while not result and temp_method_list:
         temp_method_list = move(temp_method_list)
+
+
+    # For finish checkio question:
+
+    # checkio_string = result[0][0][2:]
+    # index, checkio_answer = 0, []
+    # while index < len(checkio_string):
+    #     checkio_answer.append(checkio_string[index:index+2])
+    #     index += 2
+    # return checkio_answer
+
 
     if result:
         return result[0]
     else:
         return 'Not possible'
+
 
 
 
