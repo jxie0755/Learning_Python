@@ -53,36 +53,46 @@ if __name__ == '__main__':
     nums1 = [1]
     nums2 = []
     Solution().merge(nums1, 1, nums2, 0)
-    assert nums1 == [1]
+    assert nums1 == [1], 'T1'
 
     nums1 = [0]
     nums2 = [1]
     Solution().merge(nums1, 0, nums2, 1)
-    assert nums1 == [1]
+    assert nums1 == [1], 'T2'
 
     nums1 = [1, 2, 3, 0, 0, 0]
     nums2 = [2, 5, 6]
     Solution().merge(nums1, 3, nums2, 3)
-    assert nums1 == [1, 2, 2, 3, 5, 6]
+    assert nums1 == [1, 2, 2, 3, 5, 6], 'T3'
 
     nums1 = [1, 5, 7, 0, 0, 0]
     nums2 = [2, 4, 10]
     Solution().merge(nums1, 3, nums2, 3)
-    assert nums1 == [1, 2, 4, 5, 7, 10]
+    assert nums1 == [1, 2, 4, 5, 7, 10], 'T4'
 
     nums1 = [8, 8, 8, 0, 0, 0]
     nums2 = [1, 2, 3]
     Solution().merge(nums1, 3, nums2, 3)
-    assert nums1 == [1, 2, 3, 8, 8, 8]
+    assert nums1 == [1, 2, 3, 8, 8, 8], 'T5'
 
     nums1 = [1, 0, 0, 0]
     nums2 = [5, 5, 5]
     Solution().merge(nums1, 1, nums2, 3)
-    assert nums1 == [1, 5, 5, 5]
+    assert nums1 == [1, 5, 5, 5], 'T6'
 
     nums1 = [1, 2, 4, 5, 6, 0]
     nums2 = [3]
     Solution().merge(nums1, 5, nums2, 1)
-    assert nums1 == [1, 2, 3, 4, 5, 6]
+    assert nums1 == [1, 2, 3, 4, 5, 6], 'T7'
+
+    nums1 = [4, 0, 0, 0, 0, 0]
+    nums2 = [1, 2, 3, 5, 6]
+    Solution().merge(nums1, 1, nums2, 5)
+    assert nums1 == [1, 2, 3, 4, 5, 6], 'T8'
+
+    nums1 = [4, 0, 0, 0, 0, 0, 0]
+    nums2 = [1, 2, 3, 5, 6]
+    Solution().merge(nums1, 1, nums2, 5)
+    assert nums1 == [1, 2, 3, 4, 5, 6, 0], 'T9'
 
     print('all passed')
