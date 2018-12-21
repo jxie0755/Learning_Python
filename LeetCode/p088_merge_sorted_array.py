@@ -25,13 +25,64 @@ class Solution:
         :type n: int
         :rtype: void Do not return anything, modify nums1 in-place instead.
         """
+        a, b = 0, 0
 
+        if n != 0:
+            while a != m and b != n:
+                if nums1[a] >= nums2[b]:
+                    nums1.pop()
+                    nums1.insert(a, nums2[b])
+                    a += 1
+                    b += 1
+
+                elif nums1[a] < nums2[b]:
+                    a += 1
+
+            print(nums1)
+
+            while b != n:
+                nums1[b-n] = nums2[b]
+                b += 1
+
+nums1 = [4, 0, 0, 0, 0, 0]
+nums2 = [1, 2, 3, 5, 6]
+Solution().merge(nums1, 1, nums2, 5)
+print(nums1)
 
 if __name__ == '__main__':
-    nums1 = [1, 2, 3, 0, 0, 0]
-    nums2 = [2,5,6]
-    Solution().merge(nums1, 3, nums2, 3)
-    print(nums1)
+    nums1 = [1]
+    nums2 = []
+    Solution().merge(nums1, 1, nums2, 0)
+    assert nums1 == [1]
 
-    # assert nums1 == [1,2,2,3,5,6]
-    # print('all passed')
+    nums1 = [0]
+    nums2 = [1]
+    Solution().merge(nums1, 0, nums2, 1)
+    assert nums1 == [1]
+
+    nums1 = [1, 2, 3, 0, 0, 0]
+    nums2 = [2, 5, 6]
+    Solution().merge(nums1, 3, nums2, 3)
+    assert nums1 == [1, 2, 2, 3, 5, 6]
+
+    nums1 = [1, 5, 7, 0, 0, 0]
+    nums2 = [2, 4, 10]
+    Solution().merge(nums1, 3, nums2, 3)
+    assert nums1 == [1, 2, 4, 5, 7, 10]
+
+    nums1 = [8, 8, 8, 0, 0, 0]
+    nums2 = [1, 2, 3]
+    Solution().merge(nums1, 3, nums2, 3)
+    assert nums1 == [1, 2, 3, 8, 8, 8]
+
+    nums1 = [1, 0, 0, 0]
+    nums2 = [5, 5, 5]
+    Solution().merge(nums1, 1, nums2, 3)
+    assert nums1 == [1, 5, 5, 5]
+
+    nums1 = [1, 2, 4, 5, 6, 0]
+    nums2 = [3]
+    Solution().merge(nums1, 5, nums2, 1)
+    assert nums1 == [1, 2, 3, 4, 5, 6]
+
+    print('all passed')
