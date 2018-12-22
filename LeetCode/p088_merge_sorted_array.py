@@ -25,29 +25,15 @@ class Solution:
         :type n: int
         :rtype: void Do not return anything, modify nums1 in-place instead.
         """
-        a, b = 0, 0
+        cur = 0
+        tmp_n = 0
+        for j in nums2:
+            while j >= nums1[cur] and cur < m + tmp_n:
+                cur += 1
+            nums1.insert(cur, j)
+            tmp_n += 1
+            nums1.pop()
 
-        if n != 0:
-            while a != m and b != n:
-                if nums1[a] >= nums2[b]:
-                    nums1.pop()
-                    nums1.insert(a, nums2[b])
-                    a += 1
-                    b += 1
-
-                elif nums1[a] < nums2[b]:
-                    a += 1
-
-            print(nums1)
-
-            while b != n:
-                nums1[b-n] = nums2[b]
-                b += 1
-
-nums1 = [4, 0, 0, 0, 0, 0]
-nums2 = [1, 2, 3, 5, 6]
-Solution().merge(nums1, 1, nums2, 5)
-print(nums1)
 
 if __name__ == '__main__':
     nums1 = [1]
@@ -94,5 +80,10 @@ if __name__ == '__main__':
     nums2 = [1, 2, 3, 5, 6]
     Solution().merge(nums1, 1, nums2, 5)
     assert nums1 == [1, 2, 3, 4, 5, 6, 0], 'T9'
+
+    nums1 = [-1, 0, 0, 3, 3, 3, 0, 0, 0]
+    nums2 = [1,2,2]
+    Solution().merge(nums1, 6, nums2, 3)
+    assert nums1 == [-1,0,0,1,2,2,3,3,3], 'T10'
 
     print('all passed')
