@@ -23,9 +23,18 @@ class Solution:
         :type q: TreeNode
         :rtype: bool
         """
-
-
-
+        if p == None and q == None:
+            return True
+        elif p == None or q == None:
+            return False
+        elif p.left != None and q.left != None and p.right != None and q.right != None:
+            return p.val == q.val and self.isSameTree(p.left, q.left) and self.isSameTree(p.right, q.right)
+        elif p.left != None and q.left != None:
+            return p.val == q.val and self.isSameTree(p.left, q.left) and p.right == q.right == None
+        elif p.right != None and q.right != None:
+            return p.val == q.val and self.isSameTree(p.right, q.right) and p.left == q.left == None
+        else:
+            return p.val == q.val and p.left == q.left == p.right == q.right == None
 
 
 if __name__ == '__main__':
@@ -39,7 +48,7 @@ if __name__ == '__main__':
     T20.right = TreeNode(3)
     T20.left.left = TreeNode(4)
 
-    assert Solution().isSameTree(T10, T20) == True
+    assert Solution().isSameTree(T10, T20) == True, 'T1'
 
     T10 = TreeNode(1)
     T10.left = TreeNode(2)
@@ -51,6 +60,6 @@ if __name__ == '__main__':
     T20.right = TreeNode(2)
     T20.left.left = TreeNode(4)
 
-    assert Solution().isSameTree(T10, T20) == False
+    assert Solution().isSameTree(T10, T20) == False, 'T2'
 
     print('all passed')
