@@ -32,20 +32,24 @@ if __name__ == '__main__':
     T10 = TreeNode(1)
     T10.left = TreeNode(2)
     T10.right = TreeNode(3)
+    T10.left.left = TreeNode(4)
 
     T20 = TreeNode(1)
     T20.left = TreeNode(2)
     T20.right = TreeNode(3)
+    T20.left.left = TreeNode(4)
 
     assert Solution().isSameTree(T10, T20) == True
 
     T10 = TreeNode(1)
     T10.left = TreeNode(2)
     T10.right = TreeNode(3)
+    T10.left.left = TreeNode(4)
 
     T20 = TreeNode(1)
     T20.left = TreeNode(3)
     T20.right = TreeNode(2)
+    T20.left.left = TreeNode(4)
 
     assert Solution().isSameTree(T10, T20) == False
 
