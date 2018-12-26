@@ -63,3 +63,4 @@ print(pointOnBorder(point2, polygon))  # >>> False (inside)
 print(pointOnBorder(pointx, polygon))  # >>> False (outside)
 
 # TODO this is proved to be wrong
+# 新想法: 每个点和其他点连成的封闭图形相比,如果再外则被排除, 直到无法排除任何一个点
