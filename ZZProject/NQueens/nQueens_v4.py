@@ -55,7 +55,7 @@ class Chessboard(object):
         separ = add_on * ' ' + separ
         x_num = add_on * ' ' + x_num
         to_print += separ + '\n' + x_num
-        return to_print
+        return to_print + '\n'
 
 
     # Basic set and get
