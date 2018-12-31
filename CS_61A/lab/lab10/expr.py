@@ -182,6 +182,10 @@ class CallExpr(Expr):
         Number(14)
         """
         "*** YOUR CODE HERE ***"
+        operator = self.operator.eval(env)
+        operands = [arg.eval(env) for arg in self.operands]
+        return operator.apply(operands)
+
 
     def __str__(self):
         function = str(self.operator)
@@ -288,10 +292,16 @@ class LambdaFunction(Value):
         >>> read('(lambda x: x(x))(lambda y: 4)').eval(global_env)
         Number(4)
         """
+        "*** YOUR CODE HERE ***"
         if len(self.parameters) != len(arguments):
             raise TypeError("Cannot match parameters {} to arguments {}".format(
                 comma_separated(self.parameters), comma_separated(arguments)))
-        "*** YOUR CODE HERE ***"
+
+        new_env = self.parent.copy()
+        for p, arg in zip(self.parameters, arguments):
+            new_env[p] = arg
+
+        return self.body.eval(new_env)
 
     def __str__(self):
         definition = LambdaExpr(self.parameters, self.body)
