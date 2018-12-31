@@ -1,5 +1,8 @@
 # In this mission you should check if all elements in the given list are equal.
 
+# Input: List.
+# Output: Bool.
+
 from typing import List, Any
 
 
