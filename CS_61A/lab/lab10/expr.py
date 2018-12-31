@@ -39,6 +39,8 @@ class Expr:
         """
         raise NotImplementedError
 
+
+
     def __str__(self):
         """
         Returns a parsable and human-readable string of this expression (i.e.
@@ -110,6 +112,10 @@ class Name(Expr):
         Exception raised!
         """
         "*** YOUR CODE HERE ***"
+        try:
+            return env[self.string]
+        except KeyError:
+            raise NameError('your error message here (a string)')
 
     def __str__(self):
         return self.string
