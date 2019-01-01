@@ -32,5 +32,3 @@ if __name__ == '__main__':
     assert date_time("09.05.1945 06:30") == "9 May 1945 year 6 hours 30 minutes", "Victory"
     assert date_time("20.11.1990 03:55") == "20 November 1990 year 3 hours 55 minutes", "Somebody was born"
     print("Coding complete? Click 'Check' to earn cool rewards!")
-
-
