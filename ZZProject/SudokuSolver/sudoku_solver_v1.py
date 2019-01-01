@@ -36,7 +36,7 @@ class Sudoku(object):
 
         print('puzzle is generated:')
         print(self)
-        print('\n')
+        print('')
 
         # Also create a permanent puzzle copy for future use
         self.puzzle = self.board_mem()
@@ -288,11 +288,13 @@ class Sudoku(object):
                 self.board = snapshot_board.pop()
                 self.hyper_move(snapshot_to_do.pop())
 
+
+        # difficulty =
         print('problem solved!')
         print(self)
         print('Total hypothesis: ', count)
-        print('start with:', hypo_layer_all[1:20])
         print('max_layer_counted:', max(hypo_layer_all))
+        print('\n')
 
 
 if __name__ == '__main__':
@@ -365,19 +367,20 @@ if __name__ == '__main__':
 
 
     easy10 = Sudoku(easy_data_10)
-    medium10 = Sudoku(medium_data_10)
-    hard10 = Sudoku(hard_data_10)
-    evil10 = Sudoku(evil_data_10)
-
-
     easy10.solve()
+
+    medium10 = Sudoku(medium_data_10)
     medium10.solve()
+
+    hard10 = Sudoku(hard_data_10)
     hard10.solve()
-    evil10.solve()
 
     evil1 = Sudoku(evil_data_1)
-
     evil1.solve()
+
+    evil10 = Sudoku(evil_data_10)
+    evil10.solve()
+
 
     # Addtional test case: Hardest SUDOKU ever!
     ultimate_puzzle = [
