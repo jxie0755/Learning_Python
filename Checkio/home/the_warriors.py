@@ -25,7 +25,7 @@ def fight(unit_1, unit_2):
         nonlocal flip
         u2.health -= u1.attack # U1 attack U2
         flip = not flip
-        print(u1.health, u2.health)
+
         if u2.health <= 0 and flip is False:
             u2.is_alive = False
             return True
