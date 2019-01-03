@@ -90,7 +90,7 @@ if __name__ == '__main__':
     assert Solution().getRow(4) == [1, 4, 6, 4, 1]
     print('all passed')
 
-    Solution().getRow_math2(10000)
+    Solution().getRow(10000)
     # regular:              11k ms
     # regular-half:          5k ms
     # combination:          65k ms
