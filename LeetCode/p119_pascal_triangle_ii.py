@@ -7,7 +7,7 @@
 # Follow up: Could you optimize your algorithm to use only O(k) extra space?
 
 class Solution:
-    def getRow(self, rowIndex):
+    def getRow_old(self, rowIndex):
         """
         :type rowIndex: int
         :rtype: List[int]
@@ -44,8 +44,7 @@ class Solution:
 
         while current < rowIndex:
             x = result[-1]
-
-            result = [1] + [result[i] + result[i+1] for i in range(current // 2)]  # 不如只求一半,另一半用复制法节省时间
+            result = [1] + [result[i] + result[i+1] for i in range(current // 2)]  # 不如只求一半,另一半用复制法节省时间 # 确实快了一倍
             if current % 2 != 0:
                 result += [x*2]
 
