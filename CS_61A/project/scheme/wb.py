@@ -185,7 +185,7 @@ scheme_eval(expr, create_global_frame()) # Type SchemeError if you think this er
 # A: define
 
 
-# Problem 6 > Suite 2 > Case 1 - Case
+# Problem 6 > Suite 2 > Case 1 - Case 4
 
 # scm> (define size 2)
 # >>> size
@@ -207,3 +207,66 @@ scheme_eval(expr, create_global_frame()) # Type SchemeError if you think this er
 
 # scm> (eval (define tau 6.28))
 # >>> 6.28
+
+
+# Problem 7 > Suite 1 > Case 1
+
+# Q: What is the structure of the expressions argument to do_quote_form?
+# A: Pair(A, nil), where:
+#        A is the quoted expression
+
+# Problem 7 > Suite 2 > Case 1
+
+# scm> (quote hello)
+# >>> hello
+
+# scm> 'hello
+# >>> hello
+
+# scm> ''hello
+# >>> (quote hello)
+
+# scm> (quote (1 2))
+# >>> (1 2)
+
+# scm> '(1 2)
+# >>> (1 2)
+
+# scm> (quote (1 . 2))
+# >>> (1 . 2)
+
+# scm> '(1 . (2))
+# >>> (1 2)
+
+# scm> (car '(1 2 3))
+# >>> 1
+
+# scm> (cdr '(1 2))
+# >>> (2)
+
+# scm> (car (car '((1))))
+# >>> 1
+
+# scm> (quote 3)
+# >>> 3
+
+# scm> (eval (cons 'car '('(4 2))))
+# >>> 4
+
+# Problem 7 > Suite 3 > Case 1
+from scheme_reader import *
+
+read_line(" (quote x) ")
+# >>> Pair('quote', Pair('x', nil))
+
+read_line(" 'x ")
+# >>> Pair('quote', Pair('x', nil))
+
+read_line(" (a b) ")
+# >>> Pair('a', Pair('b', nil))
+
+read_line(" '(a b) ")
+# >>> Pair('quote', Pair(Pair('a', Pair('b', nil)), nil))
+
+read_line(" '((a)) ")
+# Pair('quote', Pair(Pair(Pair('a', nil), nil), nil))
