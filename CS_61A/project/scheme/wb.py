@@ -172,3 +172,38 @@ scheme_eval(expr, create_global_frame()) # Type SchemeError if you think this er
 
 # scm> (1 (print 0)) ; check_procedure should be called before operands are evaluated
 # >>> SchemeError
+
+
+# Problem 6 > Suite 1 > Case 1 - Case 2
+
+# Q: What is the structure of the expressions argument to do_define_form?
+# A: Pair(A, Pair(B, nil)), where:
+#        A is the symbol being bound,
+#        B is an expression whose value should be bound to A
+
+# Q: What method of a Frame instance will binda value to a symbol in that frame?
+# A: define
+
+
+# Problem 6 > Suite 2 > Case 1 - Case
+
+# scm> (define size 2)
+# >>> size
+
+# scm> size
+# >>> 2
+
+# scm> (define x (+ 2 3))
+# >>> x
+
+# scm> x
+# >>> 5
+
+# scm> (define x (+ 2 7))
+# >>> x
+
+# scm> x
+# >>> 9
+
+# scm> (eval (define tau 6.28))
+# >>> 6.28
