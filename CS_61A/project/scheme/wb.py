@@ -105,10 +105,13 @@ read_line("(a . ((b . (c))))")
 # A: A primitive expression or a list expression
 
 # Q: What expression in the body of scheme_eval finds the value of a name?
+# A: env.lookup(expr)
 
+# Q: How do we know if a given list expression is a special form?
+# A: Check if the first element in the list is a symbol and that that symbol is in the dictionary SPECIAL_FORMS
 
-
-
+# Q: What exception should be raised for the expression (1)?
+# SchemeError("1 is not callable")
 
 
 
