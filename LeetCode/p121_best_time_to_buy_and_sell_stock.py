@@ -36,8 +36,7 @@ class Solution:
 
     def maxProfit(self, prices):
         ### This method still exceeded max time limit :(
-
-        # 折断法, 以list中最小值做切割
+        ### 折断法, 以list中最小值做切割
         profits = [0]
         while prices:
             low = min(prices)
@@ -76,9 +75,36 @@ class Solution:
 
         return max(profits)
 
+    def maxProfit_best(self, prices):
+        ### Best method evaluate on the run
+        max_profit, min_price = 0, float("inf")
+                                    # 无穷大
+        for price in prices:
+            min_price = min(min_price, price)
+            max_profit = max(max_profit, price - min_price)
+        return max_profit
+
+    def maxProfit(self, prices):
+        ### according to the best method, Denis modified for clearer logic
+        min_price, max_price = float('inf'), -float('inf')
+        profit = 0
+        i = 0
+        while i != len(prices):
+            current = prices[i]
+            if current < min_price:
+                min_price = current
+            if current > max_price:
+                max_price = current
+            profit = max(current - min_price, profit)
+            i += 1
+        return profit
+        # 此题本质就是迭代刷新最低价,
+        # 然后得到最低价之后的(最高价格-最低价)最高利润
+        # 一旦出现新的最低价, 那么就从新的最低价开始重新寻找新的最高利润并与之前做对比
+
 
 if __name__ == '__main__':
     assert Solution().maxProfit([7,1,5,3,6,4]) == 5, 'Smart trader'
     assert Solution().maxProfit([7,6,4,3,1]) == 0, 'No Transaction'
-    assert Solution().maxProfit([100, 5, 25, 1, 20]) == 20, 'Tricky'
+    assert Solution().maxProfit_best([100, 5, 25, 1, 20]) == 20, 'Tricky'
     print('all passed')
