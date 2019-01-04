@@ -4,10 +4,6 @@
 
 # Part I: The reader
 
-# Problem 1 > Suite 1 > Case 1
-# -- Already unlocked --
-
-
 # Problem 1 > Suite 1 > Case 2
 from scheme_reader import *
 tokens = tokenize_lines(["(+ 1 ", "(23 4)) ("])
@@ -57,26 +53,10 @@ read_tail(Buffer(tokenize_lines(['1 2 3)'])))
 read_tail(Buffer(tokenize_lines(['2 (3 4))'])))
 # >>> Pair(2, Pair(Pair(3, Pair(4, nil)), nil))
 
-
-# Problem 1 > Suite 1 > Case 5
-# -- Already unlocked --
-
-
-# Problem 1 > Suite 1 > Case 6
-# -- Already unlocked --
-
-
 # Problem 1 > Suite 1 > Case 7
 read_line("(+ (- 2 3) 1)")
 # >>> Pair('+', Pair(Pair('-', Pair(2, Pair(3, nil))), Pair(1, nil)))
 # 相当于一个分叉链表
-
-
-# Problem 1 > Suite 1 > Case 8
-# -- Already unlocked --
-
-# OK! All cases for Problem 1 unlocked.
-
 
 
 # Problem 2 > Suite 1 > Case 1 - Case 4, Case 6-8 omitted
@@ -96,8 +76,6 @@ read_line("(a . (b . (c . ())))")
 
 read_line("(a . ((b . (c))))")
 # >>> Pair('a', Pair(Pair('b', Pair('c', nil)), nil))  # 双括号则又相当于分叉链表了
-
-# OK! All cases for Problem 2 unlocked.
 
 
 
@@ -159,6 +137,7 @@ plus = PrimitiveProcedure(scheme_add) # + procedure
 scheme_apply(plus, twos, env) # Type SchemeError if you think this errors
 # >>> 4
 
+# Problem 4 > Suite 1 > Case 2
 env = create_global_frame()
 twos = Pair(2, Pair(2, nil))
 oddp = PrimitiveProcedure(scheme_oddp) # odd? procedure
@@ -166,3 +145,30 @@ scheme_apply(oddp, twos, env) # Type SchemeError if you think this errors
 # >>> SchemeError
 
 
+# Problem 5 > Suite 1 > Case 1
+from scheme_reader import *
+from scheme import *
+
+expr = read_line('(+ 2 2)')
+scheme_eval(expr, create_global_frame()) # Type SchemeError if you think this errors
+# >>> 4
+
+expr = read_line('(+ (+ 2 2) (+ 1 3) (* 1 4))')
+scheme_eval(expr, create_global_frame()) # Type SchemeError if you think this errors
+# >>> 12
+
+expr = read_line('(yolo)')
+scheme_eval(expr, create_global_frame()) # Type SchemeError if you think this errors
+# >>> SchemeError
+
+# scm> (+ 2 3) ; Type SchemeError if you think this errors
+# >>> 5
+
+# scm> (* (+ 3 2) (+ 1 7)) ; Type SchemeError if you think this errors
+# >>> 40
+
+# scm> (1 2) ; Type SchemeError if you think this errors
+# >>> SchemeError
+
+# scm> (1 (print 0)) ; check_procedure should be called before operands are evaluated
+# >>> SchemeError

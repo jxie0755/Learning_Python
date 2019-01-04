@@ -31,7 +31,13 @@ def scheme_eval(expr, env, _=None): # Optional third argument is ignored
         return SPECIAL_FORMS[first](rest, env)
     else:
         # BEGIN PROBLEM 5
-        "*** YOUR CODE HERE ***"
+        operator = scheme_eval(first, env) # operator evaluated
+
+        # checking if operator is a valid procedure before evaluating the operands
+        check_procedure(operator)
+        eval_with_env = lambda e: scheme_eval(e, env)
+        rest = rest.map(eval_with_env)
+        return scheme_apply(operator, rest, env)
         # END PROBLEM 5
 
 def self_evaluating(expr):
