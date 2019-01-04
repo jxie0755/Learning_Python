@@ -150,3 +150,19 @@ second_frame.lookup("x")
 # >>> 3
 
 
+# Problem 4 > Suite 1 > Case 1
+from scheme import *
+
+env = create_global_frame()
+twos = Pair(2, Pair(2, nil))
+plus = PrimitiveProcedure(scheme_add) # + procedure
+scheme_apply(plus, twos, env) # Type SchemeError if you think this errors
+# >>> 4
+
+env = create_global_frame()
+twos = Pair(2, Pair(2, nil))
+oddp = PrimitiveProcedure(scheme_oddp) # odd? procedure
+scheme_apply(oddp, twos, env) # Type SchemeError if you think this errors
+# >>> SchemeError
+
+
