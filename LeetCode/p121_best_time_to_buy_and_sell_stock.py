@@ -86,25 +86,23 @@ class Solution:
 
     def maxProfit(self, prices):
         ### according to the best method, Denis modified for clearer logic
-        min_price, max_price = float('inf'), -float('inf')
+        min_price = float('inf')
         profit = 0
         i = 0
         while i != len(prices):
             current = prices[i]
             if current < min_price:
                 min_price = current
-            if current > max_price:
-                max_price = current
             profit = max(current - min_price, profit)
             i += 1
         return profit
         # 此题本质就是迭代刷新最低价,
-        # 然后得到最低价之后的(最高价格-最低价)最高利润
-        # 一旦出现新的最低价, 那么就从新的最低价开始重新寻找新的最高利润并与之前做对比
+        # 然后得到最低价之后的(当前价-最低价)得到一个利润, 然后基于此最低价寻找更高的利润
+        # 若出现新的最低价, 那么就从新的最低价开始重新寻找新的利润并与之前的最高利润做对比
 
 
 if __name__ == '__main__':
     assert Solution().maxProfit([7,1,5,3,6,4]) == 5, 'Smart trader'
     assert Solution().maxProfit([7,6,4,3,1]) == 0, 'No Transaction'
-    assert Solution().maxProfit_best([100, 5, 25, 1, 20]) == 20, 'Tricky'
+    assert Solution().maxProfit([100, 5, 25, 1, 20]) == 20, 'Tricky'
     print('all passed')
