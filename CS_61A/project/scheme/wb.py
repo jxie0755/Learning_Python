@@ -2,6 +2,7 @@
 # First unlock some tests:
 # python3 ok -u
 
+# Part I: The reader
 
 # Problem 1 > Suite 1 > Case 1
 # -- Already unlocked --
@@ -100,6 +101,11 @@ read_line("(a . ((b . (c))))")
 
 
 
+
+
+
+# Part II: The evaluator
+
 # Understanding scheme.py > Suite 1 > Case 1 - Case
 # Q: A Scheme expression can be either...
 # A: A primitive expression or a list expression
@@ -114,6 +120,33 @@ read_line("(a . ((b . (c))))")
 # SchemeError("1 is not callable")
 
 
+# Problem 3 > Suite 1 > Case 1
+from scheme import *
+global_frame = create_global_frame()
+global_frame.define("x", 3)
+global_frame.parent is None
+# >>> True
 
+global_frame.lookup("x")
+# >>> 3
+
+global_frame.define("x", 2)
+global_frame.lookup("x")
+# >>> 2
+
+global_frame.lookup("foo")
+# >>> SchemeError
+
+# Problem 3 > Suite 1 > Case 2
+from scheme import *
+
+first_frame = create_global_frame()
+first_frame.define("x", 3)
+second_frame = Frame(first_frame)
+second_frame.parent == first_frame
+# >>> True
+
+second_frame.lookup("x")
+# >>> 3
 
 
