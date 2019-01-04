@@ -19,7 +19,6 @@
 class Solution:
     def maxProfit(self, prices):
         ### This method exceeded max time limit :(
-
         if not prices:
             return 0
 
@@ -38,9 +37,8 @@ class Solution:
     def maxProfit(self, prices):
         ### This method still exceeded max time limit :(
 
-        profits = [0]
-
         # 折断法, 以list中最小值做切割
+        profits = [0]
         while prices:
             low = min(prices)
             low_n = prices.index(low)
@@ -50,9 +48,33 @@ class Solution:
 
         return max(profits)
 
+    def maxProfit(self, prices):
+        ### filter the list first, to only obtain the turn points, combine with 折断法
+        ### first part is O(N), Second part is also O(N), so overall O(N).
+        ### Accepted
+        if len(prices) == 0 or len(prices) == 1:
+            return 0
 
+        turn_points = [prices[0]] # keep the head
+        i = 0
+        while i != len(prices) - 2:
+            current, next, further = prices[i], prices[i+1], prices[i+2]
+            if next == max(current, next, further) or next == min(current, next, further):
+                turn_points.append(next)
+            i += 1
 
+        turn_points += [prices[-1]] # keep the tail
 
+        # 结合折断法, 以list中最小值做切割
+        profits = [0]
+        while turn_points:
+            low = min(turn_points)
+            low_n = turn_points.index(low)
+            profit = max(turn_points[low_n:]) - low
+            profits.append(profit)
+            turn_points = turn_points[:low_n]
+
+        return max(profits)
 
 
 if __name__ == '__main__':
@@ -60,5 +82,3 @@ if __name__ == '__main__':
     assert Solution().maxProfit([7,6,4,3,1]) == 0, 'No Transaction'
     assert Solution().maxProfit([100, 5, 25, 1, 20]) == 20, 'Tricky'
     print('all passed')
-
-
