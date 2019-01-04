@@ -34,6 +34,7 @@ class Solution:
                 return y + (nd - 5) * x
             elif nd == 9:
                 return x + z
+
         # 使用map对data中每个数位进行转换,然后合并
         return ''.join(list(map(rom, range(4), ['M', 'C', 'X', 'I'], ['', 'D', 'L', 'V'], ['', 'M', 'C', 'X'])))
 

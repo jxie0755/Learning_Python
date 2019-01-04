@@ -13,8 +13,9 @@
 # """
 
 class Solution:
-    def judgeCircle(self, moves):  # Based on moves of coordinates
-        # this method is slow, but can easily be used for telling the coordinate from any movement.
+    def judgeCircle(self, moves):
+        ### Based on moves of coordinates
+        ### this method is slow, but can easily be used for telling the coordinate from any movement.
         x, y = 0, 0
         for i in moves:
             if i == 'U':
@@ -27,10 +28,12 @@ class Solution:
                 x += 1
         return (x, y) == (0, 0)
 
-    def judgeCircle(self, moves):  # Based on count of compensating movements: 'U' and 'D', 'L' and 'R'
+    def judgeCircle(self, moves):
+        ### Based on count of compensating movements: 'U' and 'D', 'L' and 'R'
         return moves.count('L') == moves.count('R') and moves.count('U') == moves.count('D')
 
-    def judgeCircle(self, moves):  # good answer from online(use map() and a dictionary)
+    def judgeCircle(self, moves):
+        ### good answer from online(use map() and a dictionary)
         return not sum(map({'U': 1, 'D': -1, 'L': 1, 'R': -1}.get, moves))
 
 

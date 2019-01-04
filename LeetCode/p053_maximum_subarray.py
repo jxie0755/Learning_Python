@@ -9,14 +9,16 @@
 # """
 
 class Solution:
-    def maxSubArray(self, nums):  # O(n^2), Time Limit Exceeded, for large input size
+    def maxSubArray(self, nums):
+        # O(n^2), Time Limit Exceeded, for large input size
         result = []
         for length in range(1, len(nums) + 1):
             for start in range(0, len(nums) - length + 1):
                 result.append(sum(nums[start:start + length]))
         return max(result)
 
-    def maxSubArray(self, nums):  # O(n), using local and global max_value to iterate over the elements
+    def maxSubArray(self, nums):
+        # O(n), using local and global max_value to iterate over the elements
         if all(i < 0 for i in nums):
             return max(nums)
         global_max, local_max = 0, 0

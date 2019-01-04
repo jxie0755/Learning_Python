@@ -16,7 +16,8 @@
 # """
 
 class Solution:
-    def detectCapitalUse(self, word):  # check condition
+    def detectCapitalUse(self, word):
+        ### check condition
         if all(i.isupper() for i in word) or all(i.islower() for i in word):
             return True
         elif word[0].isupper() and word[1:].islower():
@@ -24,10 +25,12 @@ class Solution:
         else:
             return False
 
-    def detectCapitalUse(self, word):  # compare method
+    def detectCapitalUse(self, word):
+        ### compare method
         return word == word.upper() or word == word.lower() or word == word.title()
 
-    def detectCapitalUse(self, word):  # compare method, two conditions
+    def detectCapitalUse(self, word):
+        ### compare method, two conditions
         return word[1:] == word[1:].lower() or word == word.upper()
 
 

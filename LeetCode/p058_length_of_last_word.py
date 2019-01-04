@@ -16,7 +16,8 @@ class Solution:
             return 0
         return len(s.split()[-1])
 
-    def lengthOfLastWord(self, s):  # without extra space for creating a list, and avoid iterate over the whole string
+    def lengthOfLastWord(self, s):
+        ### without extra space for creating a list, and avoid iterate over the whole string
         cnt = 0
         for v in reversed(s):  # create reversed iterator
             if v.isspace():  # to avoid end with a ' '

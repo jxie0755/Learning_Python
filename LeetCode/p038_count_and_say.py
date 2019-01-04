@@ -19,7 +19,8 @@
 
 # Basically we need a generator here
 class Solution:
-    def countAndSay(self, n):  # a version to create the say logic, then loop the say() to get nth number
+    def countAndSay(self, n):
+        ### a version to create the say logic, then loop the say() to get nth number
         def say(num):
             num = str(num) + ' '
             lenth = 1
@@ -37,7 +38,8 @@ class Solution:
             number = say(str(number))
         return str(number)
 
-    def countAndSay(self, n):  # combine the say() and loop together
+    def countAndSay(self, n):
+        ### combine the say() and loop together
         number = 1
         for i in range(1, n):
             number = str(number) + ' '

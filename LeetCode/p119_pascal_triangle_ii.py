@@ -31,7 +31,8 @@ class Solution:
         return result
 
 
-    def getRow(self, rowIndex):  # 方法二, 利用对称性只做一半的工作
+    def getRow(self, rowIndex):
+        ### 方法二, 利用对称性只做一半的工作
         """
         :type rowIndex: int
         :rtype: List[int]

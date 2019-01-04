@@ -9,8 +9,7 @@
 # """
 
 class Solution:
-    def longestCommonPrefix(self, strs):  # beats 53.82%
-
+    def longestCommonPrefix(self, strs):
         result = ''
         if len(strs) == 0:
             return result
@@ -25,7 +24,7 @@ class Solution:
                 break
         return result
 
-    def longestCommonPrefix2(self, strs):  # beats 8.17%
+    def longestCommonPrefix2(self, strs):
         result = ''
         if len(strs) == 0:
             return result

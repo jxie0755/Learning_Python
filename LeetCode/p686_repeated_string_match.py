@@ -13,7 +13,8 @@
 # """
 
 class Solution:
-    def repeatedStringMatch(self, A, B):  # two conditions
+    def repeatedStringMatch(self, A, B):
+        ### two conditions
         if len(A) >= len(B):
             # if A longer than B, A only need to maximumly repeat 3 times
             for i in [1, 2, 3]:
@@ -31,7 +32,8 @@ class Solution:
         return -1
         # this is quite slow due to the wrong setting of the limit
 
-    def repeatedStringMatch(self, A, B):  # one loop to combine two conditions
+    def repeatedStringMatch(self, A, B):
+        ### one loop to combine two conditions
         limit = 2 * len(A) + len(B)   # best limit, this is lowest bound and unifies for both conditions
         count = 1
         add = A
@@ -42,12 +44,12 @@ class Solution:
             count += 1
         return -1
         # much improve speed by setting the right limit
-    
+
     def repeatedStringMatch(self, A, B):
-        # This gives a quick examination on by set() for even faster filtration examination on long strings
+        ### This gives a quick examination on by set() for even faster filtration examination on long strings
         if not set(B).issubset(set(A)):
             return -1
-        
+
         # The rest is the same as above
         limit = 2 * len(A) + len(B)
         count = 1
@@ -58,7 +60,7 @@ class Solution:
             A += add
             count += 1
         return -1
-            
+
 
 if __name__ == '__main__':
     # A > B

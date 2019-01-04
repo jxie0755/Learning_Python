@@ -15,7 +15,8 @@
 # """
 
 class Solution:
-    def countBinarySubstrings(self, s):  # this is another way of modification of substring method
+    def countBinarySubstrings(self, s):
+        ### this is another way of modification of substring method
         substring = []
         i = 0
         while i < len(s):
@@ -38,7 +39,9 @@ class Solution:
         return len(result)
         # O(n^2), brutal force, time limit exceeded
 
-    def countBinarySubstrings(self, s):  # two step method, no need to get all substrings
+    def countBinarySubstrings(self, s):
+        #### two step method, no need to get all substrings
+
         # first split the string into groups of '0' and '1', O(n)
 
         # original codes:

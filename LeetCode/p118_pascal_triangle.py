@@ -32,8 +32,10 @@ class Solution:
 
         return result
 
-    # a recursion version           # Time limit exceed
+
     def generate2(self, numRows):
+        ### a recursion version
+        ### Time limit exceed
         """
         :type numRows: int
         :rtype: List[List[int]]

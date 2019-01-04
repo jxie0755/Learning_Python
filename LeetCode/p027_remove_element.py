@@ -14,7 +14,7 @@
 import timeit
 
 class Solution(object):
-    def removeElement(self, nums, val):  # beats 51.33%
+    def removeElement(self, nums, val):
         n = 0
         while n < len(nums):  # this force to recalculate len(), so that index will not out of range
             if nums[n] == val:

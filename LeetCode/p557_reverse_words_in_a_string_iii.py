@@ -16,7 +16,8 @@ class Solution:
             result += i[::-1] + ' '
         return result.rstrip()
 
-    def reverseWords(self, s):  # use joint, to avoid rstrip()
+    def reverseWords(self, s):
+        ### use joint, to avoid rstrip()
         return ' '.join(map(lambda x: x[::-1], s.split()))
 
 

@@ -10,10 +10,12 @@
 # """
 
 class Solution:
-    def addBinary(self, a, b):  # use python characteristics
+    def addBinary(self, a, b):
+        ### use python characteristics
         return '{:b}'.format(int(a, 2) + int(b, 2))
 
-    def addBinary(self, a, b):  # avoid python characteristics
+    def addBinary(self, a, b):
+        ### avoid python characteristics
         def bi_to_deci(target):
             return sum([int(target[::-1][i]) * 2 ** i for i in range(len(target))])
 

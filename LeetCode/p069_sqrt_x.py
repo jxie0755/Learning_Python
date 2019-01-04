@@ -31,8 +31,9 @@ class Solution:
             return temp_result+1
 
 
-    # A modified binary search:
+
     def mySqrt2(self, x):
+        ### A modified binary search:
         left, right = 1, x
         while True:
             middle = int((left + right) / 2)
@@ -43,8 +44,9 @@ class Solution:
             else:
                 left = middle
 
-    # Cheating by use python internal function
+
     def mySqrt3(self, x):
+        ### Cheating by use python internal function
         return int(x ** 0.5)
 
 if __name__ == '__main__':

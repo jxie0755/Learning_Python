@@ -13,7 +13,8 @@
 # """
 
 class Solution:
-    def validPalindrome(self, s):  # time limit exceeded
+    def validPalindrome(self, s):
+        ### time limit exceeded
         if s == s[::-1]:
             return True
         else:
@@ -24,7 +25,8 @@ class Solution:
                     return True
         return False
 
-    def validPalindrome(self, s):  # use string slice combination, still exceed time limit
+    def validPalindrome(self, s):
+        ### use string slice combination, still exceed time limit
         if s == s[::-1]:
             return True
         for i in range(len(s)):
@@ -34,7 +36,8 @@ class Solution:
         return False
         # 当string变得十分长,没有本质上的区别
 
-    def validPalindrome(self, s):  # from two ends, check step by step
+    def validPalindrome(self, s):
+        ### from two ends, check step by step
         for i in range(len(s) // 2):
             # if head != tail, check if and element needs to be removed
             if s[i] != s[len(s) - 1 - i]:
