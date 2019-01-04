@@ -10,7 +10,8 @@ from math import factorial
 
 class Solution:
 
-    def getRow_old(self, rowIndex):  # 方法1, 普通
+    def getRow_old(self, rowIndex):
+        ### 方法1, 普通
         """
         :type rowIndex: int
         :rtype: List[int]
@@ -61,8 +62,8 @@ class Solution:
             return result + result[::-1]
 
 
-    # 利用杨辉三角数学性质, 第 n 行的第  k 个数字为组合数 C(k/n)
     def getRow_math(self, rowIndex):
+        ### 利用杨辉三角数学性质, 第 n 行的第  k 个数字为组合数 C(k/n)
 
         result = []
         for k in range(0, rowIndex+1):
@@ -71,8 +72,8 @@ class Solution:
         return result
 
 
-    # 就这样还是慢,阶乘算太多次了, 必须结合折半法...
     def getRow_math2(self, rowIndex):
+        ### 就这样还是慢,阶乘算太多次了, 必须结合折半法...
 
         result = []
         for k in range(0, rowIndex // 2 + 1):
