@@ -11,6 +11,27 @@ class Solution:
         :type prices: List[int]
         :rtype: int
         """
+        if len(prices) == 0 or len(prices) == 1:
+            return 0
+
+        # 沿用上一题波峰波谷筛选法, 略改动
+        i, total_profit = 1, 0
+
+        low = prices[0]
+        high = prices[0]
+
+        while i != len(prices):
+            current, prev = prices[i], prices[i-1]
+            if current < prev:
+                low = current
+            elif current > prev:
+                low = prev
+                high = current
+                total_profit += high - low
+            i += 1
+
+        return total_profit
+
 
 
 if __name__ == '__main__':
@@ -26,10 +47,12 @@ if __name__ == '__main__':
     assert Solution().maxProfit([7,6,4,3,1]) == 0, 'Case 3'
     # In this case, no transaction is done, i.e.max profit = 0.
 
+    assert Solution().maxProfit([5,2,3,2,6,6,2,9,1,0,7,4,5,0]) == 20, 'Case 4'
+    # 平峰需要注意
 
+    assert Solution().maxProfit([2,1,4]) == 3, 'Case 5'
 
-
-
+    print('all passed')
 
 
 
