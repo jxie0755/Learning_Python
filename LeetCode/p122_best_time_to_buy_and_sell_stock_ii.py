@@ -11,23 +11,19 @@ class Solution:
         :type prices: List[int]
         :rtype: int
         """
-        if len(prices) == 0 or len(prices) == 1:
+        if len(prices) == 0:
             return 0
 
-        # 沿用上一题波峰波谷筛选法, 略改动
         i, total_profit = 1, 0
-
         low = prices[0]
-        high = prices[0]
 
         while i != len(prices):
             current, prev = prices[i], prices[i-1]
-            if current < prev:
+            if current < prev:    # 此处如果持续下降则只更新最低点
                 low = current
-            elif current > prev:
+            elif current > prev:  # 只要开始涨就卖出, 不过也再买入来更新最低点
                 low = prev
-                high = current
-                total_profit += high - low
+                total_profit += current - low
             i += 1
 
         return total_profit
@@ -52,7 +48,8 @@ if __name__ == '__main__':
 
     assert Solution().maxProfit([2,1,4]) == 3, 'Case 5'
 
+    assert Solution().maxProfit([0]) == 0
+    assert Solution().maxProfit([1]) == 0
+    assert Solution().maxProfit([1, 1, 1]) == 0
+
     print('all passed')
-
-
-
