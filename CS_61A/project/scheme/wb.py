@@ -345,5 +345,29 @@ frame.parent is global_frame
 # >>> True
 
 
+# Problem 12 > Suite 2 > Case 1
+# scm> (define (outer x y)
+# ....   (define (inner z x)
+# ....     (+ x (* y 2) (* z 3)))
+# ....   (inner x 10))
+# >>> outer               # 只是一个定义方程
+
+# scm> (outer 1 2)
+# 相当于执行 (inner 1 10)
+# (+ 10 (* 2 2) (* 1 3))
+# >>> 17
+
+# scm> (define (outer-func x y)
+# ....   (define (inner z x)
+# ....     (+ x (* y 2) (* z 3)))
+# ....   inner)
+# >>> outer-func
+
+# scm> ((outer-func 1 2) 1 10)
+# 相当于(inner 1 10), x为inner的参数, 所以是10
+# (+ 10 (* 2 2) (* 1 3))
+# >>> 17
+
+
 
 
