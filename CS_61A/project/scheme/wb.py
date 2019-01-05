@@ -270,3 +270,46 @@ read_line(" '(a b) ")
 
 read_line(" '((a)) ")
 # Pair('quote', Pair(Pair(Pair('a', nil), nil), nil))
+
+
+# Problem 8 > Suite 1 > Case 1
+from scheme import *
+
+env = create_global_frame()
+eval_all(Pair(2, nil), env)
+# >>> (0)
+
+eval_all(Pair(4, Pair(5, nil)), env)  # 从末尾开始
+# >>> (5)
+
+# Problem 8 > Suite 2 > Case 1
+
+
+# scm> (begin (+ 2 3) (+ 5 6))  # 从末尾开始
+# >>> 11
+
+# scm> (begin (define x 3) x)
+# >>> 3
+
+# scm> (begin 30 '(+ 2 2))
+# >>> (+ 2 2)
+
+# scm> (define x 0)
+# >>> x
+
+# scm> (begin 42 (define x (+ x 1)))
+# >>> x
+
+# scm> x
+# >>> 1   # 之前定义了x=0
+
+
+
+
+
+
+
+
+
+
+
