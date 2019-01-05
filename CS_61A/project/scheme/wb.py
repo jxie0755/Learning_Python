@@ -310,8 +310,13 @@ eval_all(Pair(4, Pair(5, nil)), env)  # 从末尾开始
 # >>> (lambda (x y) (+ x y))
 
 
+# Problem 10 > Suite 1 > Case 1
 
+# scm> (define (f x y) (+ x y))
+# >>> f
 
+# scm> f
+# >>> (lambda (x y) (+ x y))
 
 
 
