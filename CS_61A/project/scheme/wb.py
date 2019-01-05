@@ -319,7 +319,30 @@ eval_all(Pair(4, Pair(5, nil)), env)  # 从末尾开始
 # >>> (lambda (x y) (+ x y))
 
 
+# Problem 11 > Suite 1 > Case 1
+from scheme import *
 
+global_frame = create_global_frame()
+frame = global_frame.make_child_frame(Pair('a', Pair('b', Pair('c', nil))), Pair(1, Pair(2, Pair(3, nil))))
+global_frame.lookup('a') # Type SchemeError if you think this errors
+# >>> SchemeError
+
+frame.lookup('a')  # Type SchemeError if you think this errors
+# >>> 1
+
+frame.lookup('b')  # Type SchemeError if you think this errors
+# >>> 2
+
+frame.lookup('c')  # Type SchemeError if you think this errors
+# >>> 3
+
+# Problem 11 > Suite 1 > Case 2
+
+from scheme import *
+global_frame = create_global_frame()
+frame = global_frame.make_child_frame(nil, nil)
+frame.parent is global_frame
+# >>> True
 
 
 
