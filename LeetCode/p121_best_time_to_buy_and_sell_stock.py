@@ -47,6 +47,16 @@ class Solution:
 
         return max(profits)
 
+    def maxProfit_r(self, prices):
+        ### 折断法, 递归来做
+        if not prices:
+            return 0
+        else:
+            low = min(prices)
+            low_n = prices.index(low)
+            profit = max(prices[low_n:]) - low
+            return max(profit, self.maxProfit_r(prices[:low_n]))
+
     def maxProfit(self, prices):
         ### filter the list first, to only obtain the turn points, combine with 折断法
         ### first part is O(N), Second part is also O(N), so overall O(N).
