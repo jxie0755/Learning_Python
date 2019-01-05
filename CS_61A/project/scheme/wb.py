@@ -304,6 +304,12 @@ eval_all(Pair(4, Pair(5, nil)), env)  # 从末尾开始
 # >>> 1   # 之前定义了x=0
 
 
+# Problem 9 > Suite 1 > Case 1
+
+# scm> (lambda (x y) (+ x y)
+# >>> (lambda (x y) (+ x y))
+
+
 
 
 
