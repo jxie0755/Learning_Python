@@ -371,3 +371,59 @@ frame.parent is global_frame
 
 
 
+# Special Forms
+
+# Problem 13 > Suite 1 > Case 1
+
+# Your interpreter should evaluate each sub-expression from left to right
+# and if any of these evaluates to a false value, then #f is returned.
+# Otherwise, it should return the value of the last sub-expression.
+# If there are no sub-expressions in an and expression, it evaluates to #t
+
+# scm> (and)
+# >>> #t
+
+# (and 1 False)
+# >>> #f
+
+# scm> (and (+ 1 1) 1)
+# >>> 1
+#
+
+# scm> (and False 5)
+# >>> #t
+
+# scm> (and 4 5 (+ 3 3))
+# >>> 6
+
+# scm> (and True False 42 (/ 1 0))
+# >>> #f
+# 忽略error直接给False
+
+# scm> (or)
+# >>> #f
+
+# scm> (or (+ 1 1))
+# >>> 2
+
+# scm> (or False (- 1 1) 1)  ; 0 is a true value in Scheme
+# >>> 0
+
+# scm> (or False)
+# >>> #f
+
+# scm> (define (t) True)
+# >>> t
+
+# scm> (or (t) 3)
+# >>> #t
+
+# scm> (or 5 2 1)
+# >>> 5
+
+# scm> (or False (- 1 1) 1)
+# >>> 0
+
+# scm> (or 4 True (/ 1 0))
+# >>> 4
+
