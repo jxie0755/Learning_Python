@@ -8,14 +8,6 @@
 # Note that you cannot sell a stock before you buy one.
 
 
-# Input: [7,1,5,3,6,4]
-# Output: 5
-# Explanation: Buy on day 2 (price = 1) and sell on day 5 (price = 6), profit = 6-1 = 5.
-
-# Input: [7,6,4,3,1]
-# Output: 0
-# Explanation: In this case, no transaction is done, i.e. max profit = 0.
-
 class Solution:
     def maxProfit(self, prices):
         ### This method exceeded max time limit :(
@@ -113,6 +105,11 @@ class Solution:
 
 if __name__ == '__main__':
     assert Solution().maxProfit([7,1,5,3,6,4]) == 5, 'Smart trader'
+    # Buy on day 2 (price = 1) and sell on day 5 (price = 6), profit = 6-1 = 5
+
     assert Solution().maxProfit([7,6,4,3,1]) == 0, 'No Transaction'
+    # In this case, no transaction is done, i.e. max profit = 0
+
     assert Solution().maxProfit([100, 5, 25, 1, 20]) == 20, 'Tricky'
+
     print('all passed')
