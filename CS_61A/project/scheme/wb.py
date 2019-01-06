@@ -441,11 +441,29 @@ frame.parent is global_frame
 # >>> 8
 
 
+# Problem 15 > Suite 1 > Case 1
+# The let special form binds symbols to values locally, giving them their initial values
 
+# scm> (define x 1)
+# >>> x
 
+# scm> (let ((x 5))
+# ....    (+ x 3))
+# >>> 8
 
+# scm> x
+# >>> 1
 
+# Problem 15 > Suite 1 > Case 2
 
+# scm> (let ((a 1) (b a)) b)
+# >>> 1
+#
+# scm> (let ((x 5))
+# ....    (let ((x 2)
+# ....          (y x))
+# ....        (+ y (* x 2))))   # 此时y = 5, x = 2
+# >>> 9
 
 
 
