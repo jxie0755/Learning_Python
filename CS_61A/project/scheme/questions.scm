@@ -15,7 +15,11 @@
 ;; Returns a list of two-element lists
 (define (enumerate s)
   ; BEGIN PROBLEM 17
-  'replace-this-line
+  (define (next s index)
+    (cond
+      ((null? s) nil)
+      (else (cons (cons index (cons (car s) nil)) (next (cdr s) (+ index 1))))))
+  (next s 0)
   )
   ; END PROBLEM 17
 
