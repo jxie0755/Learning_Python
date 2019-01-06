@@ -466,15 +466,38 @@ frame.parent is global_frame
 # >>> 9
 
 
+# Problem 16 > Suite 1 > Case 1
+# A mu expression is similar to a lambda expression,
+# but evaluates to a MuProcedure instance that is dynamically scoped
 
+# scm> (define y 1)
+# >>> y
 
+# scm> (define f (mu (x) (+ x y)))
+# >>> f
 
+# scm> (define g (lambda (x y) (f (+ x x))))
+# >>> g
 
+# scm> (g 3 7)
+# g is lambda fucntion (g 3 8) = f(+ 3 3) = f 6
+# but when mu(x) look for y, y is found in last scope y=7 instead of y in global y=1.
+# therefore, f(6) = 6 + 7 = 13
+# >>> 13
 
+# In Python:
+y = 5
 
+def foo(bar):
+    y = 10
+    return bar()
 
+def bar():
+    return y
 
-
+print(foo(bar)) # >>> 5
+# not 10, because it does not look scope up, but start from global
+# it will raise error if can't find y in global, instead of binding to 5
 
 
 
