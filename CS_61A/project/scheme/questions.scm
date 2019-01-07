@@ -30,10 +30,21 @@
 ;; Problem 18
 ;; List all ways to make change for TOTAL with DENOMS
 (define (list-change total denoms)
-  ; BEGIN PROBLEM 18
-  'replace-this-line
-  )
+(define (helper amount coins history)
+  (cond
+    ((= amount 0) (list history))
+    ((null? coins) nil)
+    ((< amount 0) nil)
+    (else (append
+      (helper (- amount (car coins)) coins (append history (cons (car coins) nil)))
+      (helper amount (cdr coins) history)
+      ))
+  ))
+  (helper total denoms nil)
+)
   ; END PROBLEM 18
+
+
 
 ;; Problem 19
 ;; Returns a function that checks if an expression is the special form FORM
