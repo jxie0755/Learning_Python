@@ -13,10 +13,30 @@ class Solution:
         """
         real_k = k % len(nums)
         target = nums[-real_k:] + nums[:-real_k]
+
+        # i = 0
+        # while i != len(nums):
+        #     nums[i] = target[i]
+        #     i += 1
+
+        # Can be simplified as:
+        nums[:] = target
+
+    def rotate_pop(self, nums, k):
+        ### O(1) space, with O(N) time.
+        ### Somehow it is much slower
+        """
+        :type nums: List[int]
+        :type k: int
+        :rtype: void Do not return anything, modify nums in-place instead.
+        """
+        real_k = k % len(nums)
+
         i = 0
-        while i != len(nums):
-            nums[i] = target[i]
+        while i != real_k:
+            nums.insert(0, nums.pop())
             i += 1
+
 
 
 if __name__ == '__main__':
