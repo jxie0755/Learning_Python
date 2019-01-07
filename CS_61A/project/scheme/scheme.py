@@ -506,10 +506,12 @@ def optimize_tail_calls(original_scheme_eval):
         """
         if tail and not scheme_symbolp(expr) and not self_evaluating(expr):
             return Thunk(expr, env)
-        else:
-            result = Thunk(expr, env)
+
+        result = Thunk(expr, env)
         # BEGIN
-        "*** YOUR CODE HERE ***"
+        while isinstance(result, Thunk):
+            result = original_scheme_eval(result.expr, result.env)
+        return result
         # END
     return optimized_eval
 
