@@ -11,6 +11,8 @@
 (define (zip pairs)
   'replace-this-line)
 
+
+
 ;; Problem 17
 ;; Returns a list of two-element lists
 (define (enumerate s)
@@ -22,6 +24,8 @@
   (next s 0)
   )
   ; END PROBLEM 17
+
+
 
 ;; Problem 18
 ;; List all ways to make change for TOTAL with DENOMS
