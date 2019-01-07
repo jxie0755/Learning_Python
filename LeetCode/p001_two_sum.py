@@ -33,6 +33,18 @@ class Solution:
                 if target - i in nums:
                     return [nums.index(i), nums.index(target - i)]
 
+    def twoSum(self, numbers, target):
+        ### The same method in p167 Two Sum II can be used here
+        tmp_lst = {}
+        for idx in range(0, len(numbers)):
+            if numbers[idx] not in tmp_lst.keys():
+                tmp_lst[target-numbers[idx]] = idx  # 这里建立一个需要的另一半的数字作为key, 对应的值是当前的idx
+            else:
+                print(tmp_lst)
+                return [tmp_lst[numbers[idx]]+1, idx+1]
+                # 当到达一个新的idx,如果对应的数字出现在之前建立的字典的key里,也就是找到了match
+                # 这样就把那个key的值(也就是第一个idx)找出来,和新的idx配对
+
 if __name__ == '__main__':
     assert Solution().twoSum2([11, 2, 7, 15], 9) == [1,2],  'regular'
     assert Solution().twoSum2([11, 7, 2, 15], 9) == [1,2],  'regular revert'
