@@ -84,44 +84,40 @@ class Solution:
         else:
             return merge[-1]
 
-def findMedianSortedArrays(self, nums1, nums2):        
-    """
-    :type nums1: List[int]
-    :type nums2: List[int]
-    :rtype: float
-    """
-    cur1 = 0
-    cur2 = 0
-    ct = 0
-    lst = []
-    m1 = (len(nums1)+len(nums2)+1)//2 -1
-    m2 = (len(nums1)+len(nums2)+2)//2 -1
+    def findMedianSortedArrays_yeluo(self, nums1, nums2):
+        ### Same half way method with different index
+        """
+        :type nums1: List[int]
+        :type nums2: List[int]
+        :rtype: float
+        """
+        cur1, cur2 = 0, 0
+        ct, lst = 0, []
+        m1 = (len(nums1)+len(nums2)+1)//2 -1
+        m2 = (len(nums1)+len(nums2)+2)//2 -1
 
-    if nums1 == []:
-        return (nums2[m1]+nums2[m2])/2
-    if nums2 == []:
-        return (nums1[m1]+nums1[m2])/2
+        if not nums1:
+            return (nums2[m1]+nums2[m2])/2
+        if not nums2:
+            return (nums1[m1]+nums1[m2])/2
 
-    while ct <= m2:
-        if cur1 == len(nums1):
-            lst.append(nums2[cur2])
+        while ct <= m2:
+            if cur1 == len(nums1):
+                lst.append(nums2[cur2])
+                cur2 += 1
+            elif cur2 == len(nums2):
+                lst.append(nums1[cur1])
+                cur1 += 1
+            elif nums1[cur1] <= nums2[cur2]:
+                lst.append(nums1[cur1])
+                cur1 += 1
+            elif nums1[cur1] > nums2[cur2]:
+                lst.append(nums2[cur2])
+                cur2 += 1
             ct += 1
-            cur2 += 1
-        elif cur2 == len(nums2):
-            lst.append(nums1[cur1])
-            ct += 1
-            cur1 += 1
-        elif nums1[cur1] <= nums2[cur2]:
-            lst.append(nums1[cur1])
-            ct += 1
-            cur1 += 1
-        elif nums1[cur1] > nums2[cur2]:
-            lst.append(nums2[cur2])
-            ct += 1
-            cur2 += 1
-    mid = (lst[m1]+lst[m2])/2
-    return mid        
-        
+
+        return (lst[m1]+lst[m2])/2
+
 
 
 if __name__ == '__main__':
