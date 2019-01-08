@@ -29,7 +29,7 @@ class Solution:
             i += 1
         return max(result)
 
-    def maxArea(self, height):
+    def maxArea_0(self, height):
         ### find the heighest two, and check volume, then find the next highest two
         ### O(N^2) in worst case, but sometimes O(log n * N)
         ### Still exceeded max time limit on a case of ascending numbers.
