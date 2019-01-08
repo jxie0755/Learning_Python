@@ -31,6 +31,8 @@ class Solution:
 
     def maxArea(self, height):
         ### find the heighest two, and check volume, then find the next highest two
+        ### O(N^2) in worst case, but sometimes O(log n * N)
+        ### Still exceeded max time limit on a case of ascending numbers.
         """
         :type height: List[int]
         :rtype: int
