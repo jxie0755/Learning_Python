@@ -60,7 +60,7 @@ if __name__ == '__main__':
     assert Solution().containsNearbyDuplicate([1,2,3,1], 3) == True, 'Example 1'
     assert Solution().containsNearbyDuplicate([1,0,1,1], 1) == True, 'Example 2'
     assert Solution().containsNearbyDuplicate([1,2,3,1,2,3], 2) == False, 'Example 3'
-    assert Solution().containsNearbyDuplicate([2,2], 3) == True, 'Example 3'
+    assert Solution().containsNearbyDuplicate([2,2], 3) == True, 'Example 4'
 
     assert Solution().containsNearbyDuplicate([0,1,2,3,2,5], 3) == True, 'Additional 1'
 
