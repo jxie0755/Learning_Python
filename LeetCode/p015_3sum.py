@@ -77,9 +77,87 @@ class Solution:
             i += 1
         return result
 
+class Solution:
+    def threeSum(self, nums):
+        ### Since we only need to return numbers, it does not need to be indexed
+        ### Break down the nums with a sort first, then move head and tail towards center
+        """
+        :type nums: List[int]
+        :rtype: List[List[int]]
+        """
+        nums, length = sorted(nums), len(nums)
+        head, tail = 0, length - 1
+        result = []
+
+        if length < 3:
+            return []
+
+        while nums[head] <=0 and head != length - 1:
+            first, last = nums[head], nums[tail]
+            mid = 0 - first - last
+            if mid in nums[head+1:tail]:
+                ans = [first, mid, last]
+                if ans not in result:
+                    result.append(ans)
+
+            if tail > head + 1:
+                tail -= 1
+            else:
+                head += 1
+                tail = length - 1
+
+        return result
+
+    def threeSum(self, nums):
+        ### Split the list to negative numbers and postive numbers
+        ### handle [-i, 0, i] and [-i, -j, k] and [-i, j, k] individually
+        ### Same O(N^2) max time limit exceeded
+        """
+        :type nums: List[int]
+        :rtype: List[List[int]]
+        """
+        if len(nums) < 3:
+            return []
+
+        result = []
+        nums = sorted(nums)
+        if nums.count(0) >= 3:
+            result.append([0,0,0])
+
+        break_point, length = 0, len(nums)
+        while break_point != length:
+            if nums[break_point] >= 0:
+                break
+            break_point += 1
+
+        neg = nums[:break_point]
+        pos = nums[break_point:]
+
+        def two_one(lst1, lst2):
+            length = len(lst1)
+            if length >= 2:
+                i, j = 0, 1
+                while i != length - 1:
+                    first = lst1[i]
+                    while j != length:
+                        second = lst1[j]
+                        last = 0 - first - second
+                        if last in lst2:
+                            ans = sorted([first, second, last])
+                            if ans not in result:
+                                result.append(ans)
+                        j += 1
+                    i += 1
+                    j = i + 1
+
+        two_one(neg, pos)
+        two_one(pos, neg)
+
+        return result
 
 
 
+print(Solution().threeSum([-1, 0, 1, 2, -1, -4]))
 
 
 if __name__ == '__main__':
@@ -90,10 +168,10 @@ if __name__ == '__main__':
     assert Solution().threeSum([1,1]) == [
     ], 'Edge 3'
 
-    assert Solution().threeSum([-1, 0, 1, 2, -1, -4]) == [
-        [-1, 0, 1],
-        [-1, -1, 2]
-    ]
+    assert Solution().threeSum([-1, 0, 1, 2, -1, -4]) == [[-1, -1, 2], [-1, 0, 1]], 'Example 1'
+    assert Solution().threeSum([-4,-2,-2,-2,0,1,2,2,2,3,3,4,4,6,6]) == [[-4,-2,6],[-4,0,4],[-4,1,3],[-4,2,2],[-2,-2,4],[-2,0,2]], 'Example 2'
+    assert Solution().threeSum([-4,-2,-1]) == [], 'Example 3'
+    assert Solution().threeSum([0,0,0]) == [[0,0,0]], 'Example 4'
 
     print('all passed')
 
