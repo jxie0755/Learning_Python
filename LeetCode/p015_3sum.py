@@ -47,11 +47,36 @@ class Solution:
 
 class Solution:
     def threeSum(self, nums):
+        ### Pure brutal force, O(N^3), max time limit exceeded
         """
         :type nums: List[int]
         :rtype: List[List[int]]
         """
-        pass
+
+        length = len(nums)
+
+        if length < 3:
+            return []
+
+        result = []
+        i = 0
+        while i != length - 2:
+            first = nums[i]
+            j = i+1
+            while j != length - 1:
+                second = nums[j]
+                k = j+1
+                while k != length:
+                    third = nums[k]
+                    if first + second + third == 0:
+                        ans = sorted([first, second, third])
+                        if ans not in result:
+                            result.append(ans)
+                    k += 1
+                j += 1
+            i += 1
+        return result
+
 
 
 
