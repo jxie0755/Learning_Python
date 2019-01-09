@@ -72,6 +72,19 @@ class Solution:
         return max(result)
 
 
+    def maxArea(self, height):
+        ### Start from both end, move the side that is shorter so it may be possible to give a higher volume
+        ### O(N)
+        max_area, i, j = 0, 0, len(height) - 1
+        while i < j:
+            max_area = max(max_area, min(height[i], height[j]) * (j - i))
+            if height[i] < height[j]:
+                i += 1
+            else:
+                j -= 1
+        return max_area
+
+
 if __name__ == '__main__':
     assert Solution().maxArea([0, 0]) == 0, 'Edge 1'
     assert Solution().maxArea([0, 0, 0]) == 0, 'Edge 2'
@@ -80,4 +93,6 @@ if __name__ == '__main__':
     assert Solution().maxArea([2,3,0,0,3,0,0,0,0,2]) == 18, 'Example 2'
     assert Solution().maxArea([2,3,4,5,6,7,8,9,100,100]) == 100, 'Example 3'
     assert Solution().maxArea([1,1,1,1,1,10,10,1,1,1,1,1]) == 11, 'Example 4'
+    assert Solution().maxArea([1,1,4,1,5,5,4,1,1,1]) == 16, 'Example 5'
+
     print('All passed')
