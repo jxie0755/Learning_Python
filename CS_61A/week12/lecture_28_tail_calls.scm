@@ -1,4 +1,32 @@
-# CS61A Lecture 28 Tail Calls
+;; CS61A Lecture 28 Tail Calls
+
+
+
+;; Dynamic scope vs. Lexical scope
+
+Lexical: Python and Scheme - The parent of a frame is the environment in which a procedure was defined
+Dynamic: The parent of a frame is the environment in which a procedure was called.
+
+; Example
+(define f(lambda (x) (+ x y)))
+(define g (lambda (x y) (f (+ x x))))
+(g 3 7)
+
+; Lexical: (g 3 7) == f(6) == 6 + y
+; parent for f's fram is the global - causing error as y in f is unknown
+
+; Dynamic: (g 3 7) == f(6) == 6 + y, y is in frame g, which y = 7, therefore f(6) == (6 + 7) == 13
+
+
+
+;; Tail recursion
+
+; functional programming
+; 1. All functions are pure functions
+; 2. No re-assignment and no utable data types
+; 3. Name-value bidnings are permanent
+
+; Advantage:
 
 
 ;; Compute n! * k
