@@ -78,36 +78,6 @@ class Solution:
         return result
 
 class Solution:
-    def threeSum(self, nums):
-        ### Since we only need to return numbers, it does not need to be indexed
-        ### Break down the nums with a sort first, then move head and tail towards center
-        """
-        :type nums: List[int]
-        :rtype: List[List[int]]
-        """
-        nums, length = sorted(nums), len(nums)
-        head, tail = 0, length - 1
-        result = []
-
-        if length < 3:
-            return []
-
-        while nums[head] <=0 and head != length - 1:
-            first, last = nums[head], nums[tail]
-            mid = 0 - first - last
-            if mid in nums[head+1:tail]:
-                ans = [first, mid, last]
-                if ans not in result:
-                    result.append(ans)
-
-            if tail > head + 1:
-                tail -= 1
-            else:
-                head += 1
-                tail = length - 1
-
-        return result
-
     def threeSum_x(self, nums):
         ### Split the list to negative numbers and postive numbers
         ### handle [-i, 0, i] and [-i, -j, k] and [-i, j, k] individually
@@ -155,15 +125,89 @@ class Solution:
 
         return result
 
+class Solution:
+    def threeSum(self, nums):
+        ### Since we only need to return numbers, it does not need to be indexed
+        ### Break down the nums with a sort first, then move head and tail towards center
+        """
+        :type nums: List[int]
+        :rtype: List[List[int]]
+        """
+        nums, length = sorted(nums), len(nums)
+        head, tail = 0, length - 1
+        result = []
+
+        if length < 3:
+            return []
+
+        while nums[head] <=0 and head != length - 1:
+            first, last = nums[head], nums[tail]
+            mid = 0 - first - last
+            if mid in nums[head+1:tail]:
+                ans = [first, mid, last]
+                if ans not in result:
+                    result.append(ans)
+
+            if tail > head + 1:
+                tail -= 1
+            else:
+                head += 1
+                tail = length - 1
+
+        return result
+
+
+
+class Solution:
+    def twoSum(self, numbers, target, jump):
+        ### 提取p167 two sum II 中的头尾缩进法 O(N)
+
+        result = []
+        head, tail = 0, len(numbers) -1
+        while head < tail:
+            first, second = numbers[head], numbers[tail]
+            if first + second > target or tail == jump:
+                tail -= 1
+            elif first + second < target or head == jump:
+                head += 1
+            else:
+                result.append([first, second])
+                tail -= 1
+
+        return result
+
+
+    def threeSum(self, nums):
+        ### Use modified method of two_sum
+        ### with every number, check the rest of array for two_sum of (0-number)
+        ### O(N^2), max time limit exceeded
+        """
+        :type nums: List[int]
+        :rtype: List[List[int]]
+        """
+        nums = sorted(nums)
+
+        result = []
+        i = 0
+
+        while i != len(nums):
+            current = nums[i]
+            two_sum = self.twoSum(nums, 0 - current, i)
+            if two_sum:
+                for ts in two_sum:
+                    ans = sorted([current] + ts)
+                    if ans not in result:
+                        result.append(ans)
+            i += 1
+
+        return result
+
 
 
 if __name__ == '__main__':
-    assert Solution().threeSum([]) == [
-    ], 'Edge 1'
-    assert Solution().threeSum([1]) == [
-    ], 'Edge 2'
-    assert Solution().threeSum([1,1]) == [
-    ], 'Edge 3'
+    assert Solution().threeSum([]) == [], 'Edge 1'
+    assert Solution().threeSum([1]) == [], 'Edge 2'
+    assert Solution().threeSum([1,1]) == [], 'Edge 3'
 
     assert Solution().threeSum([-1, 0, 1, 2, -1, -4]) == [[-1, -1, 2], [-1, 0, 1]], 'Example 1'
     assert Solution().threeSum([-4,-2,-2,-2,0,1,2,2,2,3,3,4,4,6,6]) == [[-4,-2,6],[-4,0,4],[-4,1,3],[-4,2,2],[-2,-2,4],[-2,0,2]], 'Example 2'
