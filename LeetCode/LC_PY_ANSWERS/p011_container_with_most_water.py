@@ -73,8 +73,8 @@ class Solution:
 
 
     def maxArea(self, height):
-        ### Start from both end, move the side that is shorter so it may be possible to give a higher volume
-        ### O(N)
+        ### Start from both end, move the shorter side closer, to compare the possibe volume
+        ### O(N) locked, best answer
         max_area, i, j = 0, 0, len(height) - 1
         while i < j:
             max_area = max(max_area, min(height[i], height[j]) * (j - i))
@@ -83,6 +83,7 @@ class Solution:
             else:
                 j -= 1
         return max_area
+
 
 
 if __name__ == '__main__':
