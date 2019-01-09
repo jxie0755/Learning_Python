@@ -108,7 +108,7 @@ class Solution:
 
         return result
 
-    def threeSum(self, nums):
+    def threeSum_x(self, nums):
         ### Split the list to negative numbers and postive numbers
         ### handle [-i, 0, i] and [-i, -j, k] and [-i, j, k] individually
         ### Same O(N^2) max time limit exceeded
@@ -155,9 +155,6 @@ class Solution:
 
         return result
 
-
-
-print(Solution().threeSum([-1, 0, 1, 2, -1, -4]))
 
 
 if __name__ == '__main__':
