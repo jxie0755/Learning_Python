@@ -45,7 +45,13 @@ class Solution:
 
         return result
 
-
+class Solution:
+    def threeSum(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: List[List[int]]
+        """
+        pass
 
 
 
