@@ -218,10 +218,13 @@ class Solution(object):
                 # i 是下一个, k是尾部
 
                 while j < k:
+                    # 正常情况就是后面两个数字头尾向中间推进
                     if nums[i] + nums[j] + nums[k] < 0:
                         j += 1
                     elif nums[i] + nums[j] + nums[k] > 0:
                         k -= 1
+
+                    # 如果找到一个解,头尾一起动, 而且跳过一些相同解
                     else:
                         result.append([nums[i], nums[j], nums[k]])
                         j, k = j + 1, k - 1
