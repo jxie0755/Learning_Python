@@ -48,7 +48,6 @@ class Solution:
         return result
 
 
-
 if __name__ == '__main__':
     assert Solution().letterCombinations('') == [], 'Edge 1'
     assert Solution().letterCombinations('1') == [''], 'Edge 2'
