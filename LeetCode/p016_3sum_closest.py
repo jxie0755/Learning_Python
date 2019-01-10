@@ -17,11 +17,11 @@ class Solution:
         """
         nums = sorted(nums)
         diff = float('inf')
-        hashtable = {}
+        result = float('inf')
 
         i = 0
         ### Similar structure as 3Sum.
-        ### Revise by checking the 3Sum with Target, and build a hastbale for the diff
+        ### Revise by checking the 3Sum with Target, and update the 3sum of lowest diff
         while i < len(nums) - 2:
 
             if i == 0 or nums[i] != nums[i - 1]:
@@ -34,7 +34,7 @@ class Solution:
                     check = abs(three_sum-target)
                     if check < diff:
                         diff = check
-                        hashtable[check] = [nums[i] + nums[j] + nums[k]]
+                        result = three_sum
 
                     if nums[i] + nums[j] + nums[k] < target:
                         j += 1
@@ -45,7 +45,7 @@ class Solution:
                     else:
                         return target
             i += 1
-        return sum(hashtable[min(hashtable)])
+        return result
 
 
 
