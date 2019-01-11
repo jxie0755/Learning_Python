@@ -204,6 +204,7 @@ class Solution:
 
 class Solution(object):
     def threeSum(self, nums):
+        ### O(N*2^N)
         """
         :type nums: List[int]
         :rtype: List[List[int]]

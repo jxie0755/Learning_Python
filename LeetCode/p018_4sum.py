@@ -11,7 +11,7 @@
 
 class Solution:
     def fourSum(self, nums, target):
-        ### Same idea from 3Sum
+        ### Same idea from 3Sum O(N*3^N)
         """
         :type nums: List[int]
         :type target: int
