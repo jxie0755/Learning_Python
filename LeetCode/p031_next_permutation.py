@@ -66,7 +66,7 @@ class Solution:
 
 class Solution:
     def nextPermutation(self, nums):
-        ###
+        ### O(N), directly find next different permutations
         """
         :type nums: List[int]
         :rtype: void Do not return anything, modify nums in-place instead.
