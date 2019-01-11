@@ -11,6 +11,7 @@
 
 class Solution:
     def search(self, nums, target):
+        ### Regular while loop, binary search O(logN)
         """
         :type nums: List[int]
         :type target: int
@@ -51,6 +52,7 @@ class Solution:
 
 
     def search(self, nums, target):
+        ### Recursion method, binary search O(logN)
         """
         :type nums: List[int]
         :type target: int
