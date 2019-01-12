@@ -10,12 +10,13 @@
 
 
 class Solution:
+    ### 3 binary search, find catch mid value, and Low/High of the section,
+    ### Then according to mid value and Low/High to find head and tail by 2 additional binary search
+    ### O(LogN)
+    ### Space O(1)
+
     def searchRange(self, nums, target):
-        """
-        :type nums: List[int]
-        :type target: int
-        :rtype: List[int]
-        """
+
         if not nums:  # 处理空list
             return [-1, -1]
         if len(nums) == 1: # 处理单元素list
