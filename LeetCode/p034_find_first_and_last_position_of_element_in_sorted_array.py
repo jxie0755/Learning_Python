@@ -68,6 +68,60 @@ class Solution:
 
         return [head, tail]
 
+        def searchRange(self, nums, target):
+        """
+        :type nums: List[int]
+        :type target: int
+        :rtype: List[int]
+        """
+            end = len(nums) -1
+            head = 0
+            idx = -1
+            while end>=head:  
+                mid = (end+head)//2
+                if target == nums[mid]:
+                    idx = mid
+                    break
+                if target > nums[mid]:
+                    head = mid+1
+                elif target < nums[mid]:
+                    end = mid-1
+            print(idx)
+
+            if idx == -1:
+                return [-1,-1]
+
+            first = idx
+            last = idx
+            while first >= 1 and nums[first-1] == nums[first]:
+                head = 0
+                end = first -1
+                while end>=head:  
+                    mid = (end+head)//2
+                    if target == nums[mid]:
+                        first = mid
+                        break
+                    if target > nums[mid]:
+                        head = mid+1
+                    elif target < nums[mid]:
+                        end = mid-1
+
+            while last <=len(nums)-2 and nums[last+1] == nums[last]:
+                head = last+1
+                end = len(nums)
+                while end>=head:  
+                    mid = (end+head)//2
+                    if target == nums[mid]:
+                        last = mid
+                        break
+                    if target > nums[mid]:
+                        head = mid+1
+                    elif target < nums[mid]:
+                        end = mid-1
+
+            return [first, last]
+    
+    
 
 if __name__ == '__main__':
     assert Solution().searchRange([], 8) == [-1, -1], 'Edge 1'
