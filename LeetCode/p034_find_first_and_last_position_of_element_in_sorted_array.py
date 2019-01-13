@@ -68,60 +68,67 @@ class Solution:
 
         return [head, tail]
 
-        def searchRange(self, nums, target):
-        """
-        :type nums: List[int]
-        :type target: int
-        :rtype: List[int]
-        """
-            end = len(nums) -1
-            head = 0
-            idx = -1
-            while end>=head:  
-                mid = (end+head)//2
-                if target == nums[mid]:
-                    idx = mid
-                    break
-                if target > nums[mid]:
-                    head = mid+1
-                elif target < nums[mid]:
-                    end = mid-1
-            print(idx)
 
-            if idx == -1:
-                return [-1,-1]
 
-            first = idx
-            last = idx
-            while first >= 1 and nums[first-1] == nums[first]:
-                head = 0
-                end = first -1
-                while end>=head:  
-                    mid = (end+head)//2
-                    if target == nums[mid]:
-                        first = mid
-                        break
-                    if target > nums[mid]:
-                        head = mid+1
-                    elif target < nums[mid]:
-                        end = mid-1
+class Solution:
+    ### improved binary search
+    ### 3 binary search, find catch mid value, and Low/High of the section,
+    ### Then according to mid value and Low/High to find head and tail by 2 additional binary search
+    ### O(LogN)
+    ### Space O(1)
 
-            while last <=len(nums)-2 and nums[last+1] == nums[last]:
-                head = last+1
-                end = len(nums)
-                while end>=head:  
-                    mid = (end+head)//2
-                    if target == nums[mid]:
-                        last = mid
-                        break
-                    if target > nums[mid]:
-                        head = mid+1
-                    elif target < nums[mid]:
-                        end = mid-1
+    def searchRange(self, nums, target):
+        if not nums:  # 处理空list
+            return [-1, -1]
+        if len(nums) == 1: # 处理单元素list
+            return [0,0] if nums[0] == target else [-1,-1]
 
-            return [first, last]
-    
-    
+
+        L, H = 0, len(nums) -1
+        M = (L+H) // 2
+        while L <= H:
+            check = nums[M]
+            if check < target:
+                L = M + 1
+            elif check > target:
+                H = M - 1
+            else:
+                break
+            M = (L+H) // 2
+
+        if L > M:  # can't find M match target
+            return [-1, -1]
+
+        # Locate head
+        Lo, Hi = L, M
+        while True:
+            head = (Lo + Hi) // 2
+            head_value = nums[head]
+            if head_value == target and head == 0:
+                break
+            elif head_value < target:
+                Lo = head + 1
+            elif head_value == target and nums[head-1] == target:
+                Hi = head - 1
+            else:
+                break
+
+        # locate tail
+        Lo, Hi = M, H
+        while True:
+            tail = (Lo + Hi) // 2
+            tail_value = nums[tail]
+            if tail_value == target and tail == Hi:
+                break
+            elif tail_value > target:
+                Hi = tail - 1
+            elif nums[tail] == target and nums[tail+1] == target:
+                Lo = tail + 1
+            else:
+                break
+
+        return [head, tail]
+
 
 if __name__ == '__main__':
     assert Solution().searchRange([], 8) == [-1, -1], 'Edge 1'
