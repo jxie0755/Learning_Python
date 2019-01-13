@@ -39,12 +39,18 @@ class Solution:
         :type s: str
         :rtype: str
         """
+        length = len(s)
         result = ''
         for a in range(0, len(s)):
+
+            theoretical_length = (min(a-0, length -a ) + 1) * 2
+            if theoretical_length < len(result):
+                break
+
             for b in range(a+1,a+3):
                 head, tail = a, b
 
-                while head >= 0 and tail <= len(s) and s[head] == s[tail-1]:
+                while head >= 0 and tail <= length and s[head] == s[tail-1]:
                     sample =s[head:tail]
                     if len(sample) > len(result):
                         result = sample
