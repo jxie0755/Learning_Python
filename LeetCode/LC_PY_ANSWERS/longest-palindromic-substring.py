@@ -27,9 +27,7 @@ class Solution(object):
         pos = 0
         for i in range(n):
             RL[i] = min(maxRight - i, RL[pos*2-i]) if i < maxRight else 1
-            print(RL[i])
             while i >= RL[i] and i+RL[i] < len(t) and t[i+RL[i]] == t[i-RL[i]]:
-                print(RL)
                 RL[i] += 1
             if i + RL[i]-1 > maxRight:
                 maxRight = i + RL[i] - 1
@@ -37,5 +35,4 @@ class Solution(object):
             if RL[i] > maxLen:
                 maxLen = RL[i]
                 ans = s[(i + 1 - maxLen)//2: (i - 1 + maxLen)//2]
-        print(t)
         return ans
