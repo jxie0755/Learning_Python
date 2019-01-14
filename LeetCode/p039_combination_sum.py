@@ -28,11 +28,16 @@ class Solution:
 
 
 
-
+assert Solution().combinationSum([], 1) == [], 'Edge 1'
+assert Solution().combinationSum([1], 1) == [[1]], 'Edge 2'
+assert Solution().combinationSum([1], 2) == [[1,1]], 'Edge 3'
+assert Solution().combinationSum([2], 1) == [], 'Edge 4'
+assert Solution().combinationSum([2], 5) == [], 'Edge 5'
 
 assert Solution().combinationSum([2,3,6,7], 7) == [[7], [2,2,3]], 'Example 1'
 assert Solution().combinationSum([2,3,5], 8) == [[2,2,2,2], [2,3,3], [3,5]], 'Example 2'
 
+print('all passed')
 
 
 
