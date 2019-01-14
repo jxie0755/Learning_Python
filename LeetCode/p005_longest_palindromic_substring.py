@@ -60,6 +60,17 @@ class Solution:
         return result
 
 
+# TODO: Practice Manacher's algorithm (Dynamic Programming)
+# class Solution:
+#     def longestPalindrome(self, s):
+#         ### Manacher's algorithm (Dynamic programming)
+#         ### O(N)
+#         pass
+
+
+print(Solution().longestPalindrome('abaxabaxabybaxabyb'))
+
+
 if __name__ == '__main__':
     assert Solution().longestPalindrome('') == '', 'Edge 1'
     assert Solution().longestPalindrome('a') == 'a', 'Edge 2'
@@ -76,5 +87,3 @@ if __name__ == '__main__':
     assert Solution().longestPalindrome(a) == b
 
     print('all passed')
-
-# TODO: Practice Manacher's algorithm (Dynamic Programming)
