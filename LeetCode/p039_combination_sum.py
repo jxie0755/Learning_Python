@@ -73,7 +73,6 @@ class Solution(object):
             while start < len(candidates) and candidates[start] <= target: # while loop 走完全部candidates
                 intermediate.append(candidates[start])
                 process(candidates, start, intermediate, target - candidates[start])
-                print(intermediate)
                 intermediate.pop()
                 start += 1
 
@@ -83,18 +82,40 @@ class Solution(object):
 
         return result
 
-Solution().combinationSum([2,3,6,7], 7)
 
-# if __name__ == '__main__':
-#     assert Solution().combinationSum([], 1) == [], 'Edge 1'
-#     assert Solution().combinationSum([1], 1) == [[1]], 'Edge 2'
-#     assert Solution().combinationSum([1], 2) == [[1,1]], 'Edge 3'
-#     assert Solution().combinationSum([2], 1) == [], 'Edge 4'
-#     assert Solution().combinationSum([2], 5) == [], 'Edge 5'
-#
-#     assert Solution().combinationSum([2,3,6,7], 7) == [[2, 2, 3], [7]], 'Example 1'
-#     assert Solution().combinationSum([2,3,5], 8) == [[2, 2, 2, 2], [2, 3, 3], [3, 5]], 'Example 2'
-#
-#     assert Solution().combinationSum([2,4], 10) == [[2, 2, 2, 2, 2], [2, 2, 2, 4], [2, 4, 4]], 'Extra 1'
-#
-#     print('all passed')
+# 本质上这是一道考排列组合的题,如果能构建排列组合的话, 直接对每个组合考虑是否之和等于target就可以了
+# 上解就是通过自己构建组合,并融合target条件所以直接得出答案.
+# 这里利用python自带组合函数同样可以实现
+
+from itertools import combinations_with_replacement
+
+class Solution(object):
+    # @param candidates, a list of integers
+    # @param target, integer
+    # @return a list of lists of integers
+    def combinationSum(self, candidates, target):
+        if not candidates:
+            return []
+        max_n = target // min(candidates)
+        result = []
+        for i in range(max_n, 0, -1):
+            all_comb = combinations_with_replacement(candidates, i)
+            for j in all_comb:
+                if sum(j) == target:
+                    result.append(list(j))
+        return result
+
+
+if __name__ == '__main__':
+    assert Solution().combinationSum([], 1) == [], 'Edge 1'
+    assert Solution().combinationSum([1], 1) == [[1]], 'Edge 2'
+    assert Solution().combinationSum([1], 2) == [[1,1]], 'Edge 3'
+    assert Solution().combinationSum([2], 1) == [], 'Edge 4'
+    assert Solution().combinationSum([2], 5) == [], 'Edge 5'
+
+    assert Solution().combinationSum([2,3,6,7], 7) == [[2, 2, 3], [7]], 'Example 1'
+    assert Solution().combinationSum([2,3,5], 8) == [[2, 2, 2, 2], [2, 3, 3], [3, 5]], 'Example 2'
+
+    assert Solution().combinationSum([2,4], 10) == [[2, 2, 2, 2, 2], [2, 2, 2, 4], [2, 4, 4]], 'Extra 1'
+
+    print('all passed')
