@@ -8,7 +8,7 @@ def bi_to_deci_0(target):
     ans = 0
     numlevel = len(target)
     for index in range(0, numlevel):
-        ans += int(target[numlevel - index - 1]) * 2**index  
+        ans += int(target[numlevel - index - 1]) * 2**index
                                                    # 此处2,代表2进制.
     return ans
 
@@ -36,16 +36,16 @@ def bi_to_deci(target):
 
 if __name__ == '__main__':
     print(bi_to_deci('1010'))  # >>> 10
-    
+
 
 # A function to convert a decimal number to binary
 # 用2辗转相除至结果为1
 # 将余数和最后的1从下向上倒序写 就是结果 （逆序）
 # 例如10
-# 10/2 = 5 余0
-# 5/2 = 2 余1
-# 2/2 = 1 余0
-# 1/2 = 0 余1  # 一定要除以2结果最终到0
+# 10//2 = 5 余0
+# 5//2 = 2 余1
+# 2//2 = 1 余0
+# 1//2 = 0 余1  # 一定要除以2结果最终到0
 # 故二进制为1010
 
 def deci_to_bi(target):
@@ -63,8 +63,8 @@ def deci_to_bi(target):
 
 if __name__ == '__main__':
     print(deci_to_bin(10))  # >>> '1010'
-    
-    
+
+
 # what if the decimal number is a float?
 def deci_float_to_bi(target):
     """
@@ -72,14 +72,14 @@ def deci_float_to_bi(target):
     returns a string of the binary float number
     """
     p = 0
-    
+
     # 首先要把浮点数乘以2的p次方,变成一个整数
     while ((2 ** p) * target) % 1 != 0:  # 很关键,这里设定必须被1整除,才是整数
         p += 1
     print('Magnify target 2^', p, 'times, to be an integer:')
     num = int(target * (2 ** p))  # 这里得到一个整数num
     print('target is now', num)
-    
+
     # 这一部分就是普通的decimal convert to binary
     result = ''
     if num == 0:
@@ -87,11 +87,11 @@ def deci_float_to_bi(target):
     while num > 0:
         num, digit = divmod(num, 2)
         result = str(digit) + result
-    
+
     # 预防措施,万一p大于result的长度,需要补0在前方
     for i in range(p - len(result)):
         result = '0' + result
-    
+
     # 由于之前放大了target, 2^p倍,所以现在要缩小回去,除以10^p得到最终结果
     # 这里用字符串处理,避免前置0被省略
     result = result[0:-p] + '.' + result[-p:]
