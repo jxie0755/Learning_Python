@@ -40,6 +40,7 @@ class Solution(object):
 class Solution(object):
     def hasCycle(self, head):
         ### Time O(N), Space O(N), use hashtable to search faster
+        ### ListNode instance is not hashable, this method search at O(1), and will not break down the original linked list
         """
         :type head: ListNode
         :rtype: bool
