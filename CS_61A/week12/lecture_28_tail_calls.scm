@@ -83,14 +83,14 @@ Dynamic: The parent of a frame is the environment in which a procedure was calle
                    (+ 1 n)))) ; make the last call as a function
   (length-iter s 0))  ; start with n = 0
 
+
+
+:; Are below function tail call?
 ;; Compute the length of well-formed list s.
 (define (lengthy s)
   (+ 1 (if (null? s)
            -1
-           (lengthy (cdr s)))))
-
-
-
+           (lengthy (cdr s)))))  ; Not a tail call, because +1 will need used
 
 ;; Return whether s contains v.
 (define (contains s v)
@@ -98,15 +98,15 @@ Dynamic: The parent of a frame is the environment in which a procedure was calle
       false
       (if (= v (car s))
           true
-          (contains (cdr s) v))))
+          (contains (cdr s) v)))) ; It is a tail call, last expression called
 
 ;; Return whether s has any repeated elements
 (define (has-repeat s)
   (if (null? s)
       false
-      (if (contains? (cdr s) (car s))
+      (if (contains? (cdr s) (car s)) ; This is already a tail call, so to evaluate this part takes no space
           true
-          (has-repeat (cdr s)))))
+          (has-repeat (cdr s))))) ; It is a tail call, similar to contains
 
 ;; Return the nth Fibonacci number.
 (define (fib n)
@@ -114,16 +114,28 @@ Dynamic: The parent of a frame is the environment in which a procedure was calle
     (if (= k n)
         current
         (fib-iter (+ current
-                     (fib (- k 1)))
+                     (fib (- k 1)))  ; This is not a tail call
                   (+ k 1))))
-  (if (= 1 n) 0 (fib-iter 1 2)))
+  (if (= 1 n) 0 (fib-iter 1 2))) ; It is a tail call in structure
+                                 ; But because one part is not, the whole thing is not a tail call
+
 
 ;; Reduce s using procedure and start value.
 (define (reduce procedure s start)
   (if (null? s) start
     (reduce procedure
             (cdr s)
-            (procedure start (car s)))))
+            (procedure start (car s))))) ; create a new starting value, and reduce list, like a tail structure
+                                         ; But procedure is not certain if it take constant space or not
+                                         ; It is not a tail call
+
+
+;; Map procedure over s.
+(define (map-rec procedure s)
+  (if (null? s) nil
+    (cons (procedure (car s))
+          (map-rec procedure (cdr s)))))
+
 
 ;; Return a copy of s with elements in reverse order.
 (define (reverse s)
@@ -133,19 +145,18 @@ Dynamic: The parent of a frame is the environment in which a procedure was calle
                     (cons (car s) r))))
   (reverse-iter s nil))
 
-;; Map procedure over s.
-(define (map-rec procedure s)
-  (if (null? s) nil
-    (cons (procedure (car s))
-          (map-rec procedure (cdr s)))))
 
 ;; Map procedure over s.
 (define (map procedure s)
   (define (map-reverse s m)
     (if (null? s) m
       (map-reverse (cdr s)
-                (cons (procedure (car s)) m))))
-  (reverse (map-reverse s nil)))
+                (cons (procedure (car s)) m)))) ; This is tail call procedure
+  (reverse (map-reverse s nil)))  ; This is not a tail contant
+
+
+
+
 
 ;; Tests
 
