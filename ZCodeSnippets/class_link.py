@@ -263,3 +263,40 @@ if __name__ == '__main__':
     a = Link(3, Link(4, Link(5, Link(6))))
     stretch(a)
     print(a)  # >>> <3, 4, 4, 5, 5, 5, 6, 6, 6, 6>
+
+
+
+# Use Linked list to represent file directories
+def convert_to_string(link):
+    """
+    >>> link = Link('data' , Link('file2.py'))
+    >>> convert_to_string(link)
+    '/data/file2.py'
+    """
+    if not link:
+        return ''
+    return '/' + link.value + convert_to_string(link.rest)
+
+# Skip
+def skip(lnk, n):
+    """
+    >>> lnk = Link(1, Link(2, Link(3, Link(4, Link(5, Link(6))))))
+    >>> skip(lnk, 2)
+    >>> lnk
+    Link(1, Link(3, Link(5)))
+    >>> lnk2 = Link(1, Link(2, Link(3, Link(4, Link(5, Link(6))))))
+    >>> skip(lnk2, 4)
+    >>> lnk2
+    Link(1, Link(2, Link(3, Link(5, Link(6)))))
+    """
+    count = 1
+    def skipper(lst):
+        nonlocal count
+        count += 1
+        if not lst:
+            return None
+        elif count == n:
+            lst.rest = lst.rest.rest
+            count = 1
+        skipper(lst.rest)
+    skipper(lnk)
