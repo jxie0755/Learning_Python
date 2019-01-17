@@ -182,5 +182,5 @@ def second(t):
     else:
         return second(t.right)
 
-# Sets as binary search trees
+# See more: Sets as binary search trees
 # http://composingprograms.com/pages/29-recursive-objects.html#linked-list-class
