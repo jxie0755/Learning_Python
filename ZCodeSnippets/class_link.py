@@ -15,7 +15,6 @@ class Link:
         assert rest is Link.empty or isinstance(rest, Link)
         # This is different from type(rest) == Link
         # Check detail from ZSimpleLearnings.py_instance_vs_type.py
-
         self.value = value
         self.rest = rest
 

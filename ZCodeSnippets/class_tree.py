@@ -357,6 +357,7 @@ class Tree:
 
     def prune_repeats(self, seen=[]):
         """remove the tree in the branches that has shown before
+        >>> from class_tree_others import fib_tree
         >>> T = fib_tree(6)
         >>> print(T) # a binary tree to 6th fib, starting from 0th (0,1,1,2,3,5,8)
         8
@@ -427,18 +428,6 @@ class Tree:
         return Tree(lab, [b[0] + b[1] for b in zip(b1, b2)])
 
 
-    # def all_paths(self):
-    #     """return a list of Linked list that are all the paths in the tree
-    #     need to use the Link class as well
-    #     """
-    #     paths = []
-    #     if self.is_leaf():
-    #         paths.append(Link(self.label))
-    #     for b in self.branches:
-    #         for path in b.all_paths():
-    #             paths.append(Link(self.label, path))
-    #     return paths  # can't not print all paths right away as it is a recursive function
-
     def all_paths(self):
         """to get all path of a tree in list form in a big list
         >>> X = Tree(1, [Tree(2, [Tree(4), Tree(5)]), Tree(3, [Tree(6), Tree(7, [Tree(8), Tree(9)])])])
@@ -481,6 +470,23 @@ class Tree:
         all_paths = helper(self)
         return [flatten(path) for path in all_paths]
 
+    # All Paths Linked Implement all_paths_linked which takes in a Tree t and returns a list of all paths from root to leaf in a tree with one catch – each path is represented as a linked list.
+    def all_paths_linked(self):
+        """return a list of Linked list that are all the paths in the tree
+        need to use the Link class as well
+        >>> T = Tree(1, [Tree(2, [Tree(4), Tree(5)]), Tree(3, [Tree(6), Tree(7)])])
+        >>> print(T.all_paths_linked())
+        [Link(1, Link(2, Link(4))), Link(1, Link(2, Link(5))), Link(1, Link(3, Link(6))), Link(1, Link(3, Link(7)))]
+        """
+        # From exam_prep_07
+        if self.is_leaf():
+            return [Link(self.label)]
+        result = []
+        for b in self.branches:
+            result = result + [Link(self.label, path) for path in b.all_paths_linked()]
+        return result
+
+
     def convert_to_list(self):
         """This converts the tree strcture to a nested list type
         >>> T = Tree(1, [Tree(2, [Tree(4), Tree(5)]), Tree(3, [Tree(6), Tree(7)])])
@@ -502,3 +508,21 @@ class Tree:
         else:
             tail = [b.convert_to_list() for b in self.branches]
             return [[self.label] + i for i in tail]
+
+
+# Addtiona functions
+def linky_paths(t):
+    """Takes in a tree, t, and modifies each label to be the path from that node
+    to the root
+    >>> t = Tree(1, [Tree(2)])
+    >>> linky_paths(t)
+    >>> t
+    Tree(<1>, [Tree(<2, 1>)])
+    """
+
+    def helper(t, path_so_far):
+        t.label = Link(t.label, path_so_far)
+        for b in t.branches:
+            helper(b, t.label)
+
+    helper(t, Link.empty)
