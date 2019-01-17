@@ -38,16 +38,13 @@ class Solution:
             'Z': 26,
         }
 
-        s_end, s_head = s[-1], s[-2::-1]
-        end_val = translate[s_end]
-        head_val = 0
-
-        step = 26
-        for i in s_head:
-            head_val += translate[i] * step
+        step = 1
+        value = 0
+        for i in s[::-1]:
+            value += translate[i] * step
             step *= 26
+        return value
 
-        return head_val + end_val
 
 
 if __name__ == '__main__':
