@@ -1,7 +1,5 @@
 ;; CS61A Lecture 28 Tail Calls
 
-
-
 ;; Dynamic scope vs. Lexical scope
 
 Lexical: Python and Scheme - The parent of a frame is the environment in which a procedure was defined
@@ -12,47 +10,87 @@ Dynamic: The parent of a frame is the environment in which a procedure was calle
 (define g (lambda (x y) (f (+ x x))))
 (g 3 7)
 
-; Lexical: (g 3 7) == f(6) == 6 + y
+; Lexical:
+; (g 3 7) == f(6) == 6 + y
 ; parent for f's fram is the global - causing error as y in f is unknown
 
-; Dynamic: (g 3 7) == f(6) == 6 + y, y is in frame g, which y = 7, therefore f(6) == (6 + 7) == 13
-
-
+; Dynamic:
+; (g 3 7) == f(6) == 6 + y, y is in frame g, which y = 7, therefore f(6) == (6 + 7) == 13
 
 ;; Tail recursion
 
 ; functional programming
-; 1. All functions are pure functions
-; 2. No re-assignment and no utable data types
+; 1. All functions are pure functions (no side effect)
+; 2. No re-assignment and no mutable data types
 ; 3. Name-value bidnings are permanent
 
 ; Advantage:
+; 1. The value of an expression is independent of the order in which sub-expressions are evaluated
+; 2. Sub-expression can safely be evaluated in parallel or on demand (lazily)
+; 3. Referential transparency: The value of an expression does not change when we substitute one of its subexpression with the value of that subexpression
 
+; But! No for/while statements!! Can we make basic iteration efficient? Yes!
+
+
+; ### PYTHON #########################################################
+; def factorial(n, k)   # Time O(N), Space O(N)
+;   if n == 0:                               |
+;     return k                               |
+;   else:                                    | Gap of space using
+;   return factorial(n-1, k*n)               |
+;                                            |
+; def factorial(n, k):  # Time O(N), Space O(1)
+;   while > n > 0:
+;     n, k = n-1, k*n
+;   return k
+; ### PYTHON end #####################################################
+
+
+; Tail calls:
+; A procedure call that has not yet returned is active.
+; Some procedure calls are tail calls.
+; A Scheme interpreter should support an unbounded number of active tail calls using on a constant mount of space
+
+; A tail call is a call expression in a tail context
+; > The last body sub-expression in a lambda expression
+; > Sub-expressions 2 & 3 in a tail context if expression
+; > All non-predicate sub-expression in a tail context cond
+; > The last sub-expression in a tail context and or or
+; > The last sub-expression in a tail context begin
 
 ;; Compute n! * k
 (define (factorial n k)
   (if (= n 0) k
     (factorial (- n 1)
-               (* k n))))
+               (* k n))))   ; This is a tail call, once this run, you can forget n and k
+; This should work as Space O(1) but how?
+
+
 
 ;; Compute the length of well-formed list s.
 (define (length s)
   (if (null? s) 0
-    (+ 1 (length (cdr s)))))
+    (+ 1 (length (cdr s)))))   ; Not a tail call, still need to add 1 after finished the call on the function
+
+; A call expression is not a tail call if more computation is still required in the calling procedure
+; Linear recursive procedures can often be re-written to use tail calls.
 
 ;; Compute the length of well-formed list s.
 (define (length-tail s)
   (define (length-iter s n)
     (if (null? s) n
       (length-iter (cdr s)
-                   (+ 1 n))))
-  (length-iter s 0))
+                   (+ 1 n)))) ; make the last call as a function
+  (length-iter s 0))  ; start with n = 0
 
 ;; Compute the length of well-formed list s.
 (define (lengthy s)
   (+ 1 (if (null? s)
            -1
            (lengthy (cdr s)))))
+
+
+
 
 ;; Return whether s contains v.
 (define (contains s v)
