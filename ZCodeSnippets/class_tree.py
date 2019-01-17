@@ -650,6 +650,17 @@ def contains(s, v):
     elif s.label > v:
         return contains(s.left, v)
 
+def contents(t):
+    """The values in a binary tree.
+
+    >>> contents(fib_tree(5))
+    [1, 2, 0, 1, 1, 5, 0, 1, 1, 3, 1, 2, 0, 1, 1]
+    """
+    if t is BTree.empty:
+        return []
+    else:
+        return contents(t.left) + [t.label] + contents(t.right)
+
 def adjoin(s, v):
     """Return a set containing all elements of s and element v.
 
@@ -754,3 +765,29 @@ class Sib(Tree):
         self.siblings = 0
         for b in self.branches:
             b.siblings = len(self.branches) - 1
+
+
+# Use tree to represent and search file directories:
+def find_file_path(t, file_str):
+    """
+    >>> t = Tree('data', [Tree('comm', [Tree('dummy.py')]), Tree('ecc', [Tree('hello.py'), Tree('file.py')]), Tree('file2.py')])
+    >>> find_file_path(t, 'file2.py')
+    '/data/file2.py'
+    >>> find_file_path(t, 'dummy.py')
+    '/data/comm/dummy.py'
+    >>> find_file_path(t, 'hello.py')
+    '/data/ecc/hello.py'
+    >>> find_file_path(t, 'file.py')
+    '/data/ecc/file.py'
+    """
+    def helper(t, file_str, path_so_far):
+        if t.label == file_str and t.is_leaf():
+                                   # not necessary but to avoid folder and file as the same name
+            return path_so_far + '/' + t.label
+        elif t.is_leaf():
+            return None
+        for b in t.branches:
+            result = helper(b, file_str, path_so_far + '/' + t.label)
+            if result:
+                return result
+    return helper(t, file_str, '')
