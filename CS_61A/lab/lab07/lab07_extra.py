@@ -15,7 +15,7 @@ def remove_all(link, value):
     <0 3 1 3>
     >>> remove_all(l1, 3)
     >>> print(l1)
-    <0 1>K
+    <0 1>
     """
     "*** YOUR CODE HERE ***"
 

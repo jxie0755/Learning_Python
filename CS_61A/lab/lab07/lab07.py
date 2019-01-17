@@ -135,7 +135,7 @@ class Tree:
         return not self.branches
 
     def __eq__(self, other):
-        return type(other) is type(self) and self.label == other.label \ and self.branches == other.branches
+        return type(other) is type(self) and self.label == other.label and self.branches == other.branches
 
     def __str__(self):
         def print_tree(t, indent=0):
