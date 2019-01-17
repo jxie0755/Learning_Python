@@ -301,7 +301,3 @@ def skip(lnk, n):
             count = 1
         skipper(lst.rest)
     skipper(lnk)
-
-
-import doctest
-doctest.testmod(verbose=False)
