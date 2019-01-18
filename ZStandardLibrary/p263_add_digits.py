@@ -6,7 +6,8 @@
 
 class Solution:
     def addDigits(self, num):
-        ### O(len(n)) ?
+        ### O(log(len(n))) ?
+        ### 即使是iteration速度也是很快的,数字之和缩小的速度非常之快
         """
         :type num: int
         :rtype: int
@@ -19,6 +20,7 @@ class Solution:
             return result
 
         while num >= 10:
+            print(num)
             num = process(num)
 
         return num
@@ -60,3 +62,4 @@ if __name__ == '__main__':
 
     assert Solution().addDigits(38) == 2, 'Example 1'
     print('all passed')
+
