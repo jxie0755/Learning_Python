@@ -126,7 +126,7 @@ class Solution(object):
     # @param {integer} n
     # @return {integer}
     def countPrimes(self, n):
-        # Time:  O(n)
+        # Time:  O(n^2)
         # Space: O(n)
         """
         :type n: int
