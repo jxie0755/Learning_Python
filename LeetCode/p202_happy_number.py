@@ -13,6 +13,8 @@
 
 class Solution:
     def isHappy(self, n):
+        # Time:  O(k), where k is the steps to be happy number
+        # Space: O(k)
         ### Regular method, process n untill repeating
         """
         :type n: int
@@ -35,7 +37,3 @@ class Solution:
 if __name__ == '__main__':
     assert Solution().isHappy(19) is True, 'Example 1'
     print('all passed')
-
-
-
-
