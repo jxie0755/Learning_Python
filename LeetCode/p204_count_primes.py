@@ -122,6 +122,31 @@ class Solution:
             return count
 
 
+class Solution(object):
+    # @param {integer} n
+    # @return {integer}
+    def countPrimes(self, n):
+        # Time:  O(n)
+        # Space: O(n)
+        """
+        :type n: int
+        :rtype: int
+        """
+        if n < 3:
+            return 0
+
+        # 先假设所有数字都是质数, 除了0和1
+        primes = [1] * n
+        primes[0] = primes[1] = 0
+
+        for i in range(2, int(n ** 0.5) + 1): # 范围仍然取n的半边因数
+            if primes[i]:
+                # 筛选质数的方法,若i为质数,则i*i一直到n, 每隔i个数都不是质数
+                primes[i * i: n: i] = [0] * len(primes[i * i: n: i])  # 这样筛选的方法复杂度为O(1)!
+                # 这样下来一轮, 质数才能留存下来,值为1, 其他的非质数值全部变成0
+        return sum(primes)
+
+
 if __name__ == '__main__':
     assert Solution().countPrimes(0) == 0, 'Edge 1'
     assert Solution().countPrimes(2) == 0, 'Edge 1'
