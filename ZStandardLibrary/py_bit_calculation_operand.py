@@ -78,6 +78,24 @@ print(int('1110000011010101', 2))  # 57557
 
 
 # Final Example, 10
+def binaryToInt(biNum, bUnsigned = False):
+    iNum = 0
+    bSign = int(biNum[0]) if not (bUnsigned or biNum[-1] == "u") else 0
+    biNum = biNum[(1 if not (bUnsigned or biNum[-1] == "u") else 0):(len(biNum) if biNum[-1] != "u" else -1)]
+    for i in range(len(biNum)):
+        iNum += int(biNum[i]) * 2**(len(biNum) - 1 - i)
+    return (iNum if not bSign else -iNum)
+
+def intToBinary(iNum, bUnsigned = False):
+    bSign = "1" if iNum < 0 else "0"
+    iLoopNum = int((iNum ** 2) ** 0.5) #make positive!
+    biNum = ""
+    while iLoopNum:
+        biNum += str(iLoopNum%2)
+        iLoopNum /= 2
+    return bSign + biNum[::-1] if not bUnsigned else biNum[::-1] + "u"
+
+
 a = 10
 print(bin(a)) # 01010
     # invert to 10101
@@ -91,3 +109,51 @@ print(bin(11))   # 01011
                  # 10101 (negative 11)
 
 # Therefore, ~10 is -11, because 01010 and 10101 is inverted.
+
+# 32bit
+# 10 is      00000000000000000000000000001010
+# invert to  11111111111111111111111111110101
+print(int('11111111111111111111111111110101', 2))  # 4294967285
+
+print(binaryToInt("11111111111111111111111111110101", True))  # 4294967285
+print(binaryToInt("11111111111111111111111111110101", False)) # -2147483637
+
+# https://zh.wikipedia.org/wiki/%E4%BA%8C%E8%A3%9C%E6%95%B8
+# 维基百科 2补数
+
+# 符号
+print(int('1111111', 2)) # 127
+# 0	| 111 1111	=	127
+# 1	| 000 0000	=	−128  (invert)
+# 1	| 000 0001	=	−127
+
+# 0	| 000 0010	=	2
+# 1	| 111 1111	=	−1    (invert)
+# 1	| 111 1110	=	−2    (invert, then +1)
+
+# 0	| 000 0001	=	1
+# 1	| 111 1110	=	−2    (invert)
+# 1	| 111 1111	=	−1    (invert, then +1)
+
+
+# 另一种较简单的方式，可以找出二进制数字的补码：
+
+# 先由最低比特开始找。
+# 若该比特为0，将补码对应比特填0，继续找下一比特（较高的比特）。
+# 若找到第一个为1的比特，将补码对应比特填1。
+# 将其余未转换的比特进行比特反相，将结果填入对应的补码。
+# 以0011 1100为例（图中的^表示当前转换的数字，-表示还不确定的位数）：
+#
+#    原数字       补码
+#  0011 1100  ---- ---0（此比特为0）
+#          ^
+#
+#  0011 1100  ---- --00（此比特为0）
+#         ^
+#
+#  0011 1100  ---- -100（找到第1个为1的比特）
+#        ^
+#
+#  0011 1100  1100 0100（其余比特直接反相）
+#  ^
+# 因此其结果为1100 0100
