@@ -62,4 +62,3 @@ if __name__ == '__main__':
 
     assert Solution().addDigits(38) == 2, 'Example 1'
     print('all passed')
-
