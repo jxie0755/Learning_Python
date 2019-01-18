@@ -5,6 +5,8 @@
 
 class Solution:
     def titleToNumber(self, s):
+        # Time:  O(n)
+        # Space: O(1)
         """
         :type s: str
         :rtype: int

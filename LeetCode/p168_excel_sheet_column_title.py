@@ -10,6 +10,8 @@
 
 
 class Solution(object):
+    # Time:  O(logn)
+    # Space: O(1)
     def convertToTitle(self, n):
         """
         :type n: int
@@ -58,6 +60,8 @@ class Solution(object):
 
 
 class Solution(object):
+    # Time:  O(logn)
+    # Space: O(1)
     def convertToTitle(self, n):
         translate = 'ZABCDEFGHIJKLMNOPQRSTUVWXYZ'
         result = ''
