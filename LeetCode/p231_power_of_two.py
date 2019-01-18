@@ -22,6 +22,14 @@ class Solution:
         return cur == n
 
 
+class Solution(object):
+    # Time O(1) Space O(1)
+    # 利用位运算, 也就是把n转换成二进制数, 2的幂在二进制中必为 1000...
+    # 这样n-1就必为0111....
+    # 利用&对比各位, 必然每一位都不相同, 则结果为0
+    def isPowerOfTwo(self, n):
+        return n > 0 and (n & (n - 1)) == 0
+
 
 if __name__ == '__main__':
     assert Solution().isPowerOfTwo(-1) == False, 'Edege 1'
