@@ -26,6 +26,7 @@
 print(~60)  # (-61)
 print(bin(60))  #   111100
 print(bin(-61))  # -111101
+print(bin(61))   #  111101
                 #   000011
 print(int('000011', 2))     # 3 ???
 
@@ -66,3 +67,27 @@ bin(~0b110) # get the binary representation of inverted 0b110
 #     60 would be 0011 1100
 # So ~60 would be 1100 0011
 #  -128 + 64 + 2 + 1 = -61 ???
+
+
+# https://bytes.com/topic/python/answers/714382-bit-wise-unary-operator
+# In C?
+a = 7978
+print(bin(a)) # 0001 1111 0010 1010
+              # 1110 0000 1101 0101
+print(int('1110000011010101', 2))  # 57557
+
+
+# Final Example, 10
+a = 10
+print(bin(a)) # 01010
+    # invert to 10101
+print(int('10101', 2)) # 21 ??
+# It is not right! Because, this is not how negative number is tranlated!!
+print(bin(-11))  # -1011?? Not right!
+# Correct way:
+print(bin(11))   # 01011
+       # invert to 10100
+            # then add 1
+                 # 10101 (negative 11)
+
+# Therefore, ~10 is -11, because 01010 and 10101 is inverted.
