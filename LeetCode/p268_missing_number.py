@@ -37,6 +37,7 @@ class Solution:
 class Solution:
     def missingNumber(self, nums):
         ### XOR method, O(N)
+
         """
         :type nums: List[int]
         :rtype: int
