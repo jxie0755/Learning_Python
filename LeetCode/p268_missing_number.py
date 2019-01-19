@@ -46,6 +46,8 @@ class Solution:
             checker ^= n
         return checker
 
+
+
 class Solution(object):
     def missingNumber(self, nums):
         return sum(range(len(nums)+1)) - sum(nums)
