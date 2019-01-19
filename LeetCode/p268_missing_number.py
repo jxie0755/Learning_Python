@@ -33,12 +33,29 @@ class Solution:
         else:   # 在中间, 利用等差数列求差
             return (0 + max_v) * (length+1) // 2 - sum_all
 
-# Learn XOR
 
-
-class Solution(object):
+class Solution:
     def missingNumber(self, nums):
-        return sum(range(len(nums)+1)) - sum(nums)
+        ### XOR method, O(N)
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        checker = 0
+        for n in (nums + list(range(len(nums)+1))):
+                # 也就是 nums 与真正应该的nums 一起
+            checker ^= n  # iteration完毕就能得到缺失的数字,不论顺序
+        return checker
+
+
+# Learn XOR
+# The operation of xor is commutative and associative.
+# Two common property:
+# 1. A ^ B = B^A
+# 2. (A ^ B) ^ C = A ^ (B ^ C).
+# 3. 0 ^ n = n
+# Therefore, A^C^B^A^C = A^A^C^C^B = B.
+# So for this code, the order of the numbers does not matter at all.
 
 
 
