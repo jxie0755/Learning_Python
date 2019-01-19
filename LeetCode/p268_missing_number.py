@@ -35,18 +35,6 @@ class Solution:
 
 # Learn XOR
 
-class Solution:
-    def missingNumber(self, nums):
-        """
-        :type nums: List[int]
-        :rtype: int
-        """
-        checker = 0
-        for n in (nums + list(range(len(nums)+1))):
-            checker ^= n
-        return checker
-
-
 
 class Solution(object):
     def missingNumber(self, nums):
