@@ -23,13 +23,30 @@
 
 class Solution:
     def convert(self, s, numRows):
+        ### Time O(N), space O(N)
         """
         :type s: str
         :type numRows: int
         :rtype: str
         """
+        z = list(range(0, numRows)) + list(range(numRows-2, 0, -1))
+        cycle = len(z)
+        i = 0
+        mapping = [[]for i in range(numRows)]
+
+        while i != len(s):
+            index = z[i % cycle]
+            mapping[index].append(s[i])
+            i += 1
+
+        result = ''
+        for i in mapping:
+            result += ''.join(i)
+        return result
 
 
-assert Solution().convert("PAYPALISHIRING", 3) == "PAHNAPLSIIGYIR", 'Example 1'
-assert Solution().convert("PAYPALISHIRING", 4) == "PINALSIGYAHRPI", 'Example 2'
-print('all passed')
+
+if __name__ == '__main__':
+    assert Solution().convert("PAYPALISHIRING", 3) == "PAHNAPLSIIGYIR", 'Example 1'
+    assert Solution().convert("PAYPALISHIRING", 4) == "PINALSIGYAHRPI", 'Example 2'
+    print('all passed')
