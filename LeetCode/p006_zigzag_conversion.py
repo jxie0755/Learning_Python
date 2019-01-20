@@ -31,7 +31,7 @@ class Solution:
         """
         z = list(range(0, numRows)) + list(range(numRows-2, 0, -1))
         cycle = len(z)
-        mapping = [[]for i in range(numRows)]
+        mapping = [[]for _ in range(numRows)]
 
         i = 0
         while i != len(s):
