@@ -76,8 +76,9 @@ class Solution(object):
         for i in range(numRows):
             for j in range(i, len(s), step):  # 使用step法直接原地找到index值
                 zigzag += s[j]
-                if 0 < i < numRows - 1 and j + (numRows-1-i) * 2 < len(s):  # 重叠空间要管一下
-                    zigzag += s[j + step - 2 * i]
+                additional = j + (numRows-1-i) * 2
+                if 0 < i < numRows - 1 and additional < len(s):  # 重叠空间要管一下
+                    zigzag += s[additional]
         return zigzag
 
 
