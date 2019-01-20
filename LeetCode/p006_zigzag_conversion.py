@@ -61,6 +61,25 @@ class Solution:
         return ''.join(i for i in [''.join(j) for j in mapping])
 
 
+class Solution(object):
+    def convert(self, s, numRows):
+        ### Time O(N), Space O(1) ## better in space
+        """
+        :type s: str
+        :type numRows: int
+        :rtype: str
+        """
+        if numRows == 1:
+            return s
+        step, zigzag = 2 * numRows - 2, ""
+        for i in range(numRows):
+            for j in range(i, len(s), step):
+                zigzag += s[j]
+                if 0 < i < numRows - 1 and j + step - 2 * i < len(s):
+                    zigzag += s[j + step - 2 * i]
+        return zigzag
+
+
 if __name__ == '__main__':
     assert Solution().convert("", 3) == "", 'Edge 1'
     assert Solution().convert("A", 1) == "A", 'Edge 1'
