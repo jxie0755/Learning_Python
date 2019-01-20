@@ -35,8 +35,7 @@ class Solution:
 
         i = 0
         while i != len(s):
-            index = z[i % cycle]
-            mapping[index].append(s[i])
+            mapping[z[i % cycle]].append(s[i])
             i += 1
 
         return ''.join(i for i in [''.join(j) for j in mapping])
