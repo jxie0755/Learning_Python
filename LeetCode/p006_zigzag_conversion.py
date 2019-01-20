@@ -41,6 +41,24 @@ class Solution:
         return ''.join(i for i in [''.join(j) for j in mapping])
 
 
+class Solution:
+    def convert(self, s, numRows):
+        ### Time O(N), space O(N)
+        """
+        :type s: str
+        :type numRows: int
+        :rtype: str
+        """
+        z= list(range(0, numRows)) + list(range(numRows-2, 0, -1))
+        z *= (len(s) // len(z) + 1)  # 直接扩展z, 不要用cycle的方式
+        mapping = [[]for i in range(numRows)]
+
+        i = 0
+        while i != len(s):
+            mapping[z[i]].append(s[i])  # 也就是直接引用z中相同的index的index
+            i += 1
+
+        return ''.join(i for i in [''.join(j) for j in mapping])
 
 
 if __name__ == '__main__':
