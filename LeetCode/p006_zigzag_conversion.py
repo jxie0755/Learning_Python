@@ -31,22 +31,24 @@ class Solution:
         """
         z = list(range(0, numRows)) + list(range(numRows-2, 0, -1))
         cycle = len(z)
-        i = 0
         mapping = [[]for i in range(numRows)]
 
+        i = 0
         while i != len(s):
             index = z[i % cycle]
             mapping[index].append(s[i])
             i += 1
 
-        result = ''
-        for i in mapping:
-            result += ''.join(i)
-        return result
+        return ''.join(i for i in [''.join(j) for j in mapping])
+
 
 
 
 if __name__ == '__main__':
+    assert Solution().convert("", 3) == "", 'Edge 1'
+    assert Solution().convert("A", 1) == "A", 'Edge 1'
+    assert Solution().convert("AB", 1) == "AB", 'Edge 1'
+
     assert Solution().convert("PAYPALISHIRING", 3) == "PAHNAPLSIIGYIR", 'Example 1'
     assert Solution().convert("PAYPALISHIRING", 4) == "PINALSIGYAHRPI", 'Example 2'
     print('all passed')
