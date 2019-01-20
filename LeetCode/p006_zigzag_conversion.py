@@ -51,7 +51,7 @@ class Solution:
         """
         z= list(range(0, numRows)) + list(range(numRows-2, 0, -1))
         z *= (len(s) // len(z) + 1)  # 直接扩展z, 不要用cycle的方式
-        mapping = [[]for i in range(numRows)]
+        mapping = [[] for _ in range(numRows)]
 
         i = 0
         while i != len(s):
