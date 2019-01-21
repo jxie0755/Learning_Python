@@ -11,6 +11,8 @@
 
 class Solution:
     def moveZeroes(self, nums):
+        # Time:  O(n)
+        # Space: O(1)
         """
         :type nums: List[int]
         :rtype: void Do not return anything, modify nums in-place instead.
@@ -23,6 +25,20 @@ class Solution:
                     nums.append(nums.pop(i))
                 i -= 1
 
+class Solution(object):
+    def moveZeroes(self, nums):
+        # Time:  O(n)
+        # Space: O(1)
+        """
+        :type nums: List[int]
+        :rtype: void Do not return anything, modify nums in-place instead.
+        """
+        pos = 0
+        for i in range(len(nums)):
+            if nums[i]:
+                nums[i], nums[pos] = nums[pos], nums[i]
+                pos += 1
+            print(nums)
 
 
 if __name__ == '__main__':
