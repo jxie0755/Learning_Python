@@ -54,6 +54,7 @@ class Solution:
         ### Recursion method
         ### This will break down l1 and l2
         ### 加一个parameter就可以避免改变l1和l2
+        ### This will pass even an additional parameter is added.
         """
         :type l1: ListNode
         :type l2: ListNode
@@ -66,16 +67,13 @@ class Solution:
 
         new_node = ListNode(new_val)
         if l1.next and not l2.next:
-
             new_node.next = self.addTwoNumbers(l1.next, ListNode(0), new_carry_over)
         elif l2.next and not l1.next:
-            l2.next.val += carry_over
             new_node.next = self.addTwoNumbers(ListNode(0), l2.next, new_carry_over)
         elif l1.next and l2.next:
-            l1.next.val += carry_over
             new_node.next = self.addTwoNumbers(l1.next, l2.next, new_carry_over)
         else:
-            new_node.next = None if not carry_over else ListNode(1)
+            new_node.next = None if not new_carry_over else ListNode(1)
 
         return new_node
 
@@ -97,7 +95,7 @@ if __name__ == '__main__':
     assert c.val == 7, 'Example 1a'
     assert c.next.val == 0, 'Example 1b'
     assert c.next.next.val == 8, 'Example 1c'
-
+    assert c.next.next.next is None, 'Example 1d'
     print('new recursion passed')
 
 class Solution(object):
@@ -176,6 +174,7 @@ if __name__ == '__main__':
     assert c.val == 7, 'Example 1a'
     assert c.next.val == 0, 'Example 1b'
     assert c.next.next.val == 8, 'Example 1c'
+    assert c.next.next.next is None, 'Example 1d'
 
 
     # Example 2
@@ -194,5 +193,5 @@ if __name__ == '__main__':
     assert c.val == 0, 'Example 2a'
     assert c.next.val == 4, 'Example 2b'
     assert c.next.next.val == 4, 'Example 2c'
-
+    assert c.next.next.next is None, 'Example 2d'
     print('all passed')
