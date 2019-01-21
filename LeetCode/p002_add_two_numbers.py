@@ -15,6 +15,38 @@ class ListNode:
         self.val = x
         self.next = None
 
+class Solution(object):
+    def addTwoNumbers(self, l1, l2):
+        ### Time:  O(n)
+        ### Space: O(1)
+        ### Non-recursion  method
+        ### This will protect l1 and l2 from changing
+        """
+        :type l1: ListNode
+        :type l2: ListNode
+        :rtype: ListNode
+        """
+        dummy = ListNode(0)
+        current, carry = dummy, 0
+
+        while l1 or l2:
+            val = carry
+            if l1:
+                val += l1.val
+                l1 = l1.next
+            if l2:
+                val += l2.val
+                l2 = l2.next
+            carry, val = divmod(val, 10)
+            current.next = ListNode(val)
+            current = current.next
+
+        if carry == 1:
+            current.next = ListNode(1)
+
+        return dummy.next
+
+
 class Solution:
     def addTwoNumbers(self, l1, l2):
         ### Time:  O(n)
@@ -47,6 +79,7 @@ class Solution:
 
         return new_node
 
+
 class Solution:
     def addTwoNumbers(self, l1, l2, carry_over=0):
         ### Time:  O(n)
@@ -76,59 +109,6 @@ class Solution:
             new_node.next = None if not new_carry_over else ListNode(1)
 
         return new_node
-
-if __name__ == '__main__':
-    # Example 1
-    # Input: (2 -> 4 -> 3) + (5 -> 6 -> 4)
-    # Output: 7 -> 0 -> 8
-    # Explanation: 342 + 465 = 807.
-
-    a1, a2, a3 = ListNode(2), ListNode(4), ListNode(3)
-    a1.next = a2
-    a2.next = a3
-
-    b1, b2, b3 = ListNode(5), ListNode(6), ListNode(4)
-    b1.next = b2
-    b2.next = b3
-
-    c = Solution().addTwoNumbers(a1, b1)
-    assert c.val == 7, 'Example 1a'
-    assert c.next.val == 0, 'Example 1b'
-    assert c.next.next.val == 8, 'Example 1c'
-    assert c.next.next.next is None, 'Example 1d'
-    print('new recursion passed')
-
-class Solution(object):
-    def addTwoNumbers(self, l1, l2):
-        ### Time:  O(n)
-        ### Space: O(1)
-        ### Non-recursion  method
-        ### This will protect l1 and l2 from changing
-        """
-        :type l1: ListNode
-        :type l2: ListNode
-        :rtype: ListNode
-        """
-        dummy = ListNode(0)
-        current, carry = dummy, 0
-
-        while l1 or l2:
-            val = carry
-            if l1:
-                val += l1.val
-                l1 = l1.next
-            if l2:
-                val += l2.val
-                l2 = l2.next
-            carry, val = divmod(val, 10)
-            current.next = ListNode(val)
-            current = current.next
-
-        if carry == 1:
-            current.next = ListNode(1)
-
-        return dummy.next
-
 
 if __name__ == '__main__':
     # Input: (0) + (0 - > 1)
