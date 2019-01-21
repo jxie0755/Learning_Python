@@ -17,7 +17,10 @@ class ListNode:
 
 class Solution:
     def addTwoNumbers(self, l1, l2):
+        ### Time:  O(n)
+        ### Space: O(1)
         ### Recursion method
+        ### This will break down l1 and l2
         """
         :type l1: ListNode
         :type l2: ListNode
@@ -46,7 +49,10 @@ class Solution:
 
 class Solution(object):
     def addTwoNumbers(self, l1, l2):
+        ### Time:  O(n)
+        ### Space: O(1)
         ### Non-recursion  method
+        ### This will protect l1 and l2 from changing
         """
         :type l1: ListNode
         :type l2: ListNode
