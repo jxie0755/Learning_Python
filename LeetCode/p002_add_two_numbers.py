@@ -50,69 +50,67 @@ class Solution:
 
 
 
+if __name__ == '__main__':
+    # Input: (0) + (0 - > 1)
+    # Output: 0 -> 1
+    # Explanation: 0 + 10 = 10.
+
+    a1 = ListNode(0)
+
+    b1, b2 = ListNode(0), ListNode(1)
+    b1.next = b2
+
+    c = Solution().addTwoNumbers(a1, b1)
+    assert c.val == 0, 'Edge 1a'
+    assert c.next.val == 1, 'Edge 1b'
 
 
+    # Input: (9) + (9)
+    # Output: 8 -> 1
+    # Explanation: 9 + 9 = 18.
 
-# Input: (0) + (0 - > 1)
-# Output: 0 -> 1
-# Explanation: 0 + 10 = 10.
+    a1 = ListNode(9)
+    b1 = ListNode(9)
 
-a1 = ListNode(0)
-
-b1, b2 = ListNode(0), ListNode(1)
-b1.next = b2
-
-c = Solution().addTwoNumbers(a1, b1)
-assert c.val == 0, 'Edge 1a'
-assert c.next.val == 1, 'Edge 1b'
+    c = Solution().addTwoNumbers(a1, b1)
+    assert c.val == 8, 'Edge 2a'
+    assert c.next.val == 1, 'Edge 2b'
 
 
-# Input: (9) + (9)
-# Output: 8 -> 1
-# Explanation: 9 + 9 = 18.
+    # Example 1
+    # Input: (2 -> 4 -> 3) + (5 -> 6 -> 4)
+    # Output: 7 -> 0 -> 8
+    # Explanation: 342 + 465 = 807.
 
-a1 = ListNode(9)
-b1 = ListNode(9)
+    a1, a2, a3 = ListNode(2), ListNode(4), ListNode(3)
+    a1.next = a2
+    a2.next = a3
 
-c = Solution().addTwoNumbers(a1, b1)
-assert c.val == 8, 'Edge 2a'
-assert c.next.val == 1, 'Edge 2b'
+    b1, b2, b3 = ListNode(5), ListNode(6), ListNode(4)
+    b1.next = b2
+    b2.next = b3
 
-
-# Example 1
-# Input: (2 -> 4 -> 3) + (5 -> 6 -> 4)
-# Output: 7 -> 0 -> 8
-# Explanation: 342 + 465 = 807.
-
-a1, a2, a3 = ListNode(2), ListNode(4), ListNode(3)
-a1.next = a2
-a2.next = a3
-
-b1, b2, b3 = ListNode(5), ListNode(6), ListNode(4)
-b1.next = b2
-b2.next = b3
-
-c = Solution().addTwoNumbers(a1, b1)
-assert c.val == 7, 'Example 1a'
-assert c.next.val == 0, 'Example 1b'
-assert c.next.next.val == 8, 'Example 1c'
+    c = Solution().addTwoNumbers(a1, b1)
+    assert c.val == 7, 'Example 1a'
+    assert c.next.val == 0, 'Example 1b'
+    assert c.next.next.val == 8, 'Example 1c'
 
 
-# Example 2
-# Input: (2 -> 4 -> 3) + (8 -> 9)
-# Output: 0 -> 4 -> 4
-# Explanation: 342 + 98 = 440.
+    # Example 2
+    # Input: (2 -> 4 -> 3) + (8 -> 9)
+    # Output: 0 -> 4 -> 4
+    # Explanation: 342 + 98 = 440.
 
-a1, a2, a3 = ListNode(2), ListNode(4), ListNode(3)
-a1.next = a2
-a2.next = a3
+    a1, a2, a3 = ListNode(2), ListNode(4), ListNode(3)
+    a1.next = a2
+    a2.next = a3
 
-b1, b2 = ListNode(8), ListNode(9)
-b1.next = b2
+    b1, b2 = ListNode(8), ListNode(9)
+    b1.next = b2
 
-c = Solution().addTwoNumbers(a1, b1)
-assert c.val == 0, 'Example 2a'
-assert c.next.val == 4, 'Example 2b'
-assert c.next.next.val == 4, 'Example 2c'
+    c = Solution().addTwoNumbers(a1, b1)
+    assert c.val == 0, 'Example 2a'
+    assert c.next.val == 4, 'Example 2b'
+    assert c.next.next.val == 4, 'Example 2c'
 
-print('all passed')
+    print('all passed')
