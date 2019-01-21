@@ -21,6 +21,7 @@ class Solution:
         ### Space: O(1)
         ### Recursion method
         ### This will break down l1 and l2
+        ### 加一个parameter就可以避免改变l1和l2
         """
         :type l1: ListNode
         :type l2: ListNode
@@ -46,6 +47,58 @@ class Solution:
 
         return new_node
 
+class Solution:
+    def addTwoNumbers(self, l1, l2, carry_over):
+        ### Time:  O(n)
+        ### Space: O(1)
+        ### Recursion method
+        ### This will break down l1 and l2
+        ### 加一个parameter就可以避免改变l1和l2
+        """
+        :type l1: ListNode
+        :type l2: ListNode
+        :rtype: ListNode
+        """
+        a = l1.val if l1 else 0
+        b = l2.val if l2 else 0
+        new_val = a + b + carry_over
+        new_carry_over, new_val = divmod(new_val, 10)
+
+        new_node = ListNode(new_val)
+        if l1.next and not l2.next:
+
+            new_node.next = self.addTwoNumbers(l1.next, ListNode(0), new_carry_over)
+        elif l2.next and not l1.next:
+            l2.next.val += carry_over
+            new_node.next = self.addTwoNumbers(ListNode(0), l2.next, new_carry_over)
+        elif l1.next and l2.next:
+            l1.next.val += carry_over
+            new_node.next = self.addTwoNumbers(l1.next, l2.next, new_carry_over)
+        else:
+            new_node.next = None if not carry_over else ListNode(1)
+
+        return new_node
+
+if __name__ == '__main__':
+    # Example 1
+    # Input: (2 -> 4 -> 3) + (5 -> 6 -> 4)
+    # Output: 7 -> 0 -> 8
+    # Explanation: 342 + 465 = 807.
+
+    a1, a2, a3 = ListNode(2), ListNode(4), ListNode(3)
+    a1.next = a2
+    a2.next = a3
+
+    b1, b2, b3 = ListNode(5), ListNode(6), ListNode(4)
+    b1.next = b2
+    b2.next = b3
+
+    c = Solution().addTwoNumbers(a1, b1, 0)
+    assert c.val == 7, 'Example 1a'
+    assert c.next.val == 0, 'Example 1b'
+    assert c.next.next.val == 8, 'Example 1c'
+
+    print('new recursion passed')
 
 class Solution(object):
     def addTwoNumbers(self, l1, l2):
