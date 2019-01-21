@@ -85,9 +85,9 @@ class Solution:
         ### Time:  O(n)
         ### Space: O(1)
         ### Recursion method
-        ### This will break down l1 and l2
+        ### This now will not break down l1 and l2
         ### 加一个parameter就可以避免改变l1和l2
-        ### This will pass even an additional parameter is added.
+        ### This will pass the test case even an additional parameter is added.
         """
         :type l1: ListNode
         :type l2: ListNode
