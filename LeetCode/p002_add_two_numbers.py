@@ -48,7 +48,7 @@ class Solution:
         return new_node
 
 class Solution:
-    def addTwoNumbers(self, l1, l2, carry_over):
+    def addTwoNumbers(self, l1, l2, carry_over=0):
         ### Time:  O(n)
         ### Space: O(1)
         ### Recursion method
@@ -93,7 +93,7 @@ if __name__ == '__main__':
     b1.next = b2
     b2.next = b3
 
-    c = Solution().addTwoNumbers(a1, b1, 0)
+    c = Solution().addTwoNumbers(a1, b1)
     assert c.val == 7, 'Example 1a'
     assert c.next.val == 0, 'Example 1b'
     assert c.next.next.val == 8, 'Example 1c'
