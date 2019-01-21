@@ -22,7 +22,31 @@ class Solution:
         :type l2: ListNode
         :rtype: ListNode
         """
-        pass
+        a = l1.val if l1 else 0
+        b = l2.val if l2 else 0
+        new_val = a + b
+        if new_val >= 10:
+            new_val = new_val % 10
+            carry_over = 1
+        else:
+            carry_over = 0
+
+        new_node = ListNode(new_val)
+        if l1.next and not l2.next:
+            l1.next.val += carry_over
+            new_node.next = self.addTwoNumbers(l1.next, ListNode(0))
+        elif l2.next and not l1.next:
+            l2.next.val += carry_over
+            new_node.next = self.addTwoNumbers(ListNode(0), l2.next)
+        elif l1.next and l2.next:
+            l1.next.val += carry_over
+            new_node.next = self.addTwoNumbers(l1.next, l2.next)
+        else:
+            new_node.next = None if not carry_over else ListNode(1)
+
+        return new_node
+
+
 
 
 
@@ -41,7 +65,6 @@ b1.next = b2
 c = Solution().addTwoNumbers(a1, b1)
 assert c.val == 0, 'Edge 1a'
 assert c.next.val == 1, 'Edge 1b'
-
 
 
 # Input: (9) + (9)
@@ -93,9 +116,3 @@ assert c.next.val == 4, 'Example 2b'
 assert c.next.next.val == 4, 'Example 2c'
 
 print('all passed')
-
-
-
-
-
-
