@@ -17,6 +17,7 @@ class ListNode:
 
 class Solution:
     def addTwoNumbers(self, l1, l2):
+        ### Recursion method
         """
         :type l1: ListNode
         :type l2: ListNode
@@ -25,11 +26,7 @@ class Solution:
         a = l1.val if l1 else 0
         b = l2.val if l2 else 0
         new_val = a + b
-        if new_val >= 10:
-            new_val = new_val % 10
-            carry_over = 1
-        else:
-            carry_over = 0
+        carry_over, new_val = divmod(new_val, 10)
 
         new_node = ListNode(new_val)
         if l1.next and not l2.next:
@@ -46,8 +43,33 @@ class Solution:
 
         return new_node
 
+class Solution(object):
+    def addTwoNumbers(self, l1, l2):
+        ### Non-recursion  method
+        """
+        :type l1: ListNode
+        :type l2: ListNode
+        :rtype: ListNode
+        """
+        dummy = ListNode(0)
+        current, carry = dummy, 0
 
+        while l1 or l2:
+            val = carry
+            if l1:
+                val += l1.val
+                l1 = l1.next
+            if l2:
+                val += l2.val
+                l2 = l2.next
+            carry, val = divmod(val, 10)
+            current.next = ListNode(val)
+            current = current.next
 
+        if carry == 1:
+            current.next = ListNode(1)
+
+        return dummy.next
 
 
 if __name__ == '__main__':
