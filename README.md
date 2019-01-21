@@ -35,4 +35,4 @@ Practice:
 
 ---
 Update gradually as I go through each resource.
-I will also add more books/course as the time goes by.
+I will also add more python books/course as the time goes by.
