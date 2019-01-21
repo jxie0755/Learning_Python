@@ -43,6 +43,7 @@ class Solution:
 
         return new_node
 
+
 class Solution(object):
     def addTwoNumbers(self, l1, l2):
         ### Non-recursion  method
