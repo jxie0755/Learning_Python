@@ -33,67 +33,99 @@ class Solution:
                     return len(sample)
 
 
-# class Solution:
-#     def lengthOfLongestSubstring(self, s):
-#         ### Time O(N), Space O(N)
-#         ### if a string shows repeat, then all substring that include this string will have repeat.
-#         ### Use hashtable to track length of non-repeating substrings
-#         ### This will fail because not able to track non-consecutive repeats !!!!
-#         """
-#         :type s: str
-#         :rtype: int
-#         """
-#         found = False
-#         hashtable = {}
-#         i, cur_len = 0, 0
-#         while i != len(s):
-#             sample = s[i]
-#             if sample not in hashtable:
-#                 found = False
-#                 hashtable[sample] = 1
-#             else:
-#                 found = True
-#                 new_len = len(hashtable)
-#                 cur_len = new_len if new_len > cur_len else cur_len
-#                 hashtable = {sample: 1}
-#             i += 1
-#
-#         return cur_len if found else len(hashtable)
-
 
 class Solution:
     def lengthOfLongestSubstring(self, s):
         ### Time O(N^2), Space O(N)
-        ### Use the center expansion, recursive
+        ### Find repeating element and start again after the first repeating element
+        ### Recursion is dangerous with maximum recursion depth limit, this one will fail at a long string test case!!
         """
         :type s: str
         :rtype: int
         """
         if not s:
             return 0
-        elif len(s) == 1:
-            return 1
-        elif len(s) == 2:
-            return 2 if s[0] != s[1] else 1
         else:
-            length = len(s)
-            mid = len(s) // 2
-            hashtable = {s[mid]: 1}
+            hashtable = {}
+            i = 0
+            while i != len(s) and s[i] not in hashtable:
+                hashtable[s[i]] = i
+                i += 1
+
+            if i == len(s):    # if no repeat, go to the end and return the full length
+                return len(s)
+            else:              # if repeat, then recursive compare to the next section, starting after the first repeating element.
+                new_start = hashtable[s[i]]+1
+                return max(i, self.lengthOfLongestSubstring(s[new_start:]))
+
+# Idea is like:
+# abcdefghXijklmXoMqrstMuvwxyz
+# abcdefghXijklmX.....            Find X occured twice, then stop and recalculate after the first X
+#          ijklmXoMqrstM...       Find M occured twice, then stop and recalculate after the first M
+#                  qrstMuvwxyz    until it ends, and compare each secion
 
 
+class Solution:
+    def lengthOfLongestSubstring(self, s):
+        ### Time O(N^2), Space O(N)
+        ### Non-recursive way to previous method
+        """
+        :type s: str
+        :rtype: int
+        """
+        result = []
+
+        if not s:
+            return 0
+        else:
+            i, label = 0, 0
+            hashtable = {}
+            while i != len(s):
+                current = s[i]
+                if current not in hashtable:
+                    hashtable[current] = i
+                    i += 1
+                    if i == len(s):  # Define an end case as no repeating found at the last element
+                        result.append(i-label)
+                else:
+                    result.append(i-label)
+                    i = hashtable[current] + 1
+                    label = i
+                    hashtable = {}
+
+            return max(result)
 
 
+class Solution(object):
+    ### Time O(N), Space O(N)
+    ### No need to restart from first repeating element, just go iteration once
+    def lengthOfLongestSubstring(self, s):
+        """
+        :type s: str
+        :rtype: int
+        """
+        start = 0
+        char_used = {}
+        result = [0]
+
+        for i,c in enumerate(s):  # use enumerate to record and iterate i and character at the same time!
+            if c not in char_used:
+                result.append(i - start+1)
+            else:
+                start = char_used[c] + 1
+            char_used[c]=i
+
+        return max(result)
 
 
-Solution().lengthOfLongestSubstring("aab")
-#
-# assert Solution().lengthOfLongestSubstring("") == 0, 'Edge 1'
-# assert Solution().lengthOfLongestSubstring(" ") == 1, 'Edge 2'
-# assert Solution().lengthOfLongestSubstring("au") == 2, 'Edge 3'
-# assert Solution().lengthOfLongestSubstring("aab") == 2, 'Edge 4'
-# assert Solution().lengthOfLongestSubstring("dvdf") == 3, 'Edge 5'
-#
-# assert Solution().lengthOfLongestSubstring("abcabcbb") == 3, 'Example 1, "abc"'
-# assert Solution().lengthOfLongestSubstring("bbbbb") == 1, 'Example 1, "b"'
-# assert Solution().lengthOfLongestSubstring("pwwkew") == 3, 'Example 1, "wke"'
-# print('all passed')
+if __name__ == '__main__':
+    assert Solution().lengthOfLongestSubstring("") == 0, 'Edge 1'
+    assert Solution().lengthOfLongestSubstring(" ") == 1, 'Edge 2'
+    assert Solution().lengthOfLongestSubstring("au") == 2, 'Edge 3'
+    assert Solution().lengthOfLongestSubstring("aab") == 2, 'Edge 4'
+    assert Solution().lengthOfLongestSubstring("dvdf") == 3, 'Edge 5'
+
+    assert Solution().lengthOfLongestSubstring("abcabcbb") == 3, 'Example 1, "abc"'
+    assert Solution().lengthOfLongestSubstring("bbbbb") == 1, 'Example 1, "b"'
+    assert Solution().lengthOfLongestSubstring("pwwkew") == 3, 'Example 1, "wke"'
+    print('all passed')
