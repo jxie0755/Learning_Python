@@ -48,15 +48,15 @@ class Solution:
         else:
             hashtable = {}
             i = 0
-            while i != len(s) and s[i] not in hashtable:
+            while i != len(s):
+                if s[i] in hashtable:  # if repeat, then recursive compare to the next section, starting after the first repeating element.
+                    new_start = hashtable[s[i]]+1
+                    return max(i, self.lengthOfLongestSubstring(s[new_start:]))
                 hashtable[s[i]] = i
                 i += 1
-
-            if i == len(s):    # if no repeat, go to the end and return the full length
+            else:   # if no repeat, go to the end and return the full length
                 return len(s)
-            else:              # if repeat, then recursive compare to the next section, starting after the first repeating element.
-                new_start = hashtable[s[i]]+1
-                return max(i, self.lengthOfLongestSubstring(s[new_start:]))
+
 
 # Idea is like:
 # abcdefghXijklmXoMqrstMuvwxyz
