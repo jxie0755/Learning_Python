@@ -47,7 +47,6 @@ class Solution(object):
         return dummy.next
 
 
-
 class Solution:
     def addTwoNumbers(self, l1, l2):
         ### Time:  O(n)
