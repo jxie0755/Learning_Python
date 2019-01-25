@@ -37,7 +37,6 @@ class Solution:
                 break
         return result
 
-
 if __name__ == '__main__':
     lst = ['Denis Xie', 'Dennis X', 'Dendi Den', 'Denn']
     lst2 = []
