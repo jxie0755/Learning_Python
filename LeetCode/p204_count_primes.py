@@ -125,6 +125,7 @@ class Solution:
 class Solution(object):
     # @param {integer} n
     # @return {integer}
+    # The Sieve of Eratosthenes
     def countPrimes(self, n):
         # Time:  O(n^2)
         # Space: O(n)
