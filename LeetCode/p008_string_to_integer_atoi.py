@@ -33,34 +33,55 @@ class Solution:
             '9': 9,
         }
 
-        num_result = 0
-        base = 1
-        found = False
-        trigger = False
-        for i in str[::-1]:
-            if i not in hashtable and not found:
-                pass
-            elif i in hashtable:
-                found = True
-                num_result += hashtable[i] * base
-                base *= 10
-            elif i == '.':
-                num_result = 0
-                base = 1
-            elif i == '-' and not trigger:
-                num_result *= -1
-                trigger = True
-            elif i == '+' and not trigger:
-                trigger = True
-            elif i not in hashtable and i != ' ' and found:
-                return 0
+        prefix = {
+            '+': 1,
+            '-': -1
+        }
 
-        if num_result > 2**31 -1:
-                return 2**32 -1
-        elif num_result < -(2**31):
-                return -(2**31)
+        low = -2**31
+        high = 2**31 - 1
+
+        # Get the numeric first
+        found = False
+        extract = ''
+        for i in str:
+            if i == ' ' and not found:
+                pass
+
+            elif i in prefix and not found:
+                extract += i
+                found = True
+            elif i in prefix and found:
+                break
+
+            elif i in hashtable:
+                extract += i
+                found = True
+
+            elif i == '.':
+                break
+
+            else:
+                break
+
+        if not extract:
+            return 0
         else:
-            return num_result
+            result, base = 0, 1
+            for i in extract[::-1]:
+                if i in hashtable:
+                    result += hashtable[i] * base
+                    base *= 10
+                elif i in prefix:
+                    result *= prefix[i]
+
+            if result < low:
+                return low
+            elif result > high:
+                return high
+            return result
+
+
 
 
 if __name__ == '__main__':
@@ -76,6 +97,7 @@ if __name__ == '__main__':
     assert Solution().myAtoi("+1") == 1, 'Extra 2'
     assert Solution().myAtoi("+-2") == 0, 'Extra 3'
     assert Solution().myAtoi("  -0012a42") == -12, 'Extra 4'
+    assert Solution().myAtoi("   +0 123") == 0, 'Extra 5'
+    assert Solution().myAtoi("-5-") == -5, 'Extra 6'
+
     print('all passed')
-
-
