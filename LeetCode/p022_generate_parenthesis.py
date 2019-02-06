@@ -24,17 +24,63 @@ class Solution:
 
 class Solution:
     def generateParenthesis(self, n: 'int') -> 'List[str]':
-        pass
+        if n == 0:
+            return []
+        elif n == 1:
+            return ['()']
+        else:
+            prev = self.generateParenthesis(n-1)
+            result = []
+            for i in prev:
+                result += self.dev_parenthesis(i)
+            return result + ['()'*n]
+
+    def dev_parenthesis(self, p):
+        result = []
+        eye = 0
+        eye_list = []
+        for i in range(0, len(p)-1):
+            print(p[i:i + 2])
+            if p[i: i + 2] == '()':
+                eye_list.append(i+1)
+                eye += 1
+        for eye_idx in eye_list:
+            result.append(p[:eye_idx] + '()' + p[eye_idx:])
+        if eye > 1:
+            result.append('(' + p + ')')
+        return result
 
 
 
-
-if __name__ == '__main__':
-    assert Solution().generateParenthesis(2) == ["(())", "()()"]
-    assert Solution().generateParenthesis(3) == ["((()))", "(()())", "(())()", "()(())", "()()()"]
-    print('all passed')
-
+# if __name__ == '__main__':
+#     assert Solution().generateParenthesis(2) == ["(())", "()()"]
+#     assert Solution().generateParenthesis(3) == ["((()))", "(()())", "(())()", "()(())", "()()()"]
+#     print('all passed')
+#
 print(Solution().generateParenthesis(0))
+print(Solution().generateParenthesis(1))
+print(Solution().generateParenthesis(2))
 print(Solution().generateParenthesis(3))
+print(Solution().generateParenthesis(4))
+
 
 # TODO Need to learn why it works
+
+# "(((())))",    "(((())))"
+# "((()))()",    "((()))()"
+# "(())(())", # C
+# "((())())",    "((())())" # B
+# "(())(())",    "(())(())" # C
+# "()((()))",    "()((()))"
+# "(()(()))",    "(()(()))" # A
+# "((())())", # B
+# "(()(()))", # A
+# "((()()))",    "((()()))"
+# "(())()()",    "(())()()"
+# "()(())()",    "()(())()"
+# "()()(())",    "()()(())"
+# "(()()())",    "(()()())"
+# "()()()()"     "()()()()"
+#
+#                "(()())()"
+#                "()(()())"
