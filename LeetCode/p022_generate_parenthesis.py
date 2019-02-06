@@ -22,7 +22,14 @@ class Solution:
         return generate('', n, n)
 
 
+class Solution:
+    def generateParenthesis(self, n: 'int') -> 'List[str]':
+        pass
+
+
+
 if __name__ == '__main__':
+    assert Solution().generateParenthesis(2) == ["(())", "()()"]
     assert Solution().generateParenthesis(3) == ["((()))", "(()())", "(())()", "()(())", "()()()"]
     print('all passed')
 
