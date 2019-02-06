@@ -28,6 +28,7 @@ class Solution:
 
 
 
+
 if __name__ == '__main__':
     assert Solution().generateParenthesis(2) == ["(())", "()()"]
     assert Solution().generateParenthesis(3) == ["((()))", "(()())", "(())()", "()(())", "()()()"]
