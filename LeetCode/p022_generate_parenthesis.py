@@ -55,6 +55,7 @@ class Solution:
 # if __name__ == '__main__':
 #     assert Solution().generateParenthesis(2) == ["(())", "()()"]
 #     assert Solution().generateParenthesis(3) == ["((()))", "(()())", "(())()", "()(())", "()()()"]
+#     assert Solution().generateParenthesis(4) == ["(((())))","((()()))","((())())","((()))()","(()(()))","(()()())","(()())()","(())(())","(())()()","()((()))","()(()())","()(())()","()()(())","()()()()"]
 #     print('all passed')
 #
 print(Solution().generateParenthesis(0))
