@@ -53,11 +53,15 @@ class Solution:
 
 
 # if __name__ == '__main__':
+#     assert Solution().generateParenthesis(0) == [], "Edge 1"
+#     assert Solution().generateParenthesis(1) == ['()'], "Edge 2"
+
 #     assert set(Solution().generateParenthesis(2)) == set(["(())", "()()"])
 #     assert set(Solution().generateParenthesis(3)) == set(["((()))", "(()())", "(())()", "()(())", "()()()"])
 #     assert set(Solution().generateParenthesis(4)) == set(["(((())))","((()()))","((())())","((()))()","(()(()))","(()()())","(()())()","(())(())","(())()()","()((()))","()(()())","()(())()","()()(())","()()()()"])
 #     print('all passed')
-#
+
+
 print(Solution().generateParenthesis(0))
 print(Solution().generateParenthesis(1))
 print(Solution().generateParenthesis(2))
