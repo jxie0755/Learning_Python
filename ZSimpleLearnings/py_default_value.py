@@ -46,3 +46,54 @@ list3.append(33)
 list3.append(44)
 print(list3)  # >>> [33, 44]
 print(h())  # >>> []
+
+
+# Use mutable default variable is dangerous but could work for some recursion method
+# https://stackoverflow.com/questions/54577667/cannot-understand-the-critical-comma-in-this-function/54577759?noredirect=1#comment95953941_54577759
+
+def list_from_zero(n, lst=[]): # in the beginning, empty lst is created when at n
+
+    if n > 0:
+        list_from_zero(n-1)
+        # when call n-1, because lst is called for n,
+        # then this call will no longer create a new empty lst,
+        # but to keep use the lst in n
+
+    lst.append(n)
+
+    return lst
+
+# Same idea but switch append and recursion
+def list_to_zero(n, lst=[]):  # in the beginning, empty lst is created when at n
+
+    lst.append(n)
+
+    if n > 0:
+        list_to_zero(n - 1)
+        # when call n-1, because lst is called for n,
+        # then this call will no longer create a new empty lst,
+        # but to keep use the lst in n
+
+    return lst
+
+print(list_from_zero(5))
+# >>> [0, 1, 2, 3, 4, 5]
+
+print(list_to_zero(5))
+# >>> [5, 4, 3, 2, 1, 0]
+
+# It's taking advantage of the fact that the same list (which is initially empty) is shared by all recursive calls that don't explicitly provide a list
+# Essentiall equal to:
+
+L = []
+def list_to_zero_global(n):
+    global L
+    L.append(n)
+    if n > 0:
+        list_to_zero_global(n-1)
+    return L
+
+list_to_zero_global(4)
+print(L)
+# >>> [4, 3, 2, 1, 0]
+# But in this case, L is truly global, but in recursive method, L is only global to all recursive calls
