@@ -45,10 +45,31 @@ class Solution:
             if right > left:
                 generate(p + ')', left, right - 1)
             if not right:
-                parens += p,
+                parens += p,   # Here p, means a tuple (p,) see ZSimpleLearnings.py_tuple_expression
             return parens
 
         return generate('', n, n)
+
+
+# An easier way to understand previous
+class Solution:
+    ### Time:  O(4^n / n^(3/2)) ~= Catalan numbers
+    ### Space: O(n)
+    def generateParenthesis(self, n):
+        parens = []
+        def generate(p, left, right):
+
+            nonlocal parens
+
+            if left:
+                generate(p + '(', left - 1, right)
+            if right > left:
+                generate(p + ')', left, right - 1)
+            if not right:
+                parens.append(p)
+
+        generate('', n, n)
+        return parens
 
 
 
@@ -59,4 +80,3 @@ if __name__ == '__main__':
     assert set(Solution().generateParenthesis(3)) == set(["((()))", "(()())", "(())()", "()(())", "()()()"])
     assert set(Solution().generateParenthesis(4)) == set(['(((())))', '((()()))', '((())())', '((()))()', '(()(()))', '(()()())', '(()())()', '(())(())', '(())()()', '()((()))', '()(()())', '()(())()', '()()(())', '()()()()'])
     print('all passed')
-
