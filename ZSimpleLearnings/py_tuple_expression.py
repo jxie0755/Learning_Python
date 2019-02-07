@@ -17,3 +17,12 @@ print(type(1,))   # Equivalent to type(1)
 
 print(type((1,)))  # or type((1,),)
 # >>> <class 'tuple'>
+
+# This is essentially same idea of:
+for x, y in enumerate(['a', 'b', 'c']):
+    print(x, y)
+# >>>
+# 0 a
+# 1 b
+# 2 c
+# where we use x, y to represent (x, y) as a tuple
