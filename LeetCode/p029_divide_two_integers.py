@@ -16,6 +16,8 @@
 # Assume we are dealing with an environment which could only store integers within the 32-bit signed integer range: [−2^31,  2^31 − 1]. For the purpose of this problem, assume that your function returns 231 − 1 when the division result overflows.
 
 class Solution:
+    # Time:  O(logn) = O(1)
+    # Space: O(1)
     def divide(self, dividend: 'int', divisor: 'int') -> 'int':
 
         def manual_divide(mom, son):
