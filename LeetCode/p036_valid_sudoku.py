@@ -34,7 +34,7 @@ class Solution:
 
     def all_cols(self, board):
         for i in range(0, 9):
-            col = [board[i][j] for j in range(0, 9)]
+            col = [board[j][i] for j in range(0, 9)]
             print(col)
             if not self.correct_line(col):
                 return False
