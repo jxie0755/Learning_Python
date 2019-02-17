@@ -101,4 +101,3 @@ if __name__ == '__main__':
     assert Solution().isValidSudoku(example_3) == False
 
     print('all passed')
-
