@@ -96,8 +96,5 @@ if __name__ == '__main__':
         [".",".",".",".",".",".",".",".","."]
     ]
 
-    print(Solution().all_cols(example_3))
-
     assert Solution().isValidSudoku(example_3) == False
-
     print('all passed')
