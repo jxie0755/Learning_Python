@@ -36,7 +36,7 @@ def ReadDirectoryFile(rootdir):
                            os.path.join(parent, filename))
 
 if __name__ == "__main__":
-    src_path = "/Users/Jxie0755/Desktop/Java_xiaobai"
+    src_path = "D:\Documents\GitHub\Data_Structure_with_Java\Java_小白大牛_源代码"
     # 此处遍历路径下所有子目录
     # 把所有java文件从gbk编码改为utf-8不会破坏原信息
     ReadDirectoryFile(src_path)
