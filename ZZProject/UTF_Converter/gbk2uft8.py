@@ -22,18 +22,20 @@ def GBK_2_UTF8(src, dst):
                 except Exception:
                     print("print error")
             except Exception:
-                print(src +"  "+ coding+ "  read error")
+                print(src + "  " + coding + "  read error")
+
 
 # 把目录中的*.java编码由gbk转换为utf-8
 def ReadDirectoryFile(rootdir):
     for parent, dirnames, filenames in os.walk(rootdir):
         for dirname in dirnames:
-          	#递归函数，遍历所有子文件夹
+            # 递归函数，遍历所有子文件夹
             ReadDirectoryFile(dirname)
         for filename in filenames:
             if filename.endswith(".java"):
                 GBK_2_UTF8(os.path.join(parent, filename),
                            os.path.join(parent, filename))
+
 
 if __name__ == "__main__":
     src_path = "D:\Documents\GitHub\Data_Structure_with_Java\Java_小白大牛_源代码"
