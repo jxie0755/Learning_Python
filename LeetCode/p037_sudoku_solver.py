@@ -288,7 +288,93 @@ class Solution:
             for j in range(9):
                 board[i][j] = str_ans[i][j]
 
+                
+class Solution:
+    def solveSudoku(self, board: 'List[List[str]]') -> 'None':
+        """
+        Do not return anything, modify board in-place instead.
+        """
+        
+        def sudoku_done(b):
+            for x in range(0,9):
+                if "." in b[x]:
+                    return False
+            return True
+        
+        
+        tmp_board = []
+        all_sudoku_guess = []
+        
+        while not sudoku_done(board):
+            print(sudoku_done(board))
+            move_on = 0
+            list_possible_num = []
+            possible_num_min = ["1","2","3","4","5","6","7","8","9"]
+            all_possible_num = []
+            for coor_x in range(0,9):
+                for coor_y in range(0,9):
+                    if board[coor_x][coor_y] == '.':
+                        possible_num = ["1","2","3","4","5","6","7","8","9"]
+                        for n in range(0,9):
+                            if board[coor_x][n] in possible_num:
+                                possible_num.remove(board[coor_x][n])
+                            if board[n][coor_y] in possible_num:
+                                possible_num.remove(board[n][coor_y])
+                        for n1 in range(0,9):
+                            for n2 in range(0,9):
+                                if (n1//3 == coor_x//3 and
+                                    n2//3 == coor_y//3 and
+                                    board[n1][n2] in possible_num):
+                                    possible_num.remove(board[n1][n2])
+                        all_possible_num.append([coor_x,coor_y,possible_num])
 
+                        if len(possible_num) < len(possible_num_min):
+                            possible_num_min = possible_num
+                        #print("coor: ",coor_x,coor_y,", possible num: ",possible_num)
+                        if len(possible_num) == 1:
+                            board[coor_x][coor_y] = possible_num[0]
+                            move_on = 1
+                        if len(possible_num) == 0:
+                            move_on = -1
+                            break
+
+
+
+            if move_on == 0:
+                for each_node in all_possible_num:
+                    if each_node[2] == possible_num_min:
+
+                        board_copy = copy.deepcopy(board)
+                        tmp_board.append(board_copy)    
+
+
+                        board[each_node[0]][each_node[1]] = each_node[2][0]
+                        each_node[2].pop(0)
+                        all_sudoku_guess.append(each_node)
+                        break
+
+            while move_on == -1:
+                board = tmp_board[-1]
+                tmp_board.pop()
+                each_node = all_sudoku_guess[-1]
+                all_sudoku_guess.pop()
+
+                if len(each_node[2]) == 0:
+                    move_on == -1
+                    continue
+                board[each_node[0]][each_node[1]] = each_node[2][0]
+                each_node[2].pop(0)
+
+                all_sudoku_guess.append(each_node)
+                tmp_board.append(board)
+                move_on = 1
+                
+                
+
+        print(sudoku_done(board))
+        print(board)          
+
+ 
 if __name__ == '__main__':
     question = [
         ["5", "3", ".", ".", "7", ".", ".", ".", "."],
