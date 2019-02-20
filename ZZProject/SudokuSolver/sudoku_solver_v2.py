@@ -92,16 +92,16 @@ class Sudoku(object):
         n: int 1-9
         return: a list of numbers extracted from the row
         """
-        self.rows = self.board[:] # make a copy
-        return self.rows[9-n]
+        rows = self.board[:] # make a copy
+        return rows[9-n]
 
     def col(self, n):
         """output a column of numbers
         n: int 1-9
         return: a list of numbers extracted from the column
         """
-        self.columns = [[self.board[i][j] for i in range(9)] for j in range(9)]
-        return self.columns[n-1]
+        columns = [[self.board[i][j] for i in range(9)] for j in range(9)]
+        return columns[n-1]
 
     def grid(self, n):
         """output a grid of 3*3 in the checkboard
@@ -123,8 +123,8 @@ class Sudoku(object):
         g7 = sum([[self.board[i][j] for j in range(0, 3)] for i in range(6, 9)], [])
         g8 = sum([[self.board[i][j] for j in range(3, 6)] for i in range(6, 9)], [])
         g9 = sum([[self.board[i][j] for j in range(6, 9)] for i in range(6, 9)], [])
-        self.grids = [g1, g2, g3, g4, g5, g6, g7, g8, g9]
-        return self.grids[n-1]
+        grids = [g1, g2, g3, g4, g5, g6, g7, g8, g9]
+        return grids[n-1]
 
     # Define moves to add numbers to the board
     def insert(self, x, y, value):
@@ -231,12 +231,12 @@ class Sudoku(object):
         fill it in with the value on the checkerboard"""
 
         def deduce():
-            to_be_filled = []
+            to_be_deduced = []
             all_possible = self.analysis()
             for key, value in all_possible.items():
                 if len(value) == 1:
-                    to_be_filled.append((key, value[0]))
-            return to_be_filled
+                    to_be_deduced.append((key, value[0]))
+            return to_be_deduced
 
         to_be_filled = deduce()
         while to_be_filled:
@@ -317,72 +317,42 @@ class Sudoku(object):
 
 
 if __name__ == '__main__':
-    import time
-    # Hardest SUDOKU ever!
-    ultimate_puzzle_int = [
-        [8, 0, 0, 0, 0, 0, 0, 0, 0],
-        [0, 0, 3, 6, 0, 0, 0, 0, 0],
-        [0, 7, 0, 0, 9, 0, 2, 0, 0],
-        [0, 5, 0, 0, 0, 7, 0, 0, 0],
-        [0, 0, 0, 0, 4, 5, 7, 0, 0],
-        [0, 0, 0, 1, 0, 0, 0, 3, 0],
-        [0, 0, 1, 0, 0, 0, 0, 6, 8],
-        [0, 0, 8, 5, 0, 0, 0, 1, 0],
-        [0, 9, 0, 0, 0, 0, 4, 0, 0],
+    evil_data_10 = [
+        [0, 0, 0, 0, 5, 0, 0, 9, 0],
+        [0, 5, 0, 6, 8, 0, 0, 0, 0],
+        [9, 3, 7, 0, 0, 0, 0, 0, 0],
+        [2, 0, 0, 0, 0, 0, 5, 0, 0],
+        [0, 9, 0, 7, 0, 2, 0, 8, 0],
+        [0, 0, 6, 0, 0, 0, 0, 0, 4],
+        [0, 0, 0, 0, 0, 0, 2, 3, 6],
+        [0, 0, 0, 0, 4, 3, 0, 5, 0],
+        [0, 1, 0, 0, 9, 0, 0, 0, 0],
     ]
 
-    ultimate_sudoku = Sudoku(ultimate_puzzle_int)
-    start_time = time.time()
-    ultimate_sudoku.solve()
-    print(f"--- {time.time() - start_time}s seconds ---\n")
+    def str_transform(data, blank):
+        str_data = []
+        for row in data:
+            new = []
+            for elem in row:
+                if elem == 0:
+                    new.append(blank)
+                else:
+                    new.append(str(elem))
+            str_data.append(new)
+        return str_data
 
-    ultimate_puzzle_str_1 = [
-        ['8', '.', '.', '.', '.', '.', '.', '.', '.'],
-        ['.', '.', '3', '6', '.', '.', '.', '.', '.'],
-        ['.', '7', '.', '.', '9', '.', '2', '.', '.'],
-        ['.', '5', '.', '.', '.', '7', '.', '.', '.'],
-        ['.', '.', '.', '.', '4', '5', '7', '.', '.'],
-        ['.', '.', '.', '1', '.', '.', '.', '3', '.'],
-        ['.', '.', '1', '.', '.', '.', '.', '6', '8'],
-        ['.', '.', '8', '5', '.', '.', '.', '1', '.'],
-        ['.', '9', '.', '.', '.', '.', '4', '.', '.'],
-    ]
+    str_data_1 = str_transform(evil_data_10, ' ')
+    str_data_2 = str_transform(evil_data_10, '.')
+    str_data_3 = str_transform(evil_data_10, '0')
 
-    ultimate_sudoku_1 = Sudoku(ultimate_puzzle_str_1)
-    start_time = time.time()
-    ultimate_sudoku_1.solve()
-    print(f"--- {time.time() - start_time}s seconds ---\n")
+    quiz_1 = Sudoku(evil_data_10)
+    quiz_1.solve()
 
-    ultimate_puzzle_str_2 = [
-        ['8', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
-        [' ', ' ', '3', '6', ' ', ' ', ' ', ' ', ' '],
-        [' ', '7', ' ', ' ', '9', ' ', '2', ' ', ' '],
-        [' ', '5', ' ', ' ', ' ', '7', ' ', ' ', ' '],
-        [' ', ' ', ' ', ' ', '4', '5', '7', ' ', ' '],
-        [' ', ' ', ' ', '1', ' ', ' ', ' ', '3', ' '],
-        [' ', ' ', '1', ' ', ' ', ' ', ' ', '6', '8'],
-        [' ', ' ', '8', '5', ' ', ' ', ' ', '1', ' '],
-        [' ', '9', ' ', ' ', ' ', ' ', '4', ' ', ' '],
-    ]
+    quiz_2 = Sudoku(str_data_1)
+    quiz_2.solve()
 
-    ultimate_sudoku_2 = Sudoku(ultimate_puzzle_str_2)
-    start_time = time.time()
-    ultimate_sudoku_2.solve()
-    print(f"--- {time.time() - start_time}s seconds ---\n")
+    quiz_3 = Sudoku(str_data_2)
+    quiz_3.solve()
 
-    ultimate_puzzle_str_3 = [
-        ['8', '0', '0', '0', '0', '0', '0', '0', '0'],
-        ['0', '0', '3', '6', '0', '0', '0', '0', '0'],
-        ['0', '7', '0', '0', '9', '0', '2', '0', '0'],
-        ['0', '5', '0', '0', '0', '7', '0', '0', '0'],
-        ['0', '0', '0', '0', '4', '5', '7', '0', '0'],
-        ['0', '0', '0', '1', '0', '0', '0', '3', '0'],
-        ['0', '0', '1', '0', '0', '0', '0', '6', '8'],
-        ['0', '0', '8', '5', '0', '0', '0', '1', '0'],
-        ['0', '9', '0', '0', '0', '0', '4', '0', '0'],
-    ]
-
-    ultimate_sudoku_3 = Sudoku(ultimate_puzzle_str_3)
-    start_time = time.time()
-    ultimate_sudoku_3.solve()
-    print(f"--- {time.time() - start_time}s seconds ---\n")
+    quiz_4 = Sudoku(str_data_3)
+    quiz_4.solve()
