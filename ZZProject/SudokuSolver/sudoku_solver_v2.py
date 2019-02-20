@@ -348,9 +348,9 @@ if __name__ == '__main__':
         ['.', '9', '.', '.', '.', '.', '4', '.', '.'],
     ]
 
-    ultimate_sudoku_2 = Sudoku(ultimate_puzzle_str_1)
+    ultimate_sudoku_1 = Sudoku(ultimate_puzzle_str_1)
     start_time = time.time()
-    ultimate_sudoku_2.solve()
+    ultimate_sudoku_1.solve()
     print(f"--- {time.time() - start_time}s seconds ---\n")
 
     ultimate_puzzle_str_2 = [
@@ -365,8 +365,24 @@ if __name__ == '__main__':
         [' ', '9', ' ', ' ', ' ', ' ', '4', ' ', ' '],
     ]
 
+    ultimate_sudoku_2 = Sudoku(ultimate_puzzle_str_2)
+    start_time = time.time()
+    ultimate_sudoku_2.solve()
+    print(f"--- {time.time() - start_time}s seconds ---\n")
 
-    ultimate_sudoku_3 = Sudoku(ultimate_puzzle_str_2)
+    ultimate_puzzle_str_3 = [
+        ['8', '0', '0', '0', '0', '0', '0', '0', '0'],
+        ['0', '0', '3', '6', '0', '0', '0', '0', '0'],
+        ['0', '7', '0', '0', '9', '0', '2', '0', '0'],
+        ['0', '5', '0', '0', '0', '7', '0', '0', '0'],
+        ['0', '0', '0', '0', '4', '5', '7', '0', '0'],
+        ['0', '0', '0', '1', '0', '0', '0', '3', '0'],
+        ['0', '0', '1', '0', '0', '0', '0', '6', '8'],
+        ['0', '0', '8', '5', '0', '0', '0', '1', '0'],
+        ['0', '9', '0', '0', '0', '0', '4', '0', '0'],
+    ]
+
+    ultimate_sudoku_3 = Sudoku(ultimate_puzzle_str_3)
     start_time = time.time()
     ultimate_sudoku_3.solve()
     print(f"--- {time.time() - start_time}s seconds ---\n")
