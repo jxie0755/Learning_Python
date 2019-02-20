@@ -21,15 +21,15 @@ import copy
 class Solution:
 
     def __init__(self, puzzle=[
-        [0, 0, 0, 0, 0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [".", ".", ".", ".", ".", ".", ".", ".", "."],
+        [".", ".", ".", ".", ".", ".", ".", ".", "."],
+        [".", ".", ".", ".", ".", ".", ".", ".", "."],
+        [".", ".", ".", ".", ".", ".", ".", ".", "."],
+        [".", ".", ".", ".", ".", ".", ".", ".", "."],
+        [".", ".", ".", ".", ".", ".", ".", ".", "."],
+        [".", ".", ".", ".", ".", ".", ".", ".", "."],
+        [".", ".", ".", ".", ".", ".", ".", ".", "."],
+        [".", ".", ".", ".", ".", ".", ".", ".", "."],
     ]):
         """
         An empty checkerboard -
@@ -89,7 +89,6 @@ class Solution:
         """to insert a value into the checkerboard
         for convenience, indext start from 1, and act like coordinates
         """
-        assert 1 <= value <= 9 and type(value) == int
         self.board[9 - y][x - 1] = value
 
     def board_mem(self):
@@ -150,7 +149,7 @@ class Solution:
         for sub in all_subs:
             check_list = []
             for i in sub:
-                if i != 0:
+                if i != "0":
                     if i not in check_list:
                         check_list.append(i)
                     else:
@@ -159,7 +158,7 @@ class Solution:
 
     def all_filled(self):
         """To ensure all the place is filled with a number"""
-        return all(all(j != 0 for j in i) for i in self.board)
+        return all(all(j != "." for j in i) for i in self.board)
 
     def valid_solution(self):
         """To check if the puzzle is solved"""
@@ -174,10 +173,12 @@ class Solution:
         for x in range(1, 10):
             for y in range(1, 10):
                 coordinate = (x, y)
-                if self.get_value(coordinate) == 0:
+                if self.get_value(coordinate) == '.':
                     all_subs = self.get_row_col_sub(coordinate)
-                    cant_be = [i for i in sum(all_subs, []) if i != 0]
-                    all_nums = list(range(1, 10))
+                    cant_be = [i for i in sum(all_subs, []) if i != "."]
+                    all_nums = ["1", "2", "3",
+                                "4", "5","6",
+                                "7", "8", "9"]
                     can_be = [i for i in all_nums if i not in cant_be]
                     result[coordinate] = can_be
         return result
@@ -264,31 +265,14 @@ class Solution:
                 self.board = snapshot_board.pop()
                 self.hyper_move(snapshot_to_do.pop())
 
-        return self.board
+        return self.board[:]
 
+    # For Leetcode P037
     def solveSudoku(self, board):
-        """
-        :type board: List[List[str]]
-        :rtype: void Do not return anything, modify board in-place instead.
-        """
-        translated_quiz = []
-        for i in board:
-            new_i = []
-            for char in i:
-                if char == ".":
-                    new_i.append(0)
-                else:
-                    new_i.append(int(char))
-            translated_quiz.append(new_i)
-        quiz = Solution(translated_quiz)
-        ans = quiz.solve()
-        str_ans = []
-        for i in ans:
-            str_ans.append([str(j) for j in i])
-
+        ans = Solution(board).solve()
         for i in range(9):
             for j in range(9):
-                board[i][j] = str_ans[i][j]
+                board[i][j] = ans[i][j]
 
 
 # class Solution:
