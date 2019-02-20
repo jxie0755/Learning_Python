@@ -58,24 +58,29 @@ class Sudoku(object):
         also add a coordinate axis for easier read
         """
 
+        def process_raw(row):
+            x = '|'
+            for i in row:
+                if i == self.blank:
+                    x += '.'
+                else:
+                    x += str(i)
+                x += "  "
+
+            return x[0:9] + '  ' + x[9:18] + '  ' + x[18:]
+
+
         to_print = ''
         y_num = 9
         separ = '    -----------------------------'
-        x_num = '    1, 2, 3,   4, 5, 6,   7, 8, 9'
-
+        x_num = '    1  2  3    4  5  6    7  8  9'
 
         for i in self.board:
-            row = str(i)
-            if self.puzzle_type == str:
-                row = ''.join([i for i in row if i != "'" and i != '"'])
-            row = row[0:9] + '  ' + row[9:18] + '  ' + row[18:]
-
-
-            to_print += str(y_num) + '  ' + row + '\n'
+            str_row = process_raw(i)
+            to_print += str(y_num) + '  ' + str_row + '\n'
             if y_num in [7, 4]:
                 to_print += '\n'
             y_num -= 1
-
 
         to_print += separ + '\n' + x_num
         return to_print
