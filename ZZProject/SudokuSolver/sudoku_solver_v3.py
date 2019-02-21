@@ -29,16 +29,16 @@ class Sudoku(object):
         """
 
         self.blank = '.'
-        self.valid = ["1", "2", "3", "4", "5","6", "7", "8", "9"]
+        self.valid = ['1', '2', '3', '4', '5','6', '7', '8', '9']
 
         # 保留原puzzle, 用于print
         self.board = puzzle
 
         # 数据推理方式用哈希表实现
-        self.pool = {card:9 for card in self.valid}
+        # self.pool = {card:9 for card in self.valid}
 
         self.hash_board = {
-            coor: {"prev":'.', "cur": '.', "possible": []}
+            coor: {'cur': self.blank, 'possible': [], 'tried':[]}
             for coor in [(x, y) for x in range(1, 10) for y in range(1, 10)]
         }
 
@@ -46,7 +46,8 @@ class Sudoku(object):
 
 
         # 初始化一个历史记录, 备分操作过程, 使用list
-        self.history = []
+        self.guess_history = []
+        self.deduct_history = []
 
         # 打印题目
         print('puzzle is generated:')
@@ -62,11 +63,11 @@ class Sudoku(object):
         def process_raw(row):
             x = '|'
             for i in row:
-                if i == self.blank:
-                    x += '.'
+                if i not in self.valid:
+                    x += self.blank
                 else:
                     x += str(i)
-                x += "  "
+                x += '  '
 
             return x[0:9] + '  ' + x[9:18] + '  ' + x[18:]
 
@@ -88,39 +89,32 @@ class Sudoku(object):
 
     # 读题
     def load_quiz(self):
-        for coor in self.hash_board:
+        for coor, value in self.hash_board.items():
             x, y = coor[0], coor[1]
-            self.hash_board[coor]["cur"] = self.board[9-y][x-1]
-
+            given = self.board[9-y][x-1]
+            if given in self.valid:
+                value['cur'] = given
 
     # define some verification method
     def cur_value(self, coor):
         """return the current value in hash_board"""
-        return self.hash_board[coor]["cur"]
-    def prev_value(self, coor):
-        """return the previous value in hash_board"""
-        return self.hash_board[coor]["prev"]
-    def possible(self, coor):
-        return self.hash_board[coor]["possible"]
+        return self.hash_board[coor]['cur']
 
+    # Define moves to add numbers to the board
     def insert(self, coor, value):
         """to insert a value into the checkerboard
         for convenience, indext start from 1, and act like coordinates
         """
-        self.hash_board[coor]["prev"] = self.cur_value(coor)
-        self.hash_board[coor]["cur"] = value
-        self.history.append([coor])
-
-
+        self.hash_board[coor]['cur'] = value
 
     # 基础设施, 判断行列
     def row(self, n):
         """返回一个行的值"""
-        return [self.hash_board[coor]["cur"] for coor in self.hash_board if coor[1] == n]
+        return [self.hash_board[coor]['cur'] for coor in self.hash_board if coor[1] == n]
 
     def col(self, n):
         """返回一个列的值"""
-        return [self.hash_board[coor]["cur"] for coor in self.hash_board if coor[0] == n]
+        return [self.hash_board[coor]['cur'] for coor in self.hash_board if coor[0] == n]
 
     def grid(self, n):
         """output a grid of 3*3 in the checkboard
@@ -142,21 +136,8 @@ class Sudoku(object):
         g7 = [self.hash_board[(x, y)]["cur"] for y in range(1, 4) for x in range(1, 4)]
         g8 = [self.hash_board[(x, y)]["cur"] for y in range(1, 4) for x in range(4, 7)]
         g9 = [self.hash_board[(x, y)]["cur"] for y in range(1, 4) for x in range(7, 10)]
-
-
         grids = [g1, g2, g3, g4, g5, g6, g7, g8, g9]
         return grids[n-1]
-
-    # Define moves to add numbers to the board
-
-
-
-    def board_mem(self):
-        """a snpashot of current board
-        for future roll back
-        """
-        return [self.board[i][:] for i in range(9)]
-
 
     def get_row_col_sub(self, coor):
         """return a list of 3 list, that contains the related row, column and sub grid of that coor
@@ -189,7 +170,8 @@ class Sudoku(object):
                 n = 3
 
         grid_at = self.grid(n)
-        return [row_at, col_at, grid_at]
+        return row_at, col_at, grid_at
+
 
     def no_conflict(self):
         """return if there is a conflict in the board, where 2 same number (!=self.blank) showed up:
@@ -198,7 +180,10 @@ class Sudoku(object):
         return True if no conflicts were found
         return False if conflicts were found
         """
-        all_subs = [self.row(n) for n in range(1,10)] + [self.row(n) for n in range(1,10)] + [self.grid(n) for n in range(1,10)]
+        all_subs = [self.row(n) for n in range(1,10)] + \
+                   [self.row(n) for n in range(1,10)] + \
+                   [self.grid(n) for n in range(1,10)]
+
         for sub in all_subs:
             check_list = []
             for i in sub:
@@ -211,119 +196,130 @@ class Sudoku(object):
 
     def all_filled(self):
         """To ensure all the place is filled with a number"""
-        return all(all(j != self.blank for j in i) for i in self.board)
+        for coor, value in self.hash_board.items():
+            if value['cur'] == self.blank:
+                return False
+        return True
 
-
-    def valid_solution(self):
+    def isSolved(self):
         """To check if the puzzle is solved"""
         return self.all_filled() and self.no_conflict()
-
 
     def analysis(self):
         """return a dict of every vacant coordinate linked to the possible value it can be put in
         the result dict should be in the form of :
         {(x,y): [v1, v2, v3], (x,y): [v1, v2, v3], (x,y): [v1, v2, v3]}
         """
-        result = {}
-        for x in range(1,10):
-            for y in range(1,10):
-                coordinate = (x, y)
-                if self.get_value(coordinate) == self.blank:
-                    all_subs = self.get_row_col_sub(coordinate)
-                    cant_be = [i for i in sum(all_subs, []) if i != self.blank]
-                    all_nums = self.valid
-                    can_be = [i for i in all_nums if i not in cant_be]
-                    result[coordinate] = can_be
-        return result
+        for coor, value in self.hash_board.items():
+            if value['cur'] == self.blank:
+                cant_be = set(sum(self.get_row_col_sub(coor),[]))
+                can_be = [i for i in self.valid if i not in cant_be]
+                value['possible'] = can_be
+
+
+    def feasible(self):
+        """return True if all vacant spot can still fill in a possible number"""
+        for coor, value in self.hash_board.items():
+            if value['cur'] == self.blank and value['possible'] == []:
+                return False
+        return True
 
     def direct_deduce(self):
         """To analyze each vacant coordinate, and if there is only one possible value for it
         fill it in with the value on the checkerboard"""
+        added = True
+        all_deduced = []
 
         def deduce():
-            to_be_deduced = []
-            all_possible = self.analysis()
-            for key, value in all_possible.items():
-                if len(value) == 1:
-                    to_be_deduced.append((key, value[0]))
-            return to_be_deduced
+            nonlocal all_deduced, added
+            self.analysis()
+            coor_operated = []
+            for coor, value in self.hash_board.items():
+                if len(value['possible']) == 1 and value['cur']==self.blank:
+                    self.insert(coor, value['possible'][0])
+                    coor_operated.append(coor)
 
-        to_be_filled = deduce()
-        while to_be_filled:
-            for coor, value in to_be_filled:
-                self.insert(coor[0], coor[1], value)
-            to_be_filled = deduce()
+            if not coor_operated:
+                added = False
+            else:
+                all_deduced += coor_operated
 
-    def feasible(self):
-        """return True if all vacant spot can still fill in a possible number"""
-        all_possible = self.analysis()
-        for key, value in all_possible.items():
-            if len(value) == 0:
-                return False
-        if self.all_filled():
-            return False
-        return True
 
-    def hypothesize(self):
-        """analyze the board and picke the coordinate with least possible values
-        then generate a list of sublist which contains coor and a possible value
-        in the form of:
-        [[(x,y), value],[(x,y), value],[(x,y), value]]
-        """
-        result = []
-        all_possible = self.analysis()
-        coor = min(all_possible, key=lambda x: len(all_possible.get(x)))
-        value = all_possible[coor]
-        for i in value:
-            result.append([coor, i])
-        return result
+        while added:
+            deduce()
+        print('filled ', all_deduced)
+        self.deduct_history.append(all_deduced)
 
-    def hyper_move(self, to_move):
+    def best_guess(self):
+        """return a coor that has least possible numbers, if cannot deduct"""
+        coor_to_move = min(
+            self.hash_board,
+            key=lambda x: len(self.hash_board[x]['possible'])
+            if self.hash_board[x]['cur'] == self.blank else 10
+        )
+        self.guess_history.append(coor_to_move)
+        return coor_to_move
+
+    def hyper_move(self, coor):
         """try to move a hypothsized spot with a possible number
-        to_move: a list as a pair of coordinates and possible values in the form of:
-        [(x,y), value]
-        according to to_move, the board insert this hyperthetical value
+        according to coor, the self.hash_board insert this hyperthetical value
         """
-        self.insert(to_move[0][0], to_move[0][1], to_move[1])
+        self.guess_history.append(coor)
+        value = self.hash_board[coor]['possible'].pop()
+        self.hash_board[coor]['tried'].append(value)
+        self.insert(coor, value)
+        if not self.hash_board[coor]['possible']:
+            self.guess_history.pop()
+
+    def undo(self):
+        """according to self.history, undo all the moves in the last step
+        this will undo all the direct deducted and the previous guess.
+        """
+        undo_deducted = self.deduct_history.pop()
+        guess_deducted = self.guess_history[-1]
+        for coor in undo_deducted:
+            self.hash_board[coor]['cur'] = self.blank
+        # check guess history
+        self.hash_board[guess_deducted]['cur'] = self.blank
+        if not self.hash_board[guess_deducted]['possible']:
+            self.guess_history.pop()
+
+    def print_translate(self):
+        for coor, value in self.hash_board.items():
+            x, y = coor[0], coor[1]
+            self.board[9 - y][x - 1] = value['cur']
+        print(self)
+
+
 
     # Final solution
     def solve(self):
         """This will solve the problem and fill the self.board with correct answer
         it will then print(self) to show the answer
         """
-        snapshot_board = []
-        snapshot_to_do = []
-        count = 0
-        hypo_layer = 0
-        hypo_layer_all = []
 
-        while not self.valid_solution():
-            count += 1
-            hypo_layer_all.append(hypo_layer)
+        while not self.isSolved():
             self.direct_deduce()
 
-            if self.valid_solution():
+            if self.isSolved():
                 break
 
-            if self.feasible():
-                attemp_move = self.hypothesize()
-                for i in range(len(attemp_move)-1):
-                    snapshot_board.append(self.board_mem())
-                snapshot_to_do += attemp_move
-                self.hyper_move(snapshot_to_do.pop())
-                hypo_layer += 1
+            elif self.feasible():
+                best_coor = self.best_guess()
+                self.hyper_move(best_coor)
 
             else:
-                hypo_layer -= 1
-                self.board = snapshot_board.pop()
-                self.hyper_move(snapshot_to_do.pop())
+                self.undo()
+                if self.guess_history:
+                    self.hyper_move(self.guess_history[-1])
 
+        self.print_translate()
 
         print('problem solved!')
-        print(self)
-        print('Total hypothesis: ', count)
-        print('max_layer_counted:', max(hypo_layer_all))
         print('\n')
+
+    def show_answer(self):
+        pass
 
 
 if __name__ == '__main__':
@@ -340,11 +336,8 @@ if __name__ == '__main__':
         ['5', '0', '0', '0', '6', '4', '0', '0', '0'],
     ]
 
-    hard10_str = Sudoku(hard_data_10_str)
-    print(hard10_str.grid(4))
-
-
-    # hard10_str.solve()
+    q = Sudoku(hard_data_10_str)
+    q.solve()
 
 
 

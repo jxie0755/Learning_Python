@@ -1,22 +1,3 @@
-a = [(x, y) for x in range(1, 4) for y in range(1, 4)]
-b = {coor: {"ok": 0} for coor in a}
-print(b)
-print(b[(2,3)])
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
