@@ -15,47 +15,45 @@ class Sudoku(object):
     there will also be an final examination method to ensure when every empty slot is filled.
     the key is in the solve function, where the algorithm is in, to find the answer
     """
-    STR_LIST = ["1", "2", "3", "4", "5","6", "7", "8", "9"]
-    INT_LIST = [1, 2, 3, 4, 5, 6, 7, 8, 9]
-
 
     def __init__(self, puzzle):
         """
-        An empty checkerboard -
-        the structure should be a nested list of 10 lists where each list contain 10 spot, default to filled with 0
+        只支持str的raw data, 空白处用'.'来表示 (符合Leetcode p037)
 
-        When initiated:
-        The empty checkerboard is skipped by directly loading a pre-written board with numbers on.
-        The pre-written board follows the same structure as a nested list like empty.
+        这里用哈希表实现算法, 基本原理:
+        棋盘本身不变 self.board, 只有最终出解了才变化棋盘
+        用哈希表来做推理 self.hastable
 
-        puzzle should be a 2D list that contains constently <str> or <int>
-
-        blank is whatever the empty spot is, it can be 0, " ", or "0", or " ".
-        We must input raw data with same format:
-            if blank is <str>, then the data is <str>, output will be "1" to "9"
-            if blank is <int>, then the data is <int>, output will be 1 to 9
+        创建一个哈希表 self.pool 记录当前牌池状况
+        建造一个哈希表 self.history 来记录操作/推理的过程
         """
-        type_check = type(puzzle[0][0])
-        print('Type: ', type_check)
-        blank = None
-        for row in puzzle:
-            for element in row:
-                assert type(element) == type_check
-                if element not in Sudoku.STR_LIST and element not in Sudoku.INT_LIST:
-                    blank = element
 
+        self.blank = '.'
+        self.valid = ["1", "2", "3", "4", "5","6", "7", "8", "9"]
+
+        # 保留原puzzle, 用于print
         self.board = puzzle
-        self.blank = blank
-        self.valid = Sudoku.STR_LIST if type_check == str else Sudoku.INT_LIST
-        self.puzzle_type = type_check
 
+        # 数据推理方式用哈希表实现
+        self.pool = {card:9 for card in self.valid}
+
+        self.hash_board = {
+            coor: {"prev":'.', "cur": '.', "possible": []}
+            for coor in [(x, y) for x in range(1, 10) for y in range(1, 10)]
+        }
+
+        self.load_quiz()  # 装载题目
+
+
+        # 初始化一个历史记录, 备分操作过程, 使用list
+        self.history = []
+
+        # 打印题目
         print('puzzle is generated:')
         print(self)
         print('')
 
-        # Also create a permanent puzzle copy for future use
-        self.puzzle = self.board_mem()
-
+    # 用于格式化的打印题目和题解
     def __str__(self):
         """to just print the current checker board
         also add a coordinate axis for easier read
@@ -71,7 +69,6 @@ class Sudoku(object):
                 x += "  "
 
             return x[0:9] + '  ' + x[9:18] + '  ' + x[18:]
-
 
         to_print = ''
         y_num = 9
@@ -89,22 +86,41 @@ class Sudoku(object):
         return to_print
 
 
-    # Build up class attributes to for future to check up the rows, columns and grids.
-    def row(self, n):
-        """output a row of numbers
-        n: int 1-9
-        return: a list of numbers extracted from the row
+    # 读题
+    def load_quiz(self):
+        for coor in self.hash_board:
+            x, y = coor[0], coor[1]
+            self.hash_board[coor]["cur"] = self.board[9-y][x-1]
+
+
+    # define some verification method
+    def cur_value(self, coor):
+        """return the current value in hash_board"""
+        return self.hash_board[coor]["cur"]
+    def prev_value(self, coor):
+        """return the previous value in hash_board"""
+        return self.hash_board[coor]["prev"]
+    def possible(self, coor):
+        return self.hash_board[coor]["possible"]
+
+    def insert(self, coor, value):
+        """to insert a value into the checkerboard
+        for convenience, indext start from 1, and act like coordinates
         """
-        rows = self.board[:] # make a copy
-        return rows[9-n]
+        self.hash_board[coor]["prev"] = self.cur_value(coor)
+        self.hash_board[coor]["cur"] = value
+        self.history.append([coor])
+
+
+
+    # 基础设施, 判断行列
+    def row(self, n):
+        """返回一个行的值"""
+        return [self.hash_board[coor]["cur"] for coor in self.hash_board if coor[1] == n]
 
     def col(self, n):
-        """output a column of numbers
-        n: int 1-9
-        return: a list of numbers extracted from the column
-        """
-        columns = [[self.board[i][j] for i in range(9)] for j in range(9)]
-        return columns[n-1]
+        """返回一个列的值"""
+        return [self.hash_board[coor]["cur"] for coor in self.hash_board if coor[0] == n]
 
     def grid(self, n):
         """output a grid of 3*3 in the checkboard
@@ -117,24 +133,23 @@ class Sudoku(object):
 
         return: a list of numbers extracted from the grid
         """
-        g1 = sum([[self.board[i][j] for j in range(0, 3)] for i in range(0, 3)], [])
-        g2 = sum([[self.board[i][j] for j in range(3, 6)] for i in range(0, 3)], [])
-        g3 = sum([[self.board[i][j] for j in range(6, 9)] for i in range(0, 3)], [])
-        g4 = sum([[self.board[i][j] for j in range(0, 3)] for i in range(3, 6)], [])
-        g5 = sum([[self.board[i][j] for j in range(3, 6)] for i in range(3, 6)], [])
-        g6 = sum([[self.board[i][j] for j in range(6, 9)] for i in range(3, 6)], [])
-        g7 = sum([[self.board[i][j] for j in range(0, 3)] for i in range(6, 9)], [])
-        g8 = sum([[self.board[i][j] for j in range(3, 6)] for i in range(6, 9)], [])
-        g9 = sum([[self.board[i][j] for j in range(6, 9)] for i in range(6, 9)], [])
+        g1 = [self.hash_board[(x, y)]["cur"] for y in range(7, 10) for x in range(1, 4)]
+        g2 = [self.hash_board[(x, y)]["cur"] for y in range(7, 10) for x in range(4, 7)]
+        g3 = [self.hash_board[(x, y)]["cur"] for y in range(7, 10) for x in range(7, 10)]
+        g4 = [self.hash_board[(x, y)]["cur"] for y in range(4, 7) for x in range(1, 4)]
+        g5 = [self.hash_board[(x, y)]["cur"] for y in range(4, 7) for x in range(4, 7)]
+        g6 = [self.hash_board[(x, y)]["cur"] for y in range(4, 7) for x in range(7, 10)]
+        g7 = [self.hash_board[(x, y)]["cur"] for y in range(1, 4) for x in range(1, 4)]
+        g8 = [self.hash_board[(x, y)]["cur"] for y in range(1, 4) for x in range(4, 7)]
+        g9 = [self.hash_board[(x, y)]["cur"] for y in range(1, 4) for x in range(7, 10)]
+
+
         grids = [g1, g2, g3, g4, g5, g6, g7, g8, g9]
         return grids[n-1]
 
     # Define moves to add numbers to the board
-    def insert(self, x, y, value):
-        """to insert a value into the checkerboard
-        for convenience, indext start from 1, and act like coordinates
-        """
-        self.board[9-y][x-1] = value
+
+
 
     def board_mem(self):
         """a snpashot of current board
@@ -142,14 +157,6 @@ class Sudoku(object):
         """
         return [self.board[i][:] for i in range(9)]
 
-
-    # define some verification method
-    def get_value(self, coor):
-        """return the number at a coordinate in the checkerboard
-        coor: a tuple with two value (x, y)
-        return: the number on the checkerboard
-        """
-        return self.board[9-coor[1]][coor[0]-1]
 
     def get_row_col_sub(self, coor):
         """return a list of 3 list, that contains the related row, column and sub grid of that coor
@@ -321,18 +328,6 @@ class Sudoku(object):
 
 if __name__ == '__main__':
     # websudoku hard puzzle 10
-    hard_data_10 = [
-        [0, 0, 0, 3, 7, 0, 0, 0, 5],
-        [8, 0, 0, 0, 5, 1, 3, 0, 0],
-        [0, 5, 0, 0, 0, 0, 0, 6, 2],
-        [9, 4, 0, 0, 0, 0, 0, 0, 0],
-        [0, 0, 0, 7, 0, 8, 0, 0, 0],
-        [0, 0, 0, 0, 0, 0, 0, 5, 4],
-        [1, 6, 0, 0, 0, 0, 0, 4, 0],
-        [0, 0, 3, 1, 2, 0, 0, 0, 7],
-        [5, 0, 0, 0, 6, 4, 0, 0, 0],
-    ]
-
     hard_data_10_str = [
         ['0', '0', '0', '3', '7', '0', '0', '0', '5'],
         ['8', '0', '0', '0', '5', '1', '3', '0', '0'],
@@ -345,36 +340,11 @@ if __name__ == '__main__':
         ['5', '0', '0', '0', '6', '4', '0', '0', '0'],
     ]
 
-    # hard10 = Sudoku(hard_data_10)
-    # hard10.solve()
-    # assert hard10.board == [
-    #     [6, 9, 1, 3, 7, 2, 4, 8, 5],
-    #     [8, 2, 4, 6, 5, 1, 3, 7, 9],
-    #     [3, 5, 7, 4, 8, 9, 1, 6, 2],
-    #     [9, 4, 8, 5, 1, 6, 7, 2, 3],
-    #     [2, 3, 5, 7, 4, 8, 9, 1, 6],
-    #     [7, 1, 6, 2, 9, 3, 8, 5, 4],
-    #     [1, 6, 2, 9, 3, 7, 5, 4, 8],
-    #     [4, 8, 3, 1, 2, 5, 6, 9, 7],
-    #     [5, 7, 9, 8, 6, 4, 2, 3, 1],
-    # ]
-
     hard10_str = Sudoku(hard_data_10_str)
-    hard10_str.solve()
+    print(hard10_str.grid(4))
 
-    assert hard10_str.board == [
-        ['6', '9', '1', '3', '7', '2', '4', '8', '5'],
-        ['8', '2', '4', '6', '5', '1', '3', '7', '9'],
-        ['3', '5', '7', '4', '8', '9', '1', '6', '2'],
-        ['9', '4', '8', '5', '1', '6', '7', '2', '3'],
-        ['2', '3', '5', '7', '4', '8', '9', '1', '6'],
-        ['7', '1', '6', '2', '9', '3', '8', '5', '4'],
-        ['1', '6', '2', '9', '3', '7', '5', '4', '8'],
-        ['4', '8', '3', '1', '2', '5', '6', '9', '7'],
-        ['5', '7', '9', '8', '6', '4', '2', '3', '1'],
-    ]
 
-    print('ALL PASSED!')
+    # hard10_str.solve()
 
 
 
