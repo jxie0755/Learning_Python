@@ -34,15 +34,17 @@ class Sudoku(object):
             if blank is <int>, then the data is <int>, output will be 1 to 9
         """
         type_check = type(puzzle[0][0])
+        print('Type: ', type_check)
         blank = None
         for row in puzzle:
             for element in row:
                 assert type(element) == type_check
-                if element not in Sudoku.STR_LIST or element not in Sudoku.INT_LIST:
+                if element not in Sudoku.STR_LIST and element not in Sudoku.INT_LIST:
                     blank = element
 
         self.board = puzzle
         self.blank = blank
+        print("?????????????????????????????????", self.blank)
         self.valid = Sudoku.STR_LIST if type_check == str else Sudoku.INT_LIST
         self.puzzle_type = type_check
 
@@ -317,42 +319,105 @@ class Sudoku(object):
 
 
 if __name__ == '__main__':
-    evil_data_10 = [
-        [0, 0, 0, 0, 5, 0, 0, 9, 0],
-        [0, 5, 0, 6, 8, 0, 0, 0, 0],
-        [9, 3, 7, 0, 0, 0, 0, 0, 0],
-        [2, 0, 0, 0, 0, 0, 5, 0, 0],
-        [0, 9, 0, 7, 0, 2, 0, 8, 0],
-        [0, 0, 6, 0, 0, 0, 0, 0, 4],
-        [0, 0, 0, 0, 0, 0, 2, 3, 6],
-        [0, 0, 0, 0, 4, 3, 0, 5, 0],
-        [0, 1, 0, 0, 9, 0, 0, 0, 0],
+    # list out 4 problems for test case
+
+    # websudoku easy puzzle 10
+    easy_data_10 = [
+        [0,1,0,0,6,0,0,9,0],
+        [9,0,5,1,0,0,0,0,0],
+        [0,4,8,7,0,9,6,0,0],
+        [0,7,6,0,8,0,1,5,0],
+        [8,0,0,0,0,0,0,0,7],
+        [0,5,3,0,4,0,2,6,0],
+        [0,0,4,8,0,5,9,2,0],
+        [0,0,0,0,0,4,7,0,5],
+        [0,9,0,0,3,0,0,8,0],
     ]
 
-    def str_transform(data, blank):
-        str_data = []
-        for row in data:
-            new = []
-            for elem in row:
-                if elem == 0:
-                    new.append(blank)
-                else:
-                    new.append(str(elem))
-            str_data.append(new)
-        return str_data
+    # websudoku medium puzzle 10
+    medium_data_10 = [
+        [5,0,2,1,8,0,0,0,0],
+        [9,1,0,0,5,0,2,0,0],
+        [0,4,6,0,0,2,0,0,1],
+        [0,0,0,2,0,1,0,0,8],
+        [0,0,1,0,0,0,4,0,0],
+        [4,0,0,3,0,9,0,0,0],
+        [1,0,0,7,0,0,8,5,0],
+        [0,0,9,0,1,0,0,7,4],
+        [0,0,0,0,2,8,9,0,6],
+    ]
 
-    str_data_1 = str_transform(evil_data_10, ' ')
-    str_data_2 = str_transform(evil_data_10, '.')
-    str_data_3 = str_transform(evil_data_10, '0')
+     # websudoku hard puzzle 10
+    hard_data_10 = [
+        [0,0,0,3,7,0,0,0,5],
+        [8,0,0,0,5,1,3,0,0],
+        [0,5,0,0,0,0,0,6,2],
+        [9,4,0,0,0,0,0,0,0],
+        [0,0,0,7,0,8,0,0,0],
+        [0,0,0,0,0,0,0,5,4],
+        [1,6,0,0,0,0,0,4,0],
+        [0,0,3,1,2,0,0,0,7],
+        [5,0,0,0,6,4,0,0,0],
+    ]
 
-    quiz_1 = Sudoku(evil_data_10)
-    quiz_1.solve()
+    # websudoku evil puzzle 1
+    evil_data_1 = [
+        [0,0,1,8,3,0,0,0,0],
+        [9,6,5,0,0,0,0,0,0],
+        [0,0,0,0,1,0,9,0,0],
+        [4,0,0,0,0,0,0,1,0],
+        [0,0,9,6,0,4,3,0,0],
+        [0,8,0,0,0,0,0,0,2],
+        [0,0,7,0,9,0,0,0,0],
+        [0,0,0,0,0,0,5,4,8],
+        [0,0,0,0,2,5,1,0,0],
+    ]
 
-    quiz_2 = Sudoku(str_data_1)
-    quiz_2.solve()
+     # websudoku evil puzzle 10
+    evil_data_10 = [
+        [0,0,0,0,5,0,0,9,0],
+        [0,5,0,6,8,0,0,0,0],
+        [9,3,7,0,0,0,0,0,0],
+        [2,0,0,0,0,0,5,0,0],
+        [0,9,0,7,0,2,0,8,0],
+        [0,0,6,0,0,0,0,0,4],
+        [0,0,0,0,0,0,2,3,6],
+        [0,0,0,0,4,3,0,5,0],
+        [0,1,0,0,9,0,0,0,0],
+    ]
 
-    quiz_3 = Sudoku(str_data_2)
-    quiz_3.solve()
 
-    quiz_4 = Sudoku(str_data_3)
-    quiz_4.solve()
+    # easy10 = Sudoku(easy_data_10)
+    # easy10.solve()
+
+    medium10 = Sudoku(medium_data_10)
+    # medium10.solve()
+
+    # hard10 = Sudoku(hard_data_10)
+    # hard10.solve()
+    #
+    # evil1 = Sudoku(evil_data_1)
+    # evil1.solve()
+    #
+    # evil10 = Sudoku(evil_data_10)
+    # evil10.solve()
+
+
+    # Addtional test case: Hardest SUDOKU ever!
+    # ultimate_puzzle = [
+    #     [8,0,0,0,0,0,0,0,0],
+    #     [0,0,3,6,0,0,0,0,0],
+    #     [0,7,0,0,9,0,2,0,0],
+    #     [0,5,0,0,0,7,0,0,0],
+    #     [0,0,0,0,4,5,7,0,0],
+    #     [0,0,0,1,0,0,0,3,0],
+    #     [0,0,1,0,0,0,0,6,8],
+    #     [0,0,8,5,0,0,0,1,0],
+    #     [0,9,0,0,0,0,4,0,0],
+    # ]
+    #
+    # import time
+    # ultimate_sudoku = Sudoku(ultimate_puzzle)
+    # start_time = time.time()
+    # ultimate_sudoku.solve()
+    # print(f"--- {time.time() - start_time}s seconds ---\n")
