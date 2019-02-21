@@ -34,6 +34,7 @@ class Sudoku(object):
             if blank is <int>, then the data is <int>, output will be 1 to 9
         """
         type_check = type(puzzle[0][0])
+        print('Type: ', type_check)
         blank = None
         for row in puzzle:
             for element in row:
@@ -46,7 +47,7 @@ class Sudoku(object):
         self.valid = Sudoku.STR_LIST if type_check == str else Sudoku.INT_LIST
         self.puzzle_type = type_check
 
-        print(self.puzzle_type, ' puzzle is generated:')
+        print('puzzle is generated:')
         print(self)
         print('')
 
