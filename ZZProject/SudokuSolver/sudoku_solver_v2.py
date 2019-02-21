@@ -387,37 +387,37 @@ if __name__ == '__main__':
     ]
 
 
-    # easy10 = Sudoku(easy_data_10)
-    # easy10.solve()
+    easy10 = Sudoku(easy_data_10)
+    easy10.solve()
 
     medium10 = Sudoku(medium_data_10)
-    # medium10.solve()
+    medium10.solve()
 
-    # hard10 = Sudoku(hard_data_10)
-    # hard10.solve()
-    #
-    # evil1 = Sudoku(evil_data_1)
-    # evil1.solve()
-    #
-    # evil10 = Sudoku(evil_data_10)
-    # evil10.solve()
+    hard10 = Sudoku(hard_data_10)
+    hard10.solve()
+
+    evil1 = Sudoku(evil_data_1)
+    evil1.solve()
+
+    evil10 = Sudoku(evil_data_10)
+    evil10.solve()
 
 
     # Addtional test case: Hardest SUDOKU ever!
-    # ultimate_puzzle = [
-    #     [8,0,0,0,0,0,0,0,0],
-    #     [0,0,3,6,0,0,0,0,0],
-    #     [0,7,0,0,9,0,2,0,0],
-    #     [0,5,0,0,0,7,0,0,0],
-    #     [0,0,0,0,4,5,7,0,0],
-    #     [0,0,0,1,0,0,0,3,0],
-    #     [0,0,1,0,0,0,0,6,8],
-    #     [0,0,8,5,0,0,0,1,0],
-    #     [0,9,0,0,0,0,4,0,0],
-    # ]
-    #
-    # import time
-    # ultimate_sudoku = Sudoku(ultimate_puzzle)
-    # start_time = time.time()
-    # ultimate_sudoku.solve()
-    # print(f"--- {time.time() - start_time}s seconds ---\n")
+    ultimate_puzzle = [
+        [8,0,0,0,0,0,0,0,0],
+        [0,0,3,6,0,0,0,0,0],
+        [0,7,0,0,9,0,2,0,0],
+        [0,5,0,0,0,7,0,0,0],
+        [0,0,0,0,4,5,7,0,0],
+        [0,0,0,1,0,0,0,3,0],
+        [0,0,1,0,0,0,0,6,8],
+        [0,0,8,5,0,0,0,1,0],
+        [0,9,0,0,0,0,4,0,0],
+    ]
+
+    import time
+    ultimate_sudoku = Sudoku(ultimate_puzzle)
+    start_time = time.time()
+    ultimate_sudoku.solve()
+    print(f"--- {time.time() - start_time}s seconds ---\n")
