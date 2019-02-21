@@ -46,3 +46,16 @@ print(max(a, key=a.get)) # >>> b
 
 a = {'a': '0000010', 'b':'40', 'c': '020'}
 print(max(a, key=lambda x: len(a.get(x))))  # >>> a
+
+
+# additional nested dict
+a = {
+    (1,1): {'prev': '.', 'cur': '.', 'possible': ['2', '7', '8', '9']},
+    (2,2): {'prev': '.', 'cur': '.', 'possible': ['1', '3', '8']},
+    (3,3): {'prev': '.', 'cur': '.', 'possible': ['2', '7', '8', '9', '8']}
+}
+
+b = min(a, key=lambda x: len(a[x]['possible']))
+c = min(a, key=lambda x: len(a.get(x).get('possible')))
+print(b) # >>> (2,2)
+print(c) # >>> (2,2)
