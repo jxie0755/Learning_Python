@@ -49,7 +49,7 @@ class Sudoku(object):
         self.valid = Sudoku.STR_LIST if type_check == str else Sudoku.INT_LIST
         self.puzzle_type = type_check
 
-        print(self.puzzle_type, ' puzzle is generated:')
+        print('puzzle is generated:')
         print(self)
         print('')
 
