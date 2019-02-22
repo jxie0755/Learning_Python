@@ -323,14 +323,15 @@ class Sudoku(object):
         print('problem solved!')
         print("total guess: ", count)
         print("maximum layer: ", layer)
+        print()
 
 
     def show_answer(self):
-        self.solve()
+        print("The answer is: ")
         self.print_translate()
         print('\n')
 
-    def fake_solve(self):
+    def single_step_solve(self):
         """This will solve the problem and fill the self.board with correct answer
         it will then print(self) to show the answer
         """
@@ -373,6 +374,7 @@ if __name__ == '__main__':
 
     q = Sudoku(hard_data_10_str)
     q.solve()
+    q.show_answer()
 
 
     # problem solved!
