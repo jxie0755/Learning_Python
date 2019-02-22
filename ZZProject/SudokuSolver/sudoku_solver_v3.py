@@ -279,6 +279,7 @@ class Sudoku(object):
         guess_deducted = self.guess_history[-1]
         for coor in undo_deducted:
             self.hash_board[coor]['cur'] = self.blank
+
         # check guess history
         self.hash_board[guess_deducted]['cur'] = self.blank
         if not self.hash_board[guess_deducted]['possible']:
@@ -337,9 +338,43 @@ if __name__ == '__main__':
     ]
 
     q = Sudoku(hard_data_10_str)
-    q.solve()
+    q.direct_deduce()
+    # print(q.feasible())
+    # print(q.best_guess()) # (1, 5)
+    # print(q.hash_board[(1,5)]['possible']) # ['2', '3']
+
+    q.print_translate()   #  还原点!!
 
 
+    q.hyper_move((1,5))
+    # q.print_translate()   # 填了3
+    print(q.guess_history)
+    q.direct_deduce()
+    print(q.feasible())  # 不行
+    # for i in q.deduct_history:   # 正常
+    #     print(i)
+
+    q.undo()
+    q.print_translate()
+
+
+
+    # problem solved!
+    # 9  |6  9  1    3  7  2    4  8  5
+    # 8  |8  2  4    6  5  1    3  7  9
+    # 7  |3  5  7    4  8  9    1  6  2
+    #
+    # 6  |9  4  8    5  1  6    7  2  3
+    # 5  |2  3  5    7  4  8    9  1  6
+    # 4  |7  1  6    2  9  3    8  5  4
+    #
+    # 3  |1  6  2    9  3  7    5  4  8
+    # 2  |4  8  3    1  2  5    6  9  7
+    # 1  |5  7  9    8  6  4    2  3  1
+    #     -----------------------------
+    #     1  2  3    4  5  6    7  8  9
+    # Total hypothesis:  17
+    # max_layer_counted: 4
 
 
 
