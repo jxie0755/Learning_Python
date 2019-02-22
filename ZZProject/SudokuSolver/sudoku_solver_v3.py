@@ -49,6 +49,11 @@ class Sudoku(object):
         self.guess_history = []
         self.deduct_history = []
 
+        # 统计
+        self.count = 0
+        self.guess = 0
+        self.guess_layer = 0
+
         # 打印题目
         print('puzzle is generated:')
         print(self)
@@ -106,6 +111,7 @@ class Sudoku(object):
         for convenience, indext start from 1, and act like coordinates
         """
         self.hash_board[coor]['cur'] = value
+        self.count += 1
 
     # 基础设施, 判断行列
     def row(self, n):
@@ -265,6 +271,7 @@ class Sudoku(object):
         value = self.hash_board[coor]['possible'].pop()
         self.hash_board[coor]['tried'].append(value)
         self.insert(coor, value)
+        self.guess += 1
 
 
     def undo(self):
@@ -295,8 +302,6 @@ class Sudoku(object):
         """This will solve the problem and fill the self.board with correct answer
         it will then print(self) to show the answer
         """
-        count = 0
-        layer = 0
         while not self.isSolved():
             self.direct_deduce()
 
@@ -305,9 +310,8 @@ class Sudoku(object):
 
             elif self.feasible() and not self.all_filled():
                 best_coor = self.best_guess()
-                count += 1
-                layer += 1
                 self.hyper_move(best_coor)
+                self.guess_layer += 1
 
             else:
                 while True:
@@ -316,20 +320,22 @@ class Sudoku(object):
                         break
                     else:
                         self.guess_history.pop()
-                        layer -= 1
+                        self.guess_layer -= 1
                 self.hyper_move(self.guess_history[-1])
-                count += 1
 
         print('problem solved!')
-        print("total guess: ", count)
-        print("maximum layer: ", layer)
-        print()
 
 
     def show_answer(self):
         print("The answer is: ")
         self.print_translate()
         print('\n')
+
+    def show_statistics(self):
+        print("total filled: ", self.count)
+        print("total guess: ", self.guess)
+        print("maximum layer", self.guess_layer)
+        print()
 
     def single_step_solve(self):
         """This will solve the problem and fill the self.board with correct answer
@@ -409,6 +415,7 @@ if __name__ == '__main__':
     ultimate_sudoku_3 = Sudoku(ultimate_puzzle_str_3)
     start_time = time.time()
     ultimate_sudoku_3.solve()
+    ultimate_sudoku_3.show_statistics()
     print(f"--- {time.time() - start_time}s seconds ---\n")
 
     for i in ultimate_sudoku_3.guess_history:
