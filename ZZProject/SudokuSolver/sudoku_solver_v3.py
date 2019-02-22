@@ -219,6 +219,7 @@ class Sudoku(object):
 
     def feasible(self):
         """return True if all vacant spot can still fill in a possible number"""
+        self.analysis()
         for coor, value in self.hash_board.items():
             if value['cur'] == self.blank and value['possible'] == []:
                 return False
@@ -238,16 +239,13 @@ class Sudoku(object):
                 if len(value['possible']) == 1 and value['cur']==self.blank:
                     self.insert(coor, value['possible'][0])
                     coor_operated.append(coor)
-
             if not coor_operated:
                 added = False
             else:
                 all_deduced += coor_operated
 
-
         while added:
             deduce()
-        print('filled ', all_deduced)
         self.deduct_history.append(all_deduced)
 
     def best_guess(self):
@@ -264,12 +262,10 @@ class Sudoku(object):
         """try to move a hypothsized spot with a possible number
         according to coor, the self.hash_board insert this hyperthetical value
         """
-        self.guess_history.append(coor)
         value = self.hash_board[coor]['possible'].pop()
         self.hash_board[coor]['tried'].append(value)
         self.insert(coor, value)
-        if not self.hash_board[coor]['possible']:
-            self.guess_history.pop()
+
 
     def undo(self):
         """according to self.history, undo all the moves in the last step
@@ -280,17 +276,18 @@ class Sudoku(object):
         for coor in undo_deducted:
             self.hash_board[coor]['cur'] = self.blank
 
-        # check guess history
         self.hash_board[guess_deducted]['cur'] = self.blank
-        if not self.hash_board[guess_deducted]['possible']:
-            self.guess_history.pop()
+
+
+    def last_guess_availble(self):
+        """check if last guess still have possible values"""
+        return len(self.hash_board[self.guess_history[-1]]['possible']) > 0
 
     def print_translate(self):
         for coor, value in self.hash_board.items():
             x, y = coor[0], coor[1]
             self.board[9 - y][x - 1] = value['cur']
         print(self)
-
 
 
     # Final solution
@@ -305,22 +302,51 @@ class Sudoku(object):
             if self.isSolved():
                 break
 
-            elif self.feasible():
+            elif self.feasible() and not self.all_filled():
                 best_coor = self.best_guess()
                 self.hyper_move(best_coor)
 
             else:
-                self.undo()
-                if self.guess_history:
-                    self.hyper_move(self.guess_history[-1])
-
-        self.print_translate()
+                while True:
+                    self.undo()
+                    if self.last_guess_availble():
+                        break
+                    else:
+                        self.guess_history.pop()
+                self.hyper_move(self.guess_history[-1])
 
         print('problem solved!')
+        self.print_translate()
         print('\n')
 
     def show_answer(self):
         pass
+
+    def fake_solve(self):
+        """This will solve the problem and fill the self.board with correct answer
+        it will then print(self) to show the answer
+        """
+        # for i in q.guess_history:
+        #     print(i, q.hash_board[i])
+
+        self.direct_deduce()
+
+        if not self.isSolved():
+
+            if self.feasible() and not self.all_filled():
+                best_coor = self.best_guess()
+                self.hyper_move(best_coor)
+                # print("New COOR")
+            else:
+                while True:
+                    self.undo()
+                    if self.last_guess_availble():
+                        break
+                    else:
+                        self.guess_history.pop()
+                self.hyper_move(self.guess_history[-1])
+
+        print("problem solved!")
 
 
 if __name__ == '__main__':
@@ -338,25 +364,7 @@ if __name__ == '__main__':
     ]
 
     q = Sudoku(hard_data_10_str)
-    q.direct_deduce()
-    # print(q.feasible())
-    # print(q.best_guess()) # (1, 5)
-    # print(q.hash_board[(1,5)]['possible']) # ['2', '3']
-
-    q.print_translate()   #  还原点!!
-
-
-    q.hyper_move((1,5))
-    # q.print_translate()   # 填了3
-    print(q.guess_history)
-    q.direct_deduce()
-    print(q.feasible())  # 不行
-    # for i in q.deduct_history:   # 正常
-    #     print(i)
-
-    q.undo()
-    q.print_translate()
-
+    q.solve()
 
 
     # problem solved!
@@ -375,6 +383,23 @@ if __name__ == '__main__':
     #     1  2  3    4  5  6    7  8  9
     # Total hypothesis:  17
     # max_layer_counted: 4
+    import time
+    ultimate_puzzle_str_3 = [
+        ['8', '0', '0', '0', '0', '0', '0', '0', '0'],
+        ['0', '0', '3', '6', '0', '0', '0', '0', '0'],
+        ['0', '7', '0', '0', '9', '0', '2', '0', '0'],
+        ['0', '5', '0', '0', '0', '7', '0', '0', '0'],
+        ['0', '0', '0', '0', '4', '5', '7', '0', '0'],
+        ['0', '0', '0', '1', '0', '0', '0', '3', '0'],
+        ['0', '0', '1', '0', '0', '0', '0', '6', '8'],
+        ['0', '0', '8', '5', '0', '0', '0', '1', '0'],
+        ['0', '9', '0', '0', '0', '0', '4', '0', '0'],
+    ]
+
+    ultimate_sudoku_3 = Sudoku(ultimate_puzzle_str_3)
+    start_time = time.time()
+    ultimate_sudoku_3.solve()
+    print(f"--- {time.time() - start_time}s seconds ---\n")
 
 
 
