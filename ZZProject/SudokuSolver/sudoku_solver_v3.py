@@ -295,7 +295,8 @@ class Sudoku(object):
         """This will solve the problem and fill the self.board with correct answer
         it will then print(self) to show the answer
         """
-
+        count = 0
+        layer = 0
         while not self.isSolved():
             self.direct_deduce()
 
@@ -304,6 +305,8 @@ class Sudoku(object):
 
             elif self.feasible() and not self.all_filled():
                 best_coor = self.best_guess()
+                count += 1
+                layer += 1
                 self.hyper_move(best_coor)
 
             else:
@@ -313,9 +316,13 @@ class Sudoku(object):
                         break
                     else:
                         self.guess_history.pop()
+                        layer -= 1
                 self.hyper_move(self.guess_history[-1])
+                count += 1
 
         print('problem solved!')
+        print("total guess: ", count)
+        print("maximum layer: ", layer)
 
 
     def show_answer(self):
