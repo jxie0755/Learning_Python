@@ -316,11 +316,12 @@ class Sudoku(object):
                 self.hyper_move(self.guess_history[-1])
 
         print('problem solved!')
-        self.print_translate()
-        print('\n')
+
 
     def show_answer(self):
-        pass
+        self.solve()
+        self.print_translate()
+        print('\n')
 
     def fake_solve(self):
         """This will solve the problem and fill the self.board with correct answer
@@ -401,52 +402,21 @@ if __name__ == '__main__':
     ultimate_sudoku_3.solve()
     print(f"--- {time.time() - start_time}s seconds ---\n")
 
+    for i in ultimate_sudoku_3.guess_history:
+        print(i, "TRIED: ",  ultimate_sudoku_3.hash_board[i]['cur'])
 
+    # 简化版, 把guess数字添加以后, 不需要任何推理就可以完成
+    ultimate_puzzle_str_3b = [
+        ['8', '0', '0', '0', '0', '0', '0', '0', '0'],
+        ['0', '4', '3', '6', '0', '0', '0', '0', '0'],
+        ['6', '7', '0', '0', '9', '0', '2', '0', '0'],
+        ['0', '5', '0', '0', '0', '7', '0', '0', '0'],
+        ['3', '0', '0', '0', '4', '5', '7', '0', '0'],
+        ['2', '8', '0', '1', '0', '0', '0', '3', '0'],
+        ['5', '2', '1', '0', '0', '0', '3', '6', '8'],
+        ['0', '0', '8', '5', '0', '0', '9', '1', '0'],
+        ['7', '9', '0', '0', '0', '0', '4', '0', '0']]
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    # # Addtional test case: Hardest SUDOKU ever!
-    # import time
-    # ultimate_puzzle_str_3 = [
-    #     ['8', '0', '0', '0', '0', '0', '0', '0', '0'],
-    #     ['0', '0', '3', '6', '0', '0', '0', '0', '0'],
-    #     ['0', '7', '0', '0', '9', '0', '2', '0', '0'],
-    #     ['0', '5', '0', '0', '0', '7', '0', '0', '0'],
-    #     ['0', '0', '0', '0', '4', '5', '7', '0', '0'],
-    #     ['0', '0', '0', '1', '0', '0', '0', '3', '0'],
-    #     ['0', '0', '1', '0', '0', '0', '0', '6', '8'],
-    #     ['0', '0', '8', '5', '0', '0', '0', '1', '0'],
-    #     ['0', '9', '0', '0', '0', '0', '4', '0', '0'],
-    # ]
-    #
-    # ultimate_sudoku_3 = Sudoku(ultimate_puzzle_str_3)
-    # start_time = time.time()
-    # ultimate_sudoku_3.solve()
-    # print(f"--- {time.time() - start_time}s seconds ---\n")
+    ultimate_sudoku_3b = Sudoku(ultimate_puzzle_str_3b)
+    ultimate_sudoku_3b.direct_deduce()
+    print(ultimate_sudoku_3b.isSolved())
