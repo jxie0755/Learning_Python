@@ -399,6 +399,7 @@ if __name__ == '__main__':
     #     1  2  3    4  5  6    7  8  9
     # Total hypothesis:  17
     # max_layer_counted: 4
+
     import time
     ultimate_puzzle_str_3 = [
         ['8', '0', '0', '0', '0', '0', '0', '0', '0'],
