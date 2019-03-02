@@ -12,7 +12,12 @@ class ListNode:
         self.val = x
         self.next = None
 
+
+
+
 class Solution:
+
+    # 思路一,全部断开, 重排, 再重新连接
     def swapPairs(self, head: ListNode) -> ListNode:
         pass
 
