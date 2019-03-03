@@ -17,9 +17,34 @@ class ListNode:
 
 class Solution:
 
-    # 思路一,全部断开, 重排, 再重新连接
+    ### 用list重排, 再重新连接
+    ### O(N)
     def swapPairs(self, head: ListNode) -> ListNode:
-        pass
+        if not head or not head.next:
+            return head
+        else:
+            new_head = head.next
+
+            # 把node放入list
+            node_list = []
+            cur = head
+            while cur:
+                node_list.append(cur)
+                cur = cur.next
+
+            # swap in list
+            for i in range(0, len(node_list), 2):
+                if node_list[i].next:
+                    node_list[i], node_list[i+1] = node_list[i+1], node_list[i]
+
+            # re-link
+            i = 0
+            while i != len(node_list)-1:
+                node_list[i].next = node_list[i+1]
+                i += 1
+            node_list[i].next = None
+
+            return new_head
 
 
 
@@ -39,3 +64,4 @@ if __name__ == '__main__':
     assert e.next.next.val == 4
     assert e.next.next.next.val == 3
 
+    print('all passed')
