@@ -46,6 +46,21 @@ class Solution:
 
             return new_head
 
+    ### 不使用list,直接原地改
+    def swapPairs(self, head: ListNode) -> ListNode:
+        if not head or not head.next:
+            return head
+        else:
+            new_head = head.next
+
+            while head.next:
+                next_head = head.next.next
+                head.next.next, head.next = head, head.next.next
+                head = new_head
+
+            return new_head
+
+
 
 
 if __name__ == '__main__':
