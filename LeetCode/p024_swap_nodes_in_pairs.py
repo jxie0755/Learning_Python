@@ -56,7 +56,10 @@ class Solution:
             while head.next:
                 next_head = head.next.next
                 head.next.next, head.next = head, head.next.next
-                head = new_head
+                if next_head:
+                    head = next_head
+                else:
+                    break
 
             return new_head
 
