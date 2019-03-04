@@ -48,22 +48,12 @@ class Solution:
 
     ### 不使用list,直接原地改
     def swapPairs(self, head: ListNode) -> ListNode:
-        if not head or not head.next:
-            return head
-        else:
-            new_head = head.next
-
-            while head.next:
-                next_head = head.next.next
-                head.next.next, head.next = head, head.next.next
-                if next_head:
-                    head = next_head
-                else:
-                    break
-
+        if head and head.next:
+            new_head, next_head = head.next, head.next.next
+            new_head.next, head.next = head, self.swapPairs(next_head)
             return new_head
-
-
+        else:
+            return head
 
 
 if __name__ == '__main__':
