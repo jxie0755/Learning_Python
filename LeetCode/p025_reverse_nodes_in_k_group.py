@@ -38,7 +38,7 @@ class Solution:
         cur.next = self.reverseKGroup(next_head, k)
         return new_head
 
-
+    ### 参见Leetcode P206
     def reverseNodes(self, head):
         dummy = ListNode(float("-inf"))
         while head:
