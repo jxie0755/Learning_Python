@@ -20,16 +20,36 @@ class Solution:
             dummy.next, head.next, head = head, dummy.next, head.next
         return dummy.next
 
+
+
     def reverseList(self, head: ListNode) -> ListNode:# @param {ListNode} head
         if not head or not head.next:
             return head
-        pre = None
+
+        # 反向推理
+        # 1-2-3-4-5-N    N
+        # h t            e
+
+        # 1-N    2-3-4-5-N   h连上e, 然后e移动到h,h移动到t,t移动到h.next
+        # e      h t
+        # 重复
+        # 2-1-N    3-4-5-N   h连上e, 然后e移动到h,h移动到t,t移动到h.next
+        # e        h t
+        # 3-2-1-N    4-5-N   h连上e, 然后e移动到h,h移动到t,t移动到h.next
+        # e          h t
+        # 4-3-2-1-N    5-N   h连上e, 然后e移动到h,h移动到t,t移动到h.next
+        # e            h t
+        # 5-4-3-2-1-N    N   h连上e, 然后e移动到h,h移动到t,t移动到h.next
+        # e              h
+        # 此时h=None,while loop终止,返回e
+
+        end = None
         while head:
             temp = head.next
-            head.next = pre
-            pre = head
+            head.next = end
+            end = head
             head = temp
-        return pre
+        return end
 
 
 # Time:  O(n)
