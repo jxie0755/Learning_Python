@@ -33,6 +33,40 @@ class Solution:
             curr.next = curr.next.next
             return head
 
+class Solution(object):
+    # @return a ListNode
+    def removeNthFromEnd(self, head, n):
+        dummy = ListNode(-1)
+        dummy.next = head
+        slow, fast = dummy, dummy
+
+        for i in range(n):
+            fast = fast.next
+
+        while fast.next:
+            slow, fast = slow.next, fast.next
+
+        slow.next = slow.next.next
+
+        return dummy.next
+
+    # D-1-2-3-4-5-N
+    # s   f          // 先定位s和f
+
+    # D-1-2-3-4-5-N
+    #       s   f  // 一起移动s和f直到f.next碰到末尾
+
+
+    # 为什么要设置dummy?
+    # def removeNthFromEnd(self, head, n): # 不设置dummy的话无法应对跳过head的情况
+    #     slow, fast = head, head
+    #     for i in range(n):
+    #         fast = fast.next
+    #     while fast.next:
+    #         slow, fast = slow.next, fast.next
+    #     slow.next = slow.next.next
+    #     return head
+
 
 
 
