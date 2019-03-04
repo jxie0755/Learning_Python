@@ -14,7 +14,7 @@ class ListNode:
         self.next = None
 
 class Solution:
-    ### 笨办法先判断链表长度, 再正向解决
+    ### 笨办法,先判断链表长度, 再正向解决
     def removeNthFromEnd(self, head: ListNode, n: int) -> ListNode:
         cur, length = head, 0
         while cur:
@@ -56,19 +56,9 @@ class Solution(object):
     # D-1-2-3-4-5-N
     #       s   f  // 一起移动s和f直到f.next碰到末尾
 
-
     # 为什么要设置dummy?
-    # def removeNthFromEnd(self, head, n): # 不设置dummy的话无法应对跳过head的情况
-    #     slow, fast = head, head
-    #     for i in range(n):
-    #         fast = fast.next
-    #     while fast.next:
-    #         slow, fast = slow.next, fast.next
-    #     slow.next = slow.next.next
-    #     return head
-
-
-
+    # D-1-2-3-4-5-N
+    # s         f     // # 不设置dummy的话无法应对跳过head的情况
 
 
 if __name__ == '__main__':
