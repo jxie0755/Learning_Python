@@ -71,5 +71,4 @@ if __name__ == '__main__':
     assert e.next.val == 1
     assert e.next.next.val == 4
     assert e.next.next.next.val == 3
-
     print('all passed')
