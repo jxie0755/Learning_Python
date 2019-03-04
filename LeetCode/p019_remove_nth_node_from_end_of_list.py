@@ -22,15 +22,16 @@ class Solution:
             cur = cur.next
 
         p_length = length-n
-        curr = head
         if p_length == 0:
             return head.next
-        while p_length > 1:
-            curr = curr.next
-            p_length -= 1
+        else:
+            curr = head
+            while p_length > 1:
+                curr = curr.next
+                p_length -= 1
 
-        curr.next = curr.next.next
-        return head
+            curr.next = curr.next.next
+            return head
 
 
 
