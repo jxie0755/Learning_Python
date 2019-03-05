@@ -57,6 +57,12 @@ class Solution:
 
         return end
 
+    def reverseList(self, head: ListNode) -> ListNode:# @param {ListNode} head
+        end = None
+        while head:
+            head.next, end, head = end, head, head.next   # 一行写法可以避免temp的使用, 甚至避免if条件, 也不需要假头
+        return end
+
     # 反向推理
     # 1-2-3-4-5-N    N
     # h t            e
@@ -102,6 +108,15 @@ class Solution2(object):
 
 
 if __name__ == '__main__':
+    emp = None
+    f = Solution().reverseList(emp)
+    assert not f, 'Edge 1'
+
+    single = ListNode(99)
+    f = Solution().reverseList(single)
+    assert f.val == 99
+    assert not f.next, 'Edge 2'
+
     a = ListNode(1)
     b = ListNode(2)
     c = ListNode(3)
