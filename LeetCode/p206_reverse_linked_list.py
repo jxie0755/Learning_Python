@@ -36,7 +36,7 @@ class Solution:
     # d - 4 - 3 - 2 - 1 - N    |        5 - N
     #    d.nx                           h  h.nx
 
-    # d - 5- 4 - 3 - 2 - 1 - N    |         N
+    # d - 5 - 4 - 3 - 2 - 1 - N    |        N
     #    d.nx                               h  h为None,终止
 
 
