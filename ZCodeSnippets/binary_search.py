@@ -9,7 +9,7 @@ def binsearch_x(lst, target):
         target: target value
     Returns: index of target if found, -1 if not found
     """
-    L, H = 0, len(lst) - 1   # while loop前只定L和H
+    L, H = 0, len(lst) - 1
     M = (L + H) // 2
     current = lst[M]
 
@@ -22,7 +22,7 @@ def binsearch_x(lst, target):
         if current < target:
             M = (M + H) // 2
         elif current > target:
-            M = (M + L) // 2        # 收缩头尾,注意跳过M,避免重叠
+            M = (M + L) // 2
         current = lst[M]
     return M  # 如果找不到, 就会陷入死循环
 
