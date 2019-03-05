@@ -20,6 +20,25 @@ class Solution:
             dummy.next, head.next, head = head, dummy.next, head.next
         return dummy.next
 
+    # 这个思路是造一个假头dummy, 然后每个值插入到dummy和dummy.next之间
+    # d - N        |    1 - 2 - 3 - 4 - 5 - N
+    #    d.nx           h  h.nx
+
+    # d - 1 - N    |        2 - 3 - 4 - 5 - N
+    #    d.nx               h  h.nx
+
+    # d - 2 - 1 - N    |        3 - 4 - 5 - N
+    #    d.nx                   h  h.nx
+
+    # d - 3 - 2 - 1 - N    |        4 - 5 - N
+    #    d.nx                       h  h.nx
+
+    # d - 4 - 3 - 2 - 1 - N    |        5 - N
+    #    d.nx                           h  h.nx
+
+    # d - 5- 4 - 3 - 2 - 1 - N    |         N
+    #    d.nx                               h  h为None,终止
+
 
 
     def reverseList(self, head: ListNode) -> ListNode:# @param {ListNode} head
