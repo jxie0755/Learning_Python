@@ -47,10 +47,14 @@ class Solution:
 
         end = None
         while head:
-            temp = head.next    # t移动到h.next
-            head.next = end     # h连上e
-            end = head          # 然后e移动到h
-            head = temp         # h移动到t
+
+            # temp = head.next    # t移动到h.next
+            # head.next = end     # h连上e
+            # end = head          # 然后e移动到h
+            # head = temp         # h移动到t
+
+            head.next, end, head = end, head, head.next   # 一行写法可以避免temp的使用
+
         return end
 
     # 反向推理
