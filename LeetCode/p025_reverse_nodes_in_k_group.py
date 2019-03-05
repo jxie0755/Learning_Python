@@ -21,7 +21,7 @@ class Solution:
         if k == 1 or not head:
             return head
 
-        cur = head
+        cur = head            # 备份开头, 也就是将会变成结尾的节点
 
         # 先找到k-group的终点
         for i in range(k-1):
@@ -32,8 +32,10 @@ class Solution:
 
         # 断开,但是不能忘记下一个节点,以备用
         head.next, next_head = None, head.next
-        # reverse前k个节点
+
+        # reverse前k个节点, 此时k-group的最后一个节点变成了反转后的头
         new_head = self.reverseNodes(cur)
+
         # 反转后,cur也就是tail了
         cur.next = self.reverseKGroup(next_head, k)
         return new_head
