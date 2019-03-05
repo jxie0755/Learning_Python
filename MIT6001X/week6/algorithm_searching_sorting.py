@@ -44,17 +44,15 @@ def bi_search(L, e):
 # Version 2, regular bisection search method
 def bi_search2(L, e):
     """L is a sorted list"""
-    if L[-1] == e:  # edge case for the last item
-        return True
 
     low, high = 0, len(L) - 1
     index = (low + high) // 2
-    while high - low > 0:
+    while high - low >= 0:
         print(low, high, index)
         if e < L[index]:
-            high = index
+            high = index - 1
         elif e > L[index]:
-            low = index
+            low = index + 1
         else:
             return True
         index = (high + low) // 2
