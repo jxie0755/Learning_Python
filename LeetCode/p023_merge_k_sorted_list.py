@@ -21,9 +21,9 @@ def genNode(*nodes, end=None):
         n.next, end = end, n
     return n if nodes else None
 
-# class Solution:
-#     def mergeKLists(self, lists: List[ListNode]) -> ListNode:
-#         pass
+class Solution:
+    def mergeKLists(self, lst) -> ListNode:
+        pass
 
 
 if __name__ == '__main__':
