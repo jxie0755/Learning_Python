@@ -13,6 +13,20 @@ class ListNode:
         self.val = x
         self.next = None
 
+    def __repr__(self):
+        if self.next:
+            return "{}->{}".format(self.val, repr(self.next))
+        else:
+            return "{}".format(self.val)
+
+def genNode(*nodes, end=None):
+    for i in nodes[::-1]:
+        n = ListNode(i)
+        n.next, end = end, n
+    return n if nodes else None
+
+
+
 class Solution:
     ### 笨办法,先判断链表长度, 再正向解决
     def removeNthFromEnd(self, head: ListNode, n: int) -> ListNode:
@@ -63,27 +77,13 @@ class Solution(object):
 
 if __name__ == '__main__':
     # Given linked list: 1->2->3->4->5, and n = 2
-    a = ListNode(1)
-    b = ListNode(2)
-    c = ListNode(3)
-    d = ListNode(4)
-    e = ListNode(5)
-    a.next = b
-    b.next = c
-    c.next = d
-    d.next = e
+    a = genNode(1,2,3,4,5)
 
-    # becomes 1->2->3->5
     f = Solution().removeNthFromEnd(a, 2)
-    assert f.val == 1
-    assert f.next.val == 2
-    assert f.next.next.val == 3
-    assert f.next.next.next.val == 5
-    assert not f.next.next.next.next
+    assert repr(f) == '1->2->3->5'
 
-    a = ListNode(1)
+    a = genNode([1])
     f = Solution().removeNthFromEnd(a, 1)
-    assert not f
+    assert repr(f) == 'None'
 
     print('all passed')
-

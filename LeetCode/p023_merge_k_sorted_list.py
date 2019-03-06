@@ -10,8 +10,16 @@ class ListNode:
         self.next = None
 
     def __repr__(self):
-        if self:
-            return "{} -> {}".format(self.val, repr(self.next))
+        if self.next:
+            return "{}->{}".format(self.val, repr(self.next))
+        else:
+            return "{}".format(self.val)
+
+def genNode(*nodes, end=None):
+    for i in nodes[::-1]:
+        n = ListNode(i)
+        n.next, end = end, n
+    return n if nodes else None
 
 # class Solution:
 #     def mergeKLists(self, lists: List[ListNode]) -> ListNode:
@@ -19,8 +27,7 @@ class ListNode:
 
 
 if __name__ == '__main__':
-    a, b, c, d, e = ListNode(1), ListNode(2), ListNode(3), ListNode(4), ListNode(5)
-    a.next, b.next, c.next, d.next = b, c, d, e
+    a = genNode(1,2,3,4,5)
     print(a)
 
 

@@ -11,8 +11,17 @@ class ListNode:
         self.next = None
 
     def __repr__(self):
-        if self:
-            return "{} -> {}".format(self.val, repr(self.next))
+        if self.next:
+            return "{}->{}".format(self.val, repr(self.next))
+        else:
+            return "{}".format(self.val)
+
+def genNode(*nodes, end=None):
+    for i in nodes[::-1]:
+        n = ListNode(i)
+        n.next, end = end, n
+    return n if nodes else None
+
 
 class Solution(object):
     def mergeTwoLists(self, l1, l2):
@@ -43,30 +52,11 @@ class Solution(object):
         return head.next
 
 if __name__ == '__main__':
-    l1 = ListNode(1)
 
-    l12 = ListNode(2)
-    l13 = ListNode(4)
-    l1.next = l12
-    l12.next = l13
+    l1 = genNode(1,2,4)
+    l2 = genNode(1,3,4)
 
-    l2 = ListNode(1)
-
-    l22 = ListNode(3)
-    l23 = ListNode(4)
-    l2.next = l22
-    l22.next = l23
-
-
-    # l1 is now 1->2->4
-    # l2 is now 1->3->4
     check = Solution().mergeTwoLists(l1, l2)
-    assert check.val == 1
-    assert check.next.val == 1
-    assert check.next.next.val == 2
-    assert check.next.next.next.val == 3
-    assert check.next.next.next.next.val == 4
-    assert check.next.next.next.next.next.val == 4
-    assert check.next.next.next.next.next.next is None
-    # Output: 1->1->2->3->4->4->None
+    assert repr(check) == '1->1->2->3->4->4'
+
     print('all passed')

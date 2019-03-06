@@ -12,8 +12,16 @@ class ListNode:
         self.next = None
 
     def __repr__(self):
-        if self:
-            return "{} -> {}".format(self.val, repr(self.next))
+        if self.next:
+            return "{}->{}".format(self.val, repr(self.next))
+        else:
+            return "{}".format(self.val)
+
+def genNode(*nodes, end=None):
+    for i in nodes[::-1]:
+        n = ListNode(i)
+        n.next, end = end, n
+    return n if nodes else None
 
 class Solution:
     def deleteDuplicates(self, head):
@@ -54,45 +62,21 @@ class Solution:
 
 if __name__ == '__main__':
 
-    l1 = ListNode(1)
+    a = genNode(1,1,2,3,3)
+    check = Solution().deleteDuplicates(a)
+    assert repr(check) == '1->2->3'
 
-    l12 = ListNode(1)
-    l13 = ListNode(2)
-    l14 = ListNode(3)
-    l15 = ListNode(3)
-    l1.next = l12
-    l12.next = l13
-    l13.next = l14
-    l14.next = l15
+    b = genNode(1,1,2)
+    check = Solution().deleteDuplicates(b)
+    assert repr(check) == '1->2'
 
-
-    # l1 is now 1->1->2->3->3
-    check = Solution().deleteDuplicates(l1)
-    assert check.val == 1
-    assert check.next.val == 2
-    assert check.next.next.val == 3
-    assert check.next.next.next is None
-    # Output: 1->2->3->None
-
-    l2 = ListNode(1)
-    l22 = ListNode(1)
-    l23 = ListNode(2)
-    l2.next = l22
-    l22.next = l23
-
-    check = Solution().deleteDuplicates(l2)
-    assert check.val == 1
-    assert check.next.val == 2
-    assert check.next.next is None
-
-    l3 = None
-    check = Solution().deleteDuplicates(l3)
+    a = None
+    check = Solution().deleteDuplicates(a)
     assert check is None
 
-    l4 = ListNode(4)
-    check = Solution().deleteDuplicates(l4)
-    assert check.val == 4
-    assert check.next is None
+    a = genNode(4)
+    check = Solution().deleteDuplicates(a)
+    assert repr(check) == '4'
 
     print('all passed')
 

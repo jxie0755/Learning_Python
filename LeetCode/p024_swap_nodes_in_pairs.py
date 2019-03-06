@@ -12,8 +12,17 @@ class ListNode:
         self.val = x
         self.next = None
 
+    def __repr__(self):
+        if self.next:
+            return "{}->{}".format(self.val, repr(self.next))
+        else:
+            return "{}".format(self.val)
 
-
+def genNode(*nodes, end=None):
+    for i in nodes[::-1]:
+        n = ListNode(i)
+        n.next, end = end, n
+    return n if nodes else None
 
 class Solution:
 
@@ -57,19 +66,7 @@ class Solution:
 
 
 if __name__ == '__main__':
-    a = ListNode(1)
-    b = ListNode(2)
-    c = ListNode(3)
-    d = ListNode(4)
-    a.next = b
-    b.next = c
-    c.next = d
-
-    # Given 1->2->3->4, you should return the list as 2->1->4->3.
+    a = genNode(1,2,3,4)
     e = Solution().swapPairs(a)
-    assert e.val == 2
-    assert e.next.val == 1
-    assert e.next.next.val == 4
-    assert e.next.next.next.val == 3
-
+    assert repr(e) == '2->1->4->3'
     print('all passed')

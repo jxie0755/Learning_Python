@@ -16,6 +16,18 @@ class ListNode:
         self.val = x
         self.next = None
 
+    def __repr__(self):
+        if self.next:
+            return "{}->{}".format(self.val, repr(self.next))
+        else:
+            return "{}".format(self.val)
+
+def genNode(*nodes, end=None):
+    for i in nodes[::-1]:
+        n = ListNode(i)
+        n.next, end = end, n
+    return n if nodes else None
+
 class Solution:
     def reverseKGroup(self, head: ListNode, k: int) -> ListNode:
         if k == 1 or not head:
@@ -49,41 +61,14 @@ class Solution:
 
 
 
-
-
 if __name__ == '__main__':
-    a = ListNode(1)
-    b = ListNode(2)
-    c = ListNode(3)
-    d = ListNode(4)
-    e = ListNode(5)
-    a.next = b
-    b.next = c
-    c.next = d
-    d.next = e
 
+    a = genNode(1,2,3,4,5)
     f = Solution().reverseKGroup(a, 2)
-    assert f.val == 2
-    assert f.next.val == 1
-    assert f.next.next.val == 4
-    assert f.next.next.next.val == 3
-    assert f.next.next.next.next.val == 5
+    assert repr(f) == '2->1->4->3->5'
 
-    a = ListNode(1)
-    b = ListNode(2)
-    c = ListNode(3)
-    d = ListNode(4)
-    e = ListNode(5)
-    a.next = b
-    b.next = c
-    c.next = d
-    d.next = e
-
-    g = Solution().reverseKGroup(a, 3)
-    assert g.val == 3
-    assert g.next.val == 2
-    assert g.next.next.val == 1
-    assert g.next.next.next.val == 4
-    assert g.next.next.next.next.val == 5
+    b = genNode(1,2,3,4,5)
+    g = Solution().reverseKGroup(b, 3)
+    assert repr(g) == '3->2->1->4->5'
 
     print('all passed')

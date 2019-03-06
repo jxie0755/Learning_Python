@@ -11,6 +11,18 @@ class ListNode:
         self.val = x
         self.next = None
 
+    def __repr__(self):
+        if self.next:
+            return "{}->{}".format(self.val, repr(self.next))
+        else:
+            return "{}".format(self.val)
+
+def genNode(*nodes, end=None):
+    for i in nodes[::-1]:
+        n = ListNode(i)
+        n.next, end = end, n
+    return n if nodes else None
+
 class Solution:
     # iteration
     # @return {ListNode}
@@ -106,28 +118,13 @@ class Solution2(object):
 if __name__ == '__main__':
     emp = None
     f = Solution().reverseList(emp)
-    assert not f, 'Edge 1'
+    assert repr(f) == 'None', 'Edge 1'
 
-    single = ListNode(99)
+    single = genNode(99)
     f = Solution().reverseList(single)
-    assert f.val == 99
-    assert not f.next, 'Edge 2'
+    assert repr(f) == '99'
 
-    a = ListNode(1)
-    b = ListNode(2)
-    c = ListNode(3)
-    d = ListNode(4)
-    e = ListNode(5)
-    a.next = b
-    b.next = c
-    c.next = d
-    d.next = e
-
+    a = genNode(1,2,3,4,5)
     f = Solution().reverseList(a)
-    assert f.val == 5
-    assert f.next.val == 4
-    assert f.next.next.val == 3
-    assert f.next.next.next.val == 2
-    assert f.next.next.next.next.val == 1
-    assert not f.next.next.next.next.next
+    assert repr(f) == '5->4->3->2->1'
     print('all passed!')
