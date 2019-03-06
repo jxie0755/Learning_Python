@@ -6,8 +6,8 @@ class ListNode(object):
         self.val = x
         self.next = None
 
-    def __repr__(self):		
-        if self:		
+    def __repr__(self):
+        if self:
             return "{} -> {}".format(self.val, self.next)
 
 
@@ -42,6 +42,30 @@ class Solution(object):
                 left += 1
                 right -= 1
         return lists[0]
+
+
+        # [l1, l2, l3, l4, l5]
+        #  L0              R4
+
+        # [l1+l5, l2, l3, l4, l5]              # Merge 1
+        #         L1      R3
+
+        # [l1+l5, l2+l4, l3, l4, l5]           # Merge 2
+        #                L2
+        #                R2
+        # [l1+l5, l2+l4, l3, l4, l5]
+        #   L0           R2
+
+        # [l1+l5+l3, l2+l4, l3, l4, l5]        # Merge 3
+        #              L1
+        #              R1
+        # [l1+l5+l3, l2+l4, l3, l4, l5]
+        #     L0       R1
+
+        # [l1+l5+l3+l2+l4, l2+l4, l3, l4, l5]  # Merge 4
+        #     L0
+        #     R0
+
 
 
 # Time:  O(nlogk)
