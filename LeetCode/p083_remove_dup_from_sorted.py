@@ -11,6 +11,10 @@ class ListNode:
         self.val = x
         self.next = None
 
+    def __repr__(self):
+        if self:
+            return "{} -> {}".format(self.val, repr(self.next))
+
 class Solution:
     def deleteDuplicates(self, head):
         """

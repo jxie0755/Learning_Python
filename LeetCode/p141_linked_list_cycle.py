@@ -17,6 +17,10 @@ class ListNode(object):
         self.val = x
         self.next = None
 
+    def __repr__(self):
+        if self:
+            return "{} -> {}".format(self.val, repr(self.next))
+
 class Solution(object):
     def hasCycle(self, head):
         ### Time O(N^2), Space O(N), Passed, but very slow.

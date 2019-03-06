@@ -10,6 +10,10 @@ class ListNode:
         self.val = x
         self.next = None
 
+    def __repr__(self):
+        if self:
+            return "{} -> {}".format(self.val, repr(self.next))
+
 class Solution(object):
     def mergeTwoLists(self, l1, l2):
         head = ListNode(0)
