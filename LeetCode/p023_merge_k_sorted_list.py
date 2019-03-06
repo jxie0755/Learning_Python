@@ -16,23 +16,73 @@ class ListNode:
             return "{}".format(self.val)
 
 def genNode(*nodes, end=None):
+    if len(nodes) == 1 and type(nodes[0]) == list:
+        nodes = nodes[0]
     for i in nodes[::-1]:
         n = ListNode(i)
         n.next, end = end, n
     return n if nodes else None
 
+
 class Solution:
+
+    ### Exceeded time limit
     def mergeKLists(self, lst) -> ListNode:
-        pass
+        dummy = ListNode('X')
+        cur = dummy
+        while any([i for i in lst]):
+            i, min_val, min_idx = 0, float('inf'), float('inf')
+
+            while i < len(lst):
+                node = lst[i]
+                if node:
+                    if node.val < min_val:
+                        min_val, min_idx = node.val, i
+                i += 1
+
+            cur.next = ListNode(min_val)
+            lst[min_idx] = lst[min_idx].next
+            cur = cur.next
+
+        return dummy.next
 
 
+class Solution:
+
+    ### Exceeded time limit
+    def mergeKLists(self, lst) -> ListNode:
+        dummy = ListNode('X')
+        cur = dummy
+        while any([i for i in lst]):
+            i, min_val, min_idx = 0, float('inf'), float('inf')
+
+            while i < len(lst):
+                node = lst[i]
+                if node:
+                    if node.val < min_val:
+                        min_val, min_idx = node.val, i
+                i += 1
+
+            cur.next = ListNode(min_val)
+            lst[min_idx] = lst[min_idx].next
+            cur = cur.next
+
+        return dummy.next
 
 
+class Solution:
+
+    def mergeKLists(self, lst) -> ListNode:
+        result = []
+        for node in lst:
+            while node:
+                result.append(node.val)
+                node = node.next
+        return genNode(sorted(result))
 
 
 if __name__ == '__main__':
     assert Solution().mergeKLists([]) is None, 'Empty'
-
     single = genNode(1)
     e = Solution().mergeKLists([single])
     assert repr(e) == '1', 'single'
@@ -44,4 +94,4 @@ if __name__ == '__main__':
     check = Solution().mergeKLists(lst)
     assert repr(check) == '1->1->2->3->4->4->5->6', 'Example'
 
-
+    print('all passed')
