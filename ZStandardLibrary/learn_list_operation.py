@@ -192,7 +192,11 @@ print(L1)
 
 # python uses an internal counter to keep track of index when in loop
 # mutating changes the list during iteration changed list length, but index counter was not updated
-
+LL = [3,4,5,6]
+print(LL.index(5)) # >>> 2
+# 注意:
+# index方法找不到会报错
+# list只有index方法,不像str还有一个find方法.
 
 # mutable items in a list is a pointing system.
 a = [1,2,3, ['a', 'b']]
