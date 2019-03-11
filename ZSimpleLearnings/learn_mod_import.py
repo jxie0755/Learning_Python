@@ -22,7 +22,7 @@ var2 = 10
 print(var2)    # >>> 10   # changed var value
 print(fun2())  # >>> 5    # BUT does NOT change the call of var by fun()
 
-# For more details:
+# For more details in STOF:
 # https://stackoverflow.com/questions/3536620/how-to-change-a-module-variable-from-another-module
 
 p1 = learn_mod.People('denis')

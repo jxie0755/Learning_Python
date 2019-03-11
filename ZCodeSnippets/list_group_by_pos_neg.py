@@ -82,5 +82,5 @@ if __name__ == '__main__':
     print('all passed')
 
 
-# see more at:
+# see more at STOF:
 # https://stackoverflow.com/questions/48652109/shorten-a-list-of-integers-by-sums-of-contiguous-positive-or-negative-numbers#48652134

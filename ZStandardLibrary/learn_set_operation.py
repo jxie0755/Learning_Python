@@ -218,7 +218,7 @@ st1.pop()   # 不能添加index
 st1.pop()
 print(st1)  # >>> {3, 4}  # 似乎数字set的pop()是从最小的数字开始pop?
 # The reason it says it is arbitrary is because there is no guarantee about the ordering it will pop out.
-# https://stackoverflow.com/questions/9848693/set-popping-python
+# STOF: https://stackoverflow.com/questions/9848693/set-popping-python
 
 st2.pop()
 print(st2)  # >>> {'a', 'c', 'd'}  # string set 更随机

@@ -56,7 +56,7 @@ VoronoiOverlay.prototype.onAdd = function () {
     var svgOverlay = svg.append("g").attr("class", "svg-overlay");
 
     // enable mouse events on overlay layer
-    // stackoverflow.com/q/13912754
+    // STOF: stackoverflow.com/q/13912754
     div = layer[0][0];  // get the DOM element <div class="svg-overlay">
     google.maps.event.addDomListener(div, "mouseover", function () {});
 

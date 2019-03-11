@@ -1,5 +1,5 @@
 # Simple learning on the concept of iterator and its relationship with generator in python
-# https://stackoverflow.com/a/2776865/8435726
+# STOF: https://stackoverflow.com/a/2776865/8435726
 
 
 # iterator is a more general concept: any object whose class has a next method (__next__ in Python 3)

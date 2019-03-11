@@ -87,7 +87,7 @@ class StdoutRedirector(IORedirector):
         self.text_area.see(END)
 
     def flush(self):
-        pass  # No-op to prevent crash (https://stackoverflow.com/a/43014145).
+        pass  # No-op to prevent crash STOF(https://stackoverflow.com/a/43014145).
 
 def name(who):
     """Return the name of a player."""
