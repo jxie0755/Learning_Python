@@ -517,10 +517,11 @@ print('\n', 58)
 print('class slice(stop)')
 print('class slice(start, stop[, step])')
 # 返回一个slice对象，表示由索引range(start, stop, step)指出的集合。start和step参数默认为None
-# slice a list
+# slice a list (切片)
 a = [1,2,3,4]
 b = a[0:2]
 print(b)  # >>> [1, 2]
+# 但是同样的a[0:2] = [8,9] 则不是在用切片, 而是批量修改a[n for n in range(0, 2)]
 
 
 print('\n', 59)

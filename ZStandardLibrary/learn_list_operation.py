@@ -7,11 +7,14 @@ print('class list([iterable])')
 # add and remove items from a list
 listA = ['A', 'B', 'C', 'D', 'E', 'F']
 
-listA[2] = 'G'         # replace item
+listA[2] = 'G'           # replace item
+listA[2:4] = ['X', 'Y']  # replace multiple item
 
-n = 3
+
 
 listA.append('G')      # add item at the end (one at a time)
+
+n = 3
 listA.insert(n, 'G')   # add item and assign it at location n, other move down
                        # add multiple items: create a list, then merge the list
 listA.insert(0, 'G')   # if n = 0, then always add items at the beginning
