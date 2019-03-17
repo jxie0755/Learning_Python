@@ -145,7 +145,7 @@ class Sudoku(object):
         grids = [g1, g2, g3, g4, g5, g6, g7, g8, g9]
         return grids[n-1]
 
-    def get_row_col_sub(self, coor):
+    def get_row_col_grid(self, coor):
         """return a list of 3 list, that contains the related row, column and sub grid of that coor
         """
         row_at = self.row(coor[1])
@@ -218,7 +218,7 @@ class Sudoku(object):
         """
         for coor, value in self.hash_board.items():
             if value['cur'] == self.blank:
-                cant_be = set(sum(self.get_row_col_sub(coor),[]))
+                cant_be = set(sum(self.get_row_col_grid(coor), []))
                 can_be = [i for i in self.valid if i not in cant_be]
                 value['possible'] = can_be
 
