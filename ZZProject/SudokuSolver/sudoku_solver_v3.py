@@ -133,17 +133,24 @@ class Sudoku(object):
 
         return: a list of numbers extracted from the grid
         """
-        g1 = [self.hash_board[(x, y)]["cur"][0] for y in range(7, 10) for x in range(1, 4)]
-        g2 = [self.hash_board[(x, y)]["cur"][0] for y in range(7, 10) for x in range(4, 7)]
-        g3 = [self.hash_board[(x, y)]["cur"][0] for y in range(7, 10) for x in range(7, 10)]
-        g4 = [self.hash_board[(x, y)]["cur"][0] for y in range(4, 7) for x in range(1, 4)]
-        g5 = [self.hash_board[(x, y)]["cur"][0] for y in range(4, 7) for x in range(4, 7)]
-        g6 = [self.hash_board[(x, y)]["cur"][0] for y in range(4, 7) for x in range(7, 10)]
-        g7 = [self.hash_board[(x, y)]["cur"][0] for y in range(1, 4) for x in range(1, 4)]
-        g8 = [self.hash_board[(x, y)]["cur"][0] for y in range(1, 4) for x in range(4, 7)]
-        g9 = [self.hash_board[(x, y)]["cur"][0] for y in range(1, 4) for x in range(7, 10)]
-        grids = [g1, g2, g3, g4, g5, g6, g7, g8, g9]
-        return grids[n-1]
+        grid_dict = {
+            1: [7, 10, 1, 4],
+            2: [7, 10, 4, 7],
+            3: [7, 10, 7, 10],
+            4: [4, 7, 1, 4],
+            5: [4, 7, 4, 7],
+            6: [4, 7, 7, 10],
+            7: [1, 4, 1, 4],
+            8: [1, 4, 4, 7],
+            9: [1, 4, 7, 10],
+        }
+
+        a, b, c, d = grid_dict[n][0], grid_dict[n][1], grid_dict[n][2], grid_dict[n][3]
+        grid = []
+        for y in range(a, b):
+            for x in range(c, d):
+                grid.append(self.hash_board[(x, y)]["cur"][0])
+        return grid
 
     def get_row_col_grid(self, coor):
         """return a list of 3 list, that contains the related row, column and sub grid of that coor
