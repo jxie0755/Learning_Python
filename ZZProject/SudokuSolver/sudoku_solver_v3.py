@@ -28,7 +28,7 @@ class Sudoku(object):
         建造一个哈希表 self.history 来记录操作/推理的过程
         """
 
-        self.blank = '.'
+        self.blank = '0'
         self.valid = ['1', '2', '3', '4', '5','6', '7', '8', '9']
 
         # 保留原puzzle, 用于print
@@ -69,7 +69,7 @@ class Sudoku(object):
             x = '|'
             for i in row:
                 if i not in self.valid:
-                    x += self.blank
+                    x += '.'
                 else:
                     x += str(i)
                 x += '  '
