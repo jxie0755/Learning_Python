@@ -219,10 +219,7 @@ class Sudoku(object):
         return self.all_filled() and self.no_conflict()
 
     def analysis(self):
-        """return a dict of every vacant coordinate linked to the possible value it can be put in
-        the result dict should be in the form of :
-        {(x,y): [v1, v2, v3], (x,y): [v1, v2, v3], (x,y): [v1, v2, v3]}
-        """
+        """update the hashboard value on dict['possible'] for every coor"""
         for coor, value in self.hash_board.items():
             if value['cur'][0] == self.blank:
                 cant_be = set(sum(self.get_row_col_grid(coor), []))
