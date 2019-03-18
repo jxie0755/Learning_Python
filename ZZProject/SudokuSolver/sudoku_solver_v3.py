@@ -183,7 +183,7 @@ class Sudoku(object):
                 n = 3
 
         grid_at = self.grid(n)
-        return row_at, col_at, grid_at
+        return list(set(sum([row_at, col_at, grid_at], [])))
 
 
     def no_conflict(self):
@@ -222,7 +222,7 @@ class Sudoku(object):
         """update the hashboard value on dict['possible'] for every coor"""
         for coor, value in self.hash_board.items():
             if value['cur'][0] == self.blank:
-                cant_be = set(sum(self.get_row_col_grid(coor), []))
+                cant_be = self.get_row_col_grid(coor)
                 can_be = [i for i in self.valid if i not in cant_be]
                 value['possible'] = can_be
 
