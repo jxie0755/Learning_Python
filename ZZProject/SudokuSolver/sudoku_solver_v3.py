@@ -52,7 +52,7 @@ class Sudoku(object):
         # 统计
         self.count = 0
         self.guess = 0
-        self.guess_layer = 0
+        self.guess_layer = []
 
         # 打印题目
         print('puzzle is generated:')
@@ -306,6 +306,8 @@ class Sudoku(object):
         """This will solve the problem and fill the self.board with correct answer
         it will then print(self) to show the answer
         """
+        layer = 0
+
         while not self.isSolved():
             self.direct_deduce()
 
@@ -315,7 +317,7 @@ class Sudoku(object):
             elif self.feasible() and not self.all_filled():
                 best_coor = self.best_guess()
                 self.hyper_move(best_coor)
-                self.guess_layer += 1
+                layer += 1
 
             else:
                 while True:
@@ -324,7 +326,8 @@ class Sudoku(object):
                         break
                     else:
                         self.guess_history.pop()
-                        self.guess_layer -= 1
+                        self.guess_layer.append(layer)
+                        layer -= 1
                 self.hyper_move(self.guess_history[-1])
 
         print('problem solved!')
@@ -338,7 +341,7 @@ class Sudoku(object):
     def show_statistics(self):
         print("total filled: ", self.count)
         print("total guess: ", self.guess)
-        print("maximum layer", self.guess_layer)
+        print("maximum layer", max(self.guess_layer))
         print()
 
     def single_step_solve(self):
@@ -423,8 +426,8 @@ if __name__ == '__main__':
     ultimate_sudoku_3.show_statistics()
     print(f"--- {time.time() - start_time}s seconds ---\n")
 
-    for i in ultimate_sudoku_3.guess_history:
-        print(i, "TRIED: ",  ultimate_sudoku_3.hash_board[i]['cur'][0])
+    # for i in ultimate_sudoku_3.guess_history:
+    #     print(i, "TRIED: ",  ultimate_sudoku_3.hash_board[i]['cur'][0])
 
     # 简化版, 把guess数字添加以后, 不需要任何推理就可以完成
     ultimate_puzzle_str_3b = [
