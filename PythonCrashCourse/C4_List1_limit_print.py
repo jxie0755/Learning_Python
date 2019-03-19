@@ -10,7 +10,7 @@ for i in list_A:
 print("job done.")
 
 # 不知道为何只会输出到j,i,h,g,h.
-# 根据STOF回答 https://stackoverflow.com/questions/46086441/python-for-in-loop-to-print-the-last-item-in-the-list
+# 根据STOF回答 https://stackoverflow.com/q/46086441/8435726
 # 原因是over iteration
 # 并且不建议对使用for loop的时候更改list内容
 

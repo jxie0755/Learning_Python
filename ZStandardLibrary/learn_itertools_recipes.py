@@ -53,7 +53,7 @@ print(next(aa))  # >>> 3, because consume(aa, 2) iterated the first 2 elements, 
 print(list(aa))  # >>> [4, 5]
 # iterator is needed because this could change aa after the consume and next().
 # this is the true purpose for this function, to jump to the nth elements of an iterator with no cost.
-# STOF 网友详细回答 https://stackoverflow.com/questions/47489988/what-does-python-itertools-recipe-consume-mean-at-all
+# STOF 网友详细回答 https://stackoverflow.com/q/47489988/8435726
 
 
 print()

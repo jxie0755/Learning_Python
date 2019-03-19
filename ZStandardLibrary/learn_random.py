@@ -35,7 +35,7 @@ print('random.getstate()')
 print('random.setstate(state)')
 # 状态应该从先前对getstate()的调用获得，并且setstate()将生成器的内部状态恢复为是在当时getstate()被调用
 
-# STOF: https://stackoverflow.com/questions/48504854/python-random-getstate-and-random-setstate#48504981
+# STOF: https://stackoverflow.com/q/48504854/8435726
 # state就是为了方便使用seed(), 不需要记忆seed设置,只需要保存为一个state,随时可以setstate()来保证生成相同随机数 (应用于多个不同的seed的场景,可以理解为为seed命名)
 # 速度上用state更快,因为seed()会生成一个state,而每次call seed都会生成一个相同的state,比getstate()保存一个state速度慢
 

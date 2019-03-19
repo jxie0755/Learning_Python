@@ -83,4 +83,4 @@ if __name__ == '__main__':
 
 
 # see more at STOF:
-# https://stackoverflow.com/questions/48652109/shorten-a-list-of-integers-by-sums-of-contiguous-positive-or-negative-numbers#48652134
+# https://stackoverflow.com/q/48652109/8435726

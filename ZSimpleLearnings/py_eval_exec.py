@@ -15,7 +15,7 @@ print(eval(f'{a}' + '.' + b + f'({target})'))  # >>> 3
 print(eval('a' + '.' + b + '(target)'))  # >>> 3
 
 
-# STOF: https://stackoverflow.com/questions/47898221/should-i-use-f-string-when-writing-with-eval?noredirect=1#comment82763268_47898221
+# STOF: https://stackoverflow.com/q/47898221/8435726
 # BE VERY CAREFUL TO USE EVAL
 # TRY NOT TO USE IT AS MUCH AS POSSIBLE!!
 

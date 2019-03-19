@@ -1,5 +1,5 @@
 # A test for nested class
-# STOF: https://stackoverflow.com/questions/719705/what-is-the-purpose-of-pythons-inner-classes
+# STOF: https://stackoverflow.com/a/719718/8435726
 
 class Dog(object):
 

@@ -1,6 +1,6 @@
 # This is to learn simplified tuple expression in python
 # Question was bond into a leetcode question:
-# STOF: https://stackoverflow.com/questions/54577667/cannot-understand-the-critical-comma-in-this-function?noredirect=1#comment95953021_54577667
+# STOF: https://stackoverflow.com/q/54577667/8435726
 
 
 

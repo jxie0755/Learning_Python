@@ -285,7 +285,7 @@ print(set(dir(obj)) - set(dir(Cls)))  # >>> {'attr2'}  # only created in __init_
 # Therefore Cls has no attribute as attr2 but obj has.
 
 # for more information, check my question on STOF
-# https://stackoverflow.com/questions/48070833/python-hasattr-to-differentiate-a-method-and-an-attribute
+# https://stackoverflow.com/q/48070833/8435726
 # This problem can be solved by using callable()
 def hasmethod(obj, method_name):
     return hasattr(obj, method_name) and callable(getattr(obj, method_name))
@@ -548,7 +548,7 @@ print('sum(iterable[, start])')
 # 连接字符串序列的首选快速方法是调用''.join(sequence)。
 
 # Learn from STOF:
-# https://stackoverflow.com/questions/52007283/how-is-sum-used-to-merge-lists/52009310#52009310
+# https://stackoverflow.com/q/52007283/8435726
 
 # Actually sum(a, b) is equal to
 # for i in a:

@@ -264,7 +264,7 @@ def stretch(linked, repeat=0):
     # This can not be made into a method, because the empty linked list is a tuple,
     # and a tuple won't find ().stretch method
     # See details in STOF:
-    # https: // stackoverflow.com / questions / 53330651 / linked - list - method - vs - functions  # 53330756
+    # https://stackoverflow.com/q/53330651/8435726
 
 
 # Use Linked list to represent file directories

@@ -82,7 +82,7 @@ print(sub3.E)  # >>> E3
 print(sub3.F)  # >>> Y3
 
 
-# STOF https://stackoverflow.com/questions/48039361/python-class-default-value-inheritance
+# STOF https://stackoverflow.com/q/48039361/8435726
 # 总结,如果只是子类属性和父类属性的默认值不同,则根本不必创建子类
 # 创建子类的原则是: 继承大部分父类属性,同时还要包含新属性,不然根本就无需建立子类
 # 隐性默认值本来就不应该在子类中被改变,设置成隐性默认值就是为了子类中不能轻易改变其赋值

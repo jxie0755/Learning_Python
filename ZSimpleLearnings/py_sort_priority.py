@@ -33,7 +33,7 @@ print([i.__str__() for i in lst])  # >>> ['CCC', 'BBB', 'DDD', 'AAA']  # still s
 # __lt__ has higher priority, even from superclass
 
 
-# STOF: https://stackoverflow.com/questions/48313301/python-sort-has-higher-priority-for-lt-than-gt?noredirect=1#48313338
+# STOF: https://stackoverflow.com/q/48313301/8435726
 # conclusion: always sort based on __lt__ only, __gt__ will work solo by side-effect
 #  __gt__ solo is a side effect from a reflective test application:
 # checking the __gt__ when the __lt__ is missing in comparison

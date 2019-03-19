@@ -1,5 +1,5 @@
 # This is to show the default value can be impacted if it is a mutable type (list, dict, etc)
-# STOF https://stackoverflow.com/questions/48014503/class-default-parameter-in-python#48014519
+# STOF https://stackoverflow.com/q/48014503/8435726
 
 def f(x=[]):
     return x
@@ -49,7 +49,7 @@ print(h())  # >>> []
 
 
 # Use mutable default variable is dangerous but could work for some recursion method
-# STOF: https://stackoverflow.com/questions/54577667/cannot-understand-the-critical-comma-in-this-function/54577759?noredirect=1#comment95953941_54577759
+# STOF: https://stackoverflow.com/q/54577667/8435726
 
 def list_from_zero(n, lst=[]): # in the beginning, empty lst is created when at n
 

@@ -1,4 +1,4 @@
-# STOF: https://stackoverflow.com/questions/47722712/use-map-for-functions-that-does-not-return-a-value
+# STOF: https://stackoverflow.com/q/47722712/8435726
 
 # map() returns a map object that is iterable
 
