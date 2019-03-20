@@ -18,7 +18,7 @@ if __name__ == '__main__':
 def time_spent(fn_to_check, *args, **kwds):
     start_time = time.time()
     result = fn_to_check(*args, **kwds)
-    print(f"--- {time.time() - start_time}s seconds ---\nResult is: ", end="")
+    print(f"\n--- {time.time() - start_time}s seconds ---\nResult is: ", end="")
     return result
 
 
