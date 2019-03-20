@@ -12,12 +12,14 @@ if __name__ == '__main__':
     # run main() codes
     print(f"--- {time.time() - start_time}s seconds ---\n")
 
+    print("!")
+
 # write into a fucntion
 def time_spent(fn_to_check, *args, **kwds):
     start_time = time.time()
     result = fn_to_check(*args, **kwds)
-    print(result)
-    print(f"--- {time.time() - start_time}s seconds ---\n")
+    print(f"--- {time.time() - start_time}s seconds ---\nResult is: ", end="")
+    return result
 
 
 
@@ -36,12 +38,12 @@ if __name__ == '__main__':
         else:
             return fib_gen_r(i - 1) + fib_gen_r(i - 2)
 
-    time_spent(fib_gen_r, 10)
+    print(time_spent(fib_gen_r, 35))
 
     def foo(a,b,c, d=0,e=5):
         return a, b, c, d, e
 
-    time_spent(foo, 1,2,3,e=5)
+    print(time_spent(foo, 1,2,3,e=5))
     # >>>
     # (1, 2, 3, 0, 5)
     # --- 0.0sseconds - --
