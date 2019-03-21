@@ -33,6 +33,25 @@ class Solution:
         else:
             return False
 
+class Solution:
+
+    def traverse(self, t):
+        """return a flat list of the binary tree including None"""
+        if t is not None:
+            return [t.val] + self.traverse(t.left) + self.traverse(t.right)
+        else:
+            return [None]
+
+    def isSubtree(self, s: TreeNode, t: TreeNode) -> bool:
+        """check if traverse(t) is a sublist of traverse(s)"""
+        list_s, list_t = self.traverse(s), self.traverse(t)
+        len_s, len_t = len(list_s), len(list_t)
+        for i in range(0, len_s - len_t + 1):
+            if list_s[i:i+len_t] == list_t:
+                return True
+        return False
+
+
 
 
 
@@ -56,8 +75,8 @@ if __name__ == '__main__':
     assert Solution().isSubtree(E1, E2)
 
     s2.left = s0
+    print(Solution().traverse(E1))
     assert not Solution().isSubtree(E1, E2)
-
 
 
     z0 = TreeNode(0)
@@ -73,5 +92,10 @@ if __name__ == '__main__':
     zx.left = z4
     z4.left, z4.right = z1, z2
     assert Solution().isSubtree(E3, E2)
+
+
+    E4 = TreeNode(1)
+    E5 = TreeNode(1)
+    assert Solution().isSubtree(E4, E5)
 
     print('all passed!')
