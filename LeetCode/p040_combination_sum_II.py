@@ -12,7 +12,7 @@
 # All numbers (including target) will be positive integers.
 # The solution set must not contain duplicate combinations.
 
-import itertools
+from itertools import combinations
 
 class Solution:
     # brutal force, max limit time exceeded
@@ -35,7 +35,7 @@ class Solution:
         candidates = candidates[:max_length]
 
         while max_n != 0:
-            for combine in itertools.combinations(candidates, max_n):
+            for combine in combinations(candidates, max_n):
                 good = list(combine)
                 if sum(combine) == target and good not in result:
                     result.append(good)
