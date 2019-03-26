@@ -137,3 +137,14 @@ Temporary Items
 
 .vscode/tasks.json
 .vscode/settings.json
+/ZStandardLibrary/gopro/
+/ZStandardLibrary/output/
+/ZStandardLibrary/temp/
+/ZStandardLibrary/temp - Copy/
+/ZStandardLibrary/tt/
+ZStandardLibrary/gopro/
+ZStandardLibrary/output/
+ZStandardLibrary/temp - Copy/
+ZStandardLibrary/temp/
+ZStandardLibrary/tt/
+__pycache__/
