@@ -39,8 +39,8 @@ datetimeX2 = datetime.datetime(1,1,1, 16, 30, 59)
 print(datetimeX1-datetimeX2)  # >>> 0:29:01
 # 或者使用datetime.strptime() (在datetime.strptime()中会介绍)
 
-A = datetime.timedelta(days=1, hours=2, seconds=100)  # 可以不用是整数,比如hour=0.5
-print(A)                  # >>> 1 day, 2:01:40
+A = datetime.timedelta(days=0.5, hours=0.5, seconds=100)  # 可以不用是整数,比如hour=0.5, 不受0-24/0-60限制
+print(A)                  # >>> 12:31:40   # half a day + 30 min + 100 seconds
 
 # timedelta 类属性
 print(datetime.timedelta.min)  # >>> -999999999 days, 0:00:00         # 注意,最小值不是0,而是类似(-max)的概念
@@ -50,13 +50,14 @@ print(datetime.timedelta.max)  # >>> 999999999 days, 23:59:59.999999
 
 
 # timedelta 实例属性
+A = datetime.timedelta(days=1, hours=2, seconds=100, microseconds=500)
 print(A.days)             # >>> 1     # just day
 print(A.seconds)          # >>> 7300  # 此处把hours也转换成秒(1天内的秒数)
 print(A.microseconds)     # >>> 500   # just microseconds
 # days属性可以取负值，另外两个属性都只能是正值
 
 # timedelta 实例方法
-print(A.total_seconds())  # >>> 131500.0
+print(A.total_seconds())  # >>> 93700.0005
 
 
 print()
@@ -65,7 +66,7 @@ print('class datetime.date(year, month, day)')
 # date 类属性
 datetime.date.min # >>> 0001-01-01
 datetime.date.max # >>> 9999-12-31
-print(A.resolution) # >>> 1 day, 0:00:00
+print(A.resolution) # >>> 0:00:00.000001
 
 # date类方法
 # date.today()
@@ -90,6 +91,7 @@ A = datetime.date(2017, 11, 8)
 B = datetime.date(2016, 11, 8)
 C = B - A
 D = A - B
+print(type(C)) # >>>  <class 'datetime.timedelta'>
 print(C) # >>> -365 days, 0:00:00
 print(D) # >>>  365 days, 0:00:00
 # 测试闰年 - 成功- 会计算出366天
@@ -209,7 +211,7 @@ print(A.tzinfo)       # >>> None
 # datetime.strptime(date_string, format)
 # 返回对应于date_string的datetime，根据format进行解析
 
-A = datetime.datetime(year=2017, month=3, day=15, hour=17, minute=15, second=30, microsecond = 59)
+A = datetime.datetime(year=2017, month=3, day=15, hour=17, minute=15, second=30, microsecond=59)
 print(A)  # >>> 2017-03-15 17:15:30.000059
 
 # datetime.date()
