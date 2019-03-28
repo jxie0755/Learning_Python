@@ -55,6 +55,7 @@
 # 'rb'  open binary file for rading!!
 # 'wb'  open binary file for writing, (如果文件存在,就会抹去重写, 不存在则创造空文件写入)
 
+# The default mode is 'r' (open for reading text, synonym of 'rt'). For binary read-write access, the mode 'w+b' opens and truncates the file to 0 bytes. 'r+b' opens the file without truncation.
 
 with open("D:/Documents/GitHub/Learning_Python/PythonCrashCourse/D_programming.txt", "r") as fobj:
     for i in range(20):
@@ -69,14 +70,9 @@ with open("D:/Documents/GitHub/Learning_Python/PythonCrashCourse/D_programming.t
 
 # 读取二进制文件
 # 前面讲的默认都是读取文本文件，并且是UTF-8编码的文本文件。要读取二进制文件，比如图片、视频等等，用'rb'模式打开文件即可
-with open("D:/Documents/GitHub/Data_Structure_with_Java/TestDir/ClownFish.jpg", "rb") as pobj:
+with open("D:/Documents/GitHub/Data_Structure_with_Java/TestDir/ClownFish.jpg", "r+b") as pobj:
     a = pobj.read()
 
-with open("D:/Documents/GitHub/Data_Structure_with_Java/TestDir/ClownFish_pyout.jpg", "wb") as pobj_out:
+with open("D:/Documents/GitHub/Data_Structure_with_Java/TestDir/ClownFish_pyout.jpg", "w+b") as pobj_out:
     pobj_out.write(a)
 
-with open("D:/Documents/GitHub/Data_Structure_with_Java/TestDir/testV.mp4", "rb") as vobj:
-    a = vobj.read()
-
-with open("D:/Documents/GitHub/Data_Structure_with_Java/TestDir/testV_pyout.mp4", "wb") as vobj_out:
-    vobj_out.write(a)
