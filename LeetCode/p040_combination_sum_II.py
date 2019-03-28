@@ -1,4 +1,3 @@
-
 # P040 Combination Sum II
 # Medium
 
