@@ -7,6 +7,7 @@
 # date和datetime对象中允许的最小年份
 import datetime
 
+
 print(datetime.MINYEAR)  # >>> 1
 
 # datetime.MAXYEAR
@@ -284,6 +285,40 @@ print(A.strftime('%m/%d/%y'))           # >>> 03/15/17
 print(A.strftime('%m/%d/%Y %H:%M:%S'))  # >>> 03/15/2017 17:15:30
 
 # datetime.__format__(format)
+
+
+print('\ndatetime时区转换')
+# 本地时间转换为UTC时间
+# 本地时间是指系统设定时区的时间，例如北京时间是UTC+8:00时区的时间，而UTC时间指UTC+0:00时区的时间。
+# 一个datetime类型有一个时区属性tzinfo，但是默认为None，所以无法区分这个datetime到底是哪个时区，除非强行给datetime设置一个时区
+from datetime import datetime, timedelta, timezone
+tz_utc_m5 = timezone(timedelta(hours=-5)) # 创建时区UTC+8:00
+now = datetime.now()
+print(now)
+# 2019-03-28 22:39:33.718295
+dt = now.replace(tzinfo=tz_utc_m5) # 强制设置为UTC+8:00
+print(dt)
+# 2019-03-28 22:39:33.718295+08:00
+# 如果系统时区恰好是UTC-5:00，那么上述代码就是正确的，否则，不能强制设置为UTC-5:00时区
+
+# 我们可以先通过utcnow()拿到当前的UTC时间，再转换为任意时区的时间：
+utc_dt = datetime.utcnow().replace(tzinfo=timezone.utc)
+print(utc_dt)
+# >>> 2019-03-29 02:42:06.813251+00:00
+# astimezone() 将转换时区为北京时间:
+bj_dt = utc_dt.astimezone(timezone(timedelta(hours=8)))
+print(bj_dt)
+# 2019-03-29 10:42:37.700322+08:00
+nyc_dt = utc_dt.astimezone(timezone(timedelta(hours=-4)))
+print(nyc_dt)
+# 2019-03-28 22:43:28.623599-04:00            注意夏令时变成-4时区
+nyc_dt2 = bj_dt.astimezone(timezone(timedelta(hours=-4)))
+print(nyc_dt2)
+# 2019-03-28 22:44:23.850321-04:00
+
+# 时区转换的关键在于，拿到一个datetime时，要获知其正确的时区，然后强制设置时区，作为基准时间。
+# 利用带时区的datetime，通过astimezone()方法，可以转换到任意时区。
+# 注：不是必须从UTC+0:00时区转换到其他时区，任何带时区的datetime都可以正确转换，例如上述bj_dt到nyc_dt2的转换
 
 
 print()
