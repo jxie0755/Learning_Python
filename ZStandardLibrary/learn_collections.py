@@ -162,7 +162,7 @@ def f(x):
     for i in range(x):
         yield i**2
 print(type(f(5)))
-dec4 = collections.deque(f(5))  # generator
+dec4 = collections.deque(f(5))  # from generator
 
 print(dec)  # >>> deque([1, 2, 3, 3, 4, 5])
 print(dec2)  # >>> deque([0, 1, 2, 3, 4])
@@ -193,7 +193,7 @@ print(dec)  # >>> deque(['y', 'x', 'before', 1, 'ins', 2, 3, 3, 4, 5, 'after', 7
 dec.remove(3)
 print(dec)  # >>> deque(['y', 'x', 'before', 1, 'ins', 2, 3, 4, 5, 'after', 7, 8])  # first time occurence
 dec.reverse()
-print(dec)  # >>> deque([8, 7, 'after', 5, 4, 3, 2, 'ins', 1, 'before', 'x', 'y'])
+print(dec)  # >>> deque([8, 7, 'after', 5, 4, 3, 2, 'ins', 1, 'before', 'x', 'y'])  # 单个单个rotate
 dec.rotate(3)  # move n elements from end to head
 print(dec)  # >>> deque(['before', 'x', 'y', 8, 7, 'after', 5, 4, 3, 2, 'ins', 1])
 dec.rotate(-3)  # rotate the reverse way
@@ -371,11 +371,11 @@ print('collections.namedtuple(typename, field_names, verbose=False, rename=False
 # create a class of namedtuples
 Point = collections.namedtuple('Point', ['x', 'y'])
 print(Point)  # >>> <class '__main__.Point'>
-
-# create from a dict
 coordict = {'x': 101, 'y': 102}  # 注意这里key必须match class arguments
 print(Point(**coordict))  # >>> Point(x=101, y=102)
-
+# 可以验证创建的Point对象是tuple的一种子类：
+print(isinstance(p, Point)) # True
+print(isinstance(p, tuple)) # >>> True
 
 # verbose和rename实例
 V = collections.namedtuple('Verb', ['x', 'y'], verbose=False)  # 若verbose=True,则创造V的时候回打印源码, 大部分时候是不必要的
