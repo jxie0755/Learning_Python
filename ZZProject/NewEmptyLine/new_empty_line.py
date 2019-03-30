@@ -34,6 +34,7 @@ def add_empty_line(full_dir, target):
     target: a string of file type, i.e., ".py", ".java"
     """
     all_files = os.listdir(full_dir)
+    count = 0
 
     for sub_file in all_files:
 
@@ -61,6 +62,10 @@ def add_empty_line(full_dir, target):
             if emp:
                 with open(full_sub_file, encoding='utf-8', mode='w') as py_obj:
                     py_obj.write(new_content)
+                    count += 1
+
+    print("All done")
+    print("Total processed file:", count)
 
 
 if __name__ == '__main__':
