@@ -5,7 +5,7 @@ import os
 import re
 
 
-def process_win_dir(dir):
+def process_win_dir(directory):
     """revise the windows dir from using '\' to '/'
     dir: a string of window directory, must be in raw stirng type with "r" as prefix
     """
@@ -20,12 +20,12 @@ def process_win_dir(dir):
 
 def count_empty(content):
     splt = content.split("\n")
-    count = 0
+    emtcount = 0
     for i in splt[::-1]:
         if i == '':
-            count += 1
+            emtcount += 1
         else:
-            return count
+            return emtcount
 
 count = 0
 def add_empty_line(full_dir, target):
@@ -50,16 +50,16 @@ def add_empty_line(full_dir, target):
                 content = py_obj.read()
 
             emp = count_empty(content)
-            if emp == 0:
-                new_content = content + '\n'
-            elif emp == 1:
-                new_content = content
-            elif not emp:   # 如果是空白文件
+            if not emp: # 如果是空白文件
                 pass
             else:
-                new_content = content[:1 - emp]
+                if emp == 0:
+                    new_content = content + '\n'
+                elif emp == 1:
+                    new_content = content
+                else:
+                    new_content = content[:1 - emp]
 
-            if emp:
                 with open(full_sub_file, encoding='utf-8', mode='w') as py_obj:
                     py_obj.write(new_content)
                     count += 1
