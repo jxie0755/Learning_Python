@@ -27,14 +27,14 @@ def count_empty(content):
         else:
             return count
 
-
+count = 0
 def add_empty_line(full_dir, target):
     """ensure there is one and only one empty new line at the end of each target file
     dir: a string of directoy, i.e., "./Dir1/Dir2"
     target: a string of file type, i.e., ".py", ".java"
     """
     all_files = os.listdir(full_dir)
-    count = 0
+    global count
 
     for sub_file in all_files:
 
@@ -64,8 +64,7 @@ def add_empty_line(full_dir, target):
                     py_obj.write(new_content)
                     count += 1
 
-    print("All done")
-    print("Total processed file:", count)
+
 
 
 if __name__ == '__main__':
@@ -82,3 +81,6 @@ if __name__ == '__main__':
             break
         else:
             continue
+
+    print("All done")
+    print("Total processed file:", count)
