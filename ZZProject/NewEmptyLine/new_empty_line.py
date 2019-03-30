@@ -2,8 +2,6 @@
 # has one and only one empty new line at the end.
 
 import os
-import re
-
 
 def process_win_dir(directory):
     """revise the windows dir from using '\' to '/'
@@ -50,9 +48,7 @@ def add_empty_line(full_dir, target):
                 content = py_obj.read()
 
             emp = count_empty(content)
-            if not emp: # 如果是空白文件
-                pass
-            else:
+            if emp: # 如果是空白文件就不处理
                 if emp == 0:
                     new_content = content + '\n'
                 elif emp == 1:
