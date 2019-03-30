@@ -4,18 +4,6 @@
 import os
 import re
 
-# print(os.path.join(os.getcwd(), "TestDir"))
-#
-# all_files = os.listdir(os.path.join(os.getcwd(), "TestDir"))
-# for file in all_files:
-#     print(file)
-#     if file.endswith(".py"):
-#         with open(os.pathfile, "r") as f:
-#             content = f.read()
-#             print(content)
-#             print("End with empty?", content.endswith("\n"))
-
-
 
 def process_win_dir(dir):
     """revise the windows dir from using '\' to '/'
@@ -50,12 +38,14 @@ def add_empty_line(full_dir, target):
     for sub_file in all_files:
 
         full_sub_file = os.path.join(full_dir, sub_file)
-        print("Processing:", full_sub_file)
-
-        if os.path.isdir(full_sub_file):
+        if full_sub_file == "D:/Documents/GitHub/Learning_Python/ZZProject/NewEmptyLine/new_empty_line.py":
+            pass
+        elif os.path.isdir(full_sub_file):
+            print("Processing:", full_sub_file)
             add_empty_line(full_sub_file, target)
         elif sub_file.endswith(target):
-            with open(full_sub_file, "r") as py_obj:
+            print("Processing:", full_sub_file)
+            with open(full_sub_file, encoding='utf-8', mode='r') as py_obj:
                 content = py_obj.read()
 
             emp = count_empty(content)
@@ -63,16 +53,19 @@ def add_empty_line(full_dir, target):
                 new_content = content + '\n'
             elif emp == 1:
                 new_content = content
+            elif not emp:   # 如果是空白文件
+                pass
             else:
                 new_content = content[:1 - emp]
-            with open(full_sub_file, "w") as py_obj:
-                py_obj.write(new_content)
+
+            if emp:
+                with open(full_sub_file, encoding='utf-8', mode='w') as py_obj:
+                    py_obj.write(new_content)
 
 
 if __name__ == '__main__':
     directory = input("Please input full directory:")
     file_type = input("Plase input file type: ")
-
 
     while True:
         proceed = input("Start? Y/N")
@@ -84,9 +77,3 @@ if __name__ == '__main__':
             break
         else:
             continue
-
-
-
-
-
-
