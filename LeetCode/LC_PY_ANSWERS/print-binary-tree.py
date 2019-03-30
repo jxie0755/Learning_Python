@@ -29,4 +29,3 @@ class Solution(object):
         result = [[""] * w for _ in xrange(h)]
         preorderTraversal(root, 0, 0, w-1, result)
         return result
-

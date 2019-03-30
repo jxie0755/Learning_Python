@@ -74,4 +74,3 @@ class Solution2(object):
                     right = j
 
         return result
-

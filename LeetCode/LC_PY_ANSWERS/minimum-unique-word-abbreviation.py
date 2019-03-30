@@ -38,4 +38,3 @@ class Solution(object):
             bits >>= 1
 
         return "".join(abbr)
-

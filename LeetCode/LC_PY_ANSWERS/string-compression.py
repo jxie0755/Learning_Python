@@ -25,4 +25,3 @@ class Solution(object):
                         right -= 1
                 anchor = read+1
         return write
-

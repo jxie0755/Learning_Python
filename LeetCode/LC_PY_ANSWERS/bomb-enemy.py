@@ -39,4 +39,3 @@ class Solution(object):
                                  left + up[j] + right[i][j] + down[i][j])
 
         return result
-

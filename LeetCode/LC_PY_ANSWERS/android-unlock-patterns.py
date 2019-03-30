@@ -181,4 +181,3 @@ class Solution_TLE(object):
         # 5
         number += numberOfPatternsHelper(m, n, 1, merge(0, 4), 4)
         return number
-

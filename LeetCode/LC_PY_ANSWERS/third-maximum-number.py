@@ -24,4 +24,3 @@ class Solution(object):
             return top[0]
 
         return top[2]
-

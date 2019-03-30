@@ -23,4 +23,3 @@ class Solution(object):
 
     def isSame(self, root, child, is_uni):
         return not child or (is_uni and root.val == child.val)
-

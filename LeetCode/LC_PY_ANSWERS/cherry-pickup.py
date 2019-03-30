@@ -31,4 +31,3 @@ class Solution(object):
                             max_cnt = max(max_cnt, dp[ii][jj]+cnt)
                     dp[i][j] = max_cnt
         return max(dp[n-1][n-1], 0)
-

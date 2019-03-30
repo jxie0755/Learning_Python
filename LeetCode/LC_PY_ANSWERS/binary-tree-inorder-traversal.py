@@ -57,4 +57,3 @@ class Solution2(object):
                 stack.append((root, True))
                 stack.append((root.left, False))
         return result
-

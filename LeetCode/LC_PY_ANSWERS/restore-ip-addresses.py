@@ -27,4 +27,3 @@ class Solution(object):
         if len(s) == 0 or (s[0] == '0' and s != "0"):
             return False
         return int(s) < 256
-

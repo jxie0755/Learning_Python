@@ -34,4 +34,3 @@ class Solution(object):
         for s in allowed:
             edges[ord(s[0])-ord('A')][ord(s[1])-ord('A')].append(ord(s[2])-ord('A'))
         return pyramidTransitionHelper(bottom, edges, set())
-

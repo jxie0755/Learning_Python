@@ -28,4 +28,3 @@ class Solution(object):
 
         longestConsecutiveHelper(root)
         return self.max_len
-

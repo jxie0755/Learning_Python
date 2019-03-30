@@ -13,4 +13,3 @@ class Solution(object):
         """
         return reduce(xor, nums) == 0 or \
             len(nums) % 2 == 0
-

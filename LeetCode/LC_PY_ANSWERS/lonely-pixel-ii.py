@@ -40,4 +40,3 @@ class Solution2(object):
         return sum(N * zip(row, cols).count(('B', N)) \
                    for row, cnt in lookup.iteritems() \
                    if cnt == N == row.count('B'))
-

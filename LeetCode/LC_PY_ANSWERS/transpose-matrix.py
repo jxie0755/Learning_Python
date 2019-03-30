@@ -24,4 +24,3 @@ class Solution2(object):
         :rtype: List[List[int]]
         """
         return zip(*A)
-

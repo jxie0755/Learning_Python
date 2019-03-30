@@ -49,4 +49,3 @@ class Solution(object):
                         if sorted([j, y, 0 - j - y]) not in rtn:
                             rtn.append(sorted([j, y, 0 - j - y]))
         return rtn
-

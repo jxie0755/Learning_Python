@@ -29,4 +29,3 @@ class BSTIterator(object):
         self.cur = self.cur.right
 
         return node.val
-

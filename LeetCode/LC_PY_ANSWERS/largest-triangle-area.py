@@ -20,4 +20,3 @@ class Solution(object):
                                            points[k][0] * points[j][1] -
                                            points[i][0] * points[k][1]))
         return result
-

@@ -37,4 +37,3 @@ class Solution(object):
             if result:
                 break
         return result
-

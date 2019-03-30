@@ -38,5 +38,3 @@ class Solution(object):
                 path += [s[start:i+1]]
                 self.wordBreakHelper(s, valid, i + 1, path, result)
                 path.pop()
-
-

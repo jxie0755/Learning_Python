@@ -20,4 +20,3 @@ class Solution(object):
                 i += 1
             result += max_profit
         return result
-

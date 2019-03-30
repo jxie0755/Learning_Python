@@ -39,7 +39,3 @@ for line in lines2:
     else:
         print(line)
 print(lines2)
-
-
-
-

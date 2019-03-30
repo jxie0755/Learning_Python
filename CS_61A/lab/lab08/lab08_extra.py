@@ -320,5 +320,3 @@ def boom(n):
         b = 0
         a += 1
     return sum
-
-

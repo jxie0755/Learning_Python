@@ -16,4 +16,3 @@ class Solution(object):
             for j in xrange(i+1, len(piles)):
                 dp[j] = max(piles[i] - dp[j], piles[j] - dp[j - 1])
         return dp[-1] >= 0
-

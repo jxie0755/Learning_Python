@@ -37,4 +37,3 @@ class Solution(object):
                 result += 1
 
         return result
-

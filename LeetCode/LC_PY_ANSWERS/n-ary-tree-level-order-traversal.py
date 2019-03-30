@@ -20,4 +20,3 @@ class Solution(object):
             result.append([node.val for node in q])
             q = [child for node in q for child in node.children if child]
         return result
-

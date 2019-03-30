@@ -30,4 +30,3 @@ class Solution(object):
         result = []
         inorder(root, None, 1, 0, result)
         return result
-

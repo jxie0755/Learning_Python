@@ -36,5 +36,3 @@ class Solution2(object):
             result.append(max(node.val for node in curr))
             curr = [child for node in curr for child in (node.left, node.right) if child]
         return result
-
-

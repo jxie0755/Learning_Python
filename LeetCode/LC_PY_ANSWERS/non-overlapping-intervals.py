@@ -17,4 +17,3 @@ class Solution(object):
             else:
                 prev = i
         return result
-

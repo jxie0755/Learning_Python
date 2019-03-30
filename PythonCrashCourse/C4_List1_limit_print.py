@@ -44,4 +44,3 @@ while list_A:
     if 'c' == el:                # if 'c' was found in this variable
         break
 print("job done.")
-

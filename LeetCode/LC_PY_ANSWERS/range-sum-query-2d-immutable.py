@@ -31,6 +31,3 @@ class NumMatrix(object):
         """
         return self.__sums[row2+1][col2+1] - self.__sums[row2+1][col1] - \
                self.__sums[row1][col2+1] + self.__sums[row1][col1]
-
-
-

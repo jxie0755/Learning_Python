@@ -52,5 +52,3 @@ class Solution2(object):
         return low < root.val and root.val < high \
             and self.isValidBSTRecu(root.left, low, root.val) \
             and self.isValidBSTRecu(root.right, root.val, high)
-
-

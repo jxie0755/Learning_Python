@@ -16,4 +16,3 @@ class Solution(object):
         while stk:
             lookup[stk.pop()] = -1
         return map(lambda x : lookup[x], findNums)
-

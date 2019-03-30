@@ -35,5 +35,3 @@ class Solution(object):
                 d = 1 - d
 
         return result
-
-

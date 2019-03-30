@@ -12,4 +12,3 @@ class Solution(object):
             elif token != ".." and token != "." and token:
                 stack.append(token)
         return "/" + "/".join(stack)
-

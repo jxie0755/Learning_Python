@@ -13,4 +13,3 @@ class Solution(object):
         :rtype: int
         """
         return int(math.ceil(math.log(buckets) / math.log(minutesToTest / minutesToDie + 1)))
-

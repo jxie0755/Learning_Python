@@ -24,4 +24,3 @@ class Solution(object):
                 elif j + lookup[s] == min_sum:
                     result.append(s)
         return result
-

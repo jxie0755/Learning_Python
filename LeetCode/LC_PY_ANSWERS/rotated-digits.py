@@ -66,5 +66,3 @@ class Solution3(object):
             if diff & lookup:
                 result += 1
         return result
-
-

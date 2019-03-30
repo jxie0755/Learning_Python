@@ -26,4 +26,3 @@ class Solution(object):
             delta = getDelta(left, nums, k)
             left += delta
         return left
-

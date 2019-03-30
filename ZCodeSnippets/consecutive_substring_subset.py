@@ -100,4 +100,3 @@ def gen_substring_C(iterable):
                 yield iterable[left:right+1]
                 left -= 1
                 right += 1
-

@@ -39,4 +39,3 @@ class Solution2(object):
         for p in people:
             result.insert(p[1], p)
         return result
-

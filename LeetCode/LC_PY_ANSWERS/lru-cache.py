@@ -89,5 +89,3 @@ class LRUCache2(object):
         elif len(self.cache) == self.capacity:
             self.cache.popitem(last=False)
         self.cache[key] = value
-
-

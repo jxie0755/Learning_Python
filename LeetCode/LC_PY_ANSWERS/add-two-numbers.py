@@ -33,4 +33,3 @@ class Solution(object):
             current.next = ListNode(1)
 
         return dummy.next
-

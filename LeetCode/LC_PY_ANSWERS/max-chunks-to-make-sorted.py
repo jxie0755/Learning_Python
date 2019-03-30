@@ -13,4 +13,3 @@ class Solution(object):
             if max_i == i:
                 result += 1
         return result
-

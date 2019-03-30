@@ -40,4 +40,3 @@ class Solution(object):
             pre_level = cur_level
 
         return list(unvisited)
-

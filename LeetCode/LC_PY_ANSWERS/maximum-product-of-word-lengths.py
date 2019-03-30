@@ -60,4 +60,3 @@ class Solution2(object):
                 if not (bits[i] & bits[j]):
                     max_product = len(words[i]) * len(words[j])
         return max_product
-

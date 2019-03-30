@@ -16,4 +16,3 @@ class Solution(object):
                 count = sum(1 for c in rows[j] if c in lookup)
                 result += count*(count-1)/2
         return result
-

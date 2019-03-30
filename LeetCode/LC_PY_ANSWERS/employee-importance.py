@@ -48,4 +48,3 @@ class Solution2(object):
             for id in employee.subordinates:
                 q.append(id)
         return result
-

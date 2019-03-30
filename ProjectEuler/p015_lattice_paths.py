@@ -185,4 +185,3 @@ def count_grid_path_with_path_print(n):
         print(route)
 
     return count
-

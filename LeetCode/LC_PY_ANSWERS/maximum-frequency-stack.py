@@ -33,6 +33,3 @@ class FreqStack(object):
         if not self.__freq[x]:
             self.__freq.pop(x)
         return x
-
-
-

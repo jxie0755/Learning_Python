@@ -66,4 +66,3 @@ s = "S"
 c, c = s, s = c + s, s + str(True)
 print(c)  # >>> 'STrue'
 print(s)  # >>> 'STrue'
-

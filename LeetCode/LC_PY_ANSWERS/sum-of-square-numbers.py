@@ -15,4 +15,3 @@ class Solution(object):
             if a**2 + b**2 == c:
                 return True
         return False
-

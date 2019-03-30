@@ -23,4 +23,3 @@ class Solution(object):
             result += 1
             i = j
         return result
-

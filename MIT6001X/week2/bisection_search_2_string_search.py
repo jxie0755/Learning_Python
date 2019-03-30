@@ -73,4 +73,3 @@ def isIn3(char, aStr):
         return isIn3(char, aStr[mid+1:])
     else:
         return True
-

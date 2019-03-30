@@ -15,4 +15,3 @@ class Solution(object):
             else:
                 left = mid + 1
         return left == num / left and num % left == 0
-

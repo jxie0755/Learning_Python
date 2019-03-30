@@ -33,4 +33,3 @@ if __name__ == '__main__':
     assert time_converter('9:00 a.m.') == '09:00'
     assert time_converter('11:15 p.m.') == '23:15'
     print("Coding complete? Click 'Check' to earn cool rewards!")
-

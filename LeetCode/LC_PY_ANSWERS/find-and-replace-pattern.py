@@ -19,4 +19,3 @@ class Solution(object):
             return len(set(lookup.values())) == len(lookup.values())
 
         return filter(match, words)
-

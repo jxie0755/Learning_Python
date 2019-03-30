@@ -14,4 +14,3 @@ class Solution(object):
             return (root.val + left[1] + right[1], max(left) + max(right))
 
         return max(robHelper(root))
-

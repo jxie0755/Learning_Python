@@ -39,4 +39,3 @@ class Solution(object):
                 return q if i < q*len(A) else q+1
 
         return -1
-

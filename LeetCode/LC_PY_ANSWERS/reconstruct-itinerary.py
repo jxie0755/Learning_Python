@@ -36,4 +36,3 @@ class Solution(object):
         ans = [origin]
         route_helper(origin, len(tickets), graph, ans)
         return ans
-

@@ -58,5 +58,3 @@ class Solution2(object):
         """
         import re
         return bool(re.match("^\s*[\+-]?((\d+(\.\d*)?)|\.\d+)([eE][\+-]?\d+)?\s*$", s))
-
-

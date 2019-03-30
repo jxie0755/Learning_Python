@@ -43,4 +43,3 @@ class Solution(object):
 
         return max(merge(max_digits1[i], max_digits2[k-i]) \
                    for i in xrange(max(0, k - n), min(k, m) + 1))
-

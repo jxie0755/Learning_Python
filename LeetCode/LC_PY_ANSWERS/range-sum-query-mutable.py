@@ -140,6 +140,3 @@ class NumArray2(object):
     class _SegmentTreeNode:
         def __init__(self, i, j, s):
             self.start, self.end, self.sum = i, j, s
-
-
-

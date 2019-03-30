@@ -68,4 +68,3 @@ class Solution2(object):
             if i - palindrome[i] == 1:
                 max_len = palindrome[i]
         return s[len(s)-1:max_len-1:-1] + s
-

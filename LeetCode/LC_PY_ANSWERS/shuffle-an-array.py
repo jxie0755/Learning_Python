@@ -33,6 +33,3 @@ class Solution(object):
             j = random.randint(i, len(nums)-1)
             nums[i], nums[j] = nums[j], nums[i]
         return nums
-
-
-

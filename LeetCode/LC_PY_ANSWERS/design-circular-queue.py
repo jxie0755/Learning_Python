@@ -62,6 +62,3 @@ class MyCircularQueue(object):
         :rtype: bool
         """
         return self.__size == len(self.__buffer)
-
-
-

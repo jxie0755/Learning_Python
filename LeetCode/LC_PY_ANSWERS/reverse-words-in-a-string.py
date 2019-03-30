@@ -6,4 +6,3 @@ class Solution(object):
     # @return a string
     def reverseWords(self, s):
         return ' '.join(reversed(s.split()))
-

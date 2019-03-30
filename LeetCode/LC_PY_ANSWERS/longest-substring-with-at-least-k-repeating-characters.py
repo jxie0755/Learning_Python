@@ -29,4 +29,3 @@ class Solution(object):
             return max_len
 
         return longestSubstringHelper(s, k, 0, len(s))
-

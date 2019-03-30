@@ -15,4 +15,3 @@ class Solution(object):
             p_max = max(p_max, A[i-1])
             if p_max <= B[i]:
                 return i
-

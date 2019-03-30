@@ -12,4 +12,3 @@ class Solution(object):
             curr = {i} | {i | j for j in curr}
             result |= curr
         return len(result)
-

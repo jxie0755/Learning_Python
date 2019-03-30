@@ -41,4 +41,3 @@ class Car():
 DenisNewCar = Car('001','Audi', 'A4', '2017')  # >>> print 'new car obtained' when create the object
 print(DenisNewCar)  # >>> '2017 Audi A4' used as a 'name' to represent the object
                     # >>> 'car001' as an ID
-

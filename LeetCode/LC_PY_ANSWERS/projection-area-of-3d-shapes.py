@@ -17,4 +17,3 @@ class Solution(object):
                 max_col = max(max_col, grid[j][i])
             result += max_row + max_col
         return result
-

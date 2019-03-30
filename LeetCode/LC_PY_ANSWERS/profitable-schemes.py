@@ -20,4 +20,3 @@ class Solution(object):
                 for j in reversed(xrange(G-g+1)):
                     dp[min(i+p, P)][j+g] += dp[i][j]
         return sum(dp[P]) % (10**9 + 7)
-

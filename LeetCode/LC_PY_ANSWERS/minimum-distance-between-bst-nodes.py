@@ -19,5 +19,3 @@ class Solution(object):
         self.result = float('inf')
         dfs(root)
         return self.result
-
-

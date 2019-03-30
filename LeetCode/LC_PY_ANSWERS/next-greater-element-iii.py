@@ -26,4 +26,3 @@ class Solution(object):
         digits[k + 1:] = digits[:k:-1]
         result = int("".join(map(str, digits)))
         return -1 if result >= 0x7FFFFFFF else result
-

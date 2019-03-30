@@ -16,4 +16,3 @@ class Solution(object):
                 result += 1
                 curr = t
         return result
-

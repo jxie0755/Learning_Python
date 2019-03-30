@@ -8,4 +8,3 @@ class Solution(object):
         :rtype: bool
         """
         return n % 4 != 0
-

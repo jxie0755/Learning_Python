@@ -64,4 +64,3 @@ class Solution2(object):
             curr = curr.next
 
         return reverseList(rev_head)
-

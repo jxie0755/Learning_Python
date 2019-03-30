@@ -24,4 +24,3 @@ class Solution(object):
                     cloned[neighbor] = cloned_neighbor
                 cloned[current].neighbors.append(cloned[neighbor])
         return cloned[node]
-

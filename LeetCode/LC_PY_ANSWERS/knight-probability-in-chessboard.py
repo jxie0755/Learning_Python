@@ -24,4 +24,3 @@ class Solution(object):
                             dp[step%2][i][j] += 0.125 * dp[(step-1)%2][rr][cc]
 
         return dp[K%2][r][c]
-

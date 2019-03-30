@@ -26,4 +26,3 @@ class Solution(object):
             result += min(sum(int(i%2 != v) for i, v in enumerate(seq1, begin)) \
                           for begin in begins) / 2
         return result
-

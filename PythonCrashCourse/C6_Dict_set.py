@@ -13,4 +13,3 @@ print()
 
 for name in sorted(favorite_languages.keys()):    # sorted临时排序
     print(name.title() + ", thank you for taking the poll.")
-

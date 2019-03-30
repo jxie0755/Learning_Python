@@ -16,4 +16,3 @@ d = [2, 3]
 print(get_ratios(a, b))
 print(get_ratios(a, c))
 print(get_ratios(a, d))
-

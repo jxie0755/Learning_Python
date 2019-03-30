@@ -15,5 +15,3 @@ print(listA[0::2])
 print(listA[2:1])
 
 text = input('type something')
-
-

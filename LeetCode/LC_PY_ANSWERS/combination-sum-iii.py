@@ -20,4 +20,3 @@ class Solution(object):
             self.combinationSumRecu(result, intermediate, start + 1, k - 1, target - start)
             intermediate.pop()
             start += 1
-

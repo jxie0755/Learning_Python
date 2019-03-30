@@ -67,4 +67,3 @@ if __name__ == '__main__':
                      (2, 2, 2, 2, 2, 2),),
                     (3, 3), (6, 0)) == False, 'First example'
     print('done')
-

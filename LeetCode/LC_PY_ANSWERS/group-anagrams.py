@@ -18,5 +18,3 @@ class Solution(object):
             anagram.sort()
             result.append(anagram)
         return result
-
-

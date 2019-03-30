@@ -17,4 +17,3 @@ class Solution(object):
                     word = word[1:] + word[:1]
                 yield word + 'ma' + 'a'*i
         return " ".join(convert(S))
-

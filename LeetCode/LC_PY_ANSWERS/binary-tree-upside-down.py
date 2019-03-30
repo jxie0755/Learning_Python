@@ -45,4 +45,3 @@ class Solution2(object):
         p.right = parent
 
         return root
-

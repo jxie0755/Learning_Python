@@ -49,5 +49,3 @@ class Solution3(object):
         :rtype: int
         """
         return sum(x >= i + 1 for i, x in enumerate(sorted(citations, reverse=True)))
-
-

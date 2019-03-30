@@ -97,6 +97,3 @@ class WordFilter2(object):
             else:
                 j += 1
         return -1
-
-
-

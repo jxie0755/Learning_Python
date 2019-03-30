@@ -15,4 +15,3 @@ class Solution(object):
                 sum[j] = min(sum[j - 1], sum[j]) + grid[i][j]
 
         return sum[-1]
-

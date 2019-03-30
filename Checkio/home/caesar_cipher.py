@@ -29,4 +29,3 @@ if __name__ == '__main__':
     assert to_encrypt("important text", 10) == "swzybdkxd dohd"
     assert to_encrypt("state secret", -13) == "fgngr frperg"
     print("Coding complete? Click 'Check' to earn cool rewards!")
-

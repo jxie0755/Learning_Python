@@ -29,4 +29,3 @@ class WordDistance(object):
                 j += 1
 
         return dist
-

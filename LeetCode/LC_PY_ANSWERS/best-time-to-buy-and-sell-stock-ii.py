@@ -14,4 +14,3 @@ class Solution(object):
     def maxProfit2(self, prices):
         return sum(map(lambda x: max(prices[x + 1] - prices[x], 0),
                        xrange(len(prices[:-1]))))
-

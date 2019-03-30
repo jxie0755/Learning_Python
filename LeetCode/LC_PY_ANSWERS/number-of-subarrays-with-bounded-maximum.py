@@ -17,4 +17,3 @@ class Solution(object):
             return result
 
         return count(A, R) - count(A, L-1)
-

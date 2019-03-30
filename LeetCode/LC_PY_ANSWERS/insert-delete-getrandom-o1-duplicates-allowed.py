@@ -53,6 +53,3 @@ class RandomizedCollection(object):
         :rtype: int
         """
         return self.__list[randint(0, len(self.__list)-1)]
-
-
-

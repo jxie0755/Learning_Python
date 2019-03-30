@@ -31,6 +31,3 @@ class ValidWordAbbr(object):
         if len(word) <= 2:
             return word
         return word[0] + str(len(word)-2) + word[-1]
-
-
-

@@ -31,4 +31,3 @@ class Solution(object):
                     lookup[s2] = lookup[s]+1
                     q.append(s2)
         return -1
-

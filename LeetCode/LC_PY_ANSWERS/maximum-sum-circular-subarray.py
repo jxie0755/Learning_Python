@@ -15,4 +15,3 @@ class Solution(object):
             min_sum = min(min_sum, cur_min)
             total += a
         return max(max_sum, total-min_sum) if max_sum > 0 else max_sum
-

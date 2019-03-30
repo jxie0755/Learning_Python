@@ -31,4 +31,3 @@ class Solution(object):
         greater.next = None
 
         return dummySmaller.next
-

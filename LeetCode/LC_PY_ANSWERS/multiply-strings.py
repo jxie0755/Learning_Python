@@ -34,5 +34,3 @@ class Solution2(object):
         :rtype: str
         """
         return str(int(num1) * int(num2))
-
-

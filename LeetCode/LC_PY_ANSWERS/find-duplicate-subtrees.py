@@ -48,4 +48,3 @@ class Solution2(object):
         result = []
         postOrderTraversal(root, lookup, result)
         return result
-

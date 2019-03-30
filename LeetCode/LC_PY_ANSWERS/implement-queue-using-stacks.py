@@ -26,4 +26,3 @@ class Queue(object):
     # @return an boolean
     def empty(self):
         return not self.A and not self.B
-

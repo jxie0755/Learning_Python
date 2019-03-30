@@ -27,4 +27,3 @@ class Solution(object):
             root.left = self.addOneRow(root.left,  v, d-1 if d > 2 else 1)
             root.right = self.addOneRow(root.right, v, d-1 if d > 2 else 0)
         return root
-

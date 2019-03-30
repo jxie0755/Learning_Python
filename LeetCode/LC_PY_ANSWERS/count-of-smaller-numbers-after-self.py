@@ -146,4 +146,3 @@ class Solution3(object):
                 else:  # Equal.
                     return count + curr.count
             return 0
-

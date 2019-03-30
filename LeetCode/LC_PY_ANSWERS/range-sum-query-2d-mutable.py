@@ -71,6 +71,3 @@ class NumMatrix(object):
                 self.__bit[i][j] += val
                 j += (j & -j)
             i += (i & -i)
-
-
-

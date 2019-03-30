@@ -84,4 +84,3 @@ class Solution2(object):
             return (0, index)
 
         return findKthNumberHelper(n, k, 0, 0)[0]
-

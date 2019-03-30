@@ -24,4 +24,3 @@ class Solution(object):
                 nodeStack[-1].right = node
             nodeStack.append(node)
         return nodeStack[0]
-

@@ -111,5 +111,3 @@ class Solution3(object):
                     max_square_area = max(max_square_area, side * side)
 
         return max_square_area
-
-

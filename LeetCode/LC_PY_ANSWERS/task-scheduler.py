@@ -22,4 +22,3 @@ class Solution(object):
             if count == max_count:
                 result += 1
         return max(result, len(tasks))
-

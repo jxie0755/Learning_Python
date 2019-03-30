@@ -14,4 +14,3 @@ class Solution(object):
             for i in xrange(coin, amount+1):
                 dp[i] += dp[i-coin]
         return dp[amount]
-

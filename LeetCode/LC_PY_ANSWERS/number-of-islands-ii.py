@@ -41,4 +41,3 @@ class Solution(object):
             numbers.append(number)
 
         return numbers
-

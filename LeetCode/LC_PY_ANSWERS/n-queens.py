@@ -52,5 +52,3 @@ class Solution2(object):
         ress = []
         dfs([], [], [])
         return [['.'*i + 'Q' + '.'*(n-i-1) for i in res] for res in ress]
-
-

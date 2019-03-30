@@ -25,4 +25,3 @@ class Solution(object):
                         return target
             i += 1
         return result
-

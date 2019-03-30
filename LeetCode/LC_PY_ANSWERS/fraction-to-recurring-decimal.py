@@ -30,5 +30,3 @@ class Solution(object):
             result = result[:lookup[dvd]] + "(" + result[lookup[dvd]:] + ")"
 
         return result
-
-

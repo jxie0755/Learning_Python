@@ -39,4 +39,3 @@ class Solution(object):
             if primes[i]:
                 primes[i * i: n: i] = [False] * len(primes[i * i: n: i])
         return sum(primes)
-

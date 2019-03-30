@@ -18,4 +18,3 @@ class Solution(object):
         primes = {2, 3, 5, 7, 11, 13, 17, 19}
         return sum(bitCount(i) in primes
                    for i in xrange(L, R+1))
-

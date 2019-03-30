@@ -16,4 +16,3 @@ class Solution(object):
             result += "/" + str(nums[i])
         result += ")"
         return "".join(result)
-

@@ -7,4 +7,3 @@ class Person:
 p = Person()
 p.say_hi()
 Person().say_hi()
-

@@ -53,4 +53,3 @@ class Solution2(object):
         nums.sort(reverse=True)
         subset_sums = [0] * k
         return dfs(nums, total//k, 0, subset_sums)
-

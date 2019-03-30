@@ -38,5 +38,3 @@ class Solution2(object):
             return v * v
         else:
             return v * v * x
-
-

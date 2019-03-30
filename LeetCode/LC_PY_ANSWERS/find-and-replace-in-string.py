@@ -27,4 +27,3 @@ class Solution(object):
             elif i >= last:
                 result.append(S[i])
         return "".join(result)
-

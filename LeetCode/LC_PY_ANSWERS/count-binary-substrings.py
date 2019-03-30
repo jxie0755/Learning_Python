@@ -16,4 +16,3 @@ class Solution(object):
                 curr += 1
         result += min(prev, curr)
         return result
-

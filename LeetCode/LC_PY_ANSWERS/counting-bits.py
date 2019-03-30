@@ -22,5 +22,3 @@ class Solution(object):
         while len(s) <= num:
             s.extend(map(lambda x: x + 1, s))
         return s[:num + 1]
-
-

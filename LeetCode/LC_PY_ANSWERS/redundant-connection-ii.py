@@ -40,4 +40,3 @@ class Solution(object):
             if not union_find.union_set(*edge):
                 return cand1 if cand2 else edge
         return cand2
-

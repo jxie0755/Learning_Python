@@ -64,5 +64,3 @@ class Solution3(object):
         else:
             self.subsetsWithDupRecu(result, cur, nums[1:])
             self.subsetsWithDupRecu(result, cur + [nums[0]], nums[1:])
-
-

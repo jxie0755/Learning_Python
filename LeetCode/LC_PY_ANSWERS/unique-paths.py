@@ -13,4 +13,3 @@ class Solution(object):
                 ways[j] += ways[j - 1]
 
         return ways[n - 1]
-

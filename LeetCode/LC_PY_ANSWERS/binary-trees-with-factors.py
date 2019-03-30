@@ -18,4 +18,3 @@ class Solution(object):
                     dp[A[i]] += dp[A[j]] * dp[A[i] // A[j]]
                     dp[A[i]] %= M
         return sum(dp.values()) % M
-

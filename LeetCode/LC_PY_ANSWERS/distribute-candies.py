@@ -10,4 +10,3 @@ class Solution(object):
         """
         lookup = set(candies)
         return min(len(lookup), len(candies)/2)
-

@@ -41,4 +41,3 @@ class Solution(object):
                 max_sum = total
                 result = [left, i, right]
         return result
-

@@ -44,4 +44,3 @@ class Solution(object):
         if plus:
             res += '1'
         return res[::-1]
-

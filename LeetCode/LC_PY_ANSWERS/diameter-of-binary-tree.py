@@ -15,4 +15,3 @@ class Solution(object):
         left, diameter = self.depth(root.left, diameter)
         right, diameter = self.depth(root.right, diameter)
         return 1 + max(left, right), max(diameter, left + right)
-

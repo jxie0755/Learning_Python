@@ -26,4 +26,3 @@ class Solution2(object):
     # @return a list of lists of integers
     def rotate(self, matrix):
         return [list(reversed(x)) for x in zip(*matrix)]
-

@@ -40,4 +40,3 @@ if __name__ == '__main__':
     assert non_repeat('fghfrtyfgh') ==  'ghfrty', "extra check"
     assert non_repeat('') == '', 'empty string'
     print('"Run" is good. How is "Check"?')
-

@@ -25,4 +25,3 @@ class Solution(object):
                 root = root.right
 
         return successor
-

@@ -36,4 +36,3 @@ def multiply(a, b):
 # 2 tests in 2 items.
 # 2 passed and 0 failed.
 # Test passed.
-

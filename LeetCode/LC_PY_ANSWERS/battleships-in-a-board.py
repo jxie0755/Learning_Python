@@ -18,4 +18,3 @@ class Solution(object):
                            (i == 0 or board[i - 1][j] != 'X') and
                            (j == 0 or board[i][j - 1] != 'X'))
         return cnt
-

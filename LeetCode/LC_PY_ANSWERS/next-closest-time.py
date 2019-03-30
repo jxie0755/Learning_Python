@@ -17,4 +17,3 @@ class Solution(object):
             if set(result) <= set(time):
                 break
         return result
-

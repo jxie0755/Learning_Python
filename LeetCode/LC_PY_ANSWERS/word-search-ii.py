@@ -56,4 +56,3 @@ class Solution(object):
         self.findWordsRecu(board, next_node, cur + 1, i, j - 1, visited, cur_word, result)
         visited[i][j] = False
         cur_word.pop()
-

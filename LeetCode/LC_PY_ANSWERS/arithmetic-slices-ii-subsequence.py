@@ -20,4 +20,3 @@ class Solution(object):
                     dp[i][diff] += dp[j][diff]
                     result += dp[j][diff]
         return result
-

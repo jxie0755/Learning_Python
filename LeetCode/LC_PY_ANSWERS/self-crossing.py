@@ -34,4 +34,3 @@ class Solution(object):
                 #      i-2
                 return True
         return False
-

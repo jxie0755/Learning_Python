@@ -43,4 +43,3 @@ def playHand(hand, wordList, n):
         print('Goodbye! Total score: ' + str(score) + ' points.')
     else:
         print('Run out of letters. Total score: ' + str(score) + ' points.')
-

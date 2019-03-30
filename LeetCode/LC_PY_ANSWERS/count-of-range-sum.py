@@ -80,4 +80,3 @@ class Solution2(object):
         for i in xrange(len(nums)):
             sums[i + 1] = sums[i] + nums[i]
         return countAndMergeSort(sums, 0, len(sums) - 1, lower, upper)
-

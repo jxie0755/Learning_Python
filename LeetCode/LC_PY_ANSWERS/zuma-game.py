@@ -66,4 +66,3 @@ class Solution(object):
         hand.sort()
         result = findMinStepHelper(board, hand, lookup)
         return -1 if result == float("inf") else result
-

@@ -15,4 +15,3 @@ class Solution(object):
                     result = max(result, i-last)
                 last = i
         return result
-

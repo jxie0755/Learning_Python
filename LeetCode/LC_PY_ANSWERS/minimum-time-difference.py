@@ -11,4 +11,3 @@ class Solution(object):
         minutes.sort()
         return min((y - x) % (24 * 60)  \
                    for x, y in zip(minutes, minutes[1:] + minutes[:1]))
-

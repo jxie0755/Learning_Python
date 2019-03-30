@@ -61,4 +61,3 @@ class Solution(object):
                 for i1, i2 in itertools.combinations(buckets[word], 2):
                     union_find.union_set(i1, i2)
         return union_find.size()
-

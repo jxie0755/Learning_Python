@@ -26,4 +26,3 @@ class Solution(object):
                 max_sell[j] = max(max_sell[j], max_buy[j] + prices[i])
 
         return max_sell[k]
-

@@ -41,4 +41,3 @@ if __name__ == '__main__':
     assert checkio(9995) == 4, "4 years"
     assert checkio(9990) == 5, "5 years"
     print('done')
-

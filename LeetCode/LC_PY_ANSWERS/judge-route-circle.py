@@ -18,4 +18,3 @@ class Solution(object):
             elif move == 'L':
                 h -= 1
         return v == 0 and h == 0
-

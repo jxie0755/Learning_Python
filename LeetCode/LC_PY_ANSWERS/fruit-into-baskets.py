@@ -22,4 +22,3 @@ class Solution(object):
             result = max(result, j-i+1)
         return result
  
-

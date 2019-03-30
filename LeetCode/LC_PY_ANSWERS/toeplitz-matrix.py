@@ -25,4 +25,3 @@ class Solution2(object):
                 if matrix[row_index - 1][digit_index - 1] != digit:
                     return False
         return True
-

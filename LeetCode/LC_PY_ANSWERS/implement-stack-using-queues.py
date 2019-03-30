@@ -77,4 +77,3 @@ class Stack2(object):
     # @return an boolean
     def empty(self):
         return self.q_.empty()
-

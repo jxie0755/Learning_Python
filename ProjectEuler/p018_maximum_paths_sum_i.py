@@ -93,4 +93,3 @@ if __name__ == '__main__':
     print(max_path_sum_i(process('p018_data.txt')))
     # >>> 1074
     # passed
-

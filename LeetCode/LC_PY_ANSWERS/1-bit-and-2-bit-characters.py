@@ -14,4 +14,3 @@ class Solution(object):
                 break
             parity ^= bits[i]
         return parity == 0
-

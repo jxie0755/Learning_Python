@@ -48,4 +48,3 @@ class Solution3(object):
         :rtype: List[int]
         """
         return [elem for elem, count in Counter(nums).items() if count == 2]
-

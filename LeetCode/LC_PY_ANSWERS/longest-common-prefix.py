@@ -15,5 +15,3 @@ class Solution(object):
                 if i >= len(string) or string[i] != strs[0][i]:
                     return strs[0][:i]
         return strs[0]
-
-

@@ -16,4 +16,3 @@ class Solution(object):
         for i in xrange(leftmost_inverted_idx, len(nums)):
             nums[i] = 9
         return int("".join(map(str, nums)))
-

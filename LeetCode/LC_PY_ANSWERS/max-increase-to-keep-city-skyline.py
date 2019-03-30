@@ -16,4 +16,3 @@ class Solution(object):
         return sum(min(row_maxes[r], col_maxes[c])-val \
                    for r, row in enumerate(grid) \
                    for c, val in enumerate(row))
-

@@ -183,4 +183,3 @@ class Solution4(object):
         for height in heights:
             result.append(max(result[-1], height) if result else height)
         return result
-

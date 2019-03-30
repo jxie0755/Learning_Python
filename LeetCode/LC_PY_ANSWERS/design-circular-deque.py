@@ -85,6 +85,3 @@ class MyCircularDeque(object):
         :rtype: bool
         """
         return self.__size == len(self.__buffer)
-
-
-

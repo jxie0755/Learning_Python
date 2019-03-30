@@ -24,4 +24,3 @@ class Solution(object):
                         y += directions[i][1]
                         result = max(result, x*x + y*y)
         return result
-

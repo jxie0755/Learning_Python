@@ -17,4 +17,3 @@ class Solution(object):
                 # Update the index of the value.
                 lookup[num] = i
         return False
-

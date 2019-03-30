@@ -24,4 +24,3 @@ class Solution(object):
                     preOrderTraverse(s.right, t))
 
         return preOrderTraverse(s, t)
-

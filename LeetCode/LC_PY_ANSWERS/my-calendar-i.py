@@ -60,6 +60,3 @@ class MyCalendar2(object):
                 return False
         self.__calendar.append((start, end))
         return True
-
-
-

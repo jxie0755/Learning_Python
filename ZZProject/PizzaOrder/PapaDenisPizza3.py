@@ -114,4 +114,3 @@ final_total_price = sum(final_price)
 # print the final price and end this order.
 print('\nYour total payment will be: $' + str(round(final_total_price, 2)))
 print('Enjoy your meal!')
-

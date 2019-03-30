@@ -56,4 +56,3 @@ class SolutionEX(object):
         for x in A:
             one, two, three = (~x & one) | (x & ~one & ~two & ~three), (~x & two) | (x & one), (~x & three) | (x & two)
         return two
-

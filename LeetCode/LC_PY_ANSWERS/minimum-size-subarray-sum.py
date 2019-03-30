@@ -47,4 +47,3 @@ class Solution2(object):
             else:
                 start = mid + 1
         return start
-

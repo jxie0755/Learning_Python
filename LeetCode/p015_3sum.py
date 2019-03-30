@@ -249,11 +249,3 @@ if __name__ == '__main__':
     assert Solution().threeSum([0,0,0]) == [[0,0,0]], 'Example 4'
 
     print('all passed')
-
-
-
-
-
-
-
-

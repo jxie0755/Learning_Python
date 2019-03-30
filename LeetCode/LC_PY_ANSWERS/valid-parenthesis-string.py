@@ -14,4 +14,3 @@ class Solution(object):
             if upper < 0: break
             lower = max(lower, 0)
         return lower == 0  # range of '(' count is valid
-

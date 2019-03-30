@@ -16,5 +16,3 @@ class Solution(object):
                 jump_count += 1
             reachable = max(reachable, i + length)
         return jump_count
-
-

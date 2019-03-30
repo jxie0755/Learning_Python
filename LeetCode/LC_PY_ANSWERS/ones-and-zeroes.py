@@ -22,4 +22,3 @@ class Solution(object):
             	for j in reversed(xrange(one_count, n+1)):
                     dp[i][j] = max(dp[i][j], dp[i-zero_count][j-one_count]+1)
         return dp[m][n]
-

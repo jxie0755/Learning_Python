@@ -29,4 +29,3 @@ def polysum(n, s):
     # round result to 4 decimal spaces
     result = round(result, 4)
     return result
-

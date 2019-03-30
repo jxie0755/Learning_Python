@@ -21,5 +21,3 @@ class Solution(object):
                 left = mid + 1
 
         return left < m * n and matrix[left / n][left % n] == target
-
-

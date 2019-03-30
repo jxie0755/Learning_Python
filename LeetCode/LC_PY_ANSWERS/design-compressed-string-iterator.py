@@ -32,7 +32,3 @@ class StringIterator(object):
         :rtype: bool
         """
         return self.__index != len(self.__result) or self.__num != 0
-
-
-
-

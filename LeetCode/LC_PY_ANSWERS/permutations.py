@@ -21,4 +21,3 @@ class Solution(object):
                 self.permuteRecu(result, used, cur, num)
                 cur.pop()
                 used[i] = False
-

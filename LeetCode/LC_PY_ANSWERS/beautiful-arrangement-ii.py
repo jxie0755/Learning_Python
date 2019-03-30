@@ -20,4 +20,3 @@ class Solution(object):
             if k > 1:
                 k -= 1
         return result
-

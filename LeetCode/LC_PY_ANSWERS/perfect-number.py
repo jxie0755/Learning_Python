@@ -15,4 +15,3 @@ class Solution(object):
         if sqrt_num ** 2 == num:
             total -= sqrt_num
         return total - num == num
-

@@ -30,4 +30,3 @@ class Solution(object):
                 curr.child = None
             curr = curr.next
         return head
-

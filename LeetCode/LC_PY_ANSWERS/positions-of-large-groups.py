@@ -16,4 +16,3 @@ class Solution(object):
                     result.append([i, j])
                 i = j+1
         return result
-

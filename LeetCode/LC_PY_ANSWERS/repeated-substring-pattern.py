@@ -33,4 +33,3 @@ class Solution(object):
         ss = (str + str)[1:-1]
         print(ss)
         return ss.find(str) != -1
-

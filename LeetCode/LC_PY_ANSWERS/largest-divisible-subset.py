@@ -29,4 +29,3 @@ class Solution(object):
             result.append(nums[i])
             i = prev[i]
         return result[::-1]
-

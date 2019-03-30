@@ -18,4 +18,3 @@ class Solution(object):
                 if (num + diff) in lookup:
                     result = max(result, lookup[num] + lookup[num + diff])
         return result
-

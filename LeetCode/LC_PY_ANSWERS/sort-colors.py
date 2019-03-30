@@ -22,4 +22,3 @@ class Solution(object):
                     j += 1
 
         triPartition(nums, 1)
-

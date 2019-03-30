@@ -14,4 +14,3 @@ movinglist(unconfirmed_users[:], confirmed_users[:])
 
 print('original U:', unconfirmed_users)
 print('original C:', confirmed_users)
-

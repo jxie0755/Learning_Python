@@ -31,4 +31,3 @@ class Solution2(object):
         """
         return sum(col.count('B') == 1 == picture[col.index('B')].count('B') \
                for col in zip(*picture))
-

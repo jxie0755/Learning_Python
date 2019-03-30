@@ -32,4 +32,3 @@ class Solution(object):
             return count
 
         return countAndMergeSort(nums, 0, len(nums) - 1)
-

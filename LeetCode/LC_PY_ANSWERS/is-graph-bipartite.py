@@ -22,4 +22,3 @@ class Solution(object):
                     elif color[neighbor] == color[curr]:
                         return False
         return True
-

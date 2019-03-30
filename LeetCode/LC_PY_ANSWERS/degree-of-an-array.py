@@ -19,4 +19,3 @@ class Solution(object):
         return min(right[num]-left[num]+1 \
                    for num in counts.keys() \
                    if counts[num] == degree)
-

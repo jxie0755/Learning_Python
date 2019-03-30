@@ -30,4 +30,3 @@ class Solution(object):
                 dp[i] = min(dp[i], k+j+1 + dp[i - 2**(k-1) + 2**j])
 
         return dp[-1]
-

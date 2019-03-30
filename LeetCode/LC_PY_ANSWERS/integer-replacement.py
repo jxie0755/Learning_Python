@@ -40,5 +40,3 @@ class Solution2(object):
             return self.integerReplacement((n - 1) / 4) + 3
         else:
             return self.integerReplacement((n + 1) / 4) + 3
-
-

@@ -38,5 +38,3 @@ class Solution(object):
         # Last line.
         res += connect(words, maxWidth, begin, len(words), length, True),
         return res
-
-

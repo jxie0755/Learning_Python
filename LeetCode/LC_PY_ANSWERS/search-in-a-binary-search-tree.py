@@ -21,4 +21,3 @@ class Solution(object):
             else:
                 root = root.right
         return root
-

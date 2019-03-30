@@ -19,4 +19,3 @@ class Solution_TLE(object):
                     return candidate % 1337
                 j -= 1
         return -1
-

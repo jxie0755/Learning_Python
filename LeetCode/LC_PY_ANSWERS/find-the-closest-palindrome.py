@@ -14,4 +14,3 @@ class Solution(object):
             candidates.add(i + [i, i[:-1]][l%2][::-1])
         candidates.discard(n)
         return min(candidates, key=lambda x: (abs(int(x) - int(n)), int(x)))
-

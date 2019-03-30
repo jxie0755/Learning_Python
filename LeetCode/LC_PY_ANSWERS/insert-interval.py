@@ -29,5 +29,3 @@ class Solution(object):
         result += newInterval,
         result += intervals[i:]
         return result
-
-

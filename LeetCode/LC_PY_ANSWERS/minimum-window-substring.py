@@ -35,5 +35,3 @@ class Solution(object):
             return ""
 
         return s[min_start:min_start + min_width]
-
-

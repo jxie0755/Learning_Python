@@ -41,4 +41,3 @@ class Solution(object):
         while len(res) < numRows:
             res.extend([add(res[-1])])
         return res
-

@@ -21,4 +21,3 @@ name = 'swaroop'
 print('apple' in shoplist)
 print('apple' in shoplist2)
 # print(shoplist & shoplist2) list是不能求子集交集的,只能用于set
-

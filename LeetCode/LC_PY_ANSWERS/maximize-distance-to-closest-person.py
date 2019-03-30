@@ -17,4 +17,3 @@ class Solution(object):
                     result = max(result, (i-prev)//2)
                 prev = i
         return max(result, len(seats)-1-prev)
-

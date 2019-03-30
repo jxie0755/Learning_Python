@@ -23,5 +23,3 @@ class Solution(object):
                     break
 
         return can_break[-1]
-
-

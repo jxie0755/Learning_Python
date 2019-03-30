@@ -15,4 +15,3 @@ class Solution(object):
             curr += n - target
             result = max(result, max(n - target, abs(curr)))
         return result
-

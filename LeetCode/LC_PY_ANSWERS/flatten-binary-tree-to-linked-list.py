@@ -35,4 +35,3 @@ class Solution2(object):
             root.left = None
             self.list_head = root
             return root
-

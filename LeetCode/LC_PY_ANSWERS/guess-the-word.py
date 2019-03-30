@@ -65,4 +65,3 @@ class Solution2(object):
             guess = solve(H, possible)
             n = master.guess(wordlist[guess])
             possible = [j for j in possible if H[guess][j] == n]
-

@@ -24,4 +24,3 @@ class Solution(object):
         for i in reversed(xrange(len(result))):
             sum += result[i] * (len(result) - i)
         return sum
-

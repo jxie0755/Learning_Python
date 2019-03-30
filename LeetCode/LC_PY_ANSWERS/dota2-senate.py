@@ -24,4 +24,3 @@ class Solution(object):
             else:
                 dire.append(d_idx+n)
         return "Radiant" if len(radiant) > len(dire) else "Dire"
-

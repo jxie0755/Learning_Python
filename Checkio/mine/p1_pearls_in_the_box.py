@@ -65,4 +65,3 @@ print(checkio('bbw', 3))
 #     assert checkio('bbbb', 1) == 0, "4th example"
 #     assert checkio('wwbb', 4) == 0.5, "5th example"
 #     assert checkio('bwbwbwb', 5) == 0.48, "6th example"
-

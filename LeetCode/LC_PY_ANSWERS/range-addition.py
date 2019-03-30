@@ -18,4 +18,3 @@ class Solution(object):
             result[i] += result[i-1]
 
         return result
-

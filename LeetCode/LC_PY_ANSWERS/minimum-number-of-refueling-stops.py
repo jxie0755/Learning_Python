@@ -27,4 +27,3 @@ class Solution(object):
             prev = location
 
         return result
-

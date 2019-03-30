@@ -43,4 +43,3 @@ class Solution(object):
             cur.next = l2
 
         return dummy.next
-

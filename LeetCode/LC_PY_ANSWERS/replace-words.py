@@ -27,4 +27,3 @@ class Solution(object):
             return word
 
         return " ".join(map(replace, sentence.split()))
-

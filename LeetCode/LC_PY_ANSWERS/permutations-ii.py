@@ -43,4 +43,3 @@ class Solution2(object):
             solutions = next
 
         return solutions
-

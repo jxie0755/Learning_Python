@@ -24,4 +24,3 @@ class Solution(object):
                 i /= int(c)
             else:
                 i -= 1
-

@@ -93,4 +93,3 @@ class Solution3(object):
                 it2 += 1
 
         return res
-

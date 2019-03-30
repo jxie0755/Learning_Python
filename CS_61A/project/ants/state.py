@@ -13,5 +13,3 @@ class State:
 
     def updateState(self, key, val):
         self.gs[key] = val
-
-

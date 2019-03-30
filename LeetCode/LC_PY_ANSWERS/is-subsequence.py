@@ -18,4 +18,3 @@ class Solution(object):
             if i == len(s):
                 break
         return i == len(s)
-

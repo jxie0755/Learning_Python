@@ -22,4 +22,3 @@ class Solution(object):
             coolDown[i % 2] = max(coolDown[(i - 1) % 2], sell[(i - 1) % 2])
         return max(coolDown[(len(prices) - 1) % 2],
                    sell[(len(prices) - 1) % 2])
-

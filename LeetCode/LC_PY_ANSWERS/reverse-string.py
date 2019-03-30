@@ -25,4 +25,3 @@ class Solution2(object):
         :rtype: str
         """
         return s[::-1]
-

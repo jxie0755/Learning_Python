@@ -32,4 +32,3 @@ class Solution(object):
         bottom = binarySearch(x + 1, len(image) - 1, searchRows, image, False)
 
         return (right - left) * (bottom - top)
-

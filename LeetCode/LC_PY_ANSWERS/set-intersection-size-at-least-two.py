@@ -18,4 +18,3 @@ class Solution(object):
                         cnts[i] -= 1
             result += cnt
         return result
-

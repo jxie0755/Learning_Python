@@ -36,4 +36,3 @@ class Solution(object):
             max_points = max(max_points, current_max)
 
         return max_points
-

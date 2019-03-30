@@ -16,4 +16,3 @@ class Solution(object):
             if fast is slow:
                 return True
         return False
-

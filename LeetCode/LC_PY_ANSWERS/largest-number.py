@@ -9,4 +9,3 @@ class Solution(object):
         num.sort(cmp=lambda x, y: cmp(y + x, x + y))
         largest = ''.join(num)
         return largest.lstrip('0') or '0'
-

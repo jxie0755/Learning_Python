@@ -34,4 +34,3 @@ class Solution(object):
             current.next, current, l2 = l2, l2, l2.next
 
         return dummy.next
-

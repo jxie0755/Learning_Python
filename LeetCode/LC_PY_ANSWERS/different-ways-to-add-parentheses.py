@@ -53,4 +53,3 @@ class Solution2(object):
             return lookup[left][right]
 
         return diffWaysToComputeRecu(0, len(input))
-

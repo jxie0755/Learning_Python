@@ -55,4 +55,3 @@ class Solution2(object):
 
     def nthUglyNumber(self, n):
         return self.ugly[n-1]
-

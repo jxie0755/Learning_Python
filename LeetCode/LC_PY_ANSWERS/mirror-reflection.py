@@ -33,4 +33,3 @@ class Solution2(object):
                 return 1  # a is odd, b is odd <=> (p & -p) == (q & -q)
             return 2  # a is odd, b is even <=> (p & -p) > (q & -q)
         return 0  # a is even, b is odd <=> (p & -p) < (q & -q)
-

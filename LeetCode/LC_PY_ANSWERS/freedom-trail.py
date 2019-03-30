@@ -27,4 +27,3 @@ class Solution(object):
                                      dp[(i-1) % 2][k])
             prev = lookup[key[i-1]]
         return min(dp[len(key)%2]) + len(key)
-

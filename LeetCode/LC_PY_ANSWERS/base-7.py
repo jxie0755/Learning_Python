@@ -23,4 +23,3 @@ class Solution2(object):
         if num < 7:
             return str(num)
         return self.convertToBase7(num // 7) + str(num % 7)
-

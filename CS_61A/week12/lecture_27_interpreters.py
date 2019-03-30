@@ -16,6 +16,3 @@
 # define expression is essentially attach the function name to a lambda function
 
 # Need to pay attention to the env (frame, i.e: global)
-
-
-

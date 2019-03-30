@@ -23,4 +23,3 @@ class Solution(object):
         	    curr_radius = min(curr_radius, house - heaters[smaller])
         	min_radius = max(min_radius, curr_radius)
         return min_radius
-

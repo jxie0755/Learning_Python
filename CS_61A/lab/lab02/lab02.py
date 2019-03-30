@@ -25,4 +25,3 @@ def lambda_curry2(func):
 
     # one liner using lambda function:
     # return lambda arg1: lambda arg2: func(arg1, arg2)
-

@@ -29,4 +29,3 @@ class Solution2(object):
             else:
                 left = mid + 1
         return left - 1
-

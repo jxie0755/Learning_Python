@@ -504,8 +504,3 @@ print(foo(bar)) # >>> 5
 
 # Part III: Write Some Scheme
 # See questions.scm
-
-
-
-
-

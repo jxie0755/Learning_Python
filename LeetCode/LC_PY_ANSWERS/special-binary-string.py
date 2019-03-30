@@ -17,4 +17,3 @@ class Solution(object):
                 anchor = i+1
         result.sort(reverse = True)
         return "".join(result)
-

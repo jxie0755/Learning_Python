@@ -47,4 +47,3 @@ class Solution(object):
             total_change_cnt -= min(max(delete_cnt - one_change_cnt - 2 * two_change_cnt, 0), three_change_cnt * 3) / 3
 
             return delete_cnt + max(missing_type_cnt, total_change_cnt)
-

@@ -116,4 +116,3 @@ class Solution(object):
 
         lookup = dict(itertools.izip(evalvars, evalints))
         return parse(expression).eval(lookup).to_list()
-

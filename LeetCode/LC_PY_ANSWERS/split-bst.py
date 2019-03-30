@@ -18,4 +18,3 @@ class Solution(object):
             result = self.splitBST(root.left, V)
             root.left = result[1]
             return result[0], root
-

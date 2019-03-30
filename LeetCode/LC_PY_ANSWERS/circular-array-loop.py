@@ -32,4 +32,3 @@ class Solution(object):
                 slow = tmp
 
         return False
-

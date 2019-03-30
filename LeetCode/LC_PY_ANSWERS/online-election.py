@@ -29,6 +29,3 @@ class TopVotedCandidate(object):
         """
         return self.__lookup[bisect.bisect(self.__lookup,
                                            (t, float("inf")))-1][1]
-
-
-

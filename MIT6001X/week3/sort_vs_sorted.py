@@ -62,4 +62,3 @@ print(list(reversed(seqTuple)))  # >>> ['n', 'o', 'h', 't', 'y', 'P']
 
 seqList = [1, 2, 4, 3, 5]
 print(list(reversed(seqList)))  # >>> [5, 3, 4, 2, 1]
-

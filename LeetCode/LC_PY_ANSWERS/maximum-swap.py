@@ -17,4 +17,3 @@ class Solution(object):
                 left, right = i, max_idx
         digits[left], digits[right] = digits[right], digits[left]
         return int("".join(digits))
-

@@ -84,6 +84,3 @@ class Excel(object):
                 for k, count in self.__fward[key].iteritems():
                     q.append((k, diff*count))
                     self.__exl[k[0]][ord(k[1])-ord('A')] += diff*count
-
-
-

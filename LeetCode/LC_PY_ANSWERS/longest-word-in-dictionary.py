@@ -26,4 +26,3 @@ class Solution(object):
                     result = word
                 stack += [curr[letter] for letter in curr if letter != "_end"]
         return result
-

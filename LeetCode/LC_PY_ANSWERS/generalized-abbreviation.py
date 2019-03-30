@@ -23,5 +23,3 @@ class Solution(object):
         res, cur = [], []
         generateAbbreviationsHelper(word, 0, cur, res)
         return res
-
-

@@ -25,4 +25,3 @@ class Solution(object):
             A //= g
             B //= g
         return '%d/%d' % (A, B)
-

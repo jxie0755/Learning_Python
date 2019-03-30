@@ -36,4 +36,3 @@ class Solution2(object):
         for i in xrange(7, N+1):
             dp[i % 6] = max(dp[(i-4) % 6]*3, dp[(i-5) % 6]*4)
         return dp[N % 6]
-

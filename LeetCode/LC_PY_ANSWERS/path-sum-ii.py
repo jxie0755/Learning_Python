@@ -28,4 +28,3 @@ class Solution(object):
         self.pathSumRecu(result, cur,root.right, sum - root.val)
         cur.pop()
         return result
-

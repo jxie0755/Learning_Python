@@ -18,5 +18,3 @@ class Solution(object):
                 cur += prev_prev
             prev, prev_prev = cur, prev
         return prev
-
-

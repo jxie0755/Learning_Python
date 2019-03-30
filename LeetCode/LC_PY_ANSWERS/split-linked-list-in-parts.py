@@ -26,4 +26,3 @@ class Solution(object):
                 curr.next, curr = None, curr.next
             result.append(head)
         return result
-

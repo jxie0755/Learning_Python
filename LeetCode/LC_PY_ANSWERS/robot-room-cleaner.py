@@ -32,4 +32,3 @@ class Solution(object):
                 d = (d+1) % len(directions)
         
         dfs((0, 0), robot, 0, set())
-

@@ -12,5 +12,3 @@ class Solution(object):
             result *= 26
             result += ord(s[i]) - ord('A') + 1
         return result
-
-

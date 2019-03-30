@@ -15,4 +15,3 @@ map(lambda x: x**x, [y for y in range(10)])
 # practice
 add = lambda x: x*2
 print(list(map(add, [i for i in range(10)])))
-

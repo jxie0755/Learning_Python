@@ -20,4 +20,3 @@ class Solution(object):
         result = []
         dfs(graph, 0, [0], result)
         return result
-

@@ -12,6 +12,3 @@ while True:
     l_name = input('last name:')
     name = format_name(f_name, l_name)
     print('\nHello,', name, '!')
-
-
-

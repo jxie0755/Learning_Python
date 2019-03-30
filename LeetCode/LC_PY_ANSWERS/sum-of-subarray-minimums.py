@@ -30,4 +30,3 @@ class Solution(object):
             s2.append([A[i], count])
 
         return sum(a*l*r for a, l, r in itertools.izip(A, left, right)) % M
-

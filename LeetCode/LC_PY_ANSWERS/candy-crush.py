@@ -35,4 +35,3 @@ class Solution(object):
                     board[r][c] = 0
 
         return board
-

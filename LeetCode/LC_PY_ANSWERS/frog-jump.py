@@ -18,4 +18,3 @@ class Solution(object):
                     if k > 0 and s+k in last_jump_units:
                         last_jump_units[s+k].add(k)
         return bool(last_jump_units[stones[-1]])
-

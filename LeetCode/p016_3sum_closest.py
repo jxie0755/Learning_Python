@@ -57,4 +57,3 @@ if __name__ == '__main__':
     assert Solution().threeSumClosest([-1, 2, 1, -4], -1) == -1, 'Match'
 
     print('all passed')
-

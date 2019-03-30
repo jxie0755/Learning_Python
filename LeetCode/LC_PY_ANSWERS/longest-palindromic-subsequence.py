@@ -18,4 +18,3 @@ class Solution(object):
                 else:
                     dp[i%2][j] = max(dp[(i+1)%2][j], dp[i%2][j-1])
         return dp[0][-1]
-

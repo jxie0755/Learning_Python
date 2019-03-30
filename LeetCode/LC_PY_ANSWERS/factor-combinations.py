@@ -21,4 +21,3 @@ class Solution(object):
                 self.getResult(n / i, result, factors)
                 factors.pop()
             i += 1
-

@@ -20,4 +20,3 @@ class Solution(object):
             result += (distance(nut, tree) * 2)
             d = min(d, distance(nut, squirrel) - distance(nut, tree))
         return result + d
-

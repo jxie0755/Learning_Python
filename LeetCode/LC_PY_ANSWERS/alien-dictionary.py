@@ -109,4 +109,3 @@ class Solution2(object):
             # So it is cyclic.
             return True
         return False
-

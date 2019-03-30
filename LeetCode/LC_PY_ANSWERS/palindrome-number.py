@@ -14,4 +14,3 @@ class Solution(object):
             copy //= 10
 
         return x == reverse
-

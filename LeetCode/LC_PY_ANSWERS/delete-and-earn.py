@@ -15,4 +15,3 @@ class Solution(object):
             val_i_1, val_i_2 = val_i, val_i_1
             val_i = max(vals[i] + val_i_2, val_i_1)
         return val_i
-

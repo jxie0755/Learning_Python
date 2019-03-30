@@ -31,4 +31,3 @@ class Solution(object):
             self.dfs(grid, row, col, x, y - 1)
         if y != col - 1:
             self.dfs(grid, row, col, x, y + 1)
-

@@ -17,4 +17,3 @@ L4 = [1, 2, 3, 1, 2, 3, 4, 5]
 del(L4[1])    # del an item in the list
 L4.remove(1)  # remove a value in the list(only the first one occured
 print(L4)
-

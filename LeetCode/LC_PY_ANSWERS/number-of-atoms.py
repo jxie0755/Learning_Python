@@ -25,4 +25,3 @@ class Solution(object):
 
         return "".join(name + (str(stk[-1][name]) if stk[-1][name] > 1 else '') \
                        for name in sorted(stk[-1]))
-

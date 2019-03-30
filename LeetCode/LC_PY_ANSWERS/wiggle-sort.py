@@ -12,4 +12,3 @@ class Solution(object):
                 (not (i % 2) and nums[i - 1] < nums[i]):
                 # Swap unordered elements.
                 nums[i - 1], nums[i] = nums[i], nums[i - 1]
-

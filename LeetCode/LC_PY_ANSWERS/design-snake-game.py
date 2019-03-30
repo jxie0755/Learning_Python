@@ -56,6 +56,3 @@ class SnakeGame(object):
         self.__snake += (x, y),
         self.__lookup[(x, y)] += 1
         return self.__score
-
-
-

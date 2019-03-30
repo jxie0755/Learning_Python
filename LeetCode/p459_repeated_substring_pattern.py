@@ -26,4 +26,3 @@ if __name__ == '__main__':
     assert Solution().repeatedSubstringPattern('aa') == True
     assert Solution().repeatedSubstringPattern('aaa') == True
     print('all passed')
-

@@ -46,6 +46,3 @@ class SummaryRanges(object):
         :rtype: List[Interval]
         """
         return self.__intervals
-
-
-

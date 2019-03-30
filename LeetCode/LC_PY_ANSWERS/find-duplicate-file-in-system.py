@@ -23,4 +23,3 @@ class Solution(object):
             if len(file_names)>1:
                 result.append(file_names)
         return result
-

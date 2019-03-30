@@ -50,6 +50,3 @@ class MapSum(object):
                 return 0
             curr = curr[c]
         return curr["_count"]
-
-
-

@@ -16,4 +16,3 @@ class Solution(object):
                                        dp[(i+1)%2][j], \
                                        dp[i%2][j] + (word1[i] == word2[j]))
         return m + n - 2*dp[m%2][n]
-

@@ -41,4 +41,3 @@ class Solution2(object):
             costs[i][2] += min(costs[i - 1][0], costs[i - 1][1])
 
         return min(costs[n - 1])
-

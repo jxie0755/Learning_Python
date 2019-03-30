@@ -28,4 +28,3 @@ class Solution(object):
             insert(envelope[1])
 
         return len(result)
-

@@ -19,4 +19,3 @@ class Solution(object):
             if cur_sum not in sums:
                 sums[cur_sum] = i  # Only keep the smallest index.
         return max_len
-

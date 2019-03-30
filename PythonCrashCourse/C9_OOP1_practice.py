@@ -37,9 +37,3 @@ teressa.set_number_served(1234)
 print(teressa.number_served)  # >>> 1234
 teressa.increment_number_served(234)
 print(teressa.number_served)  # >>> 1468
-
-
-
-
-
-

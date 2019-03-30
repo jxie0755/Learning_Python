@@ -74,6 +74,3 @@ class MaxStack(object):
             self.__top = self.__idx_to_val[max(self.__idx_to_val.keys())] if self.__idx_to_val else None
         if val == self.__max:
             self.__max = max(self.__val_to_idxs.keys()) if self.__val_to_idxs else None
-
-
-

@@ -19,4 +19,3 @@ class Solution(object):
             j = int(str(i) + str(i)[-2::-1])
             if j >= N and is_prime(j):
                 return j
-

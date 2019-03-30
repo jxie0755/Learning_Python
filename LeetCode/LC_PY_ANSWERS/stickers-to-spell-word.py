@@ -33,4 +33,3 @@ class Solution(object):
         sticker_counts = map(collections.Counter, stickers)
         dp = { "":0 }
         return minStickersHelper(sticker_counts, target, dp)
-

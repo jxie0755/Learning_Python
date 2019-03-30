@@ -85,4 +85,3 @@ class Solution2(object):
                             self.updateBoard(board, (r, c))
 
         return board
-

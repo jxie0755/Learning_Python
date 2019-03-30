@@ -82,4 +82,3 @@ class Solution(object):
                 merged.append(b)
                 b_idx += 1
         return a_idx, b_idx
-

@@ -96,4 +96,3 @@ class Solution3(object):
         :rtype: bool
         """
         return len(A) == len(B) and B in A*2
-

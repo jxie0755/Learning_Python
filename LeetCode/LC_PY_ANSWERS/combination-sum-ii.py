@@ -21,4 +21,3 @@ class Solution(object):
                 intermediate.pop()
                 prev = candidates[start]
             start += 1
-

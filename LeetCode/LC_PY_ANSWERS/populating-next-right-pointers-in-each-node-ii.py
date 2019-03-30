@@ -40,6 +40,3 @@ class Solution(object):
 
                 cur = cur.next
             head = next_head
-
-
-

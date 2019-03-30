@@ -80,4 +80,3 @@ class Solution3(object):
                                     self.invertTree(root.left)
 
         return root
-

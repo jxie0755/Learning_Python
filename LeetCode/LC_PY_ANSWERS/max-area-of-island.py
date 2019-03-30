@@ -27,4 +27,3 @@ class Solution(object):
                 if dfs(i, j, grid, area):
                     result = max(result, area[0])
         return result
-

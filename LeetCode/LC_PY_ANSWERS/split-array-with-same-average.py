@@ -26,4 +26,3 @@ class Solution(object):
             if s*i%n == 0 and s*i//n in sums[i]:
                 return True
         return False
-

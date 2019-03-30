@@ -13,4 +13,3 @@ class Solution(object):
                    words[j][i] != words[i][j]:
                    return False
         return True
-

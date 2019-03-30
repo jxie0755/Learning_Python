@@ -48,4 +48,3 @@ class Solution2(object):
             else:
                 root.right = self.insertIntoBST(root.right, val)
         return root
-

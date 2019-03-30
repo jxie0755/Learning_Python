@@ -20,4 +20,3 @@ class Solution(object):
             return count
 
         return countArrangementHelper(N, range(1, N+1))
-

@@ -26,4 +26,3 @@ class Solution(object):
         if len(max_heap) < 2:
             return -1
         return -max_heap[0]
-

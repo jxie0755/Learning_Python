@@ -16,4 +16,3 @@ if birthday in pi_string:
     print('your birthday information is included in 1 million digits of pi')
 else:
     print('your birthday information is not found in pi')
-

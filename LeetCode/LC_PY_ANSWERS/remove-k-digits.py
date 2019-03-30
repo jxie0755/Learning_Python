@@ -15,4 +15,3 @@ class Solution(object):
                 k -= 1
             result.append(d)
         return ''.join(result).lstrip('0')[:-k or None] or '0'
-

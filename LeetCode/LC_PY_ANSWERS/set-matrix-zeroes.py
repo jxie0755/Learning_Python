@@ -26,4 +26,3 @@ class Solution(object):
         if first_row:
             for j in xrange(len(matrix[0])):
                 matrix[0][j] = 0
-

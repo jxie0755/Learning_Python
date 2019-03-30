@@ -57,5 +57,3 @@ class Solution2(object):
             current = current.next
 
         return dummy.next
-
-

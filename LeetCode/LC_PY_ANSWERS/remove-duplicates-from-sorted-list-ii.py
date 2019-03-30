@@ -31,4 +31,3 @@ class Solution(object):
                 pre = cur
                 cur = cur.next
         return dummy.next
-

@@ -19,4 +19,3 @@ def applyFuns(L, x):
 
 L = [abs, int]
 applyFuns(L, -4.2)
-

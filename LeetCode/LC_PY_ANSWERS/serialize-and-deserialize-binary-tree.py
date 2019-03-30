@@ -54,5 +54,3 @@ class Codec(object):
                 start = idx + sepsize
         vals = iter(isplit(data, ' '))
         return deserializeHelper()
-
-

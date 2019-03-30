@@ -65,5 +65,3 @@ class Codec2(object):
         """
         key = short_url.replace(self.url, '')
         return self._cache[key]
-
-

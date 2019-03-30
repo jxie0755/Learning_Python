@@ -130,4 +130,3 @@ class Solution_MLE(object):
             trie.find(words[i], i, res)
 
         return res
-

@@ -28,4 +28,3 @@ class Solution(object):
             result.append(k+1)
             k = next_pos[k]
         return result
-

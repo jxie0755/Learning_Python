@@ -15,4 +15,3 @@ class Solution(object):
         lookup = {"".join(MORSE[ord(c) - ord('a')] for c in word) \
                   for word in words}
         return len(lookup)
-

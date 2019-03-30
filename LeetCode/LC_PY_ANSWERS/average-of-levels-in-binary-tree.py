@@ -23,4 +23,3 @@ class Solution(object):
             q = next_q
             result.append(float(total) / count)
         return result
-

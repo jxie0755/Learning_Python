@@ -12,4 +12,3 @@ class Solution(object):
             else:
                 decimal += numeral_map[s[i]]
         return decimal
-

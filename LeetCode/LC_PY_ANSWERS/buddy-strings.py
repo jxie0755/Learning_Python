@@ -21,4 +21,3 @@ class Solution(object):
                     return False
         return (not diff and len(set(A)) < len(A)) or \
                (len(diff) == 2 and diff[0] == diff[1][::-1])
-

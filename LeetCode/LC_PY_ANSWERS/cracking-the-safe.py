@@ -65,4 +65,3 @@ class Solution3(object):
         lookup = set()
         dfs(k, "".join(result), lookup, result)
         return "".join(result)
-

@@ -29,4 +29,3 @@ class Solution(object):
         for i, j in edges:
             union_find.union_set(i, j)
         return union_find.count
-

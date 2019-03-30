@@ -23,4 +23,3 @@ class Solution(object):
 
         return all(x == y for x, y in
                    itertools.izip_longest(findNextChar(S), findNextChar(T)))
-

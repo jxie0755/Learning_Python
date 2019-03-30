@@ -37,6 +37,3 @@ class PeekingIterator(object):
         :rtype: bool
         """
         return self.has_next_
-
-
-

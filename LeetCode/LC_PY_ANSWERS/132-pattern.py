@@ -18,4 +18,3 @@ class Solution(object):
                     ak = st.pop()
             st.append(nums[i])
         return False
-

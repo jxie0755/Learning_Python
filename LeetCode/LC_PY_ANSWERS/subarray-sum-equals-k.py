@@ -20,4 +20,3 @@ class Solution(object):
             result += lookup[accumulated_sum - k]
             lookup[accumulated_sum] += 1
         return result
-

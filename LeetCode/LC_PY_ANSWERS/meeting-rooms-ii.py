@@ -26,4 +26,3 @@ class Solution(object):
                 e += 1
 
         return min_rooms
-

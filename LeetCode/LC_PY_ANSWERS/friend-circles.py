@@ -30,5 +30,3 @@ class Solution(object):
                 if M[i][j] and i != j:
                     circles.union_set(i, j)
         return circles.count
-
-

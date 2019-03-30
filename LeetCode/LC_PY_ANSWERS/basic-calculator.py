@@ -33,4 +33,3 @@ class Solution(object):
             operands.append(left + right)
         elif op == '-':
             operands.append(left - right)
-

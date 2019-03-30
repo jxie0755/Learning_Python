@@ -91,4 +91,3 @@ class Solution4(object):
                     return True
                 s = s[1:]
             return self.isMatch(s, p[1:])
-

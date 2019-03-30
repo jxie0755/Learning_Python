@@ -17,4 +17,3 @@ class Solution(object):
             else:
                 left = mid+1
         return nums[left]
-

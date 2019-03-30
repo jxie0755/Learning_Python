@@ -27,4 +27,3 @@ class Solution(object):
         root.left, root.right = left_tail, right_head
         left_head.left, right_tail.right = right_tail, left_head
         return left_head
-

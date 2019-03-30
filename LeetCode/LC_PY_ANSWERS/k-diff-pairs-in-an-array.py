@@ -17,4 +17,3 @@ class Solution(object):
                 result.add(num)
             lookup.add(num)
         return len(result)
-

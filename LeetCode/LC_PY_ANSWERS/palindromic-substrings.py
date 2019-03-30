@@ -21,4 +21,3 @@ class Solution(object):
                     C, R = i, i+P[i]
             return P
         return sum((max_len+1)/2 for max_len in manacher(s))
-

@@ -49,4 +49,3 @@ class Solution(object):
             curr.append(words[i])
             self.wordSquaresHelper(words, trie, curr, result)
             curr.pop()
-

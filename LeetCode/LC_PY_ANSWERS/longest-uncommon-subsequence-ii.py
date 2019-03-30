@@ -28,4 +28,3 @@ class Solution(object):
             if all_of:
                 return len(strs[i])
         return -1
-

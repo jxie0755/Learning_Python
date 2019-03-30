@@ -44,4 +44,3 @@ if __name__ == '__main__':
     assert Solution().reverseStr('abcdefgh', 2) == 'bacdfegh', 'double length'
     assert Solution().reverseStr('abcdefg', 10) == 'gfedcba', 'k > len(s), complete reverse'
     print('all passed')
-

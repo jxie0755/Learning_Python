@@ -24,4 +24,3 @@ class Solution2(object):
                 local_max, local_min = local_min * x, local_max * x
             global_max = max(global_max, local_max)
         return global_max
-

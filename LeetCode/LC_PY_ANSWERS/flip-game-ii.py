@@ -69,4 +69,3 @@ class Solution3(object):
                     i += 1
             i += 1
         return is_win
-

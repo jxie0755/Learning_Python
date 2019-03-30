@@ -30,4 +30,3 @@ class Solution(object):
         visited[i][j] = False
 
         return result
-

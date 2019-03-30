@@ -45,4 +45,3 @@ class Solution(object):
                     break
 
         return i
-

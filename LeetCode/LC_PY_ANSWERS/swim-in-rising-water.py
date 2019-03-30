@@ -41,5 +41,3 @@ class Solution(object):
                     if union_find.find_set(0) == union_find.find_set(n**2-1):
                         return elevation
         return n**2-1
-
-

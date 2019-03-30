@@ -21,4 +21,3 @@ class Solution(object):
                word not in lookup:
                 result = word
         return result
-

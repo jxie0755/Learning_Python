@@ -39,5 +39,3 @@ class Solution2(object):
                 left = mid + 1
 
         return nums[left]
-
-

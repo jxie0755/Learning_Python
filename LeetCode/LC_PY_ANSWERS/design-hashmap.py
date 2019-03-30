@@ -88,6 +88,3 @@ class MyHashMap(object):
         node = l.find(key)
         if node:
             l.delete(node)
-
-
-

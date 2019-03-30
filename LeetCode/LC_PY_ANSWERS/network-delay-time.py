@@ -33,4 +33,3 @@ class Solution(object):
                     best[v] = result+w
                     heapq.heappush(min_heap, (result+w, v))
         return result if len(lookup) == N else -1
-

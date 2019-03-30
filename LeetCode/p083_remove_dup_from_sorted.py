@@ -81,4 +81,3 @@ if __name__ == '__main__':
     assert repr(check) == '4'
 
     print('all passed')
-

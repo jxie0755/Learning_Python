@@ -51,6 +51,3 @@ class RandomizedSet(object):
         :rtype: int
         """
         return self.__set[randint(0, len(self.__set)-1)]
-
-
-

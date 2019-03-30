@@ -37,4 +37,3 @@ class Solution2(object):
         :rtype: bool
         """
         return not collections.Counter(ransomNote) - collections.Counter(magazine)
-

@@ -34,4 +34,3 @@ class Solution(object):
         self.head = self.head.next
         current.right = self.sortedListToBSTRecu(mid + 1, end)
         return current
-

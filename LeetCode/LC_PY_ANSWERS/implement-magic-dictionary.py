@@ -45,7 +45,3 @@ class MagicDictionary(object):
             return find(word, curr[word[i]], i+1, False)
 
         return find(word, self.trie, 0, True)
-
-
-
-

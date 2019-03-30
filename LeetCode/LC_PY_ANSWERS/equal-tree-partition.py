@@ -24,4 +24,3 @@ class Solution(object):
         if total == 0:
             return lookup[total] > 1
         return total%2 == 0 and (total/2) in lookup
-

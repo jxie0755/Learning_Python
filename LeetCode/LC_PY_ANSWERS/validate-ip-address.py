@@ -26,4 +26,3 @@ class Solution(object):
                     return "Neither"
             return "IPv6"
         return "Neither"
-

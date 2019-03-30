@@ -34,5 +34,3 @@ class Solution(object):
             else:
                 head.next = self.deleteDuplicates(head.next)
         return head
-
-

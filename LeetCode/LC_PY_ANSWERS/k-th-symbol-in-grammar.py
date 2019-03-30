@@ -16,4 +16,3 @@ class Solution(object):
             return result
 
         return bitCount(K-1) % 2
-

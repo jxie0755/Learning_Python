@@ -39,4 +39,3 @@ class Solution(object):
                 node = node.right
             k >>= 1
         return node is not None
-

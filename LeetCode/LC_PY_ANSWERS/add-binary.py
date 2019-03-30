@@ -19,4 +19,3 @@ class Solution(object):
         if carry:
             result += str(carry)
         return result[::-1]
-

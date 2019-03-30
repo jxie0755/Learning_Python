@@ -25,6 +25,3 @@ class RLEIterator(object):
                 self.__cnt += n
                 return self.__A[self.__i+1]
         return -1
-
-
-

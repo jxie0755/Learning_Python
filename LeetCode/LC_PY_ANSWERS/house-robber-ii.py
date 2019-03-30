@@ -21,4 +21,3 @@ class Solution(object):
             num_i = max(nums[i] + num_i_2, num_i_1)
 
         return num_i
-

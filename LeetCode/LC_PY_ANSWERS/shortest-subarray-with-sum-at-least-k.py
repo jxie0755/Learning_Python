@@ -26,4 +26,3 @@ class Solution(object):
                 result = min(result, i-mono_increasing_q.popleft())
             mono_increasing_q.append(i)
         return result if result != float("inf") else -1
-

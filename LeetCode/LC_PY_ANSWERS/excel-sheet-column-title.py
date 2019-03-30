@@ -14,5 +14,3 @@ class Solution(object):
             dvd = (dvd - 1) / 26
 
         return result[::-1]
-
-

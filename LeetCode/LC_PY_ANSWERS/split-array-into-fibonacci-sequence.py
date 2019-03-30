@@ -43,4 +43,3 @@ class Solution(object):
             if a == 0:
                 break
         return []
-

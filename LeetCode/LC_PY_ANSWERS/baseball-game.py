@@ -18,4 +18,3 @@ class Solution(object):
             else:
                 history.append(int(op))
         return sum(history)
-

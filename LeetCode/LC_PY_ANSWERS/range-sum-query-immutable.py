@@ -20,6 +20,3 @@ class NumArray(object):
         :rtype: int
         """
         return self.accu[j + 1] - self.accu[i]
-
-
-

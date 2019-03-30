@@ -14,5 +14,3 @@ class Solution(object):
         for i in xrange(1, N):
             change[i] += change[i-1]
         return change.index(max(change))
-
-

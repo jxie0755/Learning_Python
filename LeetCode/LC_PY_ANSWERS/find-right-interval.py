@@ -16,4 +16,3 @@ class Solution(object):
             idx = bisect.bisect_left(sorted_intervals, (interval.end,))
             result.append(sorted_intervals[idx][1] if idx < len(sorted_intervals) else -1)
         return result
-

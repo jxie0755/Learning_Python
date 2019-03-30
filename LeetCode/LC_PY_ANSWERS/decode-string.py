@@ -25,4 +25,3 @@ class Solution(object):
                 curr.append(c)
 
         return "".join(strs[-1]) if strs else "".join(curr)
-

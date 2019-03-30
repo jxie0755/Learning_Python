@@ -26,4 +26,3 @@ class Solution(object):
         return ['{0}:{1}'.format(str(h), str(m).zfill(2))
                 for h in range(12) for m in range(60)
                 if (bin(h) + bin(m)).count('1') == num]
-

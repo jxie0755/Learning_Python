@@ -17,5 +17,3 @@ class Solution(object):
                 dp[j] = max(nums[i] - dp[j], nums[j] - dp[j - 1])
 
         return dp[-1] >= 0
-
-

@@ -41,4 +41,3 @@ class Solution(object):
                     next_q.append(v)
             q = next_q
         return 0
-

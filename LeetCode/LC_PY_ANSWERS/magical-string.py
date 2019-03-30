@@ -19,4 +19,3 @@ class Solution(object):
                         yield i % 2 + 1
 
         return sum(c & 1 for c in itertools.islice(gen(), n))
-

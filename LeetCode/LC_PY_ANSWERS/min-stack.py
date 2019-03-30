@@ -67,4 +67,3 @@ class MinStack2(object):
     # @return an integer
     def getMin(self):
         return self.minStack[-1][0]
-

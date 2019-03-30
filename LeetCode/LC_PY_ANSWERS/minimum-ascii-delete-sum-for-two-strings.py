@@ -48,4 +48,3 @@ class Solution2(object):
                                        dp[i+1][j] + ord(s2[j]))
 
         return dp[-1][-1]
-

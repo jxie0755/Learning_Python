@@ -18,4 +18,3 @@ class Solution(object):
             for it in waiting.pop(c, ()):
                 waiting[next(it, None)].append(it)
         return len(waiting[None])
-

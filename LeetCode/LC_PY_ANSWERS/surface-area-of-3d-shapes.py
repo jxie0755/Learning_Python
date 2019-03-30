@@ -17,4 +17,3 @@ class Solution(object):
                 if j:
                     result -= min(grid[i][j], grid[i][j-1])*2
         return result
-

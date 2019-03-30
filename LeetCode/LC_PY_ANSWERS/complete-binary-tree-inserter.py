@@ -40,6 +40,3 @@ class CBTInserter(object):
         :rtype: TreeNode
         """
         return self.__tree[0]
-
-
-

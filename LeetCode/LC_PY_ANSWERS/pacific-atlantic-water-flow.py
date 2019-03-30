@@ -38,4 +38,3 @@ class Solution(object):
             pacificAtlanticHelper(matrix, m - 1, j, float("-inf"), ATLANTIC, visited, res)
 
         return res
-

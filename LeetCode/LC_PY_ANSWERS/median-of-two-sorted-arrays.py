@@ -115,4 +115,3 @@ class Solution_3(object):
             return (C[indexM1] + C[indexM2]) / 2.0
         else:
             return C[indexM2] / 1.0
-

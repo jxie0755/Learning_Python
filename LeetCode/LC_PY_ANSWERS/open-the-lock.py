@@ -30,4 +30,3 @@ class Solution(object):
             q, next_q = next_q, []
             depth += 1
         return -1
-

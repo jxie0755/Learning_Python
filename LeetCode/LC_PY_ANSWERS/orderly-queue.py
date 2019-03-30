@@ -11,4 +11,3 @@ class Solution(object):
         if K == 1:
             return min(S[i:] + S[:i] for i in xrange(len(S)))
         return "".join(sorted(S))
-

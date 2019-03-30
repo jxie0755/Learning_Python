@@ -23,4 +23,3 @@ class Solution(object):
                             max_coins[i][right])
 
         return max_coins[0][-1]
-

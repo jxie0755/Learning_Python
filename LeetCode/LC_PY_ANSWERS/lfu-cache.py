@@ -98,5 +98,3 @@ class LFUCache(object):
         self.__key_to_node[key] = ListNode(key, value, self.__min_freq)
         self.__freq_to_nodes[self.__key_to_node[key].freq].append(self.__key_to_node[key])
         self.__size += 1
-
-

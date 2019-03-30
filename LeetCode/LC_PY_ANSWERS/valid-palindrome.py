@@ -15,4 +15,3 @@ class Solution(object):
                 return False
             i, j = i + 1, j - 1
         return True
-

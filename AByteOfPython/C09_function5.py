@@ -9,4 +9,3 @@ def func():
 
 func()
 func()
-

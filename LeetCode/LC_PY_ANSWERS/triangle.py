@@ -18,4 +18,3 @@ class Solution(object):
             cur = next + [float("inf")]
 
         return reduce(min, cur)
-

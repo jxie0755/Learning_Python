@@ -20,5 +20,3 @@ class Solution(object):
                     result += numeral_map[key]
 
         return "".join(result)
-
-

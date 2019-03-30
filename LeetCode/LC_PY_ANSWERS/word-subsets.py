@@ -21,4 +21,3 @@ class Solution(object):
             if all(count[c] >= count[c] for c in count):
                 result.append(a)
         return result
-

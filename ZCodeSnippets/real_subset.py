@@ -35,4 +35,3 @@ if __name__ == '__main__':
     print(len(genSubset2([1,2,3,4])))  # >>> 16
     print(len(genSubset2([1,2,3,4,5])))  # >>> 32
     print(len(genSubset2([1,2,3,4,5,6])))  # >>> 64
-

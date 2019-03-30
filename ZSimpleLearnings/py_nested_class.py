@@ -33,4 +33,3 @@ print(cat.age) # >>>  99
 print(dog.say('Wooh'))  # >>> WOOH!! WOOH!! WOOH!!
 print(dog.say('Meow'))  # >>> I want fish!
 print(cat.meow())       # >>> I want fish!
-

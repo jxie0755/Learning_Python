@@ -29,4 +29,3 @@ class Solution(object):
         last_unswapped.next, first_swapped.next = prev, cur
 
         return dummy.next
-

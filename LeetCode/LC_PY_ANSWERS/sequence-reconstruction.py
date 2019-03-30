@@ -82,4 +82,3 @@ class Solution2(object):
                         return False
                     q.append(j)
         return res == org and len(org) == len(integer_set)
-

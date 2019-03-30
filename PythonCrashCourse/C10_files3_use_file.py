@@ -13,4 +13,3 @@ for line in lines:
     # pi_string += line.strip() # 若在for loop中替换rstrip为strip,则左侧空格也会被去掉
 print(pi_string)
 print('length is', len(pi_string), 'digits') # 36个字符说明,之间的空格也被记入
-

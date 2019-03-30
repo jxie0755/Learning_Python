@@ -58,4 +58,3 @@ class Solution(object):
         (left_removed, right_removed) = findMinRemove(s)
         removeInvalidParenthesesHelper(0, left_removed, right_removed)
         return res
-

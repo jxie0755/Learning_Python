@@ -16,4 +16,3 @@ class Solution(object):
         if len(digits) == 10:
             return local
         return "+{}-{}".format('*' * (len(digits) - 10), local)
-

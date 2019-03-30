@@ -18,4 +18,3 @@ class Solution(object):
                         return True
                     stack.append(nei)
         return len(lookup) == len(rooms)
-

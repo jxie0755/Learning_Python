@@ -42,4 +42,3 @@ class Solution2(object):
             x = (rand7()-1)*7 + (rand7()-1)
             if x < 40:
                 return x%10 + 1
-

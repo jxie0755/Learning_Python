@@ -72,4 +72,3 @@ class Solution(object):
             if broken[0] is None:
                 broken[0] = pre
             broken[1] = cur
-

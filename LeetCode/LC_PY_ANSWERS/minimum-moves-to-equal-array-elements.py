@@ -8,4 +8,3 @@ class Solution(object):
         :rtype: int
         """
         return sum(nums) - len(nums) * min(nums)
-

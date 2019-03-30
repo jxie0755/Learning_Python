@@ -16,4 +16,3 @@ class Solution(object):
             return inorderTraversal(root.right, root, result)
 
         return inorderTraversal(root, None, float("inf"))[0]
-

@@ -17,4 +17,3 @@ class Solution(object):
             result = (result + (A[i]-A[len(A)-1-i])*c % M) % M
             c = (c<<1) % M
         return result
-

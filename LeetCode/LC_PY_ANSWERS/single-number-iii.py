@@ -42,4 +42,3 @@ class Solution3(object):
         :rtype: List[int]
         """
         return [x[0] for x in sorted(collections.Counter(nums).items(), key=lambda i: i[1], reverse=False)[:2]]
-

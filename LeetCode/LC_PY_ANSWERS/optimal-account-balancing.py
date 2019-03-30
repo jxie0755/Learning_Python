@@ -38,4 +38,3 @@ class Solution(object):
                         dp[i] = min(dp[i], dp[s] + dp[i - s])
                 subset.append(i)
         return dp[-1]
-

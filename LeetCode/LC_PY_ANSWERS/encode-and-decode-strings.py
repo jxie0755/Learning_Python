@@ -28,4 +28,3 @@ class Codec(object):
             strs.append(s[i+8:i+8+l])
             i += 8+l
         return strs
-

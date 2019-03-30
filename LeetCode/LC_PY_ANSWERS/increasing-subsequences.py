@@ -22,4 +22,3 @@ class Solution(object):
         result, seq = [], []
         findSubsequencesHelper(nums, 0, seq, result)
         return result
-

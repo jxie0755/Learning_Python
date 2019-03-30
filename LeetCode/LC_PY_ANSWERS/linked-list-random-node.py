@@ -26,6 +26,3 @@ class Solution(object):
             reservoir = curr.val if randint(1, n+1) == 1 else reservoir
             curr, n = curr.next, n+1
         return reservoir
-
-
-

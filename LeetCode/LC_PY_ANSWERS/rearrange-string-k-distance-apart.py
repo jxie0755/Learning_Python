@@ -69,4 +69,3 @@ class Solution2(object):
                 heappush(heap, cnt_char)
 
         return "".join(result)
-

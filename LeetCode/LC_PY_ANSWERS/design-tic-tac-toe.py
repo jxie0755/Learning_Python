@@ -44,6 +44,3 @@ class TicTacToe(object):
             return player
 
         return 0
-
-
-

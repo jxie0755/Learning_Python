@@ -22,4 +22,3 @@ class Solution(object):
                 max_len = dp[i][0]
                 result = dp[i][1]
         return result
-

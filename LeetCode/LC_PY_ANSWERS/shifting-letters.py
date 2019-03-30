@@ -15,4 +15,3 @@ class Solution(object):
             result.append(chr(ord('a') + (index+times) % 26))
             times = (times-shifts[i]) % 26
         return "".join(result)
-

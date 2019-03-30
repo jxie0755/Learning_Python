@@ -33,6 +33,3 @@ class MyCalendarThree(object):
             cnt += book[1]
             result = max(result, cnt)
         return result
-
-
-

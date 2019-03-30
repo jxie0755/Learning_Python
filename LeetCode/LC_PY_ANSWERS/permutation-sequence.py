@@ -21,5 +21,3 @@ class Solution(object):
                 k %= fact
                 fact /= i
         return seq
-
-

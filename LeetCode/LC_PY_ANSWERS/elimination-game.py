@@ -14,4 +14,3 @@ class Solution(object):
             step *= 2
             direction *= -1
         return start
-

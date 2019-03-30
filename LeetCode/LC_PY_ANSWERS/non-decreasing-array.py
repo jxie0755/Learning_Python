@@ -20,5 +20,3 @@ class Solution(object):
             else:
                 prev = nums[i]
         return True
-
-

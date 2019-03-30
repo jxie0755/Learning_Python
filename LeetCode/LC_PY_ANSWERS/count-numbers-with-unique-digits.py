@@ -14,4 +14,3 @@ class Solution(object):
             fk *= 10 - (k-1)
             count += fk
         return count
-

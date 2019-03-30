@@ -21,4 +21,3 @@ class Solution(object):
                                                  ((1 if (j == 0) else dp[moves % 2][i][j - 1]) + \
                                                   (1 if (j == n - 1) else dp[moves % 2][i][j + 1])) % M) % M
         return dp[N % 2][x][y]
-

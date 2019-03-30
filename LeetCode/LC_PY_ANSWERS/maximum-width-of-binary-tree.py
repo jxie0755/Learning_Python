@@ -18,4 +18,3 @@ class Solution(object):
 
         leftmosts = []
         return dfs(root, 1, 0, leftmosts)
-

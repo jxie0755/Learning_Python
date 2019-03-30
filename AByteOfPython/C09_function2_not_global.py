@@ -6,6 +6,3 @@ def func(x):
 
 func(x)
 print('Value of x is still', x)
-
-
-

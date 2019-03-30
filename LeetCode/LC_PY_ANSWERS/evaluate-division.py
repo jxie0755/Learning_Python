@@ -35,4 +35,3 @@ class Solution(object):
             tmp = check(q[0], q[1], lookup, visited)
             result.append(tmp[1] if tmp[0] else -1)
         return result
-

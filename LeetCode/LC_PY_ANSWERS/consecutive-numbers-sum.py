@@ -29,4 +29,3 @@ class Solution(object):
         if N > 1:
             result *= 2
         return result
-

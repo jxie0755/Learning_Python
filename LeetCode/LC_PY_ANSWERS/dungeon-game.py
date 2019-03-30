@@ -63,4 +63,3 @@ class Solution2(object):
                 remain_HP[j] = remain
 
         return remain_HP[-1] > 0
-

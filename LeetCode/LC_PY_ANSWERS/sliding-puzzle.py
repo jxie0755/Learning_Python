@@ -108,4 +108,3 @@ class Solution2(object):
                         lookup[new_board] = f
                         heapq.heappush(min_heap, (f, g+1, new_zero, new_board))
         return -1
-

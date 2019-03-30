@@ -66,4 +66,3 @@ class Solution3(object):
         self.match[repr([a, b])] = result
 
         return result
-

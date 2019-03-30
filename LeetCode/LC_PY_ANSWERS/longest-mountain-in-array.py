@@ -17,4 +17,3 @@ class Solution(object):
             if up_len and down_len:
                 result = max(result, up_len+down_len+1)
         return result
-

@@ -21,17 +21,3 @@ listA.index(1)
 listA.pop(4)
 listA.reverse()
 print(listA)
-
-
-
-
-
-
-
-
-
-
-
-
-
-

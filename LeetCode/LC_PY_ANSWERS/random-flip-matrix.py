@@ -37,5 +37,3 @@ class Solution(object):
         self.__n = self.__n_rows*self.__n_cols
         self.__lookup = {}
         
-
-

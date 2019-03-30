@@ -29,4 +29,3 @@ class Solution(object):
                                    cnt2 + min(cnt3, cnt - (cnt1 + cnt2))
             pre = cur
         return cnt1 == 0 and cnt2 == 0
-

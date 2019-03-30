@@ -48,5 +48,3 @@ class Trie(object):
             else:
                 return None
         return cur
-
-

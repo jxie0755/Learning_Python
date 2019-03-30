@@ -78,5 +78,3 @@ class FileSystem(object):
         if path == '/':
             return []
         return path.split('/')[1:]
-
-

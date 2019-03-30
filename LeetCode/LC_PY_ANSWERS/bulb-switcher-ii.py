@@ -19,4 +19,3 @@ class Solution(object):
         if m == 2:
             return 7
         return 8
-

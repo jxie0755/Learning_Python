@@ -37,4 +37,3 @@ class Solution(object):
                 break
 
         return begin
-

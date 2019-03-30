@@ -14,4 +14,3 @@ class Solution(object):
             cash = max(cash, hold+prices[i]-fee)
             hold = max(hold, cash-prices[i])
         return cash
-

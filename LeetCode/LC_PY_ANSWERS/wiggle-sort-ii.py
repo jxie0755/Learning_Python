@@ -64,4 +64,3 @@ class Solution2(object):
         mid = (len(nums) - 1) / 2
         findKthLargest(nums, mid + 1)
         reversedTriPartitionWithVI(nums, nums[mid])
-

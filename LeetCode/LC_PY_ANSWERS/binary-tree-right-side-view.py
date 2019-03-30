@@ -49,4 +49,3 @@ class Solution2(object):
             current = next_level
 
         return result
-

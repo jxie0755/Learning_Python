@@ -20,4 +20,3 @@ class Solution(object):
                                    not i_knows_candidate):
                 return -1
         return candidate
-

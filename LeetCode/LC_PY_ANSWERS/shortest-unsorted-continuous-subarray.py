@@ -35,4 +35,3 @@ class Solution2(object):
             if nums[right] == a[right]:
                 right -= 1
         return right - left + 1
-

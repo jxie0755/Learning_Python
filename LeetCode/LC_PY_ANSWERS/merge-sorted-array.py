@@ -21,4 +21,3 @@ class Solution(object):
         while j >= 0:
                 A[last] = B[j]
                 last, j = last - 1, j - 1
-

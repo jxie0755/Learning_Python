@@ -19,4 +19,3 @@ class Solution(object):
                 if j-i >= 0:
                     dp[i%2][j] = (dp[i%2][j] - dp[(i-1)%2][j-i]) % M
         return dp[n%2][k]
-

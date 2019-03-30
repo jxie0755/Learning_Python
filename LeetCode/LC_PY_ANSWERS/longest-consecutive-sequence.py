@@ -13,4 +13,3 @@ class Solution(object):
                 length = 1 + left + right
                 result, lengths[i - left], lengths[i + right] = max(result, length), length, length
         return result
-

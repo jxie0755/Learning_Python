@@ -10,4 +10,3 @@ class Solution(object):
             node.val = node_to_delete.val
             node.next = node_to_delete.next
             del node_to_delete
-

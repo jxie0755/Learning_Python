@@ -58,4 +58,3 @@ class Solution(object):
 
         result, i = validTag(code, 0)
         return result and i == len(code)
-

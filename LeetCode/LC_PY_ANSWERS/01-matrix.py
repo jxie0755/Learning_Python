@@ -61,4 +61,3 @@ class Solution2(object):
                     if j < len(matrix[i])-1:
                         dp[i][j] = min(dp[i][j], dp[i][j+1]+1)
         return dp
-

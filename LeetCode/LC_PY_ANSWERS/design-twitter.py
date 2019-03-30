@@ -68,6 +68,3 @@ class Twitter(object):
         :rtype: void
         """
         self.__followings[followerId].discard(followeeId)
-
-
-

@@ -16,6 +16,3 @@ print(L1)
 
 # python uses an internal counter to keep track of index when in loop
 # mutating changes the list during iteration changed list length, but index counter was not updated
-
-
-

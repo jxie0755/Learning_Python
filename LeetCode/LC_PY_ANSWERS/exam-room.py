@@ -86,6 +86,3 @@ class ExamRoom(object):
                             neighbors[LEFT], neighbors[RIGHT]))
         self.__seats[neighbors[LEFT]][RIGHT] = neighbors[RIGHT]
         self.__seats[neighbors[RIGHT]][LEFT] = neighbors[LEFT]
-
-
-

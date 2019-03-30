@@ -20,4 +20,3 @@ class Solution(object):
                         count[(len(A)-1+i-i2)*(2*len(A)-1) +
                               len(A)-1+j-j2] += 1
         return max(count)
-

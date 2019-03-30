@@ -16,4 +16,3 @@ class Solution(object):
                 result[idx] = i-idx
             stk.append(i)
         return result
-

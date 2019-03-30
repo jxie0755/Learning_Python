@@ -66,4 +66,3 @@ def largest_histogram3(histogram):
     return max(localmaxes)
 
 print(largest_histogram3(aa))
-

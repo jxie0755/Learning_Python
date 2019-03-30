@@ -25,4 +25,3 @@ class Solution(object):
                                 dp[(k-1) % 2][j] +
                                 float(accum_sum[i]-accum_sum[j])/(i-j))
         return dp[K % 2][-1]
-

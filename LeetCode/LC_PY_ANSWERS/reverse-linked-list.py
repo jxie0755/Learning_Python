@@ -42,4 +42,3 @@ class Solution2(object):
             return [begin, head]
         else:
             return [head, head]
-

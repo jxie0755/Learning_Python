@@ -57,5 +57,3 @@ class Solution:
 if __name__ == '__main__':
     assert Solution().intToRoman3(3888) == 'MMMDCCCLXXXVIII', 'one check is good'
     print('all passed')
-
-

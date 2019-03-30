@@ -23,4 +23,3 @@ class Solution(object):
             return Result(node, left.depth+1)
 
         return dfs(root).node
-

@@ -108,4 +108,3 @@ class AllOne(object):
         if self.buckets.empty():
             return ""
         return iter(self.buckets.front().keys).next()
-

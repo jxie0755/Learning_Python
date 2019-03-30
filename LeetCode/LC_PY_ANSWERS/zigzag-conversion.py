@@ -17,4 +17,3 @@ class Solution(object):
                 if 0 < i < numRows - 1 and j + step - 2 * i < len(s):
                     zigzag += s[j + step - 2 * i]
         return zigzag
-

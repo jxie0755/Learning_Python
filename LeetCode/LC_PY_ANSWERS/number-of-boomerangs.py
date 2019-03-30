@@ -40,4 +40,3 @@ class Solution(object):
                 if z > 1:
                     cnt += z * (z - 1)
         return cnt
-

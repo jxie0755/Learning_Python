@@ -29,4 +29,3 @@ class Solution(object):
             return node, i
 
         return str2treeHelper(s, 0)[0] if s else None
-

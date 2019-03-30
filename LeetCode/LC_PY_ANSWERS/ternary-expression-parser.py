@@ -27,4 +27,3 @@ class Solution(object):
 
 
         return str(stack[-1])
-

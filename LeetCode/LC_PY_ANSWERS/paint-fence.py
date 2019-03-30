@@ -39,4 +39,3 @@ class Solution2(object):
         for i in xrange(2, n):
             ways[i] = (k - 1) * (ways[i - 1] + ways[i - 2])
         return ways[n - 1]
-

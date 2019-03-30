@@ -32,6 +32,3 @@ class LogSystem(object):
         end = e[:i]
         return sorted(id for id, timestamp in self.__logs \
                       if begin <= timestamp[:i] <= end)
-
-
-

@@ -58,4 +58,3 @@ if __name__ == '__main__':
     assert carl.is_alive == False
 
     print("Coding complete? Let's try tests!")
-

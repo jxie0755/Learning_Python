@@ -40,4 +40,3 @@ class Solution(object):
                 return False
             head = head.next
         return True
-

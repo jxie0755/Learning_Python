@@ -18,4 +18,3 @@ class Solution(object):
                 break
             i += 1
         return result + int(i == len(str_N))
-

@@ -22,4 +22,3 @@ if __name__ == '__main__':
     assert checkio([6]) == 36, "(6)*6=36"
     assert checkio([]) == 0, "An empty array = 0"
     print("Coding complete? Click 'Check' to review your tests and earn cool rewards!")
-

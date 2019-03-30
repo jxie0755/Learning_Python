@@ -18,4 +18,3 @@ class Solution(object):
             return start
 
         return -1
-

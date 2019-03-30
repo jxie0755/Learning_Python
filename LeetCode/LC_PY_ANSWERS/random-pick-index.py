@@ -26,6 +26,3 @@ class Solution(object):
             reservoir = i if randint(1, n+1) == 1 else reservoir
             n += 1
         return reservoir
-
-
-

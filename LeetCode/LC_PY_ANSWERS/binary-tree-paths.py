@@ -28,4 +28,3 @@ class Solution(object):
             path.append(node)
             self.binaryTreePathsRecu(node.right, path, result)
             path.pop()
-

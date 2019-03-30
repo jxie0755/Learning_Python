@@ -23,4 +23,3 @@ class Solution(object):
                     return False
                 count -= 1
         return count == 0
-

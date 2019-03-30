@@ -51,4 +51,3 @@ class Solution(object):
                     cur.right = k
                     result.append(cur)
         return result
-

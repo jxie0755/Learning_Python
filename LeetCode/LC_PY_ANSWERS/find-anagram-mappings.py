@@ -18,4 +18,3 @@ class Solution(object):
         for n in A:
             result.append(lookup[n].popleft())
         return result
-

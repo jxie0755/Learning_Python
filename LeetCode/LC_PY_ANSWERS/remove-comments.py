@@ -27,4 +27,3 @@ class Solution(object):
                 result.append("".join(newline))
                 newline = []
         return result
-

@@ -25,4 +25,3 @@ class Solution(object):
         if win(board, SECOND) and x_count != o_count: return False
 
         return True
-

@@ -54,4 +54,3 @@ class Solution2(object):
             for child in children[p]:
                 q.append(child)
         return result
-

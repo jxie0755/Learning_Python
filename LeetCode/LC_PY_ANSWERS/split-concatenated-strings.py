@@ -21,4 +21,3 @@ class Solution(object):
                         result = max(result, "".join([p[j:], body, p[:j]]))
             st += len(strs[i])
         return result
-

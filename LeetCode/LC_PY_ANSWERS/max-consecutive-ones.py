@@ -12,4 +12,3 @@ class Solution(object):
             local_max = (local_max + 1 if n else 0)
             result = max(result, local_max)
         return result
-

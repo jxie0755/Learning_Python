@@ -29,4 +29,3 @@ class Solution(object):
             repeat_count[k] = count
 
         return repeat_count[n1] / n2  # not cyclic iff n1 <= s2
-

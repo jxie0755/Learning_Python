@@ -33,5 +33,3 @@ class Solution(object):
         tail.next = None
 
         return cur
-
-

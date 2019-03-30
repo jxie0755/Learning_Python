@@ -17,4 +17,3 @@ class Solution(object):
             if n not in same:
                 result = min(result, n)
         return result if result < float("inf") else 0
-

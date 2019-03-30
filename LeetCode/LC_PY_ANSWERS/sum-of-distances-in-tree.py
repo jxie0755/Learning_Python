@@ -36,4 +36,3 @@ class Solution(object):
         dfs(graph, 0, None, count, result)
         dfs2(graph, 0, None, count, result)
         return result
-

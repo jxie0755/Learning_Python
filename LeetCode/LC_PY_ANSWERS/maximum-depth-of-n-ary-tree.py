@@ -19,4 +19,3 @@ class Solution(object):
         for child in root.children:
             depth = max(depth, self.maxDepth(child))
         return 1+depth
-

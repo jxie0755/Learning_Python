@@ -39,4 +39,3 @@ class Solution(object):
             return result
 
         return move(graph, {}, MOUSE_START, CAT_START, True)
-

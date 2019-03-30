@@ -22,4 +22,3 @@ class Solution(object):
         """
         odd = sum(map(lambda x: x & 1, collections.Counter(s).values()))
         return len(s) - odd + int(odd > 0)
-

@@ -16,4 +16,3 @@ class Solution(object):
             return left+right+root.val, tilt
 
         return postOrderTraverse(root, 0)[1]
-

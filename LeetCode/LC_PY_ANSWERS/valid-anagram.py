@@ -54,4 +54,3 @@ class Solution2(object):
     # @return {boolean}
     def isAnagram(self, s, t):
         return sorted(s) == sorted(t)
-

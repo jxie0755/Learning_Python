@@ -31,4 +31,3 @@ class Solution(object):
                 res = max(res, longestpath(matrix, i, j, max_lengths))
 
         return res
-

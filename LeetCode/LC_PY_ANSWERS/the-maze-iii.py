@@ -39,4 +39,3 @@ class Solution(object):
                 heapq.heappush(heap, (dist+neighbor_dist, path+dir, neighbor))
 
         return "impossible"
-

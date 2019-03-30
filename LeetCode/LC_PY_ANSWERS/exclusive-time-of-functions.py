@@ -21,4 +21,3 @@ class Solution(object):
                 result[stk.pop()] += int(tokens[2]) - prev + 1
                 prev = int(tokens[2]) + 1
         return result
-

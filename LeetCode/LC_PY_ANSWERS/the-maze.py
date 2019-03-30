@@ -37,4 +37,3 @@ class Solution(object):
                 queue.append((dist+neighbor_dist, neighbor))
 
         return False
-

@@ -16,5 +16,3 @@ class Solution(object):
                 result = mul*i + result
                 mul *= 10
         return  result if a == 1 and result < 2**31 else 0
-
-

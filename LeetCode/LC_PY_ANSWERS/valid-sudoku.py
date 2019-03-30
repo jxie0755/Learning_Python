@@ -21,5 +21,3 @@ class Solution(object):
     def isValidList(self, xs):
         xs = filter(lambda x: x != '.', xs)
         return len(set(xs)) == len(xs)
-
-

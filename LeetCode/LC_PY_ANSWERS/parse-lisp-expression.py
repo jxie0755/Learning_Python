@@ -35,4 +35,3 @@ class Solution(object):
             else:
                 tokens[-1] += c
         return int(tokens[0])
-

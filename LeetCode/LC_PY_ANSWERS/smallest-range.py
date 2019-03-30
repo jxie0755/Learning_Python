@@ -29,4 +29,3 @@ class Solution(object):
             if right - left < result[1] - result[0]:
                 result = (left, right)
         return result
-

@@ -32,5 +32,3 @@ class TwoSum(object):
             if num in self.lookup and (num != key or self.lookup[key] > 1):
                 return True
         return False
-
-

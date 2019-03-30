@@ -32,4 +32,3 @@ class Solution2(object):
                 count += counts[j] * counts[i - j - 1]
             counts.append(count)
         return counts[-1]
-

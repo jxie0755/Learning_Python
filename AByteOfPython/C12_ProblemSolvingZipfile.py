@@ -22,5 +22,3 @@ else:
     target = today + os.sep + now + '_' + comment.replace(' ', '_') + '.zip'
 
 z = zipfile.ZipFile(target, 'w')
-
-

@@ -55,5 +55,3 @@ class Solution3(object):
             return [cur]
 
         return self.subsetsRecu(cur, nums[1:]) + self.subsetsRecu(cur + [nums[0]], nums[1:])
-
-

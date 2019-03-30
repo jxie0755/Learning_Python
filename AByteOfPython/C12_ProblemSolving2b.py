@@ -25,4 +25,3 @@ if os.system(zip_command) == 0:
     print('Backup successful')
 else:
     print('Backup FAILED')
-

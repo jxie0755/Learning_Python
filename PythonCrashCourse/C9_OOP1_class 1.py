@@ -33,4 +33,3 @@ print(myDog.dog_age)   # >>> 3
 print(myDog.doggystyle())  # >>> doggy is 123  # 而类方法调用__doggy则可输出结果.
 
 print(dir(myDog))
-

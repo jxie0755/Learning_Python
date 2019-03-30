@@ -28,4 +28,3 @@ class Solution(object):
 # (for the latter I simply transpose the grid).
     def islandPerimeter2(self, grid):
         return sum(sum(map(operator.ne, [0] + row, row + [0])) for row in grid + map(list, zip(*grid)))
-

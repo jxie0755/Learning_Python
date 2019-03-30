@@ -21,4 +21,3 @@ class Solution(object):
         result.reverse()
 
         return "".join(result)
-

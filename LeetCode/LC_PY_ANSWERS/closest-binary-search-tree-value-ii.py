@@ -113,6 +113,3 @@ class Solution2(object):
                 result.append(larger_node.val)
                 larger_node = larger_it.next()
         return result
-
-
-

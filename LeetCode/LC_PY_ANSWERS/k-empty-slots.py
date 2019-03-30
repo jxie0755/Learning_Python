@@ -20,5 +20,3 @@ class Solution(object):
                 left, right = i, k+1+i
             i += 1
         return -1 if result == float("inf") else result+1
-
-

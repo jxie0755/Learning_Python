@@ -18,4 +18,3 @@ class Solution(object):
         return sum(int(request(a, b)) * c[a]*(c[b]-int(a == b))
                    for a in c
                    for b in c)
-

@@ -61,5 +61,3 @@ class Solution2(object):
             max_gap = max(max_gap, i - pre)
             pre = i
         return max_gap
-
-

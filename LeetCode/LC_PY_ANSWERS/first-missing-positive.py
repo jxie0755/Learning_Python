@@ -16,4 +16,3 @@ class Solution(object):
             if integer != i + 1:
                 return i + 1
         return len(A) + 1
-

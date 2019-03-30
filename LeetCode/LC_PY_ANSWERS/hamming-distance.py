@@ -22,4 +22,3 @@ class Solution(object):
         :rtype: int
         """
         return bin(x ^ y).count('1')
-

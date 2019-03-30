@@ -8,4 +8,3 @@ class Solution(object):
         :rtype: bool
         """
         return word.isupper() or word.islower() or word.istitle()
-

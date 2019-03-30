@@ -20,4 +20,3 @@ class Solution(object):
         result = []
         findLeavesHelper(root, result)
         return result
-

@@ -8,4 +8,3 @@ else:
     print('else will be executed')
 finally:
     print('There is always a final part')
-

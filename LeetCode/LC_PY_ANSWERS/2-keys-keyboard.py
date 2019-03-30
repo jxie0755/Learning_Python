@@ -18,4 +18,3 @@ class Solution(object):
         if n > 1:
             result += n
         return result
-

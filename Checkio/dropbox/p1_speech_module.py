@@ -51,4 +51,3 @@ def checkio(number):
 #     print('done')
 
 print(checkio(202))
-

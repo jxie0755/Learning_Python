@@ -18,4 +18,3 @@ class Solution(object):
             self.combinationSumRecu(candidates, result, start, intermediate, target - candidates[start])
             intermediate.pop()
             start += 1
-

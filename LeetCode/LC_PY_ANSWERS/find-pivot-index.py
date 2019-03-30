@@ -14,5 +14,3 @@ class Solution(object):
                 return i
             left_sum += num
         return -1
-
-

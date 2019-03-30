@@ -86,4 +86,3 @@ def max(*args, **kwargs):
         if maxValue is None or key(i) > key(maxValue):
             maxValue = i
     return maxValue
-

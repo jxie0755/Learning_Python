@@ -25,4 +25,3 @@ class Solution(object):
                     break
 
         return result
-

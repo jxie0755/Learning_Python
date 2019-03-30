@@ -52,4 +52,3 @@ class Solution2(object):
             left += 1
             right -= 1
         return True
-

@@ -27,4 +27,3 @@ class Solution(object):
             start += 1 << (32-mask)
             n -= 1 << (32-mask)
         return result
-

@@ -142,4 +142,3 @@ class Solution(object):
                 it2 += 1
 
         return res
-

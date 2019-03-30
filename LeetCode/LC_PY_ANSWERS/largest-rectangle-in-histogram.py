@@ -17,4 +17,3 @@ class Solution(object):
                 else:
                     area = max(area, height[last] * (i - increasing[-1] - 1 ))
         return area
-

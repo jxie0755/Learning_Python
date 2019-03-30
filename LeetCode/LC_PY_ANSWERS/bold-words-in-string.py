@@ -64,4 +64,3 @@ class Solution2(object):
             if lookup[i] and (i == len(S)-1 or not lookup[i+1]):
                 result.append("</b>")
         return "".join(result)
-

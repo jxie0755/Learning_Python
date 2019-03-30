@@ -14,4 +14,3 @@ class Solution(object):
             if diff+b in setA:
                 return [diff+b, b]
         return []
-

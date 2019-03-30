@@ -130,5 +130,3 @@ if __name__ == '__main__':
     assert Solution().findMedianSortedArrays([3], [-2, -1]) == -1.0, 'Negative'
 
     print('all passed')
-
-

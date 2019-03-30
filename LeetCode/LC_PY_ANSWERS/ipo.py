@@ -21,4 +21,3 @@ class Solution(object):
             if curr:
                 W -= heapq.heappop(curr)
         return W
-

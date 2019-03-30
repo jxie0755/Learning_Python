@@ -17,4 +17,3 @@ if __name__ == '__main__':
 
     assert most_frequent(['a', 'a', 'bi', 'bi', 'bi']) == 'bi'
     print('Done')
-

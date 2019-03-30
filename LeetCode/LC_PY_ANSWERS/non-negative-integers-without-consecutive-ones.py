@@ -22,4 +22,3 @@ class Solution(object):
             else:
                 prev_bit = 0
         return result + 1
-

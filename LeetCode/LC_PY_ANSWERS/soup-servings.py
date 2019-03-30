@@ -27,4 +27,3 @@ class Solution(object):
         lookup = {}
         N = (N+24)//25
         return dp(N, N, lookup)
-

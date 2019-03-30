@@ -20,4 +20,3 @@ class Solution(object):
                 return validPalindrome(s, left, right-1) or validPalindrome(s, left+1, right)
             left, right = left+1, right-1
         return True
-

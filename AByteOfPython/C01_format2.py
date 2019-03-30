@@ -7,4 +7,3 @@ print("Therefore my age is {0}".format(myage))
 
 # one line command to break to two lines.
 print("\nI am 5 years older than you\nTherefore my age is {0}".format(myage))
-

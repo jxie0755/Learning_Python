@@ -52,6 +52,3 @@ class PhoneDirectory(object):
         self.__used[number] = False
         self.__curr -= 1
         self.__numbers[self.__curr] = number
-
-
-

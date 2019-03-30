@@ -16,4 +16,3 @@ class Solution(object):
                     for j in xrange(l):
                         res[i][j] += A[i][k] * B[k][j]
         return res
-

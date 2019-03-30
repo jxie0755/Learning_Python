@@ -66,4 +66,3 @@ class Solution2(object):
                 # Contradict mapping.
                 return False
         return True
-

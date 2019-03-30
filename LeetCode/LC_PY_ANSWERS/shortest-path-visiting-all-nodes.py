@@ -25,4 +25,3 @@ class Solution(object):
                     dp[new_state][nei] = steps+1
                     q.append((new_state, nei))
         return min(dp[-1])
-

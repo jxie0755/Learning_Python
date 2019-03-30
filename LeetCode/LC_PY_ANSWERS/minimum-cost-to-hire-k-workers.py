@@ -26,4 +26,3 @@ class Solution(object):
             if len(max_heap) == K:
                 result = min(result, qsum*r)
         return result
-

@@ -23,4 +23,3 @@ class Solution(object):
         countSubtreeSumHelper(root, counts)
         max_count = max(counts.values()) if counts else 0
         return [total for total, count in counts.iteritems() if count == max_count]
-

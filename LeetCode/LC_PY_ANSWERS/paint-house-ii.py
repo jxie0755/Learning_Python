@@ -39,4 +39,3 @@ class Solution2(object):
                 min_cost[i % 2][j] = costs[i][j] + min_j
 
         return min(min_cost[(n - 1) % 2])
-

@@ -41,4 +41,3 @@ class Solution2(object):
         if root:
             dfs(root, result)
         return result
-

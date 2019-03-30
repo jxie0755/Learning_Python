@@ -97,4 +97,3 @@ class Solution3(object):
                             if quad not in result:
                                 result.append(quad)
         return sorted(result)
-

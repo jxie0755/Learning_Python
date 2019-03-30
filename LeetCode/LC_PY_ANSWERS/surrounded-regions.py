@@ -37,4 +37,3 @@ class Solution(object):
                     board[i][j] = 'X'
                 else:
                     board[i][j] = 'O'
-

@@ -16,4 +16,3 @@ class Solution(object):
                     res += depthSumHelper(l.getList(), depth + 1)
             return res
         return depthSumHelper(nestedList, 1)
-

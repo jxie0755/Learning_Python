@@ -14,4 +14,3 @@ class Solution(object):
                 last += 1
                 A[last] = A[i]
         return last + 1
-

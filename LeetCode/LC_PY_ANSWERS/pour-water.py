@@ -21,4 +21,3 @@ class Solution(object):
                     break
             heights[best] += 1
         return heights
-

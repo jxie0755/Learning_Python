@@ -41,4 +41,3 @@ class Solution2(object):
                 distance[i].append(min(insert, delete, replace))
 
         return distance[-1][-1]
-

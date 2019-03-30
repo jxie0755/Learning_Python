@@ -17,4 +17,3 @@ class Solution(object):
                 odd_tail.next = even_head
                 cur = cur.next
         return head
-

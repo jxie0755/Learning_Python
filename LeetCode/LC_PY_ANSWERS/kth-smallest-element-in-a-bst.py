@@ -20,4 +20,3 @@ class Solution(object):
                 cur = cur.right
 
         return float("-inf")
-

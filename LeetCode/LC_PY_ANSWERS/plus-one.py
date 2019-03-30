@@ -34,5 +34,3 @@ class Solution2(object):
         if carry:
             result.append(carry)
         return result[::-1]
-
-

@@ -19,4 +19,3 @@ class Solution(object):
                 prev = i
             result[i] = min(result[i], abs(i-prev))
         return result
-

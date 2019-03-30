@@ -22,4 +22,3 @@ class Solution(object):
             for j in xrange(len(M[0])):
                 result[i][j] = getGray(M, i, j)
         return result
-

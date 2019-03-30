@@ -14,4 +14,3 @@ class Solution(object):
         while area % w:
             w -= 1
         return [area // w, w]
-

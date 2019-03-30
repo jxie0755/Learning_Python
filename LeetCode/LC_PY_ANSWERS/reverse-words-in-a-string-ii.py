@@ -17,5 +17,3 @@ class Solution(object):
             if j == len(s) or s[j] == ' ':
                 reverse(s, i, j)
                 i = j + 1
-
-

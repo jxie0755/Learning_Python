@@ -133,5 +133,3 @@ plt.plot(mySamples, myLinear, label='lin')
 plt.plot(mySamples, myQuadratic, label='quad')
 
 plt.show()
-
-

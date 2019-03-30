@@ -17,4 +17,3 @@ def recurPower(base, exp):
     else:
         return base * recurPower(base, exp-1)
 print(recurPower(4, 3))
-

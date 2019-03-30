@@ -53,6 +53,3 @@ class Codec(object):
         vals = collections.deque([int(val) for val in data.split()])
 
         return deserializeHelper(float('-inf'), float('inf'), vals)
-
-
-

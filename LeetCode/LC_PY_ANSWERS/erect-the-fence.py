@@ -26,4 +26,3 @@ class Solution(object):
             hull.append(points[i])
 
         return list(set(hull))
-

@@ -35,4 +35,3 @@ def sumFemale(i):
     return sumFem
 
 print(sumFemale(6))
-

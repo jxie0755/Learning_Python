@@ -27,5 +27,3 @@ class Solution(object):
             cur = next_queue
 
         return 0
-
-

@@ -41,4 +41,3 @@ class Solution2(object):
             elif lookup[s[i]] != t[i]:
                 return False
         return True
-

@@ -55,4 +55,3 @@ class Solution(object):
                             grid[nr][nc] = 1
 
         return result
-

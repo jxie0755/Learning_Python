@@ -25,4 +25,3 @@ class Solution(object):
             j += 1
 
         return max(res, j - i + min(i, times))
-

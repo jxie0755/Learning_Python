@@ -39,4 +39,3 @@ class Solution(object):
         P = 10**9 + 7
         lookup = [[None] * len(S) for _ in xrange(len(S))]
         return dp(0, len(S)-1, prv, nxt, lookup) - 1
-

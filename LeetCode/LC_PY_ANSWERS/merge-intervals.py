@@ -27,5 +27,3 @@ class Solution(object):
             else:
                 result.append(current)
         return result
-
-

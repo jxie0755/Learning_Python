@@ -24,4 +24,3 @@ class Solution(object):
         if total < S or (S + total) % 2: return 0
         P = (S + total) // 2
         return subsetSum(nums, P)
-

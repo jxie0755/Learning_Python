@@ -14,4 +14,3 @@ class Solution(object):
         if t.right:
             s += "(" + self.tree2str(t.right) + ")"
         return s
-

@@ -16,4 +16,3 @@ class Solution(object):
                     x, y, l = y, x+y, l+1
                 result = max(result, l)
         return result if result > 2 else 0
-

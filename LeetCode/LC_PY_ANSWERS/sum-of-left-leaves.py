@@ -16,4 +16,3 @@ class Solution(object):
                    sumOfLeftLeavesHelper(root.right, False)
 
         return sumOfLeftLeavesHelper(root, False)
-

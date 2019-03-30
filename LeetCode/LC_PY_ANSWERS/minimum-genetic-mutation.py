@@ -32,4 +32,3 @@ class Solution(object):
                         lookup[next_str] = True
 
         return -1
-

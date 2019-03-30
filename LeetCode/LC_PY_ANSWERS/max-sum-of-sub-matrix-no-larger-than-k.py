@@ -100,4 +100,3 @@ class Solution_TLE(object):
                     accu_sum_set.insert(accu_sum)
 
         return result
-

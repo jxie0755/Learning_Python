@@ -30,4 +30,3 @@ class Solution(object):
         res.sort()
 
         return "".join(map(str, res))
-

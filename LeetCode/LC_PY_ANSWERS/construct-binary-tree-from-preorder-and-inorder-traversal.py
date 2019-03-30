@@ -25,4 +25,3 @@ class Solution(object):
         node.left = self.buildTreeRecu(lookup, preorder, inorder, pre_start + 1, in_start, i)
         node.right = self.buildTreeRecu(lookup, preorder, inorder, pre_start + 1 + i - in_start, i + 1, in_end)
         return node
-

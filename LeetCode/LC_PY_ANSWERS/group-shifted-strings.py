@@ -27,4 +27,3 @@ class Solution(object):
             else:
                 hashcode += unichr(ord('a') + ord(s[i]) - base + 26)
         return hashcode
-

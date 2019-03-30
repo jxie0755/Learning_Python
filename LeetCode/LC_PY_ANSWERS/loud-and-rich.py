@@ -23,4 +23,3 @@ class Solution(object):
             graph[v].append(u)
         result = [None]*len(quiet)
         return map(lambda x: dfs(graph, quiet, x, result), xrange(len(quiet)))
-

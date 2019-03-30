@@ -18,4 +18,3 @@ class Solution(object):
                     k += 1
                 result += k-j-1
         return result
-

@@ -40,4 +40,3 @@ class Solution(object):
                     break
             curr = curr.next
         return head
-

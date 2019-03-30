@@ -62,5 +62,3 @@ class Codec(object):
         decodeHelper(data.right, node)
         return node
         
-
-

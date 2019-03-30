@@ -60,4 +60,3 @@ class Solution(object):
             cur_x_sum = st.update(X, Xi[x1], Xi[x2], typ)
             cur_y = y
         return result % (10**9+7)
-

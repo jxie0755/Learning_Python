@@ -11,4 +11,3 @@ class Solution(object):
         if all(m >= 2*x for x in nums if x != m):
             return nums.index(m)
         return -1
-

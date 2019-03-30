@@ -39,4 +39,3 @@ class Solution(object):
         else:
             for prev in trace[word]:
                 self.backtrack(result, trace, [word] + path, prev)
-

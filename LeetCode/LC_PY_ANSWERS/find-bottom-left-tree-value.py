@@ -33,4 +33,3 @@ class Solution2(object):
             last_node = queue.pop(0)
             queue.extend([n for n in [last_node.right, last_node.left] if n])
         return last_node.value
-

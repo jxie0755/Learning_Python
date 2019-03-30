@@ -19,4 +19,3 @@ class Solution(object):
                 candidtates.add(i+1)
 
         return min(candidtates)-1 if candidtates else -1
-

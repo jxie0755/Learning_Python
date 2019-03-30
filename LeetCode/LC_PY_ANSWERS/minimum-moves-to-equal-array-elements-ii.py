@@ -44,4 +44,3 @@ class Solution(object):
         """
         median = sorted(nums)[len(nums) / 2]
         return sum(abs(num - median) for num in nums)
-

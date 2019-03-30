@@ -43,4 +43,3 @@ class Solution(object):
                         seen.add(grid[nr][nc])
                     result = max(result, 1 + sum(area[i] for i in seen))
         return result
-

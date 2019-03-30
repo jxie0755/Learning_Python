@@ -22,4 +22,3 @@ class Solution(object):
             root.right = increasingBSTHelper(root.right, tail)
             return result
         return increasingBSTHelper(root, None)
-

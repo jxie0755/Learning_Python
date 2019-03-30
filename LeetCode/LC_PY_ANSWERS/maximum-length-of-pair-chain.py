@@ -14,4 +14,3 @@ class Solution(object):
                 cnt += 1
                 i = j
         return cnt
-

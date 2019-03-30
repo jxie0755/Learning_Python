@@ -24,4 +24,3 @@ class Solution(object):
                 result += 1
             curr = curr.next
         return result
-

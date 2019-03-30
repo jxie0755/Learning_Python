@@ -28,4 +28,3 @@ class Solution(object):
             if i+1 < len(schedule[eid]):
                 heapq.heappush(min_heap, (schedule[eid][i+1].start, eid, i+1))
         return result
-

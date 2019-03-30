@@ -24,4 +24,3 @@ class Solution(object):
                             break
 
         return result[n][0][0]
-

@@ -17,5 +17,3 @@ class Solution(object):
                 start += 1
             result += i-start+1
         return result
-
-

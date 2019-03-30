@@ -18,4 +18,3 @@ class Solution(object):
                 dp_no_swap[i%2] = min(dp_no_swap[i%2], dp_swap[(i-1)%2])
                 dp_swap[i%2] = min(dp_swap[i%2], dp_no_swap[(i-1)%2]+1)
         return min(dp_no_swap[(len(A)-1)%2], dp_swap[(len(A)-1)%2])
-

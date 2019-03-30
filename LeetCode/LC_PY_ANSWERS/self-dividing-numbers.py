@@ -21,4 +21,3 @@ class Solution(object):
             if isDividingNumber(num):
                 result.append(num)
         return result
-

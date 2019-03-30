@@ -37,4 +37,3 @@ class Solution(object):
                 if cur == num:
                     return True
         return False
-

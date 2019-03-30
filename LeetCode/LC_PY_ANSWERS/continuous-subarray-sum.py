@@ -21,4 +21,3 @@ class Solution(object):
                 lookup[count] = i
 
         return False
-

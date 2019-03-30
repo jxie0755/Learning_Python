@@ -19,4 +19,3 @@ class Solution(object):
             elif num:
                 b -= side * int(sign + num)
         return 'x=%d' % (b / a) if a else 'No solution' if b else 'Infinite solutions'
-

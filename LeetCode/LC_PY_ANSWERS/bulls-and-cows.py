@@ -47,4 +47,3 @@ class Solution2(object):
         A = sum(imap(operator.eq, secret, guess))
         B = sum((Counter(secret) & Counter(guess)).values()) - A
         return "%dA%dB" % (A, B)
-

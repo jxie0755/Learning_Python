@@ -28,4 +28,3 @@ class Solution(object):
             i = num+1
 
         return result
-

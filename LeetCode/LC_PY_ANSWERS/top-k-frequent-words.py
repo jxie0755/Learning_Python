@@ -105,4 +105,3 @@ class Solution3(object):
                 break
         pairs.sort()
         return [pair[1] for pair in pairs[:k]]
-

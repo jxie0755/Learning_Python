@@ -37,4 +37,3 @@ class Solution(object):
                         lookup.add(t)
                         q.append(t)
             result += 1
-

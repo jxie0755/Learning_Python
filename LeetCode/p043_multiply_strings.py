@@ -63,10 +63,3 @@ if __name__ == '__main__':
     assert Solution().multiply("2", "3") == "6", "Example 1"
     assert Solution().multiply("123", "456") == "56088", "Example 2"
     print("all passed!")
-
-
-
-
-
-
-

@@ -21,4 +21,3 @@ class Solution(object):
             k, j = index[c]
             result += (len(S)-j) * (j-k)
         return result % M
-

@@ -13,4 +13,3 @@ class Solution(object):
                 pay[i][j] = min(k+1 + max(pay[i][k-1], pay[k+1][j]) \
                                 for k in xrange(i, j+1))
         return pay[0][n-1]
-

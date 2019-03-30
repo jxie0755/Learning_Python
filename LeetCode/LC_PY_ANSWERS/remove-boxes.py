@@ -24,4 +24,3 @@ class Solution(object):
 
         lookup = [[[0]*len(boxes) for _ in xrange(len(boxes)) ] for _ in xrange(len(boxes)) ]
         return dfs(boxes, 0, len(boxes)-1, 0, lookup)
-

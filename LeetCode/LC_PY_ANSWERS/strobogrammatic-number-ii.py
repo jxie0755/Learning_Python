@@ -22,4 +22,3 @@ class Solution(object):
                     result.append(key + num + val)
 
         return result
-

@@ -26,6 +26,3 @@ class KthLargest(object):
         if len(self.__min_heap) > self.__k:
             heapq.heappop(self.__min_heap)
         return self.__min_heap[0]
-
-
-

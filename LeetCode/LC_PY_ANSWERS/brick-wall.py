@@ -19,4 +19,3 @@ class Solution(object):
                 widths[width] += 1
                 result = min(result, len(wall) - widths[width])
         return result
-

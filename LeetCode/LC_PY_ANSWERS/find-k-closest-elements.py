@@ -22,4 +22,3 @@ class Solution(object):
                 right += 1
             k -= 1
         return arr[left+1:right]
-

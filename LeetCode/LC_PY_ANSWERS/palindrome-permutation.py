@@ -11,4 +11,3 @@ class Solution(object):
         :rtype: bool
         """
         return sum(v % 2 for v in collections.Counter(s).values()) < 2
-

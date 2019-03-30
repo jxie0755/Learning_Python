@@ -13,4 +13,3 @@ class Solution(object):
                 A[i], A[j] = A[j], A[i]
                 i += 1
         return A
-

@@ -34,4 +34,3 @@ class Solution(object):
         if not grid:
             return None
         return dfs(grid, 0, 0, len(grid))
-

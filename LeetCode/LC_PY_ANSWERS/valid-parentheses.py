@@ -11,4 +11,3 @@ class Solution(object):
             elif len(stack) == 0 or lookup[stack.pop()] != parenthese:
                 return False
         return len(stack) == 0
-

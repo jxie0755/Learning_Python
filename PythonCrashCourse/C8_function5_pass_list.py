@@ -9,4 +9,3 @@ def greet_users(names):    # 提前假定参数是一个list了,随后:
 
 usernames = ['denis', 'cindy', 'adrienne']
 greet_users(usernames)     # 如果参数不是一个list,函数中的for in loop无法运行.
-

@@ -47,4 +47,3 @@ class Solution2(object):
             stack.append([i, A[i]])
 
         return result
-

@@ -75,4 +75,3 @@ with open("D:/Documents/GitHub/Data_Structure_with_Java/TestDir/ClownFish.jpg", 
 
 with open("D:/Documents/GitHub/Data_Structure_with_Java/TestDir/ClownFish_pyout.jpg", "w+b") as pobj_out:
     pobj_out.write(a)
-

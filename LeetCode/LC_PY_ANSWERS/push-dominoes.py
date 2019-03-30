@@ -32,4 +32,3 @@ class Solution(object):
 
         return "".join('.' if f == 0 else 'R' if f > 0 else 'L'
                        for f in force)
-

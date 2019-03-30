@@ -11,4 +11,3 @@ class Solution(object):
         if a == b:
             return -1
         return max(len(a), len(b))
-

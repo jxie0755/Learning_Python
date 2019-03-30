@@ -39,4 +39,3 @@ class Solution2(object):
                 if all(letter in row for letter in word.lower()):
                     single_row_words.append(word)
         return single_row_words
-

@@ -21,4 +21,3 @@ lines2[3] = '4. Didi'
 with open(filename, 'w') as f_obj:
     f_obj.write(''.join(lines2)) # 注意这里因为原list的内容中自带换行符,所以会自动换行
     # 若是没有带换行符,则''改为'\n'
-

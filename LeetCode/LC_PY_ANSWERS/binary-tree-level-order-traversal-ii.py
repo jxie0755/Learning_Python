@@ -30,4 +30,3 @@ class Solution(object):
             result.append(vals)
 
         return result[::-1]
-

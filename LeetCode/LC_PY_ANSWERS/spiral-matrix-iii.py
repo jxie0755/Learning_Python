@@ -20,4 +20,3 @@ class Solution(object):
             if i == n//2+1:
                 x, y, n, i = y, -x, n+1, 0
         return result
-

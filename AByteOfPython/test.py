@@ -19,4 +19,3 @@ for alien in aliens[:3]:
     elif alien['color'] == 'yellow':
         alien['color'] = 'red'
 print(aliens)
-

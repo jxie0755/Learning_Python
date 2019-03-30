@@ -33,4 +33,3 @@ class Solution(object):
                 root.right = self.deleteNode(root.right, successor.val)
 
         return root
-

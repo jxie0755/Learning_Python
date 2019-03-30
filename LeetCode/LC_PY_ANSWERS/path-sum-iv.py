@@ -38,4 +38,3 @@ class Solution(object):
         while q:
             result += q.pop().val
         return result
-

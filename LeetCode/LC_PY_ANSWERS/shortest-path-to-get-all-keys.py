@@ -67,4 +67,3 @@ class Solution(object):
                     best[dest][next_state] = cur_d+d
                     heapq.heappush(min_heap, (cur_d+d, dest, next_state))
         return -1
-

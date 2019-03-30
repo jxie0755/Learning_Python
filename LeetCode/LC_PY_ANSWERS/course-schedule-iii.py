@@ -20,4 +20,3 @@ class Solution(object):
             if now > end:
                 now += heapq.heappop(max_heap)
         return len(max_heap)
-

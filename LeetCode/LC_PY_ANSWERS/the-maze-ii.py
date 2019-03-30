@@ -37,4 +37,3 @@ class Solution(object):
                 heapq.heappush(heap, (dist+neighbor_dist, neighbor))
 
         return -1
-

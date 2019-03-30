@@ -8,4 +8,3 @@ if x**2 == int(target):
     print('The square root of', int(target), 'is', x)
 else:
     print(int(target), 'is not a perfect square')
-

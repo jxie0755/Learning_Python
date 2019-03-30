@@ -43,4 +43,3 @@ class Solution(object):
         leaves(root.right, nodes)
         rightBoundary(root.right, nodes)
         return nodes
-

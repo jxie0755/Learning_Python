@@ -17,4 +17,3 @@ class Solution(object):
             if i == len(word):
                 return word
         return ""
-

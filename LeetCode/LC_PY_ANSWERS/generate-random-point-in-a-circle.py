@@ -25,6 +25,3 @@ class Solution(object):
         theta = (2*math.pi) * random.uniform(0, 1)
         return (r*math.cos(theta) + self.__x_center,
                 r*math.sin(theta) + self.__y_center)
-
-
-

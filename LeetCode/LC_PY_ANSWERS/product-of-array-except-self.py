@@ -18,4 +18,3 @@ class Solution(object):
             left_product[i] = left_product[i] * right_product
 
         return left_product
-

@@ -25,4 +25,3 @@ class Solution(object):
                 if counts[s2[start]] > 0:
                     l += 1
         return False
-

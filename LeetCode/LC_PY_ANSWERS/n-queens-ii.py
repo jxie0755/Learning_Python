@@ -35,4 +35,3 @@ class Solution2(object):
             if i not in solution and reduce(lambda acc, j: abs(row - j) != abs(i - solution[j]) and acc, xrange(len(solution)), True):
                 result += self.totalNQueensRecu(solution + [i], row + 1, n)
         return result
-

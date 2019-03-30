@@ -15,4 +15,3 @@ class Solution(object):
                          max(A[-1]-K, A[i]+K) -
                          min(A[0]+K, A[i+1]-K))
         return result
-

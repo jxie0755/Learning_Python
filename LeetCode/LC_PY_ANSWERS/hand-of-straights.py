@@ -31,4 +31,3 @@ class Solution(object):
                     return False
                 start += 1
         return True
-

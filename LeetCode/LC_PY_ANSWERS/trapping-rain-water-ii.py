@@ -41,4 +41,3 @@ class Solution(object):
                     is_visited[x][y] = True
 
         return trap
-

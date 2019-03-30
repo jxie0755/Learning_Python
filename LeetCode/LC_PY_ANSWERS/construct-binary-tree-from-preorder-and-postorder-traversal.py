@@ -57,4 +57,3 @@ class Solution2(object):
         for i, val in enumerate(post):
             post_entry_idx_map[val] = i
         return constructFromPrePostHelper(pre, 0, len(pre), post, 0, len(post), post_entry_idx_map)
-

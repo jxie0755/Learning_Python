@@ -66,4 +66,3 @@ class Solution(object):
                 i = j+1
 
         return stk[-1]
-

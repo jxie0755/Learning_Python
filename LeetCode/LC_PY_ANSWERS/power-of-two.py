@@ -13,4 +13,3 @@ class Solution2(object):
     # @return {boolean}
     def isPowerOfTwo(self, n):
         return n > 0 and (n & ~-n) == 0
-

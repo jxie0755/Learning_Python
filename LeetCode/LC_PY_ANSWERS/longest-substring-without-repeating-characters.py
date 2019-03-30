@@ -15,4 +15,3 @@ class Solution(object):
                 visited[ord(char)] = True
             longest = max(longest, i - start + 1)
         return longest
-

@@ -14,4 +14,3 @@ class Solution(object):
             result[i % len(nums)] = stk[-1] if stk else -1
             stk.append(nums[i % len(nums)])
         return result
-

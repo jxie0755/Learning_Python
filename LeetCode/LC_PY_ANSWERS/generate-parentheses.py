@@ -16,4 +16,3 @@ class Solution(object):
             self.generateParenthesisRecu(result, current + "(", left - 1, right)
         if left < right:
             self.generateParenthesisRecu(result, current + ")", left, right - 1)
-

@@ -49,4 +49,3 @@ class Solution(object):
             emails.sort()
         return [[email_to_name[emails[0]]] + emails
                 for emails in result.values()]
-

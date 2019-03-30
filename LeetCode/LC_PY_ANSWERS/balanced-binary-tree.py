@@ -22,4 +22,3 @@ class Solution(object):
                 return -1
             return max(left_height, right_height) + 1
         return (getHeight(root) >= 0)
-

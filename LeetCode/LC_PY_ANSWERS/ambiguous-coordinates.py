@@ -22,4 +22,3 @@ class Solution(object):
                 for i in xrange(1, len(S)-2)
                 for cand in itertools.product(make(S, 1, i),
                                               make(S, i+1, len(S)-2-i))]
-

@@ -28,5 +28,3 @@ class ZigzagIterator(object):
         :rtype: bool
         """
         return bool(self.q)
-
-

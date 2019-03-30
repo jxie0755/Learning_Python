@@ -68,4 +68,3 @@ class Solution(object):
             hit_grid[r][c] = 1
             result.append(max(0, union_find.top()-prev_roof-1))
         return result[::-1]
-

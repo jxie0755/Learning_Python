@@ -40,4 +40,3 @@ class Solution2(object):
         else:
             for choice in lookup[int(digits[n])]:
                 self.letterCombinationsRecu(result, digits, lookup, cur + choice, n + 1)
-

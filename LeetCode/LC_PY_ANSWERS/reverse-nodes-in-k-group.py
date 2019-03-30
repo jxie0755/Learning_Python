@@ -43,4 +43,3 @@ class Solution(object):
                 cur.next = begin.next
                 begin.next = cur
                 cur = first.next
-

@@ -13,4 +13,3 @@ class Solution(object):
                 return False
             n, curr = divmod(n, 2)
         return True
-

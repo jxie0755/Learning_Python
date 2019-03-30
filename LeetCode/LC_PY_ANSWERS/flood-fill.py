@@ -26,4 +26,3 @@ class Solution(object):
         if color == newColor: return image
         dfs(image, sr, sc, newColor, color)
         return image
-

@@ -17,4 +17,3 @@ class Solution(object):
             if (b**(l+1)-1) // (b-1) == num:
                 return str(b)
         return str(num-1)
-

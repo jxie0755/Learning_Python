@@ -32,4 +32,3 @@ class Solution2(object):
                 path.pop()
             path.append(p)
         return True
-

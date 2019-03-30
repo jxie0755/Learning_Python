@@ -19,4 +19,3 @@ class Solution(object):
             next_seq += str(cnt) + seq[i]
             i += 1
         return next_seq
-

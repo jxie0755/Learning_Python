@@ -42,4 +42,3 @@ class Solution(object):
             else:
                 right.next()
         return False
-

@@ -43,4 +43,3 @@ class Solution2(object):
                 else:
                     longest = max(longest, i - indices[-1])
         return longest
-

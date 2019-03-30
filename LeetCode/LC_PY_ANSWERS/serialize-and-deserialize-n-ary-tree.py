@@ -61,5 +61,3 @@ class Codec(object):
     
         return dfs(iter(isplit(data, ' ')))
         
-
-

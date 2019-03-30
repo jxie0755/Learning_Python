@@ -22,4 +22,3 @@ class Solution(object):
                 elif j>0:
                     ways[j] += ways[j-1]
         return ways[-1]
-

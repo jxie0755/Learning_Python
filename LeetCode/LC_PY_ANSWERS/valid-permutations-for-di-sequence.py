@@ -18,4 +18,3 @@ class Solution(object):
                 for i in reversed(xrange(len(dp)-1)):
                     dp[i] += dp[i+1]
         return dp[0] % (10**9+7)
-

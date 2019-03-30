@@ -36,4 +36,3 @@ class Solution(object):
             return True
 
         solver(board)
-

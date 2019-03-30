@@ -34,4 +34,3 @@ class Solution(object):
 
         largestBSTSubtreeHelper(root)
         return max_size[0]
-

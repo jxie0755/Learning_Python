@@ -13,4 +13,3 @@ class Solution(object):
             root = root.left if s <= root.val else root.right
         # s <= root.val <= b.
         return root
-

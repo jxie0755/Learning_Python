@@ -43,4 +43,3 @@ class Solution2(object):
             root.right.next = root.next.left
         self.connect(root.left)
         self.connect(root.right)
-

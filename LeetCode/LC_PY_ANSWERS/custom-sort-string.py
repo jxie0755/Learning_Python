@@ -15,4 +15,3 @@ class Solution(object):
         result = [c*counter[c] for c in S]
         result.extend([c*counter for c, counter in counter.iteritems() if c not in s])
         return "".join(result)
-

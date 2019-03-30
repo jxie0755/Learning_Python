@@ -98,4 +98,3 @@ class Solution_TLE(object):
             result += step
             start = tree[1]
         return result
-

@@ -30,4 +30,3 @@ class Solution(object):
                 yield i
         return all(a == b for a, b in
                    itertools.izip_longest(dfs(root1), dfs(root2)))
-

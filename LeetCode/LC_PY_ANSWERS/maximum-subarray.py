@@ -14,5 +14,3 @@ class Solution(object):
             local_max = max(0, local_max + x)
             global_max = max(global_max, local_max)
         return global_max
-
-

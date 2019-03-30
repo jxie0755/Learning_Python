@@ -22,4 +22,3 @@ class Solution(object):
                 others.append(a)
         return [candidates[b].pop() if candidates[b] else others.pop()
                 for b in B]
-

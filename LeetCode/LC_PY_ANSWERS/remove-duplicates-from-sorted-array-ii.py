@@ -17,4 +17,3 @@ class Solution(object):
             i += 1
 
         return last + 1
-

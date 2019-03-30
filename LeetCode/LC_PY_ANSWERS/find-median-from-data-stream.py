@@ -35,5 +35,3 @@ class MedianFinder(object):
         return (-self.__max_heap[0] + self.__min_heap[0]) / 2.0 \
                if len(self.__min_heap) == len(self.__max_heap) \
                else self.__min_heap[0]
-
-

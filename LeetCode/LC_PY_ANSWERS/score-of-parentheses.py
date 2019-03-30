@@ -35,4 +35,3 @@ class Solution2(object):
                 last = stack.pop()
                 stack[-1] += max(1, 2*last)
         return stack[0]
-

@@ -18,4 +18,3 @@ class Solution(object):
                     count += 1
                 result = max(result, count)
         return result
-

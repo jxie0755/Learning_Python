@@ -21,4 +21,3 @@ class Solution(object):
 
         convertBSTHelper(root, 0)
         return root
-

@@ -50,5 +50,3 @@ class Solution2(object):
             if haystack[i : i + len(needle)] == needle:
                 return i
         return -1
-
-

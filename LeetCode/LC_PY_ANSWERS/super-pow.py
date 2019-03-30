@@ -22,4 +22,3 @@ class Solution(object):
         for digit in b:
             result = myPow(result, 10, 1337) * myPow(a, digit, 1337) % 1337
         return result
-

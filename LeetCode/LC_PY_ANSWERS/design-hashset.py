@@ -80,6 +80,3 @@ class MyHashSet(object):
         l = self.__data[key % len(self.__data)]
         node = l.find(key)
         return node is not None
-
-
-

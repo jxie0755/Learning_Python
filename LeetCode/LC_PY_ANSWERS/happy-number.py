@@ -16,4 +16,3 @@ class Solution(object):
         for char in str(n):
             new += int(char)**2
         return new
-

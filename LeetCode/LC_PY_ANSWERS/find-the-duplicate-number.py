@@ -71,4 +71,3 @@ class Solution3(object):
             else:
                 break
         return duplicate
-

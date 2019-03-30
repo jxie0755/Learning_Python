@@ -123,5 +123,3 @@ class Solution3(object):
                 heapq.heappush(heap, (smallest.next.val, smallest.next))
 
         return dummy.next
-
-

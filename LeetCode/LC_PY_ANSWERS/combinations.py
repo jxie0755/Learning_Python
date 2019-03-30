@@ -43,5 +43,3 @@ class Solution2(object):
         result = []
         combineDFS(n, 0, [], k, result)
         return result
-
-

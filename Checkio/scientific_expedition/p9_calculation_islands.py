@@ -49,6 +49,3 @@ for i in temp_list:
 
 # job not done.
 # future work includes finish the check neighbor processing to group the numbers for islands.
-
-
-

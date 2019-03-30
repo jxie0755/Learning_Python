@@ -15,4 +15,3 @@ class Solution(object):
             else:
                 count = 1
         return result
-

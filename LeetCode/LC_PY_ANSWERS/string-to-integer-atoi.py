@@ -35,4 +35,3 @@ class Solution(object):
             i += 1
 
         return sign * result
-

@@ -21,4 +21,3 @@ class Solution2(object):
             diff >>= 1
             i += 1
         return n & m >> i << i
-

@@ -15,4 +15,3 @@ class Solution(object):
                 result[j] = max(result[j]-1, 0)/2.0 + \
                             max(result[j-1]-1, 0)/2.0
         return min(result[query_glass], 1)
-

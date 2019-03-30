@@ -27,4 +27,3 @@ class Solution(object):
             return False
 
         return canIWinHelper(maxChoosableInteger, desiredTotal, 0, {})
-

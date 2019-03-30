@@ -59,4 +59,3 @@ class Solution2(object):
             return False
 
         return dfs(map(Fraction, nums))
-

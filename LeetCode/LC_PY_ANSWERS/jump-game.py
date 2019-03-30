@@ -11,4 +11,3 @@ class Solution(object):
                 break
             reachable = max(reachable, i + length)
         return reachable >= len(A) - 1
-

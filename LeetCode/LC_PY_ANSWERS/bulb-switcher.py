@@ -12,4 +12,3 @@ class Solution(object):
         """
         # The number of full squares.
         return int(math.sqrt(n))
-

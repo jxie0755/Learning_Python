@@ -12,4 +12,3 @@ class Solution(object):
         while len(num) <= n:
             num += min(num[-i*i] for i in xrange(1, int(len(num)**0.5+1))) + 1,
         return num[n]
-

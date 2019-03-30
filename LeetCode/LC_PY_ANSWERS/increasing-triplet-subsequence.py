@@ -39,4 +39,3 @@ class Solution_Generalization(object):
             return k == 0
 
         return increasingKUplet(nums, 3)
-

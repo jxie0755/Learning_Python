@@ -58,4 +58,3 @@ if __name__ == '__main__':
     assert checkio("abe") == "a", "The First."
     assert checkio("a" * 9000 + "b" * 1000) == "a", "Long."
     print("The local tests are done.")
-

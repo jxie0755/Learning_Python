@@ -41,4 +41,3 @@ class Solution(object):
         if num in lookup:
             return lookup[num]
         return lookup[(num / 10) * 10] + " " + lookup[num % 10]
-

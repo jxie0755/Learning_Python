@@ -16,4 +16,3 @@ class Solution(object):
                 result[0] += 1
                 result[1] = w
         return result
-

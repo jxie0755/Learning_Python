@@ -14,4 +14,3 @@ class Solution(object):
         if not root.left and not root.right and root.val == 0:
             return None
         return root
-

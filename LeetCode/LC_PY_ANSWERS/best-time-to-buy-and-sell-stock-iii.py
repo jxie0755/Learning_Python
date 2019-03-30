@@ -63,4 +63,3 @@ class Solution3(object):
                              max_profits_from_right[i])
 
         return max_profit
-

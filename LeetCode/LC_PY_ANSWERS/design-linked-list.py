@@ -96,6 +96,3 @@ class MyLinkedList(object):
             start -= 1
             curr = curr.prev
         return curr
-
-
-

@@ -35,5 +35,3 @@ class Solution2(object):
 
         for i in range(pos, len(nums)):
             nums[i] = 0
-
-

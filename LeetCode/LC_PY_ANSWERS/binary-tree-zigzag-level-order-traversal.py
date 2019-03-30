@@ -30,4 +30,3 @@ class Solution(object):
             level += 1
             current = next_level
         return result
-

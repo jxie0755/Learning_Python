@@ -20,4 +20,3 @@ class Solution(object):
                 return (tx - sx) % ty == 0
 
         return False
-

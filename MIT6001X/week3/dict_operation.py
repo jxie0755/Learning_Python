@@ -15,4 +15,3 @@ print(list(grades.values()))     # only return value, don't forget to list()
 # True
 # dict_keys(['Ana', 'Denise', 'Katy', 'Lindsay', 'Cindy'])
 # dict_values(['B', 'A', 'A', ('a', 'b', 'c'), 'A'])
-

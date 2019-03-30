@@ -53,4 +53,3 @@ class Solution2(object):
         return pathSumHelper(root, 0, sum) + \
                self.pathSum(root.left, sum) + \
                self.pathSum(root.right, sum)
-

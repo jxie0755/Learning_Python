@@ -23,4 +23,3 @@ class Solution(object):
                 max_numbers.append(nums[dq[0]])
 
         return max_numbers
-

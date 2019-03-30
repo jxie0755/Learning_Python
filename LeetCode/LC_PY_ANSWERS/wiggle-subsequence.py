@@ -21,4 +21,3 @@ class Solution(object):
                 up = False
 
         return length
-

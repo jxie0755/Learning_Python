@@ -83,4 +83,3 @@ if __name__ == '__main__':
 
     print(find_triangle_paths(grid_1))
     # >>> 20 (from 1,3,6,10)
-

@@ -21,4 +21,3 @@ class Solution(object):
             return num * 10 + root.val
 
         return self.sumNumbersRecu(root.left, num * 10 + root.val) + self.sumNumbersRecu(root.right, num * 10 + root.val)
-

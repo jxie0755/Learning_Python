@@ -17,5 +17,3 @@ my_new_ecar.read_odometer()
 my_new_ecar.gas_tank(20)
 my_new_ecar.BBBattery.battery_info()
 my_new_ecar.BBBattery.get_range()
-
-

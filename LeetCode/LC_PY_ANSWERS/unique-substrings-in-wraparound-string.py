@@ -18,4 +18,3 @@ class Solution(object):
                 result += length - letters[curr]
                 letters[curr] = length
         return result
-

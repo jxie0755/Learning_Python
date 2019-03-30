@@ -12,4 +12,3 @@ class Solution(object):
         for i in xrange(1, len(timeSeries)):
             result -= max(0, duration - (timeSeries[i] - timeSeries[i-1]))
         return result
-

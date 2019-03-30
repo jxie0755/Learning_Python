@@ -18,4 +18,3 @@ class Solution(object):
                 patch += 1
 
         return patch
-

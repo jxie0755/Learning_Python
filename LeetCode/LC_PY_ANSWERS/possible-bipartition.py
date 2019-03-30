@@ -30,4 +30,3 @@ class Solution(object):
                 q.append(nei)
         return True
  
-

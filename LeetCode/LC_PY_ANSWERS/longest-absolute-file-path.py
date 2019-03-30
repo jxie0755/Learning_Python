@@ -26,4 +26,3 @@ class Solution(object):
             else:
                 path_len[depth + 1] = path_len[depth] + len(name) + 1
         return max_len
-

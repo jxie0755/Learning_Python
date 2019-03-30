@@ -20,4 +20,3 @@ class Solution(object):
                 result += 1
                 i += 1
         return result
-

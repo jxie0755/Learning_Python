@@ -18,4 +18,3 @@ class Solution(object):
                 dp[n % 2][l] = ((dp[n % 2][l-1] * max(n-K, 0)) % M + \
                                 (dp[(n-1) % 2][l-1] * n) % M) % M
         return dp[N % 2][L]
-

@@ -9,4 +9,3 @@ class Solution(object):
         :rtype: int
         """
         return max(0, max(A) - min(A) - 2*K)
-

@@ -19,4 +19,3 @@ class Solution(object):
 
             longest = max(longest, i - start + 1)
         return longest
-

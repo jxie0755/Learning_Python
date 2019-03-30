@@ -10,4 +10,3 @@ class Solution(object):
             n &= n - 1
             result += 1
         return result
-

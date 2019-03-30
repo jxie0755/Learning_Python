@@ -11,4 +11,3 @@ class Solution(object):
             if intervals[i].start < intervals[i-1].end:
                 return False
         return True
-

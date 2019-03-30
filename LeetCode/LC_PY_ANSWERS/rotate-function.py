@@ -17,4 +17,3 @@ class Solution(object):
             fi += s - len(A) * A[-i]
             result = max(result, fi)
         return result
-

@@ -15,4 +15,3 @@ class Solution(object):
                 y, x = numerals.pop(), numerals.pop()
                 numerals.append(int(operators[token](x * 1.0, y)))
         return numerals.pop()
-

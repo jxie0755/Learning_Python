@@ -18,4 +18,3 @@ class Solution(object):
                 if num <= i:
                     dp[i] = dp[i] or dp[i - num]
         return dp[-1]
-

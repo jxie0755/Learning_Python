@@ -14,5 +14,3 @@ if __name__ == '__main__':
     assert checkio(1) == 1
     assert checkio(1022) == 9
     print('done')
-
-

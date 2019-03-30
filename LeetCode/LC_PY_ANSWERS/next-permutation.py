@@ -20,4 +20,3 @@ class Solution(object):
 
         num[k], num[l] = num[l], num[k]
         num[k + 1:] = num[:k:-1]
-

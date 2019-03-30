@@ -1307,5 +1307,3 @@ import re
 # 注意这个([a-z]), 括号表示目标,不然会把整段取出
 m = re.findall("[a-z][A-Z]{3}([a-z])[A-Z]{3}[a-z]+",msg)
 print(''.join(m))
-
-

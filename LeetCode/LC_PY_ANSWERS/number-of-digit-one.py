@@ -28,4 +28,3 @@ class Solution(object):
             multiplier *= 10
 
         return cnt
-

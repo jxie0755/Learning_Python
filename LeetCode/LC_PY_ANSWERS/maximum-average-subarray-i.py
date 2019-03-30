@@ -13,4 +13,3 @@ class Solution(object):
             total += nums[i] - nums[i-k]
             result = max(result, total)
         return float(result) / k
-

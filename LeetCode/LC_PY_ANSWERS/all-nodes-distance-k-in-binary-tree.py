@@ -31,4 +31,3 @@ class Solution(object):
                    if nei not in lookup]
             lookup |= set(bfs)
         return bfs
-

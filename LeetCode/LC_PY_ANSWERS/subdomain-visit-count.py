@@ -22,4 +22,3 @@ class Solution(object):
 
         return ["{} {}".format(count, domain) \
                 for domain, count in result.iteritems()]
-

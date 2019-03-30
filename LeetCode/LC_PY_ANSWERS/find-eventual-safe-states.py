@@ -27,4 +27,3 @@ class Solution(object):
 
         lookup = collections.defaultdict(int)
         return filter(lambda node: dfs(graph, node, lookup), xrange(len(graph)))
-

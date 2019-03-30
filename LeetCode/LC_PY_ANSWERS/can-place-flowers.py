@@ -16,4 +16,3 @@ class Solution(object):
             if n <= 0:
                 return True
         return False
-

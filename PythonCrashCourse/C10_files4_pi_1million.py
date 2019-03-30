@@ -12,4 +12,3 @@ for line in lines:
 
 print(pi_string[:22] + '...') # 限制打印到前20个数字
 print('length is', len(pi_string), 'digits') # list长度仍然是全长
-

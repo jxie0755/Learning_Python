@@ -41,5 +41,3 @@ class WordDictionary(object):
                     return True
 
         return False
-
-

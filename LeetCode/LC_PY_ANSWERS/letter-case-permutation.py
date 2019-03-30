@@ -18,4 +18,3 @@ class Solution(object):
                 for s in result:
                     s.append(c)
         return map("".join, result)
-

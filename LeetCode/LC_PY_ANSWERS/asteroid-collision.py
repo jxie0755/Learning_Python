@@ -20,4 +20,3 @@ class Solution(object):
             else:
                 result.append(asteroid)
         return result
-

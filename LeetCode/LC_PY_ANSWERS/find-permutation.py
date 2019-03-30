@@ -12,4 +12,3 @@ class Solution(object):
             if i == len(s) or s[i] == 'I':
                 result += range(i+1, len(result), -1)
         return result
-

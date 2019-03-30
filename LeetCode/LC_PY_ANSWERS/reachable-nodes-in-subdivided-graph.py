@@ -38,4 +38,3 @@ class Solution(object):
         for u, v, w in edges:
             result += min(w, count[u][v]+count[v][u])
         return result
-

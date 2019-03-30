@@ -18,4 +18,3 @@ class Solution(object):
                 candies[i - 1] = candies[i] + 1
 
         return reduce(operator.add, candies)
-

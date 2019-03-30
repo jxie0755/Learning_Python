@@ -26,4 +26,3 @@ class Solution(object):
             else:
                 left = mid+1
         return left % (10**9 + 7)
-

@@ -17,4 +17,3 @@ class Solution(object):
                       dist(p1, p4), dist(p2, p3),\
                       dist(p2, p4), dist(p3, p4)])
         return 0 not in lookup and len(lookup) == 2
-

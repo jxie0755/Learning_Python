@@ -29,4 +29,3 @@ class Solution(object):
                 elif s[i - 1] == '*':
                     dp[(i + 1) % W] = (dp[(i + 1) % W] + (2 if s[i] <= '6' else 1) * dp[(i - 1) % W]) % M
         return dp[len(s) % W]
-

@@ -269,4 +269,3 @@ class Place(object):
     def add_exits(self, places):
         for place in places:
             self.exits[place.name] = (place, place.description)
-

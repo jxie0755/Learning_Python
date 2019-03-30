@@ -14,4 +14,3 @@ class Solution(object):
             return tuple(result)
 
         return len({count(word) for word in A})
-

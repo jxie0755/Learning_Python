@@ -35,4 +35,3 @@ class Solution(object):
                 if magic(grid, r, c):
                     result += 1
         return result
-

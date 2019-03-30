@@ -63,4 +63,3 @@ class Solution2(object):
                         visited_from[node] = i
                         q.append(node)
         return len(visited) == n
-

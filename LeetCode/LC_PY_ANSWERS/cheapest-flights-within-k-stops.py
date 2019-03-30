@@ -32,4 +32,3 @@ class Solution(object):
                     best[v][k-1] = result+w                    
                     heapq.heappush(min_heap, (result+w, v, k-1))
         return -1
-

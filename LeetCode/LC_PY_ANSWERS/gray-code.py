@@ -23,5 +23,3 @@ class Solution2(object):
         :rtype: List[int]
         """
         return [i >> 1 ^ i for i in xrange(1 << n)]
-
-

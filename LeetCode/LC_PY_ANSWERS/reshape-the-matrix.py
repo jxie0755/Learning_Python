@@ -20,4 +20,3 @@ class Solution(object):
                 result[count/c][count%c] = nums[i][j]
                 count += 1
         return result
-

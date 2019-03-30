@@ -127,4 +127,3 @@ class Solution5(object):
                     break
 
         return ugly_number
-

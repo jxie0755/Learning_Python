@@ -19,4 +19,3 @@ class Solution(object):
         else:
             string = string[:2] + string[2:].zfill(32)[::-1]
         return int(string, 2)
-

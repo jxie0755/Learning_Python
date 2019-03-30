@@ -25,4 +25,3 @@ class Solution(object):
             result += all(c1 >= max(c2, 3) or c1 == c2
                           for c1, c2 in itertools.izip(count, count2))
         return result
-

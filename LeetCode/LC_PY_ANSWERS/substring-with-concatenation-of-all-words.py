@@ -78,5 +78,3 @@ class Solution2(object):
                 result.append(i)
 
         return result
-
-

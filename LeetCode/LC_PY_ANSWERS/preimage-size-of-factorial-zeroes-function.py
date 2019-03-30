@@ -23,4 +23,3 @@ class Solution(object):
             else:
                 left = mid+1
         return p if count_of_factorial_primes(left, p) == K else 0
-

@@ -11,4 +11,3 @@ class Solution(object):
                 if S_char == T_char:
                     ways[j + 1] += ways[j]
         return ways[len(T)]
-

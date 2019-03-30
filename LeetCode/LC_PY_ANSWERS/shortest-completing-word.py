@@ -23,4 +23,3 @@ class Solution(object):
                contains(counter, word):
                 result = word
         return result
-

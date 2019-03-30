@@ -28,4 +28,3 @@ class Solution(object):
         for i in xrange(m):
             for j in xrange(n):
                 board[i][j] >>= 1  # Update to the next state.
-

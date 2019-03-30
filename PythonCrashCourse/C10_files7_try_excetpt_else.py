@@ -36,4 +36,3 @@ try:
 except FileNotFoundError:
     msg = 'Sorry the file ' + '\''+ filename + '\''+ ' was not found.'
     print(msg)
-

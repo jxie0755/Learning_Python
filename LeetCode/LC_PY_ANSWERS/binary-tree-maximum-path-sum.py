@@ -24,4 +24,3 @@ class Solution(object):
         right = max(0, self.maxPathSumRecu(root.right))
         self.maxSum = max(self.maxSum, root.val + left + right)
         return root.val + max(left, right)
-

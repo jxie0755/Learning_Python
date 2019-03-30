@@ -14,4 +14,3 @@ class Solution(object):
             elif A[i] > A[i+1]:
                 dec = True
         return not inc or not dec
-

@@ -22,6 +22,3 @@ class MyCalendarTwo(object):
                 self.__overlaps.append((max(start, i), min(end, j)))
         self.__calendar.append((start, end))
         return True
-
-
-

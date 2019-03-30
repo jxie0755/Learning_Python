@@ -18,4 +18,3 @@ class Solution(object):
         nth_digit %= 10
 
         return nth_digit
-

@@ -15,4 +15,3 @@ class Solution(object):
                     mincut[i] = min(mincut[i], mincut[j + 1] + 1)
 
         return mincut[0]
-

@@ -23,4 +23,3 @@ class Solution(object):
                 in_stack.add(c)
             remaining[c] -= 1
         return "".join(stk)
-

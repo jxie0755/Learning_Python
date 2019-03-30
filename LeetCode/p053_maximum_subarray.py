@@ -41,5 +41,3 @@ if __name__ == '__main__':
     assert Solution().maxSubArray([0, -1, -1, 0, 0, 0, -1, -2, -3]) == 0, 'only one zero'
     assert Solution().maxSubArray([0, 0, 0, 0, 0, 0]) == 0, 'all zeros'
     print('all passed')
-
-
