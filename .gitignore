@@ -148,3 +148,7 @@ ZStandardLibrary/temp - Copy/
 ZStandardLibrary/temp/
 ZStandardLibrary/tt/
 __pycache__/
+/ZZProject/NewEmptyLine/TestDir/
+ZZProject/NewEmptyLine/TestDir/
+ZZProject/NewEmptyLine/TestDirBackUp/
+ZZProject/PhotoSelector/output/
