@@ -47,10 +47,6 @@ def add_empty_line(full_dir, target):
     """
     all_files = os.listdir(full_dir)
 
-    one_N = r"[\\n]$"
-    multi_N = r"[\\n]+$"
-
-
     for sub_file in all_files:
 
         full_sub_file = os.path.join(full_dir, sub_file)
@@ -60,25 +56,36 @@ def add_empty_line(full_dir, target):
             add_empty_line(full_sub_file, target)
         elif sub_file.endswith(target):
             with open(full_sub_file, "r") as py_obj:
-                print(py_obj.read())
+                content = py_obj.read()
+
+            emp = count_empty(content)
+            if emp == 0:
+                new_content = content + '\n'
+            elif emp == 1:
+                new_content = content
+            else:
+                new_content = content[:1 - emp]
+            with open(full_sub_file, "w") as py_obj:
+                py_obj.write(new_content)
 
 
 if __name__ == '__main__':
-    dd = r"D:\Documents\GitHub\Learning_Python\ZZProject\NewEmptyLine\TestDir"
-    # add_empty_line(dd, ".py")
+    directory = input("Please input full directory:")
+    file_type = input("Plase input file type: ")
 
 
+    while True:
+        proceed = input("Start? Y/N")
+        if proceed == "Y":
+            add_empty_line(directory, file_type)
+            break
+        elif proceed == "N":
+            print("Job Canceled")
+            break
+        else:
+            continue
 
-    badfile = dd + "/p1.py"
-    goodfile = dd + "/p2n.py"
-    toogoodfile = dd + "/p6nn.py"
-    lst = [toogoodfile, goodfile, badfile]
-    for file in lst:
-        with open(file, 'r') as p_obj:
-            content = p_obj.read()
-            print(count_empty(content))
 
-    # with open()
 
 
 
