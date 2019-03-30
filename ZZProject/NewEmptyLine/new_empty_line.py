@@ -65,8 +65,6 @@ def add_empty_line(full_dir, target):
                     count += 1
 
 
-
-
 if __name__ == '__main__':
     directory = input("Please input full directory:")
     file_type = input("Plase input file type: ")
