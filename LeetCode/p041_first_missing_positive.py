@@ -57,5 +57,3 @@ if __name__ == '__main__':
     assert Solution().firstMissingPositive([7,8,9,11,12]) == 1, "Example 3"
 
     print('all passed')
-
-
