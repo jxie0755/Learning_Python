@@ -22,6 +22,18 @@ def time_spent(fn_to_check, *args, **kwds):
     return result
 
 
+from contextlib import contextmanager
+@contextmanager
+def quickTimer():
+    starting_time = time.time()
+    yield
+    print(f"--- {time.time() - starting_time}s seconds ---")
+
+def functionTime(fn, *args, **kwds):
+    with quickTimer():
+        print("Test quickTimer")
+        print(fn(*args, **kwds))
+
 
 if __name__ == '__main__':
 
@@ -40,6 +52,7 @@ if __name__ == '__main__':
 
     print(time_spent(fib_gen_r, 35))
 
+    # Test *args and kwds
     def foo(a,b,c, d=0,e=5):
         return a, b, c, d, e
 
@@ -47,3 +60,7 @@ if __name__ == '__main__':
     # >>>
     # (1, 2, 3, 0, 5)
     # --- 0.0sseconds - --
+
+    print("\nTesting contextmanager")
+    functionTime(fib_gen_r, 35)
+
