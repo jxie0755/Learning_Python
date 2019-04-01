@@ -23,7 +23,7 @@ print('itertools.count()')
 result = []
 for i in itertools.count(10):
     result.append(i)
-    if i >= 20:
+    if i >= 15:
         break
 print(result)  # >>> [10, 11, 12, 13, 14, 15]
 
@@ -62,6 +62,7 @@ for i in range(8):
 
 print()
 print('itertools.repeat()')
+# 第二个参数是optional, 限定repeat次数
 print(list(itertools.repeat(10, 3)))  # >>> [10, 10, 10]
 
 
@@ -104,8 +105,8 @@ print(list(itertools.chain(*list2d)))
 a = [1,2,3]
 b = [4,5,6]
 c = [7,8,9]
-all = chain(a, b, c)
-for i in all:
+all_lst = itertools.chain(a, b, c)
+for i in all_lst:
     print(i)
     # >>> print 1 - 9 one by one.
 
@@ -236,21 +237,21 @@ print('itertools.groupby(iterable, key=None)')
 # 创建一个迭代器，从可迭代返回连续的键和组。
 # 键是计算每个元素的键值的函数。如果未指定或None，则键默认为标识函数，并且不更改元素。
 # 通常，迭代需要已经在相同的键函数上排序。
-from operator import itemgetter #itemgetter用来去dict中的key，省去了使用lambda函数
-from itertools import groupby #itertool还包含有其他很多函数，比如将多个list联合起来。。
+from operator import itemgetter # itemgetter用来去dict中的key，省去了使用lambda函数
+from itertools import groupby # itertool还包含有其他很多函数，比如将多个list联合起来。。
 d1={'name':'AAA','age':18,'country':'China'}
 d2={'name':'BBB','age':19,'country':'USA'}
 d3={'name':'CCC','age':20,'country':'JP'}
 d4={'name':'DDD','age':21,'country':'USA'}
 d5={'name':'EEE','age':22,'country':'USA'}
 d6={'name':'FFF','age':23,'country':'China'}
-lst=[d1,d2,d3,d4,d5,d6]
+lst=[d1, d2, d3, d4, d5, d6]
 
-#通过country进行分组：
-lst.sort(key=itemgetter('country')) #需要先排序，然后才能groupby。lst排序后自身被改变
+# 通过country进行分组：
+lst.sort(key=itemgetter('country')) # 需要先排序，然后才能groupby。lst排序后自身被改变
 # 不sort的话,同类型items会散落,形成很多同类的小分组
 lstg = groupby(lst,itemgetter('country'))
-#lstg = groupby(lst,key=lambda x:x['country']) 等同于使用itemgetter()
+# lstg = groupby(lst,key=lambda x:x['country']) 等同于使用itemgetter()
 
 for key,group in lstg:
     print(key, group)
@@ -259,9 +260,9 @@ for key,group in lstg:
 # JP <itertools._grouper object at 0x7f141e7ec278>
 # USA <itertools._grouper object at 0x7f141e7ec240>
 # 可以看出lstg实际上是一个dict,key就是先前制定的key,value是一个iterable
-# 注意iterable只能使用一次,所以这里不会再次运行,只是简化代码方便阅读:
+# 注意iterator只能使用一次,所以这里不会再次运行,只是简化代码方便阅读:
 for key,value_group in lstg:
-    for g in value_group: #value_group是一个迭代器，包含了所有的分组列表
+    for g in value_group: # value_group是一个迭代器，包含了所有的分组列表
         print(g, 'has a key of', key)
 # >>>
 # {'name': 'AAA', 'age': 18, 'country': 'China'} has a key of China
@@ -298,7 +299,7 @@ for k, v in groupby(aa):
 # group a list of numbers by positive and negative, and got the sum of each group
 nums = [1,2,3, -1,-2,-3, 1,2,3, -1,-2,-3]
 group_list = itertools.groupby(nums, key=lambda x: x>=0)  # do not list it, so that the iterator will be consumed
-print(group_list) 
+print(group_list)
 # >>> <itertools.groupby object at 0x7f705a9e6ef8>
 p_nums = [sum(group) for key, group in group_list]
 print(p_nums)  # >>> [6, -6, 6, -6]
