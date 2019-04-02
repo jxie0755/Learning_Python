@@ -36,28 +36,23 @@ class Solution:
     def jump(self, nums: List[int]) -> int:
 
         def helper(cur_idx, cur_step=0):
+            cur_value = nums[cur_idx]
+            if cur_value >= last_idx - cur_idx:  # further optimize by checking if currently direct jump the the end is possible
+                all_ways.append(cur_step + 1)
 
-            if cur_idx >= last_idx:
-                all_ways.append(cur_step)
-            else:
-                cur_value = nums[cur_idx]
-
-                if cur_value >= last_idx - cur_idx:  # further optimize by checking if currently direct jump the the end is possible
-                    all_ways.append(cur_step+1)
-
-                elif cur_step < hmp[cur_idx]:
-                    hmp[cur_idx] = cur_step
-                    if cur_value != 0:
-                        for i in range(1, cur_value+1):
-                            helper(cur_idx + i, cur_step + 1)
+            elif cur_step < hmp[cur_idx]:
+                hmp[cur_idx] = cur_step
+                for i in range(1, cur_value+1):
+                    helper(cur_idx + i, cur_step + 1)
 
 
         hmp = {i: float("inf") for i in range(len(nums))}
         last_idx = len(nums) - 1
         all_ways = []
+        if len(nums) == 1:
+            return 0
         helper(0)
         return min(all_ways)
-
 
 
 
