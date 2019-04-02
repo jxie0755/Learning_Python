@@ -152,3 +152,4 @@ __pycache__/
 ZZProject/NewEmptyLine/TestDir/
 ZZProject/NewEmptyLine/TestDirBackUp/
 ZZProject/PhotoSelector/output/
+.vscode/.ropeproject/config.py
