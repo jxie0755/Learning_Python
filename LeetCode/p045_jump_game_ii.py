@@ -32,9 +32,8 @@ class Solution:
 
 class Solution:
     ### A modified method with hashmap search to reduce repeating calculation
+    ### Use memorization method
     def jump(self, nums: List[int]) -> int:
-
-        hmp = {}
 
         def helper(cur_idx, cur_step=0):
 
@@ -42,14 +41,23 @@ class Solution:
                 all_ways.append(cur_step)
             else:
                 cur_value = nums[cur_idx]
-                if cur_value != 0:
-                    for i in range(1, cur_value+1):
-                        helper(cur_idx + i, cur_step + 1)
 
+                if cur_value >= last_idx - cur_idx:  # further optimize by checking if currently direct jump the the end is possible
+                    all_ways.append(cur_step+1)
+
+                elif cur_step < hmp[cur_idx]:
+                    hmp[cur_idx] = cur_step
+                    if cur_value != 0:
+                        for i in range(1, cur_value+1):
+                            helper(cur_idx + i, cur_step + 1)
+
+
+        hmp = {i: float("inf") for i in range(len(nums))}
         last_idx = len(nums) - 1
         all_ways = []
         helper(0)
         return min(all_ways)
+
 
 
 
@@ -58,5 +66,5 @@ if __name__ == '__main__':
     assert Solution().jump([2,3,1,1,4]) == 2, "Example 1"
     assert Solution().jump([2,9,6,5,7,0,7,2,7,9,3,2,2,5,7,8,1,6,6,6,3,5,2,2,6,3]) == 5, "Long 1"
     assert Solution().jump([5,6,5,3,9,8,3,1,2,8,2,4,8,3,9,1,0,9,4,6,5,9,8,7,4,2,1,0,2]) == 5, "Long 2"
-    print(Solution().jump([5,6,4,4,6,9,4,4,7,4,4,8,2,6,8,1,5,9,6,5,2,7,9,7,9,6,9,4,1,6,8,8,4,4,2,0,3,8,5]))
+    assert Solution().jump([5,6,4,4,6,9,4,4,7,4,4,8,2,6,8,1,5,9,6,5,2,7,9,7,9,6,9,4,1,6,8,8,4,4,2,0,3,8,5]) == 5, "Long 3"
     print('all passed')
