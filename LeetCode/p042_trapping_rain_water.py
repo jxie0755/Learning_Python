@@ -15,11 +15,7 @@ class Solution:
         if len(peak_list) <= 1:  # If there is only 1 peak, then no water will be hold
             return 0
 
-        elif len(peak_list) == 2: # If there is exactly two peak, then one calulation will be done
-            start, end = min(peak_list[0], peak_list[1]), max(peak_list[0], peak_list[1])
-            return self.vol(height[start:end+1])
-
-        else:  # If there is more than two peak,
+        else:  # If there is two or more than two peak,
                # we have to check if the later peaks are between the first two peak
                # or a peak outside of the two peak range
 
@@ -37,6 +33,7 @@ class Solution:
                     end = next_peak_idx
                 else:  # this is when the peak is between the current two peaks, so no calculation is needed
                     pass
+
             return volume
 
     def vol(self, lst):
