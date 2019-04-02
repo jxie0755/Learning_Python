@@ -137,6 +137,7 @@ Temporary Items
 
 .vscode/tasks.json
 .vscode/settings.json
+.vscode/.ropeproject/config.py
 /ZStandardLibrary/gopro/
 /ZStandardLibrary/output/
 /ZStandardLibrary/temp/
@@ -152,4 +153,4 @@ __pycache__/
 ZZProject/NewEmptyLine/TestDir/
 ZZProject/NewEmptyLine/TestDirBackUp/
 ZZProject/PhotoSelector/output/
-.vscode/.ropeproject/config.py
+
