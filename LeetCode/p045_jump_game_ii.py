@@ -61,6 +61,7 @@ class Solution:
 
 
 
+
 if __name__ == '__main__':
     assert Solution().jump([2,1]) == 1, 'Edge 1'
     assert Solution().jump([2,3,1,1,4]) == 2, "Example 1"
