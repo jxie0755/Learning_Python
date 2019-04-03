@@ -81,6 +81,25 @@ class Solution:
         return count + 1
 
 
+class Solution:
+    ### Improved Recursion method
+    ### by using max function, this will pass, but still slow.
+    def jump(self, nums: List[int]) -> int:
+
+        def find_next_idx(cur_idx, count=0):
+            if nums[cur_idx] >= len(nums) - 1 - cur_idx:
+                return count
+            else:
+                cur_value = nums[cur_idx]
+                candidates = nums[cur_idx + 1: cur_idx + cur_value + 1]
+                next_idx = max(enumerate(candidates, cur_idx + 1), key=lambda x: x[0] + x[1])[0]
+                return find_next_idx(next_idx, count+1)
+
+        if len(nums) == 1:
+            return 0
+        return find_next_idx(0) + 1
+
+
 
 if __name__ == '__main__':
     assert Solution().jump([2,1]) == 1, 'Edge 1'
