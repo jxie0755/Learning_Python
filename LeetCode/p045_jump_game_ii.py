@@ -83,12 +83,13 @@ class Solution:
 
 class Solution:
     ### Improved Recursion method
+    ### Based on last non-recursive method
     ### by using max function, this will pass, but still slow.
     def jump(self, nums: List[int]) -> int:
 
         def find_next_idx(cur_idx, count=0):
             if nums[cur_idx] >= len(nums) - 1 - cur_idx:
-                return count
+                return count + 1
             else:
                 cur_value = nums[cur_idx]
                 candidates = nums[cur_idx + 1: cur_idx + cur_value + 1]
@@ -97,8 +98,30 @@ class Solution:
 
         if len(nums) == 1:
             return 0
-        return find_next_idx(0) + 1
+        return find_next_idx(0)
 
+class Solution:
+    ### Improved Recursion method
+    ### Based on last recursive method but removed max() and enumerate
+    ### it is now very similar to non-recursive method, but still slower.
+
+    def jump(self, nums: List[int]) -> int:
+
+        def find_next_idx(cur_idx, count=0):
+            if nums[cur_idx] >= len(nums) - 1 - cur_idx:
+                return count + 1
+            else:
+                cur_value = nums[cur_idx]
+                next_idx, next_value = 0, 0
+                for idx in range(cur_idx + 1, cur_idx + cur_value + 1):
+                    idx_value = nums[idx]
+                    if idx + idx_value >= next_idx + next_value:
+                        next_idx, next_value = idx, idx_value
+                return find_next_idx(next_idx, count+1)
+
+        if len(nums) == 1:
+            return 0
+        return find_next_idx(0)
 
 
 if __name__ == '__main__':
