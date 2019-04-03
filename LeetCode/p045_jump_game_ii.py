@@ -57,15 +57,29 @@ class Solution:
 class Solution:
     ### Give up on recursion, new method
     def jump(self, nums: List[int]) -> int:
+
+        def find_next_idx(cur_idx):
+            cur_value = nums[cur_idx]
+            next_idx, next_value = 0, 0
+            for idx in range(cur_idx + 1, cur_idx + cur_value + 1):
+                idx_value = nums[idx]
+                if idx + idx_value >= next_idx + next_value:
+                    next_idx, next_value = idx, idx_value
+            return next_idx
+
+        if len(nums) == 1:
+            return 0
+
         last_idx = len(nums) - 1
         cur_idx = 0
         cur_value = nums[cur_idx]
         count = 0
         while cur_value < last_idx - cur_idx:
-            next_idx, next_value = 0, 0
-            for idx in range(cur_idx, cur_idx+cur_value):
-                if idx +
+            cur_idx = find_next_idx(cur_idx)
+            cur_value = nums[cur_idx]
+            count += 1
 
+        return count + 1
 
 
 
