@@ -54,6 +54,18 @@ class Solution:
         helper(0)
         return min(all_ways)
 
+class Solution:
+    ### Give up on recursion, new method
+    def jump(self, nums: List[int]) -> int:
+        last_idx = len(nums) - 1
+        cur_idx = 0
+        cur_value = nums[cur_idx]
+        count = 0
+        while cur_value < last_idx - cur_idx:
+            next_idx, next_value = 0, 0
+            for idx in range(cur_idx, cur_idx+cur_value):
+                if idx +
+
 
 
 
