@@ -20,9 +20,8 @@ class Solution:
                 all_ways.append(cur_step)
             else:
                 cur_value = nums[cur_idx]
-                if cur_value != 0:
-                    for i in range(1, cur_value+1):
-                        helper(cur_idx + i, cur_step + 1)
+                for i in range(1, cur_value+1):
+                    helper(cur_idx + i, cur_step + 1)
 
         last_idx = len(nums) - 1
         all_ways = []
