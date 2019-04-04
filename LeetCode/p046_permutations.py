@@ -53,8 +53,6 @@ class Solution:
 
 
 
-print(Solution().permute([1]))
-
 
 
 if __name__ == '__main__':
