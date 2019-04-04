@@ -8,6 +8,15 @@ from typing import *
 
 import math
 
+import itertools
+
+class Solution:
+    def permute(self, nums: List[int]):
+        result = []
+        for i in itertools.permutations(nums):
+            result.append(list(i))
+        return result
+
 class Solution:
     def next_permute(self, idx_list):
         ### Use next permutation method from leetcode p031
@@ -43,6 +52,8 @@ class Solution:
         return result
 
 
+
+print(Solution().permute([1]))
 
 
 
