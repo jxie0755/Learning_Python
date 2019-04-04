@@ -16,29 +16,29 @@ class Solution:
         return result
 
 class Solution:
-    def next_permute(self, idx_list):
+    def next_permute(self, indexes):
         ### Use next permutation method from leetcode p031
         """calculate the next permuatation, with integers 0 to N-1 (for N elements)
         this will both modify idx_list and return the updated idx_list"""
-        length = len(idx_list)
+        length = len(indexes)
         cur_i = None
 
         for i in range(-2, -length - 1, -1):
-            if idx_list[i] < idx_list[i + 1]:
+            if indexes[i] < indexes[i + 1]:
                 cur_i = i
                 break
 
         if not cur_i:
-            idx_list.reverse()
-            return idx_list
+            indexes.reverse()
+            return indexes
 
         else:
             for rev_i in range(-1, cur_i, -1):
-                if idx_list[rev_i] > idx_list[cur_i]:  # tail must already be sorted!
-                    idx_list[cur_i], idx_list[rev_i] = idx_list[rev_i], idx_list[cur_i]  # switch
-                    idx_list[cur_i + 1:] = idx_list[cur_i + 1:][::-1]
+                if indexes[rev_i] > indexes[cur_i]:  # tail must already be sorted!
+                    indexes[cur_i], indexes[rev_i] = indexes[rev_i], indexes[cur_i]  # switch
+                    indexes[cur_i + 1:] = indexes[cur_i + 1:][::-1]
                     break
-            return idx_list
+            return indexes
 
     def permute(self, nums: List[int]):
         total_n = math.factorial(len(nums))
