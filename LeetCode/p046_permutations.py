@@ -5,9 +5,7 @@
 # Given a collection of distinct (数字不会重复) integers, return all possible permutations.
 
 from typing import *
-
 import math
-
 import itertools
 
 class Solution:
