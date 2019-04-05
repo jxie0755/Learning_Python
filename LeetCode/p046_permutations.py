@@ -9,11 +9,13 @@ import math
 import itertools
 
 class Solution:
+    ### use python's internal method, only for testing the speed
     def permute(self, nums: List[int]):
         result = []
         for i in itertools.permutations(nums):
             result.append(list(i))
         return result
+
 
 class Solution:
     def next_permute(self, indexes):
@@ -41,6 +43,7 @@ class Solution:
             return indexes
 
     def permute(self, nums: List[int]):
+        ### First handle index, then convert to nuns[index]
         total_n = math.factorial(len(nums))
         result = []
         idxs = list(range(len(nums)))[::-1]
@@ -49,12 +52,13 @@ class Solution:
             result.append([nums[i] for i in idxs])
         return result
 
-
-class Solution:
-    def permute(self, nums: List[int]):
+    def permute2(self, nums: List[int]):
+        ### recursive method, but direct handle elements in nums
+        total_n = math.factorial(len(nums))
         result = []
-        for i in itertools.permutations(nums):
-            result.append(list(i))
+        for i in range(total_n):
+            result.append(nums[:])
+            self.next_permute(nums)
         return result
 
 
@@ -82,6 +86,7 @@ class Solution:
 
         helper(nums)
         return result
+
 
 
 class Solution:
@@ -117,6 +122,3 @@ if __name__ == '__main__':
     ], "Example 1"
 
     print('all passed')
-
-
-
