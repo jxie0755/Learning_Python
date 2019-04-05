@@ -50,6 +50,54 @@ class Solution:
         return result
 
 
+class Solution:
+    def permute(self, nums: List[int]):
+        result = []
+        for i in itertools.permutations(nums):
+            result.append(list(i))
+        return result
+
+
+
+class Solution:
+    ### recursive method
+    def restList(self, elm, lst):
+        """return a list with target element removed"""
+        nextList = lst[:]
+        nextList.remove(elm)
+        return nextList
+
+    def permute(self, nums: List[int]):
+        length = len(nums)
+        result = []
+
+        def helper(lst, permute_list=[]):
+            if len(permute_list) == length:
+                result.append(permute_list)
+            else:
+                for i in lst:
+                    next_list = self.restList(i, lst)
+                    updated_permute_list = permute_list + [i]
+                    helper(next_list, updated_permute_list)
+
+        helper(nums)
+        return result
+
+
+class Solution:
+    ### recursive method, single and pure recursion
+    def permute(self, nums: List[int]):
+        length = len(nums)
+        if length == 1:
+            return [[nums[0]]]
+        else:
+            result = []
+            for i in nums:
+                subList = nums[:]
+                subList.remove(i)
+                result += [[i] + per for per in self.permute(subList)]
+            return result
+
 
 
 
