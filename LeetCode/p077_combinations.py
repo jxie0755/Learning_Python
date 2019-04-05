@@ -17,9 +17,9 @@ class Solution:
                 return [[i] for i in nums]
             else:
                 result = []
-                nextList = nums[:]
-                head = nextList.pop(0)
-                result += [[head] + com for com in helper(nextList, k-1)] + helper(nums[1:], k)
+                next_list = nums[:]
+                head = next_list.pop(0)
+                result += [[head] + com for com in helper(next_list, k-1)] + helper(nums[1:], k)
                 return result
 
         return helper(sample, k)
