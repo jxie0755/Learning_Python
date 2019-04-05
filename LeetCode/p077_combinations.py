@@ -17,11 +17,9 @@ class Solution:
                 return [[i] for i in nums]
             else:
                 result = []
-                next = nums[:]
-                head = next.pop(0)
-                result += helper(nums[1:], k)
-                result += [[head] + com for com in helper(next, k-1)]
-
+                nextList = nums[:]
+                head = nextList.pop(0)
+                result += [[head] + com for com in helper(nextList, k-1)] + helper(nums[1:], k)
                 return result
 
         return helper(sample, k)
@@ -38,7 +36,10 @@ if __name__ == '__main__':
         [1, 2, 3, 4]
     ], "Edge 2"
 
-    assert sorted(Solution().combine(5, 3)) == [list(i) for i in itertools.combinations([1,2,3,4,5], 3)]
+    assert Solution().combine(5, 3) == [list(i) for i in itertools.combinations([1,2,3,4,5], 3)]
+
+    for i in Solution().combine(4, 2):
+        print(i)
 
     print('all passed')
 
