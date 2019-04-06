@@ -10,6 +10,7 @@ class Solution:
     def combine(self, n: int, k: int):
         sample = list(range(1, n+1))
 
+        # this can individually work as a combination of list of elements
         def helper(nums, k):
             if k == len(nums):
                 return [nums]
