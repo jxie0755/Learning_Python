@@ -27,6 +27,7 @@ class Solution:
 
 
 
+
 if __name__ == '__main__':
 
     assert Solution().combine(1, 1) == [
