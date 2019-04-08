@@ -33,7 +33,7 @@ class Solution:
         :rtype: None Do not return anything, modify matrix in-place instead.
         """
         N = len(M)
-        for i in range(int(N / 2)):
+        for i in range(N // 2):
             for j in range(i, N - i - 1):
                 M[j][N - i - 1], M[N - i - 1][N - j - 1], M[N - j - 1][i], M[i][j] = M[i][j], \
                                                                                      M[j][N - i - 1], \
