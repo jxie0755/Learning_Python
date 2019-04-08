@@ -7,20 +7,38 @@
 
 
 # Note:
-# You have to rotate the image in-place, which means you have to modify the input 2D matrix directly. DO NOT allocate another 2D matrix and do the rotation.
+# You have to rotate the image in-place, which means you have to modify the input 2D matrix directly. DO NOT allocate another 2D matrix and do the rotation.f
+
 
 
 class Solution:
-    def rotate(self, matrix: List[List[int]]) -> None:
+    def rotate(self, matrix) -> None:
         """
         Do not return anything, modify matrix in-place instead.
         """
-        pass
+        n = len(matrix)
+        if matrix[0]:
+            hmp = {}
+            for row in range(n):
+                for col in range(n):
+                    x, y = col, n-1-row
+                    hmp[(x, y)] = matrix[row][col]
+            for row in range(n):
+                for col in range(n):
+                    matrix[row][col] = hmp[(row, col)]
 
-
-
-
-
+    def rotate(self, M):
+        """
+        :type matrix: List[List[int]]
+        :rtype: None Do not return anything, modify matrix in-place instead.
+        """
+        N = len(M)
+        for i in range(int(N / 2)):
+            for j in range(i, N - i - 1):
+                M[j][N - i - 1], M[N - i - 1][N - j - 1], M[N - j - 1][i], M[i][j] = M[i][j], \
+                                                                                     M[j][N - i - 1], \
+                                                                                     M[N - i - 1][N - j - 1], \
+                                                                                     M[N - j - 1][i]
 
 
 if __name__ == '__main__':
