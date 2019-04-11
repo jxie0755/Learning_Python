@@ -20,7 +20,7 @@ class Solution(object):
             return intervals
         intervals.sort(key=lambda x: x.start)
         result = [intervals[0]]
-        for i in xrange(1, len(intervals)):
+        for i in range(1, len(intervals)):
             prev, current = result[-1], intervals[i]
             if current.start <= prev.end:
                 prev.end = max(prev.end, current.end)

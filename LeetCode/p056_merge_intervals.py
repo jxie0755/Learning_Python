@@ -25,15 +25,27 @@ class Solution:
             i = 0
             while i != len(intervals) - 1:
                 first, second = intervals[i], intervals[i+1]
-                if first.end >= second.end:
-                    intervals.pop(i+1)
-                elif first.end >= second.start:
-                    first.end = second.end
+                if first.end >= second.start:
+                    first.end = max(first.end, second.end)
                     intervals.pop(i+1)
                 else:
                     i += 1
         return intervals
 
+
+class Solution(object):
+    def merge(self, intervals):
+        if not intervals:
+            return intervals
+        intervals.sort(key=lambda x: x.start)
+        result = [intervals[0]]
+        for i in range(1, len(intervals)):
+            prev, current = result[-1], intervals[i]
+            if current.start <= prev.end:
+                prev.end = max(prev.end, current.end)
+            else:
+                result.append(current)
+        return result
 
 
 if __name__ == '__main__':
