@@ -14,7 +14,7 @@ class Solution(object):
         if len(cur) == len(num):
             result.append(cur[:])
             return
-        for i in xrange(len(num)):
+        for i in range(len(num)):
             if not used[i]:
                 used[i] = True
                 cur.append(num[i])

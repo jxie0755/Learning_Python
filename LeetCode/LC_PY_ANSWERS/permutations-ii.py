@@ -35,7 +35,7 @@ class Solution2(object):
         for num in nums:
             next = []
             for solution in solutions:
-                for i in xrange(len(solution) + 1):
+                for i in range(len(solution) + 1):
                     candidate = solution[:i] + [num] + solution[i:]
                     if candidate not in next:
                         next.append(candidate)
