@@ -87,8 +87,8 @@ class Solution(object):
                 result.append(matrix[b][right])
             right -= 1
             for c in range(right, left - 1, -1):
-                if top < bot:                      # 注意在这里要补一个条件,因为矩形不一定是sqaure,
-                                                    # 所以会出现只剩下横或者只剩下列的情况要规避
+                # 注意在这里要补一个条件,因为矩形不一定是sqaure 所以会出现只剩下横或者只剩下列的情况要规避
+                if top < bot:
                     result.append(matrix[bot][c])
             bot -= 1
             for d in range(bot, top - 1, -1):
