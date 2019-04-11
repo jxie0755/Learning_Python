@@ -4,14 +4,35 @@
 # Given a collection of intervals, merge all overlapping intervals.
 
 # Definition for an interval.
+
+
 class Interval:
     def __init__(self, s=0, e=0):
         self.start = s
         self.end = e
+    def __repr__(self):
+        return f'[{self.start} -> {self.end}]'
+    def __eq__(self, other):
+        if self.start ==other.start and self.end == other.end:
+            return True
+        return False
 
 class Solution:
-    def merge(self, intervals: List[Interval]) -> List[Interval]:
-        pass
+    def merge(self, intervals):
+        intervals = sorted(intervals, key=lambda x:x.start)
+
+        if len(intervals) >= 2:
+            i = 0
+            while i != len(intervals) - 1:
+                first, second = intervals[i], intervals[i+1]
+                if first.end >= second.end:
+                    intervals.pop(i+1)
+                elif first.end >= second.start:
+                    first.end = second.end
+                    intervals.pop(i+1)
+                else:
+                    i += 1
+        return intervals
 
 
 
@@ -29,8 +50,8 @@ if __name__ == '__main__':
 
     assert Solution().merge(lst) == [
         Interval(1,6),
-        Interval(8, 10),
-        Interval(1,18),
+        Interval(8,10),
+        Interval(15,18),
     ], 'Example 1'
 
 
