@@ -4,7 +4,6 @@
 
 
 # Given a set of non-overlapping intervals, insert a new interval into the intervals (merge if necessary).
-
 # You may assume that the intervals were initially sorted according to their start times.
 
 
@@ -21,8 +20,35 @@ class Interval:
 
 
 class Solution:
+    ### From leetcode p056
+    def merge(self, intervals):
+        if not intervals:
+            return intervals
+        intervals.sort(key=lambda x: x.start)
+        result = [intervals[0]]
+        for i in range(1, len(intervals)):
+            prev, current = result[-1], intervals[i]
+            if current.start <= prev.end:
+                prev.end = max(prev.end, current.end)
+            else:
+                result.append(current)
+        return result
+
+    ### Basically, insert the newInterval into intervals based on start in sorted order, then merge.
     def insert(self, intervals, newInterval):
-        pass
+        i = 0
+        inserted = False
+        while i != len(intervals):
+            if newInterval.start < intervals[0].start:
+                intervals.insert(i, newInterval)
+                inserted = True
+                break
+            i += 1
+        if not inserted:
+            intervals.append(newInterval)
+
+        return self.merge(intervals)
+
 
 
 
