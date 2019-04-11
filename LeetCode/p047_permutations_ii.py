@@ -83,13 +83,13 @@ class Solution:
             return [[nums[0]]]
         else:
             result = []
-            subList_list = []
+            sublist_list = []
             for i in nums:
-                subList = nums[:]
-                subList.remove(i)
-                if subList not in subList_list:
-                    subList_list.append(subList)
-                    result += [[i] + per for per in self.permuteUnique(subList)]
+                subist = nums[:]
+                subist.remove(i)
+                if subist not in sublist_list:
+                    sublist_list.append(subist)
+                    result += [[i] + per for per in self.permuteUnique(subist)]
             return result
 
 
