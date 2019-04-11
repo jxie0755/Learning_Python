@@ -6,8 +6,64 @@
 
 from typing import *
 class Solution:
-    def spiralOrder(self, matrix: List[List[int]]) -> List[int]:
-        pass
+    def spiralOrder(self, matrix):
+
+        def next_coor(coor, direction):
+            x, y = coor[0], coor[1]
+            if direction == 'right':
+                return [x, y+1]
+            elif direction == 'down':
+                return [x+1, y]
+            elif direction == 'left':
+                return [x, y-1]
+            elif direction == 'up':
+                return [x-1, y]
+
+        def gen_direction():
+            directions = ['right', 'down', 'left', 'up']
+            D = 0
+            while True:
+                direction = directions[D % 4]
+                D += 1
+                yield direction
+
+        def get_coor(coor):
+            x, y = coor[0], coor[1]
+            return matrix[x][y]
+
+        def set_coor(coor, val):
+            x, y = coor[0], coor[1]
+            matrix[x][y] = val
+
+        if not matrix:
+            return []
+
+        m, n = len(matrix), len(matrix[0])
+        total_steps = m * n
+        result = []
+
+        # buffer
+        matrix.insert(0, ['X' for _ in range(n)])
+        matrix.append(['X' for _ in range(n)])
+        for i in matrix:
+            i.insert(0, 'X')
+            i.append('X')
+
+        D = gen_direction()
+        go = next(D)
+        coor = [1, 1]
+        while total_steps:
+            result.append(get_coor(coor))
+            set_coor(coor, 'X')
+
+            go_coor = next_coor(coor, go)
+            if get_coor(go_coor) == 'X':
+                go = next(D)
+            coor = next_coor(coor, go)
+            total_steps -= 1
+
+        return result
+
 
 
 if __name__ == '__main__':
