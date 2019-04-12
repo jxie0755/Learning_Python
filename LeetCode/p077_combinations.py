@@ -26,9 +26,28 @@ class Solution:
         return helper(sample, k)
 
 
+# Extracted from the combineationSolo to straight application
+def combinationSolo(nums, k):
+    if k == len(nums):
+        return [nums]
+    elif k == 1:
+        return [[i] for i in nums]
+    else:
+        result = []
+        next_list = nums[:]
+        head = next_list.pop(0)
+        result += [[head] + com for com in combinationSolo(next_list, k - 1)] + combinationSolo(nums[1:], k)
+        return result
+
 
 
 if __name__ == '__main__':
+
+    print('Test solo')
+    for i in combinationSolo([1, 2, 3, 4], 2):
+        print(i)
+
+    print('End of test solo')
 
     assert Solution().combine(1, 1) == [
         [1]
@@ -42,5 +61,7 @@ if __name__ == '__main__':
 
     for i in Solution().combine(4, 2):
         print(i)
+
+
 
     print('all passed')
