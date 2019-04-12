@@ -123,6 +123,28 @@ class Solution:
             return ''.join([str(i) for i in lst])
 
 
+class Solution:
+    ### recursive method, single and pure recursion
+    def permute(self, nums):
+        length = len(nums)
+        if length == 1:
+            return [[nums[0]]]
+        else:
+            result = []
+            for i in nums:
+                subList = nums[:]
+                subList.remove(i)
+                result += [[i] + per for per in self.permute(subList)]
+            return result
+
+    def getPermutation(self, n, k):
+        ### use permute method from leetcode p046
+        ### Fail even faster
+        lst = list(range(1, n + 1))
+        if k == 1 or n == 1:
+            return ''.join([str(i) for i in lst])
+        else:
+            return ''.join(str(i) for i in self.permute(lst)[k-1])
 
 
 
