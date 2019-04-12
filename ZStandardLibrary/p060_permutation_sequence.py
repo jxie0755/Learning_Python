@@ -44,6 +44,30 @@ class Solution:
                     break
         return nums
 
+    def prevPermutation(self, nums):
+        ### O(N), directly find next different permutations
+        """
+        :type nums: List[int]
+        :rtype: void Do not return anything, modify nums in-place instead.
+        """
+        length = len(nums)
+        cur_i = None
+
+        for i in range(-2, -length - 1, -1):
+            if nums[i] > nums[i + 1]:
+                cur_i = i
+                break
+
+        if not cur_i:
+            nums[:] = nums[::-1]  # 直接结束,因为本身是倒着排序的,返回正排序即可
+        else:
+            for rev_i in range(-1, cur_i, -1):
+                if nums[rev_i] < nums[cur_i]:
+                    nums[cur_i], nums[rev_i] = nums[rev_i], nums[cur_i]  # switch
+                    nums[cur_i + 1:] = nums[cur_i + 1:][::-1]
+                    break
+        return nums
+
     ### This is basically the same as next permuation, with further implementation
     ### Direct implementation will fail because exceeded max time limit
     ### Optimization method is used to minimize the number of iteration on nextPermuete
@@ -57,13 +81,13 @@ class Solution:
             lst = self.nextPermutation(lst)
         return ''.join([str(i) for i in lst])
 
-    def getPermutation(self, n, k):
+    def getPermutation_1(self, n, k):
         total_p = self.p_dict[n]
 
         if k == 1 or n == 1:
             lst = list(range(1, n + 1))
             return ''.join([str(i) for i in lst])
-        elif k > total_p:  # 避免k太大
+        elif k > total_p:  # 避免k太大                    # question noted that k will not be > n!
             return self.getPermutation(n, k % total_p)   # 取余数
 
         for i in range(n, 0, -1):
@@ -77,6 +101,27 @@ class Solution:
                     for i in range(new_k):
                         lst = self.nextPermutation(lst)
                 return ''.join([str(i) for i in lst])
+
+
+    def getPermutation(self, n, k):
+        ### Induce prevPermute to optimize
+        ### Still fail in time limit!
+        total_p = math.factorial(n)
+        if k == 1 or n == 1:
+            lst = list(range(1, n + 1))
+            return ''.join([str(i) for i in lst])
+        else:
+            if total_p - k < k:
+                lst = list(range(1, n + 1))[::-1]
+                rev_k = total_p - k
+                for i in range(rev_k):
+                    lst = self.prevPermutation(lst)
+            else:
+                lst = list(range(1, n + 1))
+                for i in range(k-1):
+                    lst = self.nextPermutation(lst)
+            return ''.join([str(i) for i in lst])
+
 
 
 
@@ -93,9 +138,9 @@ if __name__ == '__main__':
     print('all passed')
 
     print('test timeit')
-    print(timeit.repeat('Solution().getPermutation_0(8, 6000)', setup='from __main__ import Solution', repeat=3, number=500))
-    # >>> [3.045518253785702, 3.04060806065978, 3.0435408311783467]
-    print(timeit.repeat('Solution().getPermutation(8, 6000)', setup='from __main__ import Solution', repeat=3, number=500))
-    # >>> [0.48771537433245093, 0.48776606102485154, 0.48719471292885963]
-    # 当k刚好略大于上一级n的时候, 会快很多, 但是其他情况下这样只能略微提速
+    # print(timeit.repeat('Solution().getPermutation_0(8, 6000)', setup='from __main__ import Solution', repeat=3, number=500))
+    # # >>> [3.045518253785702, 3.04060806065978, 3.0435408311783467]
+    # print(timeit.repeat('Solution().getPermutation(8, 6000)', setup='from __main__ import Solution', repeat=3, number=500))
+    # # >>> [0.48771537433245093, 0.48776606102485154, 0.48719471292885963]
+    # # 当k刚好略大于上一级n的时候, 会快很多, 但是其他情况下这样只能略微提速
     print('timeit ended')
