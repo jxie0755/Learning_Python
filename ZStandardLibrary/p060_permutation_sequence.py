@@ -147,12 +147,50 @@ class Solution:
             return ''.join(str(i) for i in self.permute(lst)[k-1])
 
 
+class Solution(object):
+    def getPermutation(self, n, k):
+        """
+        :type n: int
+        :type k: int
+        :rtype: str
+        """
+        fact_dict = {i: math.factorial(i) for i in range(n)}
+        seq, k, fact = "", k - 1, math.factorial(n - 1)  # k = k-1 因为一开始算一个,所以要去掉
+
+        perm = [i for i in range(1, n + 1)]
+        for i in reversed(range(n)):
+            fact = fact_dict[i]
+            curr = perm[k // fact]
+            print(fact, curr, k, perm)
+            seq += str(curr)
+            perm.remove(curr)
+            k %= fact
+        return seq
+
+
+
+class Solution(object):
+    ### recursive method
+    def getPermutation(self, n, k):
+
+        def helper(nums, k):
+            length = len(nums)
+            if length == 1:
+                return str(nums[0])
+            else:
+                fact = fact_dict[length - 1]
+                digit = nums[k // fact]
+                print(fact, digit, k, nums)
+                nums.remove(digit)
+                return str(digit) + helper(nums, k % fact)
+
+        fact_dict = {i: math.factorial(i) for i in range(n)}
+        lst = list(range(1, n+1))
+        return helper(lst, k-1)  # k - 1原理同上
 
 
 if __name__ == '__main__':
-    assert Solution().getPermutation(1,5) == '1', 'Edge 1'
-    assert Solution().getPermutation(4,1) == '1234', 'Edge 2'
-
+    assert Solution().getPermutation(4,1) == '1234', 'Edge 1'
     assert Solution().getPermutation(3,3) == '213', 'Example 1'
     assert Solution().getPermutation(4,9) == '2314', 'Example 2'
     print(Solution().getPermutation(8, 29805)) # >>>  68327415
@@ -161,8 +199,8 @@ if __name__ == '__main__':
 
     print('test timeit')
     # print(timeit.repeat('Solution().getPermutation_0(8, 6000)', setup='from __main__ import Solution', repeat=3, number=500))
-    # # >>> [3.045518253785702, 3.04060806065978, 3.0435408311783467]
+    # >>> [3.045518253785702, 3.04060806065978, 3.0435408311783467]
     # print(timeit.repeat('Solution().getPermutation(8, 6000)', setup='from __main__ import Solution', repeat=3, number=500))
-    # # >>> [0.48771537433245093, 0.48776606102485154, 0.48719471292885963]
-    # # 当k刚好略大于上一级n的时候, 会快很多, 但是其他情况下这样只能略微提速
+    # >>> [0.48771537433245093, 0.48776606102485154, 0.48719471292885963]
+    # 当k刚好略大于上一级n的时候, 会快很多, 但是其他情况下这样只能略微提速
     print('timeit ended')
