@@ -161,7 +161,6 @@ class Solution(object):
         for i in reversed(range(n)):
             fact = fact_dict[i]
             curr = perm[k // fact]
-            print(fact, curr, k, perm)
             seq += str(curr)
             perm.remove(curr)
             k %= fact
@@ -180,7 +179,6 @@ class Solution(object):
             else:
                 fact = fact_dict[length - 1]
                 digit = nums[k // fact]
-                print(fact, digit, k, nums)
                 nums.remove(digit)
                 return str(digit) + helper(nums, k % fact)
 

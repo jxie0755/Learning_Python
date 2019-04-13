@@ -38,6 +38,7 @@
 #  (4, 3, 2, 1)]
 
 from itertools import permutations
+import math
 
 class Solution:
     def nextPermutation(self, nums):
@@ -112,6 +113,8 @@ class Solution:
                     nums[cur_i + 1:] = nums[cur_i + 1:][::-1]
                     break
         return nums
+
+
 
 if __name__ == '__main__':
     a = []
