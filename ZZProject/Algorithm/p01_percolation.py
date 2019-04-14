@@ -20,8 +20,6 @@ class Percolation:
                 break
         return connected_indexes
 
-
-
     def isPercolate(self, pre_tunnel_index, row):
         """Update the tunnel index of at row
         pre_row_index: the tunnel index from last row: List[int]
@@ -36,8 +34,6 @@ class Percolation:
                 if i not in all_tunnels:
                     all_tunnels.append(i)
         return all_tunnels
-
-
 
 
     def determination(self, matrix):
@@ -109,6 +105,5 @@ if __name__ == '__main__':
 
     assert not Percolation().determination(sample_N1), "Example N1"
     assert not Percolation().determination(sample_N2), "Example N2"
-
 
     print('All passed')
