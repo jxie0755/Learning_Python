@@ -1,4 +1,4 @@
-# Give a matrix of values @ m * n, in two status, pass or block (1 and 0) or ("O" and "X")
+# Give a matrix of values @ m * n, in two status, pass or block (1 and 0)
 # Determine if there is a open path that could go from the top to bottom
 
 class Percolation:
@@ -6,55 +6,67 @@ class Percolation:
     def __init__(self, data):
         self.matrix = data
         self.m = len(data)
-        self.n = len(data[0])
 
-    def getRow(self, i):
-        return self.matrix[i]
+    def isPercolate(self, row1, row2):
+        open_1 = [i for i in range(len(row1)) if row1[i] == 1]
+        width = 0
+        for i in open_1:
+            if row2[i] == 1:
+                width += 1
+        return width
 
-    def checkRow(self, row, indexes):
-        new_indexes = []
-        for i in indexes:
-            if row[i] == 1:
-                new_indexes.append(i)
-        return new_indexes
+
 
     def determination(self):
-        for i in range(self.m):
-            row = self.getRow(i)
-            opens = self.checkRow(row)
-            if opens:
-                pass
-            else:
+        for i in range(self.m-1):
+            r1, r2 = self.matrix[i], self.matrix[i+1]
+            if not self.isPercolate(r1, r2):
                 return False
+        return True
 
-def checkRow(row, indexes):
-    new_indexes = []
-    for i in indexes:
-        if row[i] == 1:
-            new_indexes.append(i)
-    return new_indexes
 
-idx = [0, 1, 2, 3, 4, 5, 6, 7]
-row = [0, 0, 1, 0, 0, 1, 0, 0]
-print(checkRow(row, idx))
+    def narrowpoint(self):
+        hmp = dict()
+        hmp[0] = self.matrix[0].count(1)
+        for i in range(self.m - 1):
+            r1, r2 = self.matrix[i], self.matrix[i + 1]
+            hmp[i+1] = self.isPercolate(r1, r2)
 
-# if __name__ == '__main__':
-#     sample_Y1 = [
-#         [0, 0, 0, 0, 0, 1, 0, 0],
-#         [0, 0, 1, 0, 0, 1, 0, 0],
-#         [0, 0, 1, 1, 1, 1, 1, 0],
-#         [0, 0, 0, 1, 0, 0, 1, 0],
-#         [0, 0, 1, 0, 1, 0, 1, 1],
-#         [0, 0, 0, 0, 0, 0, 0, 1],
-#         [0, 0, 0, 0, 0, 0, 1, 1],
-#     ]
-#
-#     sample_N1 = [
-#         [0, 0, 0, 0, 0, 1, 0, 0],
-#         [0, 0, 1, 0, 0, 1, 0, 0],
-#         [0, 0, 1, 1, 1, 1, 1, 0],
-#         [0, 0, 0, 1, 1, 0, 1, 0],
-#         [0, 0, 1, 0, 1, 1, 1, 1],
-#         [0, 0, 0, 0, 0, 0, 0, 1],
-#         [0, 0, 1, 0, 1, 0, 1, 0],
-#     ]
+        narrow_point = min(hmp, key=lambda x:hmp[x])
+        print('Narrow Point at', narrow_point)
+        print('Narrow Width is', hmp[narrow_point])
+
+        return hmp
+
+
+if __name__ == '__main__':
+    sample_Y1 = [
+        [0, 0, 1, 0, 1, 1, 0, 0],
+        [0, 0, 1, 0, 1, 1, 1, 0],
+        [0, 0, 1, 1, 1, 1, 1, 0],
+        [0, 0, 0, 1, 0, 0, 1, 0],
+        [0, 0, 1, 0, 1, 0, 1, 1],
+        [0, 0, 0, 0, 1, 1, 1, 1],
+        [0, 0, 0, 0, 0, 1, 1, 1],
+    ]
+
+    sample_N1 = [
+        [1, 0, 0, 0, 1, 1, 0, 1],
+        [0, 0, 1, 1, 1, 1, 1, 0],
+        [0, 0, 1, 1, 1, 1, 1, 0],
+        [0, 0, 0, 1, 1, 0, 1, 0],
+        [0, 0, 1, 1, 1, 1, 1, 1],
+        [0, 0, 0, 1, 1, 1, 0, 1],
+        [0, 0, 1, 0, 0, 0, 1, 0],
+    ]
+
+    Q1 = Percolation(sample_Y1)
+    Q2 = Percolation(sample_N1)
+
+    assert Q1.determination(), "Example 1"
+    assert not Q2.determination(), "Example 2"
+
+    print(Q1.narrowpoint())
+    print(Q2.narrowpoint())
+
+    print('All passed')
