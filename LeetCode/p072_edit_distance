@@ -30,18 +30,27 @@
 # exection -> execution (insert 'u')
 
 class Solution:
-    def minDistance(self, word1: str, word2: str) -> int:
-        pass
+    def substring_LS(self, iterable):
+        result = []
+        for lenth in range(len(iterable), 0, -1):
+            for i in range(len(iterable) - lenth + 1):
+                result.append(iterable[i:i + lenth])
+        return result
+
+# TODO
 
 
 
+Solution().minDistance('horse', 'ros')
+
+# Solution().minDistance('intention', 'execution')
 
 
-if __name__ == '__main__':
-    assert Solution().minDistance('', 'ros') == 3, 'Edge 1'
-    assert Solution().minDistance('ros', '') == 3, 'Edge 2'
-    assert Solution().minDistance('a', 'b') == 3, 'Edge 3'
-
-    assert Solution().minDistance('horse', 'ros') == 3, 'Eample 1'
-    assert Solution().minDistance('intention', 'execution') == 5, 'Eample 2'
-    print('all passed')
+# if __name__ == '__main__':
+#     assert Solution().minDistance('', 'ros') == 3, 'Edge 1'
+#     assert Solution().minDistance('ros', '') == 3, 'Edge 2'
+#     assert Solution().minDistance('a', 'b') == 3, 'Edge 3'
+#
+#     assert Solution().minDistance('horse', 'ros') == 3, 'Eample 1'
+#     assert Solution().minDistance('intention', 'execution') == 5, 'Eample 2'
+#     print('all passed')
