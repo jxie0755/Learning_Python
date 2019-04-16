@@ -14,11 +14,11 @@ class Solution:
         """
         m, n = len(matrix[0]), len(matrix)
         coor_list = []
-        if m:
-            for nn in range(n):
-                for mm in range(m):
-                    if matrix[nn][mm] == 0:
-                        coor_list.append((nn, mm))
+
+        for nn in range(n):
+            for mm in range(m):
+                if matrix[nn][mm] == 0:
+                    coor_list.append((nn, mm))
 
         for coor in coor_list:
             x, y = coor[0], coor[1]
