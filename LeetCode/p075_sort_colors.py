@@ -70,7 +70,3 @@ if __name__ == '__main__':
     Solution().sortColors(s2)
     assert s2 == [0, 0, 1, 1, 1, 2, 2, 2], 'Case 1'
     print('all passed')
-
-
-
-
