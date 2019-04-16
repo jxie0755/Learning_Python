@@ -46,7 +46,6 @@ if __name__ == '__main__':
     target = 3
     assert Solution().searchMatrix(matrix, target) == True, 'Edge 3'
 
-
     matrix = [
         [1, 3, 5, 7],
         [10, 11, 16, 20],
