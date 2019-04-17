@@ -8,12 +8,12 @@ class Solution(object):
         :type T: str
         :rtype: str
         """
-        dp = [[None for _ in xrange(len(S))] for _ in xrange(2)]
+        dp = [[None for _ in range(len(S))] for _ in range(2)]
         for j, c in enumerate(S):
             if c == T[0]:
                 dp[0][j] = j
 
-        for i in xrange(1, len(T)):
+        for i in range(1, len(T)):
             prev = None
             dp[i%2] = [None] * len(S)
             for j, c in enumerate(S):
@@ -24,6 +24,9 @@ class Solution(object):
 
         start, end = 0, len(S)
         for j, i in enumerate(dp[(len(T)-1)%2]):
-            if i >= 0 and j-i < end-start:
+            if i and i >= 0 and j-i < end-start:
                 start, end = i, j
         return S[start:end+1] if end < len(S) else ""
+
+if __name__ == '__main__':
+    print(Solution().minWindow("ADOBECODEBANC","ABC"))
