@@ -8,16 +8,16 @@ class MergeSort:
         while i < N1 or j < N2:
             if i == N1:
                 result += l2[j:]
-                j = N2
+                break
             elif j == N2:
                 result += l1[i:]
-                i = N1
+                break
             else:
                 c1, c2 = l1[i], l2[j]
                 if l1[i] <= c2:
                     result.append(c1)
                     i += 1
-                elif c1 > c2:
+                else:
                     result.append(c2)
                     j += 1
         return result
