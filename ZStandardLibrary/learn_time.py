@@ -8,6 +8,7 @@ import time
 
 # For direct use
 if __name__ == '__main__':
+    import time
     start_time = time.time()
     # run main() codes
     print(f"--- {time.time() - start_time}s seconds ---\n")
