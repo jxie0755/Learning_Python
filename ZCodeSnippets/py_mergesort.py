@@ -1,17 +1,5 @@
 class MergeSort:
 
-    def sort(self, lst):
-        container = [[i] for i in lst]
-        if not container:
-            return []
-        while len(container) != 1:
-            l1 = container.pop(0)
-            l2 = container.pop(0)
-            container.append(self.merge(l1, l2))
-        return container[0]
-
-
-
     def merge(self, l1, l2):
         """merge two sorted list"""
         i, j = 0, 0
@@ -33,6 +21,26 @@ class MergeSort:
                     result.append(c2)
                     j += 1
         return result
+
+    def sort(self, lst):
+        container = [[i] for i in lst]
+        if not container:
+            return []
+        while len(container) != 1:
+            l1 = container.pop(0)
+            l2 = container.pop(0)
+            container.append(self.merge(l1, l2))
+        return container[0]
+
+    ### Recursive way
+    def mergesort(self, lst):
+        N = len(lst)
+        if N <= 1:
+            return lst
+        else:
+            left= self.mergesort(lst[:N//2])
+            right = self.mergesort(lst[N//2:])
+            return self.merge(left, right)
 
 if __name__ == '__main__':
     a = [10,9,1,6,7,3,5,3,4,8,2,2,1]
