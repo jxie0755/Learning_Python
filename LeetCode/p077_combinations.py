@@ -13,7 +13,7 @@ class Solution:
         # this can individually work as a combination of list of elements
         def helper(nums, k):
             if k == 0:
-                return []
+                return [[]]
             if k == len(nums):
                 return [nums]
             elif k == 1:
