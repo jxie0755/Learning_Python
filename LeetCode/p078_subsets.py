@@ -10,7 +10,7 @@
 class Solution:
     def combinationSolo(self, nums, k):
         if k == 0:
-            return []
+            return [[]]
         if k == len(nums):
             return [nums]
         elif k == 1:
@@ -23,27 +23,25 @@ class Solution:
             return result
 
 
-    # ### Get all first then remove repeats
-    # def subsets(self, nums):
-    #     result = []
-    #     for i in range(0, )
+    ### passed but on the slow side
+    def subsets(self, nums):
+        result = []
+        for i in range(0, len(nums)+1):
+            result += self.combinationSolo(nums, i)
+        return result
 
 
-print(sorted(Solution().combinationSolo([1,2,3], 0)))
-# print(sorted(Solution().subsets([1,2,3])))
 
-# if __name__ == '__main__':
-#     nums = [1, 2, 3]
-#     assert sorted(Solution().subsets(nums)) == sorted([
-#         [3],
-#         [1],
-#         [2],
-#         [1, 2, 3],
-#         [1, 3],
-#         [2, 3],
-#         [1, 2],
-#         []
-#     ])
-#
-#
-#     print('all passed')
+if __name__ == '__main__':
+    nums = [1, 2, 3]
+    assert sorted(Solution().subsets(nums)) == sorted([
+        [3],
+        [1],
+        [2],
+        [1, 2, 3],
+        [1, 3],
+        [2, 3],
+        [1, 2],
+        []
+    ])
+    print('all passed')
