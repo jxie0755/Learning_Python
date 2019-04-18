@@ -46,6 +46,8 @@ class Solution:
         return len(nums)
 
     ### A method without the dict
+    ### use a label duplicate to record whether a duplicate if found
+    ### (can set to numbers to accomodate to any level of duplication
     def removeDuplicates(self, nums: List[int]) -> int:
         if len(nums) <= 2:
             return len(nums)
