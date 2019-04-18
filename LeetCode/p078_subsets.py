@@ -30,18 +30,50 @@ class Solution:
             result += self.combinationSolo(nums, i)
         return result
 
+    ### passed but on the slow side
+    def subsets(self, nums):
+
+        def otherhalf(ans):
+            result = nums[:]
+            if len(ans) == 0:
+                return result
+            for i in ans:
+                result.remove(i)
+            return result
+
+        N = len(nums)
+        result = []
+        range_to = N // 2 + 1
+        if N % 2 == 0:
+            range_to = N // 2
+            result += self.combinationSolo(nums, N//2)
+
+        for i in range(0, range_to):
+            ans = self.combinationSolo(nums, i)
+            result += ans
+            for i in ans:
+                result.append(otherhalf(i))
+        return result
 
 
-if __name__ == '__main__':
-    nums = [1, 2, 3]
-    assert sorted(Solution().subsets(nums)) == sorted([
-        [3],
-        [1],
-        [2],
-        [1, 2, 3],
-        [1, 3],
-        [2, 3],
-        [1, 2],
-        []
-    ])
-    print('all passed')
+
+print(sorted(Solution().subsets([1,2,3])))
+
+
+# if __name__ == '__main__':
+#     nums = [1,2]
+#     assert sorted(Solution().subsets(nums)) == sorted([[],[1],[2],[1,2]])
+#
+#
+#     nums = [1, 2, 3]
+#     assert sorted(Solution().subsets(nums)) == sorted([
+#         [3],
+#         [1],
+#         [2],
+#         [1, 2, 3],
+#         [1, 3],
+#         [2, 3],
+#         [1, 2],
+#         []
+#     ])
+#     print('all passed')
