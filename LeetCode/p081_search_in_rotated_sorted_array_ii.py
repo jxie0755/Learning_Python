@@ -32,6 +32,7 @@ class Solution:
                 high = mid -1
         return False
 
+
     def isSortedQuick(self, nums):
 
         if len(set(nums)) <= 1:
