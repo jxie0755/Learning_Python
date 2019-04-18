@@ -2,7 +2,6 @@
 # Medium
 
 
-
 # Given a sorted array nums, remove the duplicates in-place such that duplicates appeared at most twice and return the new length.
 
 # Do not allocate extra space for another array, you must do this by modifying the input array in-place with O(1) extra memory.
@@ -27,23 +26,46 @@
 
 from typing import *
 
+
 class Solution:
+    ### But this is not O(1) memory, dict was created to solve the problem
     def removeDuplicates(self, nums: List[int]) -> int:
         hmp = dict()
         i = 0
-        count = 0
         while i != len(nums):
             cur = nums[i]
             if cur not in hmp:
                 hmp[cur] = 1
-                count += 1
                 i += 1
             elif hmp[cur] <= 1:
                 hmp[cur] += 1
-                count += 1
                 i += 1
             else:
                 nums.pop(i)
+
+        return len(nums)
+
+    ### A method without the dict
+    def removeDuplicates(self, nums: List[int]) -> int:
+        if len(nums) <= 2:
+            return len(nums)
+
+        duplicate = False
+        i = 1
+        count = 1
+        while i != len(nums):
+            prev, cur = nums[i - 1], nums[i]
+            if cur == prev:
+                if not duplicate:
+                    duplicate = True
+                    count += 1
+                    i += 1
+                else:
+                    nums.pop(i)
+            else:
+                duplicate = False
+                count += 1
+                i += 1
 
         return count
 
@@ -55,12 +77,12 @@ if __name__ == '__main__':
     a = [1]
     assert Solution().removeDuplicates(a) == 1, 'Edge 1'
 
-    a = [1,1,1,2,2,3]
+    a = [1, 1, 1, 2, 2, 3]
     assert Solution().removeDuplicates(a) == 5, 'Example 1'
-    print(a)
+    assert a == [1, 1, 2, 2, 3]
 
-    a = [0,0,1,1,1,1,2,3,3]
+    a = [0, 0, 1, 1, 1, 1, 2, 3, 3]
     assert Solution().removeDuplicates(a) == 7, 'Example 2'
-    print(a)
+    assert a == [0, 0, 1, 1, 2, 3, 3]
 
     print('all passed')
