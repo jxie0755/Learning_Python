@@ -7,18 +7,49 @@
 
 from typing import *
 
+count = 0
 
 class Solution:
+    ### Worked, but exceeded maximum recursion depth
+    ### O(2N), maixmum depth reached at N > 999.
     def largestRectangleArea(self, heights: List[int]) -> int:
-        pass
+        global count
+        count += 1
+        print(count)
+        N = len(heights)
+        if not N:
+            return 0
+        elif len(set(heights)) == 1:
+            return heights[0] * len(heights)
+        elif N == 1:
+            return heights[0]
+        else:
+            lowest = min(heights)
+            lowest_idx = heights.index(lowest)
+            area = lowest * N
+            first, second = heights[:lowest_idx], heights[lowest_idx + 1:]
+            return max(area, self.largestRectangleArea(first), self.largestRectangleArea(second))
 
+class Solution(object):
+    # @param height, a list of integer
+    # @return an integer
+    def largestRectangleArea(self, height):
+        increasing, area, i = [], 0, 0
+        while i <= len(height):
+            if not increasing or (i < len(height) and height[i] > height[increasing[-1]]):
+                increasing.append(i)
+                i += 1
+            else:
+                last = increasing.pop()
 
+                if not increasing:
+                    area = max(area, height[last] * i)
+                else:
+                    area = max(area, height[last] * (i - increasing[-1] - 1))
 
-if __name__ == '__main__':
-    assert Solution().largestRectangleArea([]) == 0, 'Edge 1'
-    assert Solution().largestRectangleArea([2]) == 2, 'Edge 2'
-    assert Solution().largestRectangleArea([1,2]) == 2, 'Edge 3'
+        return area
 
-    assert Solution().largestRectangleArea([2,1,5,6,2,3]) == 10, 'Example 1'
+additional = list(range(0, 999))
+print(Solution().largestRectangleArea(additional))
 
-
+if __name__
