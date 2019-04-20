@@ -33,6 +33,7 @@ class Solution:
 class Solution(object):
     # @param height, a list of integer
     # @return an integer
+    # TODO to be reviewed
     def largestRectangleArea(self, height):
         increasing, area, i = [], 0, 0
         while i <= len(height):
@@ -52,4 +53,20 @@ class Solution(object):
 additional = list(range(0, 999))
 print(Solution().largestRectangleArea(additional))
 
-if __name__
+if __name__ == '__main__':
+    assert Solution().largestRectangleArea([]) == 0, 'Edge 1'
+    assert Solution().largestRectangleArea([2]) == 2, 'Edge 2'
+    assert Solution().largestRectangleArea([1, 2]) == 2, 'Edge 3'
+
+    assert Solution().largestRectangleArea([2, 1, 5, 6, 2, 3]) == 10, 'Example 1'
+
+    assert Solution().largestRectangleArea([4, 2, 0, 3, 2, 4, 3, 4]) == 10, 'Additional 1'
+    assert Solution().largestRectangleArea([0, 2, 0]) == 2, 'Additional 2'
+
+    additional = list(range(0, 30)) + list(range(30, 60, 2)) + list(range(60, 30, 3))
+    print(Solution().largestRectangleArea(additional))
+
+    additional = list(range(0, 2000))
+    print(Solution().largestRectangleArea(additional))
+
+    print('all passed')
