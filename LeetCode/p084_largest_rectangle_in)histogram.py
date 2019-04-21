@@ -7,7 +7,6 @@
 
 from typing import *
 
-count = 0
 
 class Solution:
     ### Worked, but exceeded maximum recursion depth
