@@ -24,7 +24,8 @@ class Solution:
 
     def subsetsWithDup(self, nums):
 
-        def helper(comb): ### this is actually the tricky part
+        def helper(comb):
+            ### this is actually the tricky part
             """
             according to a dictionary suggesting the maximum occurance of an element
             it is like a cross multiply:
