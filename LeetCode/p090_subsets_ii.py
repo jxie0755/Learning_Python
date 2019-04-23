@@ -42,13 +42,10 @@ class Solution:
         nums_set = list(set(nums))
         nums_hmp = {i: nums.count(i) for i in nums_set}
 
-        no_repeat_result = []
-        for k in range(len(nums_set)+1):
-            no_repeat_result += self.combination(nums_set,k)
-
         result = []
-        for i in no_repeat_result:
-            result += helper(i)
+        for k in range(len(nums_set)+1):
+            for i in self.combination(nums_set,k):
+                result += helper(i)
 
         return result
 
