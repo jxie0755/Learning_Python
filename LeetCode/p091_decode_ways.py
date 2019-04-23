@@ -32,7 +32,29 @@ class Solution:
                 return self.numDecodings(s[2:])
 
 
+class Solution(object):
+    def numDecodings(self, s):
+        """
+        :type s: str
+        :rtype: int
+        """
+        if len(s) == 0 or s[0] == '0':
+            return 0
+        prev, prev_prev = 1, 0  # 追踪到达前两位的路线数目
+        for i in range(len(s)):
+            cur = 0
 
+            if s[i] != '0':  # 如果当前为0的话, 就没有办法从上一位走到这里, 因为不能以0开头
+                cur = prev   # 不为0的话, 能走到上一步就一定能走到这一步
+
+            # 此时再看上一位如果和当前能组成一个小于26且不为0的数, 那么也可以从上上位走到这里
+            # 不然的话就没办法从上上位走到这里
+            if i > 0 and (s[i - 1] == '1' or (s[i - 1] == '2' and s[i] <= '6')):
+                cur += prev_prev
+
+            prev, prev_prev = cur, prev  # 迭代前两位的数线数
+
+        return prev
 
 
 if __name__ == '__main__':
