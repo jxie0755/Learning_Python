@@ -24,8 +24,7 @@ class Solution:
 
     def subsetsWithDup(self, nums):
 
-        # this is actually the tricky part
-        def helper(comb):
+        def helper(comb): ### this is actually the tricky part
             """
             according to a dictionary suggesting the maximum occurance of an element
             it is like a cross multiply:
@@ -39,11 +38,8 @@ class Solution:
 
             return result
 
-
         nums_set = list(set(nums))
         nums_hmp = {i: nums.count(i) for i in nums_set}
-
-        # print(helper([1,2,3]))
 
         no_repeat_result = []
         for k in range(len(nums_set)+1):
