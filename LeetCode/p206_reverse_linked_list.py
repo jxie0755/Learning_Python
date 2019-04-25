@@ -31,7 +31,22 @@ class Solution:
     def reverseList(self, head: ListNode) -> ListNode:# @param {ListNode} head
         dummy = ListNode(float("-inf"))
         while head:
-            dummy.next, head.next, head = head, dummy.next, head.next
+
+            # dummy.next, head.next, head = head, dummy.next, head.next
+            # https://stackoverflow.com/q/55850332/8435726
+            # The swap can cause confusions, avoid using swap like this in complicated data structures
+            # Instead, use temp variables to implement the swap
+
+            # catch head.next and dummy.next before break the link:
+            tempheadnext = head.next
+            dummynext = dummy.next
+            # Build new link
+            dummy.next = head
+            head.next = dummynext
+            # iterate the head to next node
+            head = tempheadnext
+
+
         return dummy.next
 
     # 这个思路是造一个假头dummy, 然后每个值插入到dummy和dummy.next之间
