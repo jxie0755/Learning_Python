@@ -76,22 +76,22 @@ class Solution:
 
         end = None
         while head:
-            temp = head.next    # t移动到h.next
+            # head.next, end, head = end, head, head.next
+            # 一行写法可以避免temp的使用, 甚至避免if条件, 也不需要假头
+            # 但不推荐, 原因同上
+
+            nexthead = head.next    # t移动到h.next
             head.next = end     # h连上e
             end = head          # 然后e移动到h
-            head = temp         # h移动到t
+            head = nexthead        # h移动到t
         return end
 
-    def reverseList(self, head: ListNode) -> ListNode:# @param {ListNode} head
-        end = None
-        while head:
-            head.next, end, head = end, head, head.next   # 一行写法可以避免temp的使用, 甚至避免if条件, 也不需要假头
-        return end
 
     # 反向推理
     # 1-2-3-4-5-N    N
     # h t            e
 
+    # 新建一个尾部, 然后不停的把节点指向尾部, 然后把节点作为新的尾部, 这样就相当于不停的在加头部的节点
     # 1-N    2-3-4-5-N   t移动到h.next, h连上e, 然后e移动到h, h移动到t
     # e      h t
     # 重复
