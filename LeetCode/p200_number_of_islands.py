@@ -94,14 +94,14 @@ class Solution:
 
         def neighbor(coor):
             """return the UF id's index at up, down, left, right"""
-            x, y = coor[0], coor[1]
-            right = (x, y + 1)
-            down = (x+1,y)
+            r, c = coor[0], coor[1]
+            right = (r, c + 1)
+            down = (r+1,c)
 
             candidates = [right, down]# 由于按顺序遍历coor, 只需要和右边和下面的link就行, 同样能覆盖全局
-            if x == row-1:
+            if r == row-1:
                 candidates.pop()
-            if y == col-1:
+            if c == col-1:
                 candidates.pop(0)
             return [i[0] * col + i[1] for i in candidates if grid[i[0]][i[1]] == '1']
                    # translate coor on the run
@@ -122,14 +122,6 @@ class Solution:
                 else:
                     UF.id[p] = -1
         return UF.groupCount()
-
-
-M3 = [
-        ['0', '1', '0'],
-        ['1', '0', '1'],
-        ['0', '1', '0'],
-    ]
-print(Solution().numIslands(M3))
 
 
 if __name__ == '__main__':
