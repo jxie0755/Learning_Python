@@ -7,14 +7,13 @@
 
 class LC200UnionFind(object):
     ### Designed for Leetcode P200
-    ### Weighted and path compressed
+    ### Weighted and not path compressed
     def __init__(self, size):
         self.id = list(range(size))
         self.sz = [1] * size           # track the size of each tree (only on the root)
 
     def root(self, p):
         while self.id[p] != p:
-            self.id[p] = self.id[self.id[p]]
             p = self.id[p]
         return p
 
