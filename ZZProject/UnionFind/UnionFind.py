@@ -13,6 +13,13 @@ class UnionFind(object):
     def connected(self, p, q):
         return self.root(p) == self.root(q)
 
+    def groupCount(self):
+        count = 0
+        for i in range(len(self.id)):
+            if self.id[i] == i:
+                count += 1
+        return count
+
     def union(self, p, q):
         rt_p = self.root(p)
         rt_q = self.root(q)
@@ -58,6 +65,13 @@ class UnionFindWeighted(object):
     def find(self, p):
         """returns the largest element in the connected component containing p"""
         return self.mx[self.root(p)]
+
+    def groupCount(self):
+        count = 0
+        for i in range(len(self.id)):
+            if self.id[i] == i:
+                count += 1
+        return count
 
     def union(self, p, q):
         rt_p = self.root(p)
@@ -117,6 +131,13 @@ class UnionFindWeightedPathCompressed(object):
     def find(self, p):
         """returns the largest element in the connected component containing p"""
         return self.mx[self.root(p)]
+
+    def groupCount(self):
+        count = 0
+        for i in range(len(self.id)):
+            if self.id[i] == i:
+                count += 1
+        return count
 
     def union(self, p, q):
         rt_p = self.root(p)
