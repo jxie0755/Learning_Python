@@ -58,31 +58,13 @@ def genTree(lst):
 
     return root_to_return
 
-print(genTree([1, 2, 2, 3, 4, 4, 3]))
-print(genTree([1]))
 
 
 
 
 
-
-
-A1 = TreeNode(1)
-B1 = TreeNode(2)
-B2 = TreeNode(2)
-C1 = TreeNode(3)
-C2 = TreeNode(4)
-C3 = TreeNode(4)
-C4 = TreeNode(3)
-
-A1.left = B1
-A1.right = B2
-B1.left = C1
-B1.right = C2
-B2.left = C3
-B2.right = C4
-
-# print(A1)
+A1 = genTree([1, 2, 2, 3, 4, 4, 3])
+print(A1)
 
 
 
