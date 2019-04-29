@@ -14,42 +14,53 @@ class TreeNode:
     def __str__(self):
 
         def layer(T, L=1):
-            s = str(T.val)
-            if T.left and T.right:
-                return s + '\n' + '  ' * L + layer(T.left, L+1) + '\n' + '  ' * L + layer(T.right, L+1)
-            elif T.left and not T.right:
-                return s + '\n' + '  ' * L + layer(T.left, L+1) + '\n' + '  ' * L + 'N'
-            elif not T.left and T.right:
-                return s + '\n' + '  ' * L + 'N' + '\n' + '  ' * L + layer(T.right, L+1)
+            if T.val:
+                s = str(T.val)
+                if T.left and T.right:
+                    return s + '\n' + '  ' * L + layer(T.left, L+1) + '\n' + '  ' * L + layer(T.right, L+1)
+                elif T.left and not T.right:
+                    return s + '\n' + '  ' * L + layer(T.left, L+1) + '\n' + '  ' * L + 'N'
+                elif not T.left and T.right:
+                    return s + '\n' + '  ' * L + 'N' + '\n' + '  ' * L + layer(T.right, L+1)
+                else:
+                    return s + '\n' + '  ' * L + 'N' + '\n' + '  ' * L + 'N'
             else:
-                return s + '\n' + '  ' * L + 'N' + '\n' + '  ' * L + 'N'
+                return 'N'
 
         return layer(self)
 
 def genTree(lst):
     """
-    generate a tree according to a non-empty list of values
+    generate a binary tree according to a non-empty list of values
     The lst must be all filled, even the branch is empty, then use None to suggest the empty treeNode
     """
-    root = TreeNode(lst[0])
+    layers = []
+    i, L = 0, 1
+    while i != len(lst):
+        layers.append(lst[i:i+L])
+        i += L
+        L *=2
+    k = 1
+    pre_root = [TreeNode(i) for i in layers[0]]
+    root_to_return = pre_root[0]
+    while k != len(layers):
+        cur = [TreeNode(i) for i in layers[k]]
+        j = 0
+        while j != len(cur):
+            rt_idx, brc_side = divmod(j, 2)
+            if brc_side == 0:
+                pre_root[rt_idx].left = cur[j]
+            else:
+                pre_root[rt_idx].right = cur[j]
+            j += 1
+        k += 1
+        pre_root = cur
 
-    def helper(rt, lst):
-        half_l = len(lst) // 2
-        left, right = lst[1:1+half_l], lst[1+half_l:]
-        b1, b2 = TreeNode(left[0]), TreeNode(right[0])
-        rt.left, rt.right = b1, b2
+    return root_to_return
 
-        if len(left) == len(right) == 1:
-            return root
-        else:
-            helper(b1, left)
-            helper(b2, right)
+print(genTree([1, 2, 2, 3, 4, 4, 3]))
+print(genTree([1]))
 
-    if len(lst) == 1:
-        return root
-    else:
-        helper(root, lst)
-        return root
 
 
 
@@ -61,17 +72,18 @@ B1 = TreeNode(2)
 B2 = TreeNode(2)
 C1 = TreeNode(3)
 C2 = TreeNode(4)
-C3 = TreeNode(3)
-C4 = TreeNode(4)
+C3 = TreeNode(4)
+C4 = TreeNode(3)
 
 A1.left = B1
 A1.right = B2
 B1.left = C1
+B1.right = C2
+B2.left = C3
 B2.right = C4
 
-print(A1)
+# print(A1)
 
-print(genTree([1, 2, 2, 3, None, None, 4]))
 
 
 
