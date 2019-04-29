@@ -14,18 +14,19 @@ class TreeNode:
     def __str__(self):
 
         def layer(T, L=1):
-            if T.val:
-                s = str(T.val)
-                if T.left and T.right:
-                    return s + '\n' + '  ' * L + layer(T.left, L+1) + '\n' + '  ' * L + layer(T.right, L+1)
-                elif T.left and not T.right:
-                    return s + '\n' + '  ' * L + layer(T.left, L+1) + '\n' + '  ' * L + 'N'
-                elif not T.left and T.right:
-                    return s + '\n' + '  ' * L + 'N' + '\n' + '  ' * L + layer(T.right, L+1)
-                else:
-                    return s + '\n' + '  ' * L + 'N' + '\n' + '  ' * L + 'N'
-            else:
+            if not T.val:
                 return 'N'
+
+            s = str(T.val)
+            if T.left and T.right:
+                return s + '\n' + '  ' * L + layer(T.left, L+1) + '\n' + '  ' * L + layer(T.right, L+1)
+            elif T.left and not T.right:
+                return s + '\n' + '  ' * L + layer(T.left, L+1) + '\n' + '  ' * L + 'N'
+            elif not T.left and T.right:
+                return s + '\n' + '  ' * L + 'N' + '\n' + '  ' * L + layer(T.right, L+1)
+            else:
+                return s + '\n' + '  ' * L + 'N' + '\n' + '  ' * L + 'N'
+
 
         return layer(self)
 
@@ -40,38 +41,31 @@ def genTree(lst):
         layers.append(lst[i:i+L])
         i += L
         L *=2
-    k = 1
     pre_root = [TreeNode(i) for i in layers[0]]
     root_to_return = pre_root[0]
-    while k != len(layers):
+
+    for k in range(1, len(layers)):
         cur = [TreeNode(i) for i in layers[k]]
-        j = 0
-        while j != len(cur):
+        for j in range(len(cur)):
             rt_idx, brc_side = divmod(j, 2)
             if brc_side == 0:
                 pre_root[rt_idx].left = cur[j]
             else:
                 pre_root[rt_idx].right = cur[j]
-            j += 1
-        k += 1
         pre_root = cur
 
     return root_to_return
 
 
 
-
-
-
-A1 = genTree([1, 2, 2, 3, 4, 4, 3])
-print(A1)
-
-
-
-
 class Solution:
     def isSymmetric(self, root: TreeNode) -> bool:
         pass
+
+
+A1 = genTree([1, 2, 2, 3, None, 4, 3])
+print(A1)
+
 
 
 
