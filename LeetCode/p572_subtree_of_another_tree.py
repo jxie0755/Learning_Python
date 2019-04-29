@@ -15,6 +15,51 @@ class TreeNode:
         self.left = None
         self.right = None
 
+    def __str__(self):
+
+        def layer(T, L=1):
+            if not T.val:
+                return 'N'
+
+            s = str(T.val)
+            if T.left and T.right:
+                return s + '\n' + '  ' * L + layer(T.left, L+1) + '\n' + '  ' * L + layer(T.right, L+1)
+            elif T.left and not T.right:
+                return s + '\n' + '  ' * L + layer(T.left, L+1) + '\n' + '  ' * L + 'N'
+            elif not T.left and T.right:
+                return s + '\n' + '  ' * L + 'N' + '\n' + '  ' * L + layer(T.right, L+1)
+            else:
+                return s + '\n' + '  ' * L + 'N' + '\n' + '  ' * L + 'N'
+
+
+        return layer(self)
+
+def genTree(lst):
+    """
+    generate a binary tree according to a non-empty list of values
+    The lst must be all filled, even the branch is empty, then use None to suggest the empty treeNode
+    """
+    layers = []
+    i, L = 0, 1
+    while i != len(lst):
+        layers.append(lst[i:i+L])
+        i += L
+        L *=2
+    pre_root = [TreeNode(i) for i in layers[0]]
+    root_to_return = pre_root[0]
+
+    for k in range(1, len(layers)):
+        cur = [TreeNode(i) for i in layers[k]]
+        for j in range(len(cur)):
+            rt_idx, brc_side = divmod(j, 2)
+            if brc_side == 0:
+                pre_root[rt_idx].left = cur[j]
+            else:
+                pre_root[rt_idx].right = cur[j]
+        pre_root = cur
+
+    return root_to_return
+
 
 class Solution:
     def sameTree(self, s, t):
@@ -37,7 +82,7 @@ class Solution:
 
     def traverse(self, t):
         """return a flat list of the binary tree including None"""
-        if t is not None:
+        if t and t.val is not None:
             return [t.val] + self.traverse(t.left) + self.traverse(t.right)
         else:
             return [None]
@@ -56,43 +101,54 @@ class Solution:
 
 
 if __name__ == '__main__':
-    s0 = TreeNode(0)
-    s1 = TreeNode(1)
-    s2 = TreeNode(2)
-    s4 = TreeNode(4)
-    s5 = TreeNode(5)
 
-    E1 = TreeNode(3)
-    E1.left, E1.right = s4, s5
-    s4.left, s4.right = s1, s2
+    E1 = genTree([
+        3,
+        4, 5,
+        1, 2, None, None
+    ])
 
-    s11 = TreeNode(1)
-    s12 = TreeNode(2)
+    E2 = genTree([
+        4,
+        1, 2
+    ])
 
-    E2 = TreeNode(4)
-    E2.left, E2.right = s11, s12
-
-    assert Solution().isSubtree(E1, E2)
-
-    s2.left = s0
     print(Solution().traverse(E1))
-    assert not Solution().isSubtree(E1, E2)
+    print(Solution().traverse(E2))
 
+    assert Solution().isSubtree(E1, E2), 'Example 1'
 
-    z0 = TreeNode(0)
-    z1 = TreeNode(1)
-    z2 = TreeNode(2)
-    z4 = TreeNode(4)
-    z5 = TreeNode(5)
-    zx = TreeNode(9)
+    E1 = genTree([
+        3,
+        4,5,
+        1,2,None, None,
+        None, None, 0, None, None, None, None, None
+    ])
 
+    # E2 = genTree([
+    #     4,
+    #     1,2
+    # ])
 
-    E3 = TreeNode(3)
-    E3.right = zx
-    zx.left = z4
-    z4.left, z4.right = z1, z2
+    print(Solution().traverse(E1))
+    print(Solution().traverse(E2))
+
+    assert not Solution().isSubtree(E1, E2), 'Example 2'
+
+    E3 = genTree([
+        3,
+        None,9,
+        None,None,4,None,None,
+        None,None,None,1,2,None,None,
+        None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,
+    ])
+
+    # E2 = genTree([
+    #     4,
+    #     1,2
+    # ])
+
     assert Solution().isSubtree(E3, E2)
-
 
     E4 = TreeNode(1)
     E5 = TreeNode(1)
