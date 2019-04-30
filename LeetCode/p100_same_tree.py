@@ -84,13 +84,27 @@ class Solution:
 
 
 if __name__ == '__main__':
-    T10 = genTree([1, 2, 3])
-    T20 = genTree([1, 2, 3])
+    T10 = genTree([
+        1,
+        2, 3
+    ])
+    T20 = genTree([
+        1,
+        2, 3
+    ])
 
     assert Solution().isSameTree(T10, T20) == True, 'T1'
 
-    T10 = genTree([1, 2, 3, 4, None, None, None])
-    T20 = genTree([1, 3, 2, 4, None, None, None])
+    T10 = genTree([
+        1,
+        2, 3,
+        4, None, None, None
+    ])
+    T20 = genTree([
+        1,
+        3, 2,
+        4, None, None, None
+    ])
 
     assert Solution().isSameTree(T10, T20) == False, 'T2'
 
