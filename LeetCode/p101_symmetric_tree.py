@@ -154,13 +154,24 @@ if __name__ == '__main__':
     A00 = TreeNode(1)
     assert Solution().isSymmetric(A00), 'Edge 2'
 
-    A1 = genTree([1, 2, 2, 3, 4, 4, 3])
+    A1 = genTree([
+        1,
+        2, 2,
+        3, 4, 4, 3
+    ])
     assert Solution().isSymmetric(A1)
 
-    A2 = genTree([1, 2, 2, None, 3, None, 3])
+    A2 = genTree([
+        1,
+        2, 2,
+        None, 3, None, 3
+    ])
     assert not Solution().isSymmetric(A2)
 
-    A3 = genTree([1,0,None])
+    A3 = genTree([
+        1,
+        0,None
+    ])
     assert not Solution().isSymmetric(A3)
 
     print('all passed')
