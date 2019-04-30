@@ -23,18 +23,18 @@ class Solution:
         :type q: TreeNode
         :rtype: bool
         """
-        if p == None and q == None:
+        if not p and not q:
             return True
-        elif p == None or q == None:
+        elif not p or not q:
             return False
-        elif p.left != None and q.left != None and p.right != None and q.right != None:
+        elif p.left and q.left and p.right and q.right:
             return p.val == q.val and self.isSameTree(p.left, q.left) and self.isSameTree(p.right, q.right)
-        elif p.left != None and q.left != None:
-            return p.val == q.val and self.isSameTree(p.left, q.left) and p.right == q.right == None
-        elif p.right != None and q.right != None:
-            return p.val == q.val and self.isSameTree(p.right, q.right) and p.left == q.left == None
+        elif p.left and q.left:
+            return p.val == q.val and self.isSameTree(p.left, q.left) and not p.right and not q.right
+        elif p.right and q.right:
+            return p.val == q.val and self.isSameTree(p.right, q.right) and not p.left and not q.left
         else:
-            return p.val == q.val and p.left == q.left == p.right == q.right == None
+            return p.val == q.val and not p.left and not q.left and not p.right and not q.right
 
 
 if __name__ == '__main__':
