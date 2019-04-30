@@ -123,20 +123,20 @@ class Solution:
 
 
 class Solution:
-    def traverseDirected(self, root, D='L'):
+    def traverseDirected(self, t, D='L'):
         """
         Directed traverse
         must be 'L' for left or 'R' for right
         return a flat List of values
         """
-        if not root or root.val is None:
+        if not t or t.val is None:
                                 # Must write this way to avoid val=0
                                 # Do not write 'not root.val'
             return [None]
         elif D == 'L':
-            return [root.val] + self.traverseDirected(root.left, 'L') + self.traverseDirected(root.right, 'L')
+            return [t.val] + self.traverseDirected(t.left, 'L') + self.traverseDirected(t.right, 'L')
         elif D == 'R':
-            return [root.val] + self.traverseDirected(root.right, 'R') + self.traverseDirected(root.left, 'R')
+            return [t.val] + self.traverseDirected(t.right, 'R') + self.traverseDirected(t.left, 'R')
 
 
 
