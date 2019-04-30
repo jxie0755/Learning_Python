@@ -146,32 +146,91 @@ class Solution:
         return self.traverseDirected(root, 'L') == self.traverseDirected(root, 'R')
 
 
+# Iterative solution
+class Solution(object):
+    # STD ans
+    # @param root, a tree node
+    # @return a boolean
+    def isSymmetric(self, root):
+        if root is None:
+            return True
+        stack = []
+        stack.append(root.left)
+        stack.append(root.right)
 
-if __name__ == '__main__':
-    A0 = None
-    assert Solution().isSymmetric(A0), 'Edge 1'
+        while stack:
+            # 查看栈堆
+            # print([i.val if i else 'N' for i in stack])
 
-    A00 = TreeNode(1)
-    assert Solution().isSymmetric(A00), 'Edge 2'
+            p, q = stack.pop(), stack.pop()
 
-    A1 = genTree([
+            if p is None and q is None:
+                continue
+
+            if p is None or q is None or p.val != q.val:
+                return False
+
+            # 这个堆栈顺序是精髓, 可以永远维持对称组相连在一起
+            stack.append(p.left)
+            stack.append(q.right)
+
+            stack.append(p.right)
+            stack.append(q.left)
+
+        return True
+
+# Recursive solution
+class Solution2(object):
+    # STD ans
+    # @param root, a tree node
+    # @return a boolean
+    def isSymmetric(self, root):
+        if root is None:
+            return True
+
+        return self.isSymmetricRecu(root.left, root.right)
+
+    def isSymmetricRecu(self, left, right):
+        if left is None and right is None:
+            return True
+        if left is None or right is None or left.val != right.val:
+            return False
+        return self.isSymmetricRecu(left.left, right.right) and self.isSymmetricRecu(left.right, right.left)
+
+A1 = genTree([
         1,
         2, 2,
-        3, 4, 4, 3
+        3, 4, 4, 3,
+        5, 6, 7, 8, 8, 7, 6, 5,
     ])
-    assert Solution().isSymmetric(A1)
+assert Solution().isSymmetric(A1)
 
-    A2 = genTree([
-        1,
-        2, 2,
-        None, 3, None, 3
-    ])
-    assert not Solution().isSymmetric(A2)
 
-    A3 = genTree([
-        1,
-        0,None
-    ])
-    assert not Solution().isSymmetric(A3)
-
-    print('all passed')
+# if __name__ == '__main__':
+#     A0 = None
+#     assert Solution().isSymmetric(A0), 'Edge 1'
+#
+#     A00 = TreeNode(1)
+#     assert Solution().isSymmetric(A00), 'Edge 2'
+#
+#     A1 = genTree([
+#         1,
+#         2, 2,
+#         3, 4, 4, 3
+#     ])
+#     assert Solution().isSymmetric(A1)
+#
+#     A2 = genTree([
+#         1,
+#         2, 2,
+#         None, 3, None, 3
+#     ])
+#     assert not Solution().isSymmetric(A2)
+#
+#     A3 = genTree([
+#         1,
+#         0,None
+#     ])
+#     assert not Solution().isSymmetric(A3)
+#
+#     print('all passed')

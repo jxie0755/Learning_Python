@@ -33,7 +33,7 @@ class Solution:
 
 
 class Solution(object):
-    ### STD ans
+    # STD ans
     def numDecodings(self, s):
         """
         :type s: str
