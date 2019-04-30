@@ -82,10 +82,9 @@ class Solution:
 
     def traverse(self, t):
         """return a flat list of the binary tree including None"""
-        if t and t.val is not None:
-            return [t.val] + self.traverse(t.left) + self.traverse(t.right)
-        else:
+        if not t or t.val is None :
             return [None]
+        return [t.val] + self.traverse(t.left) + self.traverse(t.right)
 
     def isSubtree(self, s: TreeNode, t: TreeNode) -> bool:
         """check if traverse(t) is a sublist of traverse(s)"""

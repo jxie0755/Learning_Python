@@ -121,6 +121,30 @@ class Solution:
         return True
 
 
+class Solution:
+    def traverseDirected(self, root, D='L'):
+        """
+        Directed traverse
+        must be 'L' for left or 'R' for right
+        return a flat List of values
+        """
+        if not root or root.val is None:
+                                # Must write this way to avoid val=0
+                                # Do not write 'not root.val'
+            return [None]
+        elif D == 'L':
+            return [root.val] + self.traverseDirected(root.left, 'L') + self.traverseDirected(root.right, 'L')
+        elif D == 'R':
+            return [root.val] + self.traverseDirected(root.right, 'R') + self.traverseDirected(root.left, 'R')
+
+
+
+    def isSymmetric(self, root: TreeNode) -> bool:
+        ### Check on the run, accepted, but too slow
+        return self.traverseDirected(root, 'L') == self.traverseDirected(root, 'R')
+
+
+
 if __name__ == '__main__':
     A0 = None
     assert Solution().isSymmetric(A0), 'Edge 1'
@@ -133,5 +157,8 @@ if __name__ == '__main__':
 
     A2 = genTree([1, 2, 2, None, 3, None, 3])
     assert not Solution().isSymmetric(A2)
+
+    A3 = genTree([1,0,None])
+    assert not Solution().isSymmetric(A3)
 
     print('all passed')
