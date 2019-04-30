@@ -98,6 +98,7 @@ class Solution:
 class Solution:
     def isSymmetric(self, root: TreeNode) -> bool:
         ### Check on the run, accepted, but too slow
+        ### O(N^2)
         layer = [root]
         while any([i for i in layer]):
             new_layer = []
@@ -140,7 +141,8 @@ class Solution:
 
 
     def isSymmetric(self, root: TreeNode) -> bool:
-        ### Check on the run, accepted, but too slow
+        ### Traverse with left priority and right priority to generate the mirrored flat list compare if they are the same
+        ### O(N)
         return self.traverseDirected(root, 'L') == self.traverseDirected(root, 'R')
 
 
