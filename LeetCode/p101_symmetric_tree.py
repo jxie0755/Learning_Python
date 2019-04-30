@@ -19,16 +19,16 @@ class TreeNode:
 
             s = str(T.val)
             if T.left and T.right:
-                return s + '\n' + '  ' * L + layer(T.left, L+1) + '\n' + '  ' * L + layer(T.right, L+1)
+                return s + '\n' + '  ' * L + layer(T.left, L + 1) + '\n' + '  ' * L + layer(T.right, L + 1)
             elif T.left and not T.right:
-                return s + '\n' + '  ' * L + layer(T.left, L+1) + '\n' + '  ' * L + 'N'
+                return s + '\n' + '  ' * L + layer(T.left, L + 1) + '\n' + '  ' * L + 'N'
             elif not T.left and T.right:
-                return s + '\n' + '  ' * L + 'N' + '\n' + '  ' * L + layer(T.right, L+1)
+                return s + '\n' + '  ' * L + 'N' + '\n' + '  ' * L + layer(T.right, L + 1)
             else:
                 return s + '\n' + '  ' * L + 'N' + '\n' + '  ' * L + 'N'
 
-
         return layer(self)
+
 
 def genTree(lst):
     """
@@ -38,9 +38,9 @@ def genTree(lst):
     layers = []
     i, L = 0, 1
     while i != len(lst):
-        layers.append(lst[i:i+L])
+        layers.append(lst[i:i + L])
         i += L
-        L *=2
+        L *= 2
     pre_root = [TreeNode(i) for i in layers[0]]
     root_to_return = pre_root[0]
 
@@ -57,17 +57,81 @@ def genTree(lst):
     return root_to_return
 
 
+class Solution:
+    def showlayer(self, TN):
+        """return a list of list where each sub-list the layer of a tree"""
+        result = [[TN.val]]
+
+        def helper(TN):
+            layer = [TN]
+            while any([i for i in layer]):
+                new_layer = []
+                new_layer_val = []
+                for i in layer:
+                    if i:
+                        new_layer.append(i.left)
+                        new_layer_val.append(i.left.val if i.left else None)
+                        new_layer.append(i.right)
+                        new_layer_val.append(i.right.val if i.right else None)
+                    else:
+                        new_layer.append(None)
+                        new_layer_val.append(None)
+                        new_layer.append(None)
+                        new_layer_val.append(None)
+
+                result.append(new_layer_val)
+                layer = new_layer
+
+        helper(TN)
+        return result
+
+    def isSymmetric(self, root: TreeNode) -> bool:
+        ### If wait till getting all the layers, it will be too late
+        if not root:
+            return True
+        all_layer = self.showlayer(root)
+        for i in all_layer:
+            if i != i[::-1]:
+                return False
+        return True
 
 class Solution:
     def isSymmetric(self, root: TreeNode) -> bool:
-        pass
+        ### Check on the run, accepted, but too slow
+        layer = [root]
+        while any([i for i in layer]):
+            new_layer = []
+            new_layer_val = []
+            for i in layer:
+                if i:
+                    new_layer.append(i.left)
+                    new_layer_val.append(i.left.val if i.left else None)
+                    new_layer.append(i.right)
+                    new_layer_val.append(i.right.val if i.right else None)
+                else:
+                    new_layer.append(None)
+                    new_layer_val.append(None)
+                    new_layer.append(None)
+                    new_layer_val.append(None)
+
+            if new_layer_val != new_layer_val[::-1]:
+                return False
+            else:
+                layer = new_layer
+        return True
 
 
-A1 = genTree([1, 2, 2, 3, None, 4, 3])
-print(A1)
+if __name__ == '__main__':
+    A0 = None
+    assert Solution().isSymmetric(A0), 'Edge 1'
 
+    A00 = TreeNode(1)
+    assert Solution().isSymmetric(A00), 'Edge 2'
 
+    A1 = genTree([1, 2, 2, 3, 4, 4, 3])
+    assert Solution().isSymmetric(A1)
 
+    A2 = genTree([1, 2, 2, None, 3, None, 3])
+    assert not Solution().isSymmetric(A2)
 
-# if __name__ == '__main__':
-#     pass
+    print('all passed')
