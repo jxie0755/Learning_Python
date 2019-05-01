@@ -197,40 +197,32 @@ class Solution2(object):
             return False
         return self.isSymmetricRecu(left.left, right.right) and self.isSymmetricRecu(left.right, right.left)
 
-A1 = genTree([
+
+if __name__ == '__main__':
+    A0 = None
+    assert Solution().isSymmetric(A0), 'Edge 1'
+
+    A00 = TreeNode(1)
+    assert Solution().isSymmetric(A00), 'Edge 2'
+
+    A1 = genTree([
         1,
         2, 2,
-        3, 4, 4, 3,
-        5, 6, 7, 8, 8, 7, 6, 5,
+        3, 4, 4, 3
     ])
-assert Solution().isSymmetric(A1)
+    assert Solution().isSymmetric(A1)
 
+    A2 = genTree([
+        1,
+        2, 2,
+        None, 3, None, 3
+    ])
+    assert not Solution().isSymmetric(A2)
 
-# if __name__ == '__main__':
-#     A0 = None
-#     assert Solution().isSymmetric(A0), 'Edge 1'
-#
-#     A00 = TreeNode(1)
-#     assert Solution().isSymmetric(A00), 'Edge 2'
-#
-#     A1 = genTree([
-#         1,
-#         2, 2,
-#         3, 4, 4, 3
-#     ])
-#     assert Solution().isSymmetric(A1)
-#
-#     A2 = genTree([
-#         1,
-#         2, 2,
-#         None, 3, None, 3
-#     ])
-#     assert not Solution().isSymmetric(A2)
-#
-#     A3 = genTree([
-#         1,
-#         0,None
-#     ])
-#     assert not Solution().isSymmetric(A3)
-#
-#     print('all passed')
+    A3 = genTree([
+        1,
+        0,None
+    ])
+    assert not Solution().isSymmetric(A3)
+
+    print('all passed')
