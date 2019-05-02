@@ -3,7 +3,9 @@
 
 
 # Given a binary tree, return the inorder traversal of its nodes' values.
+# 中序遍历就是二叉树的平面投影,从左到右
 # Follow up: Recursive solution is trivial, could you do it iteratively?
+
 
 from typing import *
 # Definition for a binary tree node.
@@ -68,19 +70,31 @@ class Solution:
         if not t or t.val is None:
                                 # Must write this way to avoid val=0
                                 # Do not write 'not root.val'
-            return [None]
+            return []
         elif D == 'L':
             return [t.val] + self.traverseDirected(t.left, 'L') + self.traverseDirected(t.right, 'L')
         elif D == 'R':
             return [t.val] + self.traverseDirected(t.right, 'R') + self.traverseDirected(t.left, 'R')
 
     def inorderTraversal(self, root: TreeNode) -> List[int]:
-        pass
+        if not root or root.val is None:
+            # Must write this way to avoid val=0
+            # Do not write 'not root.val'
+            return []
+
+        return self.inorderTraversal(root.left) + [root.val] + self.inorderTraversal(root.right)
 
 
 
 if __name__ == '__main__':
+    t0 = None
+    assert Solution().inorderTraversal(t0) == []
+
     t1 = genTree([1,None,2,None,None,3,None])
-    print(Solution().traverseDirected(t1))
+    assert Solution().inorderTraversal(t1) == [1,3,2]
+
+    print('all passed')
+
+
 
 
