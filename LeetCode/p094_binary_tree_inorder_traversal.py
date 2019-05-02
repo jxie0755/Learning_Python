@@ -61,21 +61,7 @@ def genTree(lst):
     return root_to_return
 
 class Solution:
-    def traverseDirected(self, t, D='L'):
-        """
-        Directed traverse
-        must be 'L' for left or 'R' for right
-        return a flat List of values
-        """
-        if not t or t.val is None:
-                                # Must write this way to avoid val=0
-                                # Do not write 'not root.val'
-            return []
-        elif D == 'L':
-            return [t.val] + self.traverseDirected(t.left, 'L') + self.traverseDirected(t.right, 'L')
-        elif D == 'R':
-            return [t.val] + self.traverseDirected(t.right, 'R') + self.traverseDirected(t.left, 'R')
-
+    ### Recursive method
     def inorderTraversal(self, root: TreeNode) -> List[int]:
         if not root or root.val is None:
             # Must write this way to avoid val=0
@@ -85,6 +71,11 @@ class Solution:
         return self.inorderTraversal(root.left) + [root.val] + self.inorderTraversal(root.right)
 
 
+
+class Solution:
+    ### Iterative method
+    def inorderTraversal(self, root: TreeNode) -> List[int]:
+        pass
 
 if __name__ == '__main__':
     t0 = None
