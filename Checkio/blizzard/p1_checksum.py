@@ -1,4 +1,4 @@
-p1_checksum
+# p1_checksum
 
 # detail introduction: https://py.checkio.org/mission/check-digit/
 

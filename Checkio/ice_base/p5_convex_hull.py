@@ -111,8 +111,52 @@ def checkio(data):
             indexlst.append(data.index(i))
     return indexlst
 
+import math
+def checkio(data):
+    """
+    Using convex hull algorithm learned from Princeton Algorithm Part 1 lecture 04
 
-#
+    Method:
+    1. find the lowest right point p (minimum y point with largest x if multiple exist
+    2. sort the rest point x in sequence according to the angle px - p - x (y is the vertical line of p[x])
+    3. iterate through the sorted list and exclude the point x once the new p - x - xnext angle is bigger than 180 degrees
+    """
+    # Find the lowest right p point:
+    p = [0,float('inf')]
+    for i in data:
+        if i[1] < p[1]:
+            p = i
+        elif i[1] == p[1] and i[0] > p[0]:
+            p = i
+
+    def distance(a, b):
+        """return the distance of two points"""
+        A = abs(a[0] - b[0])
+        B = abs(a[1] - b[1])
+        return math.sqrt(A*A + B*B)
+
+    def sin_p(a):
+        """calculate the sin value of point a and b
+                   a
+                  /
+                 /
+                p------x
+        """
+        if a[0] > p[0]:
+            return abs(a[1] - p[1]) / distance(a, p)
+
+    print(sin_p([8,4]))
+
+
+
+
+
+
+
+
+
+
+
 # if __name__ == '__main__':
 #     # These "asserts" using only for self-checking and not necessary for auto-testing
 #     assert checkio(
@@ -123,5 +167,5 @@ def checkio(data):
 #     ) == [1, 0, 6, 3, 5, 2], "Second example"
 #     print('done')
 
-print(checkio([[4,7],[5,5],[2,4],[7,4],[3,2],[5,2]]))
+print(checkio([[3, 8], [1, 6], [3,2], [6, 2], [7, 6], [5, 5], [8, 4], [6, 8]]))
 # TODO 继续完成debug
