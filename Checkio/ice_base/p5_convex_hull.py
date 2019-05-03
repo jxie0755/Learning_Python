@@ -123,6 +123,6 @@ if __name__ == '__main__':
 
     assert checkio(
         [[7, 4], [5, 2], [4, 7], [4, 1], [3, 6], [1, 4]]
-    ) == [5,4,2,0,1,3], "Additional 1"
+    ) == [5, 4, 2, 0, 1, 3], "Additional 1"
 
     print('all passed')
