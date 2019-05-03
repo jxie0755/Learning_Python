@@ -72,10 +72,40 @@ class Solution:
 
 
 
-class Solution:
-    ### Iterative method
-    def inorderTraversal(self, root: TreeNode) -> List[int]:
-        pass
+
+class Solution(object):
+    # STD ans
+    # Morris Traversal Solution
+    # Time:  O(n)
+    # Space: O(1)
+    # TODO to learn
+
+    def inorderTraversal(self, root):
+        """
+        :type root: TreeNode
+        :rtype: List[int]
+        """
+        result, curr = [], root
+        while curr:
+            if curr.left is None:
+                result.append(curr.val)
+                curr = curr.right
+            else:
+                node = curr.left
+                while node.right and node.right != curr:
+                    node = node.right
+
+                if node.right is None:
+                    node.right = curr
+                    curr = curr.left
+                else:
+                    result.append(curr.val)
+                    node.right = None
+                    curr = curr.right
+
+        return result
+
+
 
 if __name__ == '__main__':
     t0 = None
