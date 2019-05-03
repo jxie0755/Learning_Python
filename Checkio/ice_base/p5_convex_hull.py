@@ -136,16 +136,22 @@ def checkio(data):
         return math.sqrt(A*A + B*B)
 
     def sin_p(a):
-        """calculate the sin value of point a and b
+        """calculate the sin value of point a and p
                    a
                   /
                  /
                 p------x
         """
-        if a[0] > p[0]:
+        if a == p:
+            return -1
+        elif a[0] >= p[0]:
             return abs(a[1] - p[1]) / distance(a, p)
+        else:
+            return 1 + (p[0] - a[0]) / distance(a, p)
 
-    print(sin_p([8,4]))
+    sorted_coors = sorted(data, key=lambda x:sin_p(x))
+
+    pass
 
 
 
@@ -167,5 +173,5 @@ def checkio(data):
 #     ) == [1, 0, 6, 3, 5, 2], "Second example"
 #     print('done')
 
-print(checkio([[3, 8], [1, 6], [3,2], [6, 2], [7, 6], [5, 5], [8, 4], [6, 8]]))
+print(checkio([[3, 8], [1, 6], [6, 2], [7, 6], [5, 5], [8, 4], [6, 8]]))
 # TODO 继续完成debug
