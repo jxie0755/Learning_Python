@@ -127,6 +127,40 @@ class Solution:
         return result[::-1]
 
 
+class Solution:
+    def levelOrderBottom(self, root):
+        ### A more structed stack method accoding to last method
+        ### First build up the stack all the way to the bottom to get nodes at each layer
+        ### Then extract the values of each node in every layer
+        """
+        :type root: TreeNode
+        :rtype: List[List[int]]
+        """
+        if root is None:
+            return []
+
+        stack = [[root]]
+        current = [root]
+        while current:
+            next_level= []
+            for node in current:
+                if node.left:
+                    next_level.append(node.left)
+                if node.right:
+                    next_level.append(node.right)
+            stack.append(next_level)
+            current = next_level
+
+        result = []
+        for i in stack[-2::-1]:
+            vals = []
+            for node in i:
+                if node and node.val is not None:
+                    vals.append(node.val)
+            result.append(vals)
+
+        return result
+
 
 
 if __name__ == '__main__':
