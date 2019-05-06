@@ -65,7 +65,7 @@ def genTree(lst):
 
 class Solution:
     def maxDepth(self, root: TreeNode) -> int:
-        if not root or not root.val:
+        if not root or root.val is None:
             return 0
         else:
             return 1 + max(self.maxDepth(root.left), self.maxDepth(root.right))
