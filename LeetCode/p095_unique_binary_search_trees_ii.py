@@ -72,4 +72,6 @@ if __name__ == '__main__':
         genTree([3, 1, None, None, 2]),
         genTree([2, 1, 3, None, None]),
         genTree([1, None, 2, None, 3]),
-    ]
+    ], 'Example 1'
+
+    print('all passed')
