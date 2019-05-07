@@ -51,7 +51,7 @@ class BTree(Tree):
     def __init__(self, label, left=empty, right=empty):
         for b in (left, right):
             assert isinstance(b, BTree) or b is BTree.empty
-        Tree.__init__(self, label, (left, right))
+        Tree.__init__(self, label, [left, right])
 
     @property
     def left(self):
