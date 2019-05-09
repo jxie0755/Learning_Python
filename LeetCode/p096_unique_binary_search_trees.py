@@ -16,7 +16,7 @@ class TreeNode:
     def __str__(self):
 
         def layer(T, L=1):
-            if not T.val:
+            if T.val is None:
                 return 'N'
 
             s = str(T.val)
