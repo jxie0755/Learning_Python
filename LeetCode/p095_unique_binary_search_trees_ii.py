@@ -62,7 +62,7 @@ def genTree(lst):
 
 class Solution:
     def generateTrees(self, n: int) -> List[TreeNode]:
-        pass
+        data = list(range(1, n))
 
 
 if __name__ == '__main__':
