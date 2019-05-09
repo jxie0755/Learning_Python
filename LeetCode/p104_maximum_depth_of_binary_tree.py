@@ -11,6 +11,8 @@
 from typing import *
 
 # Definition for a binary tree node.
+from math import log
+
 class TreeNode:
     def __init__(self, x):
         self.val = x
@@ -35,14 +37,23 @@ class TreeNode:
 
         return layer(self)
 
+    def __eq__(self, other):
+        return str(self) == str(other)
+
 
 def genTree(lst):
     """
     generate a binary tree according to a non-empty list of values
     The lst must be all filled, even the branch is empty, then use None to suggest the empty treeNode
     """
+    LLL = log(len(lst)+1,2)
+    if int(LLL) != LLL:
+        print("List length is not complete, it must be 2^n - 1")
+        raise ZeroDivisionError
+
     layers = []
     i, L = 0, 1
+
     while i != len(lst):
         layers.append(lst[i:i + L])
         i += L
