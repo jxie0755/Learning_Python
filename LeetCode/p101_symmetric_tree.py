@@ -56,7 +56,7 @@ def genTree(lst):
     root_to_return = pre_root[0]
 
     for k in range(1, len(layers)):
-        cur = [TreeNode(i) for i in layers[k]]
+        cur = [TreeNode(i) for i in layers[k] if i is not None]
         for j in range(len(cur)):
             rt_idx, brc_side = divmod(j, 2)
             if brc_side == 0:
@@ -207,6 +207,9 @@ class Solution2(object):
         if left is None or right is None or left.val != right.val:
             return False
         return self.isSymmetricRecu(left.left, right.right) and self.isSymmetricRecu(left.right, right.left)
+
+
+
 
 
 if __name__ == '__main__':
