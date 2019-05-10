@@ -61,12 +61,18 @@ def genTree(lst):
     root_to_return = pre_root[0]
 
     for k in range(1, len(layers)):
-        cur = [TreeNode(i) for i in layers[k]]
+        cur = []
+        for i in layers[k]:
+            if i is not None:
+                cur.append(TreeNode(i))
+            else:
+                cur.append(None)
+
         for j in range(len(cur)):
             rt_idx, brc_side = divmod(j, 2)
-            if brc_side == 0:
+            if brc_side == 0 and cur[j] is not None:
                 pre_root[rt_idx].left = cur[j]
-            else:
+            elif brc_side != 0 and cur[j] is not None:
                 pre_root[rt_idx].right = cur[j]
         pre_root = cur
 
@@ -75,7 +81,7 @@ def genTree(lst):
 class Solution:
     ### Recursive method
     def inorderTraversal(self, root: TreeNode) -> List[int]:
-        if not root or root.val is None:
+        if not root:
             # Must write this way to avoid val=0
             # Do not write 'not root.val'
             return []
@@ -83,15 +89,33 @@ class Solution:
         return self.inorderTraversal(root.left) + [root.val] + self.inorderTraversal(root.right)
 
 
-
-
 class Solution(object):
     # STD ans
-    # Morris Traversal Solution
     # Time:  O(n)
-    # Space: O(1)
-    # TODO to learn
+    # Space: O(h)
+    # Stack Solution
+    def inorderTraversal(self, root):
+        """
+        :type root: TreeNode
+        :rtype: List[int]
+        """
+        result, stack = [], [(root, False)]
+        while stack:
+            root, is_visited = stack.pop()
+            if root is None:
+                continue
+            if is_visited:
+                result.append(root.val)
+            else:
+                stack.append((root.right, False))
+                stack.append((root, True))
+                stack.append((root.left, False))
+        return result
 
+# Morris Traversal Solution
+class Solution2(object):
+    ### STD ans
+    # TODO to learn
     def inorderTraversal(self, root):
         """
         :type root: TreeNode
@@ -118,12 +142,14 @@ class Solution(object):
         return result
 
 
-
 if __name__ == '__main__':
     t0 = None
     assert Solution().inorderTraversal(t0) == []
 
-    t1 = genTree([1,None,2,None,None,3,None])
+    t1 = genTree([
+        1,
+        None,2,
+        None,None,3,None])
     assert Solution().inorderTraversal(t1) == [1,3,2]
 
     print('all passed')

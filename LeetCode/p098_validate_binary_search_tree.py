@@ -64,12 +64,18 @@ def genTree(lst):
     root_to_return = pre_root[0]
 
     for k in range(1, len(layers)):
-        cur = [TreeNode(i) for i in layers[k]]
+        cur = []
+        for i in layers[k]:
+            if i is not None:
+                cur.append(TreeNode(i))
+            else:
+                cur.append(None)
+
         for j in range(len(cur)):
             rt_idx, brc_side = divmod(j, 2)
-            if brc_side == 0:
+            if brc_side == 0 and cur[j] is not None:
                 pre_root[rt_idx].left = cur[j]
-            else:
+            elif brc_side != 0 and cur[j] is not None:
                 pre_root[rt_idx].right = cur[j]
         pre_root = cur
 
@@ -80,36 +86,19 @@ class Solution:
 
     ### Use inorderTraversal to get the list from Leetcode P094
     ### Then filter the None out from the list and check if the list is sorted
-    def inorderTraversal(self, root):
-        """
-        :type root: TreeNode
-        :rtype: List[int]
-        """
-        result, curr = [], root
-        while curr:
-            if curr.left is None:
-                result.append(curr.val)
-                curr = curr.right
-            else:
-                node = curr.left
-                while node.right and node.right != curr:
-                    node = node.right
+    def inorderTraversal(self, root: TreeNode) -> List[int]:
+        if not root:
+            # Must write this way to avoid val=0
+            # Do not write 'not root.val'
+            return []
 
-                if node.right is None:
-                    node.right = curr
-                    curr = curr.left
-                else:
-                    result.append(curr.val)
-                    node.right = None
-                    curr = curr.right
-
-        return result
+        return self.inorderTraversal(root.left) + [root.val] + self.inorderTraversal(root.right)
 
 
     def isValidBST(self, root: TreeNode) -> bool:
         flat = list(filter(lambda x:x is not None, self.inorderTraversal(root)))
 
-        if not flat or flat[0] is None:
+        if not flat:
             return True
 
         for i in range(1, len(flat)):

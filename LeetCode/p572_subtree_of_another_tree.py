@@ -40,7 +40,6 @@ class TreeNode:
     def __eq__(self, other):
         return str(self) == str(other)
 
-
 def genTree(lst):
     """
     generate a binary tree according to a non-empty list of values
@@ -62,12 +61,18 @@ def genTree(lst):
     root_to_return = pre_root[0]
 
     for k in range(1, len(layers)):
-        cur = [TreeNode(i) for i in layers[k]]
+        cur = []
+        for i in layers[k]:
+            if i is not None:
+                cur.append(TreeNode(i))
+            else:
+                cur.append(None)
+
         for j in range(len(cur)):
             rt_idx, brc_side = divmod(j, 2)
-            if brc_side == 0:
+            if brc_side == 0 and cur[j] is not None:
                 pre_root[rt_idx].left = cur[j]
-            else:
+            elif brc_side != 0 and cur[j] is not None:
                 pre_root[rt_idx].right = cur[j]
         pre_root = cur
 
@@ -94,7 +99,7 @@ class Solution:
 
     def traverse(self, t):
         """return a flat list of the binary tree including None"""
-        if not t or t.val is None :
+        if not t:
             return [None]
         return [t.val] + self.traverse(t.left) + self.traverse(t.right)
 
@@ -106,8 +111,6 @@ class Solution:
             if list_s[i:i+len_t] == list_t:
                 return True
         return False
-
-
 
 
 
@@ -124,9 +127,6 @@ if __name__ == '__main__':
         1, 2
     ])
 
-    print(Solution().traverse(E1))
-    print(Solution().traverse(E2))
-
     assert Solution().isSubtree(E1, E2), 'Example 1'
 
     E1 = genTree([
@@ -136,13 +136,10 @@ if __name__ == '__main__':
         None, None, 0, None, None, None, None, None
     ])
 
-    # E2 = genTree([
-    #     4,
-    #     1,2
-    # ])
-
-    print(Solution().traverse(E1))
-    print(Solution().traverse(E2))
+    E2 = genTree([
+        4,
+        1,2
+    ])
 
     assert not Solution().isSubtree(E1, E2), 'Example 2'
 
@@ -154,15 +151,11 @@ if __name__ == '__main__':
         None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,
     ])
 
-    # E2 = genTree([
-    #     4,
-    #     1,2
-    # ])
+    E4 = genTree([
+        4,
+        1,2
+    ])
 
-    assert Solution().isSubtree(E3, E2)
-
-    E4 = TreeNode(1)
-    E5 = TreeNode(1)
-    assert Solution().isSubtree(E4, E5)
+    assert Solution().isSubtree(E3, E4), 'Addtional 1'
 
     print('all passed!')

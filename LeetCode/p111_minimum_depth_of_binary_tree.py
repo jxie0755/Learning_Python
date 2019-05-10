@@ -73,12 +73,18 @@ def genTree(lst):
     root_to_return = pre_root[0]
 
     for k in range(1, len(layers)):
-        cur = [TreeNode(i) for i in layers[k]]
+        cur = []
+        for i in layers[k]:
+            if i is not None:
+                cur.append(TreeNode(i))
+            else:
+                cur.append(None)
+
         for j in range(len(cur)):
             rt_idx, brc_side = divmod(j, 2)
-            if brc_side == 0:
+            if brc_side == 0 and cur[j] is not None:
                 pre_root[rt_idx].left = cur[j]
-            else:
+            elif brc_side != 0 and cur[j] is not None:
                 pre_root[rt_idx].right = cur[j]
         pre_root = cur
 
@@ -89,7 +95,7 @@ def genTree(lst):
 class Solution:
     ### The key is to find the first leaf
     def isLeaf(self, root):
-        if (root and root.val is not None) and (not root.left or root.left.val is None) and (not root.right or root.right.val is None):
+        if root and not root.left and not root.right:
             return True
         return False
 
@@ -119,9 +125,9 @@ class Solution(object):
     # @param root, a tree node
     # @return an integer
     def minDepth(self, root):
-        if root is None or root.val is None:
+        if root is None:
             return 0
-        if root.left and root.left.val is not None and root.right and root.right.val is not None:
+        if root.left and root.right:
             return min(self.minDepth(root.left), self.minDepth(root.right)) + 1
         else:
             return max(self.minDepth(root.left), self.minDepth(root.right)) + 1

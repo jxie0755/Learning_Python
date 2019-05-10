@@ -58,12 +58,18 @@ def genTree(lst):
     root_to_return = pre_root[0]
 
     for k in range(1, len(layers)):
-        cur = [TreeNode(i) for i in layers[k]]
+        cur = []
+        for i in layers[k]:
+            if i is not None:
+                cur.append(TreeNode(i))
+            else:
+                cur.append(None)
+
         for j in range(len(cur)):
             rt_idx, brc_side = divmod(j, 2)
-            if brc_side == 0:
+            if brc_side == 0 and cur[j] is not None:
                 pre_root[rt_idx].left = cur[j]
-            else:
+            elif brc_side != 0 and cur[j] is not None:
                 pre_root[rt_idx].right = cur[j]
         pre_root = cur
 
@@ -98,7 +104,7 @@ class Solution:
         return result
 
     def levelOrderBottom(self, root: TreeNode):
-        if not root or root.val is None:
+        if not root:
             return []
         elif not root.left and not root.right:
             return [[root.val]]
@@ -126,8 +132,8 @@ class Solution:
         while current:
             next_level, vals = [], []
             for node in current:
-                if node.val is not None:    # So we add another if command to avoid None added into the list
-                    vals.append(node.val)   # However, this accepts None.
+                if node:
+                    vals.append(node.val)
                 if node.left:
                     next_level.append(node.left)
                 if node.right:
@@ -166,7 +172,7 @@ class Solution:
         for i in stack[-2::-1]:
             vals = []
             for node in i:
-                if node and node.val is not None:
+                if node:
                     vals.append(node.val)
             result.append(vals)
 
@@ -192,7 +198,7 @@ if __name__ == '__main__':
         0,
         2, 4,
         1, None, 3, -1,
-        5, 1, None, 6, None, 8, None, None])
+        5, 1, None, None, 6, None, 8, None])
     assert Solution().levelOrderBottom(A) == [
         [5,1,6,8],
         [1,3,-1],
