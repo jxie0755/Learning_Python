@@ -36,9 +36,6 @@ class TreeNode:
 
         return layer(self)
 
-    def __eq__(self, other):
-        return str(self) == str(other)
-
 
 def genTree(lst):
     """
@@ -113,10 +110,10 @@ class Solution(object):
         return result
 
 # Morris Traversal Solution
-class Solution2(object):
-    ### STD ans
-    # TODO to learn
+class Solution(object):
     def inorderTraversal(self, root):
+        ### STD Ans
+        ### TODO Learn algorithm
         """
         :type root: TreeNode
         :rtype: List[int]
@@ -144,7 +141,7 @@ class Solution2(object):
 
 if __name__ == '__main__':
     t0 = None
-    assert Solution().inorderTraversal(t0) == []
+    # assert Solution().inorderTraversal(t0) == []
 
     t1 = genTree([
         1,

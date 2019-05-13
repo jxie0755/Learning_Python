@@ -37,9 +37,6 @@ class TreeNode:
 
         return layer(self)
 
-    def __eq__(self, other):
-        return str(self) == str(other)
-
 
 def genTree(lst):
     """
