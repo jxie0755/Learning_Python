@@ -3,6 +3,7 @@
 
 import random
 
+
 class Quicksort:
     def exch(self, array, i, j):
         array[i], array[j] = array[j], array[i]
@@ -15,7 +16,7 @@ class Quicksort:
     ### This is the trickiest part, very easy to make mistakes
     def partition(self, array, lo, hi):
 
-        i, j = lo, hi+1
+        i, j = lo, hi + 1
         keyelem = array[lo]
 
         while True:
@@ -42,7 +43,6 @@ class Quicksort:
         self.exch(array, lo, j)
         return j
 
-
     def raw_sort(self, array, lo, hi):
         if hi > lo:
             print('lo', lo, 'hi', hi)
@@ -58,10 +58,5 @@ class Quicksort:
 
 
 if __name__ == '__main__':
-    a = ['K', 'R', 'A', 'T', 'E', 'L', 'E', 'P', 'U', 'I', 'M', 'Q', 'C', 'X', 'O', 'S']
-    Quicksort().sort(a)
-
-
-    b = [9, 8, 7, 6, 5, 4, 3, 2, 1]
+    b = [5, 1, 4, 2, 3, 3, 2, 4, 1, 5]
     Quicksort().sort(b)
-
