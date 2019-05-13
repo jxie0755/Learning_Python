@@ -9,6 +9,7 @@ class Quicksort:
         array[i], array[j] = array[j], array[i]
 
     def knuth_shuffle(self, array):
+        """True Shuffle the array"""
         for i in range(len(array)):
             r = random.randrange(i + 1)
             self.exch(array, i, r)
