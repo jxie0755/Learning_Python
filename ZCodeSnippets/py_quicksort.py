@@ -53,6 +53,7 @@ class Quicksort:
 
     def sort(self, array):
         self.knuth_shuffle(array)
+        print("After shuffle:", array)
         self.raw_sort(array, 0, len(array) - 1)
 
 
