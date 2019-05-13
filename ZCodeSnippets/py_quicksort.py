@@ -15,8 +15,7 @@ class Quicksort:
     ### This is the trickiest part, very easy to make mistakes
     def partition(self, array, lo, hi):
 
-        i = lo
-        j = hi + 1
+        i, j = lo, hi
         keyelem = array[lo]
 
         while True:
@@ -29,11 +28,11 @@ class Quicksort:
                     break
 
             while True:
-                j -= 1
                 if keyelem >= array[j]:
                     break
                 if j == lo:
                     break
+                j -= 1
 
             if i >= j:
                 break
