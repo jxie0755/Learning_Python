@@ -124,11 +124,9 @@ class Solution:
                 return sum(cur) == target
 
             else:
-                left_cur = cur[:]
-                right_cur = cur[:]
+                left_cur, right_cur = cur[:], cur[:]
                 left_cur.append(root.val)
                 right_cur.append(root.val)
-
                 return helper(root.left, left_cur) or helper(root.right, right_cur)
 
         return helper(root)
