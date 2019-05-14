@@ -7,6 +7,7 @@
 
 # Note:
 # Mirrored trees are considered not the same
+# Circular trees can not be tested
 
 
 from typing import *
