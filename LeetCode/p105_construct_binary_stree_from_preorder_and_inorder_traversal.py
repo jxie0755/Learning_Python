@@ -140,25 +140,26 @@ class Solution:
             hmp[val] = idx
 
         def helper(preorder):
-            if preorder:
-                root_val = preorder[0]
-                root = TreeNode(root_val)
-                root_idx = hmp[root_val]
+            if not preorder:
+                return None
+            root_val = preorder[0]
+            root = TreeNode(root_val)
+            root_idx = hmp[root_val]
 
-                left_preorder, right_preorder = [], []
+            left_preorder, right_preorder = [], []
 
-                # 从preorder后面找到left和right的值
-                for i in range(1, len(preorder)):
-                    check_val = preorder[i]
-                    check_idx = hmp[check_val]
-                    if check_idx < root_idx:
-                        left_preorder.append(check_val)
-                    elif check_idx > root_idx:
-                        right_preorder.append(check_val)
+            # 通过对比idx过滤preorder, 得到新的left preorder和right preorder
+            for i in range(1, len(preorder)):
+                check_val = preorder[i]
+                check_idx = hmp[check_val]
+                if check_idx < root_idx:
+                    left_preorder.append(check_val)
+                elif check_idx > root_idx:
+                    right_preorder.append(check_val)
 
-                root.left = helper(left_preorder)
-                root.right = helper(right_preorder)
-                return root
+            root.left = helper(left_preorder)
+            root.right = helper(right_preorder)
+            return root
 
         return helper(preorder)
 
