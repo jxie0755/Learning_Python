@@ -103,28 +103,65 @@ class Solution:
             return None
         root_val = preorder[0]
         root = TreeNode(root_val)
-        root_idx = inorder.index(root_val)
+        root_idx = inorder.index(root_val)  # root在inorder中的位置
 
         left_found, right_found = False, False
         left_preorder, right_preorder = [], []
         left_inorder, right_inorder = [],[]
 
+        # 从preorder后面找到left和right的值
         for i in range(1, len(preorder)):
             check = preorder[i]
             if check in inorder:
                 check_idx = inorder.index(check)
-                if check_idx < root_idx and not left_found:
+                if check_idx < root_idx and not left_found: # 第一个出现的在root_idx左侧的preorder值
                     left_preorder = preorder[i:]
                     left_inorder = inorder[:root_idx]
                     left_found = True
-                if check_idx > root_idx and not right_found:
+                if check_idx > root_idx and not right_found: # 第二个出现的在root_idx左侧的preorder值
                     right_preorder = preorder[i:]
                     right_inorder = inorder[root_idx:]
                     right_found = True
+                if left_found and right_found:
+                    break
 
         root.left = self.buildTree(left_preorder, left_inorder)
         root.right = self.buildTree(right_preorder, right_inorder)
         return root
+
+
+class Solution:
+    ### Same method idea as above but build a hash table to store the index of each value
+    ### Passed, but still very slow
+    def buildTree(self, preorder: List[int], inorder: List[int]) -> TreeNode:
+
+        hmp = dict()
+        for idx, val in enumerate(inorder):
+            hmp[val] = idx
+
+        def helper(preorder):
+            if preorder:
+                root_val = preorder[0]
+                root = TreeNode(root_val)
+                root_idx = hmp[root_val]
+
+                left_preorder, right_preorder = [], []
+
+                # 从preorder后面找到left和right的值
+                for i in range(1, len(preorder)):
+                    check_val = preorder[i]
+                    check_idx = hmp[check_val]
+                    if check_idx < root_idx:
+                        left_preorder.append(check_val)
+                    elif check_idx > root_idx:
+                        right_preorder.append(check_val)
+
+                root.left = helper(left_preorder)
+                root.right = helper(right_preorder)
+                return root
+
+        return helper(preorder)
+
 
 
 
