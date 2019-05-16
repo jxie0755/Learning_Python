@@ -1,9 +1,8 @@
-# P112 Path Sum
-# Easy
+# P113 Path Sum II
+# Medium
 
-# Given a binary tree and a sum,
-# determine if the tree has a root-to-leaf path such that adding up all the values along the path equals the given sum.
 
+# Given a binary tree and a sum, find all root-to-leaf paths where each path's sum equals the given sum.
 # Note: A leaf is a node with no children.
 
 from typing import *
@@ -35,6 +34,8 @@ class TreeNode:
 
         return layer(self)
 
+    def __eq__(self, other):
+        return str(self) == str(other)
 
     def isLeaf(self):
         try:
@@ -114,41 +115,32 @@ class Solution:
         return result
 
 
-    def hasPathSum(self, root: TreeNode, target: int) -> bool:
-
-        ### Borrow the idea of allPath
-        def helper(root, cur=[]):
-            if not root:
-                return False
-
-            elif not root.left and not root.right:
-                cur.append(root.val)
-                return sum(cur) == target
-
-            else:
-                left_cur, right_cur = cur[:], cur[:]
-                left_cur.append(root.val)
-                right_cur.append(root.val)
-                return helper(root.left, left_cur) or helper(root.right, right_cur)
-
-        return helper(root)
-
-
+    def pathSum(self, root: TreeNode, target: int):
+        result = []
+        for i in self.allPath(root):
+            if sum(i) == target:
+                result.append(i)
+        return result
 
 
 if __name__ == '__main__':
     A = None
-    assert not Solution().hasPathSum(A, 0), "Edge 0"
+    assert Solution().pathSum(A, 0) == [], "Edge 0"
 
     A = genTree([1])
-    assert Solution().hasPathSum(A, 1), "Edge 1"
+    assert Solution().pathSum(A, 1) == [
+        [1]
+    ], "Edge 1"
 
     A = genTree([
         5,
         4, 8,
         11, None, 13, 4,
-        7, 2, None, None, None, None, None, 1
+        7, 2, None, None, None, None, 5, 1
     ])
-    assert Solution().hasPathSum(A, 22), "Example 1"
+    assert Solution().pathSum(A, 22) == [
+        [5, 4, 11, 2],
+        [5, 8, 4, 5]
+    ], "Example 1"
 
     print('All passed')
