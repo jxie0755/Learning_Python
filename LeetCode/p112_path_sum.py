@@ -98,17 +98,18 @@ class Solution:
         def helper(root, cur=[]):
             if not root:
                 return None
-            if not root.left and not root.right:
+            elif not root.left and not root.right:
                 cur.append(root.val)
                 result.append(cur)
-            if root.left:
-                new_cur = cur[:]
-                new_cur.append(root.val)
-                helper(root.left, new_cur)
-            if root.right:
-                new_cur = cur[:]
-                new_cur.append(root.val)
-                helper(root.right, new_cur)
+            else:
+                if root.left:
+                    new_cur = cur[:]
+                    new_cur.append(root.val)
+                    helper(root.left, new_cur)
+                if root.right:
+                    new_cur = cur[:]
+                    new_cur.append(root.val)
+                    helper(root.right, new_cur)
 
         helper(root)
         return result
