@@ -116,7 +116,7 @@ if __name__ == '__main__':
 
     A = TreeNode(0)
     Solution().flatten(A)
-    assert A == genTree([0]), 'Edge 1'
+    assert A == A, 'Edge 1'
 
     A = TreeNode(1)
     Solution().flatten(A)
