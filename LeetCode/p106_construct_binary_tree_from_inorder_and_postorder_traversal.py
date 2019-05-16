@@ -95,37 +95,47 @@ def genTree(lst):
 
 
 class Solution:
-    def postorderTraversal(self, root):
-        if not root:
-            return []
-        return self.postorderTraversal(root.left) + self.postorderTraversal(root.right) + [root.val]
-
-
+    ### Basically the same idea of my own slow version in leetcode P105
     def buildTree(self, inorder, postorder):
         """
         :type inorder: List[int]
         :type postorder: List[int]
         :rtype: TreeNode
         """
-        pass
+        hmp = dict()
+        for idx, val in enumerate(inorder):
+            hmp[val] = idx
+
+        def helper(postorder_lst):
+            if not postorder_lst:
+                return None
+            root_val = postorder_lst[-1]
+            root = TreeNode(root_val)
+            root_idx = hmp[root_val]
+
+            left_postorder, right_postorder = [], []
+            for i in postorder_lst[::-1]:
+                check_idx = hmp[i]
+                if check_idx > root_idx:
+                    right_postorder.insert(0, i)
+                elif check_idx < root_idx:
+                    left_postorder.insert(0, i)
+
+            root.left = helper(left_postorder)
+            root.right = helper(right_postorder)
+            return root
+
+        return helper(postorder)
 
 
-A = genTree([
+
+if __name__ == '__main__':
+    assert not Solution().buildTree([],[]), 'Edge 0'
+    assert Solution().buildTree([1],[1]) == genTree([1]), 'Edge 1'
+    assert Solution().buildTree([9,3,15,20,7],[9,15,7,20,3]) == genTree([
         3,
         9,20,
         None,None,15,7
-    ])
+    ]), 'Example 1'
 
-print(Solution().postorderTraversal(A))
-
-
-# if __name__ == '__main__':
-#     assert not Solution().buildTree([],[]), 'Edge 0'
-#     assert Solution().buildTree([1],[1]) == genTree([1]), 'Edge 1'
-#     assert Solution().buildTree([9,3,15,20,7],[9,15,7,20,3]) == genTree([
-#         3,
-#         9,20,
-#         None,None,15,7
-#     ]), 'Example 1'
-#
-#     print('all passed')
+    print('all passed')
