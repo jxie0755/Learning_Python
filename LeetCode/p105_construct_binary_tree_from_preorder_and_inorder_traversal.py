@@ -149,7 +149,7 @@ class Solution:
             left_preorder, right_preorder = [], []
 
             # 通过对比idx过滤preorder, 得到新的left preorder和right preorder
-            for i in preorder_lst[1:]:
+            for i in preorder_lst:
                 check_idx = hmp[i]
                 if check_idx < root_idx:
                     left_preorder.append(i)
