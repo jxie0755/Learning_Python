@@ -139,17 +139,17 @@ class Solution:
         for idx, val in enumerate(inorder):
             hmp[val] = idx
 
-        def helper(preorder):
-            if not preorder:
+        def helper(preorder_lst):
+            if not preorder_lst:
                 return None
-            root_val = preorder[0]
+            root_val = preorder_lst[0]
             root = TreeNode(root_val)
             root_idx = hmp[root_val]
 
             left_preorder, right_preorder = [], []
 
             # 通过对比idx过滤preorder, 得到新的left preorder和right preorder
-            for i in preorder[1:]:
+            for i in preorder_lst[1:]:
                 check_idx = hmp[i]
                 if check_idx < root_idx:
                     left_preorder.append(i)
