@@ -79,10 +79,7 @@ class Solution:
     ### Recursive method
     def inorderTraversal(self, root: TreeNode) -> List[int]:
         if not root:
-            # Must write this way to avoid val=0
-            # Do not write 'not root.val'
             return []
-
         return self.inorderTraversal(root.left) + [root.val] + self.inorderTraversal(root.right)
 
 
