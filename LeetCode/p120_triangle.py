@@ -17,9 +17,12 @@ class Solution:
     def minimumTotal(self, triangle: List[List[int]]) -> int:
         def helper(depth, idx):
             row = triangle[depth]
+
             if depth == len(triangle) - 1:
+                # last row just return the value on the idx
                 return row[idx]
             else:
+                # recursive add the value on the idex to next roll's minimum value of the two adjacent index
                 return min(row[idx] + helper(depth+1, idx), row[idx] + helper(depth+1, idx+1))
 
         return helper(0,0)
