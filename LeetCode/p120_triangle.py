@@ -12,8 +12,17 @@ from typing import *
 
 
 class Solution:
+    ### Recursive method
+    ### This will pass but exceed max time limit as the recursion grow exponentially
     def minimumTotal(self, triangle: List[List[int]]) -> int:
-        pass
+        def helper(depth, idx):
+            row = triangle[depth]
+            if depth == len(triangle) - 1:
+                return row[idx]
+            else:
+                return min(row[idx] + helper(depth+1, idx), row[idx] + helper(depth+1, idx+1))
+
+        return helper(0,0)
 
 
 
