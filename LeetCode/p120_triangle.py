@@ -28,9 +28,47 @@ class Solution:
         return helper(0,0)
 
 
+class Solution:
+    # a two row iteration method
+    # update the first row in triangle from end to begin
+    # the second row is the updated minimum value of first row and second row
+    # passed, very fast method
+    def minimumTotal(self, triangle: List[List[int]]) -> int:
+        if len(triangle) == 1:
+            return triangle[0][0]
+
+        N = len(triangle) - 2
+
+        next_row_min = triangle[N + 1]
+        while N >= 0:
+            row = triangle[N]
+            new_min = []
+            for i in range(0, len(row)):
+                new_min.append(min(row[i]+next_row_min[i], row[i]+next_row_min[i+1]))
+            next_row_min = new_min
+            N -= 1
+        return next_row_min[0]
+
+
+    ### do not general now next_row_min, modify in-place, for bonus
+    def minimumTotal(self, triangle: List[List[int]]) -> int:
+        if len(triangle) == 1:
+            return triangle[0][0]
+
+        N = len(triangle) - 2
+
+        next_row_min = triangle[N + 1]
+        ###
+        while N >= 0:
+            row = triangle[N]
+            for i in range(0, len(row)):
+                next_row_min[i] = min(row[i] + next_row_min[i], row[i] + next_row_min[i+1])
+            N -= 1
+        return next_row_min[0]
+
+
 
 if __name__ == '__main__':
-    assert Solution().minimumTotal([]) == 0, 'Edge 0'
     assert Solution().minimumTotal([[1]]) == 1, 'Edge 1'
 
     A = [
