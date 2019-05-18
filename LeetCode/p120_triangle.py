@@ -56,13 +56,12 @@ class Solution:
             return triangle[0][0]
 
         N = len(triangle) - 2
-
         next_row_min = triangle[N + 1]
-        ###
+
         while N >= 0:
             row = triangle[N]
             for i in range(0, len(row)):
-                next_row_min[i] = min(row[i] + next_row_min[i], row[i] + next_row_min[i+1])
+                next_row_min[i] = row[i] + min(next_row_min[i], next_row_min[i+1])
             N -= 1
         return next_row_min[0]
 
