@@ -44,7 +44,7 @@ class Solution:
             row = triangle[N]
             new_min = []
             for i in range(0, len(row)):
-                new_min.append(min(row[i]+next_row_min[i], row[i]+next_row_min[i+1]))
+                new_min.append(row[i] + min(+next_row_min[i], next_row_min[i+1]))
             next_row_min = new_min
             N -= 1
         return next_row_min[0]
