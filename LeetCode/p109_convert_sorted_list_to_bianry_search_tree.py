@@ -59,7 +59,7 @@ class TreeNode:
 
 def genTree(lst):
     """
-    generate a binary tree according to a non-empty list of values
+    To generate a perfect binary tree according to a non-empty list of values
     The lst must be all filled, even the branch is empty, then use None to suggest the empty treeNode
     """
     LLL = log(len(lst)+1,2)
