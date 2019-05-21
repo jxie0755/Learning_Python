@@ -102,8 +102,44 @@ if __name__ == '__main__':
     # >>> [[3], [None, 20], [None, None, 15, 7]]
 
 
+
+def showPerfectLayers(root):
+    """
+    Generate a perfect binary heap in list of nodes (Not Values)
+    use None to replace empty Nodes for take index places
+    """
+    if not root:
+        return []
+    result = [root]
+    layer = [root]
+    while any(layer):
+        new_layer = []
+        for i in layer:
+            if not i:
+                new_layer.append(None)
+                new_layer.append(None)
+            else:
+                new_layer.append(i.left if i.left else None)
+                new_layer.append(i.right if i.right else None)
+        result += new_layer
+        layer = new_layer
+    return result
+
+
+if __name__ == '__main__':
+    A = genTree([3, None, 20, None, None, 15, 7])
+    print('\nshowPerfectLayers:')
+    L = showPerfectLayers(A)
+    LV = []
+    for i in L:
+        if i:
+            LV.append(i.val)
+        else:
+            LV.append(None)
+    print(LV)
+
 def allPath(root):
-    """show all the paths in a non-empty root"""
+    """show all the paths from root to leaf in a non-empty root"""
     result = []
 
     def helper(root, cur=[]):
