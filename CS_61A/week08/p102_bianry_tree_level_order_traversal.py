@@ -30,31 +30,24 @@ class TreeNode:
         return layer(self)
 
 
-def genTree(lst):
+def genTree(lst, i=1):
     """
     To generate a perfect binary tree according to a non-empty list of values
     The lst must be all filled, even the branch is empty, then use None to suggest the empty treeNode
     """
-    layers = []
-    i, L = 0, 1
-    while i != len(lst):
-        layers.append(lst[i:i + L])
-        i += L
-        L *= 2
-    pre_root = [TreeNode(i) for i in layers[0]]
-    root_to_return = pre_root[0]
+    if not lst:
+        return None
 
-    for k in range(1, len(layers)):
-        cur = [TreeNode(i) for i in layers[k]]
-        for j in range(len(cur)):
-            rt_idx, brc_side = divmod(j, 2)
-            if brc_side == 0:
-                pre_root[rt_idx].left = cur[j]
-            else:
-                pre_root[rt_idx].right = cur[j]
-        pre_root = cur
+    N = len(lst)
+    if i > N:
+        return None
 
-    return root_to_return
+    val = lst[i-1]
+    node = TreeNode(val)
+    if val is not None:
+        node.left = genTree(lst, i*2)
+        node.right = genTree(lst, i*2+1)
+        return node
 
 class Solution:
 
@@ -105,7 +98,8 @@ if __name__ == '__main__':
         0,
         2, 4,
         1, None, 3, -1,
-        5, 1, None, 6, None, 8, None, None])
+        5, 1, None, None, 6, None, 8, None])
+
     assert Solution().levelOrder(A) == [
         [0],
         [2, 4],

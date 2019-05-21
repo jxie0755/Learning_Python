@@ -48,7 +48,7 @@ class TreeNode:
 
         return leftval and rightval
 
-def genTree(lst):
+def genTree(lst, i=1):
     """
     To generate a perfect binary tree according to a non-empty list of values
     The lst must be all filled, even the branch is empty, then use None to suggest the empty treeNode
@@ -56,38 +56,16 @@ def genTree(lst):
     if not lst:
         return None
 
-    LLL = log(len(lst)+1,2)
-    if int(LLL) != LLL:
-        print("List length is not complete, it must be 2^n - 1")
-        raise ZeroDivisionError
+    N = len(lst)
+    if i > N:
+        return None
 
-    layers = []
-    i, L = 0, 1
-
-    while i != len(lst):
-        layers.append(lst[i:i + L])
-        i += L
-        L *= 2
-    pre_root = [TreeNode(i) for i in layers[0]]
-    root_to_return = pre_root[0]
-
-    for k in range(1, len(layers)):
-        cur = []
-        for i in layers[k]:
-            if i is not None:
-                cur.append(TreeNode(i))
-            else:
-                cur.append(None)
-
-        for j in range(len(cur)):
-            rt_idx, brc_side = divmod(j, 2)
-            if brc_side == 0 and cur[j] is not None:
-                pre_root[rt_idx].left = cur[j]
-            elif brc_side != 0 and cur[j] is not None:
-                pre_root[rt_idx].right = cur[j]
-        pre_root = cur
-
-    return root_to_return
+    val = lst[i-1]
+    node = TreeNode(val)
+    if val is not None:
+        node.left = genTree(lst, i*2)
+        node.right = genTree(lst, i*2+1)
+        return node
 
 
 class Solution:
