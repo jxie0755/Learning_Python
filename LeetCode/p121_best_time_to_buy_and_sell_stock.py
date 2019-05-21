@@ -78,6 +78,7 @@ class Solution:
         return max(profits)
 
     def maxProfit_best(self, prices):
+        ### STD ans
         ### Best method evaluate on the run
         max_profit, min_price = 0, float("inf")
                                     # 无穷大
