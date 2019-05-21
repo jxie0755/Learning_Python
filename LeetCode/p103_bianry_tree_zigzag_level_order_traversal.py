@@ -42,16 +42,8 @@ def genTree(lst, i=1):
     To generate a perfect binary tree according to a non-empty list of values
     The lst must be all filled, even the branch is empty, then use None to suggest the empty treeNode
     """
-    if not lst:
-        return None
-
-    N = len(lst)
-    if i > N:
-        return None
-
-    val = lst[i-1]
-    node = TreeNode(val)
-    if val is not None:
+    if lst and i <= len(lst) and lst[i-1] is not None:
+        node = TreeNode(lst[i-1])
         node.left = genTree(lst, i*2)
         node.right = genTree(lst, i*2+1)
         return node
