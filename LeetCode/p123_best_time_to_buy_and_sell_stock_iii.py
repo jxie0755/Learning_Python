@@ -80,6 +80,51 @@ class Solution:
         return max_two_so_far
 
 
+class Solution:
+
+    ### Modified method, only do comparison at the peak
+    ### almost the same way as profit breakdown to find peaks
+    ### This will pass time limit but still slow
+
+    def singleMaxProfit(self, prices):
+        ### according to the best method, Denis modified for clearer logic
+        min_price = float('inf')
+        profit = 0
+        i = 0
+        while i != len(prices):
+            current = prices[i]
+            if current < min_price:
+                min_price = current
+            profit = max(current - min_price, profit)
+            i += 1
+        return profit
+
+    def maxProfit(self, prices: List[int]) -> int:
+        if not prices:
+            return 0
+
+        max_two_so_far = 0
+        i = 0
+        foundpeak = False
+        while i != len(prices):
+            cur = prices[i]
+            prev = prices[i - 1]
+            if cur <= prev and foundpeak:
+                A = self.singleMaxProfit(prices[0:i]) + self.singleMaxProfit(prices[i:])
+                max_two_so_far = max(max_two_so_far, A)
+                foundpeak = False
+            elif i == len(prices)-1:
+                A = self.singleMaxProfit(prices)
+                max_two_so_far = max(max_two_so_far, A)
+            elif cur > prev:
+                foundpeak = True
+
+            i += 1
+
+        return max_two_so_far
+    # TODO To be reviewed
+
+
 
 if __name__ == '__main__':
     assert Solution().maxProfit([]) == 0, 'Edge 0'
