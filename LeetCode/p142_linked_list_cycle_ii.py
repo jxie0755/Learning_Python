@@ -30,7 +30,9 @@ def genNode(*nodes, end=None):
 
 class Solution(object):
 
+
     def detectCycle(self, head):
+        """return the node where the cycle begins"""
         ### Time O(N), Space O(N), use hashtable to search faster
         ### ListNode instance is not hashable, this method search at O(1), and will not break down the original linked list
         if not head:
@@ -43,7 +45,7 @@ class Solution(object):
                 hashtable[cur] = val
                 val += 1
             else:
-                return hashtable[cur]  # cyling will force to return
+                return cur  # cyling will force to return
             cur = cur.next
 
         return None # if no cycle, while loop will end
@@ -55,11 +57,11 @@ if __name__ == '__main__':
 
     A = genNode(3,2,0,4)
     A.next.next.next.next = A.next
-    assert Solution().detectCycle(A) == 1, 'Example 1'
+    assert Solution().detectCycle(A) == A.next, 'Example 1'
 
     A = genNode(1,2)
     A.next.next= A
-    assert Solution().detectCycle(A) == 0, 'Example 2'
+    assert Solution().detectCycle(A) == A, 'Example 2'
 
     A = genNode(1)
     assert not Solution().detectCycle(A), 'Edge 1, no cycle'
