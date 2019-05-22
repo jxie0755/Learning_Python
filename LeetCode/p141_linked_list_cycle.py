@@ -61,14 +61,14 @@ class Solution(object):
         """
         if not head:
             return False
-        hashtable = {head:1}
-        tail = head.next
-        while tail is not None:
-            if tail not in hashtable:
-                hashtable[tail] = 1
+        hashtable = {}
+        cur = head
+        while cur:
+            if cur not in hashtable:
+                hashtable[cur] = 1
             else:
                 return True   # cyling will force to return
-            tail = tail.next
+            cur = cur.next
 
         return False  # if no cycle, while loop will end
 
