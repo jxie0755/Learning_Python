@@ -76,25 +76,29 @@ class Solution(object):
         if head == None or head.next == None:
             return head
 
+
+        # Find the middle point by moving fast by 2 step and slow by 1 step.
+        # when fast gets to the end, slow is at half point as the begining of second half
+        # now second half begin with slow
         fast, slow, prev = head, head, None
         while fast != None and fast.next != None:
             fast, slow, prev = fast.next.next, slow.next, slow
         current, prev.next, prev = slow, None, None
 
-
+        # Revser the second half (now begin with prev)
         while current != None:
             current.next, prev, current = prev, current, current.next
 
-
+        # Until now: head is the first half, prev is the reversed second half
         l1, l2 = head, prev
         dummy = ListNode(0)
         current = dummy
 
+        # linked L1 head to L2 head
+        # Move L1 head to next one and L2 head to next one
         while l1 != None and l2 != None:
-
             current.next, current, l1 = l1, l1, l1.next
             current.next, current, l2 = l2, l2, l2.next
-            print(dummy.next)
         return dummy.next
 
         # Breakdown:
@@ -102,10 +106,11 @@ class Solution(object):
         # to
         # 1-2 and 3-4-5, then reverse 3-4-5 to 5-4-3:
         # got:
-        # 1-2
-        # 5-4-3
+        # L1:  1-2
+        # L2:  5-4-3
         # then link the head and move to next
         # 1-5-2-4-3 (4 naturally linked to 3)
+
 
 
 if __name__ == '__main__':
