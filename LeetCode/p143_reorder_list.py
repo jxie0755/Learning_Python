@@ -67,7 +67,45 @@ class Solution(object):
 
         dummy.next = None  # avoid cycling
 
+class Solution(object):
 
+    # STD ans
+    # @param head, a ListNode
+    # @return nothing
+    def reorderList(self, head):
+        if head == None or head.next == None:
+            return head
+
+        fast, slow, prev = head, head, None
+        while fast != None and fast.next != None:
+            fast, slow, prev = fast.next.next, slow.next, slow
+        current, prev.next, prev = slow, None, None
+
+
+        while current != None:
+            current.next, prev, current = prev, current, current.next
+
+
+        l1, l2 = head, prev
+        dummy = ListNode(0)
+        current = dummy
+
+        while l1 != None and l2 != None:
+
+            current.next, current, l1 = l1, l1, l1.next
+            current.next, current, l2 = l2, l2, l2.next
+            print(dummy.next)
+        return dummy.next
+
+        # Breakdown:
+        # 1-2-3-4-5
+        # to
+        # 1-2 and 3-4-5, then reverse 3-4-5 to 5-4-3:
+        # got:
+        # 1-2
+        # 5-4-3
+        # then link the head and move to next
+        # 1-5-2-4-3 (4 naturally linked to 3)
 
 
 if __name__ == '__main__':
