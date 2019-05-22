@@ -111,27 +111,22 @@ class Solution:
 
 
 class Solution:
-    def traverseDirected(self, t, D='L'):
-        """
-        Directed traverse
-        must be 'L' for left or 'R' for right
-        return a flat List of values
-        """
-        if not t or t.val is None:
-                                # Must write this way to avoid val=0
-                                # Do not write 'not root.val'
+    def preorderTraversal(self, t):
+        """return a flat list of the binary tree including None"""
+        if not t:
             return [None]
-        elif D == 'L':
-            return [t.val] + self.traverseDirected(t.left, 'L') + self.traverseDirected(t.right, 'L')
-        elif D == 'R':
-            return [t.val] + self.traverseDirected(t.right, 'R') + self.traverseDirected(t.left, 'R')
+        return [t.val] + self.preorderTraversal(t.left) + self.preorderTraversal(t.right)
 
-
+    def postorderTraversal(self, t):
+        """return a flat list of the binary tree including None"""
+        if not t:
+            return [None]
+        return self.postorderTraversal(t.left) + self.postorderTraversal(t.right) + [t.val]
 
     def isSymmetric(self, root: TreeNode) -> bool:
-        ### Traverse with left priority and right priority to generate the mirrored flat list compare if they are the same
+        ### Traversal with left pre and post order to generate the mirrored flat list compare if they are the same
         ### O(N)
-        return self.traverseDirected(root, 'L') == self.traverseDirected(root, 'R')
+        return self.preorderTraversal(root) == self.postorderTraversal(root)
 
 
 # Iterative solution

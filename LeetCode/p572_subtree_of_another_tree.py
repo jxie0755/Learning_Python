@@ -68,15 +68,15 @@ class Solution:
 
 class Solution:
 
-    def traverse(self, t):
+    def preorderTraversal(self, t):
         """return a flat list of the binary tree including None"""
         if not t:
             return [None]
-        return [t.val] + self.traverse(t.left) + self.traverse(t.right)
+        return [t.val] + self.preorderTraversal(t.left) + self.preorderTraversal(t.right)
 
     def isSubtree(self, s: TreeNode, t: TreeNode) -> bool:
-        """check if traverse(t) is a sublist of traverse(s)"""
-        list_s, list_t = self.traverse(s), self.traverse(t)
+        """check if preorderTraversal(t) is a sublist of preorderTraversal(s)"""
+        list_s, list_t = self.preorderTraversal(s), self.preorderTraversal(t)
         len_s, len_t = len(list_s), len(list_t)
         for i in range(0, len_s - len_t + 1):
             if list_s[i:i+len_t] == list_t:

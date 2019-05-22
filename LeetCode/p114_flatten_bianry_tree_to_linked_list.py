@@ -59,16 +59,17 @@ def genTree(lst, i=1):
 
 
 class Solution:
-    def traverse(self, root):
-        if not root:
-            return []
-        return [root.val] + self.traverse(root.left) + self.traverse(root.right)
+    def preorderTraversal(self, t):
+        """return a flat list of the binary tree including None"""
+        if not t:
+            return [] # skip none
+        return [t.val] + self.preorderTraversal(t.left) + self.preorderTraversal(t.right)
 
     def flatten(self, root: TreeNode) -> None:
         """
         Do not return anything, modify root in-place instead.
         """
-        travel = self.traverse(root)
+        travel = self.preorderTraversal(root)
         if len(travel) > 1:
             i = 1
             root.left = None
