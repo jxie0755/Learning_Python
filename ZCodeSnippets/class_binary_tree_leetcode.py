@@ -124,9 +124,6 @@ def showPerfectLayers(root):
         result += new_layer
         layer = new_layer
 
-    # Cut the end if all the rest is None
-    while not result[-1]:
-        result.pop()
     # add the first one to be None, to move the index starting from 1
     return [None] + result
 
@@ -196,6 +193,8 @@ def allPathsLtoL(root: TreeNode) -> List:
                 elif prev_location == 'U':
                     helper(idx * 2, 'U', cur_path[:], True)  # go down left
                     helper(idx * 2 + 1, 'U', cur_path[:], True)  # go down right
+            else:
+                paths.append(cur_path)  # end
 
     nodelist = showPerfectLayers(root)
     paths = []
@@ -203,6 +202,10 @@ def allPathsLtoL(root: TreeNode) -> List:
         node = nodelist[k]
         if node and not node.left and not node.right:
             helper(k, 'N', [], False)
+
+    # If no nodes ont the left side from root, special cases from root to botoom is needed
+    if not root.left:
+        helper(1, 'U', [], False)
 
     return paths
 

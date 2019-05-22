@@ -91,9 +91,6 @@ class Solution:
             result += new_layer
             layer = new_layer
 
-        # Cut the end if all the rest is None
-        while not result[-1]:
-            result.pop()
         # add the first one to be None, to move the index starting from 1
         return [None] + result
 
@@ -104,6 +101,12 @@ class Solution:
             return root.val
 
         nodelist = self.showPerfectLayer(root)
+        right_side = []
+        rr = root
+        while rr:
+            right_side.append(rr)
+            rr = rr.right
+        # print([id(i) for i in right_side])
 
         def helper(idx, prev_location='U', cur_path=[], end=False):
             """
@@ -126,19 +129,15 @@ class Solution:
                 cur_path.append(node.val)
                 this_location = 'L' if idx % 2 == 0 else 'R'
 
-                right_side = []
-                rr = root
-                while rr:
-                    right_side.append(rr)
-                    rr = rr.right
-
-
                 if node and not node.left and not node.right and end:
                     paths.append(cur_path) # end
 
                 elif node:
                     if idx == 1:
-                        helper(idx*2+1, 'U', cur_path[:], True) # go right (only from left)
+                        if node.right:
+                            helper(idx*2+1, 'U', cur_path[:], True) # go right (only from left)
+                        else:
+                            paths.append(cur_path) # end
 
                     elif prev_location == 'N':
                         if node not in right_side:
@@ -156,79 +155,90 @@ class Solution:
                     elif prev_location == 'U':
                         helper(idx * 2, 'U', cur_path[:], True) # go down left
                         helper(idx*2+1, 'U', cur_path[:], True) # go down right
+            else:
+                paths.append(cur_path)  # end
 
         # print(nodelist)
-        paths = []
+        paths = [[i.val for i in right_side]]
         for k in range(len(nodelist)):
             node = nodelist[k]
             if node and not node.left and not node.right:
                 helper(k, 'N', [], False)
 
-        print(paths)
-        return sum(max(paths, key=self.sumMaxSubs))
+        # If no nodes ont the left side from root, special cases from root to botoom is needed
+        if not root.left:
+            helper(1, 'U', [], False)
+
+        # find out the max path from pathsmax of all paths
+        max_so_far = -float('inf')
+        for path in paths:
+            path_max = self.sumMaxSubs(path)
+            if path_max > max_so_far:
+                max_so_far = path_max
+        return max_so_far
 
 
 
 
-A = genTree([
+if __name__ == '__main__':
+
+    A = TreeNode(1)
+    assert Solution().maxPathSum(A) == 1, 'Edge 1'
+
+    A = genTree([
+        1,
+        2,3
+    ])
+    assert Solution().maxPathSum(A) == 6, 'Example 1, 2+1+3 = 6'
+
+    A = genTree([
+        -10,
+        9, 20,
+        None, None, 15, 7
+    ])
+    assert Solution().maxPathSum(A) == 42, 'Example 2, 15+20+7 = 42'
+
+    A = genTree([
         1,
         2,3,
-        4,9,None,5
+        4,5,6,7,
+        8,9,100,11,12,100,14,15
     ])
-
-print(Solution().maxPathSum(A))
-
+    assert Solution().maxPathSum(A) == 217, 'Additional 1, 100+5+2+1+3+6+100=217'
 
 
+    A = genTree([
+        -1,
+        5, 6
+    ])
+    assert Solution().maxPathSum(A) == 10, 'Additional 2, 5+-1+6=10'
 
+    A = genTree([
+        -1,
+        5, -1
+    ])
+    assert Solution().maxPathSum(A) == 5, 'Additional 3, just 5'
 
+    A = genTree([
+        -1,
+        1,-1,
+        1,1,-1,-2,
+        -1,-1
+    ])
+    assert Solution().maxPathSum(A) == 3, 'Additional 4, 1+1+1=3'
 
+    A = genTree([
+        -6,
+        None, 3,
+        None, None, 2, None
+    ])
+    assert Solution().maxPathSum(A) == 5, 'Additional 4, 2+3=5'
 
-# if __name__ == '__main__':
-#
-#     A = TreeNode(1)
-#     assert Solution().maxPathSum(A) == 1, 'Edge 1'
-#
-#     A = genTree([
-#         1,
-#         2,3
-#     ])
-#     assert Solution().maxPathSum(A) == 6, 'Example 1, 2+1+3 = 6'
-#
-#     A = genTree([
-#         -10,
-#         9, 20,
-#         None, None, 15, 7
-#     ])
-#     assert Solution().maxPathSum(A) == 42, 'Example 2, 15+20+7 = 42'
-#
-#     A = genTree([
-#         1,
-#         2,3,
-#         4,5,6,7,
-#         8,9,100,11,12,100,14,15
-#     ])
-#     assert Solution().maxPathSum(A) == 217, 'Additional 1, 100+5+2+1+3+6+100=217'
-#
-#
-#     A = genTree([
-#         -1,
-#         5, 6
-#     ])
-#     assert Solution().maxPathSum(A) == 10, 'Additional 2, 5+-1+6=10'
-#
-#     A = genTree([
-#         -1,
-#         5, -1
-#     ])
-#     assert Solution().maxPathSum(A) == 5, 'Additional 3, just 5'
-#
-#     A = genTree([
-#         -1,
-#         1,-1,
-#         1,1,-1,-1,
-#         -1,-1
-#     ])
-#     assert Solution().maxPathSum(A) == 3, 'Additional 4, 1+1+1=3'
-#
-#     print('all passed')
+    A = genTree([
+        7,
+        None, 2,
+        None, None, 3, -7
+    ])
+    assert Solution().maxPathSum(A) == 12, 'Additional 4, 7+2+3=12'
+
+    print('all passed')
