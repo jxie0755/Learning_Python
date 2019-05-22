@@ -146,49 +146,63 @@ if __name__ == '__main__':
 
 
 def allPathsLtoL(root: TreeNode) -> List:
-
     def helper(idx, prev_location='U', cur_path=[], end=False):
         """
         recursive go around the nodes through parent-children link
         node only going from left to right
         only from leaf to leaf
+
+        prev_location -
+        'N' : 'None', starting point at the Leaf
+        'U' : 'Up',   Coming down from parent
+        'L' : 'Left'  Coming up from left child
+        'R' : 'Right' Coming up from rgiht child
+
         """
+
+        # print('idx', idx, 'prev', prev_location, 'curpath', cur_path, 'end', end)
         node = nodelist[idx]
-        cur_path.append(node.val)
-        this_location = 'L' if idx % 2 == 0 else 'R'
 
-        right_side = []
-        rr = root
-        while rr:
-            right_side.append(rr)
-            rr = rr.right
+        if node:
+            cur_path.append(node.val)
+            this_location = 'L' if idx % 2 == 0 else 'R'
 
-        if node and not node.left and not node.right and end:
-            paths.append(cur_path)  # end
+            right_side = []
+            rr = root
+            while rr:
+                right_side.append(rr)
+                rr = rr.right
 
-        elif node:
-            if idx == 1:
-                helper(idx * 2 + 1, 'U', cur_path[:], True)  # go right (only from left)
+            if node and not node.left and not node.right and end:
+                paths.append(cur_path)  # end
 
-            elif prev_location == 'L':
-                if node not in right_side:
-                    helper(idx // 2, this_location, cur_path[:], True)  # go up if not on the right side
-                helper(idx * 2 + 1, 'U', cur_path[:], True)  # go right down
+            elif node:
+                if idx == 1:
+                    helper(idx * 2 + 1, 'U', cur_path[:], True)  # go right (only from left)
 
-            elif prev_location == 'R':
-                if node not in right_side:
-                    helper(idx // 2, this_location, cur_path[:], True)  # go up if not on the right side
+                elif prev_location == 'N':
+                    if node not in right_side:
+                        helper(idx // 2, this_location, cur_path[:], True)  # go up if not on the right side
 
-            elif prev_location == 'U':
-                helper(idx * 2, 'U', cur_path[:], True)  # go down left
-                helper(idx * 2 + 1, 'U', cur_path[:], True)  # go down right
+                elif prev_location == 'L':
+                    if node not in right_side:
+                        helper(idx // 2, this_location, cur_path[:], True)  # go up if not on the right side
+                    helper(idx * 2 + 1, 'U', cur_path[:], True)  # go right down
+
+                elif prev_location == 'R':
+                    if node not in right_side:
+                        helper(idx // 2, this_location, cur_path[:], True)  # go up if not on the right side
+
+                elif prev_location == 'U':
+                    helper(idx * 2, 'U', cur_path[:], True)  # go down left
+                    helper(idx * 2 + 1, 'U', cur_path[:], True)  # go down right
 
     nodelist = showPerfectLayers(root)
     paths = []
     for k in range(len(nodelist)):
         node = nodelist[k]
         if node and not node.left and not node.right:
-            helper(k, 'R', [], False)
+            helper(k, 'N', [], False)
 
     return paths
 
