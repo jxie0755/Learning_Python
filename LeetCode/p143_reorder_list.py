@@ -40,7 +40,8 @@ def genNode(*nodes, end=None):
 
 class Solution(object):
 
-    ### Put nodes in a list and keep pop from head and tail in turn and link them
+    ### Put nodes in a list
+    ### Keep poping the list from head and tail in turn and link them
     ### This will pass but runs slow
     def reorderList(self, head):
         """
@@ -62,10 +63,11 @@ class Solution(object):
                 dummy.next = lst.pop(0)
             else:
                 dummy.next = lst.pop()
-
             dummy = dummy.next
 
         dummy.next = None  # avoid cycling
+
+
 
 
 if __name__ == '__main__':
