@@ -66,13 +66,11 @@ class Solution(object):
         while tail is not None:
             if tail not in hashtable:
                 hashtable[tail] = 1
-            elif hashtable[tail] == 1:
-                return True
             else:
-                hashtable[tail] += 1
+                return True   # cyling will force to return
             tail = tail.next
 
-        return False
+        return False  # if no cycle, while loop will end
 
 class Solution_X(object):
     def hasCycle(self, head):

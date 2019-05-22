@@ -29,16 +29,29 @@ def genNode(*nodes, end=None):
 
 
 class Solution(object):
+
     def detectCycle(self, head):
-        """
-        :type head: ListNode
-        :rtype: ListNode
-        """
-        pass
+        ### Time O(N), Space O(N), use hashtable to search faster
+        ### ListNode instance is not hashable, this method search at O(1), and will not break down the original linked list
+        if not head:
+            return None
+        val = 0
+        hashtable = {}
+        cur = head
+        while cur:
+            if cur not in hashtable:
+                hashtable[cur] = val
+                val += 1
+            else:
+                return hashtable[cur]  # cyling will force to return
+            cur = cur.next
+
+        return None # if no cycle, while loop will end
+
+
 
 
 if __name__ == '__main__':
-
 
     A = genNode(3,2,0,4)
     A.next.next.next.next = A.next
@@ -50,4 +63,4 @@ if __name__ == '__main__':
 
     A = genNode(1)
     assert not Solution().detectCycle(A), 'Edge 1, no cycle'
-    print('all passe')
+    print('all passed')
