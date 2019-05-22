@@ -117,16 +117,16 @@ class Solution:
             return [None]
         return [t.val] + self.preorderTraversal(t.left) + self.preorderTraversal(t.right)
 
-    def postorderTraversal(self, t):
+    def preorderTraversal_mirrored(self, t):
         """return a flat list of the binary tree including None"""
         if not t:
             return [None]
-        return self.postorderTraversal(t.left) + self.postorderTraversal(t.right) + [t.val]
+        return [t.val] + self.preorderTraversal_mirrored(t.right) + self.preorderTraversal_mirrored(t.left)
 
     def isSymmetric(self, root: TreeNode) -> bool:
         ### Traversal with left pre and post order to generate the mirrored flat list compare if they are the same
         ### O(N)
-        return self.preorderTraversal(root) == self.postorderTraversal(root)
+        return self.preorderTraversal(root) == self.preorderTraversal_mirrored(root)
 
 
 # Iterative solution
@@ -179,8 +179,6 @@ class Solution2(object):
         if left is None or right is None or left.val != right.val:
             return False
         return self.isSymmetricRecu(left.left, right.right) and self.isSymmetricRecu(left.right, right.left)
-
-
 
 
 

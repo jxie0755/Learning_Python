@@ -56,19 +56,25 @@ def genTree(lst, i=1):
 
 
 ### Traversal
-
+# Sequence of these 3 parts can be maniluated to change travel direction
+# if keep the [root.val] position, and switch recurive call on left and right, can get mirrored list.
 def preorderTraversal(root) -> List[int]:
     """return a pre-order flat list of the binary tree including None at the very bottom end"""
     if not root:
         return [None]  # Can use [] as an option to omit None
     return [root.val] + preorderTraversal(root.left) + preorderTraversal(root.right)
-    # Sequence of these 3 parts can be maniluated to change travel direction
 
 def inorderTraversal(root: TreeNode) -> List[int]:
     """return a in-order flat list of the binary tree including None at the very bottom end"""
     if not root:
-        return [None]
+        return [None] # Can use [] as an option to omit None
     return inorderTraversal(root.left) + [root.val] + inorderTraversal(root.right)
+
+def postorderTraversal(root: TreeNode) -> List[int]:
+    """return a post-order flat list of the binary tree including None at the very bottom end"""
+    if not root:
+        return [None] # Can use [] as an option to omit None
+    return postorderTraversal(root.left) + postorderTraversal(root.right) + [root.val]
 
 
 if __name__ == '__main__':
@@ -83,6 +89,10 @@ if __name__ == '__main__':
     print('\nin order traverse:')
     print(inorderTraversal(A))
     # >>>  [None, 4, None, 2, None, 5, None, 1, None, 6, None, 3, None, 7, None]
+
+    print('\npost order traverse:')
+    print(postorderTraversal(A))
+    # >>> [None, None, 4, None, None, 5, 2, None, None, 6, None, None, 7, 3, 1]
 
 def showLayers(root):
     """Show the tree layer by layer from top to bottom"""
