@@ -8,6 +8,13 @@ class ListNode:
             return "{}->{}".format(self.val, repr(self.next))
         else:
             return "{}".format(self.val)
+    def __eq__(self, other):
+        if not self and not other:
+            return True
+        elif not self or not other:
+            return False
+        else:
+            return self.val == other.val and self.next == other.next
 
 def genNode(*nodes, end=None):
     if len(nodes) == 1 and type(nodes[0]) == list:

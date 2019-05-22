@@ -7,25 +7,8 @@
 # You may not modify the values in the list's nodes, only nodes itself may be changed.
 
 from typing import *
-
-class ListNode:
-    def __init__(self, x):
-        self.val = x
-        self.next = None
-
-    def __repr__(self):
-        if self.next:
-            return "{}->{}".format(self.val, repr(self.next))
-        else:
-            return "{}".format(self.val)
-
-    def __eq__(self, other):
-        if not self and not other:
-            return True
-        elif not self or not other:
-            return False
-        else:
-            return self.val == other.val and self.next == other.next
+from a0_TreeNode import *
+from a0_ListNode import *
 
 
 def genNode(*nodes, end=None):
