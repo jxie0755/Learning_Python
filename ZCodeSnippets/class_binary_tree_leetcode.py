@@ -1,5 +1,5 @@
 # This is just to summarize some useful functions learn from Leetcode Tree problems
-
+from typing import *
 # Definition for a binary tree node.
 # Definition for a binary tree node.
 from math import log
@@ -123,7 +123,13 @@ def showPerfectLayers(root):
                 new_layer.append(i.right if i.right else None)
         result += new_layer
         layer = new_layer
-    return result
+
+    # Cut the end if all the rest is None
+    while not result[-1]:
+        result.pop()
+    # add the first one to be None, to move the index starting from 1
+    return [None] + result
+
 
 
 if __name__ == '__main__':
@@ -137,6 +143,68 @@ if __name__ == '__main__':
         else:
             LV.append(None)
     print(LV)
+
+
+def allPathsLtoL(root: TreeNode) -> List:
+
+    def helper(idx, prev_location='U', cur_path=[], end=False):
+        """
+        recursive go around the nodes through parent-children link
+        node only going from left to right
+        only from leaf to leaf
+        """
+        node = nodelist[idx]
+        cur_path.append(node.val)
+        this_location = 'L' if idx % 2 == 0 else 'R'
+
+        right_side = []
+        rr = root
+        while rr:
+            right_side.append(rr)
+            rr = rr.right
+
+        if node and not node.left and not node.right and end:
+            paths.append(cur_path)  # end
+
+        elif node:
+            if idx == 1:
+                helper(idx * 2 + 1, 'U', cur_path[:], True)  # go right (only from left)
+
+            elif prev_location == 'L':
+                if node not in right_side:
+                    helper(idx // 2, this_location, cur_path[:], True)  # go up if not on the right side
+                helper(idx * 2 + 1, 'U', cur_path[:], True)  # go right down
+
+            elif prev_location == 'R':
+                if node not in right_side:
+                    helper(idx // 2, this_location, cur_path[:], True)  # go up if not on the right side
+
+            elif prev_location == 'U':
+                helper(idx * 2, 'U', cur_path[:], True)  # go down left
+                helper(idx * 2 + 1, 'U', cur_path[:], True)  # go down right
+
+    nodelist = showPerfectLayers(root)
+    paths = []
+    for k in range(len(nodelist)):
+        node = nodelist[k]
+        if node and not node.left and not node.right:
+            helper(k, 'R', [], False)
+
+    return paths
+
+
+if __name__ == '__main__':
+    A = genTree([
+        1,
+        2, 3,
+        4, 5, 6, 7,
+    ])
+
+    print('\nall paths leaf to leaf:')
+    for i in allPathsLtoL(A):
+        print(i)
+
+
 
 def allPath(root):
     """show all the paths from root to leaf in a non-empty root"""

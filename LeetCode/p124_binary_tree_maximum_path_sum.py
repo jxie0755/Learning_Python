@@ -61,6 +61,9 @@ def genTree(lst, i=1):
 
 
 class Solution:
+
+    ### TODO to be finished, only get all leaf to leaf paths for now
+
     def showPerfectLayer(self, root):
         if not root:
             return []
@@ -77,31 +80,73 @@ class Solution:
                     new_layer.append(i.right if i.right else None)
             result += new_layer
             layer = new_layer
-        return result
+
+        # Cut the end if all the rest is None
+        while not result[-1]:
+            result.pop()
+        # add the first one to be None, to move the index starting from 1
+        return [None] + result
 
 
     def maxPathSum(self, root: TreeNode) -> int:
-        pass
+        nodelist = self.showPerfectLayer(root)
+
+        def helper(idx, prev_location='U', cur_path=[], end=False):
+            """
+            recursive go around the nodes through parent-children link
+            node only going from left to right
+            only from leaf to leaf
+            """
+            node = nodelist[idx]
+            cur_path.append(node.val)
+            this_location = 'L' if idx % 2 == 0 else 'R'
+
+            right_side = []
+            rr = root
+            while rr:
+                right_side.append(rr)
+                rr = rr.right
+
+            if node and not node.left and not node.right and end:
+                paths.append(cur_path) # end
+
+            elif node:
+                if idx == 1:
+                    helper(idx*2+1, 'U', cur_path[:], True) # go right (only from left)
+
+                elif prev_location == 'L':
+                    if node not in right_side:
+                        helper(idx//2, this_location, cur_path[:], True)  # go up if not on the right side
+                    helper(idx*2+1, 'U', cur_path[:], True) # go right down
+
+                elif prev_location == 'R':
+                    if node not in right_side:
+                        helper(idx//2, this_location, cur_path[:], True)  # go up if not on the right side
+
+                elif prev_location == 'U':
+                    helper(idx * 2, 'U', cur_path[:], True) # go down left
+                    helper(idx*2+1, 'U', cur_path[:], True) # go down right
+
+
+        paths = []
+        for k in range(len(nodelist)):
+            node = nodelist[k]
+            if node and not node.left and not node.right:
+                helper(k, 'R', [], False)
+
+        return paths
 
 
 
 
 A = genTree([
-        -1,
-        1,-1,
-        1,1,-1,-1,
-        -1,-1
+        1,
+        2,3,
+        4,5,6,7,
+        8,9
     ])
 
-Alist = Solution().showPerfectLayer(A)
-AvaList =[]
-for i in Alist:
-    if i:
-        AvaList.append(i.val)
-    else:
-        AvaList.append(None)
-print(AvaList)
-
+print(Solution().maxPathSum(A))
 
 
 
