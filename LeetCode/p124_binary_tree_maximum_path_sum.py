@@ -74,7 +74,7 @@ class Solution:
                     max_so_far = cur
         return max_so_far
 
-    def showPerfectLayer(self, root):
+    def showPerfectLayers(self, root):
         if not root:
             return []
         result = [root]
@@ -100,7 +100,7 @@ class Solution:
         if not root.left and not root.right:
             return root.val
 
-        nodelist = self.showPerfectLayer(root)
+        nodelist = self.showPerfectLayers(root)
         right_side = []
         rr = root
         while rr:
