@@ -1,7 +1,6 @@
 # This is just to summarize some useful functions learn from Leetcode Tree problems
 from typing import *
 # Definition for a binary tree node.
-# Definition for a binary tree node.
 from math import log
 
 class TreeNode:
