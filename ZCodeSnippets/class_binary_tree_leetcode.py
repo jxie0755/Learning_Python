@@ -82,15 +82,15 @@ if __name__ == '__main__':
         1,
         2, 3,
         4, 5, 6, 7])
-    print('\npre order traverse:')
+    print('\npre order traversal:')
     print(preorderTraversal(A))
     # >>> [1, 2, 4, None, None, 5, None, None, 3, 6, None, None, 7, None, None]
 
-    print('\nin order traverse:')
+    print('\nin order traversal:')
     print(inorderTraversal(A))
     # >>>  [None, 4, None, 2, None, 5, None, 1, None, 6, None, 3, None, 7, None]
 
-    print('\npost order traverse:')
+    print('\npost order traversal:')
     print(postorderTraversal(A))
     # >>> [None, None, 4, None, None, 5, 2, None, None, 6, None, None, 7, 3, 1]
 
