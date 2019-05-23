@@ -110,6 +110,8 @@ class Solution(object):
 
         return head
 
+
+
 class Solution(object):
 
     ### Version C1
@@ -121,6 +123,9 @@ class Solution(object):
         :type head: ListNode
         :rtype: ListNode
         """
+        if head is None or self.isSorted(head): # if already sorted, skip # this will save a lot of time
+            return head
+
         dummy = ListNode(-float('inf'))
         cur = head
 
@@ -142,10 +147,19 @@ class Solution(object):
             cur = cur.next
         return dummy.next
 
+    # This is very IMPORTANT
+    # because insertion sort will take same time even if the list is already sorted
+    def isSorted(self, head):
+        while head and head.next:
+            if head.val > head.next.val:
+                return False
+            head = head.next
+        return True
+
 class Solution(object):
 
-    ### Version C1
-    ### Same principle as C2, but actually change in place
+    ### Version C2
+    ### Same principle as C1, but actually change in place
     ### Speed is almos the same
 
     def insertionSortList(self, head):
@@ -153,8 +167,10 @@ class Solution(object):
         :type head: ListNode
         :rtype: ListNode
         """
-        dummy = ListNode(-float('inf'))
+        if head is None or self.isSorted(head): # if already sorted, skip # this will save a lot of time
+            return head
 
+        dummy = ListNode(-float('inf'))
         cur = head
         while cur:
             prev = dummy
@@ -177,6 +193,15 @@ class Solution(object):
 
         return dummy.next
 
+
+    # This is very IMPORTANT
+    # because insertion sort will take same time even if the list is already sorted
+    def isSorted(self, head):
+        while head and head.next:
+            if head.val > head.next.val:
+                return False
+            head = head.next
+        return True
 
 
 
