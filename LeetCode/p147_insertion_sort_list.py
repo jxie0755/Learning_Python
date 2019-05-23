@@ -61,6 +61,58 @@ class Solution(object):
         return head
 
 
+class Solution(object):
+    ### Direct method, but reverse, by putting bigger items to the back
+    ### THis is actually slower than previous, because it takes too long to find_prev_node
+    def find_prev_tail(self, head, tail):
+        """find the node before the tail"""
+        cur = head
+        while cur.next != tail:
+                cur = cur.next
+        return cur
+
+
+    def insertion(self, head):
+        """
+        insertion sort in-place from the head to end
+        No need to swap nodes, only swap the values
+        """
+        if head.next:
+            tail = head.next
+            while tail:
+                if head.val > tail.val:
+                    head.val, tail.val = tail.val, head.val
+                    head, tail = tail, tail.next
+                else:
+                    break
+
+    def insertionSortList(self, head):
+        """
+        :type head: ListNode
+        :rtype: ListNode
+        """
+        if not head or not head.next:
+            return head
+
+        # Locate the tail
+        tail = head
+        while tail.next:
+            tail = tail.next
+
+        while True:
+            self.insertion(tail)
+            if tail == head:
+                break
+            tail = self.find_prev_tail(head, tail)
+
+        return head
+
+
+
+
+
+
+
 
 if __name__ == '__main__':
     A = None
