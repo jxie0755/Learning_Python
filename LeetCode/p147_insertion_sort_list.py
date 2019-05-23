@@ -15,18 +15,56 @@ from a0_ListNode import *
 
 
 class Solution(object):
+    ### Indirect Insertion method using the list other than linked-list
+    ### Move the val into a list and insertion sort the list
+    ### Then reassign the val of each node according to the list
+    ### This will pass but runs slow
+    def insertionsort(self, lst):
+
+        for i in range(1, len(lst)):
+            j = i-1
+            cur = lst[i]
+            while j >= 0:
+                pre = lst[j]
+                if pre > cur:
+                    lst[i], lst[j] = lst[j], lst[i]
+                    i -= 1
+                    j -= 1
+                else:
+                    break
+        return lst
+
+
     def insertionSortList(self, head):
         """
         :type head: ListNode
         :rtype: ListNode
         """
-        pass
+
+        if not head:
+            return head
+
+        lst = []
+        cur = head
+        while cur:
+            lst.append(cur.val)
+            cur = cur.next
+
+        self.insertionsort(lst)
+        cur = head
+        i = 0
+        while cur:
+            cur.val = lst[i]
+            i += 1
+            cur = cur.next
+
+        return head
 
 
 
 if __name__ == '__main__':
     A = None
-    assert Solution().insertionSortList(A) == A, 'Edge -'
+    assert Solution().insertionSortList(A) == A, 'Edge 0'
 
     A = genNode(1)
     assert Solution().insertionSortList(A) == A, 'Edge 1'
