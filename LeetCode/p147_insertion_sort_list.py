@@ -108,8 +108,38 @@ class Solution(object):
         return head
 
 
+class Solution(object):
 
+    ### Create a dummy head and adding the nodes to dummy.next with insertion idea
+    ### This is actually change in place
+    def insertionSortList(self, head):
+        """
+        :type head: ListNode
+        :rtype: ListNode
+        """
+        dummy = ListNode(-float('inf'))
 
+        cur = head
+        while cur:
+            prev = dummy
+            temp = dummy.next
+            temp_cur_next = cur.next
+            cur.next = None
+            while True:
+                if temp:
+                    if cur.val > temp.val:
+                        prev = prev.next
+                        temp = temp.next
+                    else:
+                        prev.next = cur
+                        cur.next = temp
+                        break
+                else:
+                    prev.next = cur
+                    break
+            cur = temp_cur_next
+
+        return dummy.next
 
 
 
