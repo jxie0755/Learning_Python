@@ -15,6 +15,7 @@ from a0_ListNode import *
 
 
 class Solution(object):
+    ### Version A
     ### Indirect Insertion method using the list other than linked-list
     ### Move the val into a list and insertion sort the list
     ### Then reassign the val of each node according to the list
@@ -62,6 +63,8 @@ class Solution(object):
 
 
 class Solution(object):
+
+    ### Version B
     ### Direct method, but reverse, by putting bigger items to the back
     ### THis is actually slower than previous, because it takes too long to find_prev_node
     def find_prev_tail(self, head, tail):
@@ -107,11 +110,44 @@ class Solution(object):
 
         return head
 
+class Solution(object):
+
+    ### Version C1
+    ### Create a dummy head and adding the nodes to dummy.next with insertion idea
+    ### Take extra space, it create new nodes with values
+    ### The speed is not very fast
+    def insertionSortList(self, head):
+        """
+        :type head: ListNode
+        :rtype: ListNode
+        """
+        dummy = ListNode(-float('inf'))
+        cur = head
+
+        while cur:
+            prev = dummy
+            while True:
+                temp = prev.next
+                if temp:
+                    if cur.val < temp.val:
+                        new = ListNode(cur.val)
+                        prev.next = new
+                        new.next = temp
+                        break
+                    else:
+                        prev = prev.next
+                else:
+                    prev.next = ListNode(cur.val)
+                    break
+            cur = cur.next
+        return dummy.next
 
 class Solution(object):
 
-    ### Create a dummy head and adding the nodes to dummy.next with insertion idea
-    ### This is actually change in place
+    ### Version C1
+    ### Same principle as C2, but actually change in place
+    ### Speed is almos the same
+
     def insertionSortList(self, head):
         """
         :type head: ListNode
