@@ -28,6 +28,10 @@ class TreeNode:
     def __eq__(self, other):
         return str(self) == str(other)
 
+    # fix the unhashable issue with __eq__ method enabled
+    def __hash__(self):
+        return hash(str(self))
+
     def isLeaf(self):
         try:
             leftval = self.left.val
@@ -50,3 +54,7 @@ def genTree(lst, i=1):
         node.left = genTree(lst, i*2)
         node.right = genTree(lst, i*2+1)
         return node
+
+
+A = genTree([1,2,3])
+print(hash(A))

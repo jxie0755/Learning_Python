@@ -77,6 +77,9 @@ class TreeNode:
     def __eq__(self, other):
         return str(self) == str(other)
 
+    def __hash__(self):
+        return hash(str(self))
+
     def isLeaf(self):
         try:
             leftval = self.left.val
@@ -102,7 +105,7 @@ def genTree(lst, i=1):
 
 
 A = genTree([1,2,3])
-# print(hash(A))
+print(hash(A))
 
 
 # Best answer: __eq__ will remove the default __hash__ method, so by creating a customized __hash__ method will make it hashable again.

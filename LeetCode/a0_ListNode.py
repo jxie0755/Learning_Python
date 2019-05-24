@@ -16,6 +16,10 @@ class ListNode:
         else:
             return self.val == other.val and self.next == other.next
 
+    # fix the unhashable issue with __eq__ method enabled
+    def __hash__(self):
+        return hash(str(self))
+
 def genNode(*nodes, end=None):
     if len(nodes) == 1 and type(nodes[0]) == list:
         nodes = nodes[0]
