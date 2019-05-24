@@ -8,12 +8,19 @@
 
 
 class Solution(object):
+
+    ### Use binary search idea, but recursively
     def findMin(self, nums):
         """
         :type nums: List[int]
         :rtype: int
         """
-        pass
+        if len(nums) == 1 or nums[-1] > nums[0]:  # single or sorted
+            return nums[0]
+        else:
+            lo, hi = 0, len(nums)
+            mid = (lo + hi) // 2
+            return min(self.findMin(nums[:mid]), self.findMin(nums[mid:]))
 
 
 if __name__ == '__main__':
