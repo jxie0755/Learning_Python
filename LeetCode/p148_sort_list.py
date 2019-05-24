@@ -31,7 +31,10 @@ class Solution(object):
         return dummy.next
 
     def divide(self, head):
-        """divide a linked list into half and break the linkage in between"""
+        """
+        divide a linked list into half and break the linkage in between
+        only divide a linked list that has 2 element and more
+        """
         if head.next:
             fast, slow, prev = head, head, None
             while fast is not None and fast.next is not None:
@@ -45,11 +48,16 @@ class Solution(object):
         merge sort the linked list, in place, but reorganize the pointer
         return the new head
         """
+        # if lenght is 1 or 0, do not divide, just return
         if not head or not head.next:
             return head
         else:
+            # Merge the divided sorted linked list
             first, second = self.divide(head)
             return self.mergesort(self.sortList(first), self.sortList(second))
+
+A = genNode(1)
+print(Solution().divide(A))
 
 
 if __name__ == '__main__':
