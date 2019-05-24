@@ -92,6 +92,54 @@ class Solution(object):
 
         return None
 
+
+class Solution(object):
+
+    ### Version D, final version
+    ### O(N) time, and O(1) memory
+    ### No break, check length of each linked list
+        ### same length: move to next togethter
+        ### different length: move the longer linkedlist until same length, then move togeterh
+
+    def linkedlength(self, node):
+        length = 0
+        while node:
+            length += 1
+            node = node.next
+        return length
+
+    def findinter(self, headA, headB):
+        """find intersection of headA and headB if they are the same length"""
+        while headA and headB:
+            if headA is headB:
+                return headA
+            headA = headA.next
+            headB = headB.next
+        return None
+
+    def getIntersectionNode(self, headA, headB):
+        """
+        :type head1, head1: ListNode
+        :rtype: ListNode
+        """
+        A = self.linkedlength(headA)
+        B = self.linkedlength(headB)
+
+        if A == B == 0:
+            return None
+        elif A == B:
+            return self.findinter(headA, headB)
+        elif A > B:
+            for i in range(A-B):
+                headA = headA.next
+            return self.findinter(headA, headB)
+        elif A < B:
+            for i in range(B-A):
+                headB = headB.next
+            return self.findinter(headA, headB)
+
+
+
 if __name__ == '__main__':
     A = genNode(4,1)
     B = genNode(5,0,1)
