@@ -56,9 +56,6 @@ class Solution(object):
             first, second = self.divide(head)
             return self.mergesort(self.sortList(first), self.sortList(second))
 
-A = genNode(1)
-print(Solution().divide(A))
-
 
 if __name__ == '__main__':
     A = None
