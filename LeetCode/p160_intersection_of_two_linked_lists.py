@@ -10,19 +10,49 @@
 # Your code should preferably run in O(n) time and use only O(1) memory.
 
 from typing import *
-from a0_TreeNode import *
-from a0_ListNode import *
+
+class ListNode:
+    def __init__(self, x):
+        self.val = x
+        self.next = None
+
+    def __repr__(self):
+        if self.next:
+            return "{}->{}".format(self.val, repr(self.next))
+        else:
+            return "{}".format(self.val)
+
+
+def genNode(*nodes, end=None):
+    if len(nodes) == 1 and type(nodes[0]) == list:
+        nodes = nodes[0]
+    for i in nodes[::-1]:
+        n = ListNode(i)
+        n.next, end = end, n
+    return n if nodes else None
+
 
 
 class Solution(object):
+
+    ### O(N) time, but O(N) memory
+    ### To ensure hashability, one must remove __eq__ method
     def getIntersectionNode(self, headA, headB):
         """
         :type head1, head1: ListNode
         :rtype: ListNode
         """
-        pass
+        hmp = {}
+        while headA:
+            hmp[headA] = 1
+            headA = headA.next
 
+        while headB:
+            if headB in hmp:
+                return headB
+            headB = headB.next
 
+        return None
 
 
 
