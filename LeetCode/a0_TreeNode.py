@@ -26,7 +26,12 @@ class TreeNode:
         return layer(self)
 
     def __eq__(self, other):
-        return str(self) == str(other)
+        if not self and not other:
+            return True
+        elif not self or not other:
+            return False
+        else:
+            return self.val == other.val and self.left == other.left and self.right == other.right
 
     # fix the unhashable issue with __eq__ method enabled
     def __hash__(self):
@@ -54,7 +59,3 @@ def genTree(lst, i=1):
         node.left = genTree(lst, i*2)
         node.right = genTree(lst, i*2+1)
         return node
-
-
-A = genTree([1,2,3])
-print(hash(A))
