@@ -62,7 +62,12 @@ class Solution(object):
             result = word + ' ' + result
         return result[:-1]
 
-
+class Solution(object):
+    # STD ans
+    # @param s, a string
+    # @return a string
+    def reverseWords(self, s):
+        return ' '.join(reversed(s.split()))
 
 if __name__ == '__main__':
     assert Solution().reverseWords('    ') == '', 'Edge 0'
