@@ -11,6 +11,8 @@
 
 
 class Solution(object):
+
+    ### Version A, with the help of list
     def reverseWords(self, s):
         """
         :type s: str
@@ -33,6 +35,32 @@ class Solution(object):
         if wordfound:
             lst.append(word)
         return ' '.join(lst[::-1])
+
+
+class Solution(object):
+
+    ### Version B Do not use list, just directly get the string
+    def reverseWords(self, s):
+        """
+        :type s: str
+        :rtype: str
+        """
+        result = ''
+        wordfound = False
+        word = ''
+        for i in s:
+            if i == ' ' and not wordfound:
+                pass
+            elif i == ' ' and wordfound:
+                result = word + ' ' + result
+                word = ''
+                wordfound = False
+            else:
+                wordfound = True
+                word += i
+        if wordfound:
+            result = word + ' ' + result
+        return result[:-1]
 
 
 
