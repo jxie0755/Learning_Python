@@ -15,17 +15,11 @@ class ListNode:
         else:
             return "{}".format(self.val)
 
-    # def __eq__(self, other):
-    #     if not self and not other:
-    #         return True
-    #     elif not self or not other:
-    #         return False
-    #     else:
-    #         return self.val == other.val and self.next == other.next
+    def __eq__(self, other):
+        return str(self) == str(other)
 
-    # def __eq__(self, other):
-    #     return str(self) == str(other)
-
+    def __hash__(self):
+        return hash(str(self))
 
 def genNode(*nodes, end=None):
     if len(nodes) == 1 and type(nodes[0]) == list:
@@ -38,6 +32,7 @@ def genNode(*nodes, end=None):
 
 # Notice that I blocked the __eq__ method. Now if I create an instance:
 # Then it is hashable, however, I do get different output number everytime I run it.
+print(hash('ABC'))
 
 A = ListNode(1)
 B = ListNode(2)
@@ -108,3 +103,11 @@ def genTree(lst, i=1):
 
 A = genTree([1,2,3])
 # print(hash(A))
+
+
+# Best answer: __eq__ will remove the default __hash__ method, so by creating a customized __hash__ method will make it hashable again.
+
+# def __hash__(self):
+#     return hash(str(self))
+
+# THis will work
