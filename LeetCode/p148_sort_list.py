@@ -18,19 +18,15 @@ class Solution(object):
 
     def mergesort(self, A, B):
         """
-        quick sort a linked list from head to tail
-        tail must be reachable from the head
-        modify in place
+        merge two sorted linked list into one linked list
         """
-        dummy = ListNode('X')
-        cur = dummy
+        cur = dummy = ListNode('X')
         while A and B:
             if A.val < B.val:
                 cur.next, A = A, A.next
             else:
                 cur.next, B = B, B.next
             cur = cur.next
-
         cur.next = A if A else B
         return dummy.next
 
@@ -46,12 +42,10 @@ class Solution(object):
 
     def sortList(self, head):
         """
-        :type head: ListNode
-        :rtype: ListNode
+        merge sort the linked list, in place, but reorganize the pointer
+        return the new head
         """
-        if not head:
-            return None
-        elif not head.next:
+        if not head or not head.next:
             return head
         else:
             first, second = self.divide(head)
