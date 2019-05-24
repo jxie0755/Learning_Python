@@ -35,7 +35,7 @@ class TreeNode:
 
     # fix the unhashable issue with __eq__ method enabled
     def __hash__(self):
-        return hash(str(self))
+        return hash(id(self))
 
     def isLeaf(self):
         try:

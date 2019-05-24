@@ -18,7 +18,7 @@ class ListNode:
 
     # fix the unhashable issue with __eq__ method enabled
     def __hash__(self):
-        return hash(str(self))
+        return hash(id(self))
 
 def genNode(*nodes, end=None):
     if len(nodes) == 1 and type(nodes[0]) == list:
@@ -27,3 +27,7 @@ def genNode(*nodes, end=None):
         n = ListNode(i)
         n.next, end = end, n
     return n if nodes else None
+
+
+
+

@@ -19,7 +19,7 @@ class ListNode:
         return str(self) == str(other)
 
     def __hash__(self):
-        return hash(str(self))
+        return hash(id(self))
 
 def genNode(*nodes, end=None):
     if len(nodes) == 1 and type(nodes[0]) == list:
@@ -78,7 +78,7 @@ class TreeNode:
         return str(self) == str(other)
 
     def __hash__(self):
-        return hash(str(self))
+        return hash(id(self))
 
     def isLeaf(self):
         try:
