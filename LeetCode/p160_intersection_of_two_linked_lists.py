@@ -110,15 +110,16 @@ class Solution(object):
 
     def findinter(self, headA, headB):
         """find intersection of headA and headB if they are the same length"""
-        if headA and headB:
-            while headA and headB:
-                if headA is headB:
-                    return headA
-                headA = headA.next
-                headB = headB.next
+        if not headA or not headB:
             return None
-        else:
-            return None
+
+        while headA and headB:
+            if headA is headB:
+                return headA
+            headA = headA.next
+            headB = headB.next
+        return None
+
 
     def getIntersectionNode(self, headA, headB):
         """
