@@ -141,7 +141,6 @@ class Solution(object):
             return self.findinter(headA, headB)
 
 
-
 if __name__ == '__main__':
     A = genNode(4,1)
     B = genNode(5,0,1)
