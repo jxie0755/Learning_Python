@@ -21,10 +21,12 @@ class Solution(object):
 
 
 if __name__ == '__main__':
+    assert Solution().findPeakElement([]) is None, 'Edge'
+    assert Solution().findPeakElement([1]) == 1, 'Edge 1'
 
     assert Solution().findPeakElement([1,2,3,1]) == 2, 'Example 1'
 
-    B = Solution().findPeakElement([[1,2,1,3,5,6,4]])
+    B = Solution().findPeakElement([1,2,1,3,5,6,4])
     assert B == 1 or B == 5, 'Example 2'
 
     print('all passed')
