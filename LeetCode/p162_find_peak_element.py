@@ -12,6 +12,9 @@
 
 
 class Solution(object):
+
+    # O(LogN), break into half, and check both sides
+
     def isPeak(self, lst, i):
         if i == 0:
             return lst[i] > lst[i+1]
