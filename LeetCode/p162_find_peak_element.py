@@ -68,7 +68,6 @@ class Solution(object):
         return left
 
 
-
 if __name__ == '__main__':
     assert Solution().findPeakElement([1]) == 0, 'Edge 1'
     assert Solution().findPeakElement([2,1]) == 0, 'Edge 2'
