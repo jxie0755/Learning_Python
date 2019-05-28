@@ -99,6 +99,7 @@ class Solution(object):
         return '-' + ANS if neg else ANS
 
 
+
 if __name__ == '__main__':
     assert Solution().fractionToDecimal(0, 3) == '0', 'Edge'
     assert Solution().fractionToDecimal(-50, 8) == '-6.25', 'Edge Negative'
