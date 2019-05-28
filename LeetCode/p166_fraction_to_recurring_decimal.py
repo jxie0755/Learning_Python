@@ -19,7 +19,7 @@ class Solution(object):
         if a == 0:
             return '0'
 
-        # 处理负数情况
+        # 先处理负数情况, 但是最后加上
         neg = False
         if a < 0 < b or b < 0 < a:
             neg = True
