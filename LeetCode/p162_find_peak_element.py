@@ -31,26 +31,27 @@ class Solution(object):
 
         if len(nums) == 1:
             return 0
-
+        result = []
         def helper(lo, hi):
             """a helper function to find peaks in nums"""
-            if self.isPeak(nums, lo):
-                return lo
-            elif self.isPeak(nums, hi):
-                return hi
-            elif lo < hi - 1:
-                mid = (lo + hi) // 2
-                A = helper(lo, mid)
-                B = helper(mid+1, hi)
-                return A or B
+            if not result:
+                if self.isPeak(nums, lo):
+                    result.append(lo)
+                elif self.isPeak(nums, hi):
+                    result.append(hi)
+                elif lo < hi - 1:
+                    mid = (lo + hi) // 2
+                    helper(lo, mid)
+                    helper(mid+1, hi)
 
-        return helper(0, len(nums)-1)
+        helper(0, len(nums)-1)
+        if result:
+            return result[0]
 
 
-class Solution(object):
+class Solution_2(object):
 
-    ### STD ans
-
+    ### STD ans (problematic, but will pass fast)
     def findPeakElement(self, nums):
         """
         :type nums: List[int]
@@ -60,12 +61,14 @@ class Solution(object):
 
         while left < right:
             mid = left + (right - left) // 2
-            if nums[mid] > nums[mid + 1]:
+            if nums[mid] > nums[mid + 1]:  # catched a down slope
                 right = mid
             else:
                 left = mid + 1
+            print('mid', mid, 'left', left, 'right', right)
 
         return left
+
 
 
 if __name__ == '__main__':
@@ -80,5 +83,10 @@ if __name__ == '__main__':
 
     assert Solution().findPeakElement([1, 2]) == 1, 'Additional 1'
     assert Solution().findPeakElement([1, 2, 3]) == 2, 'Additional 2'
+
+    # STD ans is problematic:
+    print(Solution_2().findPeakElement([1, 2, 1, 1, 1, 1, 1, 1, 1, 1]))
+    #                                   0  1  2  3  4  5  6  7  8  9
+    # it should return 1, but it returned 9, nums[9] is not a true peak.
 
     print('all passed')
