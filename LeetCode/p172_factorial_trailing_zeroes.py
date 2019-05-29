@@ -31,7 +31,14 @@ class Solution(object):
                     break
         return tz
 
-
+class Solution(object):
+    # @return an integer
+    def trailingZeroes(self, n):
+        result = 0
+        while n > 0:
+            result += n // 5
+            n //= 5
+        return result
 
 if __name__ == '__main__':
     assert Solution().trailingZeroes(0) == 0, 'Edge 0'
@@ -40,6 +47,6 @@ if __name__ == '__main__':
     assert Solution().trailingZeroes(5) == 1, 'Example 2'
     assert Solution().trailingZeroes(20) == 4, 'Additional 1'
     assert Solution().trailingZeroes(3743) == 932, 'Additional 2'
-    # print(Solution().trailingZeroes(1808548329))
+    print(Solution().trailingZeroes(1808548329))
     print('all passed')
 
