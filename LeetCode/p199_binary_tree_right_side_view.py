@@ -1,0 +1,49 @@
+# P199 Binary Tree Right Side View
+# Medium
+
+
+# Given a binary tree, imagine yourself standing on the right side of it, return the values of the nodes you can see ordered from top to bottom.
+
+from typing import *
+from a0_TreeNode import *
+from a0_ListNode import *
+
+
+class Solution(object):
+    def rightSideView(self, root):
+        """
+        :type root: TreeNode
+        :rtype: List[int]
+        """
+        pass
+
+
+if __name__ == '__main__':
+    assert Solution().rightSideView(None) == [], 'Edge 0'
+
+    A = genTree([
+        1,
+        2,3,
+        None, 5, None, 4
+    ])
+
+    assert Solution().rightSideView(A) == [1,3,4], 'Example 1'
+
+    A = genTree([
+        1,
+        2, None,
+        None, 5, None, None
+    ])
+
+    assert Solution().rightSideView(A) == [1, 2, 5], 'Additional 1'
+
+    A = genTree([
+        1,
+        2, 3,
+        None, 5, None, None
+    ])
+
+    assert Solution().rightSideView(A) == [1, 3, 5], 'Additional 1'
+
+    print('all passed')
+
