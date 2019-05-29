@@ -53,57 +53,82 @@ class BSTIterator(object):
 
 class BSTIterator(object):
 
-    ### Version B
+    ### Version B, O(h) memory.
+    ### Use stack, track one node in each depth
+    ### update the queue with all left branch to the bottom
     def __init__(self, root):
         """
         :type root: TreeNode
         """
-        pass
+        self.root = root
+        self.que = []
+        if root:
+            self.que.append(root)
+            self.updateQue()
+
+    def updateQue(self):
+        if self.que:
+            last = self.que[-1]
+            while last:
+                if last.left:
+                    self.que.append(last.left)
+                last = last.left
 
     def next(self):
         """
         @return the next smallest number
         :rtype: int
         """
-        pass
+
+        if self.que:
+            last = self.que[-1]
+            next_val = last.val # first get return vanl as a temp
+
+            # if there is a right branch, then replace the last node with right branch
+            if last.right:
+                self.que[-1] = last.right
+                self.updateQue()
+            # if there is no right branch, move one level above to parent node
+            else:
+                self.que.pop()
+
+            return next_val
 
     def hasNext(self):
         """
         @return whether we have a next smallest number
         :rtype: bool
         """
-        pass
+        if self.que:
+            return True
+        else:
+            return False
 
 
+if __name__ == '__main__':
+    b0 = None
+    iterator = BSTIterator(b0)
+    assert not iterator.next(), 'Edge step 1'
+    assert not iterator.hasNext(), 'Edge step 2'
 
-b1 = genTree([
+    b1 = genTree([
         7,
         3,15,
         None, None, 9, 20
     ])
-iterator = BSTIterator(b1)
-print(iterator.flat)
+    iterator = BSTIterator(b1)
 
+    assert iterator.next() == 3, 'Step 1'
+    assert iterator.next() == 7, 'Step 2'
+    assert iterator.hasNext(), 'Step 3'
 
-# if __name__ == '__main__':
-#     b1 = genTree([
-#         7,
-#         3,15,
-#         None, None, 9, 20
-#     ])
-#     iterator = BSTIterator(b1)
-#
-#     assert iterator.next() == 3, 'Step 1'
-#     assert iterator.next() == 7, 'Step 2'
-#     assert iterator.hasNext(), 'Step 3'
-#
-#     assert iterator.next() == 9, 'Step 4'
-#     assert iterator.hasNext(), 'Step 5'
-#
-#     assert iterator.next() == 15, 'Step 6'
-#     assert iterator.hasNext(), 'Step 7'
-#
-#     assert iterator.next() == 20, 'Step 8'
-#     assert not iterator.hasNext(), 'Step 9'
-#
-#     print('all passed')
+    assert iterator.next() == 9, 'Step 4'
+    assert iterator.hasNext(), 'Step 5'
+
+    assert iterator.next() == 15, 'Step 6'
+    assert iterator.hasNext(), 'Step 7'
+
+    assert iterator.next() == 20, 'Step 8'
+    assert not iterator.hasNext(), 'Step 9'
+
+    print('all passed')
