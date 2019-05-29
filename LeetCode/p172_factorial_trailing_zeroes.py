@@ -31,6 +31,7 @@ class Solution(object):
                     break
         return tz
 
+
 class Solution(object):
     # @return an integer
     def trailingZeroes(self, n):
@@ -39,6 +40,7 @@ class Solution(object):
             result += n // 5
             n //= 5
         return result
+
 
 if __name__ == '__main__':
     assert Solution().trailingZeroes(0) == 0, 'Edge 0'
