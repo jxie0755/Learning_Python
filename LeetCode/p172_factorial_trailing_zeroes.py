@@ -29,7 +29,40 @@ class Solution(object):
             result = result // (10**tz_factor)
         return tz
 
+class Solution(object):
 
+    ### Version A
+    ### Brutal force, adding trailing zero, and keep last digit that is not 0
+    ### This will fail exceeding max time limit
+    def trailingZeroes(self, n):
+        """
+        :type n: int
+        :rtype: int
+        """
+        if n == 0:
+            return 0
+
+        result = 1
+        tz = 0
+        for i in range(1, n+1):
+            result *= i
+            tz_factor = 0
+            while result % (10**(tz_factor+1)) == 0:
+                tz_factor += 1
+            tz += tz_factor
+            result = result // (10**tz_factor) % 100 # only keep last two digit of the result
+        return tz
+
+    # ### Version B
+    def trailingZeroes(self, n):
+        """
+        :type n: int
+        :rtype: int
+        """
+        if n == 0:
+            return 0
+
+        pass
 
 
 if __name__ == '__main__':
@@ -37,7 +70,8 @@ if __name__ == '__main__':
     assert Solution().trailingZeroes(1) == 0, 'Edge 1'
     assert Solution().trailingZeroes(3) == 0, 'Example 1'
     assert Solution().trailingZeroes(5) == 1, 'Example 2'
-    assert Solution().trailingZeroes(20) == 4, 'Additional'
-
+    assert Solution().trailingZeroes(20) == 4, 'Additional 1'
+    assert Solution().trailingZeroes(3743) == 932, 'Additional 2'
+    print(Solution().trailingZeroes(1808548329))
     print('all passed')
 
