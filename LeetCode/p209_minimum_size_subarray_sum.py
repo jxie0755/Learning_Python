@@ -69,6 +69,9 @@ class Solution(object):
         """
         pass
 
+
+
+
 if __name__ == '__main__':
     A = []
     assert Solution().minSubArrayLen(11, A) == 0, 'Edge 0'
