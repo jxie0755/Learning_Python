@@ -12,6 +12,7 @@
 class Solution(object):
 
     ### Brutal force, check every subarray from short to long
+    ### O(N^2)
     ### Time limit exceeded
     def minSubArrayLen(self, s, nums):
         """
