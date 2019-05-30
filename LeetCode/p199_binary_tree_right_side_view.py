@@ -10,6 +10,8 @@ from a0_ListNode import *
 
 
 class Solution(object):
+
+    ### Use the showLayers method and add each Layer's last item to a list
     def showLayers(self, root):
         """Show the tree layer by layer from top to bottom"""
         if root is None:
