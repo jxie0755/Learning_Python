@@ -11,29 +11,24 @@ from a0_ListNode import *
 
 class Solution:
     ### Use the showLayers operation but the maximum time limit is exceeded
-    def showLayers(self, root: TreeNode):
-        """show Layer of each tree level"""
+    def showLayers(self, root):
+        """Show the tree layer by layer from top to bottom"""
+        if root is None:
+            return []
 
-        result = [[root.val]]
-        layer = [root]
+        result, current = [], [root]
+        while current:
+            next_level, vals = [], []
+            for node in current:
+                # if node.val is not None:    # So we add another if command to avoid None added into the list
+                vals.append(node.val)  # However, this accepts None.
+                if node.left:
+                    next_level.append(node.left)
+                if node.right:
+                    next_level.append(node.right)
+            current = next_level
+            result.append(vals)
 
-        while any([i for i in layer]):
-            new_layer = []
-            new_layer_val = []
-            for i in layer:
-                if i:
-                    new_layer.append(i.left)
-                    new_layer_val.append(i.left.val if i.left else None)
-                    new_layer.append(i.right)
-                    new_layer_val.append(i.right.val if i.right else None)
-                else:
-                    new_layer.append(None)
-                    new_layer_val.append(None)
-                    new_layer.append(None)
-                    new_layer_val.append(None)
-
-            result.append(new_layer_val)
-            layer = new_layer
         return result
 
     def levelOrderBottom(self, root: TreeNode):

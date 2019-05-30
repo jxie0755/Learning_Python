@@ -8,31 +8,25 @@ from a0_TreeNode import *
 from a0_ListNode import *
 
 class Solution:
-    def showLayers(self, TN):
-        """return a list of list where each sub-list the layer of a tree"""
-        result = [[TN.val]]
 
-        def helper(TN):
-            layer = [TN]
-            while any([i for i in layer]):
-                new_layer = []
-                new_layer_val = []
-                for i in layer:
-                    if i:
-                        new_layer.append(i.left)
-                        new_layer_val.append(i.left.val if i.left else None)
-                        new_layer.append(i.right)
-                        new_layer_val.append(i.right.val if i.right else None)
-                    else:
-                        new_layer.append(None)
-                        new_layer_val.append(None)
-                        new_layer.append(None)
-                        new_layer_val.append(None)
+    def showLayers(self, root):
+        """Show the tree layer by layer from top to bottom"""
+        if root is None:
+            return []
 
-                result.append(new_layer_val)
-                layer = new_layer
+        result, current = [], [root]
+        while current:
+            next_level, vals = [], []
+            for node in current:
+                # if node.val is not None:    # So we add another if command to avoid None added into the list
+                vals.append(node.val)  # However, this accepts None.
+                if node.left:
+                    next_level.append(node.left)
+                if node.right:
+                    next_level.append(node.right)
+            current = next_level
+            result.append(vals)
 
-        helper(TN)
         return result
 
     def isSymmetric(self, root: TreeNode) -> bool:
