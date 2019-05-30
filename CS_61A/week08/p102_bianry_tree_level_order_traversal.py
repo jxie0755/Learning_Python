@@ -10,7 +10,7 @@ from a0_ListNode import *
 
 class Solution:
 
-    ### Same as Leetcode P107, use the showLayer to solve the problem
+    ### Same as Leetcode P107, use the showLayers to solve the problem
     def showLayer(self, root):
         """show layers of tree"""
         if root is None:

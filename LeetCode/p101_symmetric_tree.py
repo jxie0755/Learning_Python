@@ -8,7 +8,7 @@ from a0_TreeNode import *
 from a0_ListNode import *
 
 class Solution:
-    def showlayer(self, TN):
+    def showLayers(self, TN):
         """return a list of list where each sub-list the layer of a tree"""
         result = [[TN.val]]
 
@@ -39,7 +39,7 @@ class Solution:
         ### If wait till getting all the layers, it will be too late
         if not root:
             return True
-        all_layer = self.showlayer(root)
+        all_layer = self.showLayers(root)
         for i in all_layer:
             if i != i[::-1]:
                 return False

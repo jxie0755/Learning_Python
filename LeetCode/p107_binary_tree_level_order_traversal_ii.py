@@ -10,8 +10,8 @@ from a0_ListNode import *
 
 
 class Solution:
-    ### Use the showLayer operation but the maximum time limit is exceeded
-    def showLayer(self, root: TreeNode):
+    ### Use the showLayers operation but the maximum time limit is exceeded
+    def showLayers(self, root: TreeNode):
         """show Layer of each tree level"""
 
         result = [[root.val]]
@@ -43,7 +43,7 @@ class Solution:
             return [[root.val]]
 
         result = []
-        for i in self.showLayer(root)[::-1]:
+        for i in self.showLayers(root)[::-1]:
             filtered = list(filter(lambda x:x is not None, i))  # Be careful with the t.val == 0
             result.append(filtered)
         return result[1:]
