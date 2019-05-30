@@ -97,4 +97,7 @@ if __name__ == '__main__':
     A = [4,1,1,1,4,2]
     assert Solution().minSubArrayLen(6, A) == 2, 'Additional 5'
 
+    A = [4,4,1,1,1,5,1,1]
+    assert Solution().minSubArrayLen(8, A) == 2, 'Additional 5'
+
     print('all passed')
