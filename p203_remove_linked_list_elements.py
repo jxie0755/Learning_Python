@@ -16,7 +16,22 @@ class Solution(object):
         :type val: int
         :rtype: ListNode
         """
-        pass
+        if not head:
+            return None
+
+        dummy = ListNode('X')
+        dummy.next = head
+
+        prev, cur = dummy, head
+        while cur:
+            if cur.val == val:
+                cur = cur.next
+                prev.next = cur
+            else:
+                cur = cur.next
+                prev = prev.next
+        return dummy.next
+
 
 
 if __name__ == '__main__':
