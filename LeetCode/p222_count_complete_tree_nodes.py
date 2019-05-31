@@ -101,43 +101,87 @@ class Solution(object):
 class Solution(object):
 
     ### Version B
+    ### Combine isComplete and count in one function
+    ### by Examine the isComplete in helper(root), it forced to check isComplete every node in the root
+    ### use memorization, direct tell a node is complete or not and exam every node
+    ### As a side effect, when checking the isComplete in helper, add to count if it is the first time found as isComplete
+
     def countNodes(self, root):
         """
         :type root: TreeNode
         :rtype: int
         """
-        pass
+        if not root:
+            return 0
+
+        hmp = {}
+        def helper(root):
+
+            # memorization from hmp
+            if root in hmp:
+                return True
+
+            if not root:
+                return False
+
+            # if node as leaf
+            if not root.left and not root.right:
+                hmp[root] = root.val
+                return True
+
+            # if node has two childrien
+            elif root.left and root.right:
+                if helper(root.left) and helper(root.right):
+                    hmp[root] = root.val
+                    return True
+
+            else:
+                if root.left:
+                    # check anyway to cover all nodes
+                    helper(root.left)
+                    helper(root.left.left)
+                    helper(root.left.right)
+                    if not root.left.left and not root.left.right:
+                        hmp[root] = root.val
+                        return True
+                elif root.right:
+                    # check anyway to cover all nodes
+                    helper(root.right)
+                    helper(root.right.left)
+                    helper(root.right.right)
+                    return False
+
+        helper(root)
+        return len(hmp)
 
 
 
 
+if __name__ == '__main__':
+    assert Solution().countNodes(None) == 0, 'Edge'
 
+    A = genTree([
+        1,
+        2,3,
+        4,5,6,None
+    ])
 
-# if __name__ == '__main__':
-#     assert Solution().countNodes(None) == 0, 'Edge'
-#
-#     A = genTree([
-#         1,
-#         2,3,
-#         4,5,6,None
-#     ])
-#
-#     assert Solution().countNodes(A) == 6, 'Example 1'
-#
-#     A = genTree([
-#         1,
-#         2,None,
-#         4,5,None,None
-#     ])
-#
-#     assert Solution().countNodes(A) == 3, 'Additional 1'
-#
-#     A = genTree([
-#         1,
-#         None, 3,
-#         None, None, None, 5,
-#     ])
-#
-#     assert Solution().countNodes(A) == 1, 'Additional 2'
-#
-#     print('all passed')
+    assert Solution().countNodes(A) == 6, 'Example 1'
+
+    A = genTree([
+        1,
+        2,None,
+        4,5,None,None
+    ])
+
+    assert Solution().countNodes(A) == 3, 'Additional 1'
+
+    A = genTree([
+        1,
+        None, 3,
+        None, None, None, 5,
+    ])
+
+    assert Solution().countNodes(A) == 1, 'Additional 2'
+
+    print('all passed')
