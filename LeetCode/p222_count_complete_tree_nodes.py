@@ -112,9 +112,6 @@ class Solution(object):
         :type root: TreeNode
         :rtype: int
         """
-        if not root:
-            return 0
-
         hmp = {}
         def helper(root):
 
