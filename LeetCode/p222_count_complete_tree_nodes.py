@@ -131,8 +131,8 @@ class Solution(object):
 
             # if node has two childrien, force to check both
             elif root.left and root.right and helper(root.left) and helper(root.right):
-                    hmp[root] = root.val
-                    return True
+                hmp[root] = root.val
+                return True
 
             elif root.left:
                 # check node and the children anyway to cover all nodes
