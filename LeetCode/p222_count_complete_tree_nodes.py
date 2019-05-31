@@ -125,7 +125,7 @@ class Solution(object):
                 return False
 
             # if node as leaf
-            if not root.left and not root.right:
+            elif not root.left and not root.right:
                 hmp[root] = root.val
                 return True
 
