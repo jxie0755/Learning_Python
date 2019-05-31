@@ -134,27 +134,23 @@ class Solution(object):
             elif root.left and root.right:
                 A = helper(root.left)
                 B = helper(root.right)
-                if A and B:
+                if A and B: # avoid shortcircuit, must check A and B ahead
                     hmp[root] = root.val
                     return True
                 else:
                     return False
 
             elif root.left:
-                # check node and the children anyway to cover all nodes
+                # check node anyway to cover all nodes
                 helper(root.left)
-                helper(root.left.left)
-                helper(root.left.right)
                 if not root.left.left and not root.left.right:
                     hmp[root] = root.val
                     return True
                 else:
                     return False
             else:
-                # check node and the children anyway to cover all nodes
+                # check node anyway to cover all nodes
                 helper(root.right)
-                helper(root.right.left)
-                helper(root.right.right)
                 return False
 
         helper(root)
