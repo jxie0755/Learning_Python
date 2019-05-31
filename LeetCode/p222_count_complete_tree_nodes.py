@@ -1,0 +1,89 @@
+# P222 Count Complete Tree Nodes
+# Medium
+
+
+# Given a complete binary tree, count the number of nodes.
+
+# Note:
+# Definition of a complete binary tree from Wikipedia:
+# In a complete binary tree every level, except possibly the last, is completely filled, and all nodes in the last level are as far left as possible. It can have between 1 and 2h nodes inclusive at the last level h.
+
+from typing import *
+from a0_TreeNode import *
+from a0_ListNode import *
+
+
+class Solution(object):
+
+
+    ### Use memorization to tell if a node is complete or not and exam every node
+    def isComplete(self, root):
+        completes = {}
+
+        def helper(root):
+            if root in completes:
+                return True
+            if not root.left and not root.right:
+                completes[root] = 1
+                return True
+            elif root.left and not root.left.left and not root.left.right and not root.right:
+                completes[root] = 1
+                return True
+            elif root.left and helper(root.left) and root.right and helper(root.right):
+                completes[root] = 1
+                return True
+            else:
+                return False
+
+        return helper(root)
+
+    def countNodes(self, root):
+        """
+        :type root: TreeNode
+        :rtype: int
+        """
+        if not root:
+            return 0
+
+        count = []
+        def helper(root):
+            if self.isComplete(root):
+                count.append(1)
+            if root.left:
+                helper(root.left)
+            if root.right:
+                helper(root.right)
+
+        helper(root)
+        return len(count)
+
+
+
+if __name__ == '__main__':
+    assert Solution().countNodes(None) == 0, 'Edge'
+
+    A = genTree([
+        1,
+        2,3,
+        4,5,6,None
+    ])
+
+    assert Solution().countNodes(A) == 6, 'Example 1'
+
+    A = genTree([
+        1,
+        2,None,
+        4,5,None,None
+    ])
+
+    assert Solution().countNodes(A) == 3, 'Additional 1'
+
+    A = genTree([
+        1,
+        None, 3,
+        None, None, None, 5,
+    ])
+
+    assert Solution().countNodes(A) == 1, 'Additional 2'
+
+    print('all passed')
