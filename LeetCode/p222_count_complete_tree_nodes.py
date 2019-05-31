@@ -129,27 +129,25 @@ class Solution(object):
                 hmp[root] = root.val
                 return True
 
-            # if node has two childrien
-            elif root.left and root.right:
-                if helper(root.left) and helper(root.right):
+            # if node has two childrien, force to check both
+            elif root.left and root.right and helper(root.left) and helper(root.right):
                     hmp[root] = root.val
                     return True
 
+            elif root.left:
+                # check node and the children anyway to cover all nodes
+                helper(root.left)
+                helper(root.left.left)
+                helper(root.left.right)
+                if not root.left.left and not root.left.right:
+                    hmp[root] = root.val
+                    return True
             else:
-                if root.left:
-                    # check anyway to cover all nodes
-                    helper(root.left)
-                    helper(root.left.left)
-                    helper(root.left.right)
-                    if not root.left.left and not root.left.right:
-                        hmp[root] = root.val
-                        return True
-                elif root.right:
-                    # check anyway to cover all nodes
-                    helper(root.right)
-                    helper(root.right.left)
-                    helper(root.right.right)
-                    return False
+                # check node and the children anyway to cover all nodes
+                helper(root.right)
+                helper(root.right.left)
+                helper(root.right.right)
+                return False
 
         helper(root)
 
