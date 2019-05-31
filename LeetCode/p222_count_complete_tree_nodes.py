@@ -185,4 +185,11 @@ if __name__ == '__main__':
 
     assert Solution().countNodes(A) == 1, 'Additional 2'
 
+    A = genTree([
+        1,
+        2, 3,
+        None, 4,5,6
+    ])
+    assert Solution().countNodes(A) == 4, 'Additional 3'
+
     print('all passed')
