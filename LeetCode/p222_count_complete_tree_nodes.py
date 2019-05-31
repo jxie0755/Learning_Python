@@ -130,9 +130,14 @@ class Solution(object):
                 return True
 
             # if node has two childrien, force to check both
-            elif root.left and root.right and helper(root.left) and helper(root.right):
-                hmp[root] = root.val
-                return True
+            elif root.left and root.right:
+                A = helper(root.left)
+                B = helper(root.right)
+                if A and B:
+                    hmp[root] = root.val
+                    return True
+                else:
+                    return False
 
             elif root.left:
                 # check node and the children anyway to cover all nodes
