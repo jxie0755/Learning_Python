@@ -148,6 +148,8 @@ class Solution(object):
                 if not root.left.left and not root.left.right:
                     hmp[root] = root.val
                     return True
+                else:
+                    return False
             else:
                 # check node and the children anyway to cover all nodes
                 helper(root.right)
