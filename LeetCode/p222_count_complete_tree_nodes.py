@@ -15,8 +15,10 @@ from a0_ListNode import *
 
 class Solution(object):
 
-
+    ### Version A1
     ### Use memorization to tell if a node is complete or not and exam every node
+    ### Passed, but slow
+
     def isComplete(self, root):
         completes = {}
 
@@ -58,32 +60,82 @@ class Solution(object):
         return len(count)
 
 
+class Solution(object):
 
-if __name__ == '__main__':
-    assert Solution().countNodes(None) == 0, 'Edge'
+    ### Version A2
+    ### Do not use memorization, direct tell a node is complete or not and exam every node
+    ### Same spped, but still slow
 
-    A = genTree([
-        1,
-        2,3,
-        4,5,6,None
-    ])
+    def isComplete(self, root):
 
-    assert Solution().countNodes(A) == 6, 'Example 1'
+        if not root.left and not root.right:
+            return True
+        elif root.left and not root.left.left and not root.left.right and not root.right:
+            return True
+        elif root.left and self.isComplete(root.left) and root.right and self.isComplete(root.right):
+            return True
+        else:
+            return False
 
-    A = genTree([
-        1,
-        2,None,
-        4,5,None,None
-    ])
+    def countNodes(self, root):
+        """
+        :type root: TreeNode
+        :rtype: int
+        """
+        if not root:
+            return 0
 
-    assert Solution().countNodes(A) == 3, 'Additional 1'
+        count = []
+        def helper(root):
+            if self.isComplete(root):
+                count.append(1)
+            if root.left:
+                helper(root.left)
+            if root.right:
+                helper(root.right)
 
-    A = genTree([
-        1,
-        None, 3,
-        None, None, None, 5,
-    ])
+        helper(root)
+        return len(count)
 
-    assert Solution().countNodes(A) == 1, 'Additional 2'
 
-    print('all passed')
+class Solution(object):
+    def countNodes(self, root):
+        """
+        :type root: TreeNode
+        :rtype: int
+        """
+        pass
+
+
+
+
+
+
+# if __name__ == '__main__':
+#     assert Solution().countNodes(None) == 0, 'Edge'
+#
+#     A = genTree([
+#         1,
+#         2,3,
+#         4,5,6,None
+#     ])
+#
+#     assert Solution().countNodes(A) == 6, 'Example 1'
+#
+#     A = genTree([
+#         1,
+#         2,None,
+#         4,5,None,None
+#     ])
+#
+#     assert Solution().countNodes(A) == 3, 'Additional 1'
+#
+#     A = genTree([
+#         1,
+#         None, 3,
+#         None, None, None, 5,
+#     ])
+#
+#     assert Solution().countNodes(A) == 1, 'Additional 2'
+#
+#     print('all passed')
