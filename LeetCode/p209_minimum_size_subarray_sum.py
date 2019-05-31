@@ -60,16 +60,42 @@ class Solution(object):
 
 class Solution(object):
 
-    ###
+    ### O(N)
+    ### move index head and tail according to the sum of the subarray
+    ### this wil exceed time limt....
     def minSubArrayLen(self, s, nums):
         """
         :type s: int
         :type nums: List[int]
         :rtype: int
         """
-        pass
+        if sum(nums) < s:
+            return 0
 
+        L = len(nums)
+        head, tail = 0, 0
 
+        while head != len(nums):
+            sub = nums[head:tail+1]
+            sub_l = len(sub)
+            sub_sum = sum(sub)
+
+            if sub_sum >= s:
+                if sub_l < L: # track minium length
+                    L = sub_l
+
+                # if sub_sum exceed, then move head to shorten, unless head hit tail
+                if head < tail:
+                    head += 1
+                else: # if head hit tail, the length is 1, no need to proceed
+                    break
+            else:
+                if tail < len(nums) - 1:  # move tail, so the sub gets longer, unless tail hit the end
+                    tail += 1
+                else: # if tail hit the end, move head towards the end to end the while loop
+                    head += 1
+
+        return L
 
 
 if __name__ == '__main__':
@@ -94,10 +120,10 @@ if __name__ == '__main__':
     A = [1,4,4]
     assert Solution().minSubArrayLen(3, A) == 1, 'Additional 4'
 
-    A = [4,1,1,1,4,2]
-    assert Solution().minSubArrayLen(6, A) == 2, 'Additional 5'
+    A = [4,1,1,1,4,3]
+    assert Solution().minSubArrayLen(7, A) == 2, 'Additional 5'
 
     A = [4,4,1,1,1,5,1,1]
-    assert Solution().minSubArrayLen(8, A) == 2, 'Additional 5'
+    assert Solution().minSubArrayLen(8, A) == 2, 'Additional 6'
 
     print('all passed')
