@@ -104,7 +104,7 @@ class Solution(object):
     ### Combine isComplete and count in one function, through a recursive call on helper
     ### by Examine the isComplete in helper(root), it forced to check isComplete every node in the root
     ### use memorization, direct tell a node is complete or not and exam every node
-    ### As a side effect, when checking the isComplete in helper, add to count if it is the first time found as isComplete
+    ### As a side effect, when checking the isComplete in helper, all complete nodes will be added to hmp
     ### passed much faster
 
     def countNodes(self, root):
