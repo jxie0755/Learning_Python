@@ -167,7 +167,7 @@ if __name__ == '__main__':
         4,5,6,None
     ])
 
-    assert Solution().countNodes(A) == 6, 'Example 1'
+    assert Solution().countNodes(A) == 6, 'Example 1, (1,2,3,4,5,6)'
 
     A = genTree([
         1,
@@ -175,7 +175,7 @@ if __name__ == '__main__':
         4,5,None,None
     ])
 
-    assert Solution().countNodes(A) == 3, 'Additional 1'
+    assert Solution().countNodes(A) == 3, 'Additional 1, (2,4,5)'
 
     A = genTree([
         1,
@@ -183,13 +183,13 @@ if __name__ == '__main__':
         None, None, None, 5,
     ])
 
-    assert Solution().countNodes(A) == 1, 'Additional 2'
+    assert Solution().countNodes(A) == 1, 'Additional 2, (5)'
 
     A = genTree([
         1,
         2, 3,
         None, 4,5,6
     ])
-    assert Solution().countNodes(A) == 4, 'Additional 3'
+    assert Solution().countNodes(A) == 4, 'Additional 3, (3,4,5,6)'
 
     print('all passed')
