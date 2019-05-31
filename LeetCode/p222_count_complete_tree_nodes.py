@@ -99,6 +99,8 @@ class Solution(object):
 
 
 class Solution(object):
+
+    ### Version B
     def countNodes(self, root):
         """
         :type root: TreeNode
