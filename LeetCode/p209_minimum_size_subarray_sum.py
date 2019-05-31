@@ -11,7 +11,7 @@
 
 class Solution(object):
 
-    ### Brutal force, check every subarray from short to long
+    ### Version A, Brutal force, check every subarray from short to long
     ### O(N^2)
     ### Time limit exceeded
     def minSubArrayLen(self, s, nums):
@@ -60,7 +60,7 @@ class Solution(object):
 
 class Solution(object):
 
-    ### O(N)
+    ### Version C1, O(N)
     ### move index head and tail according to the sum of the subarray
     ### this wil exceed time limt....
     def minSubArrayLen(self, s, nums):
@@ -93,8 +93,49 @@ class Solution(object):
                 if tail < len(nums) - 1:  # move tail, so the sub gets longer, unless tail hit the end
                     tail += 1
                 else: # if tail hit the end, move head towards the end to end the while loop
+                    break
+        return L
+
+
+class Solution(object):
+
+    ### Version C2, O(N)
+    ### move index head and tail according to the sum of the subarray
+    ### A different way of calculating sum, avoid sum(subarray)
+    ### This passed very good
+    def minSubArrayLen(self, s, nums):
+        """
+        :type s: int
+        :type nums: List[int]
+        :rtype: int
+        """
+        if sum(nums) < s:
+            return 0
+
+        L = len(nums)
+        head, tail = 0, 0
+        sub_sum = nums[0]
+
+        while head != len(nums):
+
+            if sub_sum >= s:
+                sub_l = tail - head + 1
+                if sub_l < L: # track minium length
+                    L = sub_l
+
+                # if sub_sum exceed, then move head to shorten, unless head hit tail
+                if head < tail:
+                    sub_sum -= nums[head]
                     head += 1
 
+                else: # if head hit tail, the length is 1, no need to proceed
+                    break
+            else:
+                if tail < len(nums) - 1:  # move tail, so the sub gets longer, unless tail hit the end
+                    tail += 1
+                    sub_sum += nums[tail]
+                else: # if tail hit the end, move head towards the end to end the while loop
+                    break
         return L
 
 
