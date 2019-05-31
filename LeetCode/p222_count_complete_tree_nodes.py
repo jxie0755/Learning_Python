@@ -152,6 +152,8 @@ class Solution(object):
                     return False
 
         helper(root)
+
+        # as a side effect, hmp will record all nodes that is complete
         return len(hmp)
 
 
