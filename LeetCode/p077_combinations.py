@@ -27,6 +27,19 @@ class Solution:
 
         return helper(sample, k)
 
+    ### OOP version
+    def combinationSolo(self, nums, k):
+        if k == len(nums):
+            return [nums]
+        elif k == 1:
+            return [[i] for i in nums]
+        else:
+            result = []
+            next_list = nums[:]
+            head = next_list.pop(0)
+            result += [[head] + com for com in self.combinationSolo(next_list, k - 1)] + self.combinationSolo(nums[1:], k)
+            return result
+
 
 # Extracted from the combineationSolo to straight application
 def combinationSolo(nums, k):
