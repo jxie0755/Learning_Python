@@ -26,19 +26,11 @@ class Solution(object):
 
     def computeArea(self, A, B, C, D, E, F, G, H):
         """
-        :type A: int
-        :type B: int
-        :type C: int
-        :type D: int
-        :type E: int
-        :type F: int
-        :type G: int
-        :type H: int
-        :rtype: int
+        (A,B), (C,D) - first rectangular
+        (E,F), (G,H) - second rectagular
         """
         R1 = [(A,B), (C,D), (A,D), (C,B)]
         R2 = [(E,F), (G,H), (E,H), (G,F)]
-
         R1_left, R1_top, R1_bot, R1_right = A, D, B, C
         R2_left, R2_top, R2_bot, R2_right = E, H, F, G
 
@@ -49,15 +41,22 @@ class Solution(object):
         for i in R1:
             if self.isIn(i, R2):
                 R1_in.append(i)
+        R1_in = sorted(R1_in)
 
         R2_in = []
         for i in R2:
             if self.isIn(i, R1):
                 R2_in.append(i)
+        R2_in = sorted(R2_in)
 
         def overlap(R1_in, R2_in):
             if len(R1_in) == 0 and len(R2_in) == 0:
-                return 0
+                if R2_top > R1_top and R2_bot < R1_bot and R1_left < R2_left and R1_right > R2_right:
+                    return (R2_right - R2_left) * (R1_top - R1_bot)
+                elif R1_top > R2_top and R1_bot < R2_bot and R2_left < R1_left and R2_right > R1_right:
+                    return (R1_right - R1_left) * (R2_top - R2_bot)
+                else:
+                    return 0
 
             elif len(R1_in) == 1 and len(R2_in) == 1:
                 C1, C2 = R1_in[0], R2_in[0]
@@ -71,15 +70,27 @@ class Solution(object):
                     h = abs(ya - yb)
                     if R2_left < R1_right < R2_right:
                         w = R1_right - R2_left
-                    else: # R2_left < R1_left  < R2_right
+                    elif R2_left < R1_left < R2_right:
                         w = R2_right - R1_left
+                    elif R1_left < R2_left < R1_right:
+                        w = R1_right - R2_left
+                    elif R1_left < R2_right < R1_right:
+                        w = R2_right - R1_left
+                    else:
+                        w = 0
                     return h * w
                 if ya == yb:
                     w = abs(xa - xb)
                     if R2_bot < R1_bot < R2_top:
                         h = R2_top - R1_bot
-                    else: # R2_bot < R1_top < R2_top:
+                    elif R2_bot < R1_top < R2_top:
                         h = R1_top - R2_bot
+                    elif R1_bot < R2_bot < R1_top:
+                        h = R1_top - R2_bot
+                    elif R1_bot < R2_top < R1_top:
+                        h = R2_top - R1_bot
+                    else:
+                        h = 0
                     return h * w
 
             elif len(R2_in) == 2:
@@ -89,16 +100,29 @@ class Solution(object):
                     h = abs(ya - yb)
                     if R1_left < R2_left < R1_right:
                         w = R1_right - R2_left
-                    else: # R1_left < R2_right < R1_right
+                    elif R1_left < R2_right < R1_right:
                         w = R2_right - R1_left
+                    elif R2_left < R1_left < R2_right:
+                        w = R2_right - R1_left
+                    elif R2_left < R1_right < R2_right:
+                        w = R1_right - R2_left
+                    else:
+                        w = 0
                     return h * w
                 if ya == yb:
                     w = abs(xa - xb)
                     if R1_bot < R2_top < R1_top:
                         h = R2_top - R1_bot
-                    else: # R1_bot < R2_bot < R1_top:
+                    elif R1_bot < R2_bot < R1_top:
                         h = R1_top - R2_bot
+                    elif R2_bot < R1_top < R2_top:
+                        h = R1_top - R2_bot
+                    elif R2_bot < R1_bot < R2_top:
+                        h = R2_top - R1_bot
+                    else:
+                        h = 0
                     return h * w
+
             elif len(R1_in) == 4:
                 return A1
             elif len(R2_in) == 4:
@@ -107,11 +131,17 @@ class Solution(object):
         return A1 + A2 - overlap(R1_in, R2_in)
 
 
-
 if __name__ == '__main__':
     assert Solution().computeArea(0, 0, 1, 0, 2, 0, 3, 0) == 0, 'Edge 1, horizontal line'
     assert Solution().computeArea(0, 0, 0, 1, 0, 2, 0, 3) == 0, 'Edge 2, vertical line'
 
     assert Solution().computeArea(-3, 0, 3, 4, 0, -1, 9, 2) == 45, 'Example 1'
+
+    assert Solution().computeArea(-2, -2, 2, 2, -2, -4, 2, -2) == 24, 'Additional 1'
+    assert Solution().computeArea(-2, -2, 2, 2, -2, -2, 2, 2) == 16, 'Additional 2'
+    assert Solution().computeArea(-5, -5, -3, 3, -3, -3, 3, 3) == 52, 'Additional 3'
+    assert Solution().computeArea(-5, -3, 3, 0, -3, -3, 3, 3) == 42, 'Additional 4'
+    assert Solution().computeArea(-5, -2, 5, 1, -3, -3, 3, 3) == 48, 'Additional 5'
+    assert Solution().computeArea(-5, -5, -4, 5, -3, -3, 3, 3) == 46, 'Additional 6'
 
     print('all passed')
