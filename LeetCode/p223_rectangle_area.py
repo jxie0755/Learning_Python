@@ -10,6 +10,9 @@
 
 
 class Solution(object):
+
+    ### Determine the corner coor in each other and with help of boundary location
+    ### Use multile conditions to determine the overlap
     def isIn(self, coor, rec):
         """
         To determine whether a coor in inside or on the fringe of a rectangular
