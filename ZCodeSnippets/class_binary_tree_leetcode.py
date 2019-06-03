@@ -45,7 +45,7 @@ if __name__ == '__main__':
     # >>> [None, None, 4, None, None, 5, 2, None, None, 6, None, None, 7, 3, 1]
 
 def showLayers(root):
-    """Show the tree layer by layer from top to bottom"""
+    """Show the tree layer value by layer from top to bottom"""
     if root is None:
         return []
 
@@ -65,7 +65,7 @@ def showLayers(root):
 
 
 def showPerfectLayers(root):  # Include None
-    """Show the tree layer by layer from top to bottom"""
+    """Show the tree layer values by layer from top to bottom"""
     if root is None:
         return []
 
