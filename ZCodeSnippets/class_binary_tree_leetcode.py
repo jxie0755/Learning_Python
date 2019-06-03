@@ -53,8 +53,7 @@ def showLayers(root):
     while current:
         next_level, vals = [], []
         for node in current:
-            # if node.val is not None:    # So we add another if command to avoid None added into the list
-            vals.append(node.val)  # However, this accepts None.
+            vals.append(node.val)
             if node.left:
                 next_level.append(node.left)
             if node.right:
@@ -65,15 +64,46 @@ def showLayers(root):
     return result
 
 
+def showPerfectLayers(root):  # Include None
+    """Show the tree layer by layer from top to bottom"""
+    if root is None:
+        return []
+
+    result, current = [], [root]
+    while any([i for i in current]):
+        next_level, vals = [], []
+        for node in current:
+            if node:
+                vals.append(node.val)
+                if node.left:
+                    next_level.append(node.left)
+                else:
+                    next_level.append(None)
+                if node.right:
+                    next_level.append(node.right)
+                else:
+                    next_level.append(None)
+            else:
+                vals.append(None)
+                next_level.append(None)
+                next_level.append(None)
+
+        current = next_level
+        result.append(vals)
+
+    return result
+
 if __name__ == '__main__':
     A = genTree([3, None, 20, None, None, 15, 7])
     print('\nshowLayers:')
     print(showLayers(A))
+    # >>> [[3], [20], [15, 7]]
+    print('showPerfectLayers:')
+    print(showPerfectLayers(A))
     # >>> [[3], [None, 20], [None, None, 15, 7]]
 
 
-
-def showPerfectLayers(root):
+def showPerfectNodeLayers(root):
     """
     Generate a perfect binary heap in list of nodes (Not Values)
     use None to replace empty Nodes for take index places
@@ -101,8 +131,8 @@ def showPerfectLayers(root):
 
 if __name__ == '__main__':
     A = genTree([3, None, 20, None, None, 15, 7])
-    print('\nshowPerfectLayers:')
-    L = showPerfectLayers(A)
+    print('\nshowPerfectNodeLayers:')
+    L = showPerfectNodeLayers(A)
     LV = []
     for i in L:
         if i:
@@ -166,7 +196,7 @@ def allPathsLtoL(root: TreeNode) -> List:
             else:
                 paths.append(cur_path)  # end
 
-    nodelist = showPerfectLayers(root)
+    nodelist = showPerfectNodeLayers(root)
     paths = []
     for k in range(len(nodelist)):
         node = nodelist[k]
