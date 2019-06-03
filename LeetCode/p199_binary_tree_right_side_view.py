@@ -12,7 +12,7 @@ from a0_ListNode import *
 class Solution(object):
 
     ### Use the showLayers method and add each Layer's last item to a list
-    def showLayers(self, root):
+    def showLayers(self, root):  # Omit None
         """Show the tree layer by layer from top to bottom"""
         if root is None:
             return []
@@ -21,8 +21,7 @@ class Solution(object):
         while current:
             next_level, vals = [], []
             for node in current:
-                # if node.val is not None:    # So we add another if command to avoid None added into the list
-                vals.append(node.val)  # However, this accepts None.
+                vals.append(node.val)
                 if node.left:
                     next_level.append(node.left)
                 if node.right:

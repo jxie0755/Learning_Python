@@ -13,6 +13,29 @@ from a0_ListNode import *
 
 
 class Solution(object):
+    # Use showLayers (full layer)
+
+    def showLayers(self, root): # Omit None
+        """Show the tree layer by layer from top to bottom"""
+        if root is None:
+            return []
+
+        result, current = [], [root]
+        while current:
+            next_level, vals = [], []
+            for node in current:
+                vals.append(node.val)
+                if node.left:
+                    next_level.append(node.left)
+                if node.right:
+                    next_level.append(node.right)
+            current = next_level
+            result.append(vals)
+
+        return result
+
+
+
     def invertTree(self, root):
         """
         :type root: TreeNode
