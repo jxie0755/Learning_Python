@@ -19,7 +19,7 @@ class Node:
 from typing import *
 
 class Solution:
-    def showLayer(self, root):
+    def showLayers(self, root):
         if not root:
             return []
         result = [[root]]
@@ -44,7 +44,7 @@ class Solution:
                 i += 1
 
     def connect(self, root: Node) -> Node:
-        all_layer = self.showLayer(root)
+        all_layer = self.showLayers(root)
         for nodes in all_layer:
             self.pointTo(nodes)
         return root
