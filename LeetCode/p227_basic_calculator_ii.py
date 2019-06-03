@@ -61,7 +61,7 @@ class Solution(object):
 class Solution(object):
 
     ### Version B
-    ### Simplified, calculate * and / on the run, then finish with + and -
+    ### Simplified stack, calculate * and / on the run, then finish with + and -
     ### This is 10 times faster but still only beat 25.67%
 
     def calc(self, n1, op, n2):
