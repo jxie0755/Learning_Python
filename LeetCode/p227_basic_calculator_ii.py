@@ -58,11 +58,73 @@ class Solution(object):
 
         return number[0]
 
+class Solution(object):
 
-print(Solution().calculate("3+2*2"))
+    ### Version B
+    ### Simplified, calculate * and / on the run, then finish with + and -
+    ### This is 10 times faster but still only beat 25.67%
+
+    def calc(self, n1, op, n2):
+        """
+        n1, n2 will be numbers
+        op will be operator in str
+        """
+        if op == '*':
+            return n1 * n2
+        if op == '/':
+            return n1 // n2
+        if op == '+':
+            return n1 + n2
+        if op == '-':
+            return n1 - n2
+
+    def calculate(self, s):
+        """
+        :type s: str
+        :rtype: int
+        """
+        n = '0123456789'
+        op = []
+        number = []
+        priority = False
+
+        temp = ''
+        for i in s:
+            if i in n:
+                temp += i
+            elif i in '+-':
+                number.append(int(temp))
+                op.append(i)
+                temp = ''
+
+                # when meet next operator + and -, condentse all previous stacks to one number
+                while len(number) >= 2:
+                    number.append(self.calc(number.pop(-2), op.pop(-2), number.pop()))
+                priority = False
+
+            elif i in '*/':
+                number.append(int(temp))
+                op.append(i)
+                temp = ''
+                # when meet next operator * and / only calculate if previous calculation is also * and /
+                # Otherwise, hold for priority
+                if priority and len(number) >= 2:
+                    number.append(self.calc(number.pop(-2), op.pop(-2), number.pop()))
+                priority = True
+
+        number.append(int(temp))
+        while len(number) >= 2:
+            number.append(self.calc(number.pop(-2), op.pop(), number.pop()))
+
+        return number[-1]
+
+
+
+
 
 if __name__ == '__main__':
     assert Solution().calculate("3+2*2") == 7, 'Example 1'
     assert Solution().calculate(" 3/2 ") == 1, 'Example 2'
     assert Solution().calculate(" 3+5 / 2 ") == 5, 'Example 3'
+    assert Solution().calculate("282-1*2*13-30-2*2*2/2-95/5*2+55+804+3024") == 4067, 'Additional'
     print('all passed')
