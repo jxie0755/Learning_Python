@@ -62,8 +62,7 @@ class Solution(object):
 
     ### Version B
     ### Simplified stack, calculate * and / on the run, then finish with + and -
-    ### This is 10 times faster but still only beat 25.67%
-
+    ### This is 10 times faster and passed the same speed as STD ans
     def calc(self, n1, op, n2):
         """
         n1, n2 will be numbers
@@ -119,6 +118,51 @@ class Solution(object):
         return number[-1]
 
 
+class Solution(object):
+
+    # STD ans, this will inlcude the use of "()"
+    # @param {string} s
+    # @return {integer}
+
+    # THis modify the stacks directly by removing the last two item and add calculated result
+    def compute(self, operands, operators):
+        left, right = operands.pop(), operands.pop()
+        op = operators.pop()
+        if op == '+':
+            operands.append(left + right)
+        elif op == '-':
+            operands.append(left - right)
+        elif op == '*':
+            operands.append(left * right)
+        elif op == '/':
+            operands.append(left // right)
+
+    def calculate(self, s):
+        operands, operators = [], []
+        operand = ""
+        for i in reversed(range(len(s))):
+            elem = s[i]
+            if elem.isdigit():
+                operand += elem
+                if i == 0 or not s[i-1].isdigit():
+                    operands.append(int(operand[::-1]))
+                    operand = ""
+            elif elem == ')' or elem == '*' or elem == '/':
+                operators.append(s[i])
+            elif elem == '+' or elem == '-':
+                while operators and \
+                      (operators[-1] == '*' or operators[-1] == '/'):
+                    self.compute(operands, operators)
+                operators.append(elem)
+            elif elem == '(':
+                while operators[-1] != ')':
+                    self.compute(operands, operators)
+                operators.pop()
+
+        while operators:
+            self.compute(operands, operators)
+
+        return operands[-1]
 
 
 
@@ -126,5 +170,7 @@ if __name__ == '__main__':
     assert Solution().calculate("3+2*2") == 7, 'Example 1'
     assert Solution().calculate(" 3/2 ") == 1, 'Example 2'
     assert Solution().calculate(" 3+5 / 2 ") == 5, 'Example 3'
-    assert Solution().calculate("282-1*2*13-30-2*2*2/2-95/5*2+55+804+3024") == 4067, 'Additional'
+    assert Solution().calculate("282-1*2*13-30-2*2*2/2-95/5*2+55+804+3024") == 4067, 'Additional 1'
+    # assert Solution().calculate("(3-1)*(4-1)") == 6, 'Additional 2'
+
     print('all passed')

@@ -8,7 +8,7 @@ class Solution(object):
     def calculate(self, s):
         operands, operators = [], []
         operand = ""
-        for i in reversed(xrange(len(s))):
+        for i in reversed(range(len(s))):
             if s[i].isdigit():
                 operand += s[i]
                 if i == 0 or not s[i-1].isdigit():
