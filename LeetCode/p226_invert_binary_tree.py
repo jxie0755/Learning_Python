@@ -60,7 +60,10 @@ A = genTree([
         None, 3, None, 9
     ])
 
-print(Solution().showLayers(A))
+print(Solution().showPerfectLayers(A))
+
+
+
 
 # if __name__ == '__main__':
 #     assert Solution().invertTree(None) is None, 'Edge 0'
