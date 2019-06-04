@@ -66,6 +66,23 @@ class BSTIterator(object):
             self.que.append(root)
             self.updateQue()
 
+    # Add from Leetcode P230
+    def kthSmallest(self,k):
+        s = []
+        rank = 0
+        cur = self.root
+        while s or cur:
+            if cur:
+                s.append(cur)
+                cur = cur.left
+            else:
+                cur = s.pop()
+                rank += 1
+                if rank == k:
+                    return cur.val
+                cur = cur.right
+        return None
+
     def updateQue(self):
         if self.que:
             last = self.que[-1]
@@ -117,6 +134,8 @@ if __name__ == '__main__':
         None, None, 9, 20
     ])
     iterator = BSTIterator(b1)
+
+    print(iterator.kthSmallest(3))
 
     assert iterator.next() == 3, 'Step 1'
     assert iterator.next() == 7, 'Step 2'
