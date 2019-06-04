@@ -31,17 +31,63 @@ class Solution(object):
         return self.inorderTraversal(root)[k-1]
 
 
+
 class Solution(object):
 
+    # Internal class of BST iterator from Leetcode P173
+    class BSTIterator(object):
+
+        # from Leetcode P173
+        def __init__(self, root):
+            """
+            :type root: TreeNode
+            """
+            self.root = root
+            self.que = []
+            if root:
+                self.que.append(root)
+                self.updateQue()
+
+        def updateQue(self):
+            if self.que:
+                last = self.que[-1]
+                while last:
+                    if last.left:
+                        self.que.append(last.left)
+                    last = last.left
+
+        def next(self):
+            """
+            @return the next smallest number
+            :rtype: int
+            """
+
+            if self.que:
+                last = self.que[-1]
+                next_val = last.val  # first get return vanl as a temp
+
+                # if there is a right branch, then replace the last node with right branch
+                if last.right:
+                    self.que[-1] = last.right
+                    self.updateQue()
+                # if there is no right branch, move one level above to parent node
+                else:
+                    self.que.pop()
+
+                return next_val
+
     # Version B
-    # Borrow the idea from Leetcode P173, by using a Queue
+    # Borrow the idea from Leetcode P173, by using an iterator
     def kthSmallest(self, root, k):
         """
         :type root: TreeNode
         :type k: int
         :rtype: int
         """
-        return self.inorderTraversal(root)[k-1]
+        iter = Solution().BSTIterator(root)
+        for i in range(k):
+            item = iter.next()
+        return item
 
 
 
