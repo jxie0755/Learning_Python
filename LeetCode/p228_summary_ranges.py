@@ -6,6 +6,10 @@
 
 
 class Solution(object):
+
+    ### Version A, O(N)
+    ### Add a tail item of inf, and evaluate the current item based on the next item
+    ### Use a label to indicate whether a range is found.
     def summaryRanges(self, nums):
         """
         :type nums: List[int]
@@ -17,18 +21,18 @@ class Solution(object):
         nums = nums + [float('inf')]
         result = []
         rangefound = False
-
         temp = ''
         i = 0
         while i != len(nums)-1:
             cur, nex = nums[i], nums[i+1]
             if nex != cur + 1:
-                if rangefound:
+                if not rangefound:
+                    result.append(str(cur))
+
+                else:
                     temp += str(cur)
                     result.append(temp)
                     temp = ''
-                else:
-                    result.append(str(cur))
                 rangefound = False
             else:
                 rangefound = True
@@ -36,9 +40,6 @@ class Solution(object):
                     temp += str(cur) + '->'
             i += 1
         return result
-
-print(Solution().summaryRanges([0,2,3,4,6,8,9]))
-
 
 
 if __name__ == '__main__':
