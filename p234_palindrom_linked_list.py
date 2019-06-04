@@ -12,7 +12,7 @@ from a0_ListNode import *
 
 class Solution(object):
 
-    # Version A, O(N) time and O(N) space as requireed
+    # Version A, O(N^2) time and O(N) space as requireed
     # Move to a list and check the list
     # This will pass quickly but space complexity is not perfect
     def isPalindrome(self, head):
@@ -30,8 +30,9 @@ class Solution(object):
 
         return result == result[::-1]
 
+class Solution(object):
 
-    # Version B1, O(N) time and O(1) space as requireed
+    # Version B1, O(N^2) time and O(1) space as requireed
     # Recursively check head and tail
     # This will fail by exceeding max time limit
     def isPalindrome(self, head):
@@ -52,9 +53,7 @@ class Solution(object):
         pre_tail.next = None
         return headval == tailval and self.isPalindrome(head)
 
-class Solution(object):
-
-    # Version B2, O(N) time and O(1) space as requireed
+    # Version B2, O(N^2) time and O(1) space as requireed
     # Same idea of B1, but non-recursive
     # Still fail, so it is not about recursive depth
     def palindromeUpdate(self, head):
@@ -82,6 +81,38 @@ class Solution(object):
         return True
 
 
+class Solution(object):
+
+    # Version C, O(N) time and O(1) space as requireed
+    # Walk halfway and reverse the second half
+    def reverselink(self, head):
+        dummy = ListNode('X')
+        tail = dummy.next
+        while head:
+            nex = head.next
+            head.next = tail
+            dummy.next = head
+            tail = head
+            head = nex
+        return dummy.next
+
+    def isPalindrome(self, head):
+        """
+        :type head: ListNode
+        :rtype: bool
+        """
+        fast, slow = head, head
+        while fast and fast.next:
+            slow = slow.next
+            fast = fast.next.next
+        rev_half = self.reverselink(slow)
+
+        while rev_half:
+            if rev_half.val != head.val:
+                return False
+            rev_half = rev_half.next
+            head = head.next
+        return True
 
 
 if __name__ == '__main__':
