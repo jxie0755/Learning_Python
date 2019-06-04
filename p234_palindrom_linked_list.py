@@ -34,6 +34,7 @@ class Solution(object):
         return headval == tailval and self.isPalindrome(head)
 
 
+
 if __name__ == '__main__':
     assert Solution().isPalindrome(None), 'Edge'
     assert Solution().isPalindrome(genNode(1)), 'Edge 1'
