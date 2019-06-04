@@ -90,6 +90,27 @@ class Solution(object):
         return item
 
 
+class Solution(object):
+
+    # STD ans
+    # @param {TreeNode} root
+    # @param {integer} k
+    # @return {integer}
+    # This is also using Queues for iterating
+    def kthSmallest(self, root, k):
+        s, cur, rank = [], root, 0
+        while s or cur:
+            if cur:
+                s.append(cur)
+                cur = cur.left
+            else:
+                cur = s.pop()
+                rank += 1
+                if rank == k:
+                    return cur.val
+                cur = cur.right
+
+        return float("-inf")
 
 if __name__ == '__main__':
     A = genTree([
