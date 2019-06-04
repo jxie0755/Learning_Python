@@ -11,14 +11,27 @@ from a0_ListNode import *
 
 
 class Solution(object):
+
+    # Version A, O(N) time and O(1) space as requireed
+    # Recursively check head and tail
+    # This will fail by exceeding max time limit
     def isPalindrome(self, head):
         """
         :type head: ListNode
         :rtype: bool
         """
-        pass
+        if not head or not head.next:
+            return True
 
+        headval = head.val
+        pre_tail = head
+        while pre_tail.next.next:
+            pre_tail = pre_tail.next
+        tailval = pre_tail.next.val
 
+        head = head.next
+        pre_tail.next = None
+        return headval == tailval and self.isPalindrome(head)
 
 
 if __name__ == '__main__':
