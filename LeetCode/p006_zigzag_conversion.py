@@ -63,7 +63,7 @@ class Solution:
 
 class Solution(object):
     def convert(self, s, numRows):
-        # Time O(N), Space O(1) ## better in space
+        # Time O(N), Space O(1) better in space
         """
         :type s: str
         :type numRows: int

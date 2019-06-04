@@ -40,7 +40,7 @@ class Solution:
         # O(n^2), brutal force, time limit exceeded
 
     def countBinarySubstrings(self, s):
-        ## two step method, no need to get all substrings
+        # two step method, no need to get all substrings
 
         # first split the string into groups of '0' and '1', O(n)
 
