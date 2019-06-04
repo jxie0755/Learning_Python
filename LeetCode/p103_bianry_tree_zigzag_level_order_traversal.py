@@ -11,7 +11,7 @@ from a0_ListNode import *
 
 class Solution:
 
-    ### Similar to Leetcode P107, use the showLayers (modified version) to solve the problem
+    # Similar to Leetcode P107, use the showLayers (modified version) to solve the problem
     def showLayers_zigzag(self, root):
         """show layers of tree"""
         if root is None:
@@ -41,7 +41,7 @@ class Solution:
 
         return result
 
-    ### This needs some modification of showLayers Method
+    # This needs some modification of showLayers Method
     def zigzagLevelOrder(self, root: TreeNode):
         return self.showLayers_zigzag(root)
 

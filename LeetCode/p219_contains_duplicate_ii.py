@@ -10,7 +10,7 @@
 
 class Solution:
     def containsNearbyDuplicate(self, nums, k):
-        ### Brutal force, O(N^2), max time limit exceeded
+        # Brutal force, O(N^2), max time limit exceeded
         """
         :type nums: List[int]
         :type k: int
@@ -33,7 +33,7 @@ class Solution:
         return False
 
     def containsNearbyDuplicate(self, nums, k):
-        ### Hashtable O(N)
+        # Hashtable O(N)
         """
         :type nums: List[int]
         :type k: int

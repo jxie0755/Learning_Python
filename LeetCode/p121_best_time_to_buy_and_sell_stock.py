@@ -10,7 +10,7 @@
 
 class Solution:
     def maxProfit(self, prices):
-        ### This method exceeded max time limit :(
+        # This method exceeded max time limit :(
         if not prices:
             return 0
 
@@ -27,8 +27,8 @@ class Solution:
         return answer if answer > 0 else 0
 
     def maxProfit(self, prices):
-        ### This method still exceeded max time limit :(
-        ### 折断法, 以list中最小值做切割
+        # This method still exceeded max time limit :(
+        # 折断法, 以list中最小值做切割
         profits = [0]
         while prices:
             low = min(prices)
@@ -40,7 +40,7 @@ class Solution:
         return max(profits)
 
     def maxProfit_r(self, prices):
-        ### 折断法, 递归来做
+        # 折断法, 递归来做
         if not prices:
             return 0
         else:
@@ -50,9 +50,9 @@ class Solution:
             return max(profit, self.maxProfit_r(prices[:low_n]))
 
     def maxProfit(self, prices):
-        ### filter the list first, to only obtain the turn points, combine with 折断法
-        ### first part is O(N), Second part is also O(N), so overall O(N).
-        ### Accepted
+        # filter the list first, to only obtain the turn points, combine with 折断法
+        # first part is O(N), Second part is also O(N), so overall O(N).
+        # Accepted
         if len(prices) == 0 or len(prices) == 1:
             return 0
 
@@ -78,8 +78,8 @@ class Solution:
         return max(profits)
 
     def maxProfit_best(self, prices):
-        ### STD ans
-        ### Best method evaluate on the run
+        # STD ans
+        # Best method evaluate on the run
         max_profit, min_price = 0, float("inf")
                                     # 无穷大
         for price in prices:
@@ -88,7 +88,7 @@ class Solution:
         return max_profit
 
     def maxProfit(self, prices):
-        ### according to the best method, Denis modified for clearer logic
+        # according to the best method, Denis modified for clearer logic
         min_price = float('inf')
         profit = 0
         i = 0

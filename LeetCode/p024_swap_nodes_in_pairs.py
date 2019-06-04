@@ -11,8 +11,8 @@ from a0_ListNode import *
 
 class Solution:
 
-    ### 用list重排, 再重新连接
-    ### O(N)
+    # 用list重排, 再重新连接
+    # O(N)
     def swapPairs(self, head: ListNode) -> ListNode:
         if not head or not head.next:
             return head
@@ -40,7 +40,7 @@ class Solution:
 
             return new_head
 
-    ### 不使用list,直接原地改
+    # 不使用list,直接原地改
     def swapPairs(self, head: ListNode) -> ListNode:
         if head and head.next:
             new_head, next_head = head.next, head.next.next

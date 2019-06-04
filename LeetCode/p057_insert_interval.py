@@ -20,7 +20,7 @@ class Interval:
 
 
 class Solution:
-    ### From leetcode p056
+    # From leetcode p056
     def merge(self, intervals):
         if not intervals:
             return intervals
@@ -34,7 +34,7 @@ class Solution:
                 result.append(current)
         return result
 
-    ### Basically, insert the newInterval into intervals based on start in sorted order, then merge.
+    # Basically, insert the newInterval into intervals based on start in sorted order, then merge.
     def insert(self, intervals, newInterval):
         i = 0
         inserted = False

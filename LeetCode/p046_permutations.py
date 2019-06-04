@@ -9,7 +9,7 @@ import math
 import itertools
 
 class Solution:
-    ### use python's internal method, only for testing the speed
+    # use python's internal method, only for testing the speed
     def permute(self, nums: List[int]):
         result = []
         for i in itertools.permutations(nums):
@@ -19,7 +19,7 @@ class Solution:
 
 class Solution:
     def next_permute(self, indexes):
-        ### Use next permutation method from leetcode p031
+        # Use next permutation method from leetcode p031
         """calculate the next permuatation, with integers 0 to N-1 (for N elements)
         this will both modify idx_list and return the updated idx_list"""
         length = len(indexes)
@@ -43,7 +43,7 @@ class Solution:
             return indexes
 
     def permute(self, nums: List[int]):
-        ### First handle index, then convert to nuns[index]
+        # First handle index, then convert to nuns[index]
         total_n = math.factorial(len(nums))
         result = []
         idxs = list(range(len(nums)))[::-1]
@@ -53,7 +53,7 @@ class Solution:
         return result
 
     def permute2(self, nums: List[int]):
-        ### recursive method, but direct handle elements in nums
+        # recursive method, but direct handle elements in nums
         total_n = math.factorial(len(nums))
         result = []
         for i in range(total_n):
@@ -64,7 +64,7 @@ class Solution:
 
 
 class Solution:
-    ### recursive method
+    # recursive method
     def restList(self, elm, lst):
         """return a list with target element removed"""
         nextList = lst[:]
@@ -90,7 +90,7 @@ class Solution:
 
 
 class Solution:
-    ### recursive method, single and pure recursion
+    # recursive method, single and pure recursion
     def permute(self, nums: List[int]):
         length = len(nums)
         if length == 1:

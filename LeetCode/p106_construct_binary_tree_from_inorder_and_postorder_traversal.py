@@ -16,7 +16,7 @@ from a0_ListNode import *
 
 
 class Solution:
-    ### Basically the same idea of my own slow version in leetcode P105
+    # Basically the same idea of my own slow version in leetcode P105
     def buildTree(self, inorder, postorder):
         """
         :type inorder: List[int]

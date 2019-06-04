@@ -21,7 +21,7 @@ import timeit
 import math
 class Solution:
     def nextPermutation(self, nums):
-        ### O(N), directly find next different permutations
+        # O(N), directly find next different permutations
         """
         :type nums: List[int]
         :rtype: void Do not return anything, modify nums in-place instead.
@@ -45,7 +45,7 @@ class Solution:
         return nums
 
     def prevPermutation(self, nums):
-        ### O(N), directly find next different permutations
+        # O(N), directly find next different permutations
         """
         :type nums: List[int]
         :rtype: void Do not return anything, modify nums in-place instead.
@@ -68,9 +68,9 @@ class Solution:
                     break
         return nums
 
-    ### This is basically the same as next permuation, with further implementation
-    ### Direct implementation will fail because exceeded max time limit
-    ### Optimization method is used to minimize the number of iteration on nextPermuete
+    # This is basically the same as next permuation, with further implementation
+    # Direct implementation will fail because exceeded max time limit
+    # Optimization method is used to minimize the number of iteration on nextPermuete
     p_dict = {
         i: math.factorial(i) for i in range(1,10)
     }
@@ -104,8 +104,8 @@ class Solution:
 
 
     def getPermutation(self, n, k):
-        ### Induce prevPermute to optimize
-        ### Still fail in time limit!
+        # Induce prevPermute to optimize
+        # Still fail in time limit!
         total_p = math.factorial(n)
         if k == 1 or n == 1:
             lst = list(range(1, n + 1))
@@ -124,7 +124,7 @@ class Solution:
 
 
 class Solution:
-    ### recursive method, single and pure recursion
+    # recursive method, single and pure recursion
     def permute(self, nums):
         length = len(nums)
         if length == 1:
@@ -138,8 +138,8 @@ class Solution:
             return result
 
     def getPermutation(self, n, k):
-        ### use permute method from leetcode p046
-        ### Fail even faster
+        # use permute method from leetcode p046
+        # Fail even faster
         lst = list(range(1, n + 1))
         if k == 1 or n == 1:
             return ''.join([str(i) for i in lst])
@@ -169,7 +169,7 @@ class Solution(object):
 
 
 class Solution(object):
-    ### recursive method
+    # recursive method
     def getPermutation(self, n, k):
 
         def helper(nums, k):

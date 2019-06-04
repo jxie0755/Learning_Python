@@ -13,9 +13,9 @@ from a0_ListNode import *
 
 class Solution(object):
 
-    ### Put nodes in a list
-    ### Keep poping the list from head and tail in turn and link them
-    ### This will pass but runs slow
+    # Put nodes in a list
+    # Keep poping the list from head and tail in turn and link them
+    # This will pass but runs slow
     def reorderList(self, head):
         """
         :type head: ListNode

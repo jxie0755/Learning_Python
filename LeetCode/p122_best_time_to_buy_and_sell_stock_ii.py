@@ -33,8 +33,8 @@ class Solution:
         return total_profit
 
     def maxProfit_best(self, prices):
-        ### 直接计算每一步的收益,只要是正数就要,负数就算0
-        ### 逻辑精简但是未必更快
+        # 直接计算每一步的收益,只要是正数就要,负数就算0
+        # 逻辑精简但是未必更快
         profit = 0
         for i in range(len(prices) - 1):
             profit += max(0, prices[i + 1] - prices[i])

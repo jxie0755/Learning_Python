@@ -15,7 +15,7 @@ class Solution:
     def isHappy(self, n):
         # Time:  O(k), where k is the steps to be happy number
         # Space: O(k)
-        ### Regular method, process n untill repeating
+        # Regular method, process n untill repeating
         """
         :type n: int
         :rtype: bool

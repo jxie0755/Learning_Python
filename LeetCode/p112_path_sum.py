@@ -38,7 +38,7 @@ class Solution:
 
     def hasPathSum(self, root: TreeNode, target: int) -> bool:
 
-        ### Borrow the idea of allPath
+        # Borrow the idea of allPath
         def helper(root, cur=[]):
             if not root:
                 return False

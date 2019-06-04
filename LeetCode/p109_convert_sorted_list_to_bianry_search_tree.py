@@ -12,7 +12,7 @@ from a0_ListNode import *
 
 
 class Solution:
-    ### Convert linked list to an arrayList then solve the problem like Leetcode P108
+    # Convert linked list to an arrayList then solve the problem like Leetcode P108
 
 
 

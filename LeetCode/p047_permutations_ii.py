@@ -9,7 +9,7 @@ import math
 
 class Solution:
     def next_permute(self, indexes):
-        ### Use next permutation method from leetcode p031
+        # Use next permutation method from leetcode p031
         """calculate the next permuatation, with integers 0 to N-1 (for N elements)
         this will both modify idx_list and return the updated idx_list"""
         length = len(indexes)
@@ -34,9 +34,9 @@ class Solution:
 
 
     def permuteUnique(self, nums):
-        ### First handle index, then convert to nuns[index], if not repeating then append.
-        ### This will pass but way too slow
-        ### revised to use set(tuples) to removed repeats, it is faster, but still slow
+        # First handle index, then convert to nuns[index], if not repeating then append.
+        # This will pass but way too slow
+        # revised to use set(tuples) to removed repeats, it is faster, but still slow
         total_n = math.factorial(len(nums))
         result = []
         idxs = list(range(len(nums)))[::-1]
@@ -47,8 +47,8 @@ class Solution:
 
 
 class Solution:
-    ### recursive method from leetcode P046
-    ### revised the recursion rule by bypassing the repeated next_list
+    # recursive method from leetcode P046
+    # revised the recursion rule by bypassing the repeated next_list
     def restList(self, elm, lst):
         """return a list with target element removed"""
         nextList = lst[:]
@@ -75,8 +75,8 @@ class Solution:
         return result
 
 class Solution:
-    ### recursive method, single and pure recursion from leetcode P046
-    ### revised the recursion rule by bypassing the repeated next_list
+    # recursive method, single and pure recursion from leetcode P046
+    # revised the recursion rule by bypassing the repeated next_list
     def permuteUnique(self, nums: List[int]):
         length = len(nums)
         if length == 1:

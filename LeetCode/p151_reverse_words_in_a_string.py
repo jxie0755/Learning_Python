@@ -12,7 +12,7 @@
 
 class Solution(object):
 
-    ### Version A, with the help of list
+    # Version A, with the help of list
     def reverseWords(self, s):
         """
         :type s: str
@@ -39,7 +39,7 @@ class Solution(object):
 
 class Solution(object):
 
-    ### Version B Do not use list, just directly get the string
+    # Version B Do not use list, just directly get the string
     def reverseWords(self, s):
         """
         :type s: str

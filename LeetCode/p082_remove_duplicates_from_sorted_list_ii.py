@@ -10,8 +10,8 @@ from a0_ListNode import *
 
 
 class Solution:
-    ### O(N)
-    ### Go over and skip the repeating elements
+    # O(N)
+    # Go over and skip the repeating elements
     def deleteDuplicates(self, head: ListNode) -> ListNode:
         if not head:
             return None

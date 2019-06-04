@@ -11,8 +11,8 @@
 
 class Solution:
     def missingNumber(self, nums):
-        ### 利用等差数列? 过一遍找出首项和末项 (min和max)
-        ### 然后长度+1, 补位, 计算等差数列之和, 与实际之和相比的差值就是missing number
+        # 利用等差数列? 过一遍找出首项和末项 (min和max)
+        # 然后长度+1, 补位, 计算等差数列之和, 与实际之和相比的差值就是missing number
         """
         :type nums: List[int]
         :rtype: int
@@ -36,7 +36,7 @@ class Solution:
 
 class Solution:
     def missingNumber(self, nums):
-        ### XOR method, O(N)
+        # XOR method, O(N)
 
         """
         :type nums: List[int]

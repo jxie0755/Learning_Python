@@ -11,7 +11,7 @@
 
 class Solution:
     def isUgly(self, num):
-        ### Time O(logN), Space O(1)
+        # Time O(logN), Space O(1)
         """
         :type num: int
         :rtype: bool

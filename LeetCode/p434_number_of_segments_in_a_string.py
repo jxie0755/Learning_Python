@@ -11,11 +11,11 @@
 
 class Solution:
     def countSegments(self, s):
-        ### use python built-in string method
+        # use python built-in string method
         return len(s.split())
 
     def countSegments(self, s):
-        ### does not use python characteristics, O(n)
+        # does not use python characteristics, O(n)
         word = False  # set a flag for word, switch it on and off in iteration
         count = 0
         for i in range(len(s)):

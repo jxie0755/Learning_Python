@@ -12,8 +12,8 @@
 
 
 class Solution:
-    ### This will now work, but exceeded max timei limit
-    ### Recursion depth is not the problem
+    # This will now work, but exceeded max timei limit
+    # Recursion depth is not the problem
     def numDecodings(self, s: str) -> int:
         if len(s) == 0:
             return 1

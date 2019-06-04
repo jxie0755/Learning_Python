@@ -14,8 +14,8 @@
 
 class Solution:
     def countSubstrings(self, s):
-        ### not very fast?
-        ### create a generator for all substrings, to save memory
+        # not very fast?
+        # create a generator for all substrings, to save memory
         def substrings(x):
             for i in range(len(x)):
                 for e in range(1, len(x)-i+1):
@@ -28,7 +28,7 @@ class Solution:
         return count
 
     def countSubstrings(self, s):
-        ### without generator, even slower
+        # without generator, even slower
 
         count = 0
         for i in range(len(s)):
@@ -38,7 +38,7 @@ class Solution:
         return count
 
     def countSubstrings(self, s):
-        ### https://leetcode.com/problems/palindromic-substrings/discuss/105687/Python-Straightforward-with-Explanation-(Bonus-O(N)-solution)
+        # https://leetcode.com/problems/palindromic-substrings/discuss/105687/Python-Straightforward-with-Explanation-(Bonus-O(N)-solution)
 
         N = len(s)
         ans = 0
@@ -59,9 +59,9 @@ class Solution:
         # Because once left != right, then no more check on longer substrings with this center.
 
     def countSubstrings(self, s):
-        ### # a modification from above center expanding algorithm
+        # # a modification from above center expanding algorithm
 
-        ### The oirignal way of assigning left and right is not very explicit
+        # The oirignal way of assigning left and right is not very explicit
         ans = 0
         for i in range(len(s)):
             for j in range(2):

@@ -14,7 +14,7 @@
 
 class Solution:
     def checkRecord(self, s):
-        ### return not s.count('A') > 1 and not s.count('LLL') > 0
+        # return not s.count('A') > 1 and not s.count('LLL') > 0
         return s.count('A') <= 1 and 'LLL' not in s  # a better way of expression
 
 

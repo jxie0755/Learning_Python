@@ -13,7 +13,7 @@
 
 class Solution:
     def majorityElement(self, nums):
-        ### Hash table?
+        # Hash table?
         """
         :type nums: List[int]
         :rtype: int

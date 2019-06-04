@@ -64,9 +64,9 @@ class Solution:
 
 
 class Solution:
-    ### Method modified from Leetcode P033
+    # Method modified from Leetcode P033
     def search(self, nums, target):
-        ### Regular while loop, binary search O(logN)
+        # Regular while loop, binary search O(logN)
         """
         :type nums: List[int]
         :type target: int

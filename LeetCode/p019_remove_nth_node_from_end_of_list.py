@@ -11,7 +11,7 @@ from a0_TreeNode import *
 from a0_ListNode import *
 
 class Solution:
-    ### 笨办法,先判断链表长度, 再正向解决
+    # 笨办法,先判断链表长度, 再正向解决
     def removeNthFromEnd(self, head: ListNode, n: int) -> ListNode:
         cur, length = head, 0
         while cur:

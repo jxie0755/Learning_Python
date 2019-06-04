@@ -11,7 +11,7 @@
 from typing import *
 
 class Solution:
-    ### Simple Recursion method that worked but exceed max time limit
+    # Simple Recursion method that worked but exceed max time limit
     def jump(self, nums: List[int]) -> int:
 
         def helper(cur_idx, cur_step=0):
@@ -30,8 +30,8 @@ class Solution:
 
 
 class Solution:
-    ### A modified method with hashmap search to reduce repeating calculation
-    ### Use memorization method
+    # A modified method with hashmap search to reduce repeating calculation
+    # Use memorization method
     def jump(self, nums: List[int]) -> int:
 
         def helper(cur_idx, cur_step=0):
@@ -54,7 +54,7 @@ class Solution:
         return min(all_ways)
 
 class Solution:
-    ### Give up on recursion, new method
+    # Give up on recursion, new method
     def jump(self, nums: List[int]) -> int:
 
         def find_next_idx(cur_idx):
@@ -82,9 +82,9 @@ class Solution:
 
 
 class Solution:
-    ### Improved Recursion method
-    ### Based on last non-recursive method
-    ### by using max function, this will pass, but still slow.
+    # Improved Recursion method
+    # Based on last non-recursive method
+    # by using max function, this will pass, but still slow.
     def jump(self, nums: List[int]) -> int:
 
         def find_next_idx(cur_idx, count=0):
@@ -101,9 +101,9 @@ class Solution:
         return find_next_idx(0)
 
 class Solution:
-    ### Improved Recursion method
-    ### Based on last recursive method but removed max() and enumerate
-    ### it is now very similar to non-recursive method, but still slower.
+    # Improved Recursion method
+    # Based on last recursive method but removed max() and enumerate
+    # it is now very similar to non-recursive method, but still slower.
 
     def jump(self, nums: List[int]) -> int:
 

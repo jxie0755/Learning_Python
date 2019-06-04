@@ -14,7 +14,7 @@ from a0_ListNode import *
 
 
 class Solution:
-    ### The key is to find the first leaf
+    # The key is to find the first leaf
     def isLeaf(self, root):
         if root and not root.left and not root.right:
             return True

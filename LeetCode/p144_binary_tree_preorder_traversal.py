@@ -12,7 +12,7 @@ from a0_ListNode import *
 class Solution(object):
 
     def preorderTraversal(self, root):
-        ### Recursive method
+        # Recursive method
         """
         :type root: TreeNode
         :rtype: List[int]

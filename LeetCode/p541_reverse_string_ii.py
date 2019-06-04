@@ -16,7 +16,7 @@
 
 class Solution:
     def reverseStr(self, s, k):
-        ### O(n) method, while loop to move 2k length string along
+        # O(n) method, while loop to move 2k length string along
         start = 0
         result = ''
         while start <= len(s):
@@ -25,14 +25,14 @@ class Solution:
         return result
 
     def reverseStr(self, s, k):
-        ### still O(n) but use slice with step, simpler codes use for loop
+        # still O(n) but use slice with step, simpler codes use for loop
         result = ''
         for i in range(0, len(s), 2 * k):
             result += s[i:i+k][::-1] + s[i+k:i+2*k]
         return result
 
     def reverseStr(self, s, k):
-        ### a recursive O(n) way.
+        # a recursive O(n) way.
         return s[:k][::-1] + s[k:2 * k] + self.reverseStr(s[2 * k:], k) if s else ""
         # Don't forget the last part to prevent infinite recursion on empty string
 

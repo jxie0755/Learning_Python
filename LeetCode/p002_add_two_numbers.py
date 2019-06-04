@@ -15,10 +15,10 @@ from a0_ListNode import *
 
 class Solution(object):
     def addTwoNumbers(self, l1, l2):
-        ### Time:  O(n)
-        ### Space: O(1)
-        ### Non-recursion  method
-        ### This will protect l1 and l2 from changing
+        # Time:  O(n)
+        # Space: O(1)
+        # Non-recursion  method
+        # This will protect l1 and l2 from changing
         """
         :type l1: ListNode
         :type l2: ListNode
@@ -47,11 +47,11 @@ class Solution(object):
 
 class Solution:
     def addTwoNumbers(self, l1, l2):
-        ### Time:  O(n)
-        ### Space: O(1)
-        ### Recursion method
-        ### This will break down l1 and l2
-        ### 加一个parameter就可以避免改变l1和l2
+        # Time:  O(n)
+        # Space: O(1)
+        # Recursion method
+        # This will break down l1 and l2
+        # 加一个parameter就可以避免改变l1和l2
         """
         :type l1: ListNode
         :type l2: ListNode
@@ -80,12 +80,12 @@ class Solution:
 
 class Solution:
     def addTwoNumbers(self, l1, l2, carry_over=0):
-        ### Time:  O(n)
-        ### Space: O(1)
-        ### Recursion method
-        ### This now will not break down l1 and l2
-        ### 加一个parameter就可以避免改变l1和l2
-        ### This will pass the test case even an additional parameter is added.
+        # Time:  O(n)
+        # Space: O(1)
+        # Recursion method
+        # This now will not break down l1 and l2
+        # 加一个parameter就可以避免改变l1和l2
+        # This will pass the test case even an additional parameter is added.
         """
         :type l1: ListNode
         :type l2: ListNode

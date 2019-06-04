@@ -33,7 +33,7 @@ class Solution:
 
 
     def mySqrt2(self, x):
-        ### A modified binary search:
+        # A modified binary search:
         left, right = 1, x
         while True:
             middle = int((left + right) / 2)
@@ -46,7 +46,7 @@ class Solution:
 
 
     def mySqrt3(self, x):
-        ### Cheating by use python internal function
+        # Cheating by use python internal function
         return int(x ** 0.5)
 
 if __name__ == '__main__':

@@ -9,7 +9,7 @@ from a0_ListNode import *
 
 
 class Solution:
-    ### Exceeded time limit
+    # Exceeded time limit
     def mergeKLists(self, lst) -> ListNode:
         cur = dummy = ListNode('X')
         while any([i for i in lst]):
@@ -29,8 +29,8 @@ class Solution:
         return dummy.next
 
 class Solution:
-    ### take all val out, then return the sorted linked list
-    ### not recommended
+    # take all val out, then return the sorted linked list
+    # not recommended
     def mergeKLists(self, lst) -> ListNode:
         result = []
         for node in lst:
@@ -43,7 +43,7 @@ class Solution:
 
 
 class SolutionFinal:
-    ### use merge two list, then use it multiple times
+    # use merge two list, then use it multiple times
     def merge_two(self, l1, l2):
         """merge two sorted linked list"""
         global count
@@ -59,7 +59,7 @@ class SolutionFinal:
         curr.next = l1 or l2
         return dummy.next
 
-    ### 但是这个合并的方法偏慢, 相当于要流经的重复节点太多次了
+    # 但是这个合并的方法偏慢, 相当于要流经的重复节点太多次了
     def mergeKLists_X(self, lst) -> ListNode:
         dummy = ListNode(float('-inf'))
         for i in lst:
@@ -68,7 +68,7 @@ class SolutionFinal:
         print("count: ", count)
         return dummy.next
 
-    ### 这个方法采用收尾合并, 这样能显著减少重复流经的节点
+    # 这个方法采用收尾合并, 这样能显著减少重复流经的节点
     def mergeKLists_O(self, lst) -> ListNode:
         if not lst:
             return None

@@ -13,7 +13,7 @@ from a0_TreeNode import *
 from a0_ListNode import *
 
 class Solution:
-    ### This will pass but exceed max time limit
+    # This will pass but exceed max time limit
     def buildTree(self, preorder: List[int], inorder: List[int]) -> TreeNode:
         if not preorder:
             return None
@@ -47,8 +47,8 @@ class Solution:
 
 
 class Solution:
-    ### Same method idea as above but build a hash table to store the index of each value
-    ### Passed, but still very slow
+    # Same method idea as above but build a hash table to store the index of each value
+    # Passed, but still very slow
     def buildTree(self, preorder: List[int], inorder: List[int]) -> TreeNode:
 
         hmp = dict()

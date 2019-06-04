@@ -6,8 +6,8 @@
 
 
 class LC200UnionFind(object):
-    ### Designed for Leetcode P200
-    ### Weighted and not path compressed
+    # Designed for Leetcode P200
+    # Weighted and not path compressed
     def __init__(self, size):
         self.id = list(range(size))
         self.sz = [1] * size           # track the size of each tree (only on the root)

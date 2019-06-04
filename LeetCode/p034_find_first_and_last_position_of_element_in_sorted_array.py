@@ -10,10 +10,10 @@
 
 
 class Solution:
-    ### 3 binary search, find catch mid value, and Low/High of the section,
-    ### Then according to mid value and Low/High to find head and tail by 2 additional binary search
-    ### O(LogN)
-    ### Space O(1)
+    # 3 binary search, find catch mid value, and Low/High of the section,
+    # Then according to mid value and Low/High to find head and tail by 2 additional binary search
+    # O(LogN)
+    # Space O(1)
 
     def searchRange(self, nums, target):
 
@@ -71,11 +71,11 @@ class Solution:
 
 
 class Solution:
-    ### improved binary search
-    ### 3 binary search, find catch mid value, and Low/High of the section,
-    ### Then according to mid value and Low/High to find head and tail by 2 additional binary search
-    ### O(LogN)
-    ### Space O(1)
+    # improved binary search
+    # 3 binary search, find catch mid value, and Low/High of the section,
+    # Then according to mid value and Low/High to find head and tail by 2 additional binary search
+    # O(LogN)
+    # Space O(1)
 
     def searchRange(self, nums, target):
         if not nums:  # 处理空list

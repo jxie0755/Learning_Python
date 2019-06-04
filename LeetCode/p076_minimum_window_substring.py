@@ -17,8 +17,8 @@ class Solution:
         return result
 
 
-    ### Brutal force
-    ### maximum time limit exceeded
+    # Brutal force
+    # maximum time limit exceeded
     def minWindow(self, s: str, t: str) -> str:
         subs = self.substring_SL(s)
         t_L = len(t)
@@ -37,8 +37,8 @@ class Solution:
                     return sub
         return ''
 
-    ### Faster by starting at the target length window
-    ### Still failed max time limit
+    # Faster by starting at the target length window
+    # Still failed max time limit
     def minWindow(self, s: str, t: str) -> str:
         t_set = set(t)
         hmp = {i:t.count(i) for i in t_set}
@@ -51,8 +51,8 @@ class Solution:
         return ''
 
 
-    ### Even faster by only starting indexes at the char that is in the target
-    ### Still failed max time limit
+    # Even faster by only starting indexes at the char that is in the target
+    # Still failed max time limit
     def minWindow(self, s: str, t: str) -> str:
         t_set = set(t)
         hmp = {i: t.count(i) for i in t_set}

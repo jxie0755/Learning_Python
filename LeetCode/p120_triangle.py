@@ -12,8 +12,8 @@ from typing import *
 
 
 class Solution:
-    ### Recursive method
-    ### This will pass but exceed max time limit as the recursion grow exponentially
+    # Recursive method
+    # This will pass but exceed max time limit as the recursion grow exponentially
     def minimumTotal(self, triangle: List[List[int]]) -> int:
         def helper(depth, idx):
             row = triangle[depth]
@@ -50,7 +50,7 @@ class Solution:
         return next_row_min[0]
 
 
-    ### do not general now next_row_min, modify in-place, for bonus
+    # do not general now next_row_min, modify in-place, for bonus
     def minimumTotal(self, triangle: List[List[int]]) -> int:
         if len(triangle) == 1:
             return triangle[0][0]

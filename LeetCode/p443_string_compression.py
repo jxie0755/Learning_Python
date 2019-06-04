@@ -18,7 +18,7 @@
 
 class Solution:
     def compress(self, chars):
-        ### this actually compress chars
+        # this actually compress chars
         chars.append('end')
         index, count = 0, 1  # set index as the editing position for compress
         for i in range(1, len(chars)):  # iterate the two continguous element

@@ -11,8 +11,8 @@
 
 from math import factorial
 
-### This is the same as ProjectEuler p 015 lattice paths
-### use combination method: Combination pick r out of n : n! // r! // (n-r)!
+# This is the same as ProjectEuler p 015 lattice paths
+# use combination method: Combination pick r out of n : n! // r! // (n-r)!
 class Solution:
     def uniquePaths(self, m: int, n: int) -> int:
         total = m + n - 2

@@ -6,8 +6,8 @@
 
 class Solution(object):
 
-    ### Version A, brutal force, get all subsequence and find the product
-    ### Failed by exceeding max time limit
+    # Version A, brutal force, get all subsequence and find the product
+    # Failed by exceeding max time limit
     def maxProduct(self, nums):
         """
         :type nums: List[int]
@@ -27,8 +27,8 @@ class Solution(object):
 class Solution(object):
 
 
-    ### Version B
-    ### The idea is to find:
+    # Version B
+    # The idea is to find:
         # If zero in is the lst
             # if zero is in the list, then product will be zero
             # it must compare with subarray before zero and subarray after zero, with 0

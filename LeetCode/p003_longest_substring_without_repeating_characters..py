@@ -7,9 +7,9 @@
 
 class Solution:
     def lengthOfLongestSubstring(self, s):
-        ### Brutal Force Time O(N^3)
-        ### Get all substrings from long to short, then check each on repeating characters
-        ### Fail as Maximum Time limit exceeded
+        # Brutal Force Time O(N^3)
+        # Get all substrings from long to short, then check each on repeating characters
+        # Fail as Maximum Time limit exceeded
         """
         :type s: str
         :rtype: int
@@ -36,9 +36,9 @@ class Solution:
 
 class Solution:
     def lengthOfLongestSubstring(self, s):
-        ### Time O(N^2), Space O(N)
-        ### Find repeating element and start again after the first repeating element
-        ### Recursion is dangerous with maximum recursion depth limit, this one will fail at a long string test case!!
+        # Time O(N^2), Space O(N)
+        # Find repeating element and start again after the first repeating element
+        # Recursion is dangerous with maximum recursion depth limit, this one will fail at a long string test case!!
         """
         :type s: str
         :rtype: int
@@ -67,8 +67,8 @@ class Solution:
 
 class Solution:
     def lengthOfLongestSubstring(self, s):
-        ### Time O(N^2), Space O(N)
-        ### Non-recursive way to previous method
+        # Time O(N^2), Space O(N)
+        # Non-recursive way to previous method
         """
         :type s: str
         :rtype: int
@@ -97,8 +97,8 @@ class Solution:
 
 
 class Solution(object):
-    ### Time O(N), Space O(N)
-    ### No need to restart from first repeating element, just go iteration once
+    # Time O(N), Space O(N)
+    # No need to restart from first repeating element, just go iteration once
     def lengthOfLongestSubstring(self, s):
         """
         :type s: str

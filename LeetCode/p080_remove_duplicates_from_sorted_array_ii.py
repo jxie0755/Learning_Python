@@ -28,7 +28,7 @@ from typing import *
 
 
 class Solution:
-    ### But this is not O(1) memory, dict was created to solve the problem
+    # But this is not O(1) memory, dict was created to solve the problem
     def removeDuplicates(self, nums: List[int]) -> int:
         hmp = dict()
         i = 0
@@ -45,9 +45,9 @@ class Solution:
 
         return len(nums)
 
-    ### A method without the dict
-    ### use a label duplicate to record whether a duplicate if found
-    ### (can set to numbers to accomodate to any level of duplication
+    # A method without the dict
+    # use a label duplicate to record whether a duplicate if found
+    # (can set to numbers to accomodate to any level of duplication
     def removeDuplicates(self, nums: List[int]) -> int:
         if len(nums) <= 2:
             return len(nums)

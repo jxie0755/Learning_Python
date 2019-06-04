@@ -21,7 +21,7 @@ class Node:
 
 class Solution:
 
-    ### Use Hashmap to save the
+    # Use Hashmap to save the
     def copyRandomList(self, head: Node) -> Node:
         check_list = {}
 

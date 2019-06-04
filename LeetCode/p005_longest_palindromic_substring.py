@@ -8,9 +8,9 @@
 
 class Solution:
     def longestPalindrome(self, s):
-        ### Time: O(N^2) + O(1/2N) = O(N^2)
-        ### Space: O(N)
-        ### Maximum time limit exceeded
+        # Time: O(N^2) + O(1/2N) = O(N^2)
+        # Space: O(N)
+        # Maximum time limit exceeded
         """
         :type s: str
         :rtype: str
@@ -33,8 +33,8 @@ class Solution:
 
 class Solution:
     def longestPalindrome(self, s):
-        ### Time: O(N^2)
-        ### Space: O(1)
+        # Time: O(N^2)
+        # Space: O(1)
         """
         :type s: str
         :rtype: str
@@ -63,8 +63,8 @@ class Solution:
 # TODO: Practice Manacher's algorithm (Dynamic Programming)
 # class Solution:
 #     def longestPalindrome(self, s):
-#         ### Manacher's algorithm (Dynamic programming)
-#         ### O(N)
+#         # Manacher's algorithm (Dynamic programming)
+#         # O(N)
 #         pass
 
 

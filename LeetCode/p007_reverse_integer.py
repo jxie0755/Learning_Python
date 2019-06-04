@@ -13,7 +13,7 @@
 
 class Solution:
     def reverse(self, x):
-        ### string method, takes extra space
+        # string method, takes extra space
         if x >= 0:
             result = int(str(x)[::-1])
             return result if result <= 2147483647 else 0
@@ -22,7 +22,7 @@ class Solution:
             return result if result >= -2147483648 else 0
 
     def reverse2(self, x):
-        ### no extra space used, by using divmod method
+        # no extra space used, by using divmod method
         absX = abs(x)
         result = 0
         while absX > 0:

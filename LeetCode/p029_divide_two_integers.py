@@ -50,7 +50,7 @@ class Solution:
 
 
 class Solution(object):
-    ### Same idea but use bit calculation << and >>
+    # Same idea but use bit calculation << and >>
     def divide(self, dividend, divisor):
         """
         :type dividend: int

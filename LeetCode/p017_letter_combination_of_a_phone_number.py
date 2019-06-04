@@ -10,7 +10,7 @@
 
 class Solution:
     def letterCombinations(self, digits):
-        ### Time:  O(n * 3^n)
+        # Time:  O(n * 3^n)
         """
         :type digits: str
         :rtype: List[str]

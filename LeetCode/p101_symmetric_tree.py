@@ -29,7 +29,7 @@ class Solution:
         return result
 
     def isSymmetric(self, root: TreeNode) -> bool:
-        ### If wait till getting all the layers, it will be too late
+        # If wait till getting all the layers, it will be too late
         if not root:
             return True
         all_layer = self.showLayers(root)
@@ -40,8 +40,8 @@ class Solution:
 
 class Solution:
     def isSymmetric(self, root: TreeNode) -> bool:
-        ### Check on the run, accepted, but too slow
-        ### O(N^2)
+        # Check on the run, accepted, but too slow
+        # O(N^2)
         layer = [root]
         while any([i for i in layer]):
             new_layer = []
@@ -79,8 +79,8 @@ class Solution:
         return [t.val] + self.preorderTraversal_mirrored(t.right) + self.preorderTraversal_mirrored(t.left)
 
     def isSymmetric(self, root: TreeNode) -> bool:
-        ### Traversal with left pre and post order to generate the mirrored flat list compare if they are the same
-        ### O(N)
+        # Traversal with left pre and post order to generate the mirrored flat list compare if they are the same
+        # O(N)
         return self.preorderTraversal(root) == self.preorderTraversal_mirrored(root)
 
 

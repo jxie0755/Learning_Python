@@ -10,7 +10,7 @@ from a0_ListNode import *
 
 
 class Solution:
-    ### Use the showLayers operation but the maximum time limit is exceeded
+    # Use the showLayers operation but the maximum time limit is exceeded
     def showLayers(self, root):  # Omit None
         """Show the tree layer by layer from top to bottom"""
         if root is None:
@@ -45,9 +45,9 @@ class Solution:
 
 class Solution:
     def levelOrderBottom(self, root):
-        ### STD ans
-        ### Almost the same way as I tried, but it does not add None to next layer
-        ### Use i.left and i.right to screen each node in current layer and only add the branch to next layer if the branch exist
+        # STD ans
+        # Almost the same way as I tried, but it does not add None to next layer
+        # Use i.left and i.right to screen each node in current layer and only add the branch to next layer if the branch exist
         """
         :type root: TreeNode
         :rtype: List[List[int]]
@@ -73,9 +73,9 @@ class Solution:
 
 class Solution:
     def levelOrderBottom(self, root):
-        ### A more structed stack method accoding to last method
-        ### First build up the stack all the way to the bottom to get nodes at each layer
-        ### Then extract the values of each node in every layer
+        # A more structed stack method accoding to last method
+        # First build up the stack all the way to the bottom to get nodes at each layer
+        # Then extract the values of each node in every layer
         """
         :type root: TreeNode
         :rtype: List[List[int]]

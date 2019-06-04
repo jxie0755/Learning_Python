@@ -10,7 +10,7 @@
 
 class Solution:
 
-    ### 新建一个表, 不破坏原表
+    # 新建一个表, 不破坏原表
     def minPathSum(self, grid):
         if not len(grid) or not len(grid[0]):
             return 0
@@ -32,7 +32,7 @@ class Solution:
         return min_to[n-1][m-1]
 
 class Solution:
-    ### 直接在原表上改动, 破坏原表, 但是速度更快
+    # 直接在原表上改动, 破坏原表, 但是速度更快
     def minPathSum(self, grid):
         if not len(grid) or not len(grid[0]):
             return 0

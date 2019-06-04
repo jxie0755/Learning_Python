@@ -17,8 +17,8 @@ class Solution(object):
 
     def detectCycle(self, head):
         """return the node where the cycle begins"""
-        ### Time O(N), Space O(N), use hashtable to search faster
-        ### ListNode instance is not hashable, this method search at O(1), and will not break down the original linked list
+        # Time O(N), Space O(N), use hashtable to search faster
+        # ListNode instance is not hashable, this method search at O(1), and will not break down the original linked list
         if not head:
             return None
         val = 0

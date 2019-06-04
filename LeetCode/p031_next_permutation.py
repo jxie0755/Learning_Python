@@ -42,9 +42,9 @@ import math
 
 class Solution:
     def nextPermutation(self, nums):
-        ### Use itertool.permutations itearate the permutation sequence from small to large,
-        ### and stop at the nums, then return the next one
-        ### Exceeded max time limit
+        # Use itertool.permutations itearate the permutation sequence from small to large,
+        # and stop at the nums, then return the next one
+        # Exceeded max time limit
         """
         :type nums: List[int]
         :rtype: void Do not return anything, modify nums in-place instead.
@@ -67,7 +67,7 @@ class Solution:
 
 class Solution:
     def nextPermutation(self, nums):
-        ### O(N), directly find next different permutations
+        # O(N), directly find next different permutations
         """
         :type nums: List[int]
         :rtype: void Do not return anything, modify nums in-place instead.
@@ -89,9 +89,9 @@ class Solution:
                     nums[cur_i+1:] = nums[cur_i+1:][::-1]
                     break
 
-    ### Addtional: prevPermute, which is the reverse process
+    # Addtional: prevPermute, which is the reverse process
     def prevPermutation(self, nums):
-        ### O(N), directly find next different permutations
+        # O(N), directly find next different permutations
         """
         :type nums: List[int]
         :rtype: void Do not return anything, modify nums in-place instead.

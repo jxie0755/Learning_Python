@@ -10,7 +10,7 @@
 import math
 class Solution:
     def myPow(self, x: float, n: int) -> float:
-        ### this will fail on large case, exceeding max time limit
+        # this will fail on large case, exceeding max time limit
         if n == 0:
             return 1
         elif n < 0:

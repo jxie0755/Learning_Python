@@ -13,7 +13,7 @@
 
 class Solution:
     def isPalindrome(self, s):
-        ### take the space to process the string
+        # take the space to process the string
         if not s:
             return True
         # process the string
@@ -26,7 +26,7 @@ class Solution:
         return s_processed == s_processed[::-1]  # String[::-1], O(n)
 
     def isPalindrome(self, s):
-        ### Two pointer method (no extra space needed)
+        # Two pointer method (no extra space needed)
         left, right = 0, len(s) - 1
         while left < right:
             while left < right and not s[left].isalnum():  # 注意while loop的嵌套

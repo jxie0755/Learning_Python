@@ -9,7 +9,7 @@
 
 class Solution(object):
 
-    ### Use binary search idea, but recursively
+    # Use binary search idea, but recursively
     def findMin(self, nums):
         """
         :type nums: List[int]

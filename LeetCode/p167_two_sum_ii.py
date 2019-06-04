@@ -14,7 +14,7 @@
 
 class Solution:
     def twoSum(self, numbers, target):
-        ### This will work but fail in long list, as exceed time limit
+        # This will work but fail in long list, as exceed time limit
         """
         :type numbers: List[int]
         :type target: int
@@ -33,7 +33,7 @@ class Solution:
             i += 1
 
     def twoSum(self, numbers, target):
-        ### slightly modified to skip the same number, O(N^2)
+        # slightly modified to skip the same number, O(N^2)
         i = 0
         prev = -float('inf')
         while numbers[i] <= target // 2:
@@ -52,7 +52,7 @@ class Solution:
                 i += 1
 
     def twoSum(self, numbers, target):
-        ### Use Hash table O(N)
+        # Use Hash table O(N)
         tmp_lst = {}
         for idx in range(0, len(numbers)):
             if numbers[idx] not in tmp_lst.keys():
@@ -64,7 +64,7 @@ class Solution:
                 # 这样就把那个key的值(也就是第一个idx)找出来,和新的idx配对
 
     def twoSum(self, numbers, target):
-        ### 头尾缩进法 O(N)
+        # 头尾缩进法 O(N)
         head, tail = 0, len(numbers) -1
         while numbers[head] + numbers[tail] != target:
             if numbers[head] + numbers[tail] > target:

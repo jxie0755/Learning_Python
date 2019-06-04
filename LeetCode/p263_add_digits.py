@@ -6,8 +6,8 @@
 
 class Solution:
     def addDigits(self, num):
-        ### O(log(len(n))) ?
-        ### 即使是iteration速度也是很快的,数字之和缩小的速度非常之快
+        # O(log(len(n))) ?
+        # 即使是iteration速度也是很快的,数字之和缩小的速度非常之快
         """
         :type num: int
         :rtype: int
@@ -27,7 +27,7 @@ class Solution:
 
 class Solution(object):
     def addDigits(self, num):
-        ### Time O(1)
+        # Time O(1)
         """
         :type num: int
         :rtype: int

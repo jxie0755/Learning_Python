@@ -12,8 +12,8 @@ from a0_ListNode import *
 
 class Solution:
 
-    ### Self version, first find all paths leaf to leaf, from left to right
-    ### Then find the max value of each paths from all its subsequence, then compare between paths
+    # Self version, first find all paths leaf to leaf, from left to right
+    # Then find the max value of each paths from all its subsequence, then compare between paths
     def sumMaxSubs(self, lst):
         """find the max sum from all subsequences of a list"""
         max_so_far = -float('inf')

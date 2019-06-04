@@ -12,8 +12,8 @@ from math import factorial
 
 class Solution:
 
-    ### According to ProjectEuler p015 2nd version
-    ### plot the ways to each coor for the whole grid
+    # According to ProjectEuler p015 2nd version
+    # plot the ways to each coor for the whole grid
     def uniquePathsWithObstacles(self, obstacleGrid):
         m, n = len(obstacleGrid[0]), len(obstacleGrid)
         paths_to = [[1 for _ in range(m)] for _ in range(n)]

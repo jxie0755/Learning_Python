@@ -12,7 +12,7 @@
 
 class Solution:
     def twoSum(self, nums, target):
-        ### brutal force, slowest
+        # brutal force, slowest
         for i in nums:
             index_i = nums.index(i)
             for j in nums[index_i+1:]:
@@ -23,7 +23,7 @@ class Solution:
                         return [index_i, nums.index(i, index_i+1)]
 
     def twoSum2(self, nums, target):
-        ### brutal force, check half first
+        # brutal force, check half first
         half = target / 2
         if nums.count(half) == 2:
             indexHalf =nums.index(half)
@@ -34,7 +34,7 @@ class Solution:
                     return [nums.index(i), nums.index(target - i)]
 
     def twoSum(self, numbers, target):
-        ### The same method in p167 Two Sum II can be used here
+        # The same method in p167 Two Sum II can be used here
         tmp_lst = {}
         for idx in range(0, len(numbers)):
             if numbers[idx] not in tmp_lst.keys():

@@ -15,7 +15,7 @@
 
 class Solution:
     def combinationSum(self, candidates, target):
-        ### Brutal Force O(N^2), very slow but passed
+        # Brutal Force O(N^2), very slow but passed
         """
         :type candidates: List[int]
         :type target: int

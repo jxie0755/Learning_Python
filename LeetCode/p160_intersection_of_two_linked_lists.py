@@ -26,8 +26,8 @@ def genNode(*nodes, end=None):
 
 class Solution(object):
 
-    ### Version A
-    ### O(N) time, but O(N) memory
+    # Version A
+    # O(N) time, but O(N) memory
     def getIntersectionNode(self, headA, headB):
         """
         :type head1, head1: ListNode
@@ -48,7 +48,7 @@ class Solution(object):
 
 class Solution(object):
 
-    ### Version B, optimized
+    # Version B, optimized
     ### O(N) time, and O(1) memory
     ### But this will modify the linked list (structure retained, but value changed)
     ### This will fail as Leetcode does not accept value to be String

@@ -11,7 +11,7 @@
 
 class Solution:
     def maxArea(self, height):
-        ### Brutal force will be O(N^2), Time Limit Exceeded
+        # Brutal force will be O(N^2), Time Limit Exceeded
         """
         :type height: List[int]
         :rtype: int
@@ -30,9 +30,9 @@ class Solution:
         return max(result)
 
     def maxArea(self, height):
-        ### find the heighest two, and check volume, then find the next highest two
-        ### O(N^2) in worst case, but sometimes O(log n * N)
-        ### Still exceeded max time limit on a case of ascending numbers.
+        # find the heighest two, and check volume, then find the next highest two
+        # O(N^2) in worst case, but sometimes O(log n * N)
+        # Still exceeded max time limit on a case of ascending numbers.
         """
         :type height: List[int]
         :rtype: int
@@ -73,8 +73,8 @@ class Solution:
 
 
     def maxArea(self, height):
-        ### Start from both end, move the shorter side closer, to compare the possibe volume
-        ### O(N) locked, best answer
+        # Start from both end, move the shorter side closer, to compare the possibe volume
+        # O(N) locked, best answer
         max_area, i, j = 0, 0, len(height) - 1
         while i < j:
             max_area = max(max_area, min(height[i], height[j]) * (j - i))

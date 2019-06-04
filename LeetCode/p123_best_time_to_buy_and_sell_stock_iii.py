@@ -11,12 +11,12 @@ from typing import *
 
 class Solution:
 
-    ### THis is a complicate method
-    ### TO compare single transaction and max profit for every peak
-    ### Exceeded max time limit
+    # THis is a complicate method
+    # TO compare single transaction and max profit for every peak
+    # Exceeded max time limit
 
     def singleMaxProfit(self, prices):
-        ### according to the best method, Denis modified for clearer logic
+        # according to the best method, Denis modified for clearer logic
         min_price = float('inf')
         profit = 0
         i = 0
@@ -82,12 +82,12 @@ class Solution:
 
 class Solution:
 
-    ### Modified method, only do comparison at the peak
-    ### almost the same way as profit breakdown to find peaks
-    ### This will pass time limit but still slow
+    # Modified method, only do comparison at the peak
+    # almost the same way as profit breakdown to find peaks
+    # This will pass time limit but still slow
 
     def singleMaxProfit(self, prices):
-        ### according to the best method, Denis modified for clearer logic
+        # according to the best method, Denis modified for clearer logic
         min_price = float('inf')
         profit = 0
         i = 0

@@ -12,7 +12,7 @@
 
 class Solution:
     def reverseVowels(self, s):
-        ### O(n), n as len(s)
+        # O(n), n as len(s)
         vowels = 'aeiouAEIOU'
 
         # Extract the vowels out as a string
@@ -32,7 +32,7 @@ class Solution:
 
 
     def reverseVowels(self, s):
-        ### two pointer method
+        # two pointer method
         vowels = {'a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U'}
         L = list(s)
         i = 0

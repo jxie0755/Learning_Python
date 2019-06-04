@@ -11,9 +11,9 @@
 # my own solusion
 class Solution:
 
-    ### recursive
-    ### Time  O(N^2)
-    ### Space O(N^2)
+    # recursive
+    # Time  O(N^2)
+    # Space O(N^2)
     def gen_par(self, par):
         index_list = []    # 找到所有右括号')'的位置
         for i in range(0, len(par)):
@@ -53,8 +53,8 @@ class Solution:
 
 # An easier way to understand previous
 class Solution:
-    ### Time:  O(4^n / n^(3/2)) ~= Catalan numbers
-    ### Space: O(n)
+    # Time:  O(4^n / n^(3/2)) ~= Catalan numbers
+    # Space: O(n)
     def generateParenthesis(self, n):
         parens = []
         def generate(p, left, right):

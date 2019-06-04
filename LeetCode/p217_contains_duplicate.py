@@ -9,7 +9,7 @@
 
 class Solution:
     def containsDuplicate(self, nums):
-        ### Use set() to check if length is changed
+        # Use set() to check if length is changed
         """
         :type nums: List[int]
         :rtype: bool
@@ -17,7 +17,7 @@ class Solution:
         return len(nums) != len(set(nums))
 
     def containsDuplicate(self, nums):
-        ### Use hashtable for counting
+        # Use hashtable for counting
         """
         :type nums: List[int]
         :rtype: bool

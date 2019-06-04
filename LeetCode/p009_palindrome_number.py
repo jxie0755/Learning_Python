@@ -11,14 +11,14 @@
 
 class Solution:
     def isPalindrome(self, x):
-        ### string method, takes extra space
+        # string method, takes extra space
         if x < 0:
             return False
         else:
             return str(x) == str(x)[::-1]
 
     def isPalindrome2(self, x):
-        ### use divmod method
+        # use divmod method
         if x < 0:
             return False
         copy, reverse = x, 0

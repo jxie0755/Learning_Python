@@ -17,7 +17,7 @@ class Solution:
         return result.rstrip()
 
     def reverseWords(self, s):
-        ### use joint, to avoid rstrip()
+        # use joint, to avoid rstrip()
         return ' '.join(map(lambda x: x[::-1], s.split()))
 
 

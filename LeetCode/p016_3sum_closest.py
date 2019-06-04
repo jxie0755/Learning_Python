@@ -20,8 +20,8 @@ class Solution:
         result = float('inf')
 
         i = 0
-        ### Similar structure as 3Sum.
-        ### Revise by checking the 3Sum with Target, and update the 3sum of lowest diff
+        # Similar structure as 3Sum.
+        # Revise by checking the 3Sum with Target, and update the 3sum of lowest diff
         while i < len(nums) - 2:
 
             if i == 0 or nums[i] != nums[i - 1]:

@@ -12,7 +12,7 @@ from a0_TreeNode import *
 from a0_ListNode import *
 
 class Solution:
-    ### Recursive method
+    # Recursive method
     def inorderTraversal(self, root: TreeNode) -> List[int]:
         if not root:
             return []
@@ -45,8 +45,8 @@ class Solution(object):
 # Morris Traversal Solution
 class Solution(object):
     def inorderTraversal(self, root):
-        ### STD Ans
-        ### TODO Learn algorithm
+        # STD Ans
+        # TODO Learn algorithm
         """
         :type root: TreeNode
         :rtype: List[int]

@@ -10,8 +10,8 @@
 
 class Solution:
     def findMedianSortedArrays(self, nums1, nums2):
-        ### Merge two sorted list then find the median
-        ### O(N)
+        # Merge two sorted list then find the median
+        # O(N)
         """
         :type nums1: List[int]
         :type nums2: List[int]
@@ -47,8 +47,8 @@ class Solution:
         return median(merge)
 
     def findMedianSortedArrays(self, nums1, nums2):
-        ### Modified merge sort to only merge half way
-        ### O(1/2N)
+        # Modified merge sort to only merge half way
+        # O(1/2N)
         """
         :type nums1: List[int]
         :type nums2: List[int]
@@ -85,7 +85,7 @@ class Solution:
             return merge[-1]
 
     def findMedianSortedArrays_yeluo(self, nums1, nums2):
-        ### Same half way method with different index
+        # Same half way method with different index
         """
         :type nums1: List[int]
         :type nums2: List[int]

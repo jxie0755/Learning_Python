@@ -19,7 +19,7 @@ class Solution:
 
 
     def exist(self, board, word: str):
-        ### This recursive method passed most cased but exceeded max time when case is long.
+        # This recursive method passed most cased but exceeded max time when case is long.
         if not board:
             return False
 

@@ -23,14 +23,14 @@ class Solution:
             return result
 
 
-    ### passed but on the slow side
+    # passed but on the slow side
     def subsets(self, nums):
         result = []
         for i in range(0, len(nums)+1):
             result += self.combinationSolo(nums, i)
         return result
 
-    ### passed but on the slow side
+    # passed but on the slow side
     def subsets(self, nums):
 
         def otherhalf(ans):

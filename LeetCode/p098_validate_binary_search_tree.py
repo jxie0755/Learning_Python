@@ -19,8 +19,8 @@ from a0_ListNode import *
 
 class Solution:
 
-    ### Use inorderTraversal to get the list from Leetcode P094
-    ### Then filter the None out from the list and check if the list is sorted
+    # Use inorderTraversal to get the list from Leetcode P094
+    # Then filter the None out from the list and check if the list is sorted
     def inorderTraversal(self, root: TreeNode) -> List[int]:
         if not root:
             # Must write this way to avoid val=0

@@ -9,8 +9,8 @@ from typing import *
 
 
 class Solution:
-    ### Worked, but exceeded maximum recursion depth
-    ### O(2N), maixmum depth reached at N > 999.
+    # Worked, but exceeded maximum recursion depth
+    # O(2N), maixmum depth reached at N > 999.
     def largestRectangleArea(self, heights: List[int]) -> int:
         global count
         count += 1

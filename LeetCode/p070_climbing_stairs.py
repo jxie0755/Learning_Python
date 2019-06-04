@@ -23,7 +23,7 @@ class Solution:
 
 
     def climbStairs(selfself, n):
-        ### it is essentially fibonacci method:
+        # it is essentially fibonacci method:
         a, b = 0, 1
         for x in range(n+1):
             a, b = b, a + b  # 必须是同排,这样会调用上一次的a,b值,a值不会由于a=b后改变!

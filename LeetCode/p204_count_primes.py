@@ -7,8 +7,8 @@
 
 # class Solution:
 #     def countPrimes(self, n):
-#         ### Time O(N^2), Exceeded max time limit
-#         ### Space O(1)
+#         # Time O(N^2), Exceeded max time limit
+#         # Space O(1)
 #         """
 #         :type n: int
 #         :rtype: int
@@ -32,7 +32,7 @@
 #         :type n: int
 #         :rtype: int
 #         """
-#         ### Crack Leetcode's test case large numbers :)
+#         # Crack Leetcode's test case large numbers :)
 #         if n == 499979:
 #             return 41537
 #         elif n == 999983:
@@ -58,7 +58,7 @@ cur_max = 2
 
 class Solution:
     def countPrimes(self, n):
-        ### Use global data and count to avoid repeat counting as progress
+        # Use global data and count to avoid repeat counting as progress
         """
         :type n: int
         :rtype: int
@@ -92,8 +92,8 @@ primes = {}
 
 class Solution:
     def countPrimes(self, n):
-        ### Use global data and count to avoid repeat counting as progress
-        ### Also use global to record all the prime numbers that has been found
+        # Use global data and count to avoid repeat counting as progress
+        # Also use global to record all the prime numbers that has been found
         """
         :type n: int
         :rtype: int

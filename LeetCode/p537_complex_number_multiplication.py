@@ -16,7 +16,7 @@
 
 class Solution:
     def complexNumberMultiply(self, a, b):
-        ### find index to separate two parts, and extract the integers out
+        # find index to separate two parts, and extract the integers out
 
         i_a, i_b = a.find('+'), b.find('+')
         a1, a2, b1, b2 = a[:i_a], a[i_a+1:], b[:i_b], b[i_b+1:]
@@ -28,7 +28,7 @@ class Solution:
         return result_first + '+' + result_second + 'i'
 
     def complexNumberMultiply(self, a, b):
-        ### a better way to extract integers by using map()
+        # a better way to extract integers by using map()
         int_a1, int_a2 = map(int, a[:-1].split('+'))
         int_b1, int_b2 = map(int, b[:-1].split('+'))
         return f'{int_a1 * int_b1 - int_a2 * int_b2}+{int_a1 * int_b2 + int_a2 * int_b1}i'

@@ -10,7 +10,7 @@
 
 class Solution:
     def twoSum_for_3sum(self, numbers, target, jump):
-        ### hastable method from P001
+        # hastable method from P001
         result = []
         hashtable = {}
         for idx in range(0, len(numbers)):
@@ -24,9 +24,9 @@ class Solution:
         return result
 
     def threeSum(self, nums):
-        ### Use modified method of two_sum
-        ### with every number, check the rest of array for two_sum of (0-number)
-        ### O(N^2), max time limit exceeded
+        # Use modified method of two_sum
+        # with every number, check the rest of array for two_sum of (0-number)
+        # O(N^2), max time limit exceeded
         """
         :type nums: List[int]
         :rtype: List[List[int]]
@@ -47,7 +47,7 @@ class Solution:
 
 class Solution:
     def threeSum(self, nums):
-        ### Pure brutal force, O(N^3), max time limit exceeded
+        # Pure brutal force, O(N^3), max time limit exceeded
         """
         :type nums: List[int]
         :rtype: List[List[int]]
@@ -79,9 +79,9 @@ class Solution:
 
 class Solution:
     def threeSum_x(self, nums):
-        ### Split the list to negative numbers and postive numbers
-        ### handle [-i, 0, i] and [-i, -j, k] and [-i, j, k] individually
-        ### Same O(N^2) max time limit exceeded
+        # Split the list to negative numbers and postive numbers
+        # handle [-i, 0, i] and [-i, -j, k] and [-i, j, k] individually
+        # Same O(N^2) max time limit exceeded
         """
         :type nums: List[int]
         :rtype: List[List[int]]
@@ -127,8 +127,8 @@ class Solution:
 
 class Solution:
     def threeSum(self, nums):
-        ### Since we only need to return numbers, it does not need to be indexed
-        ### Break down the nums with a sort first, then move head and tail towards center
+        # Since we only need to return numbers, it does not need to be indexed
+        # Break down the nums with a sort first, then move head and tail towards center
         """
         :type nums: List[int]
         :rtype: List[List[int]]
@@ -160,7 +160,7 @@ class Solution:
 
 class Solution:
     def twoSum(self, numbers, target, jump):
-        ### 提取p167 two sum II 中的头尾缩进法 O(N)
+        # 提取p167 two sum II 中的头尾缩进法 O(N)
 
         result = []
         head, tail = 0, len(numbers) -1
@@ -178,9 +178,9 @@ class Solution:
 
 
     def threeSum(self, nums):
-        ### Use modified method of two_sum
-        ### with every number, check the rest of array for two_sum of (0-number)
-        ### O(N^2), max time limit exceeded
+        # Use modified method of two_sum
+        # with every number, check the rest of array for two_sum of (0-number)
+        # O(N^2), max time limit exceeded
         """
         :type nums: List[int]
         :rtype: List[List[int]]
@@ -204,7 +204,7 @@ class Solution:
 
 class Solution(object):
     def threeSum(self, nums):
-        ### O(N*2^N)
+        # O(N*2^N)
         """
         :type nums: List[int]
         :rtype: List[List[int]]

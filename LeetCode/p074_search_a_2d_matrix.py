@@ -10,7 +10,7 @@
 
 
 class Solution:
-    ### Since it is strictly sorted, combine all the list and do a binary search
+    # Since it is strictly sorted, combine all the list and do a binary search
     def searchMatrix(self, matrix, target: int) -> bool:
         flat = sum(matrix, [])
         lo, high = 0, len(flat)-1

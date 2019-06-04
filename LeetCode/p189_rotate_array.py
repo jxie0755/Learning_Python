@@ -5,7 +5,7 @@
 
 class Solution:
     def rotate(self, nums, k):
-        ### O(N) space, with O(N) time.
+        # O(N) space, with O(N) time.
         """
         :type nums: List[int]
         :type k: int
@@ -23,8 +23,8 @@ class Solution:
         nums[:] = target
 
     def rotate_pop(self, nums, k):
-        ### O(1) space, with O(N) time.
-        ### Somehow it is much slower
+        # O(1) space, with O(N) time.
+        # Somehow it is much slower
         """
         :type nums: List[int]
         :type k: int

@@ -27,7 +27,7 @@ class Solution:
 
         return helper(sample, k)
 
-    ### OOP version
+    # OOP version
     def combinationSolo(self, nums, k):
         if k == len(nums):
             return [nums]

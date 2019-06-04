@@ -34,8 +34,7 @@ class Solution(object):
 class Solution(object):
 
     ### Version B
-
-
+    ### Borrow the idea from Leetcode P173, by using a Queue
     def kthSmallest(self, root, k):
         """
         :type root: TreeNode

@@ -16,7 +16,7 @@ from a0_ListNode import *
 
 class Solution(object):
     def hasCycle(self, head):
-        ### Time O(N^2), Space O(N), Passed, but very slow.
+        # Time O(N^2), Space O(N), Passed, but very slow.
         """
         :type head: ListNode
         :rtype: bool
@@ -36,8 +36,8 @@ class Solution(object):
 
 class Solution(object):
     def hasCycle(self, head):
-        ### Time O(N), Space O(N), use hashtable to search faster
-        ### ListNode instance is not hashable, this method search at O(1), and will not break down the original linked list
+        # Time O(N), Space O(N), use hashtable to search faster
+        # ListNode instance is not hashable, this method search at O(1), and will not break down the original linked list
         """
         :type head: ListNode
         :rtype: bool
@@ -57,7 +57,7 @@ class Solution(object):
 
 class Solution_X(object):
     def hasCycle(self, head):
-        ### Time O(N), Space O(1)
+        # Time O(N), Space O(1)
         """
         :type head: ListNode
         :rtype: bool
@@ -77,7 +77,7 @@ class Solution_X(object):
 
 class Solution_Y(object):
     def hasCycle(self, head):
-        ### Time O(N), Space O(N)
+        # Time O(N), Space O(N)
         """
         :type head: ListNode
         :rtype: bool

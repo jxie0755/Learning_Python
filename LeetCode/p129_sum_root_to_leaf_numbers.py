@@ -14,7 +14,7 @@ from a0_ListNode import *
 
 
 class Solution:
-    ### This is also using the showPaths method from Leetcode P112
+    # This is also using the showPaths method from Leetcode P112
     def allPath(self, root):
         """show all the paths in a non-empty root"""
         result = []
