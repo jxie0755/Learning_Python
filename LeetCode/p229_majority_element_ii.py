@@ -2,7 +2,7 @@
 # Medium
 
 # Given an integer array of size n, find all elements that appear more than ⌊ n/3 ⌋ times.
-# Note: The algorithm should run in linear time and in O(1) space.
+# Note: The algorithm should run in linear time and in O(1) space. - Not True (STD ans will use hashmap as well)
 
 
 class Solution(object):
@@ -59,11 +59,26 @@ class Solution(object):
 
         return result
 
+class Solution(object):
+
+    ### Version B
+    def majorityElement(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: List[int]
+        """
+        pass
+
+
+
 
 
 if __name__ == '__main__':
     assert Solution().majorityElement([]) == [], 'Edge'
     assert Solution().majorityElement([3,2,3]) == [3], 'Example 1'
-    assert Solution().majorityElement([1,1,1,3,3,2,2,2]) == [1,2], 'Example 2'
+    assert Solution().majorityElement([1,1,1,1,3,2,2,2,2]) == [1,2], 'Example 2'
+
+    assert Solution().majorityElement([1,3,1,3,1,3,1,3,2]) == [1,3], 'Additional 1'
+
 
     print('all passed')
