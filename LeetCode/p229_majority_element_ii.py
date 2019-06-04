@@ -61,6 +61,7 @@ class Solution(object):
 
 import collections
 class Solution(object):
+    ### STD ans
     def majorityElement(self, nums):
         """
         :type nums: List[int]
