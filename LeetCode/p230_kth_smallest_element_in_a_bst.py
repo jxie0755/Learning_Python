@@ -96,7 +96,7 @@ class Solution(object):
     # @param {TreeNode} root
     # @param {integer} k
     # @return {integer}
-    # This is also using Queues for iterating
+    # This is also using Queues for iterating, same idea of iterator
     def kthSmallest(self, root, k):
         s, cur, rank = [], root, 0
         while s or cur:
