@@ -51,7 +51,7 @@ class Solution(object):
 
 class Solution_2(object):
 
-    ### STD ans (problematic, but will pass fast)
+    # STD ans (problematic, but will pass fast)
     def findPeakElement(self, nums):
         """
         :type nums: List[int]

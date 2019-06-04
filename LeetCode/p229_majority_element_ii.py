@@ -7,8 +7,8 @@
 
 class Solution(object):
 
-    ### Version A1, use hashmap to record everything
-    ### It was not O(1) space
+    # Version A1, use hashmap to record everything
+    # It was not O(1) space
     def majorityElement(self, nums):
         """
         :type nums: List[int]
@@ -32,10 +32,10 @@ class Solution(object):
 
 class Solution(object):
 
-    ### Version A2
-    ### There could be maximumly only two element to count more than 1/3
-    ### So, it shoud stop after two are found, no need to proceed
-    ### It was stil not O(1) space
+    # Version A2
+    # There could be maximumly only two element to count more than 1/3
+    # So, it shoud stop after two are found, no need to proceed
+    # It was stil not O(1) space
 
 
     def majorityElement(self, nums):
@@ -61,7 +61,7 @@ class Solution(object):
 
 import collections
 class Solution(object):
-    ### STD ans
+    # STD ans
     def majorityElement(self, nums):
         """
         :type nums: List[int]

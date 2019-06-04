@@ -7,9 +7,9 @@
 
 class Solution(object):
 
-    ### Version A
-    ### DIY vresion of divide calculation like manual
-    ### This will have to process movement of recur fraction
+    # Version A
+    # DIY vresion of divide calculation like manual
+    # This will have to process movement of recur fraction
     def fractionToDecimal(self, a, b):
         """
         :type numerator: int

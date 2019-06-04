@@ -20,9 +20,9 @@ from a0_ListNode import *
 
 class BSTIterator(object):
 
-    ### Version A
-    ### Use traverse list
-    ### This will take O(n) space, n = number of nodes instead of O(h), h = height
+    # Version A
+    # Use traverse list
+    # This will take O(n) space, n = number of nodes instead of O(h), h = height
     def __init__(self, root):
         """
         :type root: TreeNode
@@ -53,9 +53,9 @@ class BSTIterator(object):
 
 class BSTIterator(object):
 
-    ### Version B, O(h) memory.
-    ### Use stack, track one node in each depth
-    ### update the queue with all left branch to the bottom
+    # Version B, O(h) memory.
+    # Use stack, track one node in each depth
+    # update the queue with all left branch to the bottom
     def __init__(self, root):
         """
         :type root: TreeNode

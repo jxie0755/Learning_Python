@@ -14,7 +14,7 @@ from a0_ListNode import *
 
 class Solution(object):
 
-    ### Version A, simple recursive way
+    # Version A, simple recursive way
     def invertTree(self, root):
         """
         :type root: TreeNode

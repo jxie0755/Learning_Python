@@ -7,13 +7,13 @@
 # Follow up:
 # If you have figured out the O(n) solution, try coding another solution of which the time complexity is O(n log n).
 
-### Subarray is not subsequence, it does not require continuality
+# Subarray is not subsequence, it does not require continuality
 
 class Solution(object):
 
-    ### Version A, Brutal force, check every subarray from short to long
-    ### O(N^2)
-    ### Time limit exceeded
+    # Version A, Brutal force, check every subarray from short to long
+    # O(N^2)
+    # Time limit exceeded
     def minSubArrayLen(self, s, nums):
         """
         :type s: int
@@ -28,9 +28,9 @@ class Solution(object):
                     return len(sub)
         return 0
 
-    ### Version B, O(N)
-    ### 先得到整个list的和, 如果超过s, 则减去两端中最小的那个, 然后重复下去
-    ### Case Addtional 5 可以证明这个思路是错的
+    # Version B, O(N)
+    # 先得到整个list的和, 如果超过s, 则减去两端中最小的那个, 然后重复下去
+    # Case Addtional 5 可以证明这个思路是错的
     # def minSubArrayLen(self, s, nums):
     #     """
     #     :type s: int
@@ -60,9 +60,9 @@ class Solution(object):
 
 class Solution(object):
 
-    ### Version C1, O(N)
-    ### move index head and tail according to the sum of the subarray
-    ### this wil exceed time limt....
+    # Version C1, O(N)
+    # move index head and tail according to the sum of the subarray
+    # this wil exceed time limt....
     def minSubArrayLen(self, s, nums):
         """
         :type s: int
@@ -99,10 +99,10 @@ class Solution(object):
 
 class Solution(object):
 
-    ### Version C2, O(N)
-    ### move index head and tail according to the sum of the subarray
-    ### A different way of calculating sum, avoid sum(subarray)
-    ### This passed very good
+    # Version C2, O(N)
+    # move index head and tail according to the sum of the subarray
+    # A different way of calculating sum, avoid sum(subarray)
+    # This passed very good
     def minSubArrayLen(self, s, nums):
         """
         :type s: int

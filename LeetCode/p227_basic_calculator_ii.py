@@ -12,9 +12,9 @@
 
 class Solution(object):
 
-    ### Version A
-    ### Use the op stack and number staock
-    ### This is quite slow
+    # Version A
+    # Use the op stack and number staock
+    # This is quite slow
     def calculate(self, s):
         """
         :type s: str
@@ -60,9 +60,9 @@ class Solution(object):
 
 class Solution(object):
 
-    ### Version B
-    ### Simplified stack, calculate * and / on the run, then finish with + and -
-    ### This is 10 times faster and passed the same speed as STD ans
+    # Version B
+    # Simplified stack, calculate * and / on the run, then finish with + and -
+    # This is 10 times faster and passed the same speed as STD ans
     def calc(self, n1, op, n2):
         """
         n1, n2 will be numbers

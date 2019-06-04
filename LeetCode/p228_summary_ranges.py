@@ -7,9 +7,9 @@
 
 class Solution(object):
 
-    ### Version A, O(N)
-    ### Add a tail item of inf, and evaluate the current item based on the next item
-    ### Use a label to indicate whether a range is found.
+    # Version A, O(N)
+    # Add a tail item of inf, and evaluate the current item based on the next item
+    # Use a label to indicate whether a range is found.
     def summaryRanges(self, nums):
         """
         :type nums: List[int]

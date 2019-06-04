@@ -13,9 +13,9 @@ from a0_ListNode import *
 
 class Solution(object):
 
-    ### Version A
-    ### Indorder traverse to ge the sorted list, then get lst[k-1]
-    ### This is slow as it forces to go through all BST first
+    # Version A
+    # Indorder traverse to ge the sorted list, then get lst[k-1]
+    # This is slow as it forces to go through all BST first
     def inorderTraversal(self, root: TreeNode) -> List[int]:
         if not root:
             return []
@@ -33,8 +33,8 @@ class Solution(object):
 
 class Solution(object):
 
-    ### Version B
-    ### Borrow the idea from Leetcode P173, by using a Queue
+    # Version B
+    # Borrow the idea from Leetcode P173, by using a Queue
     def kthSmallest(self, root, k):
         """
         :type root: TreeNode

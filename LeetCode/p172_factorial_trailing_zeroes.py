@@ -6,9 +6,9 @@
 
 class Solution(object):
 
-    ### Version A
-    ### Brutal force, adding trailing zero, and keep last digit that is not 0
-    ### This will fail exceeding max time limit
+    # Version A
+    # Brutal force, adding trailing zero, and keep last digit that is not 0
+    # This will fail exceeding max time limit
     def trailingZeroes(self, n):
         """
         :type n: int
@@ -45,7 +45,7 @@ class Solution(object):
         return result
 
 
-### 简单理解版本
+# 简单理解版本
 class Solution(object):
     # Version B
     # 逐个检查1-n中每个数,能拆出多少个5因数
@@ -62,7 +62,7 @@ class Solution(object):
                     break
         return result
 
-### 简单理解版本B
+# 简单理解版本B
 class Solution(object):
     # Version C
     # 逐个检查5^n因数个数

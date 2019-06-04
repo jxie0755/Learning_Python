@@ -11,7 +11,7 @@ from a0_ListNode import *
 
 class Solution(object):
 
-    ### create a dummy head and remove tail one by one through tracking prev nodes and cur nodes
+    # create a dummy head and remove tail one by one through tracking prev nodes and cur nodes
     def removeElements(self, head, val):
         """
         :type head: ListNode

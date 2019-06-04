@@ -15,9 +15,9 @@ from a0_ListNode import *
 
 class Solution(object):
 
-    ### Version A1
-    ### Use memorization to tell if a node is complete or not and exam every node
-    ### Passed, but slow
+    # Version A1
+    # Use memorization to tell if a node is complete or not and exam every node
+    # Passed, but slow
 
     def isComplete(self, root):
         completes = {}
@@ -62,9 +62,9 @@ class Solution(object):
 
 class Solution(object):
 
-    ### Version A2
-    ### Do not use memorization, direct tell a node is complete or not and exam every node
-    ### Same spped, but still slow
+    # Version A2
+    # Do not use memorization, direct tell a node is complete or not and exam every node
+    # Same spped, but still slow
 
     def isComplete(self, root):
 
@@ -100,12 +100,12 @@ class Solution(object):
 
 class Solution(object):
 
-    ### Version B
-    ### Combine isComplete and count in one function, through a recursive call on helper
-    ### by Examine the isComplete in helper(root), it forced to check isComplete every node in the root
-    ### use memorization, direct tell a node is complete or not and exam every node
-    ### As a side effect, when checking the isComplete in helper, all complete nodes will be added to hmp
-    ### passed much faster
+    # Version B
+    # Combine isComplete and count in one function, through a recursive call on helper
+    # by Examine the isComplete in helper(root), it forced to check isComplete every node in the root
+    # use memorization, direct tell a node is complete or not and exam every node
+    # As a side effect, when checking the isComplete in helper, all complete nodes will be added to hmp
+    # passed much faster
 
     def countNodes(self, root):
         """

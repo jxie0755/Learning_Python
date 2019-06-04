@@ -49,9 +49,9 @@ class Solution(object):
 class Solution(object):
 
     # Version B, optimized
-    ### O(N) time, and O(1) memory
-    ### But this will modify the linked list (structure retained, but value changed)
-    ### This will fail as Leetcode does not accept value to be String
+    # O(N) time, and O(1) memory
+    # But this will modify the linked list (structure retained, but value changed)
+    # This will fail as Leetcode does not accept value to be String
     def getIntersectionNode(self, headA, headB):
         """
         :type head1, head1: ListNode
@@ -70,10 +70,10 @@ class Solution(object):
 
 class Solution(object):
 
-    ### Version C,
-    ### O(N) time, and O(1) memory
-    ### Break the linkage of headA, point each to a dummy
-    ### This will also fail, because it changed structure
+    # Version C,
+    # O(N) time, and O(1) memory
+    # Break the linkage of headA, point each to a dummy
+    # This will also fail, because it changed structure
     def getIntersectionNode(self, headA, headB):
         """
         :type head1, head1: ListNode
@@ -95,11 +95,11 @@ class Solution(object):
 
 class Solution(object):
 
-    ### Version D, final version
-    ### O(N) time, and O(1) memory
-    ### No break, check length of each linked list
-        ### same length: move to next togethter
-        ### different length: move the longer linkedlist until same length, then move togeterh
+    # Version D, final version
+    # O(N) time, and O(1) memory
+    # No break, check length of each linked list
+        # same length: move to next togethter
+        # different length: move the longer linkedlist until same length, then move togeterh
 
     def linkedlength(self, node):
         length = 0

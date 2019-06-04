@@ -11,7 +11,7 @@
 
 class Solution(object):
 
-    ### Use the combination method from Leetcode P077 and verify each one
+    # Use the combination method from Leetcode P077 and verify each one
     def combinationSolo(self, nums, k):
         if k == len(nums):
             return [nums]
