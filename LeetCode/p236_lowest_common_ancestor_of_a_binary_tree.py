@@ -16,6 +16,35 @@ from a0_ListNode import *
 
 
 class Solution(object):
+
+    # Version A, use the bianry heap method by showPerfectNodeLayers
+    # This will not pass the max time limit
+    def showPerfectNodeLayers(self, root):
+        """
+        Generate a perfect binary heap in list of nodes (Not Values)
+        use None to replace empty Nodes for take index places
+        """
+        if not root:
+            return []
+        result = [root]
+        layer = [root]
+        while any(layer):
+            new_layer = []
+            for i in layer:
+                if not i:
+                    new_layer.append(None)
+                    new_layer.append(None)
+                else:
+                    new_layer.append(i.left if i.left else None)
+                    new_layer.append(i.right if i.right else None)
+            result += new_layer
+            layer = new_layer
+
+        # add the first one to be None, to move the index starting from 1
+        result = [None] + result
+        return result
+
+
     def lowestCommonAncestor(self, root, p, q):
         """
         :type root: TreeNode
@@ -23,9 +52,34 @@ class Solution(object):
         :type q: TreeNode
         :rtype: TreeNode
         """
-        pass
+        binaryheap = self.showPerfectNodeLayers(root)
+
+        i,pi,qi = 0,0,0
+        while i != len(binaryheap):
+            node = binaryheap[i]
+            if node is p:
+                pi = i
+            if node is q:
+                qi = i
+            i += 1
+
+        parent_p, parent_q = [],[]
+        while pi != 0:
+            parent_p.append(pi)
+            pi = pi // 2
+        while qi != 0:
+            parent_q.append(qi)
+            qi = qi // 2
 
 
+        while parent_p and parent_q:
+            A, B = parent_p.pop(), parent_q.pop()
+            if A == B:
+                lca = A
+            else:
+                break
+
+        return binaryheap[lca]
 
 
 if __name__ == '__main__':
