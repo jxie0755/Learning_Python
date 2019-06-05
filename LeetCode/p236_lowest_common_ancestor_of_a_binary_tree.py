@@ -97,7 +97,6 @@ class Solution(object):
         left = self.lowestCommonAncestor(root.left, p, q)
         right = self.lowestCommonAncestor(root.right, p, q)
 
-        print('left', left.val if left else None, 'right', right.val if right else None)
         # 1. If the current subtree contains both p and q,
         #    return their LCA.
         # 2. If only one of them is in that subtree,
