@@ -36,6 +36,12 @@ class Solution(object):
             pre = pre.next
         pre.next = None
 
+        # Avoid dummy:
+        # while node.next != None:
+        #     node.val = node.next.val
+        #     pre = node
+        #     node = node.next
+        # pre.next = None
 
 
 if __name__ == '__main__':
