@@ -12,12 +12,31 @@ from a0_ListNode import *
 
 
 class Solution(object):
+
+    # Version A, recursive helper to track each path
     def binaryTreePaths(self, root):
         """
         :type root: TreeNode
         :rtype: List[str]
         """
-        pass
+
+        if not root:
+            return []
+
+        paths = []
+        def helper(node, path=''):
+            """add a path to paths if each to a leaf"""
+            if not node.left and not node.right:
+                paths.append(path + str(node.val))
+            if node.left:
+                l_path = path + str(node.val) + '->'
+                helper(node.left, l_path)
+            if node.right:
+                r_path = path + str(node.val) + '->'
+                helper(node.right, r_path)
+
+        helper(root)
+        return paths
 
 
 
@@ -29,6 +48,6 @@ if __name__ == '__main__':
         2,3,
         None, 5
     ])
-    assert Solution().binaryTreePaths(None) ==  ["1->2->5", "1->3"], 'Example 1'
+    assert Solution().binaryTreePaths(A) == ["1->2->5", "1->3"], 'Example 1'
 
     print('all passed')
