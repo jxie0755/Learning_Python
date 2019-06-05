@@ -10,8 +10,7 @@ class Solution(object):
         if root in (None, p, q):
             return root
 
-        left, right = [self.lowestCommonAncestor(child, p, q) \
-                         for child in (root.left, root.right)]
+        left, right = [self.lowestCommonAncestor(child, p, q) for child in (root.left, root.right)]
         # 1. If the current subtree contains both p and q,
         #    return their LCA.
         # 2. If only one of them is in that subtree,

@@ -82,6 +82,43 @@ class Solution(object):
         return binaryheap[lca]
 
 
+class Solution(object):
+    # STD ans
+    # Time:  O(n)
+    # Space: O(h)
+    # @param {TreeNode} root
+    # @param {TreeNode} p
+    # @param {TreeNode} q
+    # @return {TreeNode}
+    def lowestCommonAncestor(self, root, p, q):
+        if root in (None, p, q):
+            return root
+
+        left = self.lowestCommonAncestor(root.left, p, q)
+        right = self.lowestCommonAncestor(root.right, p, q)
+
+        print('left', left.val if left else None, 'right', right.val if right else None)
+        # 1. If the current subtree contains both p and q,
+        #    return their LCA.
+        # 2. If only one of them is in that subtree,
+        #    return that one of them.
+        # 3. If neither of them is in that subtree,
+        #    return the node of that subtree.
+
+        # return root if left and right else left or right
+        # 等同于扩展成
+        if left and right:
+            return root
+        if left:
+            return left
+        if right:
+            return right
+        # 精妙解释:
+        # 如果一个节点的两侧,分别包含了一个p和一个q,那么这个节点就是最低了
+        # 否则的话, 就会出现一侧为空, 另一个包含两个, 这样就可以往包含两个的那一侧递归
+
+
+
 if __name__ == '__main__':
     A = genTree([
         3,
