@@ -1,0 +1,41 @@
+# P237 Delete Node in a Linked List
+# Easy
+
+
+# Write a function to delete a node (except the tail) in a singly linked list, given only access to that node.
+# Given linked list -- head = [4,5,1,9], which looks like following:
+# 4 -> 5 -> 1 -> 9
+
+# Note:
+# The linked list will have at least two elements.
+# All of the nodes' values will be unique.
+# The given node will not be the tail and it will always be a valid node of the linked list.
+# Do not return anything from your function.
+
+
+from typing import *
+from a0_TreeNode import *
+from a0_ListNode import *
+
+
+class Solution(object):
+    def deleteNode(self, node):
+        """
+        :type node: ListNode
+        :rtype: void Do not return anything, modify node in-place instead.
+        """
+        pass
+
+
+
+if __name__ == '__main__':
+    A = genNode(4,5,1,9)
+    assert Solution().deleteNode(A.next) == genNode(4,1,9), 'Example 1'
+
+    A = genNode(4, 5, 1, 9)
+    assert Solution().deleteNode(A.next.next) == genNode(4, 5, 9), 'Example 2'
+
+    A = genNode(4, 5, 1, 9)
+    assert Solution().deleteNode(A) == genNode(5, 1, 9), 'Example 3'
+
+    print('all passed')
