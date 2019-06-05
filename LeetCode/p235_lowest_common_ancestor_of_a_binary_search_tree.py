@@ -28,7 +28,7 @@ class Solution(object):
         :type q: TreeNode
         :rtype: TreeNode
         """
-        pv, qv = p.val, q.val
+        pv, qv = sorted(p.val, q.val)
         minn = maxx = root
         while minn.left:
             minn = minn.left
@@ -38,7 +38,7 @@ class Solution(object):
         result = []
         def helper(root, A, B):
             rv = root.val
-            if A <= pv <= B and A <= qv <= B:
+            if A <= pv <= qv <= B:
                 result.append(root)
                 if root.left:
                     helper(root.left, A, rv-1)
@@ -57,7 +57,7 @@ class Solution(object):
         :type q: TreeNode
         :rtype: TreeNode
         """
-        pv, qv = p.val, q.val
+        pv, qv = sorted(p.val, q.val)
         minn = maxx = root
         while minn.left:
             minn = minn.left
@@ -65,14 +65,28 @@ class Solution(object):
             maxx = maxx.right
         minv, maxv = minn.val, maxx.val
 
-        while minv <= pv <= maxv and minv <= qv <= maxv:
+        while minv <= pv <= qv <= maxv:
             rv = root.val
-            if minv <= pv <= rv-1 and minv <= qv <= rv-1:
+            if minv <= pv <= qv <= rv-1:
                 root = root.left
-            elif rv+1 <= pv <= maxv and rv+1 <= qv <= maxv:
+            elif rv+1 <= pv <= qv <= maxv:
                 root = root.right
             else:
                 return root
+
+class Solution(object):
+    # STD ans
+    # @param {TreeNode} root
+    # @param {TreeNode} p
+    # @param {TreeNode} q
+    # @return {TreeNode}
+    def lowestCommonAncestor(self, root, p, q):
+        s, b = sorted([p.val, q.val])
+        while not s <= root.val <= b:
+            # Keep searching since root is outside of [s, b].
+            root = root.left if s <= root.val else root.right
+        # s <= root.val <= b.
+        return root
 
 if __name__ == '__main__':
 
