@@ -17,7 +17,7 @@ from a0_ListNode import *
 
 class Solution(object):
 
-    # Version A
+    # Version A1
     # use a helper function to recursive check
     # first get the range of the root (min and max)
     # if p's val and q's val within the range, check the left and right until neither's range covers
@@ -38,7 +38,7 @@ class Solution(object):
         result = []
         def helper(root, A, B):
             rv = root.val
-            if pv >= A and qv >= A and pv <= B and qv <= B:
+            if A <= pv <= B and A <= qv <= B:
                 result.append(root)
                 if root.left:
                     helper(root.left, A, rv-1)
@@ -48,6 +48,31 @@ class Solution(object):
         helper(root, minn.val, maxx.val)
         return result[-1]
 
+    # Version A2
+    # Non-recursive version
+    def lowestCommonAncestor(self, root, p, q):
+        """
+        :type root: TreeNode
+        :type p: TreeNode
+        :type q: TreeNode
+        :rtype: TreeNode
+        """
+        pv, qv = p.val, q.val
+        minn = maxx = root
+        while minn.left:
+            minn = minn.left
+        while maxx.right:
+            maxx = maxx.right
+        minv, maxv = minn.val, maxx.val
+
+        while minv <= pv <= maxv and minv <= qv <= maxv:
+            rv = root.val
+            if minv <= pv <= rv-1 and minv <= qv <= rv-1:
+                root = root.left
+            elif rv+1 <= pv <= maxv and rv+1 <= qv <= maxv:
+                root = root.right
+            else:
+                return root
 
 if __name__ == '__main__':
 
@@ -80,5 +105,11 @@ if __name__ == '__main__':
         None, 3
     ])
     assert Solution().lowestCommonAncestor(A, A, A.right) == A, 'Additional 2'
+
+    A = genTree([
+        2,
+        1, None
+    ])
+    assert Solution().lowestCommonAncestor(A, A, A.left) == A, 'Additional 3'
 
     print('all passed')
