@@ -28,7 +28,6 @@ class Solution(object):
         """
         result = []
         sqlist = self.SQlist(n)
-        print(sqlist)
 
         def helper(n, bl=[]):
             if sum(bl) == n:
@@ -84,7 +83,6 @@ class Solution(object):
         sqlist = self.SQlist(n)
         multlist = [0] * len(sqlist)
         N = len(sqlist)
-        print(sqlist)
 
         def helper(n, ml):
             current_sum = self.summ(sqlist, ml)
@@ -98,7 +96,7 @@ class Solution(object):
                     helper(n, new_ml)
 
         helper(n, multlist)
-#         return min(result)
+        return min(result)
 
 
 
