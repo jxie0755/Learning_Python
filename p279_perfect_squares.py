@@ -83,7 +83,6 @@ class Solution(object):
         sqlist = self.SQlist(n)
         multlist = [0] * len(sqlist)
         N = len(sqlist)
-
         def helper(n, ml):
             current_sum = self.summ(sqlist, ml)
             if current_sum == n:
