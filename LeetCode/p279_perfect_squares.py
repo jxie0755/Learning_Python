@@ -113,12 +113,12 @@ class Solution(object):
         sqlist = self.SQlist(n)
 
         def helper(n, sum_so_far=0, length_so_far=0):
-
+            print(sum_so_far, length_so_far)
             if sum_so_far == n:
                 result.append(length_so_far)
 
             # Only proceed tree recursive if current bl beats smallest length so far
-            elif sum_so_far < n and length_so_far < result[-1]:
+            elif sum_so_far < n and length_so_far < min(4, result[-1]): # 利用4平方和原理, 最大不超过4
                 for i in sqlist:
                     new_sum = sum_so_far + i
                     new_length = length_so_far + 1
@@ -143,7 +143,6 @@ class Solution(object):
         return num[n]
 
 
-
 if __name__ == '__main__':
     assert Solution().numSquares(1) == 1, 'Edge, just 1'
     assert Solution().numSquares(7) == 4, ' Example 1:  4+1+1+1'
@@ -158,10 +157,10 @@ if __name__ == '__main__':
 
     print('all passed')
 
-    import time
-    start_time = time.time()
+    # import time
+    # start_time = time.time()
     print(Solution().numSquares(7168))
-    print(f"--- {time.time() - start_time}s seconds ---\n")
+    # print(f"--- {time.time() - start_time}s seconds ---\n")
 
 
 
