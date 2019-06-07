@@ -8,15 +8,13 @@
 # You must do this in-place without making a copy of the array.
 # Minimize the total number of operations.
 
+from typing import *
 
 class Solution:
-    def moveZeroes(self, nums):
-        # Time:  O(n)
-        # Space: O(1)
-        """
-        :type nums: List[int]
-        :rtype: void Do not return anything, modify nums in-place instead.
-        """
+
+    # Time:  O(n)
+    # Space: O(1)
+    def moveZeroes(self, nums: List[int]) -> None:
         if nums:
             length = len(nums)
             i = -1
@@ -26,13 +24,10 @@ class Solution:
                 i -= 1
 
 class Solution(object):
-    def moveZeroes(self, nums):
-        # Time:  O(n)
-        # Space: O(1)
-        """
-        :type nums: List[int]
-        :rtype: void Do not return anything, modify nums in-place instead.
-        """
+
+    # Time:  O(n)
+    # Space: O(1)
+    def moveZeroes(self, nums: List[int]) -> None:
         pos = 0
         for i in range(len(nums)):
             if nums[i]:
