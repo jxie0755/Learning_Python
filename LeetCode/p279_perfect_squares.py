@@ -147,6 +147,40 @@ class Solution(object):
         return num[n]
 
 
+class Solution(object):
+
+    # Version D, Improved recursion with memorization
+    def SQlist(self, n):
+        """find all possible square number up to n"""
+        result = []
+        for i in range(1, int(n**0.5)+1):
+                result.append(i ** 2)
+        return result
+
+    def numSquares(self, n: int) -> int or float:
+
+        sqlist = self.SQlist(n)
+        hashmap = {}
+
+        def helper(n):
+
+            if n == 0: # base case
+                return 0
+
+            elif n in hashmap: # 如果之前算过, 就直接从字典调用
+                return hashmap[n]
+            else:
+                temp = []
+                for i in sqlist:
+                    if i <= n:
+                        temp.append(helper(n-i))
+                hashmap[n] = min(temp) + 1  # 记录结果
+                return min(temp) + 1
+
+        return helper(n)
+
+
+
 if __name__ == '__main__':
     assert Solution().numSquares(1) == 1, 'Edge, just 1'
     assert Solution().numSquares(7) == 4, ' Example 1:  4+1+1+1'
@@ -161,10 +195,10 @@ if __name__ == '__main__':
 
     print('all passed')
 
-    # import time
-    # start_time = time.time()
-    print(Solution().numSquares(7168))
-    # print(f"--- {time.time() - start_time}s seconds ---\n")
+    import time
+    start_time = time.time()
+    # print(Solution().numSquares(7168))
+    print(f"--- {time.time() - start_time}s seconds ---\n")
 
 
 
