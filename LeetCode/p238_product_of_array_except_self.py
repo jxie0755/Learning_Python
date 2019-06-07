@@ -9,7 +9,7 @@
 # Follow up:
 # Could you solve it with constant space complexity? (The output array does not count as extra space for the purpose of space complexity analysis.)
 
-
+from typing import *
 class Solution(object):
 
     # Version A, O(N) time, O(1) space

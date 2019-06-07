@@ -10,11 +10,7 @@
 class Solution(object):
 
     # Use binary search idea, but recursively
-    def findMin(self, nums):
-        """
-        :type nums: List[int]
-        :rtype: int
-        """
+    def findMin(self, nums: List[int]) -> int:
         if len(nums) == 1 or nums[-1] > nums[0]:  # single or sorted
             return nums[0]
         else:

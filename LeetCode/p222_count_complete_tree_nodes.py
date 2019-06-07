@@ -39,11 +39,7 @@ class Solution(object):
 
         return helper(root)
 
-    def countNodes(self, root):
-        """
-        :type root: TreeNode
-        :rtype: int
-        """
+    def countNodes(self, root: TreeNode) -> int:
         if not root:
             return 0
 
@@ -77,11 +73,7 @@ class Solution(object):
         else:
             return False
 
-    def countNodes(self, root):
-        """
-        :type root: TreeNode
-        :rtype: int
-        """
+    def countNodes(self, root: TreeNode) -> int:
         if not root:
             return 0
 
@@ -107,11 +99,7 @@ class Solution(object):
     # As a side effect, when checking the isComplete in helper, all complete nodes will be added to hmp
     # passed much faster
 
-    def countNodes(self, root):
-        """
-        :type root: TreeNode
-        :rtype: int
-        """
+    def countNodes(self, root: TreeNode) -> int:
         hmp = {}
         def helper(root):
 

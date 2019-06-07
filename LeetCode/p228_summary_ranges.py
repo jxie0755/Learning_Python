@@ -4,17 +4,14 @@
 
 # Given a sorted integer array without duplicates, return the summary of its ranges.
 
+from typing import *
 
 class Solution(object):
 
     # Version A, O(N)
     # Add a tail item of inf, and evaluate the current item based on the next item
     # Use a label to indicate whether a range is found.
-    def summaryRanges(self, nums):
-        """
-        :type nums: List[int]
-        :rtype: List[str]
-        """
+    def summaryRanges(self, nums: List[int]) -> List[str]:
         if not nums:
             return []
 

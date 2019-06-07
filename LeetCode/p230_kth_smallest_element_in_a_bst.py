@@ -22,12 +22,7 @@ class Solution(object):
         return self.inorderTraversal(root.left) + [root.val] + self.inorderTraversal(root.right)
 
 
-    def kthSmallest(self, root, k):
-        """
-        :type root: TreeNode
-        :type k: int
-        :rtype: int
-        """
+    def kthSmallest(self, root: TreeNode, k: int) -> int:
         return self.inorderTraversal(root)[k-1]
 
 
@@ -56,10 +51,9 @@ class Solution(object):
                         self.que.append(last.left)
                     last = last.left
 
-        def next(self):
+        def next(self) -> int:
             """
             @return the next smallest number
-            :rtype: int
             """
 
             if self.que:
@@ -78,12 +72,7 @@ class Solution(object):
 
     # Version B
     # Borrow the idea from Leetcode P173, by using an iterator
-    def kthSmallest(self, root, k):
-        """
-        :type root: TreeNode
-        :type k: int
-        :rtype: int
-        """
+    def kthSmallest(self, root: TreeNode, k: int) -> int:
         iter = Solution().BSTIterator(root)
         for i in range(k):
             item = iter.next()
@@ -97,7 +86,7 @@ class Solution(object):
     # @param {integer} k
     # @return {integer}
     # This is also using Queues for iterating, same idea of iterator
-    def kthSmallest(self, root, k):
+    def kthSmallest(self, root: TreeNode, k: int) -> int:
         s, cur, rank = [], root, 0
         while s or cur:
             if cur:

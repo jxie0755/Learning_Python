@@ -15,11 +15,7 @@ class Solution(object):
     # Version A, O(N^2) time and O(N) space as requireed
     # Move to a list and check the list
     # This will pass quickly but space complexity is not perfect
-    def isPalindrome(self, head):
-        """
-        :type head: ListNode
-        :rtype: bool
-        """
+    def isPalindrome(self, head: ListNode) -> bool:
         if not head or not head.next:
             return True
 
@@ -35,11 +31,7 @@ class Solution(object):
     # Version B1, O(N^2) time and O(1) space as requireed
     # Recursively check head and tail
     # This will fail by exceeding max time limit
-    def isPalindrome(self, head):
-        """
-        :type head: ListNode
-        :rtype: bool
-        """
+    def isPalindrome(self, head: ListNode) -> bool:
         if not head or not head.next:
             return True
 
@@ -67,11 +59,7 @@ class Solution(object):
         pre_tail.next = None
         return (headval == tailval, head)
 
-    def isPalindrome(self, head):
-        """
-        :type head: ListNode
-        :rtype: bool
-        """
+    def isPalindrome(self, head: ListNode) -> bool:
         if not head or not head.next:
             return True
         while head.next:
@@ -96,11 +84,7 @@ class Solution(object):
             head = nex
         return dummy.next
 
-    def isPalindrome(self, head):
-        """
-        :type head: ListNode
-        :rtype: bool
-        """
+    def isPalindrome(self, head: ListNode) -> bool:
         fast, slow = head, head
         while fast and fast.next:
             slow = slow.next
@@ -121,7 +105,7 @@ class Solution(object):
     # Same idea of Version C, but reverse first half, and do it at the same time to get second half
 
     # Disadvantage: need to handle the odd length
-    def isPalindrome(self, head):
+    def isPalindrome(self, head: ListNode) -> bool:
         reverse, fast = None, head
         # Reverse the first half part of the list.
         while fast and fast.next:

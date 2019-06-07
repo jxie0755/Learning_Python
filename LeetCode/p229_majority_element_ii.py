@@ -4,16 +4,12 @@
 # Given an integer array of size n, find all elements that appear more than ⌊ n/3 ⌋ times.
 # Note: The algorithm should run in linear time and in O(1) space. - Not True (STD ans will use hashmap as well)
 
-
+from typing import *
 class Solution(object):
 
     # Version A1, use hashmap to record everything
     # It was not O(1) space
-    def majorityElement(self, nums):
-        """
-        :type nums: List[int]
-        :rtype: List[int]
-        """
+    def majorityElement(self, nums: List[int]) -> List[int]:
         result = []
         N = len(nums) // 3
         hmp = {}
@@ -38,11 +34,7 @@ class Solution(object):
     # It was stil not O(1) space
 
 
-    def majorityElement(self, nums):
-        """
-        :type nums: List[int]
-        :rtype: List[int]
-        """
+    def majorityElement(self, nums: List[int]) -> List[int]:
         result = []
         N = len(nums) // 3
         hmp = {}
@@ -62,11 +54,7 @@ class Solution(object):
 import collections
 class Solution(object):
     # STD ans
-    def majorityElement(self, nums):
-        """
-        :type nums: List[int]
-        :rtype: List[int]
-        """
+    def majorityElement(self, nums: List[int]) -> List[int]:
         return [i[0] for i in collections.Counter(nums).items() if i[1] > len(nums) / 3]
 
 

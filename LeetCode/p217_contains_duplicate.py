@@ -6,22 +6,16 @@
 # Your function should return true if any value appears at least twice in the array,
 # and it should return false if every element is distinct.
 
+from typing import *
 
 class Solution:
-    def containsDuplicate(self, nums):
-        # Use set() to check if length is changed
-        """
-        :type nums: List[int]
-        :rtype: bool
-        """
+    # Use set() to check if length is changed
+    def containsDuplicate(self, nums: List[int]) -> bool:
         return len(nums) != len(set(nums))
 
-    def containsDuplicate(self, nums):
-        # Use hashtable for counting
-        """
-        :type nums: List[int]
-        :rtype: bool
-        """
+    # Use hashtable for counting
+    def containsDuplicate(self, nums: List[int]) -> bool:
+
         hashtable = {}
         for i in nums:
             if i not in hashtable:

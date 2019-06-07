@@ -14,11 +14,7 @@ from a0_ListNode import *
 class Solution(object):
 
     # Version A, recursive helper to track each path
-    def binaryTreePaths(self, root):
-        """
-        :type root: TreeNode
-        :rtype: List[str]
-        """
+    def binaryTreePaths(self, root: TreeNode) -> List[str]:
 
         if not root:
             return []

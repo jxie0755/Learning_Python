@@ -8,6 +8,7 @@
 # All numbers will be positive integers.
 # The solution set must not contain duplicate combinations.
 
+from typing import *
 
 class Solution(object):
 
@@ -24,12 +25,7 @@ class Solution(object):
             result += [[head] + com for com in self.combinationSolo(next_list, k - 1)] + self.combinationSolo(nums[1:], k)
             return result
 
-    def combinationSum3(self, k, n):
-        """
-        :type k: int
-        :type n: int
-        :rtype: List[List[int]]
-        """
+    def combinationSum3(self, k: int, n: int) ->  List[List[int]]:
         result = []
         for i in self.combinationSolo([1,2,3,4,5,6,7,8,9], k):
             if sum(i) == n:

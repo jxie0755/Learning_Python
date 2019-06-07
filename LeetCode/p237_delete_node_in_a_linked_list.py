@@ -23,11 +23,8 @@ class Solution(object):
     # Version A
     # Revise on chain, change the value to next value all the way to the end then cut the end link
     # need to create a dummy to record the previous node of this node
-    def deleteNode(self, node):
-        """
-        :type node: ListNode
-        :rtype: void Do not return anything, modify node in-place instead.
-        """
+    def deleteNode(self, node: ListNode) -> None:
+
         pre = ListNode('X')
         pre.next = node
         while node.next:

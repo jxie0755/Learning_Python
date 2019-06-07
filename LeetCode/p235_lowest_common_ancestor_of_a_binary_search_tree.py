@@ -21,13 +21,7 @@ class Solution(object):
     # use a helper function to recursive check
     # first get the range of the root (min and max)
     # if p's val and q's val within the range, check the left and right until neither's range covers
-    def lowestCommonAncestor(self, root, p, q):
-        """
-        :type root: TreeNode
-        :type p: TreeNode
-        :type q: TreeNode
-        :rtype: TreeNode
-        """
+    def lowestCommonAncestor(self, root: 'TreeNode', p: 'TreeNode', q: 'TreeNode') -> 'TreeNode':
         pv, qv = sorted(p.val, q.val)
         minn = maxx = root
         while minn.left:
@@ -50,13 +44,7 @@ class Solution(object):
 
     # Version A2
     # Non-recursive version
-    def lowestCommonAncestor(self, root, p, q):
-        """
-        :type root: TreeNode
-        :type p: TreeNode
-        :type q: TreeNode
-        :rtype: TreeNode
-        """
+    def lowestCommonAncestor(self, root: 'TreeNode', p: 'TreeNode', q: 'TreeNode') -> 'TreeNode':
         pv, qv = sorted(p.val, q.val)
         minn = maxx = root
         while minn.left:
@@ -80,7 +68,7 @@ class Solution(object):
     # @param {TreeNode} p
     # @param {TreeNode} q
     # @return {TreeNode}
-    def lowestCommonAncestor(self, root, p, q):
+    def lowestCommonAncestor(self, root: 'TreeNode', p: 'TreeNode', q: 'TreeNode') -> 'TreeNode':
         s, b = sorted([p.val, q.val])
         while not s <= root.val <= b:
             # Keep searching since root is outside of [s, b].

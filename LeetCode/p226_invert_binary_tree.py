@@ -15,11 +15,7 @@ from a0_ListNode import *
 class Solution(object):
 
     # Version A, simple recursive way
-    def invertTree(self, root):
-        """
-        :type root: TreeNode
-        :rtype: TreeNode
-        """
+    def invertTree(self, root: TreeNode) -> TreeNode:
         if not root:
             return None
 

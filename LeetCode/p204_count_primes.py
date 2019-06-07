@@ -6,13 +6,10 @@
 
 
 # class Solution:
-#     def countPrimes(self, n):
-#         # Time O(N^2), Exceeded max time limit
-#         # Space O(1)
-#         """
-#         :type n: int
-#         :rtype: int
-#         """
+#
+#     # Time O(N^2), Exceeded max time limit
+#     # Space O(1)
+#     def countPrimes(self, n: int) -> int:
 #         def isPrime(n):
 #             for i in range(2, int(n**0.5)+1):
 #                 if n % i == 0:
@@ -27,12 +24,8 @@
 #         return count
 
 # class Solution:
-#     def countPrimes(self, n):
-#         """
-#         :type n: int
-#         :rtype: int
-#         """
-#         # Crack Leetcode's test case large numbers :)
+#     Crack Leetcode's test case large numbers :)
+#     def countPrimes(self, n: int) -> int:
 #         if n == 499979:
 #             return 41537
 #         elif n == 999983:
@@ -57,12 +50,9 @@ count = 1
 cur_max = 2
 
 class Solution:
-    def countPrimes(self, n):
-        # Use global data and count to avoid repeat counting as progress
-        """
-        :type n: int
-        :rtype: int
-        """
+
+    # Use global data and count to avoid repeat counting as progress
+    def countPrimes(self, n: int) -> int:
         global data
         global count
         global cur_max
@@ -91,13 +81,11 @@ class Solution:
 primes = {}
 
 class Solution:
-    def countPrimes(self, n):
-        # Use global data and count to avoid repeat counting as progress
-        # Also use global to record all the prime numbers that has been found
-        """
-        :type n: int
-        :rtype: int
-        """
+
+    # Use global data and count to avoid repeat counting as progress
+    # Also use global to record all the prime numbers that has been found
+    def countPrimes(self, n: int) -> int:
+
         global primes, data, count, cur_max
 
         def isPrime(n):
@@ -123,16 +111,12 @@ class Solution:
 
 
 class Solution(object):
-    # @param {integer} n
-    # @return {integer}
+
     # The Sieve of Eratosthenes
-    def countPrimes(self, n):
-        # Time:  O(n^2)
-        # Space: O(n)
-        """
-        :type n: int
-        :rtype: int
-        """
+    # Time:  O(n^2)
+    # Space: O(n)
+    def countPrimes(self, n: int) -> int:
+
         if n < 3:
             return 0
 

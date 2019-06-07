@@ -6,11 +6,7 @@
 
 
 class Solution:
-    def isPowerOfTwo(self, n):
-        """
-        :type n: int
-        :rtype: bool
-        """
+    def isPowerOfTwo(self, n: int) -> bool:
         if n < 1:
             return False
         elif n == 1:
@@ -27,7 +23,7 @@ class Solution(object):
     # 利用位运算, 也就是把n转换成二进制数, 2的幂在二进制中必为 1000...
     # 这样n-1就必为0111....
     # 利用&对比各位, 必然每一位都不相同, 则结果为0
-    def isPowerOfTwo(self, n):
+    def isPowerOfTwo(self, n: int) -> bool:
         return n > 0 and (n & (n - 1)) == 0
 
 

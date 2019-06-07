@@ -10,12 +10,8 @@
 # Input is within the 32-bit signed integer range: [−2^31,  2^31 − 1].
 
 class Solution:
-    def isUgly(self, num):
+    def isUgly(self, num: int) -> bool:
         # Time O(logN), Space O(1)
-        """
-        :type num: int
-        :rtype: bool
-        """
         if num == 1:
             return True
 
@@ -35,7 +31,7 @@ class Solution:
 class Solution(object):
     # @param {integer} num
     # @return {boolean}
-    def isUgly(self, num):
+    def isUgly(self, num: int) -> bool:
         if num == 0:
             return False
         for i in [2, 3, 5]:

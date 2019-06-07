@@ -99,17 +99,16 @@ class Solution(object):
 
 
 
-print(Solution().nthUglyNumber(10))
 
-# if __name__ == '__main__':
-#     assert Solution().nthUglyNumber(1) == 1, 'Edge'
-#     assert Solution().nthUglyNumber(2) == 2, 'Example 1'
-#     assert Solution().nthUglyNumber(6) == 6, 'Example 2'
-#     assert Solution().nthUglyNumber(7) == 8, 'Example 3'
-#     assert Solution().nthUglyNumber(10) == 12, 'Example 4'
-#     assert Solution().nthUglyNumber(11) == 15, 'Example 5'
-#
-#     assert Solution().nthUglyNumber(80) == 800, 'Long 1'
-#     # assert Solution().nthUglyNumber(1690) == 2304, 'End'
-#     print('all passed')
+if __name__ == '__main__':
+    assert Solution().nthUglyNumber(1) == 1, 'Edge'
+    assert Solution().nthUglyNumber(2) == 2, 'Example 1'
+    assert Solution().nthUglyNumber(6) == 6, 'Example 2'
+    assert Solution().nthUglyNumber(7) == 8, 'Example 3'
+    assert Solution().nthUglyNumber(10) == 12, 'Example 4'
+    assert Solution().nthUglyNumber(11) == 15, 'Example 5'
+
+    assert Solution().nthUglyNumber(80) == 800, 'Long 1'
+    # assert Solution().nthUglyNumber(1690) == 2304, 'End'
+    print('all passed')
 

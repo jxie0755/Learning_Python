@@ -45,13 +45,7 @@ class Solution(object):
         return result
 
 
-    def lowestCommonAncestor(self, root, p, q):
-        """
-        :type root: TreeNode
-        :type p: TreeNode
-        :type q: TreeNode
-        :rtype: TreeNode
-        """
+    def lowestCommonAncestor(self, root: 'TreeNode', p: 'TreeNode', q: 'TreeNode') -> 'TreeNode':
         binaryheap = self.showPerfectNodeLayers(root)
 
         i,pi,qi = 0,0,0
@@ -90,7 +84,7 @@ class Solution(object):
     # @param {TreeNode} p
     # @param {TreeNode} q
     # @return {TreeNode}
-    def lowestCommonAncestor(self, root, p, q):
+    def lowestCommonAncestor(self, root: 'TreeNode', p: 'TreeNode', q: 'TreeNode') -> 'TreeNode':
         if root in (None, p, q):
             return root
 

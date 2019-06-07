@@ -15,11 +15,7 @@ class Solution(object):
     # Version A
     # Use the op stack and number staock
     # This is quite slow
-    def calculate(self, s):
-        """
-        :type s: str
-        :rtype: int
-        """
+    def calculate(self, s: str) -> int:
         nums = '0123456789'
 
         number, op = [], []
@@ -77,11 +73,7 @@ class Solution(object):
         if op == '-':
             return n1 - n2
 
-    def calculate(self, s):
-        """
-        :type s: str
-        :rtype: int
-        """
+    def calculate(self, s: str) -> int:
         n = '0123456789'
         op = []
         number = []
@@ -137,7 +129,7 @@ class Solution(object):
         elif op == '/':
             operands.append(left // right)
 
-    def calculate(self, s):
+    def calculate(self, s: str) -> int:
         operands, operators = [], []
         operand = ""
         for i in reversed(range(len(s))):

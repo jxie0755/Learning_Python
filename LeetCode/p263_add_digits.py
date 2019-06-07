@@ -5,13 +5,10 @@
 # Given a non-negative integer num, repeatedly add all its digits until the result has only one digit.
 
 class Solution:
-    def addDigits(self, num):
+    def addDigits(self, num: int) -> int:
         # O(log(len(n))) ?
         # 即使是iteration速度也是很快的,数字之和缩小的速度非常之快
-        """
-        :type num: int
-        :rtype: int
-        """
+
         def process(num):
             result = 0
             while num != 0:
@@ -26,12 +23,8 @@ class Solution:
         return num
 
 class Solution(object):
-    def addDigits(self, num):
+    def addDigits(self, num: int) -> int:
         # Time O(1)
-        """
-        :type num: int
-        :rtype: int
-        """
         # if num==0:
         #     return 0
         # t = num % 9

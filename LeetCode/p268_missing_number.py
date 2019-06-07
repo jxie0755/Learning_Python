@@ -8,15 +8,13 @@
 # Your algorithm should run in linear runtime complexity.  # Means no sorting used!!
 # Could you implement it using only constant extra space complexity?
 
+from typing import *
 
 class Solution:
-    def missingNumber(self, nums):
-        # 利用等差数列? 过一遍找出首项和末项 (min和max)
-        # 然后长度+1, 补位, 计算等差数列之和, 与实际之和相比的差值就是missing number
-        """
-        :type nums: List[int]
-        :rtype: int
-        """
+
+    # 利用等差数列? 过一遍找出首项和末项 (min和max)
+    # 然后长度+1, 补位, 计算等差数列之和, 与实际之和相比的差值就是missing number
+    def missingNumber(self, nums: List[int]) -> int:
         sum_all, length, min_v, max_v = 0, len(nums), float('inf'), -float('inf')
 
         for i in nums:
@@ -35,13 +33,9 @@ class Solution:
 
 
 class Solution:
-    def missingNumber(self, nums):
-        # XOR method, O(N)
 
-        """
-        :type nums: List[int]
-        :rtype: int
-        """
+    # XOR method, O(N)
+    def missingNumber(self, nums: List[int]) -> int:
         checker = 0
         for n in (nums + list(range(len(nums)+1))):
                 # 也就是 nums 与真正应该的nums 一起

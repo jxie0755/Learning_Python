@@ -7,15 +7,12 @@
 # find out whether there are two distinct indices i and j in the array
 # such that nums[i] = nums[j] and the absolute difference between i and j is at most k.
 
+from typing import *
 
 class Solution:
-    def containsNearbyDuplicate(self, nums, k):
-        # Brutal force, O(N^2), max time limit exceeded
-        """
-        :type nums: List[int]
-        :type k: int
-        :rtype: bool
-        """
+
+    # Brutal force, O(N^2), max time limit exceeded
+    def containsNearbyDuplicate(self, nums: List[int], k: int) -> bool:
         if len(nums) == 0:
             return False
 
@@ -32,13 +29,8 @@ class Solution:
             z += 1
         return False
 
-    def containsNearbyDuplicate(self, nums, k):
-        # Hashtable O(N)
-        """
-        :type nums: List[int]
-        :type k: int
-        :rtype: bool
-        """
+    # Hashtable O(N)
+    def containsNearbyDuplicate(self, nums: List[int], k: int) -> bool:
         hashtable = {}
         i = 0
         while i != len(nums):

@@ -91,10 +91,9 @@ class BSTIterator(object):
                     self.que.append(last.left)
                 last = last.left
 
-    def next(self):
+    def next(self) -> int:
         """
         @return the next smallest number
-        :rtype: int
         """
 
         if self.que:
@@ -111,10 +110,9 @@ class BSTIterator(object):
 
             return next_val
 
-    def hasNext(self):
+    def hasNext(self) -> bool:
         """
         @return whether we have a next smallest number
-        :rtype: bool
         """
         if self.que:
             return True
