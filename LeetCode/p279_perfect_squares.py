@@ -146,7 +146,6 @@ class Solution(object):
 
         return num[n]
 
-
 class Solution(object):
 
     # Version D, Improved recursion with memorization
@@ -181,6 +180,45 @@ class Solution(object):
 
         return helper(n)
 
+class Solution(object):
+
+    # Version D2, Improved recursion with memorization and depth control
+    # This is much faster but still fail the max time limit
+    def SQlist(self, n):
+        """find all possible square number up to n"""
+        result = []
+        for i in range(1, int(n**0.5)+1):
+                result.append(i ** 2)
+        return result
+
+    def numSquares(self, n: int) -> int or float:
+
+        sqlist = self.SQlist(n)
+        hashmap = {}  # memorization
+
+        def helper(n, depth=0):
+            if n == 0: # base case
+                return 0
+
+            elif n in hashmap and depth < 4: # 如果之前算过, 就直接从字典调用
+                return hashmap[n]
+
+            elif depth < 4:
+                temp = []
+                for i in sqlist:
+                    if i <= n:
+                        new_depth = depth + 1
+                        temp.append(helper(n-i, new_depth))
+
+                temp_n = min(temp) + 1
+                if temp_n != float('inf'):  # 字典只记录真实值
+                    hashmap[n] = temp_n  # 返回之前记录结果
+                return temp_n
+            else:
+                return float('inf')  # 由于只走4层深度, 所以超过四层按无穷大来算,避免被min计算进去
+
+        ans = helper(n)
+        return ans
 
 
 if __name__ == '__main__':
@@ -192,8 +230,10 @@ if __name__ == '__main__':
     assert Solution().numSquares(19) == 3, 'Example 5:  9+9+1'
 
     assert Solution().numSquares(43) == 3, 'Example 6:  25+9+9'
-    assert Solution().numSquares(99) == 3, 'Example 7:  49+25+25'
-    assert Solution().numSquares(143) == 4, 'Example 8'
+    assert Solution().numSquares(67) == 3, 'Example 7:  9+9+49'
+    assert Solution().numSquares(99) == 3, 'Example 8:  49+25+25'
+    assert Solution().numSquares(143) == 4, 'Example 9'
+    assert Solution().numSquares(488) == 2, 'Example 10'
 
     print('all passed')
 
