@@ -18,13 +18,13 @@ class Solution(object):
     # Then sieve again with prime numbers > 2,3,5
     def primesunder(self, n):
         sieve = list(range(0, 1+n))
-        sieve[1] = 0
 
         for i in range(2,int(n**0.5)+1):
             if sieve[i]: # 注意这里可以省很多计算时间
                 for k in range(i*i, len(sieve), i):
                     sieve[k] = 0
 
+        sieve[1] = 0
         sieve[2] = 0
         sieve[3] = 0
         sieve[5] = 0
