@@ -108,7 +108,7 @@ class Solution(object):
                 result.append(i ** 2)
         return result
 
-    def numSquares(self, n: int) -> int:
+    def numSquares(self, n: int) -> int or float:
         result = [float('inf')]
         sqlist = self.SQlist(n)
 
