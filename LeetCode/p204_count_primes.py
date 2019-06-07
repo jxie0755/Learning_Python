@@ -4,6 +4,7 @@
 
 # Count the number of prime numbers less than a non-negative number, n.
 
+from typing import *
 
 # class Solution:
 #
@@ -112,6 +113,7 @@ class Solution:
 
 class Solution(object):
 
+    # STD ans
     # The Sieve of Eratosthenes
     # Time:  O(n^2)
     # Space: O(n)
@@ -127,10 +129,29 @@ class Solution(object):
         for i in range(2, int(n ** 0.5) + 1): # 范围仍然取n的半边因数
             if primes[i]:
                 # 筛选质数的方法,若i为质数,则i*i一直到n, 每隔i个数都不是质数
-                primes[i * i: n: i] = [0] * len(primes[i * i: n: i])  # 这样筛选的方法复杂度为O(1)!
+                for k in range(i*i, n, i):
+                    primes[k] = 0
                 # 这样下来一轮, 质数才能留存下来,值为1, 其他的非质数值全部变成0
         return sum(primes)
 
+
+class Solution_extend(object):
+
+    # 延展 The Sieve of Eratosthenes
+    # 找出所有质数,放入一个列表
+    def countPrimes(self, n: int) -> List[int]:
+
+        # 先假设所有数字都是质数, 除了0和1
+        primes = list(range(n+1))
+        primes[0] = primes[1] = 0
+
+        for i in range(2, int(n ** 0.5) + 1): # 范围仍然取n的半边因数
+            if primes[i]:
+                for k in range(i*i, n+1, i):
+                    primes[k] = 0
+        return list(filter(lambda x:bool(x), primes))
+
+print(Solution().countPrimes(10))
 
 if __name__ == '__main__':
     assert Solution().countPrimes(0) == 0, 'Edge 1'
