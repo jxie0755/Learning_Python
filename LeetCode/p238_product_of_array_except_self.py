@@ -18,10 +18,6 @@ class Solution(object):
         # 1 zero
         # >= 2 zeros
     def productExceptSelf(self, nums: List[int]) -> List[int]:
-        """
-        :type nums: List[int]
-        :rtype: List[int]
-        """
         total_product = 1
         zerofound = 0
         for i in nums:
@@ -29,7 +25,6 @@ class Solution(object):
                 zerofound += 1
             else:
                 total_product *= i
-
 
         k = 0
         result = []
@@ -52,6 +47,32 @@ class Solution(object):
                 result.append(total_product)
 
         return result
+
+class Solution(object):
+
+    # Version B, O(N) time, No Division (不使用除法)
+    # space O(2n)
+    # 从左往右, 记录到每个数之前的乘积, 再从右往左, 然后把左侧的乘积乘以右侧的乘积
+    # 可以更加省空间到O(N), 使用右侧扫描时结果直接乘到left里面去
+    def productExceptSelf(self, nums: List[int]) -> List[int]:
+
+        N = len(nums)
+        left, right = [1]*N, [1]*N
+        i = 1
+        pd = 1
+        while i != N:
+            pd *= nums[i-1]
+            left[i] = pd
+            i += 1
+
+        i = N-2
+        pd = 1
+        while i >= 0:
+            pd *= nums[i+1]
+            right[i] = pd
+            i -= 1
+
+        return [left[i] * right[i] for i in range(len(left))]
 
 
 
