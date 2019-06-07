@@ -128,6 +128,20 @@ class Solution(object):
         return result[-1]
 
 
+# TODO review after learnin Dynamic Programming and Breadth-first search
+class Solution(object):
+
+    def numSquares(self, n: int) -> int:
+        num = [0]
+
+        while len(num) <= n:
+            temp = []
+            for i in range(1, int(len(num) ** 0.5 + 1)):
+                temp.append(num[-i*i])
+            num.append(min(temp) + 1)
+
+        return num[n]
+
 
 
 if __name__ == '__main__':
