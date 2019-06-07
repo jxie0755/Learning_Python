@@ -20,9 +20,9 @@ class Solution(object):
         sieve = list(range(0, 1+n))
         sieve[1] = 0
 
-        for i in range(2,n+1):
+        for i in range(2,int(n**0.5)+1):
             if sieve[i]: # 注意这里可以省很多计算时间
-                for k in range(2*i, len(sieve), i):
+                for k in range(i*i, len(sieve), i):
                     sieve[k] = 0
 
         sieve[2] = 0
