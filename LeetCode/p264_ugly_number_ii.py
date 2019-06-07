@@ -17,14 +17,17 @@ class Solution(object):
     # Use prime sieves to get all the prime numbers
     # Then sieve again with prime numbers > 2,3,5
     def primesunder(self, n):
-        sieve = list(range(0, n+1))
+        sieve = list(range(0, 1+n))
         sieve[1] = 0
+
+        for i in range(2,n+1):
+            if sieve[i]: # 注意这里可以省很多计算时间
+                for k in range(2*i, len(sieve), i):
+                    sieve[k] = 0
+
         sieve[2] = 0
         sieve[3] = 0
         sieve[5] = 0
-        for i in range(2,n+1):
-            for k in range(2*i, len(sieve), i):
-                sieve[k] = 0
         return list(filter(lambda x:bool(x), sieve))
 
     def nthUglyNumber(self, n: int) -> int:
@@ -34,7 +37,7 @@ class Solution(object):
         # And after sieving, there should be more than n items left in the sieve
         # This leads to a huge factor of sieve, caused the algorithm taking too long to calculate
         # Therefore, this is not a good way, abandon this method
-        sieve_size = 10*n
+        sieve_size = 1000*n
         sieve = list(range(sieve_size))
         primes = self.primesunder(sieve_size)
         # print('prime list', primes)
@@ -47,6 +50,7 @@ class Solution(object):
         print('n is', n, 'sieve length:', len(sieve))
         print('final sieve:', sieve)
         return sieve[n-1]
+
 
 
 class Solution(object):
