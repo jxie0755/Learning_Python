@@ -128,9 +128,13 @@ class Solution(object):
         return result[-1]
 
 
-# TODO review after learnin Dynamic Programming and Breadth-first search
 class Solution(object):
 
+    # STD and
+    # dynamic + memorization
+    # 根据硬币组合的动态规划思路, 但是建立一张表, index表示n, index位置的值表示n的最优解
+    # 动态规划时,通过反向跳跃-i^2来找到 n - squarenumber, 很有特色
+    # 从n=1一直计算到target n, 同时建立一个memorization, 这样递归分叉时可以避免重复计算, 精妙!
     def numSquares(self, n: int) -> int:
         num = [0]
 
