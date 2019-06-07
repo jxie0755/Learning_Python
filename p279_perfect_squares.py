@@ -3,6 +3,7 @@
 
 
 # Given a positive integer n, find the least number of perfect square numbers (for example, 1, 4, 9, 16, ...) which sum to n.
+from typing import *
 
 class Solution(object):
 
@@ -72,11 +73,8 @@ class Solution(object):
             i += 1
         return ans
 
-    def numSquares(self, n):
-        """
-        :type n: int
-        :rtype: int
-        """
+class Solution:
+    def numSquares(self, n: int) -> int:
         result = []
 
         # Two list will be equal length
@@ -110,8 +108,7 @@ class Solution(object):
                 result.append(i ** 2)
         return result
 
-    def numSquares(self, n):
-
+    def numSquares(self, n: int) -> int:
         result = [float('inf')]
         sqlist = self.SQlist(n)
 
