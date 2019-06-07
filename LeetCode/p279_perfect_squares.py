@@ -150,6 +150,7 @@ class Solution(object):
 class Solution(object):
 
     # Version D, Improved recursion with memorization
+    # This will run very quickly, but reach to maximum depth of recursion
     def SQlist(self, n):
         """find all possible square number up to n"""
         result = []
@@ -160,7 +161,7 @@ class Solution(object):
     def numSquares(self, n: int) -> int or float:
 
         sqlist = self.SQlist(n)
-        hashmap = {}
+        hashmap = {}  # memorization
 
         def helper(n):
 
@@ -169,12 +170,13 @@ class Solution(object):
 
             elif n in hashmap: # 如果之前算过, 就直接从字典调用
                 return hashmap[n]
+
             else:
                 temp = []
                 for i in sqlist:
                     if i <= n:
                         temp.append(helper(n-i))
-                hashmap[n] = min(temp) + 1  # 记录结果
+                hashmap[n] = min(temp) + 1  # 返回之前记录结果
                 return min(temp) + 1
 
         return helper(n)
@@ -197,7 +199,7 @@ if __name__ == '__main__':
 
     import time
     start_time = time.time()
-    # print(Solution().numSquares(7168))
+    print(Solution().numSquares(7168))
     print(f"--- {time.time() - start_time}s seconds ---\n")
 
 
