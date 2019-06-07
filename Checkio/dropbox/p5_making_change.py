@@ -6,6 +6,7 @@
 
 import itertools
 
+# Brutal force
 def checkio(price, coins):
     # 为每个面值得到coin数目范围
     drange = list(map(lambda x: price // x, coins))
@@ -28,15 +29,35 @@ def checkio(price, coins):
         result.append(temp)
 
     if len(result) > 0:
-        return (min(result))
+        return min(result)
 
-#
-# if __name__ == '__main__':
-#     # These "asserts" using only for self-checking and not necessary for auto-testing
-#     assert checkio(8, [1, 3, 5]) == 2
-#     assert checkio(12, [1, 4, 5]) == 3
-#     print('Done')
 
-# 算法对大数不友好
-# print(checkio(123456, [1, 6, 7, 456, 678]))
-# 456 * 15 + 678 * 172 = 123456, output should be 15 + 172 = 187
+# Idea from Leetcode P279
+# Dynamic Programing and memorization
+def checkio(price, coins):
+    num = [0]
+    while len(num) <= price:
+        temp = []
+        for i in coins:
+            if i <= len(num):
+                temp.append(num[-i])
+        if temp:
+            num.append(min(temp) + 1)
+        else:
+            return None
+
+    return num[price]
+
+
+
+if __name__ == '__main__':
+    # These "asserts" using only for self-checking and not necessary for auto-testing
+
+    assert checkio(3, [4, 5]) is None, 'Edge 1'
+    assert checkio(13, [4, 5]) is None, 'Edge 2'
+
+    assert checkio(8, [1, 3, 5]) == 2, 'Example 1, 3+5'
+    assert checkio(12, [1, 4, 5]) == 3, 'Example 2, 4+4+4'
+    assert checkio(123456, [1, 6, 7, 456, 678]) == 187, 'Big number, 4+4+4'
+    print('Done')
+
