@@ -111,16 +111,11 @@ class Solution(object):
         return result
 
     def numSquares(self, n):
-        """
-        :type n: int
-        :rtype: int
-        """
+
         result = [float('inf')]
         sqlist = self.SQlist(n)
 
-        def helper(n, bl=[]):
-            sum_so_far = sum(bl)
-            length_so_far = len(bl)
+        def helper(n, sum_so_far=0, length_so_far=0):
 
             if sum_so_far == n:
                 result.append(length_so_far)
@@ -128,9 +123,9 @@ class Solution(object):
             # Only proceed tree recursive if current bl beats smallest length so far
             elif sum_so_far < n and length_so_far < result[-1]:
                 for i in sqlist:
-                    new_bl = bl[:]
-                    new_bl.append(i)
-                    helper(n, new_bl)
+                    new_sum = sum_so_far + i
+                    new_length = length_so_far + 1
+                    helper(n, new_sum, new_length)
 
         helper(n)
         return result[-1]
@@ -152,10 +147,10 @@ if __name__ == '__main__':
 
     print('all passed')
 
-    # import time
-    # start_time = time.time()
-    # print(Solution().numSquares(7168))
-    # print(f"--- {time.time() - start_time}s seconds ---\n")
+    import time
+    start_time = time.time()
+    print(Solution().numSquares(7168))
+    print(f"--- {time.time() - start_time}s seconds ---\n")
 
 
 
