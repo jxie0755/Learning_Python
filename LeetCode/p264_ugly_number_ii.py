@@ -27,11 +27,7 @@ class Solution(object):
                 sieve[k] = 0
         return list(filter(lambda x:bool(x), sieve))
 
-    def nthUglyNumber(self, n):
-        """
-        :type n: int
-        :rtype: int
-        """
+    def nthUglyNumber(self, n: int) -> int:
 
         # choose factor wisely:
         # primes must cover all the primes bigger than nth ugly number
@@ -50,7 +46,7 @@ class Solution(object):
         sieve = list(filter(lambda x:bool(x), sieve))
         print('n is', n, 'sieve length:', len(sieve))
         print('final sieve:', sieve)
-        # return sieve[n-1]
+        return sieve[n-1]
 
 
 class Solution(object):
@@ -58,7 +54,7 @@ class Solution(object):
     # @return {integer}
 
     # STD ans A1
-    def nthUglyNumber(self, n):
+    def nthUglyNumber(self, n: int) -> int:
         ugly = [1]
         i2 = i3 = i5 = 0
 
@@ -77,7 +73,7 @@ class Solution(object):
 
     # STD ans A2
     # Need to use heapq
-    def nthUglyNumber(self, n):
+    def nthUglyNumber(self, n: int) -> int:
 
         q2, q3, q5 = [2], [3], [5]
         ugly = 1
@@ -98,7 +94,7 @@ class Solution(object):
     ugly = sorted(2**a * 3**b * 5**c
                   for a in range(32) for b in range(20) for c in range(14))
 
-    def nthUglyNumber(self, n):
+    def nthUglyNumber(self, n: int) -> int:
         return self.ugly[n-1]
 
 

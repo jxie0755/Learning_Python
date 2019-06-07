@@ -17,7 +17,7 @@ class Solution(object):
         # no zero
         # 1 zero
         # >= 2 zeros
-    def productExceptSelf(self, nums):
+    def productExceptSelf(self, nums: List[int]) -> List[int]:
         """
         :type nums: List[int]
         :rtype: List[int]
