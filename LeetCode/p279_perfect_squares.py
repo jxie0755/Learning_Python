@@ -237,10 +237,10 @@ if __name__ == '__main__':
 
     print('all passed')
 
-    import time
-    start_time = time.time()
-    print(Solution().numSquares(7168))
-    print(f"--- {time.time() - start_time}s seconds ---\n")
+    # import time
+    # start_time = time.time()
+    # print(Solution().numSquares(7168))
+    # print(f"--- {time.time() - start_time}s seconds ---\n")
 
 
 
