@@ -43,12 +43,13 @@ class Solution(object):
         # print('prime list', primes)
 
         for i in primes:
-            for k in range(i, len(sieve), i):
-                sieve[k] = 0
+            if sieve[i]:
+                for k in range(i, len(sieve), i):
+                    sieve[k] = 0
 
         sieve = list(filter(lambda x:bool(x), sieve))
-        print('n is', n, 'sieve length:', len(sieve))
-        print('final sieve:', sieve)
+        # print('n is', n, 'sieve length:', len(sieve))
+        # print('final sieve:', sieve)
         return sieve[n-1]
 
 
