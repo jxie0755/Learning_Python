@@ -100,6 +100,42 @@ class Solution(object):
 
 
 
+class Solution(object):
+
+    # Version C, Similar to Version A but with optimiazation (trimming)
+    def SQlist(self, n):
+        """find all possible square number up to n"""
+        result = []
+        for i in range(int(n**0.5), 0, -1):
+                result.append(i ** 2)
+        return result
+
+    def numSquares(self, n):
+        """
+        :type n: int
+        :rtype: int
+        """
+        result = [float('inf')]
+        sqlist = self.SQlist(n)
+
+        def helper(n, bl=[]):
+            sum_so_far = sum(bl)
+            length_so_far = len(bl)
+
+            if sum_so_far == n:
+                result.append(length_so_far)
+
+            # Only proceed tree recursive if current bl beats smallest length so far
+            elif sum_so_far < n and length_so_far < result[-1]:
+                for i in sqlist:
+                    new_bl = bl[:]
+                    new_bl.append(i)
+                    helper(n, new_bl)
+
+        helper(n)
+        return result[-1]
+
+
 
 
 if __name__ == '__main__':
@@ -110,14 +146,15 @@ if __name__ == '__main__':
     assert Solution().numSquares(18) == 2, 'Example 4:  9+9'
     assert Solution().numSquares(19) == 3, 'Example 5:  9+9+1'
 
-    # assert Solution().numSquares(43) == 3, 'Example 6:  25+9+9'
-    # assert Solution().numSquares(99) == 3, 'Example 7:  49+25+25'
+    assert Solution().numSquares(43) == 3, 'Example 6:  25+9+9'
+    assert Solution().numSquares(99) == 3, 'Example 7:  49+25+25'
+    assert Solution().numSquares(143) == 4, 'Example 8'
 
     print('all passed')
 
     # import time
     # start_time = time.time()
-    # print(Solution().numSquares(38))
+    # print(Solution().numSquares(7168))
     # print(f"--- {time.time() - start_time}s seconds ---\n")
 
 
