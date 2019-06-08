@@ -20,8 +20,18 @@ class Solution:
 
 
 if __name__ == '__main__':
-    assert Solution().findDuplicate([1,3,4,2,2]) == 2, 'Example 1'
-    assert Solution().findDuplicate([3,1,3,4,2]) == 3, 'Example 2'
-    assert Solution().findDuplicate([1,1,3,4,2]) == 1, 'Example 3'
+    assert Solution().findDuplicate([1, 3, 4, 2, 2]) == 2, 'Example 1'
+    assert Solution().findDuplicate([3, 1, 3, 4, 2]) == 3, 'Example 2'
+    assert Solution().findDuplicate([1, 1, 3, 4, 2]) == 1, 'Example 3'
+    assert Solution().findDuplicate([4, 4, 3, 2, 1]) == 4, 'Example 4'
+    assert Solution().findDuplicate([3, 4, 1, 2, 4]) == 4, 'Example 5'
+
+    assert Solution().findDuplicate([1, 1, 1, 1, 1]) == 1, 'Example 6'
+    assert Solution().findDuplicate([4, 4, 4, 4, 4]) == 4, 'Example 7'
+
+    assert Solution().findDuplicate([3, 3, 2, 3, 3]) == 3, 'Example 8'
+    assert Solution().findDuplicate([3, 2, 3, 4, 3]) == 3, 'Example 9'
+    assert Solution().findDuplicate([2, 1, 1, 1, 1]) == 2, 'Example 10'
+
     print('all passed')
 
