@@ -13,7 +13,7 @@
 
 class Solution:
 
-    # 直立棉实质上存在一个等差数列
+    # 实质上存在一个等差数列
     def findDuplicate(self, nums: List[int]) -> int:
         pass
 
