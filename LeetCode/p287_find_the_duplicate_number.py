@@ -110,11 +110,14 @@ class Solution(object):
     # Time:  O(n*logn)
     # Space: O(1)
     def findDuplicate(self, nums: List[int]) -> int:
-        left, right = 0, len(nums) - 1
+        left, right = 1, len(nums) - 1
 
+        # 利用中位数判断:
+        # 如果1-n不出现重复, 那么数列中<=x的数的个数一定等于x, 大于x的数字的个数也等于x
+        # 一旦出现重复, 那么这个就被打破了, 出现重复的数字必定在多于x的那一侧, 通过二分搜索推进区间
         while left <= right:
-            mid = left + (right - left) // 2
-            print('L', left, 'R', right, 'M', mid)
+            mid = (left + right) // 2
+
             # Get count of num <= mid.
             count = 0
             for num in nums:
@@ -127,8 +130,8 @@ class Solution(object):
             print('count', count)
         return left
 
-# print(Solution().findDuplicate([1, 2, 3, 4, 5, 6, 7, 8, 6]))
-# #                               0  1  2  3  4  5  6  7  8
+print(Solution().findDuplicate([1, 1, 2, 3, 4, 5, 6, 7,]))
+#                               0  1  2  3  4  5  6  7  8
 
 if __name__ == '__main__':
     assert Solution().findDuplicate([1, 3, 4, 2, 2]) == 2, 'Example 1'
