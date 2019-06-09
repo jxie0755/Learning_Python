@@ -1,6 +1,8 @@
 # Time:  O(n)
 # Space: O(1)
 
+from typing import *
+
 class Solution(object):
     def findDuplicate(self, nums):
         """
@@ -29,7 +31,7 @@ class Solution2(object):
     # Time:  O(n*logn)
     # Space: O(1)
     def findDuplicate(self, nums: List[int]) -> int:
-        left, right = 1, len(nums) - 1
+        left, right = 0, len(nums) - 1
 
         while left <= right:
             mid = left + (right - left) // 2
