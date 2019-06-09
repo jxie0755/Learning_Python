@@ -55,10 +55,9 @@ class Solution:
 
 
 class Solution(object):
-    # STD ans
+    # STD ans Binary search method.
     # Time:  O(nlogn)
     # Space: O(1)
-    # Binary search method.
     def findDuplicate(self, nums: List[int]) -> int:
         left, right = 1, len(nums) - 1
 
