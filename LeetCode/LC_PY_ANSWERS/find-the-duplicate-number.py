@@ -50,7 +50,7 @@ class Solution2(object):
 
 
 # Time:  O(n)
-# Space: O(n)
+# Space: O(1)
 class Solution3(object):
     def findDuplicate(self, nums):
         """

@@ -130,8 +130,34 @@ class Solution(object):
             print('count', count)
         return left
 
-print(Solution().findDuplicate([1, 1, 2, 3, 4, 5, 6, 7,]))
-#                               0  1  2  3  4  5  6  7  8
+
+
+class Solution(object):
+
+    # STD ans
+    # Time:  O(n)
+    # Space: O(1)
+    def findDuplicate(self, nums: List[int]) -> int:
+
+        # 遍历list,把值变成相反数,乘以-1, 然后专跳到下一个index
+        # 由于出现重复,必定会在重复数跳回到之前的index, 这样就会跳到一个值为负数的情况
+        i = 0
+        while nums[i] > 0:
+            next_i = nums[i]
+            nums[i] = -1 * nums[i]
+            i = next_i
+
+        # 一旦nums[i]为负值, 也就是说明跳回去了, 这时终止loop, i正好停留在重复值
+        duplicate = i
+
+        # 再把list给改回去
+        for k in range(len(nums)):
+            nums[k] = abs(nums[k])
+
+        return duplicate
+        # 这招不完全符合题目要求, 它还是改了list, 但是最后又给改回去了, 可以参考
+
+
 
 if __name__ == '__main__':
     assert Solution().findDuplicate([1, 3, 4, 2, 2]) == 2, 'Example 1'
