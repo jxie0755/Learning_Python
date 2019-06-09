@@ -158,7 +158,6 @@ class Solution(object):
         # 这招不完全符合题目要求, 它还是改了list, 但是最后又给改回去了, 可以参考
 
 
-
 if __name__ == '__main__':
     assert Solution().findDuplicate([1, 3, 4, 2, 2]) == 2, 'Example 1'
     assert Solution().findDuplicate([3, 1, 3, 4, 2]) == 3, 'Example 2'
