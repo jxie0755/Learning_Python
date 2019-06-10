@@ -107,6 +107,7 @@ class Solution(object):
 
     # Self version B Dynamic programming
     # Same idea in P264, P279
+    # Exceed max time limit
     def nthUglyNumber(self, n: int) -> int:
         result = [1]
 
