@@ -146,3 +146,31 @@ print('heapq.nsmallest(n, iterable, key=None)')
 A = [8,1,6,3,4,5,2,7]
 print(heapq.nlargest(5, A))  # >>> [8, 7, 6, 5, 4]  reversely sorted n-largets
 print(heapq.nsmallest(5, A)) # >>> [1, 2, 3, 4, 5]  sorted n-smallest
+
+
+
+print('\n\n')
+print('Additional')
+print()
+print('Achieve heapsort')
+def heapsort(iterable):
+    h = []
+    for value in iterable:
+        heapq.heappush(h, value)
+    return [heapq.heappop(h) for _ in range(len(h))]
+print(heapsort([1, 3, 5, 7, 9, 2, 4, 6, 8, 0]))
+# >>> [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+# This is not stable sort (break sequence of previously sorted subsequence)
+
+
+print('\n')
+print('Heap elements can be tuples')
+# sorted(list) can't easily do this
+# This is useful for assigning comparison values (such as task priorities) alongside the main record being tracked
+h = []
+heapq.heappush(h, (5, 'write code'))
+heapq.heappush(h, (7, 'release product'))
+heapq.heappush(h, (1, 'write spec'))
+heapq.heappush(h, (3, 'create tests'))
+print(h) # >>>  [(1, 'write spec'), (3, 'create tests'), (5, 'write code'), (7, 'release product')]
+
