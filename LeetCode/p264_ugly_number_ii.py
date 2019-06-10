@@ -76,51 +76,7 @@ class Solution(object):
 ##########################################################################################
 class Solution(object):
 
-    # STD ans A1
-    # generate a table
-    # https://www.youtube.com/watch?v=ZG86C_U-vRg
-    def nthUglyNumber(self, n: int) -> int:
-        ugly = [1]
-        i2 = i3 = i5 = 0
-
-        while len(ugly) < n:
-            candidates = [ugly[i2] * 2, ugly[i3] * 3, ugly[i5] * 5]
-            minimum = min(candidates)
-            ugly.append(minimum)
-            if minimum == candidates[0]:
-                i2 += 1
-            if minimum == candidates[1]:
-                i3 += 1
-            if minimum == candidates[2]:
-                i5 += 1
-        return ugly[-1]
-
-class Solution(object):
-
-    # STD ans A2
-    # Need to use heapq
-    def nthUglyNumber(self, n: int) -> int:
-        ugly_number = 0
-        heap = [1]
-        for _ in range(n):
-            print(heap)
-            ugly_number = heapq.heappop(heap)
-            if ugly_number % 2 == 0:
-                heapq.heappush(heap, ugly_number * 2)
-            elif ugly_number % 3 == 0:
-                heapq.heappush(heap, ugly_number * 2)
-                heapq.heappush(heap, ugly_number * 3)
-            else:
-                heapq.heappush(heap, ugly_number * 2)
-                heapq.heappush(heap, ugly_number * 3)
-                heapq.heappush(heap, ugly_number * 5)
-
-        return ugly_number
-
-
-class Solution(object):
-
-    # STD ans B1
+    # STD ans A
     # Get all UG number within 32bit, and sorted....
     ugly = []
     a = 1
@@ -143,17 +99,62 @@ class Solution(object):
 
 
 
+class Solution(object):
+
+    # STD ans B
+    # generate a table
+    # https://www.youtube.com/watch?v=ZG86C_U-vRg
+    def nthUglyNumber(self, n: int) -> int:
+        ugly = [1]
+        i2 = i3 = i5 = 0
+
+        while len(ugly) < n:
+            candidates = [ugly[i2] * 2, ugly[i3] * 3, ugly[i5] * 5]
+            minimum = min(candidates)
+            ugly.append(minimum)
+            if minimum == candidates[0]:
+                i2 += 1
+            if minimum == candidates[1]:
+                i3 += 1
+            if minimum == candidates[2]:
+                i5 += 1
+        return ugly[-1]
+
+class Solution(object):
+
+    # STD ans C
+    # Need to use heapq
+    def nthUglyNumber(self, n: int) -> int:
+        ugly_number = 0
+        heap = [1]
+        for _ in range(n):
+            print(heap)
+            ugly_number = heapq.heappop(heap)
+            if ugly_number % 2 == 0:
+                heapq.heappush(heap, ugly_number * 2)
+            elif ugly_number % 3 == 0:
+                heapq.heappush(heap, ugly_number * 2)
+                heapq.heappush(heap, ugly_number * 3)
+            else:
+                heapq.heappush(heap, ugly_number * 2)
+                heapq.heappush(heap, ugly_number * 3)
+                heapq.heappush(heap, ugly_number * 5)
+
+        return ugly_number
 
 
-if __name__ == '__main__':
-    assert Solution().nthUglyNumber(1) == 1, 'Edge'
-    assert Solution().nthUglyNumber(2) == 2, 'Example 1'
-    assert Solution().nthUglyNumber(6) == 6, 'Example 2'
-    assert Solution().nthUglyNumber(7) == 8, 'Example 3'
-    assert Solution().nthUglyNumber(10) == 12, 'Example 4'
-    assert Solution().nthUglyNumber(11) == 15, 'Example 5'
 
-    assert Solution().nthUglyNumber(80) == 800, 'Long 1'
-    assert Solution().nthUglyNumber(1690) == 2123366400, 'End'
-    print('all passed')
+Solution().nthUglyNumber(10)
 
+# if __name__ == '__main__':
+#     assert Solution().nthUglyNumber(1) == 1, 'Edge'
+#     assert Solution().nthUglyNumber(2) == 2, 'Example 1'
+#     assert Solution().nthUglyNumber(6) == 6, 'Example 2'
+#     assert Solution().nthUglyNumber(7) == 8, 'Example 3'
+#     assert Solution().nthUglyNumber(10) == 12, 'Example 4'
+#     assert Solution().nthUglyNumber(11) == 15, 'Example 5'
+#
+#     assert Solution().nthUglyNumber(80) == 800, 'Long 1'
+#     assert Solution().nthUglyNumber(1690) == 2123366400, 'End'
+#     print('all passed')
+#
