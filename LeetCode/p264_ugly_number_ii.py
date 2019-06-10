@@ -55,26 +55,26 @@ class Solution(object):
 
 
 class Solution(object):
-    # @param {integer} n
-    # @return {integer}
 
     # STD ans A1
+    # generate a table
+    # https://www.youtube.com/watch?v=ZG86C_U-vRg
     def nthUglyNumber(self, n: int) -> int:
         ugly = [1]
         i2 = i3 = i5 = 0
 
         while len(ugly) < n:
-
-            while ugly[i2] * 2 <= ugly[-1]:
+            candidates = [ugly[i2] * 2, ugly[i3] * 3, ugly[i5] * 5]
+            minimum = min(candidates)
+            ugly.append(minimum)
+            if minimum == candidates[0]:
                 i2 += 1
-            while ugly[i3] * 3 <= ugly[-1]:
+            if minimum == candidates[1]:
                 i3 += 1
-            while ugly[i5] * 5 <= ugly[-1]:
+            if minimum == candidates[2]:
                 i5 += 1
-
-            ugly.append(min(ugly[i2] * 2, ugly[i3] * 3, ugly[i5] * 5))
-
         return ugly[-1]
+
 
     # STD ans A2
     # Need to use heapq
@@ -103,7 +103,7 @@ class Solution(object):
     # Get all UG number within 32bit, and sorted....
     ugly = []
     a = 1
-    maxx = 100
+    maxx = 2**31 # 32 bit max Integer
     while a < maxx:
         b = a
         while b < maxx:
@@ -115,7 +115,7 @@ class Solution(object):
         a *= 2
 
     ugly = sorted(ugly)
-    # 只生成一次list, 往后可以直接调用这个list\
+    # 只生成一次list, 往后可以直接调用这个list
 
     def nthUglyNumber(self, n: int) -> int:
         return self.ugly[n-1]
