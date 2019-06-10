@@ -34,27 +34,25 @@ class Solution:
         return result[-1]
 
 
-
-
 class Solution(object):
 
-    # Version B, idea borrowed from Leetcode P264 STD ans A1
+    # Version B, idea borrowed from Leetcode P264 STD ans B
+    # Table method
     # Passed but slow
     def nthSuperUglyNumber(self, n: int, primes: List[int]) -> int:
         ugly = [1]
         e_stack = [0] * len(primes)
 
         while len(ugly) < n:
-            i = 0
-            while i != len(e_stack):
-                while ugly[e_stack[i]] * primes[i] <= ugly[-1]:
-                    e_stack[i] += 1
-                i += 1
+            candidates = [ugly[e_stack[i]] * primes[i] for i in range(len(primes))]
+            minimum = min(candidates)
+            ugly.append(minimum)
 
-            ugly.append(min([ugly[e_stack[i]] * primes[i] for i in range(len(primes))]))
+            for k in range(len(primes)):
+                if candidates[k] == minimum:
+                    e_stack[k] += 1
 
         return ugly[-1]
-
 
 
 class Solution(object):
@@ -80,7 +78,6 @@ class Solution(object):
         return uglies[-1]
 
 
-
 # TODO after learning heapq
 import heapq
 class Solution(object):
@@ -89,11 +86,18 @@ class Solution(object):
     # Time:  O(n * k)
     # Space: O(n + k)
     def nthSuperUglyNumber(self, n: int, primes: List[int]) -> int:
-        heap, uglies, idx, ugly_by_last_prime = [], [0] * n, [0] * len(primes), [0] * n
+        heap = []
+
+        uglies = [0] * n
         uglies[0] = 1
+
+        idx = [0] * len(primes)
+        ugly_by_last_prime =[0] * n
+
 
         for k, p in enumerate(primes):
             heapq.heappush(heap, (p, k))
+        print(heap)
 
         for i in range(1, n):
             uglies[i], k = heapq.heappop(heap)
@@ -104,6 +108,7 @@ class Solution(object):
             heapq.heappush(heap, (primes[k] * uglies[idx[k]], k))
 
         return uglies[-1]
+
 
 
 if __name__ == '__main__':
