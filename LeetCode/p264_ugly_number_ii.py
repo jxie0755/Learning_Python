@@ -78,20 +78,24 @@ class Solution(object):
 
     # STD ans A2
     # Need to use heapq
-    # TODO after learning heapq
     def nthUglyNumber(self, n: int) -> int:
+        ugly_number = 0
+        heap = [1]
+        for _ in range(n):
+            print(heap)
+            ugly_number = heapq.heappop(heap)
+            if ugly_number % 2 == 0:
+                heapq.heappush(heap, ugly_number * 2)
+            elif ugly_number % 3 == 0:
+                heapq.heappush(heap, ugly_number * 2)
+                heapq.heappush(heap, ugly_number * 3)
+            else:
+                heapq.heappush(heap, ugly_number * 2)
+                heapq.heappush(heap, ugly_number * 3)
+                heapq.heappush(heap, ugly_number * 5)
 
-        q2, q3, q5 = [2], [3], [5]
-        ugly = 1
-        for u in heapq.merge(q2, q3, q5):
-            if n == 1:
-                return ugly
-            if u > ugly:
-                ugly = u
-                n -= 1
-                q2 += 2 * u,
-                q3 += 3 * u,
-                q5 += 5 * u,
+        return ugly_number
+
 
 class Solution(object):
 
