@@ -101,31 +101,44 @@ class Solution(object):
 
     # STD ans B1
     # Get all UG number within 32bit, and sorted....
-    ugly = sorted(2**a * 3**b * 5**c
-                  for a in range(32) for b in range(20) for c in range(14))
+    ugly = []
+    a = 1
+    maxx = 100
+    while a < maxx:
+        b = a
+        while b < maxx:
+            c = b
+            while c < maxx:
+                ugly.append(c)
+                c *= 5
+            b *= 3
+        a *= 2
+
+    ugly = sorted(ugly)
+    # 只生成一次list, 往后可以直接调用这个list\
 
     def nthUglyNumber(self, n: int) -> int:
         return self.ugly[n-1]
 
 
-class Solution(object):
-
-    # Self version B Dynamic programming
-    # Same idea in P264, P279
-    # Exceed max time limit
-    def nthUglyNumber(self, n: int) -> int:
-        result = [1]
-
-        while len(result) < n:
-            temp = float('inf')
-            for i in result:
-                for p in [2,3,5]:
-                    sample = i * p
-                    if temp > sample > result[-1]:
-                        temp = sample
-                        break
-            result.append(temp)
-        return result[-1]
+# class Solution(object):
+#
+#     # Self version B Dynamic programming
+#     # Same idea in P264, P279
+#     # Exceed max time limit
+#     def nthUglyNumber(self, n: int) -> int:
+#         result = [1]
+#
+#         while len(result) < n:
+#             temp = float('inf')
+#             for i in result:
+#                 for p in [2,3,5]:
+#                     sample = i * p
+#                     if temp > sample > result[-1]:
+#                         temp = sample
+#                         break
+#             result.append(temp)
+#         return result[-1]
 
 
 
