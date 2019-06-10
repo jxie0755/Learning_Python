@@ -135,5 +135,14 @@ F = heapq.merge(A, B,  key=lambda x:abs(x), reverse=True)
 print(list(F)) # >>> [8, -7, 6, -5, 4, -3, 2, -1]
 
 
+print('\n')
+print('heapq.nlargest(n, iterable, key=None)')
+# Return a list with the n smallest elements from the dataset defined by iterable.
+print('heapq.nsmallest(n, iterable, key=None)')
+# Return a list with the n smallest elements from the dataset defined by iterable.
 
-
+# Best for smaller values of n (len(list)). For larger values, it is more efficient to use the sorted() function.
+# key is the same as used in sorted(list)
+A = [8,1,6,3,4,5,2,7]
+print(heapq.nlargest(5, A))  # >>> [8, 7, 6, 5, 4]  reversely sorted n-largets
+print(heapq.nsmallest(5, A)) # >>> [1, 2, 3, 4, 5]  sorted n-smallest
