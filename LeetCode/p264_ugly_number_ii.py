@@ -103,6 +103,24 @@ class Solution(object):
         return self.ugly[n-1]
 
 
+class Solution(object):
+
+    # Self version B Dynamic programming
+    # Same idea in P264, P279
+    def nthUglyNumber(self, n: int) -> int:
+        result = [1]
+
+        while len(result) < n:
+            temp = float('inf')
+            for i in result:
+                for p in [2,3,5]:
+                    sample = i * p
+                    if temp > sample > result[-1]:
+                        temp = sample
+                        break
+            result.append(temp)
+        return result[-1]
+
 
 
 if __name__ == '__main__':
@@ -114,6 +132,6 @@ if __name__ == '__main__':
     assert Solution().nthUglyNumber(11) == 15, 'Example 5'
 
     assert Solution().nthUglyNumber(80) == 800, 'Long 1'
-    # assert Solution().nthUglyNumber(1690) == 2304, 'End'
+    assert Solution().nthUglyNumber(1690) == 2123366400, 'End'
     print('all passed')
 
