@@ -74,10 +74,12 @@ class Solution:
         col = len(board[0])
 
         def updateTempVal(coor):
-            """check a coor's neighbor and decide it's next value"""
-            # -1 : currently 0, will be 1
-            # -2 : currently 1, will be 0
-
+            """
+            check a coor's neighbor and decide it's next value
+            revise in-place by indicating a temp value
+            to 11 : currently 0, will be 1
+            to 10 : currently 1, will be 0
+            """
             live_neigbors = 0
             r, c = coor[0], coor[1]
             cur_val = board[r][c]
@@ -86,17 +88,17 @@ class Solution:
                     if row > rr >= 0 and col > cc >= 0 and (rr, cc) != (r, c):
                         # add more conditioanl check to calculate the value
                         neighbor_val = board[rr][cc]
-                        if neighbor_val == 0 or neighbor_val == -1:
+                        if neighbor_val == 0 or neighbor_val == 11:
                             live_neigbors += 0
-                        elif neighbor_val == 1 or neighbor_val == -2:
+                        elif neighbor_val == 1 or neighbor_val == 10:
                             live_neigbors += 1
 
             if live_neigbors < 2:
-                board[r][c] = -2 if cur_val == 1 else 0
+                board[r][c] = 10 if cur_val == 1 else 0
             elif live_neigbors == 3:
-                board[r][c] = -1 if cur_val == 0 else 1
+                board[r][c] = 11 if cur_val == 0 else 1
             elif live_neigbors > 3:
-                board[r][c] = -2 if cur_val == 1 else 0
+                board[r][c] = 10 if cur_val == 1 else 0
 
         # Generate a temporarily val in-place with temp val
         for r in range(0, row):
@@ -106,7 +108,7 @@ class Solution:
         # update the new values in-place in board
         for r in range(0, row):
             for c in range(0, col):
-                if board[r][c] == 1 or board[r][c] == -1:
+                if board[r][c] == 1 or board[r][c] == 11:
                     board[r][c] = 1
                 else:
                     board[r][c] = 0
