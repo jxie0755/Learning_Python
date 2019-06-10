@@ -78,6 +78,7 @@ class Solution(object):
 
     # STD ans A2
     # Need to use heapq
+    # TODO after learning heapq
     def nthUglyNumber(self, n: int) -> int:
 
         q2, q3, q5 = [2], [3], [5]

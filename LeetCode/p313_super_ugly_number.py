@@ -30,19 +30,21 @@ class Solution:
                         temp = sample
                         break
             result.append(temp)
+        print(result)
         return result[-1]
+
+
 
 
 class Solution(object):
 
-    # Version B, idea borrowed from Leetcode P264 ugly number ii
+    # Version B, idea borrowed from Leetcode P264 STD ans A1
     # Passed but slow
     def nthSuperUglyNumber(self, n: int, primes: List[int]) -> int:
         ugly = [1]
         e_stack = [0] * len(primes)
 
         while len(ugly) < n:
-
             i = 0
             while i != len(e_stack):
                 while ugly[e_stack[i]] * primes[i] <= ugly[-1]:
@@ -53,6 +55,55 @@ class Solution(object):
 
         return ugly[-1]
 
+
+
+class Solution(object):
+
+    # STD ans
+    # Time:  O(n * k)
+    # Space: O(n + k)
+    def nthSuperUglyNumber(self, n: int, primes: List[int]) -> int:
+        uglies = [0] * n
+        uglies[0] = 1
+        ugly_by_prime = list(primes)
+        idx = [0] * len(primes)
+
+        for i in range(1, n):
+            uglies[i] = min(ugly_by_prime)
+            print(uglies, 'uglies[i]', uglies[i])
+            for k in range(len(primes)):
+                print('k', k, 'ugly_by_prime[k]', ugly_by_prime[k])
+                if uglies[i] == ugly_by_prime[k]:
+                    idx[k] += 1
+                    ugly_by_prime[k] = primes[k] * uglies[idx[k]]
+
+        return uglies[-1]
+
+
+
+# TODO after learning heapq
+import heapq
+class Solution(object):
+
+    # Heap solution. (620ms)
+    # Time:  O(n * k)
+    # Space: O(n + k)
+    def nthSuperUglyNumber(self, n: int, primes: List[int]) -> int:
+        heap, uglies, idx, ugly_by_last_prime = [], [0] * n, [0] * len(primes), [0] * n
+        uglies[0] = 1
+
+        for k, p in enumerate(primes):
+            heapq.heappush(heap, (p, k))
+
+        for i in range(1, n):
+            uglies[i], k = heapq.heappop(heap)
+            ugly_by_last_prime[i] = k
+            idx[k] += 1
+            while ugly_by_last_prime[idx[k]] > k:
+                idx[k] += 1
+            heapq.heappush(heap, (primes[k] * uglies[idx[k]], k))
+
+        return uglies[-1]
 
 
 if __name__ == '__main__':
