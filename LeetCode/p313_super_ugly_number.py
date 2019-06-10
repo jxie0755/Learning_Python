@@ -33,13 +33,30 @@ class Solution:
         return result[-1]
 
 
-Solution().nthSuperUglyNumber(12, [2,7,13,19])
+class Solution(object):
+
+    # Version B, idea borrowed from Leetcode P264 ugly number ii
+    # Passed but slow
+    def nthSuperUglyNumber(self, n: int, primes: List[int]) -> int:
+        ugly = [1]
+        e_stack = [0] * len(primes)
+
+        while len(ugly) < n:
+
+            i = 0
+            while i != len(e_stack):
+                while ugly[e_stack[i]] * primes[i] <= ugly[-1]:
+                    e_stack[i] += 1
+                i += 1
+
+            ugly.append(min([ugly[e_stack[i]] * primes[i] for i in range(len(primes))]))
+
+        return ugly[-1]
 
 
 
+if __name__ == '__main__':
+    assert Solution().nthSuperUglyNumber(12, [2,7,13,19]) == 32, 'Example 1'
+    assert Solution().nthSuperUglyNumber(800, [37,43,59,61,67,71,79,83,89,97,101,103,113,127,131,157,163,167,173,179,191,193,197,199,211,229,233,239,251,257]) == 411811, 'Long'
 
-# if __name__ == '__main__':
-#     assert Solution().nthSuperUglyNumber(12, [2,7,13,19]) == 32, 'Example 1'
-#     assert Solution().nthSuperUglyNumber(800, [37,43,59,61,67,71,79,83,89,97,101,103,113,127,131,157,163,167,173,179,191,193,197,199,211,229,233,239,251,257]) == 411811, 'Long'
-#
-#     print('all passed')
+    print('all passed')
