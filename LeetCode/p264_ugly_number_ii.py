@@ -53,7 +53,27 @@ class Solution(object):
         return sieve[n-1]
 
 
+class Solution(object):
+    # Self version B Dynamic programming
+    # Same idea in P264, P279
+    # Exceed max time limit
+    def nthUglyNumber(self, n: int) -> int:
+        result = [1]
 
+        while len(result) < n:
+            temp = float('inf')
+            for i in result:
+                for p in [2, 3, 5]:
+                    sample = i * p
+                    if temp > sample > result[-1]:
+                        temp = sample
+                        break
+            result.append(temp)
+        return result[-1]
+
+
+
+##########################################################################################
 class Solution(object):
 
     # STD ans A1
@@ -75,6 +95,7 @@ class Solution(object):
                 i5 += 1
         return ugly[-1]
 
+class Solution(object):
 
     # STD ans A2
     # Need to use heapq
@@ -121,24 +142,6 @@ class Solution(object):
         return self.ugly[n-1]
 
 
-# class Solution(object):
-#
-#     # Self version B Dynamic programming
-#     # Same idea in P264, P279
-#     # Exceed max time limit
-#     def nthUglyNumber(self, n: int) -> int:
-#         result = [1]
-#
-#         while len(result) < n:
-#             temp = float('inf')
-#             for i in result:
-#                 for p in [2,3,5]:
-#                     sample = i * p
-#                     if temp > sample > result[-1]:
-#                         temp = sample
-#                         break
-#             result.append(temp)
-#         return result[-1]
 
 
 
