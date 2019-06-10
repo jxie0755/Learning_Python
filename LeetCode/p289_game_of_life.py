@@ -93,12 +93,12 @@ class Solution:
                         elif neighbor_val == 1 or neighbor_val == 10:
                             live_neigbors += 1
 
-            if live_neigbors < 2:
-                board[r][c] = 10 if cur_val == 1 else 0
-            elif live_neigbors == 3:
-                board[r][c] = 11 if cur_val == 0 else 1
-            elif live_neigbors > 3:
-                board[r][c] = 10 if cur_val == 1 else 0
+            if live_neigbors < 2 and cur_val == 1:
+                board[r][c] = 10
+            elif live_neigbors == 3 and cur_val == 0:
+                board[r][c] = 11
+            elif live_neigbors > 3 and cur_val == 1:
+                board[r][c] = 10
 
         # Generate a temporarily val in-place with temp val
         for r in range(0, row):
