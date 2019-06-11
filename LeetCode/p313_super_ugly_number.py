@@ -41,14 +41,15 @@ class Solution(object):
     # Passed but slow
     def nthSuperUglyNumber(self, n: int, primes: List[int]) -> int:
         ugly = [1]
-        e_stack = [0] * len(primes)
+        pN = len(primes)
+        e_stack = [0] * pN
 
         while len(ugly) < n:
-            candidates = [ugly[e_stack[i]] * primes[i] for i in range(len(primes))]
+            candidates = [ugly[e_stack[i]] * primes[i] for i in range(pN)]
             minimum = min(candidates)
             ugly.append(minimum)
 
-            for k in range(len(primes)):
+            for k in range(pN):
                 if candidates[k] == minimum:
                     e_stack[k] += 1
 
