@@ -14,7 +14,7 @@ from a0_ListNode import *
 
 class Solution:
 
-    # Version A
+    # Version A1
     # Recursive check next layer and next next layer
     # Exceeded max time limit
     def rob(self, root: TreeNode) -> int:
@@ -38,6 +38,91 @@ class Solution:
                     RR = self.rob(root.right.right)
 
             return max(root.val + LL + LR + RL + RR, L + R)
+
+
+class Solution:
+
+    # Version A2
+    # Recursive check next layer and next next layer with help of memorization (twice faster)
+    # Exceeded max time limit
+    def rob(self, root: TreeNode) -> int:
+
+        hmp = {}
+
+        def helper(root):
+
+            if not root:
+                return 0
+
+            elif root in hmp:
+                return hmp[root]
+
+            else:
+                L, LL, LR, R, RL, RR = 0, 0, 0, 0, 0, 0
+
+                if root.left:
+                    L = helper(root.left)
+                    if root.left.left:
+                        LL = helper(root.left.left)
+                    if root.left.right:
+                        LR = helper(root.left.right)
+
+                if root.right:
+                    R = self.rob(root.right)
+                    if root.right.left:
+                        RL = helper(root.right.left)
+                    if root.right.right:
+                        RR = helper(root.right.right)
+
+
+                ans = max(root.val + LL + LR + RL + RR, L + R)
+                hmp[root] = ans
+                return ans
+
+        return helper(root)
+
+# class Solution:
+#
+#     # Version B
+#     # Do it by checking the layers
+#     def showLayerSums(self, root):  # Omit None
+#         """Show the tree layer by layer from top to bottom"""
+#         if root is None:
+#             return []
+#
+#         result, current = [], [root]
+#         while current:
+#             next_level, vals = [], []
+#             for node in current:
+#                 vals.append(node.val)
+#                 if node.left:
+#                     next_level.append(node.left)
+#                 if node.right:
+#                     next_level.append(node.right)
+#             current = next_level
+#             result.append(sum(vals)) # revised to get the sum of layers
+#
+#         return result
+#
+#
+#     def rob(self, root: TreeNode) -> int:
+#         if not root:
+#             return 0
+#
+#         layersums = self.showLayerSums(root)
+#         N = len(layersums)
+#         print(layersums)
+#         def helper(i):
+#             """recursive calculate like Version A but in list"""
+#             if i > N-1:
+#                 return 0
+#             elif i == N-1:
+#                 return layersums[i]
+#             else:
+#                 return max(layersums[i] + helper(i+2), helper(i+1))
+#         return helper(0)
+
+
 
 
 
@@ -77,5 +162,12 @@ if __name__ == '__main__':
         1000,1000,1000,1000,1000,1000,1000,1000,
     ])
     assert Solution().rob(A) == 8100, 'Example 4'
+
+    A = genTree([
+        2,
+        1, 3,
+        None, 4,
+    ])
+    assert Solution().rob(A) == 7, 'Example 5'
 
     print('all passed')
