@@ -9,7 +9,8 @@
 
 class Solution:
 
-    # O(LogN), used loop
+    # Version A, O(LogN), used loop
+    #
     def isPowerOfThree(self, n: int) -> bool:
         while n > 3:
             n //= 3
