@@ -19,6 +19,7 @@ class Solution:
         return 3 ** exp == n
 
     def isPowerOfThree(self, n):
+        # STD ans
         return n > 0 and (math.log10(n) / math.log10(3)).is_integer()
 
 
