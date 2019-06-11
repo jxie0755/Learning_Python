@@ -79,7 +79,6 @@ class Solution(object):
         return uglies[-1]
 
 
-# TODO after learning heapq
 import heapq
 class Solution(object):
 
@@ -98,7 +97,6 @@ class Solution(object):
 
         for k, p in enumerate(primes):
             heapq.heappush(heap, (p, k))
-        print(heap)
 
         for i in range(1, n):
             uglies[i], k = heapq.heappop(heap)
