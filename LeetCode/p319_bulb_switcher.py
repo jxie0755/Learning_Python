@@ -38,8 +38,8 @@ print(Solution().bulbSwitch(50))
 import math
 class Solution(object):
 
-    # STD ans
-    # The number of full squares.
+    # STD ans, O(1)
+    # The number of full squares
     def bulbSwitch(self, n: int) -> int:
         return int(math.sqrt(n))
 
@@ -47,10 +47,9 @@ class Solution(object):
 
 class Solution(object):
 
-    # Version B, observation
+    # Version B, # O(logN)  observation
     # every 1 on follow n off:
     # [on 2 off ] [on 4 off ] [on 6 off ] [on 8 off ]....
-
     def bulbSwitch(self, n: int) -> int:
         jump = 2
         factor = 1
