@@ -22,17 +22,23 @@ class Solution:
         bulbs = [0] + [1] * n
             # idx fix
 
-        # start from second round to n-1 round
+        # start from second round to n round
         i = 2
-        while i < n:
+        while i <= n:
             for k in range(i, n+1, i):
                 bulbs[k] = 0 if bulbs[k] == 1 else 1
             i += 1
-            # print(bulbs)
 
-        # nth round
-        bulbs[-1] = 0 if bulbs[-1] == 1 else 1
         return sum(bulbs)
+
+
+import math
+class Solution(object):
+
+    # STD ans
+    # The number of full squares.
+    def bulbSwitch(self, n: int) -> int:
+        return int(math.sqrt(n))
 
 
 
@@ -44,6 +50,8 @@ if __name__ == '__main__':
     assert Solution().bulbSwitch(3) == 1,'Example 1'
     assert Solution().bulbSwitch(4) == 2,'Example 2'
     assert Solution().bulbSwitch(5) == 2,'Example 3'
+    assert Solution().bulbSwitch(6) == 2,'Example 4'
+
     assert Solution().bulbSwitch(9999999) == 3162, 'Long'
 
     print('all passed')
