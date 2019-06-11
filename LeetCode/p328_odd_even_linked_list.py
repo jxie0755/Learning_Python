@@ -45,7 +45,38 @@ class Solution:
 
 
 
+    # Veriosn B
+    # Move Nodes out and combine back, O(1) and in-Place
+    def oddEvenList(self, head: ListNode) -> ListNode:
+
+        if not head or not head.next or not head.next.next:
+            return head
+
+        cur = head
+        next_odd = cur.next.next
+        even_tail = cur.next  # 注意这个even_tail一开始就是even_head,但是不能写在一起,因为随后会分开
+
+        while next_odd:
+            even_head = cur.next  # even_head维持不变,永远是第一个偶数节点
+            real_tail = next_odd.next
+
+            cur.next = next_odd
+            next_odd.next = even_head
+            even_tail.next = real_tail
+            even_tail = real_tail
+
+            cur = cur.next
+            if real_tail:
+                next_odd = real_tail.next
+            else:
+                break
+
+        return head
+
+
+
 if __name__ == '__main__':
+
     assert not Solution().oddEvenList(None), 'Edge 0'
 
     assert Solution().oddEvenList(genNode(1,2,3,4,5)) == genNode(1,3,5,2,4), 'Example 1'
