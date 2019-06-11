@@ -28,9 +28,12 @@ class Solution:
             for k in range(i, n+1, i):
                 bulbs[k] = 0 if bulbs[k] == 1 else 1
             i += 1
-
+        print(bulbs)
         return sum(bulbs)
 
+
+
+print(Solution().bulbSwitch(50))
 
 import math
 class Solution(object):
@@ -39,6 +42,26 @@ class Solution(object):
     # The number of full squares.
     def bulbSwitch(self, n: int) -> int:
         return int(math.sqrt(n))
+
+
+
+class Solution(object):
+
+    # Version B, observation
+    # every 1 on follow n off:
+    # [on 2 off ] [on 4 off ] [on 6 off ] [on 8 off ]....
+
+    def bulbSwitch(self, n: int) -> int:
+        jump = 2
+        factor = 1
+        count = 0
+        while n > 0:
+            count += 1
+            n -= jump * factor + 1
+            factor += 1
+
+        return count
+
 
 
 
