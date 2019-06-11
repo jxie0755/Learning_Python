@@ -69,9 +69,9 @@ class Solution(object):
 
         for i in range(1, n):
             uglies[i] = min(ugly_by_prime)
-            print(uglies, 'uglies[i]', uglies[i])
+            # print(uglies, 'uglies[i]', uglies[i])
             for k in range(len(primes)):
-                print('k', k, 'ugly_by_prime[k]', ugly_by_prime[k])
+                # print('k', k, 'ugly_by_prime[k]', ugly_by_prime[k])
                 if uglies[i] == ugly_by_prime[k]:
                     idx[k] += 1
                     ugly_by_prime[k] = primes[k] * uglies[idx[k]]
