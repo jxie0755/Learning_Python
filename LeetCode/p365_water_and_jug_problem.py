@@ -12,7 +12,7 @@
 # Pour water from one jug into another till the other jug is completely full or the first jug itself is empty.
 
 
-class Solution2:
+class Solution:
 
     # Version A1
     # Start from 0, 0 and record all possible status of the two bottle

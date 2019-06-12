@@ -5,7 +5,7 @@
 # Given a positive integer num, write a function which returns True if num is a perfect square else False.
 # Note: Do not use any built-in library function such as sqrt.
 
-class Solution2:
+class Solution:
 
     # Iteration of sqrt, O(Sqrt(N))
     def isPerfectSquare(self, num: int) -> bool:
