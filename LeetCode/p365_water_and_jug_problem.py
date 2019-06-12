@@ -94,9 +94,4 @@ if  __name__ == '__main__':
 
     assert Solution().canMeasureWater(22003, 31237, 1), 'Long'
 
-
     print('all passed')
-
-
-
-
