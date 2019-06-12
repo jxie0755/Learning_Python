@@ -67,20 +67,14 @@ class Solution:
     # math:
     # if big and small has no gcd (==1), then only 0, gcd, gcd*2, gcd*3....big+small
     # if big and small has gcd (==1), then only 0, gcd, gcd*2, gcd*3....big+small
-    def gcd(self, A, B):
-        """find the greatest common divisor"""
-        if A < B:
-            return self.gcd(B, A)
-        elif A % B == 0:
-            return B
-        else:
-            return self.gcd(B, A%B)
-
+    def gcd(self, a, b):
+        while b:
+            a, b = b, a % b
+        return a
 
     def canMeasureWater(self, x: int, y: int, z: int) -> bool:
         if x == 0 or y == 0:
             return z == 0 or z == x or z == y
-
         g = self.gcd(x, y)
         return z <= x + y and z % g == 0
 
