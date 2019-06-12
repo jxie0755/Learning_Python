@@ -81,52 +81,94 @@ class Solution:
 
         return helper(root)
 
-# class Solution:
-#
-#     # Version B
-#     # Do it by checking the layers
-#     def showLayerSums(self, root):  # Omit None
-#         """Show the tree layer by layer from top to bottom"""
-#         if root is None:
-#             return []
-#
-#         result, current = [], [root]
-#         while current:
-#             next_level, vals = [], []
-#             for node in current:
-#                 vals.append(node.val)
-#                 if node.left:
-#                     next_level.append(node.left)
-#                 if node.right:
-#                     next_level.append(node.right)
-#             current = next_level
-#             result.append(sum(vals)) # revised to get the sum of layers
-#
-#         return result
-#
-#
-#     def rob(self, root: TreeNode) -> int:
-#         if not root:
-#             return 0
-#
-#         layersums = self.showLayerSums(root)
-#         N = len(layersums)
-#         print(layersums)
-#         def helper(i):
-#             """recursive calculate like Version A but in list"""
-#             if i > N-1:
-#                 return 0
-#             elif i == N-1:
-#                 return layersums[i]
-#             else:
-#                 return max(layersums[i] + helper(i+2), helper(i+1))
-#         return helper(0)
+class Solution:
+
+    # Version B
+    # Do it by checking the layers, but same algorithm
+    # Still exceed max time limit
+    def showPerfectFlattenLayers(self, root):  # Include None
+        """
+        Show the tree layer values by layer from top to bottom, in flatten list
+        (Replace None with 0)
+        """
+        if root is None:
+            return []
+
+        result, current = [], [root]
+        while any([i for i in current]):
+            next_level, vals = [], []
+            for node in current:
+                if node:
+                    vals.append(node.val)
+                    if node.left:
+                        next_level.append(node.left)
+                    else:
+                        next_level.append(0)
+                    if node.right:
+                        next_level.append(node.right)
+                    else:
+                        next_level.append(0)
+                else:
+                    vals.append(0)
+                    next_level.append(0)
+                    next_level.append(0)
+
+            current = next_level
+            result += vals
+
+        return [0] + result
+
+
+    def rob(self, root: TreeNode) -> int:
+        if not root:
+            return 0
+
+        layersums = self.showPerfectFlattenLayers(root)
+        N = len(layersums)
+
+        hmp = {}
+
+        def helper(i):
+            """helper list to get the node's potential best sum"""
+            if i >= N:
+                return 0
+            elif i in hmp:
+                return hmp[i]
+            else:
+                L = helper(2*i)
+                R = helper(2*i+1)
+
+                LL = helper((2*i)*2)
+                LR = helper((2 * i) * 2 + 1)
+
+                RL = helper((2*i+1)*2)
+                RR = helper((2*i+1)*2+1)
+
+                result = max(layersums[i] + LL + LR + RL + RR, L + R)
+                hmp[i] = result
+                return result
+
+        return helper(1)
+
+
+
+
+A = genTree([
+    2,
+    1, 3,
+    None, 4,
+])
+print(Solution().rob(A))
 
 
 
 
 
-if __name__ == '__main__':
+
+
+
+
+if not __name__ == '__main__':
 
     assert Solution().rob(None) == 0, 'Edge'
 
