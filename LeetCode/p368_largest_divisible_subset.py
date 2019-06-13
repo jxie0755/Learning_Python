@@ -9,7 +9,7 @@ from typing import *
 
 class Solution:
 
-    # 本质上这题是找出最长的subset使得他们的最大公约数在其中
+    # 本质上这题是找出最长的subset使得排序后,每隔元素都是上一个元素的整数倍
 
     # Version A brutal force
     # Exceeded max time limit
@@ -53,7 +53,7 @@ class Solution:
 
 class Solution:
 
-    # 本质上这题是找出最长的subset使得他们的最大公约数在其中
+    # 本质上这题是找出最长的subset使得排序后,每隔元素都是上一个元素的整数倍
 
     # Version B
     # Exclude numbers that is already checked
@@ -63,7 +63,7 @@ class Solution:
             return []
 
         nums = sorted(nums)
-        result = []
+        result = [[]]
 
         def helper(lst, start=0):
             """extend the lst into all possible subset"""
@@ -77,13 +77,46 @@ class Solution:
                         helper(new_lst, i)
                     else:
                         helper([temp], i)
-                result.append(lst)
+                if len(lst) > len(result[-1]):
+                    result.append(lst)
 
         helper([nums[0]])
         return max(result, key=len)
 
 
-print(Solution().largestDivisibleSubset([2, 4, 6, 7, 10, 14, 28]))
+class Solution(object):
+
+    # STD ans, dynammic programming
+    # TODO review after learning dynamic programming
+    def largestDivisibleSubset(self, nums: List[int]):
+
+        if not nums:
+            return []
+
+        nums.sort()
+        dp = [1] * len(nums)
+        prev = [-1] * len(nums)
+        largest_idx = 0
+        for i in range(len(nums)):
+            for j in range(i):
+                if nums[i] % nums[j] == 0:
+                    if dp[i] < dp[j] + 1:
+                        dp[i] = dp[j] + 1
+                        prev[i] = j
+            if dp[largest_idx] < dp[i]:
+                largest_idx = i
+
+        result = []
+        i = largest_idx
+        while i != -1:
+            result.append(nums[i])
+            i = prev[i]
+        return result[::-1]
+
+
+
+
+
 
 if __name__ == '__main__':
     assert Solution().largestDivisibleSubset([]) == [], 'Edge 0'
