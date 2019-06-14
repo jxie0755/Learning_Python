@@ -141,4 +141,96 @@ print(stair_iter(10))
 
 
 # Q2 国王和金矿
+print("\nQ2: 国王和金矿")
+# 有一个国家发现了5座金矿，每座金矿的黄金储量不同，需要参与挖掘的工人数也不同pair(man, gold)。
+# 参与挖矿工人的总数是10人。
+# 每座金矿要么全挖，要么不挖，不能派出一半人挖取一半金矿。
+# 要求用程序求解出，要想得到尽可能多的黄金，应该选择挖取哪几座金矿？
+# 也就是如何合理分配有限的劳动力, 来实现最大化
+
+
+# 暴力法, 寻找所有C(A,k)组合, k in range(1, len(A)), 在所有组合中, sum(man) <= 10中找最大的sum, 得到金矿pair
+# 方法略
+
+
+# 动态规划
+# 第一解,根据所需人数来遍历到达目标人数, 假设只有1个人, 找到最优解, 然后再加一个人, 再获得新的最优解
+A = [[5, 400], [5, 500], [3, 200], [4, 300], [3, 350]]
+def golddig_by_man(lst, man_total):
+    """
+    lst: A list of gold, formed with pars of total gold value and man count needed
+    man_n: total man count limit
+    """
+
+    def sum_gold(goldmine_lst):
+        return sum(k[1] for k in goldmine_lst)
+
+    # 开始规划, 若是只有man_n - 1个人怎么办?
+    gold = [[[0, 0]]]  # represents whhich gold mine to dig if there is idx number of man, starting from [0,0] (zero man, zero gold)
+
+    for total_man in range(1, man_total + 1): # iterate man_total from 1 to man_total
+        temp = []
+
+        for gm in lst: # check each gold mine avaible
+            gm_man_need = gm[0]
+            man_extra = total_man - gm_man_need
+
+            # 第一条件, 如果要找i个人最佳,必须保证,当前的检查的金矿需要的人数k[0]不能超过当前拥有的人数i
+            if man_extra >= 0:
+                prev = gold[man_extra] # 多出来那部分人的最优解从之前的最优解中找
+
+                # 第二条件: 必须保证这个金矿(需要x人) 没有在此前的(i-x)那个最佳选法之中
+                if gm not in prev:
+                    temp.append(gold[man_extra] + [gm])
+
+        if temp: # 如果有金矿能满足上两个条件, 则在备选中选一个最大金总和的选法
+            gold.append(max(temp, key=sum_gold))
+        else: # 如果不满足, 说明多出来的一个人, 没有更好的安放方式, 所以它的最佳就是total-1一样, 浪费了一个人
+            gold.append(gold[-1])
+
+    return gold[-1][1:] # 返回第man_total个最佳, 不需要包括[0,0]
+
+print('\n金矿第一解:')
+print(golddig_by_man(A, 10))
+# >>> [[5, 500], [5, 400]]
+
+
+
+# 第二解, 根据金矿数目来遍历而到达当前金矿获得最优解
+A = [[5, 400], [5, 500], [3, 200], [4, 300], [3, 350]]
+def golddig_by_man(lst, man_total):
+    """
+    lst: A list of gold, formed with pars of total gold value and man count needed
+    man_n: total man count limit
+    """
+
+    def sum_gold(goldmine_lst):
+        return sum(k[1] for k in goldmine_lst)
+
+    gold = []
+    for gm in lst:  # 从1个金矿到n个金矿(n为lst全部金矿)
+        temp = [[[0,0]]]  # temp最终变成一个len(man_total)+1的长度, 通过index指示几个人时,i个
+        man_need, val = gm[0], gm[1]
+        for k in range(1, man_total+1): # 打表, 记录i个金矿时,如果有k个人应该选哪个金矿
+            if not gold: # 第一行
+                if k < man_need: # 如果人不够挖矿
+                    temp.append([[0,0]])
+                else:
+                    temp.append([gm])
+            else:
+                option1 = gold[-1][k] # 上一行k个人, 也就是放弃此矿
+                option2 = gold[-1][k-man_need] + [gm] if k-man_need >= 0 else [[0,0]]  # 上一行k-man_need个人 + 此矿, 选最优解
+                temp.append(max([option1, option2], key=sum_gold))
+        gold.append(temp)
+
+    for line in gold:
+        print(line)
+    return gold[-1][-1]
+
+
+# 扩展问题, 此上二法复杂度为O(m*n), m=金矿数, n=人数
+# 若n比较大, 导致m*n大于2^m, 则不如用递归来的容易!
+
+print('\n金矿第二解:')
+print(golddig_by_man(A, 10))
 
