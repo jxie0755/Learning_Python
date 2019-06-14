@@ -79,6 +79,9 @@ print(change(12, [1, 4, 5]))
 print(change(55, [1, 3, 7]))
 # >>> 9 (7*7 + 3*2)
 
-print(change2(16, [6, 7]))
+print(change(15, [6, 7]))
 # >>> None
 
+# big case does not work in recursion: maximum depth issue
+print(change2(123456, [1, 6, 7, 456, 678]))
+# >>> 187
