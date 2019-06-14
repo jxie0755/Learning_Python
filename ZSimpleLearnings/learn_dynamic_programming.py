@@ -5,12 +5,15 @@
 from typing import *
 
 # Q1:
+print("\nQ1: 间隔最大和")
 # 有n个正整数, 排成一列, 可重复, 选取一些数,两两不相邻, 但是总和最大
 # 例如:
 A = [1,2,3,2,1,5,7,6]
 # 分解成多个小问题:
 # F(A) = max(F[A:-2] + A[7], F[A:-1])
 
+
+# Recursive method
 def foo(lst):
     if len(lst) == 0:
         return 0
@@ -23,8 +26,20 @@ print(foo(A))
 # >>> 15
 
 
+# Non-recursive method
+def foo(lst):
+    sum_so_far = [0, lst[0]]  # 逐个记录到达list每个长度的最大可能性, 然后拓展下一个
+
+    for i in range(1, len(lst)):
+        sum_so_far.append(max(sum_so_far[-1], lst[i]+sum_so_far[-2]))
+    return sum_so_far[-1]
+
+print(foo(A))
+# >>> 15
+
 
 # Q2:
+print("\nQ2: 找零钱")
 # 找零钱的问题, 总金额n, 有m种硬币面值, 各有无限多个数, 问最少需要几个硬币?
 
 # Recursive
@@ -85,3 +100,10 @@ print(change(15, [6, 7]))
 # big case does not work in recursion: maximum depth issue
 print(change2(123456, [1, 6, 7, 456, 678]))
 # >>> 187
+
+# 以上两题可以总结出, 递归是把大case化成n个小case, 一直化解到最basic case, 然后再反推回来
+# 而非递归方法就是, 避免拆解大case, 而是直接从最小的case开始, 一步一步推导出更大的case的最优值, 这样就避免了分叉递归的重复计算
+# 所以非递归方法最常见的就是建立一个list, 记录下来1到n的所有最优解, 从而推导出n+1的最优解, 实现用一个线性推进, 结合具体判断最优解的方法复杂度,来实现低复杂度
+
+
+
