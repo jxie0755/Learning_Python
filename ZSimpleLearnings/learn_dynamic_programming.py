@@ -4,6 +4,8 @@
 
 from typing import *
 
+# https://www.bilibili.com/video/av47420469/
+print('From https://www.bilibili.com/video/av47420469/')
 # Q1:
 print("\nQ1: 间隔最大和")
 # 有n个正整数, 排成一列, 可重复, 选取一些数,两两不相邻, 但是总和最大
@@ -110,6 +112,7 @@ print(change_iter(123456, [1, 6, 7, 456, 678]))
 # https://zhuanlan.zhihu.com/p/31628866
 # 漫画动态递归
 
+print("\nFrom https://zhuanlan.zhihu.com/p/31628866")
 # Q1 上楼梯
 print('\nQ1: 上楼梯')
 
@@ -223,8 +226,9 @@ def golddig_by_man(lst, man_total):
                 temp.append(max([option1, option2], key=sum_gold))
         gold.append(temp)
 
-    for line in gold:
-        print(line)
+    # To see the full table:
+    # for line in gold:
+    #     print(line)
     return gold[-1][-1]
 
 
