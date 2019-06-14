@@ -2,6 +2,7 @@
 
 # if only need to get one number
 # recursive way (recursion)
+# Time O(2^N)
 def fib_gen_r(i):
     """
     Fibonacci function generator
@@ -24,7 +25,7 @@ if __name__ == '__main__':
 
 # non-recursive way
 # actually non-recursive way is much more efficient!!!
-# 这其实就是最基础的动态规划
+# 这其实就是最基础的动态规划 Time O(N)
 def fib_gen_nr(i):
     """
         Fibonacci function generator
