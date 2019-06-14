@@ -12,7 +12,6 @@ A = [1,2,3,2,1,5,7,6]
 # 分解成多个小问题:
 # F(A) = max(F[A:-2] + A[7], F[A:-1])
 
-
 # Recursive method
 def foo(lst):
     if len(lst) == 0:
@@ -25,7 +24,6 @@ def foo(lst):
 print(foo(A))
 # >>> 15
 
-
 # Non-recursive method
 def foo(lst):
     sum_so_far = [0, lst[0]]  # 逐个记录到达list每个长度的最大可能性, 然后拓展下一个
@@ -36,6 +34,8 @@ def foo(lst):
 
 print(foo(A))
 # >>> 15
+
+
 
 
 # Q2:
