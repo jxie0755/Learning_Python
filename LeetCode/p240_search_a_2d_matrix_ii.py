@@ -14,6 +14,8 @@ class Solution:
     def searchMatrix(self, matrix: List[List[int]], target: int) -> bool:
         pass
 
+
+
 A = [
         [1, 4, 7, 11, 15],
         [2, 5, 8, 12, 19],
@@ -22,7 +24,12 @@ A = [
         [18, 21, 23, 26, 30]
     ]
 
+
+
 print(Solution().searchMatrix(A, 5))
+
+
+
 
 if not __name__ == '__main__':
     A = [
