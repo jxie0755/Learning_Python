@@ -57,7 +57,6 @@ class Solution(object):
 
         i, j = 0, n - 1
         while i < m and j >= 0:
-            print('i', i, 'j', j, 'val', matrix[i][j])
 
             if matrix[i][j] == target:
                 return True
