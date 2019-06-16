@@ -80,6 +80,8 @@ class Solution:
 
 class Solution:
 
+    # Version B, similar idea with A but new method on adding parenthesis
+    # Passed efficiently
     def diffWaysToCompute(self, input: str) -> List[int]:
 
         if not input:
@@ -89,6 +91,8 @@ class Solution:
 
         if not op:
             return [nums[0]]
+
+
 
         all_op = []
         max_idx = len(op)
@@ -102,6 +106,8 @@ class Solution:
                     helper(new_op, idx+i+1, used+i, rest-i, count+1)
 
         helper(op, 1, 0, max_idx, 1)
+
+
 
         def calc(nums, op_p):
             i = 0
