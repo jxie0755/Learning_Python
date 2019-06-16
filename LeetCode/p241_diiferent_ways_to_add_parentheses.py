@@ -82,33 +82,41 @@ class Solution:
 
     # Version B, similar idea with A but new method on adding parenthesis
     # Passed efficiently
+    # 添加括号的规律:
+    # 1. 有几次运算, 最终就必须有几组括号, 其实只管右半边, 也就是')'
+    # 2. 直到第1个运算符后面, 最多只能有1个')', 推理: 直到第n个运算符, 最多只能有'n'个
+    # 3. 添加括号后, 所有之后的运算符index发生位移
+    # 4. 需要统计之前用了多少个括号(used), 才能了解根据目前第n个运算符最多需要几个, 也就是0个到n-used个
+    # 5. 所以递归算法, 必须要指定插入位置, 之前有多少个')'用过了, 和还剩多少个, 因为只要任何时刻用完全部就结束了
     def diffWaysToCompute(self, input: str) -> List[int]:
 
+        # Edge empty
         if not input:
             return []
 
+        # Read input
         nums, op = read(input)
 
+        # Edge single number, no operator
         if not op:
             return [nums[0]]
 
+        all_op = [] # All possible ways to add parenthesis
+        max_idx = len(op) # record the number of parenthesis to be added
 
-
-        all_op = []
-        max_idx = len(op)
         def helper(op, idx, used, rest, count):
-            if count == max_idx:
+
+            if count == max_idx:  # 这里也就是到最后一个运算符, 不过剩多少, 都全加到末尾, 然后输出
                 op += [')']*rest
                 all_op.append(op)
             else:
-                for i in range(0, count+1-used):
+                for i in range(0, count+1-used): # 注意range范围, 从0开始, 最多只能用当前位置减去此前用过的数量个')"
                     new_op = op[:idx] + [')'] * i + op[idx:]
-                    helper(new_op, idx+i+1, used+i, rest-i, count+1)
+                    helper(new_op, idx+i+1, used+i, rest-i, count+1)  # 递归的时候, 推进下一个idx注意位移插入了i个')'
 
         helper(op, 1, 0, max_idx, 1)
 
-
-
+        # 这个就是简单的队列实现运算式, 通过遇到')'来激发运算, 用pop来保持其他顺序不变
         def calc(nums, op_p):
             i = 0
             while i != len(op_p):
@@ -117,7 +125,7 @@ class Solution:
                     op_p.pop(i)
                     operator = op_p.pop(i-1)
                     nums[i-1] = calculate(nums[i-1], nums.pop(i), operator)
-                    i -= 1
+                    i -= 1 # 注意这里不但pop了')', 也pop了上一个运算符, 所以后退了两位, 天然只能前进一位,所以还需要退一位来补下一个元素的idx
                 else:
                     i += 1
 
