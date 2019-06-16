@@ -39,7 +39,7 @@ def read(input):
             temp = ''
             op.append(i)
 
-    nums.append(int(temp))
+    nums.append(int(temp)) # last number
 
     return nums, op
 
@@ -87,17 +87,45 @@ class Solution:
 
         nums, op = read(input)
 
-        pass
+        if not op:
+            return [nums[0]]
+
+        all_op = []
+        max_idx = len(op)
+        def helper(op, idx, used, rest, count):
+            if count == max_idx:
+                op += [')']*rest
+                all_op.append(op)
+            else:
+                for i in range(0, count+1-used):
+                    new_op = op[:idx] + [')'] * i + op[idx:]
+                    helper(new_op, idx+i+1, used+i, rest-i, count+1)
+
+        helper(op, 1, 0, max_idx, 1)
+
+        def calc(nums, op_p):
+            i = 0
+            while i != len(op_p):
+                cur = op_p[i]
+                if cur == ')':
+                    op_p.pop(i)
+                    operator = op_p.pop(i-1)
+                    nums[i-1] = calculate(nums[i-1], nums.pop(i), operator)
+                    i -= 1
+                else:
+                    i += 1
+
+            return nums[0]
+
+        result = []
+        for op_p in all_op:
+            result.append(calc(nums[:], op_p))
+
+        return sorted(result)
 
 
 
-print(Solution().diffWaysToCompute("2*3-4*5"))
-
-
-
-
-
-if not __name__ == '__main__':
+if __name__ == '__main__':
     assert Solution().diffWaysToCompute("") == [], 'Edge 0'
     assert Solution().diffWaysToCompute("1") == [1], 'Edge 1'
     assert Solution().diffWaysToCompute("1+1") == [2], 'Edge 2'
