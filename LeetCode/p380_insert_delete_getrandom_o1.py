@@ -16,6 +16,7 @@ class RandomizedSet(object):
         """
         Initialize your data structure here.
         """
+        # Use a list to track sequence and use a hashtable to remember the sequence of the value
         self.set = []
         self.used = {}
 
@@ -26,11 +27,11 @@ class RandomizedSet(object):
         :type val: int
         :rtype: bool
         """
-        if val in self.used:
+        if val in self.used: # check in by hashtable O(1)
             return False
 
-        self.set += val,
-        self.used[val] = len(self.set)-1
+        self.set.append(val)              # add to the end
+        self.used[val] = len(self.set)-1  # record the value: last idx, last index by length of array O(1)
 
         return True
 
@@ -41,14 +42,17 @@ class RandomizedSet(object):
         :type val: int
         :rtype: bool
         """
-        if val not in self.used:
+        if val not in self.used: # check in by hashtable O(1)
             return False
 
-        self.used[self.set[-1]] = self.used[val]
+        # switch val and last val in array and hashtable
 
-        # 把当前index叫换到最后
+        self.used[self.set[-1]] = self.used[val]  # hastable中将最后一个值得index改成remove值得idx
+
+        # 把当前index与last交换
         self.set[self.used[val]], self.set[-1] = self.set[-1], self.set[self.used[val]]
 
+        # 把last值弹出, hashtable中remove val
         self.used.pop(val)
         self.set.pop()
 
