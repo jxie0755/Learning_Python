@@ -8,42 +8,85 @@
 # getRandom: Returns a random element from current set of elements. Each element must have the same probability of being returned.
 
 
-class RandomizedSet:
+from random import randint
+
+class RandomizedSet(object):
 
     def __init__(self):
         """
         Initialize your data structure here.
         """
+        self.set = []
+        self.used = {}
 
-    def insert(self, val: int) -> bool:
+
+    def insert(self, val):
         """
         Inserts a value to the set. Returns true if the set did not already contain the specified element.
+        :type val: int
+        :rtype: bool
         """
+        if val in self.used:
+            return False
 
-    def remove(self, val: int) -> bool:
+        self.set += val,
+        self.used[val] = len(self.set)-1
+
+        return True
+
+
+    def remove(self, val):
         """
         Removes a value from the set. Returns true if the set contained the specified element.
+        :type val: int
+        :rtype: bool
         """
+        if val not in self.used:
+            return False
 
-    def getRandom(self) -> int:
+        self.used[self.set[-1]] = self.used[val]
+
+        # 把当前index叫换到最后
+        self.set[self.used[val]], self.set[-1] = self.set[-1], self.set[self.used[val]]
+
+        self.used.pop(val)
+        self.set.pop()
+
+        return True
+
+    def getRandom(self):
         """
         Get a random element from the set.
+        :rtype: int
         """
+        return self.set[randint(0, len(self.set)-1)]
 
 
 
-if not __name__ == '__main__':
-    obj = RandomizedSet(1,2,3)
-    print(obj)
+if __name__ == '__main__':
+    obj = RandomizedSet()
+
+    assert obj.insert(1)
+    print(obj.set)
+    print(obj.used)
+
+    assert obj.insert(2)
+    print(obj.set)
+    print(obj.used)
 
     assert not obj.insert(1)
-    assert obj.insert(4)
+    obj.insert(3)
+    obj.insert(4)
+    obj.insert(5)
 
-    print(obj)
+    print()
+    print(obj.set)
+    print(obj.used)
 
-    assert not obj.remove(5)
-    assert obj.remove(1)
-
+    assert not obj.remove(6)
+    assert obj.remove(2)
+    print(obj.set)
+    print(obj.used)
 
     print(obj.getRandom())
 
