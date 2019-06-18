@@ -33,14 +33,17 @@ class RandomizedSet:
 
 
 if not __name__ == '__main__':
-    obj = RandomizedSet()
+    obj = RandomizedSet(1,2,3)
     print(obj)
 
-    obj.insert(val)
+    assert not obj.insert(1)
+    assert obj.insert(4)
+
     print(obj)
 
-    param_2 = obj.remove(val)
-    print(obj)
+    assert not obj.remove(5)
+    assert obj.remove(1)
+
 
     print(obj.getRandom())
 
