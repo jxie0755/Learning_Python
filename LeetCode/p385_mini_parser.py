@@ -25,21 +25,20 @@ class NestedInteger:
         self.lst = []
         self.val = value
 
-    def __str__(self):
-        if self.isInteger():
-            return str(self.val)
-        else:
-            return '[' + str(self.val) + ',' + str(self.lst) + ']'
 
     def __repr__(self):
-        return str(self)
+        if self.isInteger():
+            return '[' + str(self.val) + ']'
+        else:
+            return '[' + str(self.val) + ',' + str(self.getList()[0]) + ']'
+
 
     def isInteger(self):
         """
         @return True if this NestedInteger holds a single integer, rather than a nested list.
         :rtype bool
         """
-        return self.val is not None and len(self.lst) == 0
+        return len(self.lst) == 0
 
     def add(self, elem):
         """
@@ -79,23 +78,53 @@ class NestedInteger:
             return self.lst
 
 
+if __name__ == '__main__':
 
-def deserialize(self, s: str) -> NestedInteger:
-    pass
+    A = NestedInteger(1)
+    assert repr(A) == '[1]', 'Eaxmple 1'
+    assert A.getInteger() == 1, 'get integer'
+    assert A.isInteger(), 'Single integer'
+    assert not A.getList(), 'Single integer has no list'
 
+    A.add(-2)
+    assert repr(A) == '[1,[-2]]', 'Add -2'
+    assert repr(A.getList()) == '[[-2]]', 'nested list'
+    assert not A.isInteger()
+    assert not A.getInteger()
 
+    A.setInteger(5)
+    assert repr(A) == '[5]', 'set Integer'
 
-
-
-
-
-
-
-
-
-
-
-if not __name__ == '__main__':
-    A = Solution().deserialize('324')
-    B = Solution().deserialize("[123,[456,[789]]]")
     print('all passed')
+
+
+
+class Solution(object):
+
+    # STD ans
+    # Not sure what this is
+    def deserialize(self, s):
+        if not s:
+            return NestedInteger()
+
+        if s[0] != '[':
+            return NestedInteger(int(s))
+
+        stk = []
+
+        i = 0
+        for j in range(len(s)):
+            if s[j] == '[':
+                stk += NestedInteger(),
+                i = j+1
+            elif s[j] in ',]':
+                if s[j-1].isdigit():
+                    stk[-1].add(NestedInteger(int(s[i:j])))
+                if s[j] == ']' and len(stk) > 1:
+                    cur = stk[-1]
+                    stk.pop()
+                    stk[-1].add(cur)
+                i = j+1
+
+        return stk[-1]
+
