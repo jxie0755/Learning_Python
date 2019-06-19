@@ -69,6 +69,38 @@ class Solution:
 
 
 
+class Solution:
+
+    # Version B1
+    # Shrink the size of the problem first
+    # This will pass, but slow
+    def integerReplacement(self, n: int) -> int:
+        if n <= 3:
+            return n - 1
+        elif n % 2 == 0:
+            return self.integerReplacement(n//2) + 1
+        else:
+            return min(self.integerReplacement(n-1) + 1, self.integerReplacement((n+1)//2)+2)
+
+
+    # Version B2, with memorization
+    # This will pass but it is actually slower than B1!
+    def integerReplacement(self, n: int) -> int:
+
+        hmp = {1:0, 2:1, 3:2}
+
+        def helper(n):
+            if n <= 3:
+                return hmp[n]
+            else:
+                if n % 2 == 0:
+                    ans = self.integerReplacement(n//2) + 1
+                else:
+                    ans = min(self.integerReplacement(n-1) + 1, self.integerReplacement((n+1)//2)+2)
+                hmp[n] = ans
+                return ans
+
+        return helper(n)
 
 
 
