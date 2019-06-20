@@ -64,7 +64,6 @@ class Solution:
                         k *= 2
             i += 1
 
-
         return result[-1]
 
 
@@ -84,23 +83,24 @@ class Solution:
 
 
     # Version B2, with memorization
-    # This will pass but it is actually slower than B1!
+    # This will pass much faster
     def integerReplacement(self, n: int) -> int:
 
         hmp = {1:0, 2:1, 3:2}
 
         def helper(n):
-            if n <= 3:
+            if n in hmp:
                 return hmp[n]
             else:
                 if n % 2 == 0:
-                    ans = self.integerReplacement(n//2) + 1
+                    ans = helper(n//2) + 1
                 else:
-                    ans = min(self.integerReplacement(n-1) + 1, self.integerReplacement((n+1)//2)+2)
+                    ans = min(helper(n-1) + 1, helper((n+1)//2)+2)
                 hmp[n] = ans
                 return ans
 
-        return helper(n)
+        result = helper(n)
+        return result
 
 
 
