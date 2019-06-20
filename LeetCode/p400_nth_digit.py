@@ -32,9 +32,6 @@ class Solution:
     # from range(10**n, 10**(n+1)), 9 * 10**n
     def findNthDigit(self, n: int) -> int:
 
-        if n < 10:
-            return n
-
         count = 0
         deci = 0
         all_digit_count = 9
