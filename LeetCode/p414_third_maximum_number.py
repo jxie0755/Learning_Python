@@ -7,6 +7,8 @@
 from typing import *
 
 class Solution:
+
+    # Version A, use a que to track 3 max value
     def thirdMax(self, nums: List[int]) -> int:
         que = []
 
