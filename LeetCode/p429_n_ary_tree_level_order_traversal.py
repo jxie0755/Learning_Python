@@ -12,14 +12,32 @@ from typing import *
 from a0_TreeNode import *
 from a0_ListNode import *
 
+
 class Node:
     def __init__(self, val, children):
         self.val = val
         self.children = children
 
+
 class Solution:
+
+    # Version A, use showLayer idea
     def levelOrder(self, root: 'Node') -> List[List[int]]:
-        pass
+        """Show the tree layer by layer from top to bottom"""
+        if root is None:
+            return []
+
+        result, current = [], [root]
+        while current:
+            next_level, vals = [], []
+            for node in current:
+                vals.append(node.val)
+                for child in node.children:
+                    next_level.append(child)
+            current = next_level
+            result.append(vals)
+
+        return result
 
 
 
@@ -28,7 +46,7 @@ if __name__ == '__main__':
 
     C1, C2 = Node(5, []), Node(6,[])
     B1, B2, B3 = Node(3,[C1, C2]), Node(2, []), Node(4, [])
-    A = Node(3, [B1, B2, B3])
+    A = Node(1, [B1, B2, B3])
 
     assert Solution().levelOrder(A) == [
         [1],
