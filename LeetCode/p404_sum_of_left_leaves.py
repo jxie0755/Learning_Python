@@ -34,6 +34,23 @@ class Solution:
 
 
 
+class Solution(object):
+
+    # STD ans, with a recursive label helper
+    def sumOfLeftLeaves(self, root: TreeNode) -> int:
+
+        def sumOfLeftLeavesHelper(root, is_left):
+
+            if not root:
+                return 0
+
+            if not root.left and not root.right: # is_leaf
+                return root.val if is_left else 0
+
+            return sumOfLeftLeavesHelper(root.left, True) + sumOfLeftLeavesHelper(root.right, False)
+
+        return sumOfLeftLeavesHelper(root, False)
+
 if __name__ == '__main__':
 
     assert Solution().sumOfLeftLeaves(None) == 0, 'Edge 0'
