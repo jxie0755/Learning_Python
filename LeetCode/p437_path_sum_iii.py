@@ -15,14 +15,32 @@ from typing import *
 from a0_TreeNode import *
 from a0_ListNode import *
 
-class Solution:
+
+class Solution(object):
+
+    # STD ans
+    # Time:  O(n^2)
+    # Space: O(h)
     def pathSum(self, root: TreeNode, sum: int) -> int:
-        pass
+        def pathSumHelper(root, prev, sum):
+            if root is None:
+                return 0
+
+            curr = prev + root.val
+            return int(curr == sum) + \
+                   pathSumHelper(root.left, curr, sum) + \
+                   pathSumHelper(root.right, curr, sum)
+
+        if root is None:
+            return 0
+
+        return pathSumHelper(root, 0, sum) + \
+               self.pathSum(root.left, sum) + \
+               self.pathSum(root.right, sum)
 
 
 
-
-if not __name__ == '__main__':
+if __name__ == '__main__':
 
 
     assert Solution().pathSum(None,1) == 0, 'Edge 0'
