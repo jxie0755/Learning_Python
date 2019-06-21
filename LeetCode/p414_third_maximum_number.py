@@ -6,15 +6,15 @@
 
 from typing import *
 
+import heapq
+
 class Solution:
 
     # Version A, use a que to track 3 max value
     def thirdMax(self, nums: List[int]) -> int:
         que = []
 
-        for i in range(len(nums)):
-            cur = nums[i]
-
+        for cur in nums:
             if cur not in que:
                 que.append(cur)
                 que.sort()
@@ -23,6 +23,18 @@ class Solution:
 
         return que[0] if len(que) == 3 else que[-1]
 
+
+    # Vesion B, same idea, but use heapq to implement
+    def thirdMax(self, nums: List[int]) -> int:
+        que = []
+        for cur in nums:
+            if cur not in que:
+                que.append(cur)
+                heapq.heapify(que)
+                if len(que) > 3:
+                    heapq.heappop(que)
+
+        return que[0] if len(que) == 3 else que[-1]
 
 
 if __name__ == '__main__':
