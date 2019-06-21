@@ -61,4 +61,3 @@ if __name__ == '__main__':
 
     assert Solution().findNthDigit(10000000) == 7, 'Long'
     print('all passed')
-
