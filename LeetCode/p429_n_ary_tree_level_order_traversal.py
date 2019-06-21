@@ -1,0 +1,40 @@
+# P429 N-ary Tree Level Order Traversal
+# Easy
+
+
+# Given an n-ary tree, return the level order traversal of its nodes' values. (ie, from left to right, level by level).
+
+# Note:
+# The depth of the tree is at most 1000.
+# The total number of nodes is at most 5000.
+
+from typing import *
+from a0_TreeNode import *
+from a0_ListNode import *
+
+class Node:
+    def __init__(self, val, children):
+        self.val = val
+        self.children = children
+
+class Solution:
+    def levelOrder(self, root: 'Node') -> List[List[int]]:
+        pass
+
+
+
+
+if __name__ == '__main__':
+
+    C1, C2 = Node(5, []), Node(6,[])
+    B1, B2, B3 = Node(3,[C1, C2]), Node(2, []), Node(4, [])
+    A = Node(3, [B1, B2, B3])
+
+    assert Solution().levelOrder(A) == [
+        [1],
+        [3, 2, 4],
+        [5, 6]
+    ], 'Example'
+
+    print('all passed')
+
