@@ -12,6 +12,8 @@
 
 
 class Solution:
+
+    # Version A, use add method in manual way
     def addStrings(self, num1: str, num2: str) -> str:
         result = ''
 
@@ -24,14 +26,16 @@ class Solution:
 
             d1 = int(N1[i]) if i < L1 else 0
             d2 = int(N2[i]) if i < L2 else 0
-
             r = d1+d2+add
             result += str(r)[-1]
+
             if r >= 10:
                 add = 1
             else:
                 add = 0
+
             i += 1
+
         if add:
             result += '1'
         return result[::-1]
