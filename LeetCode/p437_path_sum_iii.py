@@ -39,7 +39,6 @@ class Solution(object):
                self.pathSum(root.right, sum)
 
 
-
 if __name__ == '__main__':
 
 
