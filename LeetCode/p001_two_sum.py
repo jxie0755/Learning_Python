@@ -4,14 +4,10 @@
 # Given an array of integers, return indices of the two numbers such that they add up to a specific target.
 # You may assume that each input would have exactly one solution, and you may not use the same element twice.
 
-# """
-# type nums: List[int]
-# type target: int
-# rtype: List[int]
-# """
+from typing import *
 
 class Solution:
-    def twoSum(self, nums, target):
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
         # brutal force, slowest
         for i in nums:
             index_i = nums.index(i)
@@ -22,7 +18,7 @@ class Solution:
                     else:
                         return [index_i, nums.index(i, index_i+1)]
 
-    def twoSum2(self, nums, target):
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
         # brutal force, check half first
         half = target / 2
         if nums.count(half) == 2:
@@ -33,14 +29,14 @@ class Solution:
                 if target - i in nums:
                     return [nums.index(i), nums.index(target - i)]
 
-    def twoSum(self, numbers, target):
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
         # The same method in p167 Two Sum II can be used here
         tmp_lst = {}
-        for idx in range(0, len(numbers)):
-            if numbers[idx] not in tmp_lst.keys():
-                tmp_lst[target-numbers[idx]] = idx  # 这里建立一个需要的另一半的数字作为key, 对应的值是当前的idx
+        for idx in range(0, len(nums)):
+            if nums[idx] not in tmp_lst.keys():
+                tmp_lst[target - nums[idx]] = idx  # 这里建立一个需要的另一半的数字作为key, 对应的值是当前的idx
             else:
-                return [tmp_lst[numbers[idx]], idx]
+                return [tmp_lst[nums[idx]], idx]
                 # 当到达一个新的idx,如果对应的数字出现在之前建立的字典的key里,也就是找到了match
                 # 这样就把那个key的值(也就是第一个idx)找出来,和新的idx配对
 
