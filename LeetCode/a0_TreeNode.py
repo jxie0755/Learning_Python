@@ -1,5 +1,4 @@
 # Definition for a binary tree node.
-from math import log
 
 class TreeNode:
     def __init__(self, x):
@@ -37,17 +36,6 @@ class TreeNode:
     def __hash__(self):
         return hash(id(self))
 
-    def isLeaf(self):
-        try:
-            leftval = self.left.val
-        except AttributeError:
-            leftval = None
-        try:
-            rightval = self.right.val
-        except AttributeError:
-            rightval = None
-
-        return leftval and rightval
 
 def genTree(lst, i=1):
     """
