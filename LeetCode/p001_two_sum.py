@@ -41,6 +41,7 @@ class Solution:
                 # 这样就把那个key的值(也就是第一个idx)找出来,和新的idx配对
 
 if __name__ == '__main__':
+
     assert Solution().twoSum([11, 2, 7, 15], 9) == [1,2],  'regular'
     assert Solution().twoSum([11, 7, 2, 15], 9) == [1,2],  'regular revert'
     assert Solution().twoSum([3, 3], 6) == [0,1],  'two identical'
