@@ -468,7 +468,7 @@ class Tree:
         all_paths = helper(self)
         return [flatten(path) for path in all_paths]
 
-    # All Paths Linked Implement all_paths_linked which takes in a Tree t and returns a list of all paths from root to leaf in a tree with one catch – each path is represented as a linked list.
+    # All Paths Linked Implement all_paths_linked which takes in a Tree t and returns a list of all paths from root to leaf in a tree with one catch â€“ each path is represented as a linked list.
     def all_paths_linked(self):
         """return a list of Linked list that are all the paths in the tree
         need to use the Link class as well

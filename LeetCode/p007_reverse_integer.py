@@ -4,7 +4,7 @@
 # Given a 32-bit signed integer, reverse digits of an integer.
 # Assume we are dealing with an environment which could only hold integers within the 32-bit signed integer range.
 # For the purpose of this problem, assume that your function returns 0 when the reversed integer overflows.
-# The 32-bit int data type can hold integer values in the range of −2,147,483,648 to 2,147,483,647.
+# The 32-bit int data type can hold integer values in the range of âˆ’2,147,483,648 to 2,147,483,647.
 
 # """
 # :type x: int

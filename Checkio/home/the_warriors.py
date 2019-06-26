@@ -2,7 +2,7 @@
 
 # every turn one of the warriors will hit another one and the last will lose his health in the same value as the attack of the first warrior. After that, the second warrior will do the same to the first one.
 
-# If in the end of the turn the first warrior has > 0 health and the other one doesn’t, the function should return True, in the other case it should return False.
+# If in the end of the turn the first warrior has > 0 health and the other one doesnâ€™t, the function should return True, in the other case it should return False.
 
 # Input: The warriors.
 # Output: The result of the duel (True or False).

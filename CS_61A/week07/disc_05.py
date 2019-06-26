@@ -156,7 +156,7 @@ class Cat(object):
     def talk(self):
         print(self.name + " says meow!")
 
-# Notice that there’s a lot of repeated code! This is where inheritance comes in.
+# Notice that thereâ€™s a lot of repeated code! This is where inheritance comes in.
 # In Python, a class can inherit the instance variables and methods of another class
 
 class Pet(object):

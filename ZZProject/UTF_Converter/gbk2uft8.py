@@ -32,13 +32,13 @@ def ReadDirectoryFile(rootdir):
             # 递归函数，遍历所有子文件夹
             ReadDirectoryFile(dirname)
         for filename in filenames:
-            if filename.endswith(".java"):
+            if filename.endswith(".py"):
                 GBK_2_UTF8(os.path.join(parent, filename),
                            os.path.join(parent, filename))
 
 
 if __name__ == "__main__":
-    src_path = "D:\Documents\GitHub\Data_Structure_with_Java\Java_小白大牛_源代码"
+    src_path = "D:\Documents\GitHub\Learning_Python"
     # 此处遍历路径下所有子目录
-    # 把所有java文件从gbk编码改为utf-8不会破坏原信息
+    # 把所有py文件从gbk编码改为utf-8不会破坏原信息
     ReadDirectoryFile(src_path)

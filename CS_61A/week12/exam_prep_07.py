@@ -143,7 +143,7 @@ def convert_to_string(link):
         return ''
     return '/' + link.value + convert_to_string(link.rest)
 
-# All Paths Linked Implement all_paths_linked which takes in a Tree t and returns a list of all paths from root to leaf in a tree with one catch – each path is represented as a linked list.
+# All Paths Linked Implement all_paths_linked which takes in a Tree t and returns a list of all paths from root to leaf in a tree with one catch â€“ each path is represented as a linked list.
 
 def all_paths_linked(t):
     """

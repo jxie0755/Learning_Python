@@ -3,7 +3,7 @@
 # The area of a regular polygon is:
 # 0.25*n*s^2
 # -----------
-# tan(π/n)
+# tan(Ï€/n)
 
 # The perimeter of a polygon is: length of the boundary of the polygon
 

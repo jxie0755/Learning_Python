@@ -1,7 +1,7 @@
 # P357 Count Numbers with Unique Digits
 # Medium
 
-# Given a non-negative integer n, count all numbers with unique digits, x, where 0 ≤ x < 10^n.
+# Given a non-negative integer n, count all numbers with unique digits, x, where 0 â‰¤ x < 10^n.
 
 
 class Solution:

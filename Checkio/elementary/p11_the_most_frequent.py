@@ -1,5 +1,5 @@
 # You have a sequence of strings
-# you’d like to determine the most frequently occurring string in the sequence.
+# youâ€™d like to determine the most frequently occurring string in the sequence.
 
 # Input: a list of strings.
 # Output: a string.

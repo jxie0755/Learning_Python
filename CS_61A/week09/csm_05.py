@@ -119,7 +119,7 @@ def skip(lst):
 
 # Q4
 # Write a function reverse, which takes in a Link and returns a new Link that has the order of the contents reversed.
-# Hint: You may want to use a helper function if you’re solving this recursively.
+# Hint: You may want to use a helper function if youâ€™re solving this recursively.
 
 def reverse(lst):
     """

@@ -119,7 +119,7 @@ def f():
 
 
 # Q5: Hailstone
-# Douglas Hofstadter's Pulitzer-prize-winning book, Gödel, Escher, Bach, poses the following mathematical puzzle.
+# Douglas Hofstadter's Pulitzer-prize-winning book, GÃ¶del, Escher, Bach, poses the following mathematical puzzle.
 
 # Pick a positive integer n as the start.
 # If n is even, divide it by 2.

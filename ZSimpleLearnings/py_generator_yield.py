@@ -14,7 +14,7 @@ print(list(rrange))
 print(list(rrange))
 
 # Generators are iterators, but you can only iterate over them once.
-# It’s because they do not store all the values in memory, they generate the values on the fly
+# Itâ€™s because they do not store all the values in memory, they generate the values on the fly
 # Generators are made through list comprehension with a '()' instead of '[]'
 print()
 mygenerator = (x*x for x in mylist)
