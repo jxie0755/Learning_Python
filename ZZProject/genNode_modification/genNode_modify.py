@@ -6,8 +6,27 @@
 # This is a good chance to practice regular expression and file reading / modification.
 
 import re
-# to match find the genNode in application
-to_match = r'([g][e][n][N][o][d][e][(])([[][0-9\,\s]*[]])([)])'
+import os
 
+# to match find the genNode in application
+raw = r'([g][e][n][N][o][d][e][(])([[][0-9\,\s]*[]])([)])'
+to_match = re.compile(raw)
+
+# Quick test on groups
+# test = 'genNode([1,2,3, 4, 5])'  # may mix with spapce
+# test_output = re.match(to_match, test)
+# print(test_output.groups())
+# >>> ('genNode(', '[1,2,3, 4, 5]', ')')
+
+
+# Source dir for leetcode folder
+sourcedir = 'D:/Documents/GitHub/Learning_Python/LeetCode'
+
+for sub_dir in os.listdir(sourcedir):
+    full_sub_dir = sourcedir + '/' + sub_dir
+    if not os.path.isdir(full_sub_dir):
+        with open(full_sub_dir) as f:
+            content = f.read()
+        print(content)
 
 
