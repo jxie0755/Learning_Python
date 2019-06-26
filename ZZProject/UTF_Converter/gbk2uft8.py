@@ -3,7 +3,7 @@ import chardet
 import codecs
 
 
-def WriteFile(filePath, u, encoding="utf-8"):
+def WriteFile(filePath, u, encoding=e):
     with codecs.open(filePath, "w", encoding) as f:
         f.write(u)
 
@@ -25,7 +25,7 @@ def GBK_2_UTF8(src, dst):
                 print(src + "  " + coding + "  read error")
 
 
-# 把目录中的*.java编码由gbk转换为utf-8
+# 把目录中的*.py编码由gbk转换为utf-8
 def ReadDirectoryFile(rootdir):
     for parent, dirnames, filenames in os.walk(rootdir):
         for dirname in dirnames:
@@ -38,7 +38,7 @@ def ReadDirectoryFile(rootdir):
 
 
 if __name__ == "__main__":
-    src_path = "D:\Documents\GitHub\Learning_Python"
+    src_path = "D:/Documents/GitHub/Learning_Python/LeetCode"
     # 此处遍历路径下所有子目录
     # 把所有py文件从gbk编码改为utf-8不会破坏原信息
     ReadDirectoryFile(src_path)
