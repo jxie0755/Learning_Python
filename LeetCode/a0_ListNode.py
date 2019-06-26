@@ -20,9 +20,7 @@ class ListNode:
     def __hash__(self):
         return hash(id(self))
 
-def genNode(*nodes, end=None):
-    if len(nodes) == 1 and type(nodes[0]) == list:
-        nodes = nodes[0]
+def genNode(nodes, end=None):
     for i in nodes[::-1]:
         n = ListNode(i)
         n.next, end = end, n

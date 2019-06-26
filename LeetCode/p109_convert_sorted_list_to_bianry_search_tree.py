@@ -55,10 +55,10 @@ if __name__ == '__main__':
         A = None
         assert Solution().sortedListToBST(A) is None, 'Edge 0'
 
-        A = genNode(1)
+        A = genNode([1])
         assert Solution().sortedListToBST(A) == genTree([1]), 'Edge 1'
 
-        A = genNode(-10, -3, 0, 5, 9)
+        A = genNode([-10, -3, 0, 5, 9])
         assert Solution().sortedListToBST(A) == genTree([0, -3, 9, -10, None, 5, None]), 'Example 1'
 
         print('all passed')

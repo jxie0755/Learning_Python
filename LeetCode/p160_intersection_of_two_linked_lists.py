@@ -142,23 +142,23 @@ class Solution(object):
 
 
 if __name__ == '__main__':
-    A = genNode(4,1)
-    B = genNode(5,0,1)
-    C = genNode(8,4,5)
+    A = genNode([4,1])
+    B = genNode([5,0,1])
+    C = genNode([8,4,5])
     A.next.next = C
     B.next.next.next = C
 
     assert Solution().getIntersectionNode(A, B) == C, 'Example 1'
 
-    A = genNode(0,9,1)
-    B = genNode(3)
-    C = genNode(2,4)
+    A = genNode([0,9,1])
+    B = genNode([3])
+    C = genNode([2,4])
     A.next.next.next = C
     B.next = C
     assert Solution().getIntersectionNode(A, B) == C, 'Example 2'
 
-    A = genNode(2,6,4)
-    B = genNode(1,5)
+    A = genNode([2,6,4])
+    B = genNode([1,5])
     assert not Solution().getIntersectionNode(A, B) == C, 'Example 3, Edge'
 
     print('all passed')

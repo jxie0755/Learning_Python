@@ -121,11 +121,11 @@ if __name__ == '__main__':
     f = Solution().reverseList(emp)
     assert repr(f) == 'None', 'Edge 1'
 
-    single = genNode(99)
+    single = genNode([99])
     f = Solution().reverseList(single)
     assert repr(f) == '99'
 
-    a = genNode(1,2,3,4,5)
+    a = genNode([1,2,3,4,5])
     f = Solution().reverseList(a)
     assert repr(f) == '5->4->3->2->1'
     print('all passed!')

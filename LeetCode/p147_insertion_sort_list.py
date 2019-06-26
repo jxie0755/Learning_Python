@@ -209,13 +209,13 @@ if __name__ == '__main__':
     A = None
     assert Solution().insertionSortList(A) == A, 'Edge 0'
 
-    A = genNode(1)
+    A = genNode([1])
     assert Solution().insertionSortList(A) == A, 'Edge 1'
 
-    A = genNode(4,2,1,3)
-    assert Solution().insertionSortList(A) == genNode(1,2,3,4), 'Example 1'
+    A = genNode([4,2,1,3])
+    assert Solution().insertionSortList(A) == genNode([1,2,3,4]), 'Example 1'
 
-    A = genNode(-1, 5, 3, 4, 0)
-    assert Solution().insertionSortList(A) == genNode(-1, 0, 3, 4, 5), 'Example 2'
+    A = genNode([-1, 5, 3, 4, 0])
+    assert Solution().insertionSortList(A) == genNode([-1, 0, 3, 4, 5]), 'Example 2'
 
     print('all passed')

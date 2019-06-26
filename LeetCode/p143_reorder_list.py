@@ -87,13 +87,13 @@ class Solution(object):
 
 
 if __name__ == '__main__':
-    A = genNode(1,2,3,4)
+    A = genNode([1,2,3,4])
     Solution().reorderList(A)
-    assert A == genNode(1,4,2,3), 'Example 1'
+    assert A == genNode([1,4,2,3]), 'Example 1'
 
-    A = genNode(1,2,3,4,5)
+    A = genNode([1,2,3,4,5])
     Solution().reorderList(A)
-    assert A == genNode(1,5,2,4,3), 'Example 2'
+    assert A == genNode([1,5,2,4,3]), 'Example 2'
 
     print('all passed')
 

@@ -46,19 +46,19 @@ class Solution:
 
 
 if __name__ == '__main__':
-    E0 = genNode()
+    E0 = genNode([])
     assert repr(Solution().rotateRight(E0, 2)) == 'None', 'Edge 0'
 
-    E1 = genNode(1)
+    E1 = genNode([1])
     assert repr(Solution().rotateRight(E1, 2)) == '1', 'Edge 1'
 
-    S1 = genNode(1, 2, 3, 4, 5)
+    S1 = genNode([1, 2, 3, 4, 5])
     assert repr(Solution().rotateRight(S1, 2)) == '4->5->1->2->3', 'Example 1'
 
-    S1 = genNode(1, 2, 3, 4, 5)
+    S1 = genNode([1, 2, 3, 4, 5])
     assert repr(Solution().rotateRight(S1, 0)) == '1->2->3->4->5', 'Example 1b'
 
-    S2 = genNode(0, 1, 2)
+    S2 = genNode([0, 1, 2])
     assert repr(Solution().rotateRight(S2, 4)) == '2->0->1', 'Example 2'
 
     print('all passed')

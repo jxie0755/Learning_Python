@@ -14,11 +14,9 @@ from a0_ListNode import *
 
 class Solution(object):
 
-
     def detectCycle(self, head):
-        """return the node where the cycle begins"""
-        # Time O(N), Space O(N), use hashtable to search faster
-        # ListNode instance is not hashable, this method search at O(1), and will not break down the original linked list
+        ### Time O(N), Space O(N), use hashtable to search faster
+        ### ListNode instance is not hashable, this method search at O(1), and will not break down the original linked list
         if not head:
             return None
         val = 0
@@ -36,17 +34,16 @@ class Solution(object):
 
 
 
-
 if __name__ == '__main__':
 
-    A = genNode(3,2,0,4)
+    A = genNode([3,2,0,4])
     A.next.next.next.next = A.next
     assert Solution().detectCycle(A) == A.next, 'Example 1'
 
-    A = genNode(1,2)
+    A = genNode([1,2])
     A.next.next= A
     assert Solution().detectCycle(A) == A, 'Example 2'
 
-    A = genNode(1)
+    A = genNode([1])
     assert not Solution().detectCycle(A), 'Edge 1, no cycle'
     print('all passed')

@@ -130,11 +130,11 @@ class Solution(object):
 
 if __name__ == '__main__':
     assert Solution().isPalindrome(None), 'Edge'
-    assert Solution().isPalindrome(genNode(1)), 'Edge 1'
-    assert not Solution().isPalindrome(genNode(1,2)), 'Example 1'
-    assert Solution().isPalindrome(genNode(1,2,2,1)), 'Example 2'
-    assert Solution().isPalindrome(genNode(1,2,1)), 'Example 3'
-    assert Solution().isPalindrome(genNode(1,2,3,2,1)), 'Example 4'
+    assert Solution().isPalindrome(genNode([1])), 'Edge 1'
+    assert not Solution().isPalindrome(genNode([1,2])), 'Example 1'
+    assert Solution().isPalindrome(genNode([1,2,2,1])), 'Example 2'
+    assert Solution().isPalindrome(genNode([1,2,1])), 'Example 3'
+    assert Solution().isPalindrome(genNode([1,2,3,2,1])), 'Example 4'
 
     print('all passed')
 

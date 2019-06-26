@@ -50,13 +50,13 @@ class Solution:
 
 
 if __name__ == '__main__':
-    s1 = genNode(1)
+    s1 = genNode([1])
     assert repr(Solution().reverseBetween(s1, 1, 1)) == '1', 'Edge 1'
 
-    s1 = genNode(1,2)
+    s1 = genNode([1,2])
     assert repr(Solution().reverseBetween(s1, 1, 2)) == '2->1', 'Edge 2'
 
-    s1 = genNode(1,2,3,4,5)
+    s1 = genNode([1,2,3,4,5])
     assert repr(Solution().reverseBetween(s1, 2, 4)) == '1->4->3->2->5', "Example 1"
 
     print('all passed')
