@@ -9,7 +9,7 @@ import re
 import os
 
 # to match find the genNode in application
-raw = r'([g][e][n][N][o][d][e][(])([[][0-9\,\s]*[]])([)])'
+raw = r'(genNode\()\[([0-9\s\,]*)\]'
 to_match = re.compile(raw)
 
 # Quick test on groups
@@ -31,11 +31,19 @@ sourcedir = 'D:/Documents/GitHub/Learning_Python/LeetCode'
 
 
 # single case test
-sample = "assert Solution().oddEvenList(genNode([2,1,3,5,6,4,7])) == genNode([2,3,6,7,1,5,4]), 'Example 2'"
+# remove '[' and ']'
+sample1 = "assert Solution().oddEvenList(genNode([2,1,3,5,6,4,7])) == genNode([2,3,6,7,1,5,4]), 'Example 2'"
+m1 = re.findall(raw, sample1)
+print(m1)
+# >>> [('genNode(', '2,1,3,5,6,4,7'), ('genNode(', '2,3,6,7,1,5,4')]
+x = re.sub(raw, r'\g<1>\g<2>', sample1)  # []内^表示"非", \g<n> 表示原pattern的group(n)
+print(x) # worked
 
-# x = re.sub(raw, r'\1\2', sample)
-# print(x)
-
-x = re.sub(r'(genNode\()\[([0-9\s\,]*)\]', r'\g<1>\g<2>', sample)  # []内^表示"非"
-print(x)
+# add '[' and ']'
+sample2 = "assert Solution().oddEvenList(genNode(2,1,3,5,6,4,7)) == genNode(2,3,6,7,1,5,4), 'Example 2'"
+raw2 = r'(genNode\()([0-9\,\s]*)(\))'
+m2 = re.findall(raw2, sample2)
+print(m2)
+x = re.sub(raw2, r'\g<1>[\g<2>]\g<3>', sample2)
+print(x) # worked
 
