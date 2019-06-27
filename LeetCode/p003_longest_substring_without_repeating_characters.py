@@ -125,6 +125,6 @@ if __name__ == '__main__':
     assert Solution().lengthOfLongestSubstring("dvdf") == 3, 'Edge 5'
 
     assert Solution().lengthOfLongestSubstring("abcabcbb") == 3, 'Example 1, "abc"'
-    assert Solution().lengthOfLongestSubstring("bbbbb") == 1, 'Example 1, "b"'
-    assert Solution().lengthOfLongestSubstring("pwwkew") == 3, 'Example 1, "wke"'
+    assert Solution().lengthOfLongestSubstring("bbbbb") == 1, 'Example 2, "b"'
+    assert Solution().lengthOfLongestSubstring("pwwkew") == 3, 'Example 3, "wke"'
     print('all passed')
