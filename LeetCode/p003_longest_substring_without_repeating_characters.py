@@ -37,7 +37,7 @@ class Solution:
     def lengthOfLongestSubstring(self, s):
         # Time O(N^2), Space O(N)
         # Find repeating element and start again after the first repeating element
-        # Recursion is dangerous with maximum recursion depth limit, this one will fail at a long string test case!!
+        # This wil pass, but may reach maximum recursion depth in long cases
         """
         :type s: str
         :rtype: int
