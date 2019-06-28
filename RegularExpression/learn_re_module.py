@@ -81,14 +81,17 @@ re.compile(r'[,]*[\s]+').split(s, maxsplit=1)
 # >>> ['a', 'b,    c']  # 这里maxsplit指的是split的次数, 而不是最后长度
 
 
-# re.findall(pattern, string, flags=0) -> List[str]
-# ro.findall(string[, pos[, endpos]]) -> List[str]
+# re.findall(pattern, string, flags=0) -> List[str] or List[Tuple[str]]
+# ro.findall(string[, pos[, endpos]]) -> List[str] or List[Tuple[str]]
 # ro optional: indicate the idx start and end to search part of the string
 # 对 string 返回一个不重复的 pattern 的匹配列表
+# If one or more groups are present in the pattern, return a list of groups !!! 重要!分组将会导致显示不全
 faresult = re.findall(raw_pattern, sample) # >>> ['1a', '2d']
 faresult2 = re.findall(raw_pattern, '1a2b3a4b') # >>> ['1a', '2b', '3a', '4b']
 faresult3 = re.findall(raw_pattern, '1111') # >>> [] # can't find
 pre_compile.findall('1a2b3a4b', 4) # >>> ['3a', '4b
+re.findall(r'(\d{1,2}[-\/])(\d{1,2}[-\/])\d{2,4}', '4/8/03 10-6/2004 2/2/2 01-02-01')
+# >>> [('4/', '8/'), ('10-', '6/'), ('01-', '02-')] # 由于年份没有分组, 所以不会被print
 
 
 # re.finditer(pattern, string, flags=0) -> Iterator[match object]
