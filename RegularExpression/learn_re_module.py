@@ -95,6 +95,7 @@ re.findall(r'(\d{1,2}[-\/])(\d{1,2}[-\/])\d{2,4}', '4/8/03 10-6/2004 2/2/2 01-02
 re.findall(r'(\d{1,2}[-\/])\d{1,2}[-\/]\d{2,4}', '4/8/03 10-6/2004 2/2/2 01-02-01')
 # >>> ['4/', '10-', '01-']  # 由于只有一个组, 所以不会出现tuple
 
+
 # re.finditer(pattern, string, flags=0) -> Iterator[match object]
 # ro.finditer(string[, pos[, endpos]]) -> Iterator[match object]
 # ro optional: indicate the idx start and end to search part of the string
