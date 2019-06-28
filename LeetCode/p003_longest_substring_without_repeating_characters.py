@@ -93,24 +93,30 @@ class Solution:
 class Solution(object):
     # STD ans
     # Time O(N), Space O(1)
-    def lengthOfLongestSubstring(self, s: str) -> int:
-        pass
+    # 借字符表运算
+    def lengthOfLongestSubstring(self, s):
+        longest, start, visited = 0, 0, [False for _ in range(256)]
+        for i, char in enumerate(s):
+            if visited[ord(char)]:
+                while char != s[start]:
+                    visited[ord(s[start])] = False
+                    start += 1
+                start += 1
+            else:
+                visited[ord(char)] = True
+            longest = max(longest, i - start + 1)
+        return longest
 
 
+if __name__ == '__main__':
+    assert Solution().lengthOfLongestSubstring("") == 0, 'Edge 1'
+    assert Solution().lengthOfLongestSubstring(" ") == 1, 'Edge 2'
+    assert Solution().lengthOfLongestSubstring("au") == 2, 'Edge 3'
+    assert Solution().lengthOfLongestSubstring("aab") == 2, 'Edge 4'
+    assert Solution().lengthOfLongestSubstring("dvdf") == 3, 'Edge 5'
 
-print(Solution().lengthOfLongestSubstring("tmmzuxt"))
-
-# TODO, try to solve it with regex??
-
-# if __name__ == '__main__':
-#     assert Solution().lengthOfLongestSubstring("") == 0, 'Edge 1'
-#     assert Solution().lengthOfLongestSubstring(" ") == 1, 'Edge 2'
-#     assert Solution().lengthOfLongestSubstring("au") == 2, 'Edge 3'
-#     assert Solution().lengthOfLongestSubstring("aab") == 2, 'Edge 4'
-#     assert Solution().lengthOfLongestSubstring("dvdf") == 3, 'Edge 5'
-#
-#     assert Solution().lengthOfLongestSubstring("abcabcbb") == 3, 'Example 1, "abc"'
-#     assert Solution().lengthOfLongestSubstring("bbbbb") == 1, 'Example 2, "b"'
-#     assert Solution().lengthOfLongestSubstring("pwwkew") == 3, 'Example 3, "wke"'
-#     assert Solution().lengthOfLongestSubstring("tmmzuxt") == 5, 'Example 4, mzuxt'
-#     print('all passed')
+    assert Solution().lengthOfLongestSubstring("abcabcbb") == 3, 'Example 1, "abc"'
+    assert Solution().lengthOfLongestSubstring("bbbbb") == 1, 'Example 2, "b"'
+    assert Solution().lengthOfLongestSubstring("pwwkew") == 3, 'Example 3, "wke"'
+    assert Solution().lengthOfLongestSubstring("tmmzuxt") == 5, 'Example 4, mzuxt'
+    print('all passed')
