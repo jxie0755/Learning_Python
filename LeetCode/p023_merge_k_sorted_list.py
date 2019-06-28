@@ -100,7 +100,7 @@ if __name__ == '__main__':
     single = genNode([1])
     e = Solution().mergeKLists([single])
     assert repr(e) == '1', 'single'
-r
+
     a = genNode([1,4,5])
     b = genNode([1,3,4])
     c = genNode([2,6])
