@@ -3,16 +3,15 @@
 
 # Given a string, find the length of the longest substring without repeating characters.
 
+from typing import *
 
 class Solution:
-    def lengthOfLongestSubstring(self, s):
-        # Brutal Force Time O(N^3)
-        # Get all substrings from long to short, then check each on repeating characters
-        # Fail as Maximum Time limit exceeded
-        """
-        :type s: str
-        :rtype: int
-        """
+
+    # Version A, Brutal Force Time O(N^3)
+    # Get all substrings from long to short, then check each on repeating characters
+    # Fail as Maximum Time limit exceeded
+    def lengthOfLongestSubstring(self, s: str) -> int:
+
         def is_no_repeat(s):
             hastable = {}
             for i in s:
@@ -34,14 +33,12 @@ class Solution:
 
 
 class Solution:
-    def lengthOfLongestSubstring(self, s):
-        # Time O(N^2), Space O(N)
-        # Find repeating element and start again after the first repeating element
-        # This wil pass, but may reach maximum recursion depth in long cases
-        """
-        :type s: str
-        :rtype: int
-        """
+
+    # Versiom B1, Time O(N^2), Space O(N)
+    # Find repeating element and start again after the first repeating element
+    # This wil pass, but may reach maximum recursion depth in long cases
+    def lengthOfLongestSubstring(self, s: str) -> int:
+
         if not s:
             return 0
         else:
@@ -65,13 +62,11 @@ class Solution:
 
 
 class Solution:
-    def lengthOfLongestSubstring(self, s):
-        # Time O(N^2), Space O(N)
-        # Non-recursive way to previous method
-        """
-        :type s: str
-        :rtype: int
-        """
+
+    # Version B2, Time O(N^2), Space O(N)
+    # Non-recursive way to previous method
+    def lengthOfLongestSubstring(self, s: str) -> int:
+
         result = []
 
         if not s:
@@ -96,35 +91,26 @@ class Solution:
 
 
 class Solution(object):
-    # Time O(N), Space O(N)
-    # No need to restart from first repeating element, just go iteration once
-    def lengthOfLongestSubstring(self, s):
-        """
-        :type s: str
-        :rtype: int
-        """
-        start = 0
-        char_used = {}
-        result = [0]
-
-        for i,c in enumerate(s):  # use enumerate to record and iterate i and character at the same time!
-            if c not in char_used:
-                result.append(i - start+1)
-            else:
-                start = char_used[c] + 1
-            char_used[c]=i
-
-        return max(result)
+    # STD ans
+    # Time O(N), Space O(1)
+    def lengthOfLongestSubstring(self, s: str) -> int:
+        pass
 
 
-if __name__ == '__main__':
-    assert Solution().lengthOfLongestSubstring("") == 0, 'Edge 1'
-    assert Solution().lengthOfLongestSubstring(" ") == 1, 'Edge 2'
-    assert Solution().lengthOfLongestSubstring("au") == 2, 'Edge 3'
-    assert Solution().lengthOfLongestSubstring("aab") == 2, 'Edge 4'
-    assert Solution().lengthOfLongestSubstring("dvdf") == 3, 'Edge 5'
 
-    assert Solution().lengthOfLongestSubstring("abcabcbb") == 3, 'Example 1, "abc"'
-    assert Solution().lengthOfLongestSubstring("bbbbb") == 1, 'Example 2, "b"'
-    assert Solution().lengthOfLongestSubstring("pwwkew") == 3, 'Example 3, "wke"'
-    print('all passed')
+print(Solution().lengthOfLongestSubstring("tmmzuxt"))
+
+
+
+# if __name__ == '__main__':
+#     assert Solution().lengthOfLongestSubstring("") == 0, 'Edge 1'
+#     assert Solution().lengthOfLongestSubstring(" ") == 1, 'Edge 2'
+#     assert Solution().lengthOfLongestSubstring("au") == 2, 'Edge 3'
+#     assert Solution().lengthOfLongestSubstring("aab") == 2, 'Edge 4'
+#     assert Solution().lengthOfLongestSubstring("dvdf") == 3, 'Edge 5'
+#
+#     assert Solution().lengthOfLongestSubstring("abcabcbb") == 3, 'Example 1, "abc"'
+#     assert Solution().lengthOfLongestSubstring("bbbbb") == 1, 'Example 2, "b"'
+#     assert Solution().lengthOfLongestSubstring("pwwkew") == 3, 'Example 3, "wke"'
+#     assert Solution().lengthOfLongestSubstring("tmmzuxt") == 5, 'Example 4, mzuxt'
+#     print('all passed')
