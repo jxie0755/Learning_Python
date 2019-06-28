@@ -34,6 +34,8 @@ print(re.findall(r'c.t', 'cat, cot, scut, sc@t, sc t'))
 # 匹配特殊字符使用转义
 print(re.findall(r'c.\.t', 'cat, caat, ca.t'))
 # >>> ['ca.t']
+print(re.findall(r'Array\[0\]', 'Array[0]'))
+# >>> ['Array[0]']
 
 # 匹配某个字符
 print(re.findall(r'[cs]at', 'cat, sat, nat')) # 规定a前面必须只能是c和s
@@ -47,6 +49,26 @@ print(re.findall(r'[cs]at[0-9]', 'cat, sat11, nat')) # t之后必须接一个数
 print(re.findall(r'[cs]at[^0-9]', 'cat, sat11, nat')) # t之后必须接一个数字
 # >>> ['cat,']
 
+
+
+# 判断边界,但是不包括边界
+# \B 表示边界必须是空白
+print(re.findall(r'[a-z]{2}', 'aa bbk kcc kddk'))
+# >>> ['aa', 'bb', 'kc', 'kd', 'dk']
+print(re.findall(r'\b[a-z]{2}\b', 'aa bbk kcc kddk'))
+# >>> ['aa']
+print(re.findall(r'[a-z]{2}\b', 'aa bbk kcc kddk'))
+# >>> ['aa', 'bk', 'cc', 'dk']
+print(re.findall(r'\b[a-z]{2}', 'aa bbk kcc kddk'))
+# >>> ['aa', 'bb', 'kc', 'kd']
+
+# \B 表示边界不能是空白
+print(re.findall(r'\B[a-z]{2}\B', 'aa bbk kcc kddk'))
+# >>> ['dd']
+print(re.findall(r'[a-z]{2}\B', 'aa bbk kcc kddk'))
+# >>> ['bb', 'kc', 'kd']
+print(re.findall(r'\B[a-z]{2}', 'aa bbk kcc kddk'))
+# >>> ['bk', 'cc', 'dd']
 
 
 
