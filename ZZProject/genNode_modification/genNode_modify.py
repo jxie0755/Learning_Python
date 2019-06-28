@@ -9,8 +9,8 @@ import re
 import os
 
 # to match find the genNode in application
-raw1 = r'(genNode\()\[([0-9\s\,]*)\]'
-raw2 = r'(genNode\()([0-9\,\s]*)(\))'
+raw_with = r'(genNode\()\[([0-9\s\,]*)\]'
+raw_without = r'(genNode\()([0-9\,\s]*)(\))'
 
 # Quick test on groups
 # test = 'genNode([1,2,3, 4, 5])'  # may mix with spapce
@@ -42,8 +42,8 @@ print(x) # worked
 # Source dir for leetcode folder
 sourcedir = 'D:/Documents/GitHub/Learning_Python/LeetCode'
 
-with_brack_pattern = re.compile(raw1)
-without_brack_pattern = re.compile(raw2)
+with_brack_pattern = re.compile(raw_with)
+without_brack_pattern = re.compile(raw_without)
 
 
 def add_brack(content, filedir):
@@ -57,18 +57,28 @@ def del_brack(content, filedir):
     with open(filedir, 'w', encoding="utf-8") as f:
         f.write(new_content)
 
+def operate_brack(command, content, filedir):
+    if command == 'add':
+        return add_brack(content, filedir)
+    elif command == 'del':
+        return del_brack(content, filedir)
 
 
-for sub_dir in os.listdir(sourcedir):
-    full_sub_dir = sourcedir + '/' + sub_dir
-    if full_sub_dir.endswith(".py"):
-        with open(full_sub_dir, 'r', encoding="utf-8") as f:
-            content = f.read()
-        add_brack(content, full_sub_dir)
+if __name__ == '__main__':
 
+    while True:
+        command = input("Please choose a command to [add] or [del] the '[]':")
+        if command != 'add' and command != 'del':
+            continue
+        else:
+            break
 
+    for sub_dir in os.listdir(sourcedir):
+        full_sub_dir = sourcedir + '/' + sub_dir
+        if full_sub_dir.endswith(".py"):
+            with open(full_sub_dir, 'r', encoding="utf-8") as f:
+                content = f.read()
 
-
-
-
+            ## choose here to add or del []
+            operate_brack(command, content, full_sub_dir)
 
