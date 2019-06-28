@@ -23,3 +23,23 @@ import re
     # 大多数时候用于匹配, 但是也可以用来替换操作, 例如 将网址加厚加上HTML语言,变成可点击的链接
 
 
+
+# 匹配纯文本
+print(re.findall(r'Be', 'Ben BBe is my name'))
+# >>> ['Be', 'Be']
+
+# 用.替代任何,甚至.本身
+print(re.findall(r'c.t', 'cat, cot, scut, sc@t, sc t'))
+# >>> ['cat', 'cot', 'cut', 'c@t', 'c t']
+
+# 匹配特殊字符使用转义
+print(re.findall(r'c.\.t', 'cat, caat, ca.t'))
+# >>> ['ca.t']
+
+# 匹配某个字符
+print(re.findall(r'[cs]at', 'cat, sat, nat')) # 规定a前面必须只能是c和s
+# >>> ['cat', 'sat']
+
+# 匹配区间
+print(re.findall(r'[cs]at[0-9]', 'cat, sat11, nat')) # t之后必须接一个数字
+# >>> ['sat1']
