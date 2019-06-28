@@ -1,7 +1,6 @@
 import re
 
 # 正则表达式 必知必会 第二版
-# Chapter 1
 
 # 正则表达式的基本功能
     # 查找特定信息 (搜索)
@@ -43,3 +42,18 @@ print(re.findall(r'[cs]at', 'cat, sat, nat')) # 规定a前面必须只能是c和
 # 匹配区间
 print(re.findall(r'[cs]at[0-9]', 'cat, sat11, nat')) # t之后必须接一个数字
 # >>> ['sat1']
+
+# 取非, []内用^
+print(re.findall(r'[cs]at[^0-9]', 'cat, sat11, nat')) # t之后必须接一个数字
+# >>> ['cat,']
+
+
+
+
+
+
+
+
+
+
+
