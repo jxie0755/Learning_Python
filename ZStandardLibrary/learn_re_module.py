@@ -256,55 +256,44 @@ m_obj = re.match(raw_pattern, sample)
 # print(m_obj.pos, m_obj.endpos) # >>>  0, 10
 
 
+# mo.lastindex
+# 捕获组的最后一个匹配的整数索引值，或者 None 如果没有匹配产生的话。
+raw_pattern = r'(?P<name1>denis)(?P<code>[0-9]+)[\?]+(?P<name2>cindy)?'
+sample = 'denis0??,,,'
+m_obj = re.match(raw_pattern, sample)
+# print(m_obj.lastindex) # >>> 2 最多中匹配到group(2), 因为group3可选而且没找到
+# mo.lastgroup
+# 最后一个匹配的命名组名字，或者 None 如果没有产生匹配的话
+# print(m_obj.lastgroup) # >>> code 同上,最多匹配到group(2),所以返回group(2)的名字
+
+
+# mo.re      返回产生这个实例的 regex对象
+# print(m_obj.re) # >>> re.compile('(?P<name1>denis)(?P<code>[0-9]+)[\\?]+(?P<name2>cindy)?') # 已预编译过
+# mo.string  传递到 match() 或 search() 的字符串
+# print(m_obj.string) # >>> denis0??,,,  # 原完整sample (包括不匹配的部分)
 
 
 
+# 贪婪匹配
+# 最后需要特别指出的是，正则匹配默认是贪婪匹配，也就是匹配尽可能多的字符。举例如下，匹配出数字后面的0
+re.match(r'^(\d+)(0*)$', '102300').groups()
+# ('102300', '')
+# 由于\d+采用贪婪匹配，直接把后面的0全部匹配了，结果0*只能匹配空字符串了。
 
-
-
-
-
-
-
+# 必须让\d+采用非贪婪匹配（也就是尽可能少匹配），才能把后面的0匹配出来，加个?就可以让\d+采用非贪婪匹配：
+re.match(r'^(\d+?)(0*)$', '102300').groups()
+# >>> ('1023', '00')
 
 
 
 # 例子, 利用正则抓取时间
-# t = '19:05:30'
-# m = re.match(r'^(0[0-9]|1[0-9]|2[0-3]|[0-9])\:(0[0-9]|1[0-9]|2[0-9]|3[0-9]|4[0-9]|5[0-9]|[0-9])\:(0[0-9]|1[0-9]|2[0-9]|3[0-9]|4[0-9]|5[0-9]|[0-9])$', t)
-# #            只能是0X, 或者1X, 或者2X,对x限制,或者单x
-# #                                             只能是1X, 2X, 3X, 4X, 5X or X
-# #                                                                                                  same as minutes
-# print(m.groups())
-# # >>> ('19', '05', '30')
-#
-# # 另一种匹配法
-# m = re.match(r'^(2[0-3]|[0-1][0-9]|[0-9])\:([0-5][0-9])\:([0-5][0-9])$', t)
-# print(m.groups())
-# # >>> ('19', '05', '30')
-#
-#
-#
-# # 贪婪匹配
-# # 最后需要特别指出的是，正则匹配默认是贪婪匹配，也就是匹配尽可能多的字符。举例如下，匹配出数字后面的0
-# print(re.match(r'^(\d+)(0*)$', '102300').groups())
-# # ('102300', '')
-# # 由于\d+采用贪婪匹配，直接把后面的0全部匹配了，结果0*只能匹配空字符串了。
-#
-# # 必须让\d+采用非贪婪匹配（也就是尽可能少匹配），才能把后面的0匹配出来，加个?就可以让\d+采用非贪婪匹配：
-# print(re.match(r'^(\d+?)(0*)$', '102300').groups())
-# # >>> ('1023', '00')
-#
-#
-#
-# # Test
-# def is_valid_email(addr):
-#     return re.match(r'^([0-9a-zA-Z]+|[0-9a-zA-Z]+\.[0-9a-zA-Z]+)@([0-9a-zA-Z]+)(.com)$', addr)
-#
-#
-# if __name__ == '__main__':
-#     assert is_valid_email('someone@gmail.com'), "E1"
-#     assert is_valid_email('bill.gates@microsoft.com'), "E2"
-#     assert not is_valid_email('bob#example.com'), "E3"
-#     assert not is_valid_email('mr-bob@example.com'), "E4"
-#     print('ok')
+t = '19:05:30'
+m = re.match(r'^(0[0-9]|1[0-9]|2[0-3]|[0-9])\:(0[0-9]|1[0-9]|2[0-9]|3[0-9]|4[0-9]|5[0-9]|[0-9])\:(0[0-9]|1[0-9]|2[0-9]|3[0-9]|4[0-9]|5[0-9]|[0-9])$', t)
+#            只能是0X, 或者1X, 或者2X,对x限制,或者单x
+#                                             只能是1X, 2X, 3X, 4X, 5X or X
+#                                                                                                  same as minutes
+m.groups()  # >>> ('19', '05', '30')
+
+# 另一种匹配法
+m = re.match(r'^(2[0-3]|[0-1][0-9]|[0-9])\:([0-5][0-9])\:([0-5][0-9])$', t)
+m.groups()  # >>> ('19', '05', '30')
