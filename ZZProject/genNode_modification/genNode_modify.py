@@ -45,12 +45,21 @@ sourcedir = 'D:/Documents/GitHub/Learning_Python/LeetCode'
 with_brack_pattern = re.compile(raw1)
 without_brack_pattern = re.compile(raw2)
 
-def addbrack(content, filedir):
+
+testdir = 'D:/Documents/GitHub/Learning_Python/whiteboard.py'
+with open(testdir, 'r', encoding="utf-9") as f:
+    content = f.read()
+
+def add_brack(content, filedir):
     new_content = without_brack_pattern.sub(r'\g<1>[\g<2>]\g<3>', content)
     with open(filedir, 'w', encoding="utf-8") as f:
         f.write(new_content)
 
 
+def del_brack(content, filedir):
+    new_content = with_brack_pattern.sub(r'\g<1>\g<2>', content)
+    with open(filedir, 'w', encoding="utf-8") as f:
+        f.write(new_content)
 
 
 
