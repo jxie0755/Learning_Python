@@ -14,16 +14,13 @@ from a0_TreeNode import *
 from a0_ListNode import *
 
 class Solution(object):
-    def addTwoNumbers(self, l1, l2):
-        # Time:  O(n)
-        # Space: O(1)
-        # Non-recursion  method
-        # This will protect l1 and l2 from changing
-        """
-        :type l1: ListNode
-        :type l2: ListNode
-        :rtype: ListNode
-        """
+
+    # Time:  O(n)
+    # Space: O(1)
+    # Non-recursion  method
+    # This will protect l1 and l2 from changing
+    def addTwoNumbers(self, l1: ListNode, l2: ListNode) -> ListNode:
+
         dummy = ListNode(0)
         current, carry = dummy, 0
 
@@ -46,17 +43,14 @@ class Solution(object):
 
 
 class Solution:
-    def addTwoNumbers(self, l1, l2):
-        # Time:  O(n)
-        # Space: O(1)
-        # Recursion method
-        # This will break down l1 and l2
-        # 加一个parameter就可以避免改变l1和l2
-        """
-        :type l1: ListNode
-        :type l2: ListNode
-        :rtype: ListNode
-        """
+
+    # Time:  O(n)
+    # Space: O(1)
+    # Recursion method
+    # This will break down l1 and l2
+    # 加一个parameter就可以避免改变l1和l2
+    def addTwoNumbers(self, l1: ListNode, l2: ListNode) -> ListNode:
+
         a = l1.val if l1 else 0
         b = l2.val if l2 else 0
         new_val = a + b
@@ -77,36 +71,6 @@ class Solution:
 
         return new_node
 
-
-class Solution:
-    def addTwoNumbers(self, l1, l2, carry_over=0):
-        # Time:  O(n)
-        # Space: O(1)
-        # Recursion method
-        # This now will not break down l1 and l2
-        # 加一个parameter就可以避免改变l1和l2
-        # This will pass the test case even an additional parameter is added.
-        """
-        :type l1: ListNode
-        :type l2: ListNode
-        :rtype: ListNode
-        """
-        a = l1.val if l1 else 0
-        b = l2.val if l2 else 0
-        new_val = a + b + carry_over
-        new_carry_over, new_val = divmod(new_val, 10)
-
-        new_node = ListNode(new_val)
-        if l1.next and not l2.next:
-            new_node.next = self.addTwoNumbers(l1.next, ListNode(0), new_carry_over)
-        elif l2.next and not l1.next:
-            new_node.next = self.addTwoNumbers(ListNode(0), l2.next, new_carry_over)
-        elif l1.next and l2.next:
-            new_node.next = self.addTwoNumbers(l1.next, l2.next, new_carry_over)
-        else:
-            new_node.next = None if not new_carry_over else ListNode(1)
-
-        return new_node
 
 if __name__ == '__main__':
 
