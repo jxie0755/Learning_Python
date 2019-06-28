@@ -97,13 +97,13 @@ SolutionFinal().mergeKLists_O(ls)
 
 if __name__ == '__main__':
     assert Solution().mergeKLists([]) is None, 'Empty'
-    single = genNode(1)
+    single = genNode([1])
     e = Solution().mergeKLists([single])
     assert repr(e) == '1', 'single'
-
-    a = genNode(1,4,5)
-    b = genNode(1,3,4)
-    c = genNode(2,6)
+r
+    a = genNode([1,4,5])
+    b = genNode([1,3,4])
+    c = genNode([2,6])
     lst = [a,b,c]
     check = Solution().mergeKLists(lst)
     assert repr(check) == '1->1->2->3->4->4->5->6', 'Example'

@@ -46,10 +46,6 @@ with_brack_pattern = re.compile(raw1)
 without_brack_pattern = re.compile(raw2)
 
 
-testdir = 'D:/Documents/GitHub/Learning_Python/whiteboard.py'
-with open(testdir, 'r', encoding="utf-9") as f:
-    content = f.read()
-
 def add_brack(content, filedir):
     new_content = without_brack_pattern.sub(r'\g<1>[\g<2>]\g<3>', content)
     with open(filedir, 'w', encoding="utf-8") as f:
@@ -63,21 +59,12 @@ def del_brack(content, filedir):
 
 
 
-
-
-
-
-
-
-
-
-
-# for sub_dir in os.listdir(sourcedir):
-#     full_sub_dir = sourcedir + '/' + sub_dir
-#     if full_sub_dir.endswith(".py"):
-#         print('current file', sub_dir)
-#         with open(full_sub_dir, 'r', encoding="utf-8") as f:
-#             content = f.read()
+for sub_dir in os.listdir(sourcedir):
+    full_sub_dir = sourcedir + '/' + sub_dir
+    if full_sub_dir.endswith(".py"):
+        with open(full_sub_dir, 'r', encoding="utf-8") as f:
+            content = f.read()
+        add_brack(content, full_sub_dir)
 
 
 
