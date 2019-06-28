@@ -100,7 +100,7 @@ class Solution(object):
 
 print(Solution().lengthOfLongestSubstring("tmmzuxt"))
 
-
+# TODO, try to solve it with regex??
 
 # if __name__ == '__main__':
 #     assert Solution().lengthOfLongestSubstring("") == 0, 'Edge 1'
