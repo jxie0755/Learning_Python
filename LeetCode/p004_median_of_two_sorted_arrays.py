@@ -1,4 +1,4 @@
-# P004 Median of Two sorted Array
+# P004 Median of Two Sorted Array
 # Hard
 
 # There are two sorted arrays nums1 and nums2 of size m and n respectively.
@@ -7,16 +7,14 @@
 
 # You may assume nums1 and nums2 cannot be both empty.
 
+from typing import *
 
 class Solution:
-    def findMedianSortedArrays(self, nums1, nums2):
-        # Merge two sorted list then find the median
-        # O(N)
-        """
-        :type nums1: List[int]
-        :type nums2: List[int]
-        :rtype: float
-        """
+
+    # Merge two sorted list then find the median
+    # O(N)
+    def findMedianSortedArrays(self, nums1: List[int], nums2: List[int]) -> float:
+
         def median(array):
             length = len(array)
             half = length // 2
@@ -46,14 +44,10 @@ class Solution:
 
         return median(merge)
 
-    def findMedianSortedArrays(self, nums1, nums2):
-        # Modified merge sort to only merge half way
-        # O(1/2N)
-        """
-        :type nums1: List[int]
-        :type nums2: List[int]
-        :rtype: float
-        """
+    # Modified merge sort to only merge half way
+    # O(1/2N)
+    def findMedianSortedArrays(self, nums1: List[int], nums2: List[int]) -> float:
+
         l1, l2 = len(nums1), len(nums2)
         total_l = l1 + l2
 
@@ -84,13 +78,9 @@ class Solution:
         else:
             return merge[-1]
 
-    def findMedianSortedArrays_yeluo(self, nums1, nums2):
-        # Same half way method with different index
-        """
-        :type nums1: List[int]
-        :type nums2: List[int]
-        :rtype: float
-        """
+    # Same half way method with different index
+    def findMedianSortedArrays(self, nums1: List[int], nums2: List[int]) -> float:
+
         cur1, cur2 = 0, 0
         ct, lst = 0, []
         m1 = (len(nums1)+len(nums2)+1)//2 -1
@@ -117,7 +107,6 @@ class Solution:
             ct += 1
 
         return (lst[m1]+lst[m2])/2
-
 
 
 if __name__ == '__main__':
