@@ -7,6 +7,8 @@
 from typing import *
 
 class Solution:
+
+    # Version A
     def twoSum(self, nums: List[int], target: int) -> List[int]:
         # brutal force, slowest
         for i in nums:
@@ -18,6 +20,7 @@ class Solution:
                     else:
                         return [index_i, nums.index(i, index_i+1)]
 
+    # Version B
     def twoSum(self, nums: List[int], target: int) -> List[int]:
         # brutal force, check half first
         half = target / 2
@@ -29,8 +32,9 @@ class Solution:
                 if target - i in nums:
                     return [nums.index(i), nums.index(target - i)]
 
+    # Version C
+    # The same method in p167 Two Sum II can be used here
     def twoSum(self, nums: List[int], target: int) -> List[int]:
-        # The same method in p167 Two Sum II can be used here
         tmp_lst = {}
         for idx in range(0, len(nums)):
             if nums[idx] not in tmp_lst.keys():

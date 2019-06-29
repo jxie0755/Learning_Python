@@ -15,8 +15,7 @@ from a0_ListNode import *
 
 class Solution(object):
 
-    # Time:  O(n)
-    # Space: O(1)
+    # Version A, Time:  O(n), Space: O(1)
     # Non-recursion  method
     # This will protect l1 and l2 from changing
     def addTwoNumbers(self, l1: ListNode, l2: ListNode) -> ListNode:
@@ -44,8 +43,7 @@ class Solution(object):
 
 class Solution:
 
-    # Time:  O(n)
-    # Space: O(1)
+    # Version B, Time:  O(n), Space: O(1)
     # Recursion method
     # This will break down l1 and l2
     # 加一个parameter就可以避免改变l1和l2
