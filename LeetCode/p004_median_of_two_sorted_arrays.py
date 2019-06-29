@@ -110,8 +110,46 @@ class Solution:
 
         return (lst[m1]+lst[m2])/2
 
+    # Version C2, Time O(N), space O(1)
+    # Same half way method with different index, but only keep track last two
+    def findMedianSortedArrays(self, nums1: List[int], nums2: List[int]) -> float:
+
+        total_length = len(nums1) + len(nums2)
+        mid_idx = total_length // 2
+        i1, i2 = 0, 0
+        ct = 0
+        pre, cur = 0, 0
+
+        while True:
+
+            # push next sorted item to cur position
+            if i1 == len(nums1):
+                cur = nums2[i2]
+                i2 += 1
+            elif i2 == len(nums2):
+                cur = nums1[i1]
+                i1 += 1
+            elif nums1[i1] <= nums2[i2]:
+                cur = nums1[i1]
+                i1 += 1
+            else:
+                cur = nums2[i2]
+                i2 += 1
+
+            if ct < mid_idx:  # record cur position to pre and go for next cur
+                pre = cur
+                ct += 1
+            else:             # don't update pre, stay as it is
+                break
+
+        if total_length % 2 == 0:
+            return (cur + pre) / 2
+        else:
+            return cur
+
 
 if __name__ == '__main__':
+
     assert Solution().findMedianSortedArrays([], [1]) == 1.0, 'Edge 1'
     assert Solution().findMedianSortedArrays([1], [2]) == 1.5, 'Edge 2'
 
