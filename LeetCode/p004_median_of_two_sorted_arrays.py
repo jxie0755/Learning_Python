@@ -11,10 +11,9 @@ from typing import *
 
 class Solution:
 
-    # Version A
+    # Version A, O(N)
     # Merge two sorted list then find the median
-    # Not very efficient
-    # O(N)
+    # Not very efficient, as we go all the way, and used a lot of space
     def findMedianSortedArrays(self, nums1: List[int], nums2: List[int]) -> float:
 
         def median(array):
@@ -46,9 +45,8 @@ class Solution:
 
         return median(merge)
 
-    # Version B
+    # Version B, O(1/2N)
     # Modified merge sort to only merge half way
-    # O(1/2N)
     def findMedianSortedArrays(self, nums1: List[int], nums2: List[int]) -> float:
 
         l1, l2 = len(nums1), len(nums2)
@@ -81,8 +79,7 @@ class Solution:
         else:
             return merge[-1]
 
-    # Version C
-    # Time O(N), space O(1/2N)
+    # Version C, Time O(N), space O(1/2N)
     # Same half way method with different index
     def findMedianSortedArrays(self, nums1: List[int], nums2: List[int]) -> float:
 
