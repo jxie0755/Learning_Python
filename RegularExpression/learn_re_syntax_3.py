@@ -27,9 +27,13 @@ import re
 print(re.findall(r'Be', 'Ben BBe is my name'))
 # >>> ['Be', 'Be']
 
+
+
 # 用.替代任何,甚至.本身
 print(re.findall(r'c.t', 'cat, cot, scut, sc@t, sc t'))
 # >>> ['cat', 'cot', 'cut', 'c@t', 'c t']
+
+
 
 # 匹配特殊字符使用转义
 print(re.findall(r'c.\.t', 'cat, caat, ca.t'))
@@ -37,21 +41,30 @@ print(re.findall(r'c.\.t', 'cat, caat, ca.t'))
 print(re.findall(r'Array\[0\]', 'Array[0]'))
 # >>> ['Array[0]']
 
+
+
 # 匹配某个字符
 print(re.findall(r'[cs]at', 'cat, sat, nat')) # 规定a前面必须只能是c和s
 # >>> ['cat', 'sat']
+
+
 
 # 匹配区间
 print(re.findall(r'[cs]at[0-9]', 'cat, sat11, nat')) # t之后必须接一个数字
 # >>> ['sat1']
 
+
+
 # 取非, []内用^
 print(re.findall(r'[cs]at[^0-9]', 'cat, sat11, nat')) # t之后必须接一个数字
 # >>> ['cat,']
 
+
+
 # 重复匹配次数限定
 print(re.findall(r'(\d{1,2}[-\/])(\d{1,2}[-\/])\d{2,4}', '4/8/03 10-6/2004 2/2/2 01-02-01'))
 # >>> [('4/', '8/'), ('10-', '6/'), ('01-', '02-')]
+
 
 
 # 判断边界,但是不包括边界
@@ -75,10 +88,26 @@ print(re.findall(r'\B[a-z]{2}', 'aa bbk kcc kddk'))
 
 
 
+# 贪婪匹配
+# + 和 * 可能过度匹配
 
+# Example 1:
+# 错误方式:
+print(re.findall(r'<[B]>.*</[B]>', '<B>XXXX</B> and <B>YYYY</B>'))
+# >>>  ['<B>XXXX</B> and <B>YYYY</B>'] 形成过度匹配
+# 正确方式:
+print(re.findall(r'<[B]>.*?</[B]>', '<B>XXXX</B> and <B>YYYY</B>'))
+# >>> ['<B>XXXX</B>', '<B>YYYY</B>']
 
-
-
+# Example 2:
+# 错误方式:
+re.match(r'^(\d+)(0*)$', '102300').groups()
+# ('102300', '')
+# 由于\d+采用贪婪匹配，直接把后面的0全部匹配了，结果0*只能匹配空字符串了。
+# 正确方式:
+# 必须让\d+采用非贪婪匹配（也就是尽可能少匹配），才能把后面的0匹配出来，加个?就可以让\d+采用非贪婪匹配：
+re.match(r'^(\d+?)(0*)$', '102300').groups()
+# >>> ('1023', '00')
 
 
 
