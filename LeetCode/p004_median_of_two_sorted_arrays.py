@@ -79,7 +79,7 @@ class Solution:
         else:
             return merge[-1]
 
-    # Version C, Time O(N), space O(1/2N)
+    # Version C1, Time O(N), space O(1/2N)
     # Same half way method with different index
     def findMedianSortedArrays(self, nums1: List[int], nums2: List[int]) -> float:
 
