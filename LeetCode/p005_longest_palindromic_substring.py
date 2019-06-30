@@ -7,14 +7,13 @@
 
 
 class Solution:
-    def longestPalindrome(self, s):
-        # Time: O(N^2) + O(1/2N) = O(N^2)
-        # Space: O(N)
-        # Maximum time limit exceeded
-        """
-        :type s: str
-        :rtype: str
-        """
+
+    # Version A
+    # Time: O(N^2) + O(1/2N) = O(N^2)
+    # Space: O(N)
+    # Maximum time limit exceeded
+    def longestPalindrome(self, s: str) -> str:
+
         def is_palindrome(s):
             return s == s[::-1]
 
@@ -32,18 +31,17 @@ class Solution:
 
 
 class Solution:
-    def longestPalindrome(self, s):
-        # Time: O(N^2)
-        # Space: O(1)
-        """
-        :type s: str
-        :rtype: str
-        """
+
+    # Version B
+    # Time: O(N^2)
+    # Space: O(1)
+    def longestPalindrome(self, s: str) -> str:
+
         length = len(s)
         result = ''
         for a in range(0, len(s)):
 
-            theoretical_length = (min(a-0, length -a ) + 1) * 2
+            theoretical_length = (min(a-0, length -a) + 1) * 2
             if theoretical_length < len(result):
                 break
 
@@ -68,7 +66,6 @@ class Solution:
 #         pass
 
 
-print(Solution().longestPalindrome('abaxabaxabybaxabyb'))
 
 
 if __name__ == '__main__':
