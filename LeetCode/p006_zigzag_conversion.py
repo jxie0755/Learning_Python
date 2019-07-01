@@ -22,14 +22,11 @@
 
 
 class Solution:
-    def convert(self, s, numRows):
-        # Time O(N), space O(N)
-        """
-        :type s: str
-        :type numRows: int
-        :rtype: str
-        """
-        z = list(range(0, numRows)) + list(range(numRows-2, 0, -1))
+
+    # Version A1, Time O(N), space O(N)
+    def convert(self, s: str, numRows: int) -> str:
+
+        z = list(range(0, numRows)) + list(range(numRows-2, 0, -1))  # cyling pather of 1 Z move (idx)
         cycle = len(z)
         mapping = [[]for _ in range(numRows)]
 
@@ -42,13 +39,10 @@ class Solution:
 
 
 class Solution:
-    def convert(self, s, numRows):
-        # Time O(N), space O(N)
-        """
-        :type s: str
-        :type numRows: int
-        :rtype: str
-        """
+
+    # Version A2, Time O(N), space O(N)
+    def convert(self, s: str, numRows: int) -> str:
+
         z= list(range(0, numRows)) + list(range(numRows-2, 0, -1))
         z *= (len(s) // len(z) + 1)  # 直接扩展z, 不要用cycle的方式
         mapping = [[] for _ in range(numRows)]
@@ -62,13 +56,10 @@ class Solution:
 
 
 class Solution(object):
-    def convert(self, s, numRows):
-        # Time O(N), Space O(1) better in space
-        """
-        :type s: str
-        :type numRows: int
-        :rtype: str
-        """
+
+    # Version B, Time O(N), Space O(1) better in space
+    def convert(self, s: str, numRows: int) -> str:
+
         if numRows == 1:
             return s
         step, zigzag = 2 * numRows - 2, ""
@@ -82,11 +73,14 @@ class Solution(object):
         return zigzag
 
 
-if __name__ == '__main__':
-    assert Solution().convert("", 3) == "", 'Edge 1'
-    assert Solution().convert("A", 1) == "A", 'Edge 1'
-    assert Solution().convert("AB", 1) == "AB", 'Edge 1'
+Solution().convert("PAYPALISHIRING", 3)
 
-    assert Solution().convert("PAYPALISHIRING", 3) == "PAHNAPLSIIGYIR", 'Example 1'
-    assert Solution().convert("PAYPALISHIRING", 4) == "PINALSIGYAHRPI", 'Example 2'
-    print('all passed')
+
+# if __name__ == '__main__':
+#     assert Solution().convert("", 3) == "", 'Edge 1'
+#     assert Solution().convert("A", 1) == "A", 'Edge 1'
+#     assert Solution().convert("AB", 1) == "AB", 'Edge 1'
+#
+#     assert Solution().convert("PAYPALISHIRING", 3) == "PAHNAPLSIIGYIR", 'Example 1'
+#     assert Solution().convert("PAYPALISHIRING", 4) == "PINALSIGYAHRPI", 'Example 2'
+#     print('all passed')
