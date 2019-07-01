@@ -73,14 +73,14 @@ class Solution(object):
         return zigzag
 
 
-Solution().convert("PAYPALISHIRING", 3)
 
 
-# if __name__ == '__main__':
-#     assert Solution().convert("", 3) == "", 'Edge 1'
-#     assert Solution().convert("A", 1) == "A", 'Edge 1'
-#     assert Solution().convert("AB", 1) == "AB", 'Edge 1'
-#
-#     assert Solution().convert("PAYPALISHIRING", 3) == "PAHNAPLSIIGYIR", 'Example 1'
-#     assert Solution().convert("PAYPALISHIRING", 4) == "PINALSIGYAHRPI", 'Example 2'
-#     print('all passed')
+if __name__ == '__main__':
+
+    assert Solution().convert("", 3) == "", 'Edge 1'
+    assert Solution().convert("A", 1) == "A", 'Edge 2'
+    assert Solution().convert("AB", 1) == "AB", 'Edge 3'
+
+    assert Solution().convert("PAYPALISHIRING", 3) == "PAHNAPLSIIGYIR", 'Example 1'
+    assert Solution().convert("PAYPALISHIRING", 4) == "PINALSIGYAHRPI", 'Example 2'
+    print('all passed')
