@@ -127,6 +127,17 @@ print(re.findall(r'^\s*<\?xml.*\?>', '  <?xml abcdefg ?> <?xml ABCDEFG ?>'))
 print(re.findall(r'^\s*<\?xml.*?\?>', '  <?xml abcdefg ?> <?xml ABCDEFG ?>'))
 # >>> ['  <?xml abcdefg ?>']  # fix贪婪
 
+# ^.*$ 总能找到匹配? 请找出 一个反例
+print(re.findall(r'^.*$', '')) # >>> ['']
+print(re.findall(r'^.*$', '\n')) # >>> ['']
+
+
+
+# 分行匹配模式
+print(re.findall(r'(?m)^abc\w*$', 'abcde\nabcDE'))
+# >>> ['abcde', 'abcDE']   # 找取每一行符合的
+
+
 
 
 
