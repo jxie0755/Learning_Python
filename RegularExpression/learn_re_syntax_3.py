@@ -91,7 +91,8 @@ re.match(r'^(\d+?)(0*)$', '102300').groups()
 
 
 # 判断边界,但是不包括边界
-# \B 表示边界必须是空白
+# \b 表示边界必须是空白
+# 如果想匹配完整单词, 务必前后加\b
 print(re.findall(r'[a-z]{2}', 'aa bbk kcc kddk'))
 # >>> ['aa', 'bb', 'kc', 'kd', 'dk']
 print(re.findall(r'\b[a-z]{2}\b', 'aa bbk kcc kddk'))
@@ -109,8 +110,10 @@ print(re.findall(r'[a-z]{2}\B', 'aa bbk kcc kddk'))
 print(re.findall(r'\B[a-z]{2}', 'aa bbk kcc kddk'))
 # >>> ['bk', 'cc', 'dd']
 
-
-
-
-
-
+print(re.findall(r'\B-\B', 'nine-digit, color  a  coded, pass-key'))
+print(re.findall(r'\Ba\B', 'BaB')) # >>> ['a']
+print(re.findall(r'\B-\B', 'B-B')) # >>> None
+# 注意, \b匹配的是\W^\w或者\w^\W, 之前的^位置, 而\B则是相反
+# 它们并不是单纯的判断前后是否为空白, 而是考虑前后字符属性关系
+# 所以连字符-和空白, 不属于\B这种情况, 反而是属于\b, 因为空白和-都不是\w
+print(re.findall(r'\Ba\b', 'Xa#')) # >>> ['a']  # 可以, 因为#不属于\w,a是\w
