@@ -90,7 +90,7 @@ re.match(r'^(\d+?)(0*)$', '102300').groups()
 
 
 
-# 判断边界,但是不包括边界
+# 判断单词边界,但是不包括边界
 # \b 表示边界必须是空白
 # 如果想匹配完整单词, 务必前后加\b
 print(re.findall(r'[a-z]{2}', 'aa bbk kcc kddk'))
@@ -117,3 +117,16 @@ print(re.findall(r'\B-\B', 'B-B')) # >>> None
 # 它们并不是单纯的判断前后是否为空白, 而是考虑前后字符属性关系
 # 所以连字符-和空白, 不属于\B这种情况, 反而是属于\b, 因为空白和-都不是\w
 print(re.findall(r'\Ba\b', 'Xa#')) # >>> ['a']  # 可以, 因为#不属于\w,a是\w
+
+
+
+# String边界
+# ^匹配开头,$匹配结尾
+print(re.findall(r'^\s*<\?xml.*\?>', '  <?xml abcdefg ?> <?xml ABCDEFG ?>'))
+# >>> ['  <?xml abcdefg ?> <?xml ABCDEFG ?>']  # 贪婪导致
+print(re.findall(r'^\s*<\?xml.*?\?>', '  <?xml abcdefg ?> <?xml ABCDEFG ?>'))
+# >>> ['  <?xml abcdefg ?>']  # fix贪婪
+
+
+
+
