@@ -66,6 +66,7 @@ def operate_brack(command, content, filedir):
 
 if __name__ == '__main__':
 
+    # Single directory, no need to recursion
     while True:
         command = input("Please choose a command to [add] or [del] the '[]':")
         if command != 'add' and command != 'del':
