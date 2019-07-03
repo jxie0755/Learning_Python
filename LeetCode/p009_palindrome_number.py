@@ -27,8 +27,11 @@ class Solution:
         return reverse == x
 
 if __name__ == '__main__':
-    assert Solution().isPalindrome2(21477412) == True, 'Is palindrome (even)'
-    assert Solution().isPalindrome2(12321) == True, 'Is palindrome (odd)'
-    assert Solution().isPalindrome2(-21477412) == False, 'Not palindrome'
-    assert Solution().isPalindrome2(1) == True, 'Single digit'
+
+    assert Solution().isPalindrome(21477412) == True, 'Is palindrome (even)'
+    assert Solution().isPalindrome(12321) == True, 'Is palindrome (odd)'
+    assert not Solution().isPalindrome(1477412), 'Not palindrome'
+    assert Solution().isPalindrome(1), 'Single digit 1'
+    assert Solution().isPalindrome(0), 'Single digit 0'
+
     print('all passed')
