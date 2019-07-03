@@ -4,21 +4,20 @@
 # Determine whether an integer is a palindrome. Do this without extra space.
 # Negative integer will not be a palindrome
 
-# """
-# :type x: int
-# :rtype: bool
-# """
 
 class Solution:
-    def isPalindrome(self, x):
-        # string method, takes extra space
+
+    # Version A,  string method, takes extra space
+    def isPalindrome(self, x: int) -> bool:
+        #
         if x < 0:
             return False
         else:
             return str(x) == str(x)[::-1]
 
-    def isPalindrome2(self, x):
-        # use divmod method
+    # Version B, divmod method
+    def isPalindrome(self, x: int) -> bool:
+
         if x < 0:
             return False
         copy, reverse = x, 0
