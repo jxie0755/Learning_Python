@@ -237,6 +237,7 @@ print([i.group(0) for i in re.finditer(r'[0-9]+(?! dog|dogs)', '1 dog 2 dogs 3 c
 
 
 # Chapter 10 嵌入条件
+
 # 电话号码的格式
 # (111)111-1111 和 222-222-2222                 可被接受
 # 3333333333 和 (444)-444-4444 和 (555-555-5555) 不可接受
@@ -249,16 +250,32 @@ print(re.match(option1, '3333333333')) # >>> None
 print(re.match(option1, '(444)-444-4444')) # >>> Matched
 print(re.match(option1, '(555-555-5555)')) # >>> Matched
 
-
-# 最后一个被匹配是因为长string,如果单独匹配match的话是不行的:
-# (\()? 匹配一个可选左括号
-# (?(1)\)|-) 是一个回溯引用条件
-    # 如果(1)也就是左括号存在, 那就必须有\)右括号匹配 (注意这里不能用\1而是用(1)表示group(1)
-    # 如果没有左括号那么必须被-分隔
-# 这样就排除掉了(444)-444-4444 和 (555-555-5555)')
 option2 = r'(\()?\d{3}(?(1)\)|-)\d{3}-\d{3}'
 print(re.match(option2, '(111)111-1111')) # >>> Matched
 print(re.match(option2, '222-222-2222')) # >>> Matched
 print(re.match(option2, '3333333333')) # >>> None
 print(re.match(option2, '(444)-444-4444')) # >>> None
 print(re.match(option2, '(555-555-5555)')) # >>> None
+# (\()? 匹配一个可选左括号
+# (?(1)\)|-) 是一个回溯引用条件
+    # 如果(1)也就是左括号存在, 那就必须有\)右括号匹配 (注意这里不能用\1而是用(1)表示group(1)
+    # 如果没有左括号那么必须被-分隔
+# 这样就排除掉了(444)-444-4444 和 (555-555-5555)')
+
+# 前后查找条件
+# 美国邮编, 两种形式一种是5digits另一种是5digits-4digits
+option1 = r'\d{5}(-\d{4})?'
+print(re.match(option1, '11111')) # >>> Matched
+print(re.match(option1, '22222-')) # >>> Matched
+print(re.match(option1, '33333-33')) # >>> Matched
+print(re.match(option1, '44444-4444')) # >>> Matched
+print(re.match(option1, '555555-5)')) # >>> Matched
+# 全都匹配了
+
+option2 = r'\d{5}(-)(?(1)\d{4})|^\d{5}$'
+# 若是-存在就必须匹配后4个数字, 不然就是纯5个数字
+print(re.match(option2, '11111')) # >>> Matched
+print(re.match(option2, '22222-')) # >>> None
+print(re.match(option2, '33333-33')) # >>> None
+print(re.match(option2, '44444-4444')) # >>> Matched
+print(re.match(option2, '555555-5)')) # >>> None
