@@ -176,9 +176,32 @@ print([i.group(0) for i in re.finditer(r'(((\d{1,2})|(1\d{2})|(2[0-4]\d)|(25[0-5
 
 
 # 回溯引用, 前后一致配对
+# 例子匹配HTML中的标题
+print([i.group(0) for i in re.finditer(r'<[hH]1>.*?</[hH]1>', '<H1>Title1</H1> <H2>Title2</H2>, <H3>Title3</H4>')])
+# >>> ['<H1>Title1</H1>']  # 这样只能找到H1
+# 简单办法: 使用[1-6]
+print([i.group(0) for i in re.finditer(r'<[hH][1-6]>.*?</[hH][1-6]>', '<H1>Title1</H1> <H2>Title2</H2>, <H3>Title3</H4>')])
+# >>> ['<H1>Title1</H1>', '<H2>Title2</H2>', '<H3>Title3</H4>']  # 实现了功能, 但是没有解决错误: 第三项, H3与H4不配对
+# 解法: 使用回溯引用
+print([i.group(0) for i in re.finditer(r'<[hH]([1-6])>.*?</[hH]\1>', '<H1>Title1</H1> <H2>Title2</H2>, <H3>Title3</H4>')])
+# >>> ['<H1>Title1</H1>', '<H2>Title2</H2>']  # 这样就排除掉了错误的前后title标符
+
+# 例子2, 一段文字, 中间出错了, 里面有些单词背打了两次
+print([i.group(0) for i in re.finditer(r'(\w+)[ ]+\1', 'denis xie xie cindy tian tian go to school')])
+# >>> [' xie xie', ' tian tian']  # 解释: 文字+空格, \1表示前面的(\w)再重复一次
+# \1表示group(1), \2表示group(2)以此类推, (\0)表示整个表达式 (python不支持)
+
+# 回溯用途替换
+print(re.sub(r'([1-5])234', r'\1??','1234 2234 3234 8234 9234'))
+# >>> 1?? 2?? 3?? 8234 9234
+print(re.sub(r'([1-5])(234)', r'\2??','1234 2234 3234 8234 9234'))
+# >>> 234?? 234?? 234?? 8234 9234
+print(re.sub(r'([1-5])(234)', r'\0??','1234 2234 3234 8234 9234'))
+# >>>  ??  ??  ?? 8234 9234   # python不支持\0
 
 
 
+# 前后查找
 
 
 
