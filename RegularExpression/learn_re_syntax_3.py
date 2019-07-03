@@ -28,11 +28,9 @@ print(re.findall(r'Be', 'Ben BBe is my name'))
 # >>> ['Be', 'Be']
 
 
-
 # 用.替代任何,甚至.本身
 print(re.findall(r'c.t', 'cat, cot, scut, sc@t, sc t'))
 # >>> ['cat', 'cot', 'cut', 'c@t', 'c t']
-
 
 
 # 匹配特殊字符使用转义
@@ -42,11 +40,9 @@ print(re.findall(r'Array\[0\]', 'Array[0]'))
 # >>> ['Array[0]']
 
 
-
 # 匹配某个字符
 print(re.findall(r'[cs]at', 'cat, sat, nat')) # 规定a前面必须只能是c和s
 # >>> ['cat', 'sat']
-
 
 
 # 匹配区间
@@ -54,18 +50,15 @@ print(re.findall(r'[cs]at[0-9]', 'cat, sat11, nat')) # t之后必须接一个数
 # >>> ['sat1']
 
 
-
 # 取非, []内用^
 print(re.findall(r'[cs]at[^0-9]', 'cat, sat11, nat')) # t之后必须接一个数字
 # >>> ['cat,']
 
 
-
+# Chapter 5 重复匹配
 # 重复匹配次数限定
 print(re.findall(r'(\d{1,2}[-\/])(\d{1,2}[-\/])\d{2,4}', '4/8/03 10-6/2004 2/2/2 01-02-01'))
 # >>> [('4/', '8/'), ('10-', '6/'), ('01-', '02-')]
-
-
 
 # 贪婪匹配
 # + 和 * 可能过度匹配
@@ -89,7 +82,7 @@ re.match(r'^(\d+?)(0*)$', '102300').groups()
 # >>> ('1023', '00')
 
 
-
+# Chapter 6 边界
 # 判断单词边界,但是不包括边界
 # \b 表示边界必须是空白
 # 如果想匹配完整单词, 务必前后加\b
@@ -132,7 +125,6 @@ print(re.findall(r'^.*$', '')) # >>> ['']
 print(re.findall(r'^.*$', '\n')) # >>> ['']
 
 
-
 # 分行匹配模式
 print(re.findall(r'(?m)^abc\w*$', 'abcde\nabcDE'))
 # >>> ['abcde', 'abcDE']   # 找取每一行符合的
@@ -140,7 +132,7 @@ print(re.findall(r'(?m)^abc\w*$', 'abcde\nabcDE'))
 
 
 
-# 子表达式 (也就是分组)
+# Chapter 7 子表达式 (也就是分组)
 
 # 寻找ip地址
 print(re.findall(r'\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}', '12.159.0.1, 192.168.1.2'))
@@ -163,7 +155,6 @@ print([i.group(0) for i in re.finditer(r'(19|20)\d{2}', '1986-07-04')])
 # >>> ['1986']
 
 
-
 # 子表达式的嵌套
 # 不应该过度嵌套, 建议适可而止
 # ip地址重看:
@@ -175,7 +166,7 @@ print([i.group(0) for i in re.finditer(r'(((\d{1,2})|(1\d{2})|(2[0-4]\d)|(25[0-5
 
 
 
-# 回溯引用, 前后一致配对
+# Chapter 8 回溯引用, 前后一致配对
 # 例子匹配HTML中的标题
 print([i.group(0) for i in re.finditer(r'<[hH]1>.*?</[hH]1>', '<H1>Title1</H1> <H2>Title2</H2>, <H3>Title3</H4>')])
 # >>> ['<H1>Title1</H1>']  # 这样只能找到H1
@@ -201,15 +192,15 @@ print(re.sub(r'([1-5])(234)', r'\0??','1234 2234 3234 8234 9234'))
 
 
 
-# 前后查找 (零宽度匹配)
+# Chapter 9 前后查找 (零宽度匹配)
 
-# 向前查找(向下文查找) 使用?=开头的子表达式
+# 向前查找(向下文查找) 使用?=开头的子表达式 (Positive lookahead)
 print([i.group(0) for i in re.finditer(r'.+(?=://)', 'http://www.google.com \n https://www.apple.com')])
 # >>> ['http', ' https']   注意后面的(?=:)匹配的是具体的网址,但是我们不需要它
 print([i.group(0) for i in re.finditer(r'.+(://)', 'http://www.google.com \n https://www.apple.com')])
 # >>> ['http://', ' https://']  # 若是不使用, 则://被包括进来
 
-# 向后查找(向上文查找) 使用?<=开头的子表达式
+# 向后查找(向上文查找) 使用?<=开头的子表达式 (Positive lookbehind)
 print([i.group(0) for i in re.finditer(r'\$[0-9.]+', 'Apple: $1.99, Orange: $4.35, Total: 2')])
 # >>> ['$1.99', '$4.35']  # 出现了两个$前缀的价格, 如果不想要$怎么办?
 print([i.group(0) for i in re.finditer(r'[0-9.]+', 'Apple: $1.99, Orange: $4.35, Total: 2')])
@@ -225,6 +216,13 @@ print(re.findall(r'<[tT][iI][tT][lL][eE]>.*</[tT][iI][tT][lL][eE]>', '<HEAD> <TI
 print([i.group(0) for i in re.finditer(r'(?<=<[tT][iI][tT][lL][eE]>).*(?=</[tT][iI][tT][lL][eE]>)', '<HEAD> <TItlE>????</tItLE>')])
 # >>> ['????']
 
+# 前后负查找 与上面类似, 但是刚好相反, 需要匹配的是"前后文没有(?)的内容
+# (?!)  Negative Lookahead
+print([i.group(0) for i in re.finditer(r'(?<!\$)[0-9]+', 'Apple: $1, Orange: $2, Total: 3')])
+# >>> ['3']
+# (?<!) Negative Lookbehind
+print([i.group(0) for i in re.finditer(r'[0-9]+(?! dog|dogs)', '1 dog 2 dogs 3 cats 4 cats')])
+# >>> ['3', '4']
 
 # 零宽度断言(?!exp)
 # [^abc]表示不包含a、b、c中任意字符, 我想实现不包含字符串abc应该如何写表达式?
@@ -237,3 +235,5 @@ print([i.group(0) for i in re.finditer(r'(?<=<[tT][iI][tT][lL][eE]>).*(?=</[tT][
 # 如果排除字符长度不长, 比如排除if在前的情况, 可以用^([^f]|[^i]f)+$, 这里是使用f开头的词,或者没有f前没有i开头的词来实现
 # 如果要排除的长度很长, 这个写起来会非常复杂
 
+
+# Chapter 10 嵌入条件
