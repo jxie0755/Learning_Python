@@ -201,17 +201,25 @@ print(re.sub(r'([1-5])(234)', r'\0??','1234 2234 3234 8234 9234'))
 
 
 
-# 前后查找
+# 前后查找 (零宽度匹配)
+#  提取HTML页面的<TITLE>项, (title可大小写混用)
+print(re.findall(r'<[tT][iI][tT][lL][eE]>.*</[tT][iI][tT][lL][eE]>', '<HEAD> <TItlE>????</tItLE>'))
+# >>> ['<TItlE>????</tItLE>']  # 这样不小心把前后<TITLE>标也包括了进来, 但是我不想要这个, 只想要中间的????
+# 可用子表达式解决这个问题, 把内容????用子表达式装载, 然后只提取子表达式
 
+# 向前查找(向下文查找) 使用?=开头的子表达式
+print([i.group(0) for i in re.finditer(r'.+(?=://)', 'http://www.google.com \n https://www.apple.com')])
+# >>> ['http', ' https']   注意后面的(?=:)匹配的是具体的网址,但是我们不需要它
+print([i.group(0) for i in re.finditer(r'.+(://)', 'http://www.google.com \n https://www.apple.com')])
+# >>> ['http://', ' https://']  # 若是不使用, 则://被包括进来
 
-
-
-
-
-
-
-
-
+# 向后查找(向上文查找) 使用?<=开头的子表达式
+print([i.group(0) for i in re.finditer(r'\$[0-9.]+', 'Apple: $1.99, Orange: $4.35, Total: 2')])
+# >>> ['$1.99', '$4.35']  # 出现了两个$前缀的价格, 如果不想要$怎么办?
+print([i.group(0) for i in re.finditer(r'[0-9.]+', 'Apple: $1.99, Orange: $4.35, Total: 2')])
+# >>> ['1.99', '4.35', '2']  直接去掉: 这样会把最后那个不是价格的也提取进来
+print([i.group(0) for i in re.finditer(r'(?<=\$)[0-9.]+', 'Apple: $1.99, Orange: $4.35, Total: 2')])
+# >>> ['1.99', '4.35'] # 通过前文查找完美规避
 
 # 零宽度断言(?!exp)
 # [^abc]表示不包含a、b、c中任意字符, 我想实现不包含字符串abc应该如何写表达式?
