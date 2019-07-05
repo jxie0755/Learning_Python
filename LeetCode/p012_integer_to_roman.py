@@ -4,13 +4,10 @@
 # Given an integer, convert it to a roman numeral.
 # Input is guaranteed to be within the range from 1 to 3999.
 
-# """
-# :type num: int
-# :rtype: str
-# """
-
 class Solution:
-    def intToRoman(self, num):
+
+    # Version A, hasmap convert
+    def intToRoman(self, num: int) -> str:
         R = {0: '', 1: 'I', 2: 'II', 3: 'III', 4: 'IV', 5: 'V', 6: 'VI', 7: 'VII', 8: 'VIII', 9: 'IX',
              10: 'X', 20: 'XX', 30: 'XXX', 40: 'XL', 50: 'L', 60: 'LX', 70: 'LXX', 80: 'LXXX', 90: 'XC',
              100: 'C', 200: 'CC', 300: 'CCC', 400: 'CD', 500: 'D', 600: 'DC', 700: 'DCC', 800: 'DCCC', 900: 'CM',
@@ -20,7 +17,8 @@ class Solution:
         dlst = list(map(lambda x, y: int(x) * y, num, (1000, 100, 10, 1)))  # 分解各数位
         return ''.join(list(map(lambda x: R[x], dlst)))  # 将各数位代换成罗马数字,然后拼接
 
-    def intToRoman2(self, num):
+    # Version B, string method
+    def intToRoman2(self, num: int) -> str:
         num = str(num).rjust(4, '0')  # 拆解data成为单独的数字字符,并补足数位
         def rom(n, x, y, z):  # 写一个函数来表明转换逻辑
             nd = int(num[n])
@@ -38,7 +36,8 @@ class Solution:
         # 使用map对data中每个数位进行转换,然后合并
         return ''.join(list(map(rom, range(4), ['M', 'C', 'X', 'I'], ['', 'D', 'L', 'V'], ['', 'M', 'C', 'X'])))
 
-    def intToRoman3(self, num):
+    # Version C, hashmap alternative
+    def intToRoman3(self, num: int) -> str:
         result = ''
         roman_list = [(1000, 'M'), (900, 'CM'), (500, 'D'), (400, 'CD'),
                       (100, 'C'), (90, 'XC'), (50, 'L'), (40, 'XL'),
@@ -55,5 +54,5 @@ class Solution:
         # 也可以使用collections.OrderedDrict
 
 if __name__ == '__main__':
-    assert Solution().intToRoman3(3888) == 'MMMDCCCLXXXVIII', 'one check is good'
+    assert Solution().intToRoman(3888) == 'MMMDCCCLXXXVIII', 'one check is good'
     print('all passed')
