@@ -14,6 +14,8 @@
 # Only the space character ' ' is considered as whitespace character.
 # Assume we are dealing with an environment which could only store integers within the 32-bit signed integer range: [−231,  231 − 1]. If the numerical value is out of the range of representable values, INT_MAX (2^31 − 1) or INT_MIN (−2^31) is returned.
 
+import re
+
 class Solution:
 
     # Version A, string method
@@ -69,7 +71,23 @@ class Solution:
                 return high
             return result
 
+    # Version B, use regex method
+    def myAtoi(self, str: str) -> int:
+        mo = re.search(r'^[\s]*([+\-]?)(\d+)', str)
 
+        if not mo:
+            return 0
+
+        result, base = 0, 1
+        for i in mo.group(2)[::-1]:
+            result += int(i) * base
+            base *= 10
+        result = -1* result if mo.group(1) == '-' else result
+        if result < -2**31:
+            return -2**31
+        elif result > 2**31 - 1:
+            return 2**31 - 1
+        return result
 
 
 if __name__ == '__main__':
@@ -87,5 +105,11 @@ if __name__ == '__main__':
     assert Solution().myAtoi("  -0012a42") == -12, 'Extra 4'
     assert Solution().myAtoi("   +0 123") == 0, 'Extra 5'
     assert Solution().myAtoi("-5-") == -5, 'Extra 6'
+    assert Solution().myAtoi("9223372036854775808") == 2147483647, 'Extra 6'
 
     print('all passed')
+
+
+
+
+
