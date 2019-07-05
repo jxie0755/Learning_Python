@@ -279,3 +279,17 @@ print(re.match(option2, '22222-')) # >>> None
 print(re.match(option2, '33333-33')) # >>> None
 print(re.match(option2, '44444-4444')) # >>> Matched
 print(re.match(option2, '555555-5)')) # >>> None
+
+
+# 匹配数字(带小数点和前置0)
+pattern = r'((?=0*)[1-9]+[0-9]+\.{1}|0{1}\.{1})(?(1)(?!\.)\d+)|(?=0*)([1-9]+[0-9]*(?!\.{2,}))'
+print(re.search(pattern, "123"))
+print(re.search(pattern, "000123"))
+print(re.search(pattern, "000123000456"))
+print(re.search(pattern, "0.000123000"))
+print(re.search(pattern, "0.000123000456"))
+print(re.search(pattern, "00.0099"))
+print(re.search(pattern, "12.123"))
+print(re.search(pattern, "000123.123"))
+print(re.search(pattern, "123..456"))
+
