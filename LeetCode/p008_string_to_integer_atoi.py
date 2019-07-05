@@ -15,46 +15,34 @@
 # Assume we are dealing with an environment which could only store integers within the 32-bit signed integer range: [−231,  231 − 1]. If the numerical value is out of the range of representable values, INT_MAX (2^31 − 1) or INT_MIN (−2^31) is returned.
 
 class Solution:
-    def myAtoi(self, str):
-        """
-        :type str: str
-        :rtype: int
-        """
-        hashtable = {
-            '0': 0,
-            '1': 1,
-            '2': 2,
-            '3': 3,
-            '4': 4,
-            '5': 5,
-            '6': 6,
-            '7': 7,
-            '8': 8,
-            '9': 9,
-        }
 
-        prefix = {
-            '+': 1,
-            '-': -1
-        }
+    # Version A, string method
+    def myAtoi(self, str: str) -> int:
+
+        # Two hashmap to convert char to digit
+        digits = ['0', '1', '2', '3',
+                  '4', '5', '6', '7',
+                  '8', '9']
+        prefix = ['+', '-']
 
         low = -2**31
         high = 2**31 - 1
 
-        # Get the numeric first
+        # Get the numeric first (before decimal point)
         found = False
         extract = ''
         for i in str:
             if i == ' ' and not found:
                 pass
 
-            elif i in prefix and not found:
-                extract += i
-                found = True
-            elif i in prefix and found:
-                break
+            elif i in prefix:
+                if not found:
+                    extract += i
+                    found = True
+                else:
+                    break
 
-            elif i in hashtable:
+            elif i in digits:
                 extract += i
                 found = True
 
@@ -69,11 +57,11 @@ class Solution:
         else:
             result, base = 0, 1
             for i in extract[::-1]:
-                if i in hashtable:
-                    result += hashtable[i] * base
+                if i in digits:
+                    result += int(i) * base
                     base *= 10
-                elif i in prefix:
-                    result *= prefix[i]
+                elif i == '-':
+                    result *= -1
 
             if result < low:
                 return low
