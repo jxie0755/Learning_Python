@@ -6,6 +6,8 @@
 
 
 class Solution:
+
+    # Version A, hashmap method
     def romanToInt(self, s: str) -> int:
         result = 0
         # remove the possibility of 4 and 9
@@ -24,6 +26,6 @@ class Solution:
 
 if __name__ == '__main__':
 
-    assert Solution().romanToInt('MMMCDXCIX') == 3499
+    assert Solution().romanToInt('MMMCDXCIX') == 3499, 'Example 1'
     print('all passed')
 
