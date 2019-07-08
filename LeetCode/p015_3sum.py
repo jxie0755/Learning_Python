@@ -7,10 +7,12 @@
 
 # Note: The solution set must not contain duplicate triplets.
 
+from typing import *
 
 class Solution:
+
     def twoSum_for_3sum(self, numbers, target, jump):
-        # hastable method from P001
+
         result = []
         hashtable = {}
         for idx in range(0, len(numbers)):
@@ -23,14 +25,12 @@ class Solution:
                 # do not return, but get every possible group of target two sum
         return result
 
-    def threeSum(self, nums):
-        # Use modified method of two_sum
-        # with every number, check the rest of array for two_sum of (0-number)
-        # O(N^2), max time limit exceeded
-        """
-        :type nums: List[int]
-        :rtype: List[List[int]]
-        """
+    # Version A, hastable method from P001
+    # Use modified method of two_sum (Above)
+    # with every number, check the rest of array for two_sum of (0-number)
+    # O(N^2), max time limit exceeded
+    def threeSum(self, nums: List[int]) -> List[List[int]]:
+
         result = []
         i = 0
         while i != len(nums):
@@ -46,12 +46,10 @@ class Solution:
         return result
 
 class Solution:
-    def threeSum(self, nums):
-        # Pure brutal force, O(N^3), max time limit exceeded
-        """
-        :type nums: List[int]
-        :rtype: List[List[int]]
-        """
+
+    # Version B
+    # Pure brutal force, O(N^3), max time limit exceeded
+    def threeSum(self, nums: List[int]) -> List[List[int]]:
 
         length = len(nums)
 
@@ -78,14 +76,13 @@ class Solution:
         return result
 
 class Solution:
-    def threeSum_x(self, nums):
-        # Split the list to negative numbers and postive numbers
-        # handle [-i, 0, i] and [-i, -j, k] and [-i, j, k] individually
-        # Same O(N^2) max time limit exceeded
-        """
-        :type nums: List[int]
-        :rtype: List[List[int]]
-        """
+
+    # Version C, optimized O(N^2)
+    # Split the list to negative numbers and postive numbers
+    # handle [-i, 0, i] and [-i, -j, k] and [-i, j, k] individually
+    # Same O(N^2) max time limit exceeded
+    def threeSum_x(self, nums: List[int]) -> List[List[int]]:
+
         if len(nums) < 3:
             return []
 
@@ -126,13 +123,13 @@ class Solution:
         return result
 
 class Solution:
-    def threeSum(self, nums):
-        # Since we only need to return numbers, it does not need to be indexed
-        # Break down the nums with a sort first, then move head and tail towards center
-        """
-        :type nums: List[int]
-        :rtype: List[List[int]]
-        """
+
+    # Version D
+    # Since we only need to return numbers, it does not need to be indexed
+    # Break down the nums with a sort first, then move head and tail towards center
+    # Max Limit Exceeded
+    def threeSum(self, nums: List[int]) -> List[List[int]]:
+
         nums, length = sorted(nums), len(nums)
         head, tail = 0, length - 1
         result = []
@@ -177,14 +174,12 @@ class Solution:
         return result
 
 
+    # Version E
+    # Use modified method of two_sum
+    # with every number, check the rest of array for two_sum of (0-number)
+    # O(N^2), max time limit exceeded
     def threeSum(self, nums):
-        # Use modified method of two_sum
-        # with every number, check the rest of array for two_sum of (0-number)
-        # O(N^2), max time limit exceeded
-        """
-        :type nums: List[int]
-        :rtype: List[List[int]]
-        """
+
         nums = sorted(nums)
 
         result = []
@@ -202,13 +197,13 @@ class Solution:
 
         return result
 
+
 class Solution(object):
+
+    # STD ans
+    # O(N*2^N)
     def threeSum(self, nums):
-        # O(N*2^N)
-        """
-        :type nums: List[int]
-        :rtype: List[List[int]]
-        """
+
         nums, result, i = sorted(nums), [], 0
         while i < len(nums) - 2:
 
