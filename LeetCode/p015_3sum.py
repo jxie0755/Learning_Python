@@ -177,7 +177,7 @@ class Solution:
     # Use modified method of two_sum
     # with every number, check the rest of array for two_sum of (0-number)
     # O(N^2), max time limit exceeded
-    def threeSum(self, nums):
+    def threeSum(self, nums: List[int]) -> List[List[int]]:
 
         nums = sorted(nums)
 
@@ -200,8 +200,8 @@ class Solution:
 class Solution(object):
 
     # STD ans
-    # O(N*2^N)
-    def threeSum(self, nums):
+    # Time:  O(n^2)
+    def threeSum(self, nums: List[int]) -> List[List[int]]:
 
         nums, result, i = sorted(nums), [], 0
         while i < len(nums) - 2:
