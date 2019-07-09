@@ -32,8 +32,10 @@ print(json.dumps(d))
 json_str = '{"name": "Bob", "age": 20, "score": 88, "graduate": false, "record": null}'
 ld = json.loads(json_str)
 print(ld)
-print(type(ld))  # >>> <class 'dict'>  认得出是字典
 # >>> {'name': 'Bob', 'age': 20, 'score': 88, 'graduate': False, 'record': None}
+
+print(type(ld))
+# >>> <class 'dict'>  认得出是字典
 
 # JSON进阶
 # Python的dict对象可以直接序列化为JSON的{}
@@ -76,8 +78,8 @@ def student2dict(std):
         'criminal_record': std.criminal_record
     }
 
-print(json.dumps(s, default=student2dict))
-# >>> {"name": "Adrienne", "age": 2, "score": 95}
+print(json.dumps(s, default=student2dict)) # default调用转换函数
+# >>> {"name": "Adrienne", "age": 2, "score": 95, "graduate": false, "criminal_record": null}
 
 
 # json的dump和load, 是文本格式的, 不要使用binary
