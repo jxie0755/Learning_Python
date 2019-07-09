@@ -224,7 +224,8 @@ class Solution(object):
                         result.append([nums[i], nums[j], nums[k]])
                         j, k = j + 1, k - 1
 
-                        # 这一部分必须是找到一个答案才能做,不然可能会跳过一些解
+                        # 去重, 如果有重复数字, 则会形成重复解
+                        # 但是必须是找到一个答案才能做,不然可能会跳过一些解
                         while j < k and nums[j] == nums[j - 1]:
                             j += 1
                         while j < k and nums[k] == nums[k + 1]:
