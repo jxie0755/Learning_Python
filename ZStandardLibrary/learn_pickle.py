@@ -34,9 +34,14 @@ with open("./temp/dump.txt", "wb") as p_obj:
 with open("./temp/dump.txt", "rb") as p_obj:
     d2 = pickle.load(p_obj)
 
-# d2['name'] = 'Denis'
+d2['name'] = 'Denis'
 print(d2)  # >>> {'name': 'Denis', 'age': 20, 'score': 88}
 # 相当于把d修改了以后, 把d存在了硬盘上, 下次读取时就是修改后的内容
+
+# 再次打开同一个文件, 内容不会变化
+with open("./temp/dump.txt", "rb") as p_obj:
+    d2 = pickle.load(p_obj)
+print(d2)  # >>> {'name': 'Cindy', 'age': 20, 'score': 88}
 
 # Pickle的问题和所有其他编程语言特有的序列化问题一样，就是它只能用于Python，并且可能不同版本的Python彼此都不兼容，因此，只能用Pickle保存那些不重要的数据，不能成功地反序列化也没关系
 # 使用什么格式能够兼容呢? JSON
