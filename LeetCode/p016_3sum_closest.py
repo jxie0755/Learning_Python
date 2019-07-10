@@ -7,27 +7,27 @@
 # Return the sum of the three integers.
 # You may assume that each input would have exactly one solution.
 
+from typing import *
 
 class Solution:
-    def threeSumClosest(self, nums, target):
-        """
-        :type nums: List[int]
-        :type target: int
-        :rtype: int
-        """
+
+    # Version A
+    # Similar structure as 3Sum.
+    # Revise by checking the 3Sum with Target, and update the 3sum of lowest diff
+    def threeSumClosest(self, nums: List[int], target: int) -> int:
+
         nums = sorted(nums)
         diff = float('inf')
         result = float('inf')
 
         i = 0
-        # Similar structure as 3Sum.
-        # Revise by checking the 3Sum with Target, and update the 3sum of lowest diff
+
         while i < len(nums) - 2:
 
             if i == 0 or nums[i] != nums[i - 1]:
 
                 j, k = i + 1, len(nums) - 1
-                # i 是下一个, k是尾部
+                # j 是下一个, k是尾部
 
                 while j < k:
                     three_sum = nums[i] + nums[j] + nums[k]
@@ -54,6 +54,6 @@ if __name__ == '__main__':
     # No need to test edge as gurantee to have exactly one solution
     assert Solution().threeSumClosest([1, 1, 1], 1000) == 3, 'Edge'
     assert Solution().threeSumClosest([-1, 2, 1, -4], 1) == 2, 'Example 1'
-    assert Solution().threeSumClosest([-1, 2, 1, -4], -1) == -1, 'Match'
+    assert Solution().threeSumClosest([-1, 2, 1, -1], 0) == 0, 'Match'
 
     print('all passed')
