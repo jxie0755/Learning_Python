@@ -9,12 +9,11 @@
 # Note that 1 does not map to any letters.
 
 class Solution:
-    def letterCombinations(self, digits):
-        # Time:  O(n * 3^n)
-        """
-        :type digits: str
-        :rtype: List[str]
-        """
+
+    # Version A, hashtable
+    # Time:  O(n * 3^n)
+    def letterCombinations(self, digits: str) -> List[str]:
+
         hashtable = {'0': [' '],
                      '1': [''],
                      '2': ['a', 'b', 'c'],
