@@ -48,10 +48,10 @@ class Solution:
 
 
 if __name__ == '__main__':
+
     assert Solution().letterCombinations('') == [], 'Edge 1'
     assert Solution().letterCombinations('1') == [''], 'Edge 2'
     assert Solution().letterCombinations('0') == [' '], 'Edge 3'
-
 
     assert Solution().letterCombinations('2') == ['a', 'b', 'c'], 'Example 1'
     assert Solution().letterCombinations('20') == ['a ', 'b ', 'c '], 'Example 2'
