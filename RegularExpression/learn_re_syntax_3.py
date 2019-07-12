@@ -194,12 +194,6 @@ print(re.sub(r'([1-5])(234)', r'\0??','1234 2234 3234 8234 9234'))
 
 # Chapter 9 前后查找 (零宽度匹配)
 
-# 向前查找(向下文查找) 使用?=开头的子表达式 (Positive lookahead)
-print([i.group(0) for i in re.finditer(r'.+(?=://)', 'http://www.google.com \n https://www.apple.com')])
-# >>> ['http', ' https']   注意后面的(?=:)匹配的是具体的网址,但是我们不需要它
-print([i.group(0) for i in re.finditer(r'.+(://)', 'http://www.google.com \n https://www.apple.com')])
-# >>> ['http://', ' https://']  # 若是不使用, 则://被包括进来
-
 # 向后查找(向上文查找) 使用?<=开头的子表达式 (Positive lookbehind)
 print([i.group(0) for i in re.finditer(r'\$[0-9.]+', 'Apple: $1.99, Orange: $4.35, Total: 2')])
 # >>> ['$1.99', '$4.35']  # 出现了两个$前缀的价格, 如果不想要$怎么办?
@@ -207,6 +201,14 @@ print([i.group(0) for i in re.finditer(r'[0-9.]+', 'Apple: $1.99, Orange: $4.35,
 # >>> ['1.99', '4.35', '2']  直接去掉: 这样会把最后那个不是价格的也提取进来
 print([i.group(0) for i in re.finditer(r'(?<=\$)[0-9.]+', 'Apple: $1.99, Orange: $4.35, Total: 2')])
 # >>> ['1.99', '4.35'] # 通过前文查找完美规避
+
+# 向前查找(向下文查找) 使用?=开头的子表达式 (Positive lookahead)
+print([i.group(0) for i in re.finditer(r'.+(?=://)', 'http://www.google.com \n https://www.apple.com')])
+# >>> ['http', ' https']   注意后面的(?=:)匹配的是具体的网址,但是我们不需要它
+print([i.group(0) for i in re.finditer(r'.+(://)', 'http://www.google.com \n https://www.apple.com')])
+# >>> ['http://', ' https://']  # 若是不使用, 则://被包括进来
+
+
 
 #  提取HTML页面的<TITLE>项, (title可大小写混用)
 print(re.findall(r'<[tT][iI][tT][lL][eE]>.*</[tT][iI][tT][lL][eE]>', '<HEAD> <TItlE>????</tItLE>'))
@@ -217,10 +219,10 @@ print([i.group(0) for i in re.finditer(r'(?<=<[tT][iI][tT][lL][eE]>).*(?=</[tT][
 # >>> ['????']
 
 # 前后负查找 与上面类似, 但是刚好相反, 需要匹配的是"前后文没有(?)的内容
-# (?!)  Negative Lookahead
+# (?<!) Negative Lookbehind  (上文没有)
 print([i.group(0) for i in re.finditer(r'(?<!\$)[0-9]+', 'Apple: $1, Orange: $2, Total: 3')])
 # >>> ['3']
-# (?<!) Negative Lookbehind
+# (?!)  Negative Lookahead   (下文没有)
 print([i.group(0) for i in re.finditer(r'[0-9]+(?! dog|dogs)', '1 dog 2 dogs 3 cats 4 cats')])
 # >>> ['3', '4']
 
