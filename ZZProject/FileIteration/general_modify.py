@@ -25,6 +25,8 @@ def fn_test(file_dir):
 # dir = r"D:\Documents\GitHub\Learning_Python\ZZProject\FileIteration\test"
 # general_modify_recur(dir, fn_test)
 
+
+
 # String modification
 def string_change(file_dir):
     """change all string variable in this script from 'str' to "str" in style"""
