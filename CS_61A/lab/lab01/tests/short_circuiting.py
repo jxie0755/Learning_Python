@@ -1,11 +1,11 @@
 test = {
-  'name': 'Veritasiness',
-  'points': 0,
-  'suites': [
+  "name": "Veritasiness",
+  "points": 0,
+  "suites": [
     {
-      'cases': [
+      "cases": [
         {
-          'code': r"""
+          "code": r"""
           >>> True and 13
           72c74b6c7ed80d51f9fa7defbf7ed121
           # locked
@@ -19,11 +19,11 @@ test = {
           5154670fa295caf18cafa4245c1358a9
           # locked
           """,
-          'hidden': False,
-          'locked': True
+          "hidden": False,
+          "locked": True
         },
         {
-          'code': r"""
+          "code": r"""
           >>> True and 1 / 0 and False  # If this errors, just type Error.
           d7b5fd49f83e4ee318af207fc969c9f4
           # locked
@@ -43,17 +43,17 @@ test = {
           6d6f378f0affa7f84aa38e519e353617
           # locked
           """,
-          'hidden': False,
-          'locked': True
+          "hidden": False,
+          "locked": True
         }
       ],
-      'scored': False,
-      'type': 'wwpp'
+      "scored": False,
+      "type": "wwpp"
     },
     {
-      'cases': [
+      "cases": [
         {
-          'code': r"""
+          "code": r"""
           >>> not 0
           5154670fa295caf18cafa4245c1358a9
           # locked
@@ -67,12 +67,12 @@ test = {
           5dfeeb9ca37d955606d40c6553cd4956
           # locked
           """,
-          'hidden': False,
-          'locked': True
+          "hidden": False,
+          "locked": True
         }
       ],
-      'scored': False,
-      'type': 'wwpp'
+      "scored": False,
+      "type": "wwpp"
     }
   ]
 }

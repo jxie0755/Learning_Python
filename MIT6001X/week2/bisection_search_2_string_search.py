@@ -2,13 +2,13 @@
 
 # This is the iteration version
 def isIn(char, aStr):
-    '''
+    ""'
     char: a single character
     aStr: an alphabetized string
 
     returns: True if char is in aStr; False otherwise
-    '''
-    sorted_string = ''.join(sorted(aStr))
+    ""'
+    sorted_string = "".join(sorted(aStr))
     sorted_string = sorted_string.lstrip()
 
     index = len(sorted_string)
@@ -20,7 +20,7 @@ def isIn(char, aStr):
     if char < sorted_string[low] or char > sorted_string[high]:
         return False
     while True:
-        print('low =', str(low), 'high=', high, 'guess index=', guess_index, 'guess=', guess, )
+        print("low =", str(low), "high=", high, "guess index=", guess_index, "guess=", guess, )
         if guess == char:
             return True
         elif high - low == 1:
@@ -36,13 +36,13 @@ def isIn(char, aStr):
 
 # Recursion version
 def isIn2(char, aStr):
-    '''
+    ""'
     char: a single character
     aStr: an alphabetized string
 
     returns: True if char is in aStr; False otherwise
-    '''
-    sorted_string = ''.join(sorted(aStr))
+    ""'
+    sorted_string = "".join(sorted(aStr))
     sorted_string = sorted_string.lstrip()
 
     index = len(sorted_string)

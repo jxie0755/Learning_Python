@@ -10,9 +10,9 @@ class Solution(object):
         """
         result = []
         for i in reversed(xrange(len(S))):
-            if S[i] == '-':
+            if S[i] == "-":
                 continue
             if len(result) % (K + 1) == K:
-                result += '-'
+                result += "-"
             result += S[i].upper()
         return "".join(reversed(result))

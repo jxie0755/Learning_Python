@@ -41,7 +41,7 @@ print(dt.timestamp()) # 把datetime转换为timestamp
 
 
 print()
-print('class datetime.timedelta(days=0, seconds=0, microseconds=0, milliseconds=0, minutes=0, hours=0, weeks=0)')
+print("class datetime.timedelta(days=0, seconds=0, microseconds=0, milliseconds=0, minutes=0, hours=0, weeks=0)")
 
 # timedelta对象表示时间的间隔，即两个日期或时间之间的差值。
 datetime.timedelta(days=0, seconds=0, microseconds=0, milliseconds=0, minutes=0, hours=0, weeks=0)
@@ -80,7 +80,7 @@ print(A.total_seconds())  # >>> 93700.0005
 
 
 print()
-print('class datetime.date(year, month, day)')
+print("class datetime.date(year, month, day)")
 
 # date 类属性
 datetime.date.min # >>> 0001-01-01
@@ -110,7 +110,7 @@ A = datetime.date(2017, 11, 8)
 B = datetime.date(2016, 11, 8)
 C = B - A
 D = A - B
-print(type(C)) # >>>  <class 'datetime.timedelta'>
+print(type(C)) # >>>  <class "datetime.timedelta">
 print(C) # >>> -365 days, 0:00:00
 print(D) # >>>  365 days, 0:00:00
 # 测试闰年 - 成功- 会计算出366天
@@ -136,13 +136,13 @@ print(A.isocalendar()) # >>> (2017, 32, 2) 从1开始计算, 第2017年的第32�
 print(A.isoformat())   # 2017-08-08 # YYYY-MM-DD
 print(A.__str__())     # 对于日期d，str(d)等同于d.isoformat()
 print(A.ctime())  # >>> Sat Jun  7 00:00:00 1986
-print(A.strftime('%m/%d/%y'))           # >>> 08/08/17
-print(A.strftime('%m/%d/%y %H:%M:%S'))  # >>> 08/08/17 00:00:00
+print(A.strftime("%m/%d/%y"))           # >>> 08/08/17
+print(A.strftime("%m/%d/%y %H:%M:%S"))  # >>> 08/08/17 00:00:00
 print(A.__format__("%d/%m/%y"))  # same as above
 
 
 print()
-print('class datetime.datetime(year, month, day, hour=0, minute=0, second=0, microsecond=0, tzinfo=None, *, fold=0)')
+print("class datetime.datetime(year, month, day, hour=0, minute=0, second=0, microsecond=0, tzinfo=None, *, fold=0)")
 
 # 基本就是date + time
 
@@ -195,7 +195,7 @@ print(sample2)  # >>> 1900-01-01 16:30:59  # default will give you a date 1900-0
 A = datetime.datetime(year=2017, month=3, day=15, hour=17, minute=15, second=30, microsecond = 59)
 print(A)  # >>> 2017-03-15 17:15:30.000059
 
-print(A.strftime('%m/%d/%y %I:%M:%S %p'))  # >>> 03/16/17 05:15:30 PM
+print(A.strftime("%m/%d/%y %I:%M:%S %p"))  # >>> 03/16/17 05:15:30 PM
 print(A.year)          # >>> 2017
 print(A.month)         # >>> 3
 print(A.day)           # >>> 16
@@ -274,20 +274,20 @@ print(A.toordinal())      # >>> 736403  # 相距公元-天数,只返回天数
 # datetime.isoweekday()
 # datetime.isocalendar()
 
-# datetime.isoformat(sep='T')
-# 可选参数sep（默认为'T'）是一个单字符分隔符，位于结果的日期和时间部分之间
+# datetime.isoformat(sep="T")
+# 可选参数sep（默认为"T"）是一个单字符分隔符，位于结果的日期和时间部分之间
 
 # 其他类似date的实例方法
 # datetime.__str__()
 # datetime.ctime()
 # datetime.strftime(format)
-print(A.strftime('%m/%d/%y'))           # >>> 03/15/17
-print(A.strftime('%m/%d/%Y %H:%M:%S'))  # >>> 03/15/2017 17:15:30
+print(A.strftime("%m/%d/%y"))           # >>> 03/15/17
+print(A.strftime("%m/%d/%Y %H:%M:%S"))  # >>> 03/15/2017 17:15:30
 
 # datetime.__format__(format)
 
 
-print('\ndatetime时区转换')
+print("\ndatetime时区转换")
 # 本地时间转换为UTC时间
 # 本地时间是指系统设定时区的时间，例如北京时间是UTC+8:00时区的时间，而UTC时间指UTC+0:00时区的时间。
 # 一个datetime类型有一个时区属性tzinfo，但是默认为None，所以无法区分这个datetime到底是哪个时区，除非强行给datetime设置一个时区
@@ -322,7 +322,7 @@ print(nyc_dt2)
 
 
 print()
-print('class datetime.time(hour=0, minute=0, second=0, microsecond=0, tzinfo=None, *, fold=0)')
+print("class datetime.time(hour=0, minute=0, second=0, microsecond=0, tzinfo=None, *, fold=0)")
 # 所有参数都是可选的。tzinfo可以是None或tzinfo子类的实例
 # time是哈希的,所以可以用作字典键
 
@@ -374,7 +374,7 @@ print('class datetime.time(hour=0, minute=0, second=0, microsecond=0, tzinfo=Non
 
 
 print()
-print('class datetime.tzinfo')
+print("class datetime.tzinfo")
 # 这是一个抽象的基类，意味着这个类不应该直接实例化
 # 你需要派生一个具体的子类，并且（至少）提供你使用的datetime方法所需的标准tzinfo方法的实现
 # datetime模块提供tzinfo的一个简单的具体子类timezone，它可以表示与UTC有固定偏移的时区，如UTC本身或北美EST和EDT
@@ -441,13 +441,13 @@ class FixedOffset(tzinfo):
 
 
 print()
-print('class datetime.timezone(offset, name=None)')
+print("class datetime.timezone(offset, name=None)")
 
 # timezone.utcoffset(dt)
 # 返回构建timezone实例时指定的固定值。忽略dt参数。返回值是等于本地时间和UTC之差的timedelta实例
 
 # timezone.tzname(dt)
-# 返回在构建timezone实例时指定的固定值或字符串'UTCsHH:MM'，其中s是offset的符号，HH和MM分别是offset.hours和offset.minutes
+# 返回在构建timezone实例时指定的固定值或字符串"UTCsHH:MM"，其中s是offset的符号，HH和MM分别是offset.hours和offset.minutes
 
 # timezone.dst(dt)
 # 始终返回None
@@ -475,12 +475,12 @@ print(dtbeijing)
 
 
 # Simplified version
-print(datetime.utcnow().strftime('%m/%d/%y %H:%M:%S')) # >>> 01/17/18 21:51:15
+print(datetime.utcnow().strftime("%m/%d/%y %H:%M:%S")) # >>> 01/17/18 21:51:15
 
 tzutc_8 = timezone(timedelta(hours=8))  # GMT+8
 DtBeijing = datetime.utcnow().replace(tzinfo=timezone.utc).astimezone(tzutc_8)
-print(DtBeijing.strftime('%m/%d/%y %H:%M:%S'))         # >>> 01/18/18 05:50:35
+print(DtBeijing.strftime("%m/%d/%y %H:%M:%S"))         # >>> 01/18/18 05:50:35
 
 tzutc_M5 = timezone(timedelta(hours=-5))  # GMT-5
 DtNewyork = datetime.utcnow().replace(tzinfo=timezone.utc).astimezone(tzutc_M5)
-print(DtNewyork.strftime('%m/%d/%y %H:%M:%S'))         # >>> 01/17/18 16:50:35
+print(DtNewyork.strftime("%m/%d/%y %H:%M:%S"))         # >>> 01/17/18 16:50:35

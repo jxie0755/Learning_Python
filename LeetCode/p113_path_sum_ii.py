@@ -43,7 +43,7 @@ class Solution:
         return result
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     A = None
     assert Solution().pathSum(A, 0) == [], "Edge 0"
 
@@ -63,4 +63,4 @@ if __name__ == '__main__':
         [5, 8, 4, 5]
     ], "Example 1"
 
-    print('All passed')
+    print("All passed")

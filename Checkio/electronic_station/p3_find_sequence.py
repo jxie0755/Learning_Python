@@ -48,7 +48,7 @@ def checkio(matrix):
     return verify(hor_result) or verify(ver_result) \
         or verify(NW_axis) or verify(NE_axis)
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     assert checkio([
         [1, 2, 1, 1],
         [1, 1, 4, 1],

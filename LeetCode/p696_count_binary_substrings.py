@@ -1,8 +1,8 @@
 # p696 Count Binary Substrings
 # Easy
 
-# Give a string s, count the number of non-empty (contiguous) substrings that have the same number of 0's and 1's,
-# and all the 0's and all the 1's in these substrings are grouped consecutively.
+# Give a string s, count the number of non-empty (contiguous) substrings that have the same number of 0"s and 1"s,
+# and all the 0"s and all the 1"s in these substrings are grouped consecutively.
 # Substrings that occur multiple times are counted the number of times they occur.
 
 # Note:
@@ -28,9 +28,9 @@ class Solution:
             fst_half, sec_half = s[:len(s) // 2], s[len(s) // 2:]
             if len(s) % 2 != 0:
                 return False
-            if fst_half == '0' * len(fst_half) and sec_half == '1' * len(sec_half):
+            if fst_half == "0" * len(fst_half) and sec_half == "1" * len(sec_half):
                 return True
-            elif fst_half == '1' * len(fst_half) and sec_half == '0' * len(sec_half):
+            elif fst_half == "1" * len(fst_half) and sec_half == "0" * len(sec_half):
                 return True
             else:
                 return False
@@ -42,10 +42,10 @@ class Solution:
     def countBinarySubstrings(self, s):
         # two step method, no need to get all substrings
 
-        # first split the string into groups of '0' and '1', O(n)
+        # first split the string into groups of "0" and "1", O(n)
 
         # original codes:
-        # s += ' '
+        # s += " "
         # start, end = 0, 1
         # groups = []
         # while end < len(s):
@@ -56,7 +56,7 @@ class Solution:
         #         start, end = end, end + 1
 
         # replace by simple python string method:
-        groups = s.replace('01', '0 1').replace('10', '1 0').split()
+        groups = s.replace("01", "0 1").replace("10", "1 0").split()
 
         # then calculate the possible count of
         # loop over every two contiuguous group, the number of possible substring is len(shorter_group), O(n)
@@ -67,7 +67,7 @@ class Solution:
         # Overall O(n), a better algorithm
 
 
-if __name__ == '__main__':
-    assert Solution().countBinarySubstrings('00110011') == 6, 'test 1'
-    assert Solution().countBinarySubstrings('10101') == 4, 'test 2'
-    print('all passed')
+if __name__ == "__main__":
+    assert Solution().countBinarySubstrings("00110011") == 6, "test 1"
+    assert Solution().countBinarySubstrings("10101") == 4, "test 2"
+    print("all passed")

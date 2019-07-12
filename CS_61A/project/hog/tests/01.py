@@ -1,90 +1,90 @@
 test = {
-  'name': 'Question 1',
-  'points': 2,
-  'suites': [
+  "name": "Question 1",
+  "points": 2,
+  "suites": [
     {
-      'cases': [
+      "cases": [
         {
-          'code': r"""
+          "code": r"""
           >>> roll_dice(2, make_test_dice(4, 6, 1))
           10
           """,
-          'hidden': False,
-          'locked': False
+          "hidden": False,
+          "locked": False
         },
         {
-          'code': r"""
+          "code": r"""
           >>> roll_dice(3, make_test_dice(4, 6, 1))
           1
           """,
-          'hidden': False,
-          'locked': False
+          "hidden": False,
+          "locked": False
         },
         {
-          'code': r"""
+          "code": r"""
           >>> roll_dice(4, make_test_dice(2, 2, 3))
           9
           """,
-          'hidden': False,
-          'locked': False
+          "hidden": False,
+          "locked": False
         },
         {
-          'code': r"""
+          "code": r"""
           >>> roll_dice(4, make_test_dice(1, 2, 3))
           1
           """,
-          'hidden': False,
-          'locked': False
+          "hidden": False,
+          "locked": False
         },
         {
-          'code': r"""
+          "code": r"""
           >>> counted_dice = make_test_dice(4, 1, 2, 6)
           >>> roll_dice(3, counted_dice)
           1
           >>> roll_dice(1, counted_dice)  # Make sure you call dice exactly num_rolls times!
           6
           """,
-          'hidden': False,
-          'locked': False
+          "hidden": False,
+          "locked": False
         },
         {
-          'code': r"""
+          "code": r"""
           >>> roll_dice(9, make_test_dice(6))
           54
           >>> roll_dice(7, make_test_dice(2, 2, 2, 2, 2, 2, 1))
           1
           """,
-          'hidden': False,
-          'locked': False
+          "hidden": False,
+          "locked": False
         }
       ],
-      'scored': True,
-      'setup': r"""
+      "scored": True,
+      "setup": r"""
       >>> from hog import *
       """,
-      'teardown': '',
-      'type': 'doctest'
+      "teardown": "",
+      "type": "doctest"
     },
     {
-      'cases': [
+      "cases": [
         {
-          'code': r"""
+          "code": r"""
           >>> roll_dice(5, make_test_dice(4, 2, 3, 3, 4, 1))
           16
           """,
-          'hidden': False,
-          'locked': False
+          "hidden": False,
+          "locked": False
         },
         {
-          'code': r"""
+          "code": r"""
           >>> roll_dice(2, make_test_dice(1))
           1
           """,
-          'hidden': False,
-          'locked': False
+          "hidden": False,
+          "locked": False
         },
         {
-          'code': r"""
+          "code": r"""
           >>> dice = make_test_dice(5, 4, 3, 2, 1)
           >>> roll_dice(1, dice)    # Roll 1 (5)
           5
@@ -107,16 +107,16 @@ test = {
           >>> roll_dice(10, dice)    # Roll 10 (5, 4, 3, 2, 1, 5, 4, 3, 2, 1)
           1
           """,
-          'hidden': False,
-          'locked': False
+          "hidden": False,
+          "locked": False
         }
       ],
-      'scored': True,
-      'setup': r"""
+      "scored": True,
+      "setup": r"""
       >>> from hog import *
       """,
-      'teardown': '',
-      'type': 'doctest'
+      "teardown": "",
+      "type": "doctest"
     }
   ]
 }

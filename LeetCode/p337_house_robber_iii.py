@@ -103,8 +103,8 @@ class Solution(object):
 
 
 
-if not __name__ == '__main__':
-    assert Solution().rob(None) == 0, 'Edge'
+if not __name__ == "__main__":
+    assert Solution().rob(None) == 0, "Edge"
 
     A = genTree([
         3,
@@ -112,14 +112,14 @@ if not __name__ == '__main__':
         None, 3, None, 1
     ])
 
-    assert Solution().rob(A) == 7, 'Example 1'
+    assert Solution().rob(A) == 7, "Example 1"
 
     A = genTree([
         3,
         4, 5,
         1, 3, None, 1
     ])
-    assert Solution().rob(A) == 9, 'Example 2'
+    assert Solution().rob(A) == 9, "Example 2"
 
     A = genTree([
         10,
@@ -127,7 +127,7 @@ if not __name__ == '__main__':
         20, 2, 3, 4
 
     ])
-    assert Solution().rob(A) == 39, 'Example 3'
+    assert Solution().rob(A) == 39, "Example 3"
 
     A = genTree([
         100,
@@ -135,13 +135,13 @@ if not __name__ == '__main__':
         10, 10, 10, 10,
         1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000,
     ])
-    assert Solution().rob(A) == 8100, 'Example 4'
+    assert Solution().rob(A) == 8100, "Example 4"
 
     A = genTree([
         2,
         1, 3,
         None, 4,
     ])
-    assert Solution().rob(A) == 7, 'Example 5'
+    assert Solution().rob(A) == 7, "Example 5"
 
-    print('all passed')
+    print("all passed")

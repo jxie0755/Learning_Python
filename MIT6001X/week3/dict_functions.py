@@ -12,7 +12,7 @@ def lyrics_to_frequencies(lyrics):
     return myDict
 
 # find the word that occurs the most
-lyc = ['a', 'b', 'c', 'd', 'a', 'b', 'c', 'd', 'a', 'b', 'c', 'd', 'e', 'f', 'a', 'c', 'j', 'x']
+lyc = ["a", "b", "c", "d", "a", "b", "c", "d", "a", "b", "c", "d", "e", "f", "a", "c", "j", "x"]
 
 print(lyrics_to_frequencies(lyc))
 fq = lyrics_to_frequencies(lyc)

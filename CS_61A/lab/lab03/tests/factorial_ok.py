@@ -1,13 +1,13 @@
 test = {
-  'name': 'factorial_ok',
-  'points': 0,
-  'suites': [
+  "name": "factorial_ok",
+  "points": 0,
+  "suites": [
     {
-      'type': 'concept',
-      'scored': True,
-      'cases': [
+      "type": "concept",
+      "scored": True,
+      "cases": [
         {
-          'question': r"""
+          "question": r"""
           Consider this implementation of the factorial function:
           def factorial(n):
               if n == 0:
@@ -17,13 +17,13 @@ test = {
 
           What is wrong with it?
           """,
-          'choices': [
-            'The return statement in the recursive case is missing',
-            'The base case is flawed: it should be n <= 0',
-            'The recursive call is not combined correctly into the final solution',
-            'The variable n does not change, causing a infinite loop',
+          "choices": [
+            "The return statement in the recursive case is missing",
+            "The base case is flawed: it should be n <= 0",
+            "The recursive call is not combined correctly into the final solution",
+            "The variable n does not change, causing a infinite loop",
           ],
-          'answer': 'The recursive call is not combined correctly into the final solution',
+          "answer": "The recursive call is not combined correctly into the final solution",
         },
       ]
     }

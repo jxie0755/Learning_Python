@@ -8,19 +8,19 @@ from string import ascii_lowercase
 
 
 def to_encrypt(text, delta):
-    crypt = ''
+    crypt = ""
     new = ascii_lowercase[delta:] + ascii_lowercase[:delta]
     new_dict = dict(zip(ascii_lowercase, new))
     for i in text:
-        if i == ' ':
-            crypt += ' '
+        if i == " ":
+            crypt += " "
         else:
             crypt += new_dict[i]
     return crypt
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     print("Example:")
-    print(to_encrypt('abc', 10))
+    print(to_encrypt("abc", 10))
 
     #These "asserts" using only for self-checking and not necessary for auto-testing
     assert to_encrypt("a b c", 3) == "d e f"
@@ -28,4 +28,4 @@ if __name__ == '__main__':
     assert to_encrypt("simple text", 16) == "iycfbu junj"
     assert to_encrypt("important text", 10) == "swzybdkxd dohd"
     assert to_encrypt("state secret", -13) == "fgngr frperg"
-    print("Coding complete? Click 'Check' to earn cool rewards!")
+    print("Coding complete? Click "Check" to earn cool rewards!")

@@ -11,13 +11,13 @@ of tokens.  A token may be:
 import string
 import sys
 
-_SYMBOL_STARTS = set('!$%&*/:<=>?@^_~') | set(string.ascii_lowercase)
-_SYMBOL_INNERS = _SYMBOL_STARTS | set(string.digits) | set('+-.')
-_NUMERAL_STARTS = set(string.digits) | set('+-.')
-_WHITESPACE = set(' \t\n\r')
+_SYMBOL_STARTS = set("!$%&*/:<=>?@^_~") | set(string.ascii_lowercase)
+_SYMBOL_INNERS = _SYMBOL_STARTS | set(string.digits) | set("+-.")
+_NUMERAL_STARTS = set(string.digits) | set("+-.")
+_WHITESPACE = set(" \t\n\r")
 _SINGLE_CHAR_TOKENS = set("()'")
 _TOKEN_END = _WHITESPACE | _SINGLE_CHAR_TOKENS
-DELIMITERS = _SINGLE_CHAR_TOKENS | {'.'}
+DELIMITERS = _SINGLE_CHAR_TOKENS | {"."}
 
 def valid_symbol(s):
     """Returns whether s is not a well-formed value."""
@@ -35,13 +35,13 @@ def next_candidate_token(line, k):
     (None, len(line)) when there are no more tokens."""
     while k < len(line):
         c = line[k]
-        if c == ';':
+        if c == ";":
             return None, len(line)
         elif c in _WHITESPACE:
             k += 1
         elif c in _SINGLE_CHAR_TOKENS:
             return c, k+1
-        elif c == '#':  # Boolean values #t and #f
+        elif c == "#":  # Boolean values #t and #f
             return line[k:k+2], min(k+2, len(line))
         else:
             j = k
@@ -57,13 +57,13 @@ def tokenize_line(line):
     while text is not None:
         if text in DELIMITERS:
             result.append(text)
-        elif text == '+' or text == '-':
+        elif text == "+" or text == "-":
             result.append(text)
-        elif text == '#t' or text.lower() == 'true':
+        elif text == "#t" or text.lower() == "true":
             result.append(True)
-        elif text == '#f' or text.lower() == 'false':
+        elif text == "#f" or text.lower() == "false":
             result.append(False)
-        elif text == 'nil':
+        elif text == "nil":
             result.append(text)
         elif text[0] in _NUMERAL_STARTS:
             try:

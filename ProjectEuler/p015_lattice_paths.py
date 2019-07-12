@@ -47,9 +47,9 @@ def count_grid_path(n):
     return count
 
 
-if __name__ == '__main__':
-    assert count_grid_path(1) == 2, 'simple'
-    assert count_grid_path(2) == 6, 'regular'
+if __name__ == "__main__":
+    assert count_grid_path(1) == 2, "simple"
+    assert count_grid_path(2) == 6, "regular"
     print(count_grid_path(10))
     # >>> 184756
 
@@ -87,10 +87,10 @@ def count_grid_path_math(n):
     return num_list[len(num_list)//2]  # 取中间值
 
 # test final function
-if __name__ == '__main__':
-    assert count_grid_path_math(1) == 2, 'start'
-    assert count_grid_path_math(2) == 6, 'regular'
-    assert count_grid_path_math(10) == 184756, '10*10'
+if __name__ == "__main__":
+    assert count_grid_path_math(1) == 2, "start"
+    assert count_grid_path_math(2) == 6, "regular"
+    assert count_grid_path_math(10) == 184756, "10*10"
     print(count_grid_path_math(20))
     # >>> 137846528820
     # passed

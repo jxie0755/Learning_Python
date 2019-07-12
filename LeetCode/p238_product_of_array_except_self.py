@@ -76,9 +76,9 @@ class Solution(object):
 
 
 
-if __name__ == '__main__':
-    assert Solution().productExceptSelf([1,2,3,4]) == [24,12,8,6], 'Example'
-    assert Solution().productExceptSelf([0,0]) == [0,0], 'Additional 1'
-    assert Solution().productExceptSelf([1,0,1]) == [0,1,0], 'Additional 2'
+if __name__ == "__main__":
+    assert Solution().productExceptSelf([1,2,3,4]) == [24,12,8,6], "Example"
+    assert Solution().productExceptSelf([0,0]) == [0,0], "Additional 1"
+    assert Solution().productExceptSelf([1,0,1]) == [0,1,0], "Additional 2"
 
-    print('all passed')
+    print("all passed")

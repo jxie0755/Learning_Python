@@ -9,7 +9,7 @@ def quest(sword, robot):
     robot /= 2
     return str(robot) > str(ogre)
 robot = min(8, 8.0)   # whichever come first
-sword = int('5'+str(robot))
+sword = int("5"+str(robot))
 hero = quest(robot, sword)
 
 
@@ -17,17 +17,17 @@ hero = quest(robot, sword)
 def paint(color):
     print(color)
     return color + str(print(color))
-paint('Blue')
+paint("Blue")
 
 def print(paper):
-    return max(paper * 2, 'Purple')
-paint('Red')
+    return max(paper * 2, "Purple")
+paint("Red")
 
 import builtins
 print = builtins.print
 
 # 3. Farm Business
-tomato = 'pear'
+tomato = "pear"
 def cost(fruit):
     return int(bool(fruit))
 def pair(pear, fare):
@@ -40,8 +40,8 @@ print(pear, pumpkin)
 
 
 # Write what would be displayed from running the following line of code.
-print(print('61A', "is"), print(61), 'A')
+print(print("61A", "is"), print(61), "A")
 # >>>
 # 61a is
 # 61
-# None, None, 'A'
+# None, None, "A"

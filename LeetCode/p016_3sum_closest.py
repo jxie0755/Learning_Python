@@ -17,8 +17,8 @@ class Solution:
     def threeSumClosest(self, nums: List[int], target: int) -> int:
 
         nums = sorted(nums)
-        diff = float('inf')
-        result = float('inf')
+        diff = float("inf")
+        result = float("inf")
 
         i = 0
 
@@ -50,10 +50,10 @@ class Solution:
 
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     # No need to test edge as gurantee to have exactly one solution
-    assert Solution().threeSumClosest([1, 1, 1], 1000) == 3, 'Edge'
-    assert Solution().threeSumClosest([-1, 2, 1, -4], 1) == 2, 'Example 1'
-    assert Solution().threeSumClosest([-1, 2, 1, -1], 0) == 0, 'Match'
+    assert Solution().threeSumClosest([1, 1, 1], 1000) == 3, "Edge"
+    assert Solution().threeSumClosest([-1, 2, 1, -4], 1) == 2, "Example 1"
+    assert Solution().threeSumClosest([-1, 2, 1, -1], 0) == 0, "Match"
 
-    print('all passed')
+    print("all passed")

@@ -44,7 +44,7 @@ class TeachingAssistant:
     def assist(self, student):
         student.understanding += 1
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     snape = TeachingAssistant("Snape")
     harry = Student("Harry", snape)
     harry.attend_lecture("potions")
@@ -177,7 +177,7 @@ class Dog(Pet):
     def __init__(self, name, owner):
         Pet.__init__(self, name, owner)
     def talk(self):
-        print(self.name + ' says woof!')
+        print(self.name + " says woof!")
 
 # Implement the Cat class by inheriting from the Pet class.
 # Make sure to use superclass methods wherever possible.
@@ -196,7 +196,7 @@ class Cat(Pet):
 
     def lose_life(self):
         """A cat can only lose a life if they have at least one life.
-        When lives reaches zero, 'is_alive' becomes False.
+        When lives reaches zero, "is_alive" becomes False.
         """
         if self.is_alive == True:
             if self.lives > 1:
@@ -205,7 +205,7 @@ class Cat(Pet):
                 self.lives = 0
                 self.is_alive = False
         else:
-            print('This cat has no more lives to lose:(')
+            print("This cat has no more lives to lose:(")
 
 # More cats! Fill in the methods for NoisyCat, which is just like a normal Cat.
 # However, NoisyCat talks a lot, printing twice whatever a Cat says.

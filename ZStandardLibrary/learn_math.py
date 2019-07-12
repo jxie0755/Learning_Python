@@ -13,13 +13,13 @@ import math
 # 数学常数 e = 2.718281......，到现有的精度。
 
 # math.inf
-# 浮点正无穷大。（对于负无穷大，请使用-math.inf。）相当于float('inf')的输出。
+# 浮点正无穷大。（对于负无穷大，请使用-math.inf。）相当于float("inf")的输出。
 
 # math.nan
-# 浮点数“不是数字”（NaN）值。等效于float('nan')的输出
+# 浮点数“不是数字”（NaN）值。等效于float("nan")的输出
 
 print()
-print('数理论和表示函数')
+print("数理论和表示函数")
 
 # math.ceil(x)
 # Return the ceiling of x, 大于等于 x 的最小整数.如果x是整数,则返回本身.
@@ -107,7 +107,7 @@ print(math.trunc(-10.5))  # >>> -10
 
 
 print()
-print('幂函数和对数函数')
+print("幂函数和对数函数")
 
 # math.exp(x)
 # 返回 e**x (e的x幂方)
@@ -143,7 +143,7 @@ print(math.log10(1000))  # >>> 3.0  # 相当于 log10^1000
 
 
 print()
-print('三角函数')
+print("三角函数")
 
 # math.sin(x)
 print(math.sin(math.pi/2))  # >>> 1.0
@@ -160,7 +160,7 @@ print(math.sin(math.pi))    # >>> 1.2246467991473532e-16  也就是0
 # 返回欧氏方程，sqrt（x * x + y * y）。这是从原点到点（x， y）的向量长度
 
 print()
-print('角度转换')
+print("角度转换")
 
 # math.degrees(x)
 # 将角度x从弧度转换为度
@@ -175,7 +175,7 @@ print(math.radians(180))    # >>> 3.141592653589793  # pi
 
 
 print()
-print('双曲线函数是基于双曲线而不是圆的三角函数的类似')
+print("双曲线函数是基于双曲线而不是圆的三角函数的类似")
 # math.sinh(x)
 # 返回x的双曲正弦值。
 
@@ -197,7 +197,7 @@ print('双曲线函数是基于双曲线而不是圆的三角函数的类似')
 
 
 print()
-print('特殊函数')
+print("特殊函数")
 
 # math.erf(x)
 # 在x返回错误函数。

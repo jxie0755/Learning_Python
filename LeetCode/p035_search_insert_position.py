@@ -21,9 +21,9 @@ class Solution:
             index += 1
 
 
-if __name__ == '__main__':
-    assert Solution().searchInsert([1,3,5,6], 5) == 2, 'In the list'
-    assert Solution().searchInsert([1,3,5,6], 2) == 1, 'Not in the list'
-    assert Solution().searchInsert([1,3,5,6], 7) == 4, 'At the end'
-    assert Solution().searchInsert([1,3,5,6], 0) == 0, 'At the beginning'
-    print('all passed')
+if __name__ == "__main__":
+    assert Solution().searchInsert([1,3,5,6], 5) == 2, "In the list"
+    assert Solution().searchInsert([1,3,5,6], 2) == 1, "Not in the list"
+    assert Solution().searchInsert([1,3,5,6], 7) == 4, "At the end"
+    assert Solution().searchInsert([1,3,5,6], 0) == 0, "At the beginning"
+    print("all passed")

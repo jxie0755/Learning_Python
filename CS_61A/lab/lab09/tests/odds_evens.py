@@ -1,13 +1,13 @@
 test = {
-  'name': 'Odds and Evens',
-  'points': 0,
-  'suites': [
+  "name": "Odds and Evens",
+  "points": 0,
+  "suites": [
     {
-      'type': 'wwpp',
-      'scored': False,
-      'cases': [
+      "type": "wwpp",
+      "scored": False,
+      "cases": [
         {
-          'code': """
+          "code": """
           >>> class OddNaturalsIterator():
           ...     def __init__(self):
           ...         self.current = 1
@@ -35,7 +35,7 @@ test = {
           """,
         },
         {
-          'code': """
+          "code": """
           >>> class EvenNaturalsIterator():
           ...     def __init__(self):
           ...         self.current = 0
@@ -63,11 +63,11 @@ test = {
       ]
     },
     {
-      'type': 'wwpp',
-      'scored': False,
-      'cases': [
+      "type": "wwpp",
+      "scored": False,
+      "cases": [
         {
-          'code': """
+          "code": """
           >>> class DoubleIterator():
           ...     def __init__(self):
           ...         self.current = 2
@@ -92,7 +92,7 @@ test = {
           """,
         },
         {
-          'code': """
+          "code": """
           >>> class ThreeIterator():
           ...     def __init__(self):
           ...         self.current = 10

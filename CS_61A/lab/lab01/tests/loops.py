@@ -1,11 +1,11 @@
 test = {
-  'name': 'Loops',
-  'points': 0,
-  'suites': [
+  "name": "Loops",
+  "points": 0,
+  "suites": [
     {
-      'cases': [
+      "cases": [
         {
-          'code': r"""
+          "code": r"""
           >>> n = 3
           >>> while n >= 0:  # If this loops forever, just type Infinite Loop
           ...     n -= 1
@@ -16,11 +16,11 @@ test = {
           8e8a6ea9b75e03aef4652f8a6bc37fba
           # locked
           """,
-          'hidden': False,
-          'locked': True
+          "hidden": False,
+          "locked": True
         },
         {
-          'code': r"""
+          "code": r"""
           >>> n = 4
           >>> while n > 0:  # If this loops forever, just type Infinite Loop
           ...     n += 1
@@ -28,11 +28,11 @@ test = {
           db3915202fb52c6613af5ef28bfc5773
           # locked
           """,
-          'hidden': False,
-          'locked': True
+          "hidden": False,
+          "locked": True
         },
         {
-          'code': r"""
+          "code": r"""
           >>> def go(n):
           ...     if n % 2 != 0:
           ...         print(n / 2)
@@ -49,17 +49,17 @@ test = {
           c715afb863718d0e19d420372af48020
           # locked
           """,
-          'hidden': False,
-          'locked': True
+          "hidden": False,
+          "locked": True
         }
       ],
-      'scored': False,
-      'type': 'wwpp'
+      "scored": False,
+      "type": "wwpp"
     },
     {
-      'cases': [
+      "cases": [
         {
-          'code': r"""
+          "code": r"""
           >>> zero = 2
           >>> while zero != 0: # If this loops forever, just type Infinite Loop
           ...    zero = zero // 2
@@ -68,11 +68,11 @@ test = {
           b0754f6baafe74512d1be0bd5c8098ed
           # locked
           """,
-          'hidden': False,
-          'locked': True
+          "hidden": False,
+          "locked": True
         },
         {
-          'code': r"""
+          "code": r"""
           >>> positive = 28
           >>> while positive: # If this loops forever, just type Infinite Loop
           ...    print("positive?")
@@ -80,11 +80,11 @@ test = {
           db3915202fb52c6613af5ef28bfc5773
           # locked
           """,
-          'hidden': False,
-          'locked': True
+          "hidden": False,
+          "locked": True
         },
         {
-          'code': r"""
+          "code": r"""
           >>> positive = -9
           >>> negative = -12
           >>> while negative: # If this loops forever, just type Infinite Loop
@@ -97,12 +97,12 @@ test = {
           3c05905385c5bd4c0ab5fe2640db2eed
           # locked
           """,
-          'hidden': False,
-          'locked': True
+          "hidden": False,
+          "locked": True
         }
       ],
-      'scored': False,
-      'type': 'wwpp'
+      "scored": False,
+      "type": "wwpp"
     }
   ]
 }

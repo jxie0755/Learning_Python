@@ -11,7 +11,7 @@ class Solution(object):
         i , digit = 0, 0
         for c in abbr:
             if c.isdigit():
-                if digit == 0 and c == '0':
+                if digit == 0 and c == "0":
                     return False
                 digit *= 10
                 digit += int(c)

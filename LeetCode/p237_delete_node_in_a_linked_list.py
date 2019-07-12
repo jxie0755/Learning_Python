@@ -25,7 +25,7 @@ class Solution(object):
     # need to create a dummy to record the previous node of this node
     def deleteNode(self, node: ListNode) -> None:
 
-        pre = ListNode('X')
+        pre = ListNode("X")
         pre.next = node
         while node.next:
             node.val = node.next.val
@@ -41,17 +41,17 @@ class Solution(object):
         # pre.next = None
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     A = genNode([4,5,1,9])
     Solution().deleteNode(A.next)
-    assert A == genNode([4,1,9]), 'Example 1'
+    assert A == genNode([4,1,9]), "Example 1"
 
     A = genNode([4, 5, 1, 9])
     Solution().deleteNode(A.next.next)
-    assert A == genNode([4, 5, 9]), 'Example 2'
+    assert A == genNode([4, 5, 9]), "Example 2"
 
 
     A = genNode([4, 5, 1, 9])
     Solution().deleteNode(A)
-    assert A == genNode([5, 1, 9]), 'Example 3'
-    print('all passed')
+    assert A == genNode([5, 1, 9]), "Example 3"
+    print("all passed")

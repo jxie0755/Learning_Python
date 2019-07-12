@@ -20,8 +20,8 @@ class Solution(object):
     # Version A1
     # use a helper function to recursive check
     # first get the range of the root (min and max)
-    # if p's val and q's val within the range, check the left and right until neither's range covers
-    def lowestCommonAncestor(self, root: 'TreeNode', p: 'TreeNode', q: 'TreeNode') -> 'TreeNode':
+    # if p"s val and q"s val within the range, check the left and right until neither's range covers
+    def lowestCommonAncestor(self, root: "TreeNode", p: "TreeNode", q: "TreeNode") -> "TreeNode":
         pv, qv = sorted(p.val, q.val)
         minn = maxx = root
         while minn.left:
@@ -44,7 +44,7 @@ class Solution(object):
 
     # Version A2
     # Non-recursive version
-    def lowestCommonAncestor(self, root: 'TreeNode', p: 'TreeNode', q: 'TreeNode') -> 'TreeNode':
+    def lowestCommonAncestor(self, root: "TreeNode", p: "TreeNode", q: "TreeNode") -> "TreeNode":
         pv, qv = sorted(p.val, q.val)
         minn = maxx = root
         while minn.left:
@@ -68,7 +68,7 @@ class Solution(object):
     # @param {TreeNode} p
     # @param {TreeNode} q
     # @return {TreeNode}
-    def lowestCommonAncestor(self, root: 'TreeNode', p: 'TreeNode', q: 'TreeNode') -> 'TreeNode':
+    def lowestCommonAncestor(self, root: "TreeNode", p: "TreeNode", q: "TreeNode") -> "TreeNode":
         s, b = sorted([p.val, q.val])
         while not s <= root.val <= b:
             # Keep searching since root is outside of [s, b].
@@ -76,7 +76,7 @@ class Solution(object):
         # s <= root.val <= b.
         return root
 
-if __name__ == '__main__':
+if __name__ == "__main__":
 
     A = genTree([
         6,
@@ -84,7 +84,7 @@ if __name__ == '__main__':
         0,4,7,9,
         None,None,3,5
     ])
-    assert Solution().lowestCommonAncestor(A, A.left, A.right) == A, 'Example 1'
+    assert Solution().lowestCommonAncestor(A, A.left, A.right) == A, "Example 1"
 
     A = genTree([
         6,
@@ -92,7 +92,7 @@ if __name__ == '__main__':
         0, 4, 7, 9,
         None, None, 3, 5
     ])
-    assert Solution().lowestCommonAncestor(A, A.left, A.left.right) == A.left, 'Example 2'
+    assert Solution().lowestCommonAncestor(A, A.left, A.left.right) == A.left, "Example 2"
 
     A = genTree([
         6,
@@ -100,18 +100,18 @@ if __name__ == '__main__':
         0, 4, 7, 9,
         None, None, 3, 5
     ])
-    assert Solution().lowestCommonAncestor(A, A.left.left, A.left.right.left) == A.left, 'Additional 1'
+    assert Solution().lowestCommonAncestor(A, A.left.left, A.left.right.left) == A.left, "Additional 1"
 
     A = genTree([
         2,
         None, 3
     ])
-    assert Solution().lowestCommonAncestor(A, A, A.right) == A, 'Additional 2'
+    assert Solution().lowestCommonAncestor(A, A, A.right) == A, "Additional 2"
 
     A = genTree([
         2,
         1, None
     ])
-    assert Solution().lowestCommonAncestor(A, A, A.left) == A, 'Additional 3'
+    assert Solution().lowestCommonAncestor(A, A, A.left) == A, "Additional 3"
 
-    print('all passed')
+    print("all passed")

@@ -29,18 +29,18 @@ class Solution:
                 i += 1
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     A = None
     Solution().flatten(A)
-    assert not A, 'Edge 0'
+    assert not A, "Edge 0"
 
     A = TreeNode(0)
     Solution().flatten(A)
-    assert A == A, 'Edge 1'
+    assert A == A, "Edge 1"
 
     A = TreeNode(1)
     Solution().flatten(A)
-    assert A == A, 'Edge 2'
+    assert A == A, "Edge 2"
 
     A = genTree([
         1,
@@ -58,6 +58,6 @@ if __name__ == '__main__':
         None, None, None, None, None, None, None, 5,
         None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None,
         None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, 6
-    ]), 'Example 1'
+    ]), "Example 1"
 
-    print('all passed')
+    print("all passed")

@@ -35,7 +35,7 @@ def hanoi_solver(n):
     move_stack(n, 1, 2, 3)
     return move
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     print(hanoi_solver(1))
     # >>>
     # Move the top disk from 1 --> 3
@@ -48,7 +48,7 @@ if __name__ == '__main__':
     # Move the top disk from 2 --> 3
     # 3
 
-    print('\n3 disks:')
+    print("\n3 disks:")
     print(hanoi_solver(3))
     # >>>
     # Move the top disk from 1 --> 3

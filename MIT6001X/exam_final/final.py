@@ -17,13 +17,13 @@ def sum_digits(s):
 
 
 def is_list_permutation(L1, L2):
-    '''
+    ""'
     L1 and L2: lists containing integers and strings
     Returns False if L1 and L2 are not permutations of each other.
             If they are permutations of each other, returns a
             tuple of 3 items in this order:
             the element occurring most, how many times it occurs, and its type
-    '''
+    ""'
     # Process the two lists
     L1_int, L1_str = [], []
     for i in L1:
@@ -62,7 +62,7 @@ def cipher(map_from, map_to, code):
         decoded is a string that contains the decoded version of code using the key_code mapping. """
     dict_result = dict(zip(map_from, map_to))
 
-    decode = ''
+    decode = ""
     for i in code:
         decode += dict_result[i]
     return (dict_result, decode)

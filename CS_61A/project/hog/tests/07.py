@@ -1,11 +1,11 @@
 test = {
-  'name': 'Question 7',
-  'points': 2,
-  'suites': [
+  "name": "Question 7",
+  "points": 2,
+  "suites": [
     {
-      'cases': [
+      "cases": [
         {
-          'code': r"""
+          "code": r"""
           >>> f0 = announce_highest(1) # Only announce Player 1 score gains
           >>> f1 = f0(11, 0)
           >>> f2 = f1(11, 1)
@@ -27,11 +27,11 @@ test = {
           >>> f2_again = f1(11, 1)
           1 point! That's the biggest gain yet for Player 1
           """,
-          'hidden': False,
-          'locked': False
+          "hidden": False,
+          "locked": False
         },
         {
-          'code': r"""
+          "code": r"""
           >>> #
           >>> announce_both = both(announce_highest(0), announce_highest(1))
           >>> s0, s1 = play(always_roll(0), always_roll(0), goal=10, say=announce_both)
@@ -40,16 +40,16 @@ test = {
           6 points! That's the biggest gain yet for Player 1
           10 points! That's the biggest gain yet for Player 0
           """,
-          'hidden': False,
-          'locked': False
+          "hidden": False,
+          "locked": False
         }
       ],
-      'scored': True,
-      'setup': r"""
+      "scored": True,
+      "setup": r"""
       >>> from hog import play, always_roll, announce_highest, both
       """,
-      'teardown': '',
-      'type': 'doctest'
+      "teardown": "",
+      "type": "doctest"
     }
   ]
 }

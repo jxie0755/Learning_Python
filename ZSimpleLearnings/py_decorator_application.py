@@ -6,13 +6,13 @@ def sq(x):
 
 # 第一版函数
 def foo():
-    print('i am foo')
+    print("i am foo")
 def bar():
-    print('i am bar')
+    print("i am bar")
 
 # 第二版函数,加入新功能(嵌套一个函数)
 # def foo():
-#     print('i am foo')
+#     print("i am foo")
 #     sq(4)
 # foo()
 # >>>
@@ -41,7 +41,7 @@ def sqX(func):
 
 @sqX
 def foo():
-    print('i am foo')
+    print("i am foo")
 foo()
 # >>>
 # i am foo
@@ -49,7 +49,7 @@ foo()
 
 @sqX
 def bar():
-    print('i am bar')
+    print("i am bar")
 bar()
 # >>>
 # i am bar
@@ -70,7 +70,7 @@ class Money:
 
 # 被人应用
 m1 = Money(27, 12)
-print(m1.dollars, 'dollars,', m1.cents, 'cents')
+print(m1.dollars, "dollars,", m1.cents, "cents")
 # >>> 27 dollars, 12 cents
 
 # 第二版本
@@ -81,8 +81,8 @@ class Money:
 
 # 被应用的代码将不能再运行,除非修改
 m1 = Money(27, 12)
-# print(m1.dollars, 'dollars,', m1.cents, 'cents')
-# >>> AttributeError: 'Money' object has no attribute 'dollars'
+# print(m1.dollars, "dollars,", m1.cents, "cents")
+# >>> AttributeError: "Money" object has no attribute "dollars"
 
 # 第二版本优化
 class Money:
@@ -108,5 +108,5 @@ class Money:
 # 修改了__init__方法,但是通过装饰器,重设dollar和cents属性
 # 不再需要修改应用代码
 m1 = Money(27, 12)
-print(m1.dollars, 'dollars,', m1.cents, 'cents')
+print(m1.dollars, "dollars,", m1.cents, "cents")
 # >>> 27 dollars, 12 cents

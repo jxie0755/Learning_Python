@@ -47,7 +47,7 @@ class Solution:
 
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
 
     E1 = genTree([
         3,
@@ -60,7 +60,7 @@ if __name__ == '__main__':
         1, 2
     ])
 
-    assert Solution().isSubtree(E1, E2), 'Example 1'
+    assert Solution().isSubtree(E1, E2), "Example 1"
 
     E1 = genTree([
         3,
@@ -74,7 +74,7 @@ if __name__ == '__main__':
         1,2
     ])
 
-    assert not Solution().isSubtree(E1, E2), 'Example 2'
+    assert not Solution().isSubtree(E1, E2), "Example 2"
 
     E3 = genTree([
         3,
@@ -89,6 +89,6 @@ if __name__ == '__main__':
         1,2
     ])
 
-    assert Solution().isSubtree(E3, E4), 'Addtional 1'
+    assert Solution().isSubtree(E3, E4), "Addtional 1"
 
-    print('all passed!')
+    print("all passed!")

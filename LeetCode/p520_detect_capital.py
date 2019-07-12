@@ -34,11 +34,11 @@ class Solution:
         return word[1:] == word[1:].lower() or word == word.upper()
 
 
-if __name__ == '__main__':
-    assert Solution().detectCapitalUse('USA') == True, 'all up'
-    assert Solution().detectCapitalUse('FlaG') == False, 'up in elsewhere'
-    assert Solution().detectCapitalUse('Flag') == True, 'Title like'
-    assert Solution().detectCapitalUse('flag') == True, 'all low'
-    assert Solution().detectCapitalUse('a') == True, 'one low'
-    assert Solution().detectCapitalUse('A') == True, 'one up'
-    print('all passed')
+if __name__ == "__main__":
+    assert Solution().detectCapitalUse("USA") == True, "all up"
+    assert Solution().detectCapitalUse("FlaG") == False, "up in elsewhere"
+    assert Solution().detectCapitalUse("Flag") == True, "Title like"
+    assert Solution().detectCapitalUse("flag") == True, "all low"
+    assert Solution().detectCapitalUse("a") == True, "one low"
+    assert Solution().detectCapitalUse("A") == True, "one up"
+    print("all passed")

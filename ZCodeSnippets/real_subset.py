@@ -12,7 +12,7 @@ def genSubset(L):
         new.append(small + extra)
     return smaller + new
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     print(genSubset([1,2]))  # >>> [[], [1], [2], [1, 2], [3], [1, 3], [2, 3], [1, 2, 3]]
     print(len(genSubset([1,2,3])))  # >>> 8
     print(len(genSubset([1,2,3,4])))  # >>> 16
@@ -29,7 +29,7 @@ def genSubset2(L):
         result += list(itertools.combinations(L, i))
     return result
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     print(genSubset2([1,2,3]))  # >>> [(), (1,), (2,), (3,), (1, 2), (1, 3), (2, 3), (1, 2, 3)]
     print(len(genSubset2([1,2,3])))  # >>> 8
     print(len(genSubset2([1,2,3,4])))  # >>> 16

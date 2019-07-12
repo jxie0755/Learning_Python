@@ -1,8 +1,8 @@
 """A wrapper around Python's json module to parse newline-delimited json.
 
->>> all_reviews = load(open('reviews.json'))
->>> dump(all_reviews, open('reviews_copy.json', 'w'))
->>> all_reviews == load(open('reviews_copy.json'))
+>>> all_reviews = load(open("reviews.json"))
+>>> dump(all_reviews, open("reviews_copy.json", "w"))
+>>> all_reviews == load(open("reviews_copy.json"))
 True
 """
 
@@ -14,4 +14,4 @@ def load(fp, **kw):
 def dump(objs, fp, **kw):
     for obj in objs:
         fp.write(dumps(obj, **kw))
-        fp.write('\n')
+        fp.write("\n")

@@ -10,20 +10,20 @@ from ToImport.to_be_imported import foo_to_be_imported
 
 # Wrong way
 # from ZStandardLibrary.learn_time import time_spent
-# >>> No module named 'ZStandardLibrary'
+# >>> No module named "ZStandardLibrary"
 
 # Correct way
 import sys
 print(sys.path)
 
 # This used absolute directory
-# sys.path.insert(0, 'c:\\Users\\jxie0\\Documents\\GitHub\\Learning_Python\\ZStandardLibrary')
+# sys.path.insert(0, "c:\\Users\\jxie0\\Documents\\GitHub\\Learning_Python\\ZStandardLibrary")
 
 # This is simpler because sys.path already
-sys.path.insert(0, 'ZStandardLibrary')  # include the project folder
+sys.path.insert(0, "ZStandardLibrary")  # include the project folder
 from learn_time import time_spent  # direct use learn_time under ZStandardLibrary/
 
-sys.path.insert(0,'ZCodeSnippets')
+sys.path.insert(0,"ZCodeSnippets")
 from fibonacci import fib_gen_r # direct use fibonacci underZCodeSnippets/
 
 time_spent(fib_gen_r, 35)

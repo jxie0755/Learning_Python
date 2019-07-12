@@ -34,7 +34,7 @@ class Solution:
         col = len(board[0])
 
         def checkNeighbors(coor):
-            """check a coor's neighbor and decide it's next value"""
+            """check a coor"s neighbor and decide it"s next value"""
             live_neigbors = 0
             r, c = coor[0], coor[1]
             for rr in range(r-1, r+2):
@@ -75,7 +75,7 @@ class Solution:
 
         def updateTempVal(coor):
             """
-            check a coor's neighbor and decide it's next value
+            check a coor"s neighbor and decide it"s next value
             revise in-place by indicating a temp value
             to 11 : currently 0, will be 1
             to 10 : currently 1, will be 0
@@ -116,7 +116,7 @@ class Solution:
 
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     A = [
         [0, 1, 0],
         [0, 0, 1],
@@ -129,6 +129,6 @@ if __name__ == '__main__':
         [1, 0, 1],
         [0, 1, 1],
         [0, 1, 0]
-    ], 'Example 1'
+    ], "Example 1"
 
-    print('all passed')
+    print("all passed")

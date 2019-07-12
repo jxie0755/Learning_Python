@@ -53,11 +53,11 @@ class Solution:
 
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
 
-    assert Solution().findNthDigit(3) == 3, 'Example 1'
-    assert Solution().findNthDigit(11) == 0, 'Example 2'
-    assert Solution().findNthDigit(15) == 2, 'Example 3'
+    assert Solution().findNthDigit(3) == 3, "Example 1"
+    assert Solution().findNthDigit(11) == 0, "Example 2"
+    assert Solution().findNthDigit(15) == 2, "Example 3"
 
-    assert Solution().findNthDigit(10000000) == 7, 'Long'
-    print('all passed')
+    assert Solution().findNthDigit(10000000) == 7, "Long"
+    print("all passed")

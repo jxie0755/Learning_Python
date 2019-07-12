@@ -33,7 +33,7 @@ def count_neighbours(grid, row, col):
     return result
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     assert count_neighbours(((1, 0, 0, 1, 0),
                              (0, 1, 0, 0, 0),
                              (0, 0, 1, 0, 1),

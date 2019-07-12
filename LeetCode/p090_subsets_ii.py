@@ -51,16 +51,16 @@ class Solution:
 
 
 
-if __name__ == '__main__':
-    assert sorted(Solution().subsetsWithDup([])) == [[]], 'Edge 0'
-    assert sorted(Solution().subsetsWithDup([1])) == [[], [1]], 'Edge 1'
+if __name__ == "__main__":
+    assert sorted(Solution().subsetsWithDup([])) == [[]], "Edge 0"
+    assert sorted(Solution().subsetsWithDup([1])) == [[], [1]], "Edge 1"
 
-    assert sorted(Solution().subsetsWithDup([1, 2])) == [[], [1], [1, 2], [2]], 'Example 0'
-    assert sorted(Solution().subsetsWithDup([1, 2, 2])) == [[], [1], [1, 2], [1, 2, 2], [2], [2, 2]], 'Example 1'
+    assert sorted(Solution().subsetsWithDup([1, 2])) == [[], [1], [1, 2], [2]], "Example 0"
+    assert sorted(Solution().subsetsWithDup([1, 2, 2])) == [[], [1], [1, 2], [1, 2, 2], [2], [2, 2]], "Example 1"
 
-    assert sorted(Solution().subsetsWithDup([1,2,3])) == [[], [1], [1, 2], [1, 2, 3], [1, 3], [2], [2, 3], [3]], 'Additional 1'
-    assert sorted(Solution().subsetsWithDup([1,1,2,2])) == [[], [1], [1, 1], [1, 1, 2], [1, 1, 2, 2], [1, 2], [1, 2, 2], [2], [2, 2]], 'Additional 2'
+    assert sorted(Solution().subsetsWithDup([1,2,3])) == [[], [1], [1, 2], [1, 2, 3], [1, 3], [2], [2, 3], [3]], "Additional 1"
+    assert sorted(Solution().subsetsWithDup([1,1,2,2])) == [[], [1], [1, 1], [1, 1, 2], [1, 1, 2, 2], [1, 2], [1, 2, 2], [2], [2, 2]], "Additional 2"
 
-    print('all passed')
+    print("all passed")
 
 

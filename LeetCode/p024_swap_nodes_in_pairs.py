@@ -50,8 +50,8 @@ class Solution:
             return head
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     a = genNode([1,2,3,4])
     e = Solution().swapPairs(a)
-    assert repr(e) == '2->1->4->3'
-    print('all passed')
+    assert repr(e) == "2->1->4->3"
+    print("all passed")

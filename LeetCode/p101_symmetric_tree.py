@@ -98,7 +98,7 @@ class Solution(object):
 
         while stack:
             # 查看栈堆
-            # print([i.val if i else 'N' for i in stack])
+            # print([i.val if i else "N" for i in stack])
 
             p, q = stack.pop(), stack.pop()
 
@@ -137,12 +137,12 @@ class Solution2(object):
 
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     A0 = None
-    assert Solution().isSymmetric(A0), 'Edge 1'
+    assert Solution().isSymmetric(A0), "Edge 1"
 
     A00 = TreeNode(1)
-    assert Solution().isSymmetric(A00), 'Edge 2'
+    assert Solution().isSymmetric(A00), "Edge 2"
 
     A1 = genTree([
         1,
@@ -164,4 +164,4 @@ if __name__ == '__main__':
     ])
     assert not Solution().isSymmetric(A3)
 
-    print('all passed')
+    print("all passed")

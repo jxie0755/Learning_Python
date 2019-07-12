@@ -129,11 +129,11 @@ def make_change_x(n, a, b):
         return min(use_a, use_b)
 
 # test unit
-if __name__ == '__main__':
+if __name__ == "__main__":
     for i in range(0, 33):
         if make_change(i) != make_change_2(i):
-            print('Whoops!')
-    print('done')
+            print("Whoops!")
+    print("done")
 
 
 # Data Abstraction
@@ -198,14 +198,14 @@ def elephant(name, age, can_fly):
     """
     >>> chris = elephant("Chris Martin", 38, False)
     >>> elephant_name(chris)
-    'Chris Martin'
+    "Chris Martin"
     >>> elephant_age(chris)
     38
     >>> elephant_can_fly(chris)
     False
     """
     def select(command):
-        command_dict = {'name':name, 'age':age, 'can_fly':can_fly}
+        command_dict = {"name":name, "age":age, "can_fly":can_fly}
         return command_dict[command]
 
     return select

@@ -1,4 +1,4 @@
 def say_hi():
-    print('Hi, this is Denis\'s first Module.')
+    print("Hi, this is Denis\"s first Module.')
 
-__version__ = '0.1'
+__version__ = "0.1"

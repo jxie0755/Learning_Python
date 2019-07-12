@@ -20,7 +20,7 @@ class Solution(object):
         """
         merge two sorted linked list into one linked list
         """
-        cur = dummy = ListNode('X')
+        cur = dummy = ListNode("X")
         while A and B:
             if A.val < B.val:
                 cur.next, A = A, A.next
@@ -57,17 +57,17 @@ class Solution(object):
             return self.mergesort(self.sortList(first), self.sortList(second))
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     A = None
-    assert Solution().sortList(A) is None, 'Edge 0'
+    assert Solution().sortList(A) is None, "Edge 0"
 
     A = genNode([1])
-    assert Solution().sortList(A) == A, 'Edge 1'
+    assert Solution().sortList(A) == A, "Edge 1"
 
     A = genNode([4,2,1,3])
-    assert Solution().sortList(A) == genNode([1,2,3,4]), 'Example 1'
+    assert Solution().sortList(A) == genNode([1,2,3,4]), "Example 1"
 
     A = genNode([-1, 5, 3, 4, 0])
-    assert Solution().sortList(A) == genNode([-1, 0, 3, 4, 5]), 'Example 2'
+    assert Solution().sortList(A) == genNode([-1, 0, 3, 4, 5]), "Example 2"
 
-    print('all passed')
+    print("all passed")

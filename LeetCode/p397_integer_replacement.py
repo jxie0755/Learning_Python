@@ -104,15 +104,15 @@ class Solution:
 
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
 
-    assert Solution().integerReplacement(1) == 0, 'Edge 1'
+    assert Solution().integerReplacement(1) == 0, "Edge 1"
 
-    assert Solution().integerReplacement(8) == 3, 'Example 1'
-    assert Solution().integerReplacement(7) == 4, 'Example 2'
-    assert Solution().integerReplacement(13) == 5, 'Example 3'
+    assert Solution().integerReplacement(8) == 3, "Example 1"
+    assert Solution().integerReplacement(7) == 4, "Example 2"
+    assert Solution().integerReplacement(13) == 5, "Example 3"
 
-    assert Solution().integerReplacement(10000000) == 30, 'Long 1'
-    assert Solution().integerReplacement(100000000) == 31, 'Long 2'
+    assert Solution().integerReplacement(10000000) == 30, "Long 1"
+    assert Solution().integerReplacement(100000000) == 31, "Long 2"
 
-    print('all passed')
+    print("all passed")

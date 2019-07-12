@@ -6,7 +6,7 @@ def checkio(land_map):
 
 
 
-# if __name__ == '__main__':
+# if __name__ == "__main__":
 #     assert checkio([[0, 0, 0, 0, 0],
 #                     [0, 0, 1, 1, 0],
 #                     [0, 0, 0, 1, 0],
@@ -23,7 +23,7 @@ def checkio(land_map):
 #                     [0, 0, 0, 0, 0, 0],
 #                     [0, 1, 1, 1, 1, 0],
 #                     [0, 0, 0, 0, 0, 0]]) == [2, 3, 3, 4], "3rd example"
-#     print('done')
+#     print("done")
 
 
 land_map = ([[1, 0, 0, 0, 0],

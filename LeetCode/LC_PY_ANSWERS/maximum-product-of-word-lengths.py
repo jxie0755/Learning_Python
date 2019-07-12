@@ -22,7 +22,7 @@ class Solution(object):
         bits = [0] * len(words)
         for i, word in enumerate(words):
             for c in word:
-                bits[i] |= (1 << (ord(c) - ord('a')))
+                bits[i] |= (1 << (ord(c) - ord("a")))
 
         max_product = 0
         for i in xrange(len(words) - 1):
@@ -48,7 +48,7 @@ class Solution2(object):
         bits = [0] * len(words)
         for i, word in enumerate(words):
             for c in word:
-                bits[i] |= (1 << (ord(c) - ord('a')))
+                bits[i] |= (1 << (ord(c) - ord("a")))
 
         max_product = 0
         for i in xrange(len(words) - 1):

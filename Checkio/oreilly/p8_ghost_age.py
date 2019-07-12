@@ -33,11 +33,11 @@ def checkio(opacity):
             if target == opacity:
                 return i
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     assert checkio(10000) == 0, "Newborn"
     assert checkio(9999) == 1, "1 year"
     assert checkio(9997) == 2, "2 years"
     assert checkio(9994) == 3, "3 years"
     assert checkio(9995) == 4, "4 years"
     assert checkio(9990) == 5, "5 years"
-    print('done')
+    print("done")

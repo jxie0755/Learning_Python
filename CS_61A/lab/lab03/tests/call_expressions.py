@@ -1,11 +1,11 @@
 test = {
-  'name': 'Call Expressions',
-  'points': 0,
-  'suites': [
+  "name": "Call Expressions",
+  "points": 0,
+  "suites": [
     {
-      'cases': [
+      "cases": [
         {
-          'code': r"""
+          "code": r"""
           >>> from operator import add
           >>> def double(x):
           ...     return x + x
@@ -16,11 +16,11 @@ test = {
           >>> f(4)
           Nothing
           """,
-          'hidden': False,
-          'locked': False
+          "hidden": False,
+          "locked": False
         },
         {
-          'code': r"""
+          "code": r"""
           >>> def foo(x, y):
           ...     print("x or y")
           ...     return x or y
@@ -35,28 +35,28 @@ test = {
           >>> print(c)
           None
           """,
-          'hidden': False,
-          'locked': False
+          "hidden": False,
+          "locked": False
         },
         {
-          'code': r"""
+          "code": r"""
           >>> def welcome():
-          ...     print('welcome to')
-          ...     return 'hello'
+          ...     print("welcome to")
+          ...     return "hello"
           >>> def cs61a():
-          ...     print('cs61a')
-          ...     return 'world'
+          ...     print("cs61a")
+          ...     return "world"
           >>> print(welcome(), cs61a())
           welcome to
           cs61a
           hello world
           """,
-          'hidden': False,
-          'locked': False
+          "hidden": False,
+          "locked": False
         }
       ],
-      'scored': False,
-      'type': 'wwpp'
+      "scored": False,
+      "type": "wwpp"
     }
   ]
 }

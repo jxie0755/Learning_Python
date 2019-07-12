@@ -233,14 +233,14 @@ class Solution(object):
             i += 1
         return result
 
-if __name__ == '__main__':
-    assert Solution().threeSum([]) == [], 'Edge 1'
-    assert Solution().threeSum([1]) == [], 'Edge 2'
-    assert Solution().threeSum([1,1]) == [], 'Edge 3'
+if __name__ == "__main__":
+    assert Solution().threeSum([]) == [], "Edge 1"
+    assert Solution().threeSum([1]) == [], "Edge 2"
+    assert Solution().threeSum([1,1]) == [], "Edge 3"
 
-    assert Solution().threeSum([-1, 0, 1, 2, -1, -4]) == [[-1, -1, 2], [-1, 0, 1]], 'Example 1'
-    assert Solution().threeSum([-4,-2,-2,-2,0,1,2,2,2,3,3,4,4,6,6]) == [[-4,-2,6],[-4,0,4],[-4,1,3],[-4,2,2],[-2,-2,4],[-2,0,2]], 'Example 2'
-    assert Solution().threeSum([-4,-2,-1]) == [], 'Example 3'
-    assert Solution().threeSum([0,0,0]) == [[0,0,0]], 'Example 4'
+    assert Solution().threeSum([-1, 0, 1, 2, -1, -4]) == [[-1, -1, 2], [-1, 0, 1]], "Example 1"
+    assert Solution().threeSum([-4,-2,-2,-2,0,1,2,2,2,3,3,4,4,6,6]) == [[-4,-2,6],[-4,0,4],[-4,1,3],[-4,2,2],[-2,-2,4],[-2,0,2]], "Example 2"
+    assert Solution().threeSum([-4,-2,-1]) == [], "Example 3"
+    assert Solution().threeSum([0,0,0]) == [[0,0,0]], "Example 4"
 
-    print('all passed')
+    print("all passed")

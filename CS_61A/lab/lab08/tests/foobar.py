@@ -1,16 +1,16 @@
 test = {
-  'name': 'FooBar',
-  'points': 0,
-  'suites': [
+  "name": "FooBar",
+  "points": 0,
+  "suites": [
     {
-      'cases': [
+      "cases": [
         {
-          'code': r"""
+          "code": r"""
           >>> class Foo:
           ...     def print_one(self):
-          ...         print('foo')
+          ...         print("foo")
           ...     def print_two():
-          ...         print('foofoo')
+          ...         print("foofoo")
           >>> f = Foo()
           >>> f.print_one()
           foo
@@ -20,22 +20,22 @@ test = {
           foofoo
           >>> class Bar(Foo):
           ...     def print_one(self):
-          ...         print('bar')
+          ...         print("bar")
           >>> b = Bar()
           >>> b.print_one()
           bar
           >>> Bar.print_two()
           foofoo
-          >>> Bar.print_one = lambda x: print('new bar')
+          >>> Bar.print_one = lambda x: print("new bar")
           >>> b.print_one()
           new bar
           """,
-          'hidden': False,
-          'locked': False
+          "hidden": False,
+          "locked": False
         }
       ],
-      'scored': False,
-      'type': 'wwpp'
+      "scored": False,
+      "type": "wwpp"
     }
   ]
 }

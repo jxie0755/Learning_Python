@@ -53,18 +53,18 @@ class Solution:
 
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     E1 = [[]]
-    assert Solution().minPathSum(E1) == 0, 'Edge 1'
+    assert Solution().minPathSum(E1) == 0, "Edge 1"
 
     E2 = [[1]]
-    assert Solution().minPathSum(E2) == 1, 'Edge 2'
+    assert Solution().minPathSum(E2) == 1, "Edge 2"
 
     E3 = [[1, 1]]
-    assert Solution().minPathSum(E3) == 2, 'Edge 3'
+    assert Solution().minPathSum(E3) == 2, "Edge 3"
 
     E4 = [[1],[1]]
-    assert Solution().minPathSum(E4) == 2, 'Edge 4'
+    assert Solution().minPathSum(E4) == 2, "Edge 4"
 
     S1 = [
         [1, 3, 1],
@@ -72,8 +72,8 @@ if __name__ == '__main__':
         [4, 2, 1]
     ]
 
-    assert Solution().minPathSum(S1) == 7, 'Example 1'
-    print('all passed')
+    assert Solution().minPathSum(S1) == 7, "Example 1"
+    print("all passed")
 
 
 

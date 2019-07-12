@@ -1,4 +1,4 @@
-fruits = ['apple', 'banana', 'grape', 'orange', 'pear']
+fruits = ["apple", "banana", "grape", "orange", "pear"]
 
-print('apple' in fruits)
-print('peach' in fruits)
+print("apple" in fruits)
+print("peach" in fruits)

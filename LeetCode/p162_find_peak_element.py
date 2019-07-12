@@ -65,28 +65,28 @@ class Solution_2(object):
                 right = mid
             else:
                 left = mid + 1
-            print('mid', mid, 'left', left, 'right', right)
+            print("mid", mid, "left", left, "right", right)
 
         return left
 
 
 
-if __name__ == '__main__':
-    assert Solution().findPeakElement([1]) == 0, 'Edge 1'
-    assert Solution().findPeakElement([2,1]) == 0, 'Edge 2'
-    assert Solution().findPeakElement([3, 2, 1]) == 0, 'Edge 3'
+if __name__ == "__main__":
+    assert Solution().findPeakElement([1]) == 0, "Edge 1"
+    assert Solution().findPeakElement([2,1]) == 0, "Edge 2"
+    assert Solution().findPeakElement([3, 2, 1]) == 0, "Edge 3"
 
-    assert Solution().findPeakElement([1,2,3,1]) == 2, 'Example 1'
+    assert Solution().findPeakElement([1,2,3,1]) == 2, "Example 1"
 
     B = Solution().findPeakElement([1,2,1,3,5,6,4])
-    assert B == 1 or B == 5, 'Example 2'
+    assert B == 1 or B == 5, "Example 2"
 
-    assert Solution().findPeakElement([1, 2]) == 1, 'Additional 1'
-    assert Solution().findPeakElement([1, 2, 3]) == 2, 'Additional 2'
+    assert Solution().findPeakElement([1, 2]) == 1, "Additional 1"
+    assert Solution().findPeakElement([1, 2, 3]) == 2, "Additional 2"
 
     # STD ans is problematic:
     print(Solution_2().findPeakElement([1, 2, 1, 1, 1, 1, 1, 1, 1, 1]))
     #                                   0  1  2  3  4  5  6  7  8  9
     # it should return 1, but it returned 9, nums[9] is not a true peak.
 
-    print('all passed')
+    print("all passed")

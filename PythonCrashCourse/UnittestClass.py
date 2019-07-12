@@ -18,5 +18,5 @@ class AnonymousSurvey():
         """显示收集到的所有答卷"""
         print("Survey results:")
         for response in self.responses:
-            print('- ' + response)
+            print("- " + response)
             

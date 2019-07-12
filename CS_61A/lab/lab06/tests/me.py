@@ -1,25 +1,25 @@
 test = {
-  'name': 'Me',
-  'points': 0,
-  'suites': [
+  "name": "Me",
+  "points": 0,
+  "suites": [
     {
-      'cases': [
+      "cases": [
         {
-          'code': r"""
+          "code": r"""
           >>> from data import *
           >>> type(me.name) == str
           True
           >>> me.place is sather_gate
           True
           """,
-          'hidden': False,
-          'locked': False
+          "hidden": False,
+          "locked": False
         }
       ],
-      'scored': True,
-      'setup': '',
-      'teardown': '',
-      'type': 'doctest'
+      "scored": True,
+      "setup": "",
+      "teardown": "",
+      "type": "doctest"
     }
   ]
 }

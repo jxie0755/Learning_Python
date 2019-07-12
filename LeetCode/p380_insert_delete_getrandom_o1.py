@@ -67,7 +67,7 @@ class RandomizedSet(object):
 
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     obj = RandomizedSet()
 
     assert obj.insert(1)
@@ -94,4 +94,4 @@ if __name__ == '__main__':
 
     print(obj.getRandom())
 
-    print('all passed')
+    print("all passed")

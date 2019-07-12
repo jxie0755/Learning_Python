@@ -12,7 +12,7 @@ high = x
 guess = (high + low) / 2
 
 while abs(guess**2 - x) >= epsilon:
-    print('low =', str(low), 'high=', high, 'guess=', guess)
+    print("low =", str(low), "high=", high, "guess=", guess)
     numGuess += 1
     if guess**2 < x:
         low = guess
@@ -36,7 +36,7 @@ high = x
 guess = (high + low) / 2
 
 while abs(guess**3 - x) >= epsilon:
-    print('low =', str(low), 'high=', high, 'guess=', guess)
+    print("low =", str(low), "high=", high, "guess=", guess)
     numGuess += 1
     if guess**3 < x:
         low = guess

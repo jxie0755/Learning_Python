@@ -21,7 +21,7 @@ class Solution(object):
         while i > 0 and res[i] == 0:
             i -= 1
 
-        return ''.join(map(str, res[i::-1]))
+        return "".join(map(str, res[i::-1]))
 
 # Time:  O(m * n)
 # Space: O(m + n)

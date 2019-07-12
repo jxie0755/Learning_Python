@@ -20,11 +20,11 @@ class Solution(object):
             n = end - begin
             for i in xrange(n):
                 s += words[begin + i],
-                s += ' ' * addSpaces(i, n - 1, maxWidth - length, is_last),
+                s += " " * addSpaces(i, n - 1, maxWidth - length, is_last),
             # For only one word in a line.
             line = "".join(s)
             if len(line) < maxWidth:
-                line += ' ' * (maxWidth - len(line))
+                line += " " * (maxWidth - len(line))
             return line
 
         res = []

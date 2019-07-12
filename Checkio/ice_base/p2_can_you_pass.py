@@ -10,15 +10,15 @@ import itertools
 
 
 def can_pass(matrix, first, second):
-    # add 1 layer over the matrix with 'x'
+    # add 1 layer over the matrix with "x"
     matrix_new = list(map(lambda x: list(x), matrix))
-    addrow1, addrow2 = itertools.tee(list(map(lambda x: 'x', range(len(matrix[0])))))
+    addrow1, addrow2 = itertools.tee(list(map(lambda x: "x", range(len(matrix[0])))))
     matrix_new.insert(0, list(addrow1))
     matrix_new.append(list(addrow2))
 
     for i in matrix_new:
-        i.insert(0, 'x')
-        i.append('x')
+        i.insert(0, "x")
+        i.append("x")
 
     # get new coordinates for first and second
     first, second = tuple(map(lambda x: x + 1, first)), tuple(map(lambda x: x + 1, second))
@@ -49,7 +49,7 @@ def can_pass(matrix, first, second):
     return second in result
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     assert can_pass(((0, 0, 0, 0, 0, 0),
                      (0, 2, 2, 2, 3, 2),
                      (0, 2, 0, 0, 0, 2),
@@ -57,7 +57,7 @@ if __name__ == '__main__':
                      (0, 2, 2, 2, 0, 2),
                      (0, 0, 0, 0, 0, 2),
                      (2, 2, 2, 2, 2, 2),),
-                    (3, 2), (0, 5)) == True, 'First example'
+                    (3, 2), (0, 5)) == True, "First example"
     assert can_pass(((0, 0, 0, 0, 0, 0),
                      (0, 2, 2, 2, 3, 2),
                      (0, 2, 0, 0, 0, 2),
@@ -65,5 +65,5 @@ if __name__ == '__main__':
                      (0, 2, 2, 2, 0, 2),
                      (0, 0, 0, 0, 0, 2),
                      (2, 2, 2, 2, 2, 2),),
-                    (3, 3), (6, 0)) == False, 'First example'
-    print('done')
+                    (3, 3), (6, 0)) == False, "First example"
+    print("done")

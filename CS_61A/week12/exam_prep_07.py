@@ -11,19 +11,19 @@ class Tree:
 
     def __repr__(self):
         if self.branches:
-            branch_str = ', ' + repr(self.branches)
+            branch_str = ", " + repr(self.branches)
         else:
-            branch_str = ''
-        return 'Tree({0}{1})'.format(self.label, branch_str)
+            branch_str = ""
+        return "Tree({0}{1})".format(self.label, branch_str)
 
     def __str__(self):
-        return '\n'.join(self.indented())
+        return "\n".join(self.indented())
 
     def indented(self):  # this is to recursively print a Tree.
         lines = []
         for b in self.branches:
             for line in b.indented():
-                lines.append('  ' + line)
+                lines.append("  " + line)
         return [str(self.label)] + lines
         # This is the original print_tree fucntion is a series of print() at different lines.
         # But __str__ requires to return a str object.
@@ -57,17 +57,17 @@ class Link:
 
     def __repr__(self):
         if self.rest:
-            rest_str = ', ' + repr(self.rest)
+            rest_str = ", " + repr(self.rest)
         else:
-            rest_str = ''
-        return 'Link({0}{1})'.format(self.value, rest_str)
+            rest_str = ""
+        return "Link({0}{1})".format(self.value, rest_str)
 
     # def __str__(self):
-    #     string = '<'
+    #     string = "<"
     #     while self.rest is not Link.empty:
-    #         string += str(self.value) + ', '
+    #         string += str(self.value) + ", "
     #         self = self.rest
-    #     return string + str(self.value) + '>'
+    #     return string + str(self.value) + ">"
 
     @property
     def second(self):
@@ -108,40 +108,40 @@ def linky_paths(t):
 
 def find_file_path(t, file_str):
     """
-    >>> t = Tree('data', [Tree('comm', [Tree('dummy.py')]), Tree('ecc', [Tree('hello.py'), Tree('file.py')]), Tree('file2.py')])
-    >>> find_file_path(t, 'file2.py')
-    '/data/file2.py'
-    >>> find_file_path(t, 'dummy.py')
-    '/data/comm/dummy.py'
-    >>> find_file_path(t, 'hello.py')
-    '/data/ecc/hello.py'
-    >>> find_file_path(t, 'file.py')
-    '/data/ecc/file.py'
+    >>> t = Tree("data", [Tree("comm", [Tree("dummy.py")]), Tree("ecc", [Tree("hello.py"), Tree("file.py")]), Tree("file2.py")])
+    >>> find_file_path(t, "file2.py")
+    "/data/file2.py"
+    >>> find_file_path(t, "dummy.py")
+    "/data/comm/dummy.py"
+    >>> find_file_path(t, "hello.py")
+    "/data/ecc/hello.py"
+    >>> find_file_path(t, "file.py")
+    "/data/ecc/file.py"
     """
     def helper(t, file_str, path_so_far):
         if t.label == file_str and t.is_leaf():
                                    # not necessary but to avoid folder and file as the same name
-            return path_so_far + '/' + t.label
+            return path_so_far + "/" + t.label
         elif t.is_leaf():
             return None
         for b in t.branches:
-            result = helper(b, file_str, path_so_far + '/' + t.label)
+            result = helper(b, file_str, path_so_far + "/" + t.label)
             if result:
                 return result
-    return helper(t, file_str, '')
+    return helper(t, file_str, "")
 
 # Linked list functions
 # Convert to String Implement convert_to_string which takes in a Linked List link
 # and coverts the Linked List to a file path.
 def convert_to_string(link):
     """
-    >>> link = Link('data' , Link('file2.py'))
+    >>> link = Link("data" , Link("file2.py"))
     >>> convert_to_string(link)
-    '/data/file2.py'
+    "/data/file2.py"
     """
     if not link:
-        return ''
-    return '/' + link.value + convert_to_string(link.rest)
+        return ""
+    return "/" + link.value + convert_to_string(link.rest)
 
 # All Paths Linked Implement all_paths_linked which takes in a Tree t and returns a list of all paths from root to leaf in a tree with one catch â€“ each path is represented as a linked list.
 
@@ -175,15 +175,15 @@ def all_paths_linked(t):
 # For this question, use the definition of all_paths_linked and convert_to_string from previous practice
 def find_file_path2(t, file_str):
     """
-    >>> t = Tree('data', [Tree('comm', [Tree('dummy.py')]), Tree('ecc', [Tree('hello.py'), Tree('file.py')]), Tree('file2.py')])
-    >>> find_file_path2(t, 'file2.py')
-    '/data/file2.py'
-    >>> find_file_path2(t, 'dummy.py')
-    '/data/comm/dummy.py'
-    >>> find_file_path2(t, 'hello.py')
-    '/data/ecc/hello.py'
-    >>> find_file_path2(t, 'file.py')
-    '/data/ecc/file.py'
+    >>> t = Tree("data", [Tree("comm", [Tree("dummy.py")]), Tree("ecc", [Tree("hello.py"), Tree("file.py")]), Tree("file2.py")])
+    >>> find_file_path2(t, "file2.py")
+    "/data/file2.py"
+    >>> find_file_path2(t, "dummy.py")
+    "/data/comm/dummy.py"
+    >>> find_file_path2(t, "hello.py")
+    "/data/ecc/hello.py"
+    >>> find_file_path2(t, "file.py")
+    "/data/ecc/file.py"
     """
     for link in all_paths_linked(t):
         original = link

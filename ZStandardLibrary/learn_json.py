@@ -11,7 +11,7 @@
 #    JSON类型	     Python类型
 #      {}	           dict
 #      []	           list
-#    "string"	       'str'
+#    "string"	       "str"
 #     1234.56	     int或float
 #    true/false	      True/False
 #      null           	None
@@ -21,7 +21,7 @@
 # Python内置的json模块提供了非常完善的Python对象到JSON格式的转换
 # 我们先看看如何把Python对象变成一个JSON
 import json
-d = dict(name='Bob', age=20, score=88, graduate=False, record=None)
+d = dict(name="Bob", age=20, score=88, graduate=False, record=None)
 
 # dumps
 print(json.dumps(d))
@@ -29,13 +29,13 @@ print(json.dumps(d))
 # dumps()方法返回一个str，内容就是标准的JSON。类似的，dump()方法可以直接把JSON写入一个file-like Object
 
 # loads
-json_str = '{"name": "Bob", "age": 20, "score": 88, "graduate": false, "record": null}'
+json_str = "{"name": "Bob", "age": 20, "score": 88, "graduate": false, "record": null}"
 ld = json.loads(json_str)
 print(ld)
-# >>> {'name': 'Bob', 'age': 20, 'score': 88, 'graduate': False, 'record': None}
+# >>> {"name": "Bob", "age": 20, "score": 88, "graduate": False, "record": None}
 
 print(type(ld))
-# >>> <class 'dict'>  认得出是字典
+# >>> <class "dict">  认得出是字典
 
 # JSON进阶
 # Python的dict对象可以直接序列化为JSON的{}
@@ -50,9 +50,9 @@ class Student(object):
     def __str__(self):
         return str((self.name, self.age, self.score, self.graduated, self.criminal_record))
 
-s = Student('Adrienne', 2, 95, False, None)
+s = Student("Adrienne", 2, 95, False, None)
 # print(json.dumps(s))   Error
-# Object of type 'Student' is not JSON serializable
+# Object of type "Student" is not JSON serializable
 
 # 除了第一个必须的obj参数外，dumps()方法还提供了一大堆的可选参数
 # json.dumps(obj,
@@ -71,11 +71,11 @@ s = Student('Adrienne', 2, 95, False, None)
 # 可选参数default就是把任意一个对象变成一个可序列为JSON的对象，我们只需要为Student专门写一个转换函数，再把函数传进去即可
 def student2dict(std):
     return {
-        'name': std.name,
-        'age': std.age,
-        'score': std.score,
-        'graduate': std.graduated,
-        'criminal_record': std.criminal_record
+        "name": std.name,
+        "age": std.age,
+        "score": std.score,
+        "graduate": std.graduated,
+        "criminal_record": std.criminal_record
     }
 
 print(json.dumps(s, default=student2dict)) # default调用转换函数
@@ -94,11 +94,11 @@ print("lazy:", json.dumps(s, default=lambda obj: obj.__dict__))
 
 # 同样的道理，如果我们要把JSON反序列化为一个Student对象实例，loads()方法首先转换出一个dict对象
 def dict2student(d):
-    return Student(d['name'], d['age'], d['score'], d['graduate'], d['criminal_record'])
+    return Student(d["name"], d["age"], d["score"], d["graduate"], d["criminal_record"])
 
 # 我们传入的object_hook函数负责转换
 with open("./temp/dump.json", "r") as p_obj:
     std_new = json.load(p_obj, object_hook=dict2student)
 
 print(std_new)
-# >>> ('Adrienne', 2, 95, False, None)
+# >>> ("Adrienne", 2, 95, False, None)

@@ -15,7 +15,7 @@ class Chessboard(object):
         An empty checkerboard -
         the structure should be a nested list of n lists where each list contain n spots, default to filled with 0
         """
-        assert n > 1, 'n must be larger than 1'
+        assert n > 1, "n must be larger than 1"
         self.size = n
 
         self.board = []
@@ -37,18 +37,18 @@ class Chessboard(object):
         also add a coordinate axis for easier read
         """
 
-        to_print = ''
+        to_print = ""
         y_num = self.size  # 根据棋盘大小输出
         nums = str(list(range(1,self.size+1)))[1:-1]
-        x_num = '    ' + nums
-        separ = '    ' + len(nums) * '-'
+        x_num = "    " + nums
+        separ = "    " + len(nums) * "-"
 
         for i in self.board:
             row = str(i)
-            to_print += str(y_num) + '  ' + row + '\n'
+            to_print += str(y_num) + "  " + row + "\n"
             y_num -= 1
 
-        to_print += separ + '\n' + x_num
+        to_print += separ + "\n" + x_num
         return to_print
 
 
@@ -155,7 +155,7 @@ class Chessboard(object):
                 self.all_available = self.snapshot.pop()
                 self.queen_solve(level - 1)
             else:
-                print('Analysis Finished')
+                print("Analysis Finished")
 
         elif level == self.size:
             if self.all_available[level]:
@@ -172,10 +172,10 @@ class Chessboard(object):
     def show_solution(self):
         for answer in self.result:
             print(answer)
-        print('Total solution number:', len(t.result))
+        print("Total solution number:", len(t.result))
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     # Check 4 queens
     t = Chessboard(4)
     t.queen_solve()

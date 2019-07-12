@@ -3,21 +3,21 @@
 
 
 print()
-print('Basic Knowledge')
+print("Basic Knowledge")
 
 # 类(Class)和实例(Instance)是面向对象最重要的概念
 # simplest way of creating a class
 class Student(object):
     pass
 
-print(Student)  # >>> <class '__main__.Student'>
+print(Student)  # >>> <class "__main__.Student">
 denis = Student()
 print(denis)    # >>> <__main__.Student object at 0x7f510c8f8400>
 
 # 可以自由地给一个实例变量绑定属性
 
-denis.name = 'Denis Xie'
-print(hasattr(denis, 'name'))  # >>>  True
+denis.name = "Denis Xie"
+print(hasattr(denis, "name"))  # >>>  True
 
 # 类同时也可以起到模板的作用，我们可以在创建一个类的时候，把一些认为公共的东西写进类定义中去，在python中通过一个特殊的__init__方法实现
 class Student(object):
@@ -28,7 +28,7 @@ class Student(object):
 # __init__方法的第一个参数永远都是self,表示创建实例本身
 # 在__init__方法内部，可以把各种属性绑定到self，因为self指向创建的实例本身。
 # 有了__init__方法，在创建实例的时候，必须传入与__init__方法匹配的参数，但self不需要传
-denis = Student('Denis Xie', 99)
+denis = Student("Denis Xie", 99)
 print(denis.name)  # >>> Denis Xie
 print(denis.score)  # >>> 99
 
@@ -53,7 +53,7 @@ class Student(object):
     def print_score(self):
         print(f"{self.name} has a score of {self.score}")
 
-denis = Student('Denis Xie', 99)
+denis = Student("Denis Xie", 99)
 denis.print_score()  # >>> Denis Xie has a score of 99
 
 # 数据和逻辑都被封装起来，直接调用方法即可，但却可以不用知道内部的细节
@@ -64,22 +64,22 @@ denis.print_score()  # >>> Denis Xie has a score of 99
 # *通过在实例上调用方法，我们就直接操作了对象内部的数据，但无需知道方法内部的实现细节。
 
 # *和静态语言不同，Python允许对实例变量绑定任何数据，也就是说，对于两个实例变量，虽然它们都是同一个类的不同实例，但拥有的变量名称都可能不同
-denis = Student('Denis Xie', 99)
-cindy = Student('Cindy Tian', 100)
-denis.gender = 'male'
+denis = Student("Denis Xie", 99)
+cindy = Student("Cindy Tian", 100)
+denis.gender = "male"
 print(denis.gender)  # >>> male  # attribute only for denis
-# print(cindy.gender)    # >>> AttributeError: 'Student' object has no attribute 'gender'
+# print(cindy.gender)    # >>> AttributeError: "Student" object has no attribute "gender"
 
 
 
 print()
-print('Restriction of visit')
+print("Restriction of visit")
 
 # 在Class内部，可以有属性和方法，而外部代码可以通过直接调用实例变量的方法来操作数据，这样，就隐藏了内部的复杂逻辑。
 # 但是，从前面Student类的定义来看，外部代码还是可以自由地修改一个实例的name、score属性
 
 # change data from outside codes
-denis.name = 'Jia Xie'
+denis.name = "Jia Xie"
 denis.score = 59
 denis.print_score()  # >>> Jia Xie has a score of 59
 
@@ -95,13 +95,13 @@ class Student(object):
         print(f"{self.__name} has a score of {self.__score}")
 
 
-denis = Student('Denis Xie', 99)
-# print(denis.__name)   # >>> AttributeError: 'Student' object has no attribute '__name'
+denis = Student("Denis Xie", 99)
+# print(denis.__name)   # >>> AttributeError: "Student" object has no attribute "__name"
 # 这样就确保了外部代码不能随意修改对象内部的状态，这样通过访问限制的保护，代码更加健壮
 
 # 注意private attribute必须在class中定义,不然从外部是无法写入的,这里__gender仍然是public attribute
-denis.__gender = 'male'
-denis.__gender = 'female'
+denis.__gender = "male"
+denis.__gender = "female"
 print(denis.__gender)  # >>> female
 
 # 而且只是无法访问,不代表无法更改
@@ -129,7 +129,7 @@ class Student(object):
     def print_score(self):
         print(f"{self.__name} has a score of {self.__score}")
 
-denis = Student('Denis Xie', 99, 'male')
+denis = Student("Denis Xie", 99, "male")
 print(denis.__gender__)  # >>> male        # __special__可以从外部访问
 print(denis._Student__name)  # >>> Denis Xie   # __private 仍然从外部访问
 
@@ -140,13 +140,13 @@ print(dir(denis))  # 可以发现private变量名字是如何被解释器改变�
 
 
 print()
-print('Inheritance and Polymorphism')
+print("Inheritance and Polymorphism")
 
 # create a class Animal(), and a subclass Dog()
 class Animal(object):
     @staticmethod
     def run():
-        print('running...')
+        print("running...")
 
 class Dog(Animal):
     pass
@@ -159,11 +159,11 @@ little_dog.run()  # >>> running...
 class Animal(object):
     @staticmethod
     def run():
-        print('running...')
+        print("running...")
 
 class Dog(Animal):
     def run(self):
-        print('dog running...')
+        print("dog running...")
 
 little_animal = Animal()
 little_dog = Dog()
@@ -179,7 +179,7 @@ print(isinstance(little_animal, Dog))  # >>> False  # 父类实例不属于子�
 # 注意,这里针对方法做例子,但是对属性的调用同样成立
 class Cat(Animal):
     def run(self):
-        print('cat running...')
+        print("cat running...")
 
 def animal_run(animal):
     animal.run()
@@ -200,7 +200,7 @@ animal_run(Cat())     # >>> cat running...
 class Timer():
     @staticmethod
     def run():
-        print('Start...')
+        print("Start...")
 
 animal_run(Timer())  # >>> Start...
 # 这就是动态语言的“鸭子类型”，它并不要求严格的继承体系，一个对象只要“看起来像鸭子，走起路来像鸭子”，那它就可以被看做是鸭子
@@ -212,7 +212,7 @@ animal_run(Timer())  # >>> Start...
 
 
 print()
-print('Exraction Information from Objects')
+print("Exraction Information from Objects")
 
 # 介绍一些用于获取对象信息的函数与方法
 
@@ -223,8 +223,8 @@ print('Exraction Information from Objects')
 # 类似__xxx__的属性和方法在Python中都是有特殊用途的，比如__len__方法返回长度。
 # 在Python中，如果你调用len()函数试图获取一个对象的长度，实际上，在len()函数内部，它自动去调用str对象的__len__()方法，
 # 所以，下面的代码是等价的
-print(len('ABC'))       # >>> 3
-print('ABC'.__len__())  # >>> 3
+print(len("ABC"))       # >>> 3
+print("ABC".__len__())  # >>> 3
 
 # 自制__special__函数
 class People(object):
@@ -232,10 +232,10 @@ class People(object):
         return 100
     @staticmethod
     def ppl():
-        return 'People has power'
+        return "People has power"
 denis = People()
 print(len(denis))  # >>> 100  # 只有特殊方法才可以这样
-# print(ppl(denis))  # >>> NameError: name 'ppl' is not defined
+# print(ppl(denis))  # >>> NameError: name "ppl" is not defined
 
 # 当然既然能列出这属性和方法，也可以相应的修改
 # python准备了getattr()、setattr()、hasattr()，可以直接操作一个对象的状态
@@ -244,24 +244,24 @@ print(len(denis))  # >>> 100  # 只有特殊方法才可以这样
 # 通过内置的一系列函数，我们可以对任意一个Python对象进行剖析，拿到其内部的数据。
 # 要注意的是，只有在不知道对象信息的时候，我们才会去获取对象信息
 # 如果可以直接写：sum = obj.x + obj.y
-# 就不要写：sum = getattr(obj, 'x') + getattr(obj, 'y')
+# 就不要写：sum = getattr(obj, "x") + getattr(obj, "y")
 
 
 
 print()
-print('Instance properties and Class properties')
+print("Instance properties and Class properties")
 
 # 不要把多态应用到属性上,而只是应用到方法上
 
 class Student(object):
-    name = 'Student'
+    name = "Student"
 
 s = Student()
 print(s.name)  # >>> Student
 print(Student.name)  # >>> Student
 
 # 类的名字是Student,类里的属性也叫Student.这会导致黑人问号脸
-s.name = 'Denis'
+s.name = "Denis"
 print(s.name)  # >>> Denis
 print(Student.name)  # >>> Student
 del s.name # 如果删除实例的name属性
@@ -275,20 +275,20 @@ print(s.name)  # >>> Student  # 再次调用s.name，由于实例的name属性�
 
 
 print()
-print('use slots')
+print("use slots")
 
 class Student(object):
-    __slots__ = ('name', 'age')  # 用tuple定义允许绑定的属性名称
+    __slots__ = ("name", "age")  # 用tuple定义允许绑定的属性名称
 
     def __init__(self, name):
         self.name = name
         # self.score = score  # 一旦slots限制,即使是__init__()也不能违规创建其他属性
 
-# d = Student('Denis', 99)  # >>> AttributeError: 'Student' object has no attribute 'score'
+# d = Student("Denis", 99)  # >>> AttributeError: "Student" object has no attribute "score"
 
-dd = Student('Denis')
+dd = Student("Denis")
 dd.age = 25
-# dd.whatever = 33  # >>> 'Student' object has no attribute 'whatever'
+# dd.whatever = 33  # >>> "Student" object has no attribute "whatever"
 print(dd.name)  # >>> Denis
 print(dd.age)  # >>> 25
 
@@ -298,20 +298,20 @@ class GoodStudent(Student):
         self.name = name
         self.age = age
 
-cc = GoodStudent('Cindy', 26)
+cc = GoodStudent("Cindy", 26)
 cc.whatever = 123123
 print(cc.whatever)  # >>> 13212
 
 
 
 print()
-print('Use @Property decorator')
+print("Use @Property decorator")
 class Student(object):
     def __init__(self, name, score):
         self.name = name
         self.score = score
 
-dd = Student('Denis', 59)
+dd = Student("Denis", 59)
 dd.score = 999
 print(dd.score)  # >>> 999  # score can be changed easily, not a safe way of coding
 
@@ -326,12 +326,12 @@ class Student(object):
 
     def set_score(self, value):
         if not isinstance(value, int):
-            raise ValueError('score must be an integer!')
+            raise ValueError("score must be an integer!")
         if value < 0 or value > 100:
-            raise ValueError('score must between 0 - 100.')
+            raise ValueError("score must between 0 - 100.")
         self._score = value
 
-dd = Student('Denis', 59)
+dd = Student("Denis", 59)
 # dd.set_score(199)  # >>> ValueError: score must between 0 - 100.
 dd.set_score(99)
 print(dd.get_score())  # >>> 99
@@ -349,9 +349,9 @@ class Student(object):
     @score.setter  # .setter是一个property的固定的set属性,不能乱改
     def score(self, value):
         if not isinstance(value, int):
-            raise ValueError('score must be an integer!')
+            raise ValueError("score must be an integer!")
         if value < 0 or value > 100:
-            raise ValueError('score must between 0 - 100!')
+            raise ValueError("score must between 0 - 100!")
         self._score = value
 
 d = Student()
@@ -388,12 +388,12 @@ print(dd.age)  # >> 29
 
 
 print()
-print('Multiple Inheriance')
+print("Multiple Inheriance")
 
 class Animal(object):
     @staticmethod
     def animalrun():
-        print('I am running...')
+        print("I am running...")
 
 class Runnable():
     @staticmethod
@@ -419,7 +419,7 @@ didi.run()        # >>> I can run...     # Runnable类的方法
 
 
 print()
-print('Customized Class')
+print("Customized Class")
 
 # 形如__xxx__的变量或者函数名就要注意，这些在Python中是有特殊用途的
 
@@ -433,12 +433,12 @@ class Student(object):
 
     __repr__ = __str__
 
-print(Student('Denis'))  # >>> <__main__.Student object at 0x10454fe80>
+print(Student("Denis"))  # >>> <__main__.Student object at 0x10454fe80>
 # 如果想改变以上输出结果，就需要用到__str___，在类里重新定义这个方法就可以了
-print(Student('Denis'))  # >>> Student name is Denis
+print(Student("Denis"))  # >>> Student name is Denis
 
 # 但是print()管的是输出string,而不是代表物体本身的string,所以repr()仍然按以前显示
-print(repr(Student('Denis')))  # >>> <__main__.Student object at 0x104550f28>
+print(repr(Student("Denis")))  # >>> <__main__.Student object at 0x104550f28>
 # 说明直接显示变量不归__str__管了，由__repr__管
 
 # __iter__() 和 __next__()
@@ -462,7 +462,7 @@ print(list(Fib()))
 # >>> [1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987, 1597, 2584, 4181, 6765]
 
 # Fib实例虽然能作用于for循环，看起来和list有点像，但是，把它当成list来使用还是不行，比如，取第5个元素
-# print(Fib()[5])  # >>> TypeError: 'Fib' object does not support indexing
+# print(Fib()[5])  # >>> TypeError: "Fib" object does not support indexing
 
 # 要表现得像list那样按照下标取出元素，需要实现__getitem__()方法
 class Fib(object):
@@ -479,11 +479,11 @@ print(Fib()[8])  # >>> 34
 # __getattr__可以动态的返回一个属性，当要访问的属性不存在的时候，Python解释器会试图调用__getattr__(XXX)来尝试获得需要的属性
 # 利用这一点，可以把一个类的所有属性和方法调用全部动态化处理
 class Chain(object):
-    def __init__(self, path=''):
+    def __init__(self, path=""):
         self._path = path
 
     def __getattr__(self, path):
-        return Chain('%s/%s' % (self._path, path))
+        return Chain("%s/%s" % (self._path, path))
 
     def __str__(self):
         return self._path
@@ -502,15 +502,15 @@ class Student(object):
         self.name = name
 
     def __call__(self):
-        print(f'My name is {self.name}.')
+        print(f"My name is {self.name}.")
 
-s = Student('Denis')
+s = Student("Denis")
 s()  # >>> My name is Denis.
 
 
 
 print()
-print('Use Enumeration Class')
+print("Use Enumeration Class")
 # 当我们需要定义常量时，一个办法是用大写变量通过整数来定义
 JAN = 1
 FEB = 2
@@ -525,13 +525,13 @@ DEC = 12
 # 利用enum模块
 from enum import Enum
 
-Month = Enum('Month', (
-    'Jan', 'Feb', 'Mar', 'Apr',
-    'May', 'Jun', 'Jul', 'Aug',
-    'Sep', 'Oct', 'Nov', 'Dec'))
+Month = Enum("Month", (
+    "Jan", "Feb", "Mar", "Apr",
+    "May", "Jun", "Jul", "Aug",
+    "Sep", "Oct", "Nov", "Dec"))
 
 for name, member in Month.__members__.items():
-    print(name, '=>', member, ',', member.value)
+    print(name, "=>", member, ",", member.value)
 
 # value属性则是自动赋给成员的int常量，默认从1开始计数
 # >>>
@@ -550,7 +550,7 @@ for name, member in Month.__members__.items():
 
 # 本质上还是一个mapping
 print(dict(Month.__members__.items()))
-# {'Jan': <Month.Jan: 1>, 'Feb': <Month.Feb: 2>, 'Mar': <Month.Mar: 3>, 'Apr': <Month.Apr: 4>, 'May': <Month.May: 5>, 'Jun': <Month.Jun: 6>, 'Jul': <Month.Jul: 7>, 'Aug': <Month.Aug: 8>, 'Sep': <Month.Sep: 9>, 'Oct': <Month.Oct: 10>, 'Nov': <Month.Nov: 11>, 'Dec': <Month.Dec: 12>}
+# {"Jan": <Month.Jan: 1>, "Feb": <Month.Feb: 2>, "Mar": <Month.Mar: 3>, "Apr": <Month.Apr: 4>, "May": <Month.May: 5>, "Jun": <Month.Jun: 6>, "Jul": <Month.Jul: 7>, "Aug": <Month.Aug: 8>, "Sep": <Month.Sep: 9>, "Oct": <Month.Oct: 10>, "Nov": <Month.Nov: 11>, "Dec": <Month.Dec: 12>}
 
 # 如果需要更精确地控制枚举类型，可以从Enum派生出自定义类
 from enum import Enum, unique
@@ -570,7 +570,7 @@ day1 = Weekday.Mon
 print(day1)  # >>> Weekday.Mon
 
 print(Weekday.Tue)  # >>> Weekday.Tue
-print(Weekday['Tue'])  # >>> Weekday.Tue
+print(Weekday["Tue"])  # >>> Weekday.Tue
 print(Weekday.Tue.value)  # >>> 2
 
 print(day1 == Weekday.Mon)  # >>> True
@@ -580,34 +580,34 @@ print(day1 == Weekday(1))  # >>> True
 # print(Weekday(7))  # >>> ValueError: 7 is not a valid Weekday
 
 print(dict(Weekday.__members__.items()))
-# {'Sun': <Weekday.Sun: 0>, 'Mon': <Weekday.Mon: 1>, 'Tue': <Weekday.Tue: 2>, 'Wed': <Weekday.Wed: 3>, 'Thu': <Weekday.Thu: 4>, 'Fri': <Weekday.Fri: 5>, 'Sat': <Weekday.Sat: 6>}
+# {"Sun": <Weekday.Sun: 0>, "Mon": <Weekday.Mon: 1>, "Tue": <Weekday.Tue: 2>, "Wed": <Weekday.Wed: 3>, "Thu": <Weekday.Thu: 4>, "Fri": <Weekday.Fri: 5>, "Sat": <Weekday.Sat: 6>}
 
 
 
 print()
-print('Use Meta-Class')
+print("Use Meta-Class")
 
 # 动态语言和静态语言最大的不同，就是函数和类的定义，不是编译时定义的，而是运行时动态创建的
 
 # 比方说我们要定义一个Hello的class，就写一个hello.py模块
 class Hello(object):
     @staticmethod
-    def hello(name='world'):
-        print(f'Hello, {name}')
+    def hello(name="world"):
+        print(f"Hello, {name}")
 
 # 当Python解释器载入hello模块时，就会依次执行该模块的所有语句，执行结果就是动态创建出一个Hello的class对象
 h = Hello()
 h.hello()  # >>> Hello, world
-print(type(Hello))  # >>> <class 'type'>
-print(type(h))      # >>> <class 'hello.Hello'>  # 不会这样显示除非单独写一个模块
+print(type(Hello))  # >>> <class "type">
+print(type(h))      # >>> <class "hello.Hello">  # 不会这样显示除非单独写一个模块
 # Hello是一个class，它的类型就是type，而h是一个实例，它的类型就是class Hello
 
 # class的定义是运行时动态创建的，而创建class的方法就是使用type()函数
 # type()函数既可以返回一个对象的类型，又可以创建出新的类型
 # 比如，我们可以通过type()函数创建出Hello类，而无需通过class Hello(object)...的定义
-def fn(self, name='world'):  # 先定义函数
-    print(f'Hello, {name}')
-Hello = type('Hello', (object,), dict(hello=fn))  # 创建Hello class
+def fn(self, name="world"):  # 先定义函数
+    print(f"Hello, {name}")
+Hello = type("Hello", (object,), dict(hello=fn))  # 创建Hello class
 h = Hello()
 h.hello()  # >>> Hello, world
 
@@ -634,7 +634,7 @@ h.hello()  # >>> Hello, world
 # metaclass是类的模板，所以必须从`type`类型派生：
 class ListMetaclass(type):
     def __new__(cls, name, bases, attrs):
-        attrs['add'] = lambda self, value: self.append(value)
+        attrs["add"] = lambda self, value: self.append(value)
         return type.__new__(cls, name, bases, attrs)
 
 # 有了ListMetaclass，我们在定义类的时候还要指示使用ListMetaclass来定制类

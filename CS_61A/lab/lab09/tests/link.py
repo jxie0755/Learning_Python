@@ -1,12 +1,12 @@
 test = {
-  'name': 'Link',
-  'points': 0,
-  'suites': [
+  "name": "Link",
+  "points": 0,
+  "suites": [
     {
-      'type': 'wwpp',
-      'cases': [
+      "type": "wwpp",
+      "cases": [
         {
-          'code': r"""
+          "code": r"""
           >>> from link import *
           >>> link = Link(1, Link(2, Link(3)))
           >>> link.first
@@ -38,10 +38,10 @@ test = {
       ]
     },
     {
-      'type': 'wwpp',
-      'cases': [
+      "type": "wwpp",
+      "cases": [
         {
-          'code': r"""
+          "code": r"""
           >>> from link import *
           >>> link = Link(1, Link(2, Link(3)))
           >>> link.rest.rest = Link(5, Link(4))

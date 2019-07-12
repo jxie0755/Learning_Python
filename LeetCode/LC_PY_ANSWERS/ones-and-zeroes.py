@@ -13,9 +13,9 @@ class Solution(object):
         for s in strs:
             zero_count, one_count = 0, 0
             for c in s:
-                if c == '0':
+                if c == "0":
                     zero_count += 1
-                elif c == '1':
+                elif c == "1":
                     one_count += 1
 
             for i in reversed(xrange(zero_count, m+1)):

@@ -1,4 +1,4 @@
-print('filter(function, sequence)')
+print("filter(function, sequence)")
 # 对sequence中的item依次执行function(item)，将执行结果为True的item组成一个List/String/Tuple（取决于sequence的类型）返回
 
 # 定义一个函数,鉴别一个数不能被2整除的数.
@@ -12,12 +12,12 @@ print(list(filterfalse(f, range(0, 10))))
 # See itertools.filterfalse() for the complementary function that returns elements of iterable for which function returns false.
 
 def f(x): return x
-print(list(filter(f, ['Denis', '' 'Xie'])))
-# >>> ['Denis', 'Xie']
+print(list(filter(f, ["Denis", "" "Xie"])))
+# >>> ["Denis", "Xie"]
 
 
 print()
-print('map(function, sequence)')
+print("map(function, sequence)")
 # 对sequence中的item依次执行function(item)，将执行结果组成一个List
 
 # 与上面那个例子相同的函数,鉴别能否被2整除
@@ -30,8 +30,8 @@ print(list(map(f, range(0, 10))))
 def add(x, y): return x+y
 print(list(map(add, range(8), range(8))))  # 如果两个sequence长度不同,只执行相同的部分,多余部分被忽略
 # >>> [0, 2, 4, 6, 8, 10, 12, 14]
-print(list(map(add, 'Denis', 'Cindy')))  # string也是sequence!!
-# >>> ['DC', 'ei', 'nn', 'id', 'sy']
+print(list(map(add, "Denis", "Cindy")))  # string也是sequence!!
+# >>> ["DC", "ei", "nn", "id", "sy"]
 
 # does not do what filter can do.
 # unless filter a lambda x: x.
@@ -43,13 +43,13 @@ print(list(map(g, range(0,10))))
 
 
 # Testing multiple map()
-l = [1, -1, '2', '0', 33, '-5', 9]
+l = [1, -1, "2", "0", 33, "-5", 9]
 print(max(list(map(abs, list(map(int, l))))))
 # >>> 33
 
 
 print()
-print('reduce(function, sequence, starting_value)')
+print("reduce(function, sequence, starting_value)")
 # 对sequence中的item顺序迭代调用function, 函数必须要有2个参数。要是有第3个参数，则表示初始值，可以继续调用初始值，返回一个值。
 
 # reduce()函数即为化简函数，它的执行过程为：每一次迭代，都将上一次的迭代结果（注：第一次为init元素，如果没有指定init则为seq的第一个元素）与下一个元素一同传入二元func函数中去执行。
@@ -69,7 +69,7 @@ print(reduce(pow, l))  # >>> 4096
 
 
 print()
-print('lambda function')
+print("lambda function")
 # lambda：这是Python支持一种有趣的语法，它允许你快速定义单行的最小函数，类似与C语言中的宏，这些叫做lambda的函数，是从LISP借用来的，可以用在任何需要函数的地方：
 g = lambda x: x * 2
 print(g(3))  # >>> 6
@@ -104,7 +104,7 @@ map(lambda x: x**x, [y for y in range(10)])
 # the parameter is to acutally be used as the argument
 
 # example:
-l = [1, -1, '2', '0', 33, '-5', 9]
+l = [1, -1, "2", "0", 33, "-5", 9]
 print(list(map(lambda x: x ** 2, list(map(int, l)))))
 # >>> [1, 1, 4, 0, 1089, 25, 81]
 
@@ -121,7 +121,7 @@ print(result)              # >>> 1152921504606846976
 
 
 # 小问题：去除列表mylist中的空字符
-mylist=['A','B','','C',None,'D']
+mylist=["A","B","","C",None,"D"]
 # 暴力解决：
 for item in mylist:
     if item=="" or item==None:

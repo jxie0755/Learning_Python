@@ -18,8 +18,8 @@ class Solution(object):
         if not preorder:
             return False
 
-        depth, cnt = 0, preorder.count(',') + 1
-        for tok in split_iter(preorder, ','):
+        depth, cnt = 0, preorder.count(",") + 1
+        for tok in split_iter(preorder, ","):
             cnt -= 1
             if tok == "#":
                 depth -= 1

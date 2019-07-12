@@ -17,23 +17,23 @@ ASSETS_DIR = "assets/"
 INSECT_DIR = "insects/"
 STRATEGY_SECONDS = 3
 INSECT_FILES = {
-       'Worker': ASSETS_DIR + INSECT_DIR +  "ant_harvester.gif",
-       'Thrower': ASSETS_DIR + INSECT_DIR +  "ant_thrower.gif",
-       'Long': ASSETS_DIR + INSECT_DIR +  "ant_longthrower.gif",
-       'Short': ASSETS_DIR + INSECT_DIR +  "ant_shortthrower.gif",
-       'Harvester': ASSETS_DIR + INSECT_DIR +  "ant_harvester.gif",
-       'Fire': ASSETS_DIR + INSECT_DIR +  "ant_fire.gif",
-       'Bodyguard': ASSETS_DIR + INSECT_DIR +  "ant_bodyguard.gif",
-       'Hungry': ASSETS_DIR + INSECT_DIR +  "ant_hungry.gif",
-       'Slow': ASSETS_DIR + INSECT_DIR +  "ant_slow.gif",
-       'Stun': ASSETS_DIR + INSECT_DIR +  "ant_stun.gif",
-       'Ninja': ASSETS_DIR + INSECT_DIR +  "ant_ninja.gif",
-       'Wall': ASSETS_DIR + INSECT_DIR +  "ant_wall.gif",
-       'Scuba': ASSETS_DIR + INSECT_DIR +  "ant_scuba.gif",
-       'Queen': ASSETS_DIR + INSECT_DIR +  "ant_queen.gif",
-       'Tank': ASSETS_DIR + INSECT_DIR + "ant_tank.gif",
-       'Bee': ASSETS_DIR + INSECT_DIR +  "bee.gif",
-       'Remover': ASSETS_DIR + INSECT_DIR + "remove.png",
+       "Worker": ASSETS_DIR + INSECT_DIR +  "ant_harvester.gif",
+       "Thrower": ASSETS_DIR + INSECT_DIR +  "ant_thrower.gif",
+       "Long": ASSETS_DIR + INSECT_DIR +  "ant_longthrower.gif",
+       "Short": ASSETS_DIR + INSECT_DIR +  "ant_shortthrower.gif",
+       "Harvester": ASSETS_DIR + INSECT_DIR +  "ant_harvester.gif",
+       "Fire": ASSETS_DIR + INSECT_DIR +  "ant_fire.gif",
+       "Bodyguard": ASSETS_DIR + INSECT_DIR +  "ant_bodyguard.gif",
+       "Hungry": ASSETS_DIR + INSECT_DIR +  "ant_hungry.gif",
+       "Slow": ASSETS_DIR + INSECT_DIR +  "ant_slow.gif",
+       "Stun": ASSETS_DIR + INSECT_DIR +  "ant_stun.gif",
+       "Ninja": ASSETS_DIR + INSECT_DIR +  "ant_ninja.gif",
+       "Wall": ASSETS_DIR + INSECT_DIR +  "ant_wall.gif",
+       "Scuba": ASSETS_DIR + INSECT_DIR +  "ant_scuba.gif",
+       "Queen": ASSETS_DIR + INSECT_DIR +  "ant_queen.gif",
+       "Tank": ASSETS_DIR + INSECT_DIR + "ant_tank.gif",
+       "Bee": ASSETS_DIR + INSECT_DIR +  "bee.gif",
+       "Remover": ASSETS_DIR + INSECT_DIR + "remove.png",
 }
 
 class GUI:
@@ -143,15 +143,15 @@ class GUI:
     def _init_places(self, colony):
         """Calculate all of our place data"""
         self.places = {};
-        self.images = { 'AntQueen': dict() }
+        self.images = { "AntQueen": dict() }
         rows = 0
         cols = 0
         for name, place in colony.places.items():
-            if place.name == 'Hive':
+            if place.name == "Hive":
                 continue
             pCol = self.get_place_column(name)
             pRow = self.get_place_row(name)
-            if place.exit.name == 'AntQueen':
+            if place.exit.name == "AntQueen":
                 rows += 1
             if not pRow in self.places:
                 self.places[pRow] = {}
@@ -180,7 +180,7 @@ class GUI:
         old_bees = self.bees[:]
         self.bees, self.insects = [], []
         for name, place in colony.places.items():
-            if place.name == 'Hive':
+            if place.name == "Hive":
                 continue
             pCol = self.get_place_column(name)
             pRow = self.get_place_row(name)
@@ -218,12 +218,12 @@ class GUI:
         if ant == "Remover":
             existing_ant = self.colony.places[pname].ant
             if existing_ant is not None:
-                print("colony.remove_ant('{0}')".format(pname))
+                print("colony.remove_ant("{0}")".format(pname))
                 self.colony.remove_ant(pname)
             return
         insect = None
         try:
-            print("colony.deploy_ant('{0}', '{1}')".format(pname, ant))
+            print("colony.deploy_ant("{0}", "{1}")".format(pname, ant))
             insect = self.colony.deploy_ant(pname, ant);
         except Exception as e:
             print(e)
@@ -245,7 +245,7 @@ class HttpHandler(http.server.SimpleHTTPRequestHandler):
         #I hate this console output so simply do nothing.
         return
     def cgiFieldStorageToDict(self, fieldStorage):
-        """ Get a plain dictionary rather than the '.value' system used by the 
+        """ Get a plain dictionary rather than the ".value" system used by the 
            cgi module's native fieldStorage class. """
         params = {}
         for key in fieldStorage.keys():
@@ -255,10 +255,10 @@ class HttpHandler(http.server.SimpleHTTPRequestHandler):
     def do_POST(self):
         path = self.path
         action = {
-                '/ajax/fetch/state': gui.getState,
-                '/ajax/start/game': gui.startGame,
-                '/ajax/exit': gui.exit,
-                '/ajax/deploy/ant': gui.deployAnt,
+                "/ajax/fetch/state": gui.getState,
+                "/ajax/start/game": gui.startGame,
+                "/ajax/exit": gui.exit,
+                "/ajax/deploy/ant": gui.deployAnt,
                 }.get(path) 
         if not action:
             #We could not find a valid route
@@ -266,21 +266,21 @@ class HttpHandler(http.server.SimpleHTTPRequestHandler):
         form = cgi.FieldStorage(
             fp=self.rfile,
             headers=self.headers,
-            environ={'REQUEST_METHOD':'POST',
-             'CONTENT_TYPE':self.headers['Content-Type'],
+            environ={"REQUEST_METHOD":"POST",
+             "CONTENT_TYPE":self.headers["Content-Type"],
             })
         data = self.cgiFieldStorageToDict(form)
         response = action(data)
         self.send_response(200)
         if response:
-            self.send_header('Content-Type', 'application/json')
+            self.send_header("Content-Type", "application/json")
             self.end_headers()
             response = json.dumps(response)
-            self.wfile.write(response.encode('ascii'))
+            self.wfile.write(response.encode("ascii"))
 
 def dead_insects(self, rv, *args):
     if self.armor <= 0 and self:
-        print('{0} ran out of armor and expired'.format(self))
+        print("{0} ran out of armor and expired".format(self))
         if self in gui.insectToId:
             gui.deadinsects.append(gui.insectToId[self])
             gui.saveState("deadinsects", gui.deadinsects)
@@ -301,9 +301,9 @@ def update():
     print("Checking for updates...")
     try:
         response = urllib.request.urlopen(request)
-        data = json.loads(response.read().decode('utf-8'))
+        data = json.loads(response.read().decode("utf-8"))
     except urllib.request.URLError as e:
-        print('Unable to check for updates')
+        print("Unable to check for updates")
 
     if data:
         release_version = float(data["name"])
@@ -319,7 +319,7 @@ def get_update(url, version):
     print("Downloading new version...")
     try:
         response = urllib.request.urlopen(request)
-        with open(version + ".zip", 'wb') as f:
+        with open(version + ".zip", "wb") as f:
             f.write(response.read())
         f = zipfile.ZipFile(version + ".zip")
         f.extractall(version)
@@ -341,7 +341,7 @@ def get_update(url, version):
         for d in dirs:
             distutils.dir_util.copy_tree(d, "../../" + d)
         #Delete our temp directory
-        os.chdir('../..')
+        os.chdir("../..")
         print("Cleaning up...")
         shutil.rmtree(version)
         print("Update complete")
@@ -379,7 +379,7 @@ def run(*args):
         print("Web server terminated")
     threading.Thread(target=start_http).start()
     try:
-        webbrowser.open("http://localhost:" + str(PORT) + '/gui.html', 2)
+        webbrowser.open("http://localhost:" + str(PORT) + "/gui.html", 2)
     except Exception:
         print("Unable to automatically open web browser.")
-        print("Point your browser to http://localhost:" + str(PORT) + '/gui.html')
+        print("Point your browser to http://localhost:" + str(PORT) + "/gui.html")

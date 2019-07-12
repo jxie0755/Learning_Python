@@ -1,7 +1,7 @@
 def tree(label, branches=[]):
     """Construct a tree with the given label value and a list of branches."""
     for branch in branches:
-        assert is_tree(branch), 'branches must be trees'
+        assert is_tree(branch), "branches must be trees"
     return [label] + list(branches)
 
 def label(tree):
@@ -46,7 +46,7 @@ def print_tree(t, indent=0):
       6
         7
     """
-    print('  ' * indent + str(label(t)))
+    print("  " * indent + str(label(t)))
     for b in branches(t):
         print_tree(b, indent + 1)
 
@@ -70,18 +70,18 @@ def replace_leaf(t, old, new):
     """Returns a new tree where every leaf value equal to old has
     been replaced with new.
 
-    >>> yggdrasil = tree('odin',
-    ...                  [tree('balder',
-    ...                        [tree('thor'),
-    ...                         tree('loki')]),
-    ...                   tree('frigg',
-    ...                        [tree('thor')]),
-    ...                   tree('thor',
-    ...                        [tree('sif'),
-    ...                         tree('thor')]),
-    ...                   tree('thor')])
+    >>> yggdrasil = tree("odin",
+    ...                  [tree("balder",
+    ...                        [tree("thor"),
+    ...                         tree("loki")]),
+    ...                   tree("frigg",
+    ...                        [tree("thor")]),
+    ...                   tree("thor",
+    ...                        [tree("sif"),
+    ...                         tree("thor")]),
+    ...                   tree("thor")])
     >>> laerad = copy_tree(yggdrasil) # copy yggdrasil for testing purposes
-    >>> print_tree(replace_leaf(yggdrasil, 'thor', 'freya'))
+    >>> print_tree(replace_leaf(yggdrasil, "thor", "freya"))
     odin
       balder
         freya
@@ -159,10 +159,10 @@ def move_stack(n, start, end):
 
 def mobile(left, right):
     """Construct a mobile from a left side and a right side."""
-    return tree('mobile', [left, right])
+    return tree("mobile", [left, right])
 
 def is_mobile(m):
-    return is_tree(m) and label(m) == 'mobile'
+    return is_tree(m) and label(m) == "mobile"
 
 def sides(m):
     """Select the sides of a mobile."""
@@ -192,7 +192,7 @@ def weight(size):
     """Construct a weight of some size."""
     assert size > 0
     "*** YOUR CODE HERE ***"
-    return tree('weight', [tree(size)])
+    return tree("weight", [tree(size)])
 
 def size(w):
     """Select the size of a weight."""
@@ -203,7 +203,7 @@ def size(w):
 def is_weight(w):
     """Whether w is a weight, not a mobile."""
     "*** YOUR CODE HERE ***"
-    return is_tree(w) and label(w) == 'weight'
+    return is_tree(w) and label(w) == "weight"
 
 def examples():
     t = mobile(side(1, weight(2)),
@@ -270,7 +270,7 @@ def balanced(m):
 class Account:
     """An account has a balance and a holder.
 
-    >>> a = Account('John')
+    >>> a = Account("John")
     >>> a.deposit(10)
     10
     >>> a.balance
@@ -302,7 +302,7 @@ class Account:
     def withdraw(self, amount):
         """Subtract amount from balance if funds are available."""
         if amount > self.balance:
-            return 'Insufficient funds'
+            return "Insufficient funds"
         self.balance = self.balance - amount
         return self.balance
 
@@ -328,10 +328,10 @@ class Account:
 class FreeChecking(Account):
     """A bank account that charges for withdrawals, but the first two are free!
 
-    >>> ch = FreeChecking('Jack')
+    >>> ch = FreeChecking("Jack")
     >>> ch.balance = 20
     >>> ch.withdraw(100)  # First one's free
-    'Insufficient funds'
+    "Insufficient funds"
     >>> ch.withdraw(3)    # And the second
     17
     >>> ch.balance
@@ -340,14 +340,14 @@ class FreeChecking(Account):
     13
     >>> ch.withdraw(3)
     9
-    >>> ch2 = FreeChecking('John')
+    >>> ch2 = FreeChecking("John")
     >>> ch2.balance = 10
     >>> ch2.withdraw(3) # No fee
     7
     >>> ch.withdraw(3)  # ch still charges a fee
     5
     >>> ch.withdraw(5)  # Not enough to cover fee + withdraw
-    'Insufficient funds'
+    "Insufficient funds"
     """
     withdraw_fee = 1
     free_withdrawals = 2
@@ -365,11 +365,11 @@ class FreeChecking(Account):
         if self.free_withdrawals != 0:
             self.free_withdrawals -= 1
             if amount > self.balance:
-                return 'Insufficient funds'
+                return "Insufficient funds"
             self.balance -= amount
         else:
             if amount > self.balance - self.withdraw_fee:
-                return 'Insufficient funds'
+                return "Insufficient funds"
             self.balance -= amount + self.withdraw_fee
 
         return self.balance
@@ -385,20 +385,20 @@ def make_counter():
     """Return a counter function.
 
     >>> c = make_counter()
-    >>> c('a')
+    >>> c("a")
     1
-    >>> c('a')
+    >>> c("a")
     2
-    >>> c('b')
+    >>> c("b")
     1
-    >>> c('a')
+    >>> c("a")
     3
     >>> c2 = make_counter()
-    >>> c2('b')
+    >>> c2("b")
     1
-    >>> c2('b')
+    >>> c2("b")
     2
-    >>> c('b') + c2('b')
+    >>> c("b") + c2("b")
     5
     """
     "*** YOUR CODE HERE ***"
@@ -451,29 +451,29 @@ def make_fib():
 def make_withdraw(balance, password):
     """Return a password-protected withdraw function.
 
-    >>> w = make_withdraw(100, 'hax0r')
-    >>> w(25, 'hax0r')
+    >>> w = make_withdraw(100, "hax0r")
+    >>> w(25, "hax0r")
     75
-    >>> error = w(90, 'hax0r')
+    >>> error = w(90, "hax0r")
     >>> error
-    'Insufficient funds'
-    >>> error = w(25, 'hwat')
+    "Insufficient funds"
+    >>> error = w(25, "hwat")
     >>> error
-    'Incorrect password'
-    >>> new_bal = w(25, 'hax0r')
+    "Incorrect password"
+    >>> new_bal = w(25, "hax0r")
     >>> new_bal
     50
-    >>> w(75, 'a')
-    'Incorrect password'
-    >>> w(10, 'hax0r')
+    >>> w(75, "a")
+    "Incorrect password"
+    >>> w(10, "hax0r")
     40
-    >>> w(20, 'n00b')
-    'Incorrect password'
-    >>> w(10, 'hax0r')
-    "Your account is locked. Attempts: ['hwat', 'a', 'n00b']"
-    >>> w(10, 'l33t')
-    "Your account is locked. Attempts: ['hwat', 'a', 'n00b']"
-    >>> type(w(10, 'l33t')) == str
+    >>> w(20, "n00b")
+    "Incorrect password"
+    >>> w(10, "hax0r")
+    "Your account is locked. Attempts: ["hwat", "a", "n00b"]"
+    >>> w(10, "l33t")
+    "Your account is locked. Attempts: ["hwat", "a", "n00b"]"
+    >>> type(w(10, "l33t")) == str
     True
     """
     "*** YOUR CODE HERE ***"
@@ -486,13 +486,13 @@ def make_withdraw(balance, password):
         else:
             if ps == password:
                 if amount > balance:
-                    return 'Insufficient funds'
+                    return "Insufficient funds"
                 else:
                     balance -= amount
                     return balance
             else:
                 wrong_password_list.append(ps)
-                return 'Incorrect password'
+                return "Incorrect password"
     return withdraw
 
 
@@ -502,39 +502,39 @@ def make_joint(withdraw, old_password, new_password):
     """Return a password-protected withdraw function that has joint access to
     the balance of withdraw.
 
-    >>> w = make_withdraw(100, 'hax0r')
-    >>> w(25, 'hax0r')
+    >>> w = make_withdraw(100, "hax0r")
+    >>> w(25, "hax0r")
     75
-    >>> make_joint(w, 'my', 'secret')
-    'Incorrect password'
-    >>> j = make_joint(w, 'hax0r', 'secret')
-    >>> w(25, 'secret')
-    'Incorrect password'
-    >>> j(25, 'secret')
+    >>> make_joint(w, "my", "secret")
+    "Incorrect password"
+    >>> j = make_joint(w, "hax0r", "secret")
+    >>> w(25, "secret")
+    "Incorrect password"
+    >>> j(25, "secret")
     50
-    >>> j(25, 'hax0r')
+    >>> j(25, "hax0r")
     25
-    >>> j(100, 'secret')
-    'Insufficient funds'
+    >>> j(100, "secret")
+    "Insufficient funds"
 
-    >>> j2 = make_joint(j, 'secret', 'code')
-    >>> j2(5, 'code')
+    >>> j2 = make_joint(j, "secret", "code")
+    >>> j2(5, "code")
     20
-    >>> j2(5, 'secret')
+    >>> j2(5, "secret")
     15
-    >>> j2(5, 'hax0r')
+    >>> j2(5, "hax0r")
     10
 
-    >>> j2(25, 'password')
-    'Incorrect password'
-    >>> j2(5, 'secret')
-    "Your account is locked. Attempts: ['my', 'secret', 'password']"
-    >>> j(5, 'secret')
-    "Your account is locked. Attempts: ['my', 'secret', 'password']"
-    >>> w(5, 'hax0r')
-    "Your account is locked. Attempts: ['my', 'secret', 'password']"
-    >>> make_joint(w, 'hax0r', 'hello')
-    "Your account is locked. Attempts: ['my', 'secret', 'password']"
+    >>> j2(25, "password")
+    "Incorrect password"
+    >>> j2(5, "secret")
+    "Your account is locked. Attempts: ["my", "secret", "password"]"
+    >>> j(5, "secret")
+    "Your account is locked. Attempts: ["my", "secret", "password"]"
+    >>> w(5, "hax0r")
+    "Your account is locked. Attempts: ["my", "secret", "password"]"
+    >>> make_joint(w, "hax0r", "hello")
+    "Your account is locked. Attempts: ["my", "secret", "password"]"
     """
     "*** YOUR CODE HERE ***"
     attemp = withdraw(0, old_password)
@@ -573,7 +573,7 @@ def upper_bound(x):
 
 def str_interval(x):
     """Return a string representation of interval x."""
-    return '{0} to {1}'.format(lower_bound(x), upper_bound(x))
+    return "{0} to {1}".format(lower_bound(x), upper_bound(x))
 
 def add_interval(x, y):
     """Return an interval that contains the sum of any value in interval x and
@@ -657,9 +657,9 @@ def quadratic(x, a, b, c):
     coefficients a, b, and c, for domain interval x.
 
     >>> str_interval(quadratic(interval(0, 2), -2, 3, -1))
-    '-3 to 0.125'
+    "-3 to 0.125"
     >>> str_interval(quadratic(interval(1, 3), 2, -3, 1))
-    '0 to 10'
+    "0 to 10"
     """
     "*** YOUR CODE HERE ***"
 
@@ -669,10 +669,10 @@ def polynomial(x, c):
     coefficients c, for domain interval x.
 
     >>> str_interval(polynomial(interval(0, 2), [-1, 3, -2]))
-    '-3 to 0.125'
+    "-3 to 0.125"
     >>> str_interval(polynomial(interval(1, 3), [1, -3, 2]))
-    '0 to 10'
+    "0 to 10"
     >>> str_interval(polynomial(interval(0.5, 2.25), [10, 24, -6, -8, 3]))
-    '18.0 to 23.0'
+    "18.0 to 23.0"
     """
     "*** YOUR CODE HERE ***"

@@ -13,7 +13,7 @@ class Solution(object):
         :type nums: List[int]
         :rtype: int
         """
-        result = -float('inf')
+        result = -float("inf")
         for i in range(0, len(nums)):
             for j in range(1, len(nums) - i+1):
                 sub = nums[i:i+j]
@@ -38,7 +38,7 @@ class Solution(object):
             # if number is odd, then we need to get rid of 1 odd number (first one or last one)
                 # So the subarray is nums[:last_odd_index] and nums[first_odd_index+1:]
         # End case:
-            # if lst is empty, return -float('inf'), to exclude from counting
+            # if lst is empty, return -float("inf"), to exclude from counting
             # if lst is 1 element, then return just the element itself
             # if lst contains no zero, and even negative numbers, then return the products of all elments
                 # Any other case, we recursively break down the lst to get the end case
@@ -55,7 +55,7 @@ class Solution(object):
         :rtype: int
         """
         if not nums:
-            return -float('inf')
+            return -float("inf")
         elif len(nums) == 1:
             return nums[0]
 
@@ -87,9 +87,9 @@ class Solution(object):
 
 
 
-if __name__ == '__main__':
-    assert Solution().maxProduct([-2]) == -2, 'Edge 0'
-    assert Solution().maxProduct([2,3,-2,4]) == 6, 'Example 1'
-    assert Solution().maxProduct([-2,0,-1]) == 0, 'Example 2'
+if __name__ == "__main__":
+    assert Solution().maxProduct([-2]) == -2, "Edge 0"
+    assert Solution().maxProduct([2,3,-2,4]) == 6, "Example 1"
+    assert Solution().maxProduct([-2,0,-1]) == 0, "Example 2"
 #
-    print('all passed')
+    print("all passed")

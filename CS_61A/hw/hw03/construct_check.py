@@ -1,86 +1,86 @@
 from ast import parse, NodeVisitor, Name
 
 _NAMES = {
-    'Add': '+',
-    'And': 'and',
-    'Assert': 'assert',
-    'Assign': '=',
-    'AugAssign': 'op=',
-    'BitAnd': '&',
-    'BitOr': '|',
-    'BitXor': '^',
-    'Break': 'break',
-    'Recursion': 'recursive call',
-    'ClassDef': 'class',
-    'Continue': 'continue',
-    'Del': 'del',
-    'Delete': 'delete',
-    'Dict': '{...}',
-    'DictComp': '{...}',
-    'Div': '/',
-    'Ellipsis': '...',
-    'Eq': '==',
-    'ExceptHandler': 'except',
-    'ExtSlice': '[::]',
-    'FloorDiv': '//',
-    'For': 'for',
-    'FunctionDef': 'def',
-    'GeneratorExp': '(... for ...)',
-    'Global': 'global',
-    'Gt': '>',
-    'GtE': '>=',
-    'If': 'if',
-    'IfExp': '...if...else...',
-    'Import': 'import',
-    'ImportFrom': 'from ... import ...',
-    'In': 'in',
-    'Index': '...[...]',
-    'Invert': '~',
-    'Is': 'is',
-    'IsNot': 'is not ',
-    'LShift': '<<',
-    'Lambda': 'lambda',
-    'List': '[...]',
-    'ListComp': '[...for...]',
-    'Lt': '<',
-    'LtE': '<=',
-    'Mod': '%',
-    'Mult': '*',
-    'Nonlocal': 'nonlocal',
-    'Not': 'not',
-    'NotEq': '!=',
-    'NotIn': 'not in',
-    'Or': 'or',
-    'Pass': 'pass',
-    'Pow': '**',
-    'RShift': '>>',
-    'Raise': 'raise',
-    'Return': 'return',
-    'Set': '{ ... } (set)',
-    'SetComp': '{ ... for ... } (set)',
-    'Slice': '[ : ]',
-    'Starred': '',
-    'Sub': '-',
-    'Subscript': '[]',
-    'Try': 'try',
-    'Tuple': '(... , ... )',
-    'UAdd': '+',
-    'USub': '-',
-    'While': 'while',
-    'With': 'with',
-    'Yield': 'yield',
-    'YieldFrom': 'yield from',
+    "Add": "+",
+    "And": "and",
+    "Assert": "assert",
+    "Assign": "=",
+    "AugAssign": "op=",
+    "BitAnd": "&",
+    "BitOr": "|",
+    "BitXor": "^",
+    "Break": "break",
+    "Recursion": "recursive call",
+    "ClassDef": "class",
+    "Continue": "continue",
+    "Del": "del",
+    "Delete": "delete",
+    "Dict": "{...}",
+    "DictComp": "{...}",
+    "Div": "/",
+    "Ellipsis": "...",
+    "Eq": "==",
+    "ExceptHandler": "except",
+    "ExtSlice": "[::]",
+    "FloorDiv": "//",
+    "For": "for",
+    "FunctionDef": "def",
+    "GeneratorExp": "(... for ...)",
+    "Global": "global",
+    "Gt": ">",
+    "GtE": ">=",
+    "If": "if",
+    "IfExp": "...if...else...",
+    "Import": "import",
+    "ImportFrom": "from ... import ...",
+    "In": "in",
+    "Index": "...[...]",
+    "Invert": "~",
+    "Is": "is",
+    "IsNot": "is not ",
+    "LShift": "<<",
+    "Lambda": "lambda",
+    "List": "[...]",
+    "ListComp": "[...for...]",
+    "Lt": "<",
+    "LtE": "<=",
+    "Mod": "%",
+    "Mult": "*",
+    "Nonlocal": "nonlocal",
+    "Not": "not",
+    "NotEq": "!=",
+    "NotIn": "not in",
+    "Or": "or",
+    "Pass": "pass",
+    "Pow": "**",
+    "RShift": ">>",
+    "Raise": "raise",
+    "Return": "return",
+    "Set": "{ ... } (set)",
+    "SetComp": "{ ... for ... } (set)",
+    "Slice": "[ : ]",
+    "Starred": "",
+    "Sub": "-",
+    "Subscript": "[]",
+    "Try": "try",
+    "Tuple": "(... , ... )",
+    "UAdd": "+",
+    "USub": "-",
+    "While": "while",
+    "With": "with",
+    "Yield": "yield",
+    "YieldFrom": "yield from",
 }
 
 def check(source_file, checked_funcs, disallow, source=None):
     """Checks that AST nodes whose type names are present in DISALLOW
-    (an object supporting 'in') are not present in the function(s) named
+    (an object supporting "in") are not present in the function(s) named
     CHECKED_FUNCS in SOURCE.  By default, SOURCE is the contents of the
     file SOURCE_FILE.  CHECKED_FUNCS is either a string (indicating a single
-    name) or an object of some other type that supports 'in'. CHECKED_FUNCS
+    name) or an object of some other type that supports "in". CHECKED_FUNCS
     may contain __main__ to indicate an entire  module. Prints reports of
     each prohibited node and returns True iff none are found.
-    See ast.__dir__() for AST type names.  The special node name 'Recursion'
+    See ast.__dir__() for AST type names.  The special node name "Recursion"
     checks for overtly recursive calls (i.e., calls of the form NAME(...) where
     NAME is an enclosing def."""
     return ExclusionChecker(disallow).check(source_file, checked_funcs, source)
@@ -111,7 +111,7 @@ class ExclusionChecker(NodeVisitor):
         super().generic_visit(node)
 
     def visit_Call(self, node):
-        if 'Recursion' in self._disallow and \
+        if "Recursion" in self._disallow and \
            type(node.func) is Name and \
            node.func.id in self._func_nest:
             self._report(node, "should not be recursive")
@@ -132,7 +132,7 @@ class ExclusionChecker(NodeVisitor):
     def _report(self, node, msg=None):
         node_name = _NAMES.get(type(node).__name__, type(node).__name__)
         if msg is None:
-            msg = "should not contain '{}'".format(node_name)
+            msg = "should not contain "{}"".format(node_name)
         print("{} {}".format(self._checked_name, msg))
         self._errs += 1
 
@@ -148,12 +148,12 @@ class ExclusionChecker(NodeVisitor):
         is the contents of the file SOURCE_FILE.  DISALLOW defaults to the
         argument given to the constructor (and resets that value if it is
         present).  CHECKED_FUNCS is either a string (indicating a single
-        name) or an object of some other type that supports 'in'.
+        name) or an object of some other type that supports "in".
         CHECKED_FUNCS may contain __main__ to indicate an entire module.
         Prints reports of each prohibited node and returns True iff none
         are found.
         See ast.__dir__() for AST type names.  The special node name
-        'Recursion' checks for overtly recursive calls (i.e., calls of the
+        "Recursion" checks for overtly recursive calls (i.e., calls of the
         form NAME(...) where NAME is an enclosing def."""
 
         self._checking = False
@@ -166,7 +166,7 @@ class ExclusionChecker(NodeVisitor):
         if disallow is not None:
             self._disallow = set(disallow)
         if source is None:
-            with open(source_file, 'r', errors='ignore') as inp:
+            with open(source_file, "r", errors="ignore") as inp:
                 source = inp.read()
         p = parse(source, source_file)
         self._errs = 0

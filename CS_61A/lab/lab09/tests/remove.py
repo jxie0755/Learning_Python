@@ -1,57 +1,57 @@
 test = {
-  'name': 'remove',
-  'points': 1,
-  'suites': [
+  "name": "remove",
+  "points": 1,
+  "suites": [
     {
-      'cases': [
+      "cases": [
         {
-          'code': r"""
+          "code": r"""
           scm> (remove 3 nil)
           ()
           """,
-          'hidden': False,
-          'locked': False
+          "hidden": False,
+          "locked": False
         },
         {
-          'code': r"""
+          "code": r"""
           scm> (remove 2 '(1 3 2))
           (1 3)
           """,
-          'hidden': False,
-          'locked': False
+          "hidden": False,
+          "locked": False
         },
         {
-          'code': r"""
+          "code": r"""
           scm> (remove 1 '(1 3 2))
           (3 2)
           """,
-          'hidden': False,
-          'locked': False
+          "hidden": False,
+          "locked": False
         },
         {
-          'code': r"""
+          "code": r"""
           scm> (remove 42 '(1 3 2))
           (1 3 2)
           """,
-          'hidden': False,
-          'locked': False
+          "hidden": False,
+          "locked": False
         },
         {
-          'code': r"""
+          "code": r"""
           scm> (remove 3 '(1 3 3 7))
           (1 7)
           """,
-          'hidden': False,
-          'locked': False
+          "hidden": False,
+          "locked": False
         }
       ],
-      'scored': True,
-      'setup': r"""
+      "scored": True,
+      "setup": r"""
       scm> (load 'lab09)
       scm> (load 'lab09_extra)
       """,
-      'teardown': '',
-      'type': 'scheme'
+      "teardown": "",
+      "type": "scheme"
     }
   ]
 }

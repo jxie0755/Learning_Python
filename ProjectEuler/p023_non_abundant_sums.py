@@ -36,7 +36,7 @@ def all_non_sumable():
     return sum(non_sumable)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     print(all_non_sumable())
     print("--- %s seconds ---" % (time.time() - start_time))
     # >>>

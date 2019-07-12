@@ -30,5 +30,5 @@ def save_to_database(arg):
     if counter < 2:
         raise ValueError(arg)
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     save_to_database("Some bad value")

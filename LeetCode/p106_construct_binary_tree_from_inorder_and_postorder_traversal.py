@@ -69,13 +69,13 @@ class Solution(object):
         return node
 
 
-if __name__ == '__main__':
-    assert not Solution().buildTree([],[]), 'Edge 0'
-    assert Solution().buildTree([1],[1]) == genTree([1]), 'Edge 1'
+if __name__ == "__main__":
+    assert not Solution().buildTree([],[]), "Edge 0"
+    assert Solution().buildTree([1],[1]) == genTree([1]), "Edge 1"
     assert Solution().buildTree([9,3,15,20,7],[9,15,7,20,3]) == genTree([
         3,
         9,20,
         None,None,15,7
-    ]), 'Example 1'
+    ]), "Example 1"
 
-    print('all passed')
+    print("all passed")

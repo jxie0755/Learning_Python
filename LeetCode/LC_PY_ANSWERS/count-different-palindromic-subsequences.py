@@ -28,12 +28,12 @@ class Solution(object):
 
         last = [None] * 4
         for i in xrange(len(S)):
-            last[ord(S[i])-ord('a')] = i
+            last[ord(S[i])-ord("a")] = i
             prv[i] = tuple(last)
 
         last = [None] * 4
         for i in reversed(xrange(len(S))):
-            last[ord(S[i])-ord('a')] = i
+            last[ord(S[i])-ord("a")] = i
             nxt[i] = tuple(last)
 
         P = 10**9 + 7

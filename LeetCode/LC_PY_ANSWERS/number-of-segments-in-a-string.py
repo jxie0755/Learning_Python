@@ -7,9 +7,9 @@ class Solution(object):
         :type s: str
         :rtype: int
         """
-        result = int(len(s) and s[-1] != ' ')
+        result = int(len(s) and s[-1] != " ")
         for i in xrange(1, len(s)):
-            if s[i] == ' ' and s[i-1] != ' ':
+            if s[i] == " " and s[i-1] != " ":
                 result += 1
         return result
 
@@ -18,4 +18,4 @@ class Solution(object):
         :type s: str
         :rtype: int
         """
-        return len([i for i in s.strip().split(' ') if i])
+        return len([i for i in s.strip().split(" ") if i])

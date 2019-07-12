@@ -9,8 +9,8 @@ import itertools
 
 def start_game():
     # Game Header
-    print('\nWelcome to play Connect N!!!\n')
-    print('Player [X]\n    vs.\nPlayer [O]')
+    print("\nWelcome to play Connect N!!!\n")
+    print("Player [X]\n    vs.\nPlayer [O]")
 
     # Create the board
     rows, cols = 6, 7
@@ -21,7 +21,7 @@ def start_game():
     # Start gaming logic
 
     # Setup player logic
-    players = itertools.cycle('XO')
+    players = itertools.cycle("XO")
 
     # Game status
     game_running = True
@@ -36,21 +36,21 @@ def start_game():
         # check move
         while True:
             try:
-                move = int(input(f'Player [{player_to_move}] to move, choose the column number:')) - 1
+                move = int(input(f"Player [{player_to_move}] to move, choose the column number:")) - 1
             except:
-                print('must input an integer')
+                print("must input an integer")
                 continue
             if move == 999:
                 game_running = False
-                print('Game quited')
+                print("Game quited")
                 break
             elif move >= cols or move < 0:
-                print('please choose the column number again')
+                print("please choose the column number again")
                 continue
             else:
                 index, board = make_move(board, cols, move, player_to_move)
                 if index == -1:
-                    print('This column is full! Please re-pick!')
+                    print("This column is full! Please re-pick!")
                     continue
                 else:
                     break
@@ -62,16 +62,16 @@ def start_game():
 
         # check win
         if check_win(board, num_connect, rows, cols, player_to_move):
-            print(f'Play [{player_to_move}] wins!')
+            print(f"Play [{player_to_move}] wins!")
             game_running = False
         elif not check_win(board, num_connect, rows, cols, player_to_move) and total_moves == rows * cols:
-            print('Tie Game!')
+            print("Tie Game!")
             game_running = False
         else:
             continue
 
 start_game()
-input('Game OVER!')
+input("Game OVER!")
 
 # Starting the game by running:
 # python3 -i C:/Users/jxie0/Documents/GitHub/Learning_Python/zzproject/connectn/connect_n_game_classic.py

@@ -33,7 +33,7 @@ class Rectangle(Shape):
         self.length = sides[1]
     
     def __str__(self):
-        return f'Rectangle, {self.length} * {self.width}'
+        return f"Rectangle, {self.length} * {self.width}"
     
     @ property
     def area(self):
@@ -50,7 +50,7 @@ class Square(Shape):
         self.side = side
 
     def __str__(self):
-        return f'Square, {self.side} * {self.side}'
+        return f"Square, {self.side} * {self.side}"
     
     @ property
     def area(self):
@@ -68,7 +68,7 @@ class Circle(Shape):
         self.diameter = 2 * radius
         
     def __str__(self):
-        return f'Circle, R={self.radius}'
+        return f"Circle, R={self.radius}"
     
     @ property
     def area(self):

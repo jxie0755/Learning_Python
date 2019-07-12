@@ -27,13 +27,13 @@ def find_linear_reg(coordinates):
 
     # END Question 7
 
-    print('b =', b, 'a =', a, 'r_squared =', r_squared )
+    print("b =", b, "a =", a, "r_squared =", r_squared )
     def predictor(x):
         return b * x + a
 
     return predictor
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     coors = [[1, 3], [2, 1], [3, 4], [4, 2], [5, 5], [6, 3]]
     print(find_linear_reg(coors))
     # >>>

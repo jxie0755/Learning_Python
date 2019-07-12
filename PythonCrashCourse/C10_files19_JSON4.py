@@ -8,9 +8,9 @@ import json
 
 def get_stored_username():
     """如果储存了用户名,就获取它"""
-    filename = 'username.json'
+    filename = "username.json"
     try:
-        with open(filename, 'r') as f_obj:
+        with open(filename, "r") as f_obj:
             username = json.load(f_obj)
     except FileNotFoundError:
         return None
@@ -22,8 +22,8 @@ def get_stored_username():
 def get_new_username():
     # 拆分成一个专门用于得到新用户名的函数
     username = input("What's your name:")
-    filename = 'username.json'
-    with open(filename, 'w') as f_obj:
+    filename = "username.json"
+    with open(filename, "w") as f_obj:
         json.dump(username, f_obj)
     return username
 

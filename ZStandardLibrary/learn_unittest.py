@@ -15,7 +15,7 @@ import unittest
 
 def get_formatted_name(first, middle, last):
     """Generate a neatly formatted full name"""
-    full_name = first + ' ' + middle + ' ' + last
+    full_name = first + " " + middle + " " + last
     return full_name.title()
 
 
@@ -24,11 +24,11 @@ class NamesTestCase(unittest.TestCase):
     """测试name function"""
     def test_first_last_name(self):    # 建立测试方法,测试方法必须start with test
         # 函数的结果应该等于过程(假设一组实参)
-        formatted_name = get_formatted_name('Denis', 'Xie')
-        self.assertEqual(formatted_name, 'Denis Xie') # assert断言结果应该是第二实参
+        formatted_name = get_formatted_name("Denis", "Xie")
+        self.assertEqual(formatted_name, "Denis Xie") # assert断言结果应该是第二实参
 
 # 进行测试
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
 
 # >>>
@@ -38,8 +38,8 @@ if __name__ == '__main__':
 # ----------------------------------------------------------------------
 # Traceback (most recent call last): # 指出错误原因
 #   File "main.py", line 21, in test_first_last_name
-#     formatted_name = get_formatted_name('Denis', 'Xie')
-# TypeError: get_formatted_name() missing 1 required positional argument: 'last'
+#     formatted_name = get_formatted_name("Denis", "Xie")
+# TypeError: get_formatted_name() missing 1 required positional argument: "last"
 
 # ----------------------------------------------------------------------
 # Ran 1 test in 0.000s
@@ -50,12 +50,12 @@ if __name__ == '__main__':
 # Example 2, 使用多个测试方法
 # 改进函数,让其支持middle name
 
-def get_formatted_name(first, last, middle=''):
+def get_formatted_name(first, last, middle=""):
     """Generate a neatly formatted full name"""
     if middle:
-        full_name = first + ' ' + middle + ' ' + last
+        full_name = first + " " + middle + " " + last
     else:
-         full_name = first + ' ' + last
+         full_name = first + " " + last
     return full_name.title()
 
 
@@ -64,14 +64,14 @@ class NamesTestCase(unittest.TestCase):
     """测试name function"""
     def test_first_last_name(self):
         # 函数的结果应该等于过程(假设一组实参)
-        formatted_name = get_formatted_name('Denis', 'Xie')
-        self.assertEqual(formatted_name, 'Denis Xie')
+        formatted_name = get_formatted_name("Denis", "Xie")
+        self.assertEqual(formatted_name, "Denis Xie")
     
     def test_first_middle_last_name(self):
-        formatted_name = get_formatted_name('Adrienne', 'Xie', 'Yijun')
-        self.assertEqual(formatted_name, 'Adrienne Yijun Xie')
+        formatted_name = get_formatted_name("Adrienne", "Xie", "Yijun")
+        self.assertEqual(formatted_name, "Adrienne Yijun Xie")
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
 
 # Example 3, 一个求证参数是否为质数的函数
@@ -85,9 +85,9 @@ def isPrime(n):
 
 class PNumTest(unittest.TestCase):
     def test_is_prime_number(self):
-        self.assertEqual(isPrime(97), True) # 不要使用'True',而是用bool value True
+        self.assertEqual(isPrime(97), True) # 不要使用"True",而是用bool value True
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
 
 def isPrime(n):
@@ -111,7 +111,7 @@ class PNumTest(unittest.TestCase):
         for i in plist:
             self.assertFalse(isPrime(i))  # 使用asserFalse()
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
     
 
@@ -130,7 +130,7 @@ class dog(object):
             print("you can't roll back on ages")
         
 
-dog1 = dog('dog one')
+dog1 = dog("dog one")
 print(dog1.age)  # >> 0
 dog1.set_age(3)
 print(dog1.age)  # >>> 3
@@ -139,17 +139,17 @@ print(dog1.age)  # >>> 3
 
 class TestDog(unittest.TestCase):
     def test_dog_1(self): # single case
-        dog_t1 = dog('T1')
+        dog_t1 = dog("T1")
         dog_t1.set_age(5)
         self.assertEqual(dog_t1.age, 5)
     def test_dog_2(self): # multiple test on names
-        dog_t2 = dog('T2')
+        dog_t2 = dog("T2")
         dog_ages = [4, 5, 3]
         for i in dog_ages:
             dog_t2.set_age(i)
             self.assertEqual(dog_t2.age, i)  # this will report error as age can't be set back
 
-# if __name__ == '__main__':
+# if __name__ == "__main__":
 #     unittest.main()
     
 # Use setUp() for convenience
@@ -158,7 +158,7 @@ class TestDog(unittest.TestCase):
 class TestDog(unittest.TestCase):
     def setUp(self):
         """创造一个实例以供后面测试使用"""
-        self.dog_test = dog('dog_test')
+        self.dog_test = dog("dog_test")
 
     # 所有的test case都是根据setUp中创作的实例,但是每个test的实例之间互相又不会干扰
     def test_1(self):
@@ -171,5 +171,5 @@ class TestDog(unittest.TestCase):
         self.dog_test.set_age(2)                # This will work
         self.assertEqual(self.dog_test.age, 2)  # The instance is shared by all tests, but have no connection with each other
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

@@ -23,8 +23,8 @@ class Solution:
     # Veriosn A
     # Move Nodes out and combine back, O(1) but not in-Place
     def oddEvenList(self, head: ListNode) -> ListNode:
-        O = odd = ListNode('O')
-        E = even = ListNode('E')
+        O = odd = ListNode("O")
+        E = even = ListNode("E")
 
         idx = 1
         while head:
@@ -75,12 +75,12 @@ class Solution:
 
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
 
-    assert not Solution().oddEvenList(None), 'Edge 0'
+    assert not Solution().oddEvenList(None), "Edge 0"
 
-    assert Solution().oddEvenList(genNode([1,2,3,4,5])) == genNode([1,3,5,2,4]), 'Example 1'
-    assert Solution().oddEvenList(genNode([1,2,3,4,5,6])) == genNode([1,3,5,2,4,6]), 'Example 1b'
-    assert Solution().oddEvenList(genNode([2,1,3,5,6,4,7])) == genNode([2,3,6,7,1,5,4]), 'Example 2'
+    assert Solution().oddEvenList(genNode([1,2,3,4,5])) == genNode([1,3,5,2,4]), "Example 1"
+    assert Solution().oddEvenList(genNode([1,2,3,4,5,6])) == genNode([1,3,5,2,4,6]), "Example 1b"
+    assert Solution().oddEvenList(genNode([2,1,3,5,6,4,7])) == genNode([2,3,6,7,1,5,4]), "Example 2"
 
-    print('all passed')
+    print("all passed")

@@ -1,11 +1,11 @@
 test = {
-  'name': 'Link',
-  'points': 0,
-  'suites': [
+  "name": "Link",
+  "points": 0,
+  "suites": [
     {
-      'cases': [
+      "cases": [
         {
-          'code': r"""
+          "code": r"""
           >>> from lab07 import *
           >>> link = Link(1000)
           >>> link.first
@@ -17,11 +17,11 @@ test = {
           >>> link = Link(1000, Link())
           Error
           """,
-          'hidden': False,
-          'locked': False
+          "hidden": False,
+          "locked": False
         },
         {
-          'code': r"""
+          "code": r"""
           >>> from lab07 import *
           >>> link = Link(1, Link(2, Link(3)))
           >>> link.first
@@ -47,11 +47,11 @@ test = {
           >>> link2.rest.first
           2
           """,
-          'hidden': False,
-          'locked': False
+          "hidden": False,
+          "locked": False
         },
         {
-          'code': r"""
+          "code": r"""
           >>> from lab07 import *
           >>> link = Link(5, Link(6, Link(7)))
           >>> link.second
@@ -67,12 +67,12 @@ test = {
           >>> print(link)          # Look at the __str__ method of Link
           <5 <8 9> 7>
           """,
-          'hidden': False,
-          'locked': False
+          "hidden": False,
+          "locked": False
         }
       ],
-      'scored': False,
-      'type': 'wwpp'
+      "scored": False,
+      "type": "wwpp"
     }
   ]
 }

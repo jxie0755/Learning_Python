@@ -3,11 +3,11 @@
 import json
 
 import time # 导入时间模块,记录登录时间
-log_in_time = time.strftime('%Y%m%d_%H:%M:%S')
+log_in_time = time.strftime("%Y%m%d_%H:%M:%S")
 
 username = input("What's your name:")
-filename = 'username.json'
-with open(filename, 'w') as f_obj:
+filename = "username.json"
+with open(filename, "w") as f_obj:
     json.dump(log_in_time, f_obj)
     json.dump(username, f_obj)
     print("We will remember you when you come back, " + username + "!")
@@ -19,7 +19,7 @@ with open(filename, 'w') as f_obj:
 # Greet user
 import json
 
-filename = 'username.json'
-with open(filename, 'r') as f_obj:
+filename = "username.json"
+with open(filename, "r") as f_obj:
     username = json.load(f_obj)
     print("Welcome back, " + username + "!")

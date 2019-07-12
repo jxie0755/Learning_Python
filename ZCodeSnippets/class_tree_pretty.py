@@ -16,14 +16,14 @@ class Tree:
 
     def __repr__(self):
         if self.branches:
-            branch_str = ', ' + repr(self.branches)
+            branch_str = ", " + repr(self.branches)
         else:
-            branch_str = ''
-        return 'Tree({0}{1})'.format(self.label, branch_str)
+            branch_str = ""
+        return "Tree({0}{1})".format(self.label, branch_str)
 
     def __str__(self):
         self.pretty()
-        return ''
+        return ""
 
     # Set getter functions
     def get_label(self):
@@ -113,7 +113,7 @@ class Tree:
             print(file=out)
         print(out.getvalue(), end="")
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     T = Tree(1, [Tree(2, [Tree(4), Tree(5)]), Tree(3, [Tree(6), Tree(7, [Tree(8), Tree(9), Tree(10), Tree(11)]), Tree(22220), Tree(21, [Tree(188), Tree(19999), Tree(32), Tree(21211)])])])
     print(T)
     #     1
@@ -204,7 +204,7 @@ def pretty(tree):
         print(file=out)
     print(out.getvalue(), end="")
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     pretty(T)
     #     1
     #  /    \

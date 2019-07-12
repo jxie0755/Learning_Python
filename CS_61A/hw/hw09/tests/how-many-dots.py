@@ -1,11 +1,11 @@
 test = {
-  'name': 'how-many-dots',
-  'points': 1,
-  'suites': [
+  "name": "how-many-dots",
+  "points": 1,
+  "suites": [
     {
-      'cases': [
+      "cases": [
         {
-          'code': r"""
+          "code": r"""
           scm> (how-many-dots '(1 2 3))
           0
           scm> (how-many-dots '(1 2 . 3))
@@ -17,16 +17,16 @@ test = {
           scm> (how-many-dots '(1 . (2 . (3 . (4 . (5 . (6 . (7))))))))
           0
           """,
-          'hidden': False,
-          'locked': False
+          "hidden": False,
+          "locked": False
         }
       ],
-      'scored': True,
-      'setup': r"""
+      "scored": True,
+      "setup": r"""
       scm> (load 'hw09)
       """,
-      'teardown': '',
-      'type': 'scheme'
+      "teardown": "",
+      "type": "scheme"
     }
   ]
 }

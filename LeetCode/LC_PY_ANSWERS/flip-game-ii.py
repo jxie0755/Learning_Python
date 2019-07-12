@@ -10,7 +10,7 @@ import re
 class Solution(object):
     def canWin(self, s):
         g, g_final = [0], 0
-        for p in itertools.imap(len, re.split('-+', s)):
+        for p in itertools.imap(len, re.split("-+", s)):
             while len(g) <= p:
                 # Theorem 2: g[game] = g[subgame1]^g[subgame2]^g[subgame3]...
                 # and find first missing number.
@@ -45,7 +45,7 @@ class Solution2(object):
             return lookup[consecutives]                                         # O(c) time
 
         # re.findall: O(n) time, canWinHelper: O(c) in depth
-        return canWinHelper(map(len, re.findall(r'\+\++', s)))
+        return canWinHelper(map(len, re.findall(r"\+\++", s)))
 
 
 # Time:  O(c * n * c!), n is length of string, c is count of "++"
@@ -60,12 +60,12 @@ class Solution3(object):
         i, n = 0, len(s) - 1
         is_win = False
         while not is_win and i < n:                                     # O(n) time
-            if s[i] == '+':
-                while not is_win and i < n and s[i+1] == '+':           # O(c) time
+            if s[i] == "+":
+                while not is_win and i < n and s[i+1] == "+":           # O(c) time
                      # t(n, c) = c * (t(n, c-1) + n) + n = ...
                      # = c! * t(n, 0) + n * c! * (c + 1) * (1/0! + 1/1! + ... 1/c!)
                      # = n * c! + n * c! * (c + 1) * O(e) = O(c * n * c!)
-                    is_win = not self.canWin(s[:i] + '--' + s[i+2:])    # O(n) space
+                    is_win = not self.canWin(s[:i] + "--" + s[i+2:])    # O(n) space
                     i += 1
             i += 1
         return is_win

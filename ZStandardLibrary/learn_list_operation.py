@@ -2,32 +2,32 @@
 # https://docs.python.org/3/library/stdtypes.html#sequence-types-list-tuple-range
 
 
-print('class list([iterable])')
+print("class list([iterable])")
 
 # add and remove items from a list
-listA = ['A', 'B', 'C', 'D', 'E', 'F']
+listA = ["A", "B", "C", "D", "E", "F"]
 
-listA[2] = 'G'           # replace item
-listA[2:4] = ['X', 'Y']  # replace multiple item
+listA[2] = "G"           # replace item
+listA[2:4] = ["X", "Y"]  # replace multiple item
 
 
 
-listA.append('G')      # add item at the end (one at a time)
+listA.append("G")      # add item at the end (one at a time)
 
 n = 3
-listA.insert(n, 'G')   # add item and assign it at location n, other move down
+listA.insert(n, "G")   # add item and assign it at location n, other move down
                        # add multiple items: create a list, then merge the list
-listA.insert(0, 'G')   # if n = 0, then always add items at the beginning
+listA.insert(0, "G")   # if n = 0, then always add items at the beginning
                        # if n = -1 是倒数第二个位置,不会在最后一个位置加入
 
 del listA[n]           # remove item at location n.
-listA.remove('B')      # remove specific items (one at a time)
+listA.remove("B")      # remove specific items (one at a time)
 
 a=1
 b=4
 listA[a:b] = []        # remove a serious of items together
 
-listA = ['A', 'B', 'C', 'D', 'E', 'F']
+listA = ["A", "B", "C", "D", "E", "F"]
 listA.pop()            # pop an end item for use, and remove from the list
 listA.pop(n)           # pop the item at position n in the list (index)
 
@@ -50,15 +50,15 @@ L3 = L1 + L2   # 这样才是合并
 print(L3)
 
 L3.extend((7, 8))
-L3.extend(['X', 'Y'])
-L3.extend({'a': 1, 'b': 2})
+L3.extend(["X", "Y"])
+L3.extend({"a": 1, "b": 2})
 # does not have to be a list, tuple or dict are also ok.(iterable)
 
 print(L3)
 
 # >>>
 # [2, 1, 3, 4, 5, 6]
-# [2, 1, 3, 4, 5, 6, 7, 8, 'X', 'Y', 'a', 'b']
+# [2, 1, 3, 4, 5, 6, 7, 8, "X", "Y", "a", "b"]
 
 # del and remove
 L4 = [1, 2, 3, 1, 2, 3, 4, 5]
@@ -69,20 +69,20 @@ print(L4)
 
 
 # convert string to list
-s = 'abc'
+s = "abc"
 l = list(s)
 print(l)
 
 # split
-s2 = 'I <3 cs'
+s2 = "I <3 cs"
 l2 = list(s2)
 print(l2)
 
-s3 = s2.split('<')
+s3 = s2.split("<")
 print(s3)
 
 # join
-s4 = ''.join(l2)
+s4 = "".join(l2)
 print(s3)
 
 # sort
@@ -104,40 +104,40 @@ print(L2)
 
 # mutation, alias, cloning
 
-warm = ['red', 'yellow', 'orange']
+warm = ["red", "yellow", "orange"]
 hot = warm
 
 print(warm)
 print(hot)
 
-hot.append('pink')
+hot.append("pink")
 print(hot)
 # change items in hot leads to change items in warm as well
 print(warm)
 
 
-cool = ['blue', 'green', 'grey']
-chill = ['blue', 'green', 'grey']
+cool = ["blue", "green", "grey"]
+chill = ["blue", "green", "grey"]
 
 # These two list looked like the same, but not the same item in the memory
-cool[2] = 'blue'
+cool[2] = "blue"
 print(chill)
 # change items in chill does not change items in cool
 print(cool)
 
 # This will also create a copy
-cool = ['blue', 'green', 'grey']
+cool = ["blue", "green", "grey"]
 chill = cool[:]
 
 # sort vs sorted
-warm = ['red', 'yellow', 'orange']
+warm = ["red", "yellow", "orange"]
 sortedwarm = warm.sort()          # sort() returns None, and change the original list
 reversedwarm = warm.reverse()     # same above
 
 print(sortedwarm)
 print(reversedwarm)
 
-cool = ['blue', 'green', 'grey']
+cool = ["blue", "green", "grey"]
 sortedcool = sorted(cool)       # sorted(list) returns a new list, but does not change the original list
 reversedcool = reversed(cool)   #
 
@@ -148,14 +148,14 @@ print(reversedcool)
 
 # list of list of list
 
-warm = ['yellow', 'orange']
-hot = ['red']
+warm = ["yellow", "orange"]
+hot = ["red"]
 brightcolors = [warm]
 
 brightcolors.append(hot)
 print(brightcolors)
 
-hot.append('pink')
+hot.append("pink")
 print(hot)
 print(brightcolors)
 del warm[0]
@@ -165,7 +165,7 @@ print(brightcolors)
 # slice of list
 # String can also be sliced!!
 
-listA = ['A', 'B', 'C', 'D', 'E', 'F']
+listA = ["A", "B", "C", "D", "E", "F"]
 # listA[:]    # a copy of listA
 # listA[::-1] # 相当于reversed(listA)
 # listA[-1]   # listA 的最后一个item
@@ -202,15 +202,15 @@ print(LL.index(5)) # >>> 2
 # list只有index方法,不像str还有一个find方法.
 
 # mutable items in a list is a pointing system.
-a = [1,2,3, ['a', 'b']]
+a = [1,2,3, ["a", "b"]]
 b = list(a) # this creates a new list, but it is the same.
-print(a == b) # True [1, 2, 3, ['a', 'b']]
+print(a == b) # True [1, 2, 3, ["a", "b"]]
 print(a is b) # >>> False
 
 a[0] = 5
-print(a) # >>> [5, 2, 3, ['a', 'b']]
-print(b) # >>> [1, 2, 3, ['a', 'b']]  # 5 will not be in b
+print(a) # >>> [5, 2, 3, ["a", "b"]]
+print(b) # >>> [1, 2, 3, ["a", "b"]]  # 5 will not be in b
 
-a[3][0] = 'F'
-print(a) # >>> [5, 2, 3, ['F', 'b']]
-print(b) # >>> [1, 2, 3, ['F', 'b']]  # F will be added in b
+a[3][0] = "F"
+print(a) # >>> [5, 2, 3, ["F", "b"]]
+print(b) # >>> [1, 2, 3, ["F", "b"]]  # F will be added in b

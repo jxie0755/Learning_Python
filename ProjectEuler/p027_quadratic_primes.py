@@ -34,12 +34,12 @@ def solution(r1, r2):
             result[(a, b)] = n
 
     answer = max(result, key=result.get)
-    print('maximum consecutive prime number:', result[answer[0], answer[1]])
-    print('from', answer)
+    print("maximum consecutive prime number:", result[answer[0], answer[1]])
+    print("from", answer)
     return answer[0] * answer[1]
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     print(solution(1000, 1000))
     # >>>
     # maximum consecutive prime number: 71

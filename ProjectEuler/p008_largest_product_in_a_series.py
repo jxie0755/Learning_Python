@@ -35,8 +35,8 @@ def largest_product_adjacent(n, target):
         index += 1
     return max_so_far
 
-if __name__ == '__main__':
-    assert largest_product_adjacent(4, thousand_digit_num), 'regular test case'
+if __name__ == "__main__":
+    assert largest_product_adjacent(4, thousand_digit_num), "regular test case"
     print(largest_product_adjacent(13, thousand_digit_num))
     # >>> 23514624000
     # passed

@@ -25,12 +25,12 @@ class Solution:
         return False
 
 
-if __name__ == '__main__':
-    assert Solution().containsDuplicate([]) == False, 'Edge 1'
-    assert Solution().containsDuplicate([1]) == False, 'Edge 2'
+if __name__ == "__main__":
+    assert Solution().containsDuplicate([]) == False, "Edge 1"
+    assert Solution().containsDuplicate([1]) == False, "Edge 2"
 
-    assert Solution().containsDuplicate([1,2,3,1]) == True, 'Example 1'
-    assert Solution().containsDuplicate([1,2,3,4]) == False, 'Example 2'
-    assert Solution().containsDuplicate([1,1,1,3,3,4,3,2,4,2]) == True, 'Example 3'
+    assert Solution().containsDuplicate([1,2,3,1]) == True, "Example 1"
+    assert Solution().containsDuplicate([1,2,3,4]) == False, "Example 2"
+    assert Solution().containsDuplicate([1,1,1,3,3,4,3,2,4,2]) == True, "Example 3"
 
-    print('all passed')
+    print("all passed")

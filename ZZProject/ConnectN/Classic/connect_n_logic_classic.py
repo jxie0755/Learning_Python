@@ -1,8 +1,8 @@
 def create_row(size):
     """Returns a single, empty row with the given size. Each empty spot is
-    represented by the string '-'.
+    represented by the string "-".
     """
-    return ['-'] * size
+    return ["-"] * size
 
 
 def create_board(rows, columns):
@@ -15,7 +15,7 @@ def replace_elem(lst, index, elem):
     """Create and return a new list whose elements are the same as those in
     LST except at index INDEX, which should contain element ELEM instead.
     """
-    assert index >= 0 and index < len(lst), 'Index is out of bounds'
+    assert index >= 0 and index < len(lst), "Index is out of bounds"
     result = lst[:]
     result[index] = elem
     return result
@@ -38,7 +38,7 @@ def put_piece(board, column, player):
     # get the index
     index = -1
     for i in board:
-        if i[column] == '-':
+        if i[column] == "-":
             index += 1
     # get the new board
     if index != -1:
@@ -63,16 +63,16 @@ def make_move(board, max_cols, col, player):
 def print_board(board, max_rows, max_cols):
     """Prints the board. Row 0 is at the top, and column 0 at the far left.
     """
-    print('')
+    print("")
 
     for i in range(0, max_rows):
-        board_view = ''
+        board_view = ""
         for j in range(0, max_cols):
-            board_view += get_piece(board, i, j) + ' '
+            board_view += get_piece(board, i, j) + " "
         print(board_view.strip())
 
-    print(' '.join(str(i) for i in range(1, max_cols+1)))
-    print('')
+    print(" ".join(str(i) for i in range(1, max_cols+1)))
+    print("")
 
 
 def check_win_row(board, max_rows, max_cols, num_connect, player):
@@ -80,7 +80,7 @@ def check_win_row(board, max_rows, max_cols, num_connect, player):
     in the given row, and otherwise False.
     """
     for i in range(0, max_rows):
-        check = ''
+        check = ""
         for j in range(0, max_cols):
             check += get_piece(board, i, j)
         if player * num_connect in check:
@@ -93,7 +93,7 @@ def check_win_column(board, max_rows, max_cols, num_connect, player):
     and otherwise False.
     """
     for i in range(0, max_cols):
-        check = ''
+        check = ""
         for j in range(0, max_rows):
             check += get_piece(board, j, i)
         if player * num_connect in check:

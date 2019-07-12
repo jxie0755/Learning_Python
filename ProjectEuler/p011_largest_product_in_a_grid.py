@@ -83,7 +83,7 @@ def product_in_grid(data, n):
     return max_so_far
 
 
-if __name__ == '__main__':
-    print(product_in_grid('p011_data.txt', 4))
+if __name__ == "__main__":
+    print(product_in_grid("p011_data.txt", 4))
     # >>> 70600674
     # passed

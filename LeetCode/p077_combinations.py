@@ -56,13 +56,13 @@ def combinationSolo(nums, k):
 
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
 
-    print('Test solo')
+    print("Test solo")
     for i in combinationSolo([1, 2, 3, 4], 2):
         print(i)
 
-    print('End of test solo')
+    print("End of test solo")
 
     assert Solution().combine(1, 1) == [
         [1]
@@ -79,4 +79,4 @@ if __name__ == '__main__':
 
 
 
-    print('all passed')
+    print("all passed")

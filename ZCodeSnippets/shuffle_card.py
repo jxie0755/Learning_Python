@@ -41,7 +41,7 @@ def move_card(seq):
             seq = seq[1:] + [seq[0]]
     return result
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     a = restore_card(4)
     print(move_card(a))
     # >>>

@@ -1,15 +1,15 @@
 class Account:
     """An account has a balance and a holder.
 
-    >>> a = Account('John')
+    >>> a = Account("John")
     >>> a.holder
-    'John'
+    "John"
     >>> a.deposit(100)
     100
     >>> a.withdraw(90)
     10
     >>> a.withdraw(90)
-    'Insufficient funds'
+    "Insufficient funds"
     >>> a.balance
     10
     >>> a.interest
@@ -30,15 +30,15 @@ class Account:
     def withdraw(self, amount):
         """Subtract amount from balance if funds are available."""
         if amount > self.balance:
-            return 'Insufficient funds'
+            return "Insufficient funds"
         self.balance = self.balance - amount
         return self.balance
 
-# Inheritance ('is a' relationship), subclass is used.
+# Inheritance ("is a" relationship), subclass is used.
 class CheckingAccount(Account):
     """A bank account that charges for withdrawals.
 
-    >>> ch = CheckingAccount('Jack')
+    >>> ch = CheckingAccount("Jack")
     >>> ch.balance = 20
     >>> ch.withdraw(5)
     14
@@ -55,13 +55,13 @@ class CheckingAccount(Account):
         return super().withdraw(amount + self.withdraw_fee)
 
 
-# Composition ('has a' relationship), subclass is not used
+# Composition ("has a" relationship), subclass is not used
 class Bank:
     """A bank has accounts and pays interest.
 
     >>> bank = Bank()
-    >>> john = bank.open_account('John', 10)
-    >>> jack = bank.open_account('Jack', 5, CheckingAccount)
+    >>> john = bank.open_account("John", 10)
+    >>> jack = bank.open_account("Jack", 5, CheckingAccount)
     >>> jack.interest
     0.01
     >>> john.interest = 0.06
@@ -151,17 +151,17 @@ class A:
     def __init__(self, name):
         self.name = name
     def f(self):
-        print('from A')
+        print("from A")
 
 
 class B(A):
     def f(self):
-        print('from B')
+        print("from B")
 
 
 class C(A):
     def f(self):
-        print('from C')
+        print("from C")
 
 
 class D(B, C):

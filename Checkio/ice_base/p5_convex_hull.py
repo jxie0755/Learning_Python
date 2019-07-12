@@ -18,8 +18,8 @@ def checkio(data):
     3. iterate through the sorted list and exclude the point x once the new p - x - xnext angle is bigger than 180 degrees
     """
     # Find the lowest right p point and starting point s:
-    p = [0,float('inf')]
-    s = [float('inf'), float('inf')]
+    p = [0,float("inf")]
+    s = [float("inf"), float("inf")]
 
     for i in data:
         if i[1] < p[1]:
@@ -112,7 +112,7 @@ def checkio(data):
 
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     # These "asserts" using only for self-checking and not necessary for auto-testing
     assert checkio(
         [[7, 6], [8, 4], [7, 2], [3, 2], [1, 6], [1, 8], [4, 9]]
@@ -148,4 +148,4 @@ if __name__ == '__main__':
         [[7, 4], [5, 2], [4, 7], [4, 1], [3, 6], [1, 4]]
     ) == [5, 4, 2, 0, 1, 3], "Additional 1"
 
-    print('all passed')
+    print("all passed")

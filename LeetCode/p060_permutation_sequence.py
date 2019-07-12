@@ -79,14 +79,14 @@ class Solution:
         lst = list(range(1, n + 1))
         for i in range(k-1):
             lst = self.nextPermutation(lst)
-        return ''.join([str(i) for i in lst])
+        return "".join([str(i) for i in lst])
 
     def getPermutation_1(self, n, k):
         total_p = self.p_dict[n]
 
         if k == 1 or n == 1:
             lst = list(range(1, n + 1))
-            return ''.join([str(i) for i in lst])
+            return "".join([str(i) for i in lst])
         elif k > total_p:  # 避免k太大                    # question noted that k will not be > n!
             return self.getPermutation(n, k % total_p)   # 取余数
 
@@ -100,7 +100,7 @@ class Solution:
                     new_k = k - p
                     for i in range(new_k):
                         lst = self.nextPermutation(lst)
-                return ''.join([str(i) for i in lst])
+                return "".join([str(i) for i in lst])
 
 
     def getPermutation(self, n, k):
@@ -109,7 +109,7 @@ class Solution:
         total_p = math.factorial(n)
         if k == 1 or n == 1:
             lst = list(range(1, n + 1))
-            return ''.join([str(i) for i in lst])
+            return "".join([str(i) for i in lst])
         else:
             if total_p - k < k:
                 lst = list(range(1, n + 1))[::-1]
@@ -120,7 +120,7 @@ class Solution:
                 lst = list(range(1, n + 1))
                 for i in range(k-1):
                     lst = self.nextPermutation(lst)
-            return ''.join([str(i) for i in lst])
+            return "".join([str(i) for i in lst])
 
 
 class Solution:
@@ -142,9 +142,9 @@ class Solution:
         # Fail even faster
         lst = list(range(1, n + 1))
         if k == 1 or n == 1:
-            return ''.join([str(i) for i in lst])
+            return "".join([str(i) for i in lst])
         else:
-            return ''.join(str(i) for i in self.permute(lst)[k-1])
+            return "".join(str(i) for i in self.permute(lst)[k-1])
 
 
 class Solution(object):
@@ -187,18 +187,18 @@ class Solution(object):
         return helper(lst, k-1)  # k - 1原理同上
 
 
-if __name__ == '__main__':
-    assert Solution().getPermutation(4,1) == '1234', 'Edge 1'
-    assert Solution().getPermutation(3,3) == '213', 'Example 1'
-    assert Solution().getPermutation(4,9) == '2314', 'Example 2'
+if __name__ == "__main__":
+    assert Solution().getPermutation(4,1) == "1234", "Edge 1"
+    assert Solution().getPermutation(3,3) == "213", "Example 1"
+    assert Solution().getPermutation(4,9) == "2314", "Example 2"
     print(Solution().getPermutation(8, 29805)) # >>>  68327415
     print(Solution().getPermutation(9, 62716))  # >>>  265183794
-    print('all passed')
+    print("all passed")
 
-    print('test timeit')
-    # print(timeit.repeat('Solution().getPermutation_0(8, 6000)', setup='from __main__ import Solution', repeat=3, number=500))
+    print("test timeit")
+    # print(timeit.repeat("Solution().getPermutation_0(8, 6000)", setup="from __main__ import Solution", repeat=3, number=500))
     # >>> [3.045518253785702, 3.04060806065978, 3.0435408311783467]
-    # print(timeit.repeat('Solution().getPermutation(8, 6000)', setup='from __main__ import Solution', repeat=3, number=500))
+    # print(timeit.repeat("Solution().getPermutation(8, 6000)", setup="from __main__ import Solution", repeat=3, number=500))
     # >>> [0.48771537433245093, 0.48776606102485154, 0.48719471292885963]
     # 当k刚好略大于上一级n的时候, 会快很多, 但是其他情况下这样只能略微提速
-    print('timeit ended')
+    print("timeit ended")

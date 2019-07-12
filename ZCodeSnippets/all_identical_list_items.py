@@ -14,7 +14,7 @@ def all_identical_3(iterable):
 def all_identical_4(iterable):  # 错位对比法
    return iterable[1:] == iterable[:-1]  # can not be used for unslicable matrix (tuple)
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     print(all_identical_3((1,1,1,1)))  # >>> True
     print(all_identical_4([1,2,3,4,5]))  # >>> False
 
@@ -35,7 +35,7 @@ def verify3(matrix):
 def verify4(matrix):  # 错位对比法
    return any(i[1:] == i[:-1] for i in matrix)
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     target = [[1, 2, 1, 1], [1, 1, 1, 1], [1, 3, 1, 6], [1, 7, 2, 5]]
     print(verify1(target))
     print(verify2(target))

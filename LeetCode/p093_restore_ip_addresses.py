@@ -25,24 +25,24 @@ class Solution:
                     L = len(ss) + 1
                 for i in range(1, L):
                     head, tail = ss[0:i], ss[i:]
-                    if head == '0':
-                        helper(ss[1:], result + '0.', nodes - 1)
+                    if head == "0":
+                        helper(ss[1:], result + "0.", nodes - 1)
                         break
                     elif head and int(head) <= 255:
                         new_result = result + head + "."
                         helper(tail, new_result, nodes-1)
 
-        helper(s, '', 4)
+        helper(s, "", 4)
         return addresses
 
 
 
-if __name__ == '__main__':
-    assert Solution().restoreIpAddresses("0000") == ["0.0.0.0"], 'Edge 1'
-    assert Solution().restoreIpAddresses("01000") == ["0.10.0.0"], 'Edge 2'
+if __name__ == "__main__":
+    assert Solution().restoreIpAddresses("0000") == ["0.0.0.0"], "Edge 1"
+    assert Solution().restoreIpAddresses("01000") == ["0.10.0.0"], "Edge 2"
 
-    assert Solution().restoreIpAddresses("25525511135") == ["255.255.11.135", "255.255.111.35"], 'Example 1'
+    assert Solution().restoreIpAddresses("25525511135") == ["255.255.11.135", "255.255.111.35"], "Example 1"
 
-    print('All passed')
+    print("All passed")
 
 

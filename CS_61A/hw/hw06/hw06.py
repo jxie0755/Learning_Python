@@ -1,13 +1,13 @@
-passphrase = 'CC74EB'
+passphrase = "CC74EB"
 
 def survey(p):
     """
     You do not need to understand this code.
     >>> survey(passphrase)
-    '3d2eea56786a3d9e503a4c07dd667867ef3d92bfccd68b2aa0900ead'
+    "3d2eea56786a3d9e503a4c07dd667867ef3d92bfccd68b2aa0900ead"
     """
     import hashlib
-    return hashlib.sha224(p.encode('utf-8')).hexdigest()
+    return hashlib.sha224(p.encode("utf-8")).hexdigest()
 
 
 
@@ -53,39 +53,39 @@ class Fib():
 class VendingMachine:
     """A vending machine that vends some product for some price.
 
-    >>> v = VendingMachine('candy', 10)
+    >>> v = VendingMachine("candy", 10)
     >>> v.vend()
-    'Machine is out of stock.'
+    "Machine is out of stock."
     >>> v.deposit(15)
-    'Machine is out of stock. Here is your $15.'
+    "Machine is out of stock. Here is your $15."
     >>> v.restock(2)
-    'Current candy stock: 2'
+    "Current candy stock: 2"
     >>> v.vend()
-    'You must deposit $10 more.'
+    "You must deposit $10 more."
     >>> v.deposit(7)
-    'Current balance: $7'
+    "Current balance: $7"
     >>> v.vend()
-    'You must deposit $3 more.'
+    "You must deposit $3 more."
     >>> v.deposit(5)
-    'Current balance: $12'
+    "Current balance: $12"
     >>> v.vend()
-    'Here is your candy and $2 change.'
+    "Here is your candy and $2 change."
     >>> v.deposit(10)
-    'Current balance: $10'
+    "Current balance: $10"
     >>> v.vend()
-    'Here is your candy.'
+    "Here is your candy."
     >>> v.deposit(15)
-    'Machine is out of stock. Here is your $15.'
+    "Machine is out of stock. Here is your $15."
 
-    >>> w = VendingMachine('soda', 2)
+    >>> w = VendingMachine("soda", 2)
     >>> w.restock(3)
-    'Current soda stock: 3'
+    "Current soda stock: 3"
     >>> w.restock(3)
-    'Current soda stock: 6'
+    "Current soda stock: 6"
     >>> w.deposit(2)
-    'Current balance: $2'
+    "Current balance: $2"
     >>> w.vend()
-    'Here is your soda.'
+    "Here is your soda."
     """
     "*** YOUR CODE HERE ***"
     def __init__(self, product, price):
@@ -96,7 +96,7 @@ class VendingMachine:
 
     def restock(self, added):
         self.stock += added
-        return f'Current {self.product} stock: {self.stock}'
+        return f"Current {self.product} stock: {self.stock}"
 
 
     def vend(self):
@@ -106,18 +106,18 @@ class VendingMachine:
                 change = self.balance - self.price
                 self.balance = 0
                 if change != 0:
-                    return f'Here is your {self.product} and ${change} change.'
+                    return f"Here is your {self.product} and ${change} change."
                 else:
-                    return f'Here is your {self.product}.'
+                    return f"Here is your {self.product}."
             else:
-                return f'You must deposit ${self.price - self.balance} more.'
+                return f"You must deposit ${self.price - self.balance} more."
         else:
-            return 'Machine is out of stock.'
+            return "Machine is out of stock."
 
 
     def deposit(self, deposit):
         if self.stock:
             self.balance += deposit
-            return f'Current balance: ${self.balance}'
+            return f"Current balance: ${self.balance}"
         else:
-            return f'Machine is out of stock. Here is your ${deposit}.'
+            return f"Machine is out of stock. Here is your ${deposit}."

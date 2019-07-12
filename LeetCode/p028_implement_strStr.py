@@ -20,7 +20,7 @@ class Solution:
         return -1
 
 
-if __name__ == '__main__':
-    assert Solution().strStr('abcdeabc', 'de') == 3
-    assert Solution().strStr('abcdeabc', 'zz') == -1
-    print('all passed')
+if __name__ == "__main__":
+    assert Solution().strStr("abcdeabc", "de") == 3
+    assert Solution().strStr("abcdeabc", "zz") == -1
+    print("all passed")

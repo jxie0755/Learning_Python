@@ -1,40 +1,40 @@
 test = {
-  'name': 'pow',
-  'points': 1,
-  'suites': [
+  "name": "pow",
+  "points": 1,
+  "suites": [
     {
-      'cases': [
+      "cases": [
         {
-          'code': r"""
+          "code": r"""
           scm> (pow 2 5)
           32
           """,
-          'hidden': False,
-          'locked': False
+          "hidden": False,
+          "locked": False
         },
         {
-          'code': r"""
+          "code": r"""
           scm> (pow 10 3)
           1000
           """,
-          'hidden': False,
-          'locked': False
+          "hidden": False,
+          "locked": False
         },
         {
-          'code': r"""
+          "code": r"""
           scm> (pow 3 3)
           27
           """,
-          'hidden': False,
-          'locked': False
+          "hidden": False,
+          "locked": False
         }
       ],
-      'scored': True,
-      'setup': r"""
+      "scored": True,
+      "setup": r"""
       scm> (load 'hw08)
       """,
-      'teardown': '',
-      'type': 'scheme'
+      "teardown": "",
+      "type": "scheme"
     }
   ]
 }

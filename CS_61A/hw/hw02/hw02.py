@@ -1,4 +1,4 @@
-HW_SOURCE_FILE = 'hw02.py'
+HW_SOURCE_FILE = "hw02.py"
 
 def square(x):
     return x * x
@@ -49,7 +49,7 @@ def factorial(n):
     >>> factorial(6)
     720
     >>> from construct_check import check
-    >>> check(HW_SOURCE_FILE, 'factorial', ['Recursion', 'For', 'While'])
+    >>> check(HW_SOURCE_FILE, "factorial", ["Recursion", "For", "While"])
     True
     """
     return product(n, identity)

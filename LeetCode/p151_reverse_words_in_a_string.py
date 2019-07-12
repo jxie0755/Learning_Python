@@ -21,20 +21,20 @@ class Solution(object):
         lst = []
 
         wordfound = False
-        word = ''
+        word = ""
         for i in s:
-            if i == ' ' and not wordfound:
+            if i == " " and not wordfound:
                 pass
-            elif i == ' ' and wordfound:
+            elif i == " " and wordfound:
                 lst.append(word)
-                word = ''
+                word = ""
                 wordfound = False
             else:
                 wordfound = True
                 word += i
         if wordfound:
             lst.append(word)
-        return ' '.join(lst[::-1])
+        return " ".join(lst[::-1])
 
 
 class Solution(object):
@@ -45,21 +45,21 @@ class Solution(object):
         :type s: str
         :rtype: str
         """
-        result = ''
+        result = ""
         wordfound = False
-        word = ''
+        word = ""
         for i in s:
-            if i == ' ' and not wordfound:
+            if i == " " and not wordfound:
                 pass
-            elif i == ' ' and wordfound:
-                result = word + ' ' + result
-                word = ''
+            elif i == " " and wordfound:
+                result = word + " " + result
+                word = ""
                 wordfound = False
             else:
                 wordfound = True
                 word += i
         if wordfound:
-            result = word + ' ' + result
+            result = word + " " + result
         return result[:-1]
 
 class Solution(object):
@@ -67,14 +67,14 @@ class Solution(object):
     # @param s, a string
     # @return a string
     def reverseWords(self, s):
-        return ' '.join(reversed(s.split()))
+        return " ".join(reversed(s.split()))
 
-if __name__ == '__main__':
-    assert Solution().reverseWords('    ') == '', 'Edge 0'
-    assert Solution().reverseWords('   a   ') == 'a', 'Edge 1'
+if __name__ == "__main__":
+    assert Solution().reverseWords("    ") == "", "Edge 0"
+    assert Solution().reverseWords("   a   ") == "a", "Edge 1"
 
-    assert Solution().reverseWords("the sky is blue") == "blue is sky the", 'Example 1'
-    assert Solution().reverseWords("  hello world!  ") == "world! hello", 'Example 2'
-    assert Solution().reverseWords("a good   example") == "example good a", 'Example 3'
+    assert Solution().reverseWords("the sky is blue") == "blue is sky the", "Example 1"
+    assert Solution().reverseWords("  hello world!  ") == "world! hello", "Example 2"
+    assert Solution().reverseWords("a good   example") == "example good a", "Example 3"
 
-    print('all passed')
+    print("all passed")

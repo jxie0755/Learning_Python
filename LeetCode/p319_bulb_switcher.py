@@ -5,7 +5,7 @@
 # There are n bulbs that are initially off.
 # You first turn on all the bulbs.
 # Then, you turn off every second bulb.
-# On the third round, you toggle every third bulb (turning on if it's off or turning off if it's on).
+# On the third round, you toggle every third bulb (turning on if it"s off or turning off if it"s on).
 # For the i-th round, you toggle every i bulb. For the n-th round, you only toggle the last bulb.
 
 # Find how many bulbs are on after n rounds.
@@ -57,16 +57,16 @@ class Solution(object):
         return count
 
 
-if __name__ == '__main__':
-    assert Solution().bulbSwitch(0) == 0, 'Edge 0'
-    assert Solution().bulbSwitch(1) == 1, 'Edge 1'
-    assert Solution().bulbSwitch(2) == 1, 'Edge 2'
+if __name__ == "__main__":
+    assert Solution().bulbSwitch(0) == 0, "Edge 0"
+    assert Solution().bulbSwitch(1) == 1, "Edge 1"
+    assert Solution().bulbSwitch(2) == 1, "Edge 2"
 
-    assert Solution().bulbSwitch(3) == 1,'Example 1'
-    assert Solution().bulbSwitch(4) == 2,'Example 2'
-    assert Solution().bulbSwitch(5) == 2,'Example 3'
-    assert Solution().bulbSwitch(6) == 2,'Example 4'
+    assert Solution().bulbSwitch(3) == 1,"Example 1"
+    assert Solution().bulbSwitch(4) == 2,"Example 2"
+    assert Solution().bulbSwitch(5) == 2,"Example 3"
+    assert Solution().bulbSwitch(6) == 2,"Example 4"
 
-    assert Solution().bulbSwitch(9999999) == 3162, 'Long'
+    assert Solution().bulbSwitch(9999999) == 3162, "Long"
 
-    print('all passed')
+    print("all passed")

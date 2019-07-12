@@ -23,5 +23,5 @@ class Solution(object):
                 for k, v in top.iteritems():
                   stk[-1][k] += v * int(m2 or 1)
 
-        return "".join(name + (str(stk[-1][name]) if stk[-1][name] > 1 else '') \
+        return "".join(name + (str(stk[-1][name]) if stk[-1][name] > 1 else "") \
                        for name in sorted(stk[-1]))

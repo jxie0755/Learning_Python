@@ -5,7 +5,7 @@ def make_withdraw(balance):
     def withdraw(amount):
         nonlocal balance
         if amount > balance:
-            return 'Insufficient funds'
+            return "Insufficient funds"
         balance = balance - amount
         return balance
     return withdraw
@@ -15,11 +15,11 @@ def make_withdraw2(balance):
     def withdraw(amount):
         # nonlocal balance
         if amount > balance:
-            return 'Insufficient funds'
+            return "Insufficient funds"
         return balance - amount
     return withdraw
 
-if __name__ == '__main__':
+if __name__ == "__main__":
 
     hundred = make_withdraw(100)
     print(hundred(25)) # >>> 75
@@ -33,7 +33,7 @@ def make_withdraw_list(balance):
     b = [balance]
     def withdraw(amount):
         if amount > b[0]:
-            return 'Insufficient funds'
+            return "Insufficient funds"
         b[0] = b[0] - amount
         return b[0]
     return withdraw
@@ -65,21 +65,21 @@ print(b)  # >>> [[1, 2, 3], 2, 3]
 # Codes below are not executable
 def mutable_link():
     """Return a functional implementation of a mutable linked list"""
-    contents = 'empty'
+    contents = "empty"
 
     def dispatch(message, value=None):
         nonlocal contents
-        if message == 'len':
+        if message == "len":
             return len_link(contents)
-        elif message == 'getitem':
+        elif message == "getitem":
             return getitem_link(contents, value)
-        elif message == 'push_first':
+        elif message == "push_first":
             contents = link(value, contents)
-        elif message == 'pop_first':
+        elif message == "pop_first":
             f = first(contents)
             contents = rest(contents)
             return f
-        elif message == 'str':
+        elif message == "str":
             return join_link(contents, ", ")
 
     return dispatch
@@ -88,7 +88,7 @@ def to_mutable_link(source):
     """Return a functional list with the same contents as source."""
     s = mutable_link()
     for element in reversed(source):
-        s('push_first', element)
+        s("push_first", element)
     return s
 
 # Implement Dictionaries
@@ -108,21 +108,21 @@ def dictionary():
         records = non_matches + [[key, value]]
 
     def dispatch(message, key=None, value=None):
-        if message == 'getitem':
+        if message == "getitem":
             return getitem(key)
-        elif message == 'setitem':
+        elif message == "setitem":
             setitem(key, value)
 
     return dispatch
 
 
 d = dictionary()
-d('setitem', 3, 9)
-d('setitem', 4, 16)
+d("setitem", 3, 9)
+d("setitem", 4, 16)
 
 print(d) # >>> <function dictionary.<locals>.dispatch at 0x00000129BB1956A8>
-print(d('getitem', 3))  # >>> 9
-print(d('getitem', 4))  # >>> 16
+print(d("getitem", 3))  # >>> 9
+print(d("getitem", 4))  # >>> 16
 
 
 # Constraint system
@@ -149,25 +149,25 @@ def multiplier(a, b, c):
 def constant(connector, value):
         """The constraint that connector = value."""
         constraint = {}
-        connector['set_val'](constraint, value)
+        connector["set_val"](constraint, value)
         return constraint
 
 def make_ternary_constraint(a, b, c, ab, ca, cb):
         """The constraint that ab(a,b)=c and ca(c,a)=b and cb(c,b) = a."""
         def new_value():
-            av, bv, cv = [connector['has_val']() for connector in (a, b, c)]
+            av, bv, cv = [connector["has_val"]() for connector in (a, b, c)]
             if av and bv:
-                c['set_val'](constraint, ab(a['val'], b['val']))
+                c["set_val"](constraint, ab(a["val"], b["val"]))
             elif av and cv:
-                b['set_val'](constraint, ca(c['val'], a['val']))
+                b["set_val"](constraint, ca(c["val"], a["val"]))
             elif bv and cv:
-                a['set_val'](constraint, cb(c['val'], b['val']))
+                a["set_val"](constraint, cb(c["val"], b["val"]))
         def forget_value():
             for connector in (a, b, c):
-                connector['forget'](constraint)
-        constraint = {'new_val': new_value, 'forget': forget_value}
+                connector["forget"](constraint)
+        constraint = {"new_val": new_value, "forget": forget_value}
         for connector in (a, b, c):
-            connector['connect'](constraint)
+            connector["connect"](constraint)
         return constraint
 
 # Design the connector
@@ -178,27 +178,27 @@ def connector(name=None):
     constraints = []
     def set_value(source, value):
         nonlocal informant
-        val = connector['val']
+        val = connector["val"]
         if val is None:
-            informant, connector['val'] = source, value
+            informant, connector["val"] = source, value
             if name is not None:
-                print(name, '=', value)
-            inform_all_except(source, 'new_val', constraints)
+                print(name, "=", value)
+            inform_all_except(source, "new_val", constraints)
         else:
             if val != value:
-                print('Contradiction detected:', val, 'vs', value)
+                print("Contradiction detected:", val, "vs", value)
     def forget_value(source):
         nonlocal informant
         if informant == source:
-            informant, connector['val'] = None, None
+            informant, connector["val"] = None, None
             if name is not None:
-                print(name, 'is forgotten')
-            inform_all_except(source, 'forget', constraints)
-    connector = {'val': None,
-                    'set_val': set_value,
-                    'forget': forget_value,
-                    'has_val': lambda: connector['val'] is not None,
-                    'connect': lambda source: constraints.append(source)}
+                print(name, "is forgotten")
+            inform_all_except(source, "forget", constraints)
+    connector = {"val": None,
+                    "set_val": set_value,
+                    "forget": forget_value,
+                    "has_val": lambda: connector["val"] is not None,
+                    "connect": lambda source: constraints.append(source)}
     return connector
 
 
@@ -220,16 +220,16 @@ def converter(c, f):
     constant(y, 32)
 
 
-celsius = connector('Celsius')
-fahrenheit = connector('Fahrenheit')
+celsius = connector("Celsius")
+fahrenheit = connector("Fahrenheit")
 converter(celsius, fahrenheit)
 
-if __name__ == '__main__':
-    fahrenheit['set_val']('user', 212)
-    fahrenheit['forget']('user')
-    fahrenheit['set_val']('user', 450)
-    fahrenheit['forget']('user')
-    celsius['set_val']('user', 37)
+if __name__ == "__main__":
+    fahrenheit["set_val"]("user", 212)
+    fahrenheit["forget"]("user")
+    fahrenheit["set_val"]("user", 450)
+    fahrenheit["forget"]("user")
+    celsius["set_val"]("user", 37)
     # >>>
     # Fahrenheit = 212
     # Celsius = 100.0

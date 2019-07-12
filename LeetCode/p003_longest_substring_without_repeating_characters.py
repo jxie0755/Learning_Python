@@ -110,15 +110,15 @@ class Solution(object):
         return longest
 
 
-if __name__ == '__main__':
-    assert Solution().lengthOfLongestSubstring("") == 0, 'Edge 1'
-    assert Solution().lengthOfLongestSubstring(" ") == 1, 'Edge 2'
-    assert Solution().lengthOfLongestSubstring("au") == 2, 'Edge 3'
-    assert Solution().lengthOfLongestSubstring("aab") == 2, 'Edge 4'
-    assert Solution().lengthOfLongestSubstring("dvdf") == 3, 'Edge 5'
+if __name__ == "__main__":
+    assert Solution().lengthOfLongestSubstring("") == 0, "Edge 1"
+    assert Solution().lengthOfLongestSubstring(" ") == 1, "Edge 2"
+    assert Solution().lengthOfLongestSubstring("au") == 2, "Edge 3"
+    assert Solution().lengthOfLongestSubstring("aab") == 2, "Edge 4"
+    assert Solution().lengthOfLongestSubstring("dvdf") == 3, "Edge 5"
 
-    assert Solution().lengthOfLongestSubstring("abcabcbb") == 3, 'Example 1, "abc"'
-    assert Solution().lengthOfLongestSubstring("bbbbb") == 1, 'Example 2, "b"'
-    assert Solution().lengthOfLongestSubstring("pwwkew") == 3, 'Example 3, "wke"'
-    assert Solution().lengthOfLongestSubstring("tmmzuxt") == 5, 'Example 4, mzuxt'
-    print('all passed')
+    assert Solution().lengthOfLongestSubstring("abcabcbb") == 3, "Example 1, "abc""
+    assert Solution().lengthOfLongestSubstring("bbbbb") == 1, "Example 2, "b""
+    assert Solution().lengthOfLongestSubstring("pwwkew") == 3, "Example 3, "wke""
+    assert Solution().lengthOfLongestSubstring("tmmzuxt") == 5, "Example 4, mzuxt"
+    print("all passed")

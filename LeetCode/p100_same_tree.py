@@ -48,7 +48,7 @@ class Solution:
             return p.val == q.val and self.isSameTree(p.left, q.left) and self.isSameTree(p.right, q.right)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     T10 = genTree([
         1,
         2, 3
@@ -58,7 +58,7 @@ if __name__ == '__main__':
         2, 3
     ])
 
-    assert Solution().isSameTree(T10, T20) == True, 'T1'
+    assert Solution().isSameTree(T10, T20) == True, "T1"
 
     T10 = genTree([
         1,
@@ -71,6 +71,6 @@ if __name__ == '__main__':
         4, None, None, None
     ])
 
-    assert Solution().isSameTree(T10, T20) == False, 'T2'
+    assert Solution().isSameTree(T10, T20) == False, "T2"
 
-    print('all passed')
+    print("all passed")

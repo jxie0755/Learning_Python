@@ -19,37 +19,37 @@ print(live([1, 4]))
 
 # WWPD 1
 class Worker:
-    greeting = 'Sir'
+    greeting = "Sir"
     def __init__(self):
         self.elf = Worker
 
     def work(self):
-        return self.greeting + ', I work'
+        return self.greeting + ", I work"
 
     def __repr__(self):
         return Bourgeoisie.greeting
 
 class Bourgeoisie(Worker):
-    greeting = 'Peon'
+    greeting = "Peon"
 
     def work(self):
         print(Worker.work(self))
-        return 'My job is to gather wealth'
+        return "My job is to gather wealth"
 
 class Proletariat(Worker):
-    greeting = 'Comrade'
+    greeting = "Comrade"
 
     def work(self, other):
-        other.greeting = self.greeting + ' ' + other.greeting
+        other.greeting = self.greeting + " " + other.greeting
         other.work() # for revolution
         return other
 
 jack = Worker()
 john = Bourgeoisie()
-jack.greeting = 'Maam'
+jack.greeting = "Maam"
 
-print(Worker().work())  # >>> 'Sir, I work'
-print(jack.work()[10:]) # >>> 'rk'
+print(Worker().work())  # >>> "Sir, I work"
+print(jack.work()[10:]) # >>> "rk"
 
 Proletariat().work(john)
 # >>>
@@ -63,24 +63,24 @@ print(john.elf.work(john))
 # Code 1
 class Dress:
     """What color is the dress?
-    >>> blue = Dress('blue')
+    >>> blue = Dress("blue")
     >>> blue.look()
-    'blue'
-    >>> gold = Dress('gold')
+    "blue"
+    >>> gold = Dress("gold")
     >>> gold.look()
-    'gold'
+    "gold"
     >>> blue.look() # 2 does not evenly divide 3; changes to gold
-    >>> Dress('black').look()
-    'black'
+    >>> Dress("black").look()
+    "black"
     >>> gold.look() # 2 does not evenly divide 5; changes to black
     >>> gold.look() # 3 evenly divides 6
-    'black'
-    >>> Dress('white').look()
-    'white'
+    "black"
+    >>> Dress("white").look()
+    "white"
     >>> gold.look() # 4 evenly divides 8
-    'black'
+    "black"
     >>> blue.look() # 3 evenly divides 9
-    'gold'
+    "gold"
     """
     seen = 0
     color = None
@@ -127,7 +127,7 @@ class Round:
         self.starter, self.player, self.highest = starter, starter, -1
 
     def play(self, who, card):
-        assert not self.complete(), 'The round is over, player ' + str(who)
+        assert not self.complete(), "The round is over, player " + str(who)
         assert who -- self.player, "It's not your turn, player " + str(who)
         self.player = (who + 1) % self.players
         if card >= self.highest:

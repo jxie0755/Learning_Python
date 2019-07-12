@@ -5,11 +5,11 @@ def write_password(cipher_grille, password):
                          [0, 0, 0, 0],
                          [0, 0, 0, 0]]
     def encrypt(cipher_grille, password):
-        coor1 = ''.join((map(lambda x: str(x) * cipher_grille[x].count('X'), list(range(4)))))
-        coor2 = ''
+        coor1 = "".join((map(lambda x: str(x) * cipher_grille[x].count("X"), list(range(4)))))
+        coor2 = ""
         for i in cipher_grille:
             for n in range(4):
-                if i[n] == 'X':
+                if i[n] == "X":
                     coor2 += str(n)
         for c in range(0, 4):
             ciphered_password[int(coor1[c])][int(coor2[c])] = password[c]
@@ -18,7 +18,7 @@ def write_password(cipher_grille, password):
     # define a function to rotate the cipher_grille 90 degree clockwise
     def rotate(cipher_grille):
         def new(n):
-            new_line = ''
+            new_line = ""
             for i in range(4):
                 new_line += cipher_grille[i][n]
             return new_line[::-1]
@@ -34,16 +34,16 @@ def write_password(cipher_grille, password):
 
     # convert the list in ciphered_password into tuple with strings
     for i in range(4):
-        str_element = ''.join(ciphered_password[i])
+        str_element = "".join(ciphered_password[i])
         ciphered_password[i] = str_element
     ciphered_password = tuple(ciphered_password)
     return ciphered_password
 
-cipher_grille = ('X...',
-                 '..X.',
-                 'X..X',
-                 '....')
+cipher_grille = ("X...",
+                 "..X.",
+                 "X..X",
+                 "....")
 
-password = 'icantforgetiddqd'
+password = "icantforgetiddqd"
 
 print(write_password(cipher_grille, password))

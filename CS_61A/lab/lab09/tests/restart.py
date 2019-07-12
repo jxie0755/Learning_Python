@@ -1,12 +1,12 @@
 test = {
-  'name': 'Restart',
-  'points': 0,
-  'suites': [
+  "name": "Restart",
+  "points": 0,
+  "suites": [
     {
-      'type': 'wwpp',
-      'cases': [
+      "type": "wwpp",
+      "cases": [
         {
-          'code': """
+          "code": """
           >>> class IteratorA:
           ...    def __init__(self):
           ...        self.start = 10
@@ -27,10 +27,10 @@ test = {
       ]
     },
     {
-      'type': 'wwpp',
-      'cases': [
+      "type": "wwpp",
+      "cases": [
         {
-          'code': """
+          "code": """
           >>> class IteratorB:
           ...    def __init__(self):
           ...        self.start = -6

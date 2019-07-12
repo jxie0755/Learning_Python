@@ -25,12 +25,12 @@ print(fun2())  # >>> 5    # BUT does NOT change the call of var by fun()
 # For more details in STOF:
 # https://stackoverflow.com/questions/3536620/how-to-change-a-module-variable-from-another-module
 
-p1 = learn_mod.People('denis')
+p1 = learn_mod.People("denis")
 print(p1)  # >>> denis
 
 print(learn_mod.People.var_p)  # >>> people
 print(p1.var_p)                # >>> people
 
-p1.set_varP('WTF')
+p1.set_varP("WTF")
 print(learn_mod.People.var_p)  # >>> WTF
 print(p1.var_p)                # >>> WTF

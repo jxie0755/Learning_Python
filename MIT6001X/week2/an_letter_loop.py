@@ -1,7 +1,7 @@
-an_letters = 'aefhilmnorsxAEFHILMNORSX'
+an_letters = "aefhilmnorsxAEFHILMNORSX"
 
-word = input('Give me a word:')
-times = int(input('Times to repeat:'))
+word = input("Give me a word:")
+times = int(input("Times to repeat:"))
 i = 0
 
 while i < len(word):
@@ -17,8 +17,8 @@ for n in range(times):
 
 print()
 
-word = input('Give me a word:')
-times = int(input('Times to repeat:'))
+word = input("Give me a word:")
+times = int(input("Times to repeat:"))
 i = 0
 
 while i < len(word):

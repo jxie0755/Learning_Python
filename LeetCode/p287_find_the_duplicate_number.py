@@ -27,11 +27,11 @@ class Solution:
         if nums.count(maxx) > 1:
             return maxx
 
-        print('total length', N, 'rest length', N - 2, 'rest sum', rest_sum)
-        print('min', minn, 'max', maxx)
+        print("total length", N, "rest length", N - 2, "rest sum", rest_sum)
+        print("min", minn, "max", maxx)
         mid = (maxx + minn) // 2
         while True:
-            print('mid', mid, mid * rest_n, rest_sum)
+            print("mid", mid, mid * rest_n, rest_sum)
             mid_sum = mid * rest_n
             if mid_sum < rest_sum:
                 diff = rest_sum - mid_sum
@@ -127,7 +127,7 @@ class Solution(object):
                 right = mid - 1
             else:
                 left = mid + 1
-            print('count', count)
+            print("count", count)
         return left
 
 
@@ -158,25 +158,25 @@ class Solution(object):
         # 这招不完全符合题目要求, 它还是改了list, 但是最后又给改回去了, 可以参考
 
 
-if __name__ == '__main__':
-    assert Solution().findDuplicate([1, 3, 4, 2, 2]) == 2, 'Example 1'
-    assert Solution().findDuplicate([3, 1, 3, 4, 2]) == 3, 'Example 2'
-    assert Solution().findDuplicate([1, 1, 3, 4, 2]) == 1, 'Example 3'
-    assert Solution().findDuplicate([4, 4, 3, 2, 1]) == 4, 'Example 4'
-    assert Solution().findDuplicate([3, 4, 1, 2, 4]) == 4, 'Example 5'
+if __name__ == "__main__":
+    assert Solution().findDuplicate([1, 3, 4, 2, 2]) == 2, "Example 1"
+    assert Solution().findDuplicate([3, 1, 3, 4, 2]) == 3, "Example 2"
+    assert Solution().findDuplicate([1, 1, 3, 4, 2]) == 1, "Example 3"
+    assert Solution().findDuplicate([4, 4, 3, 2, 1]) == 4, "Example 4"
+    assert Solution().findDuplicate([3, 4, 1, 2, 4]) == 4, "Example 5"
 
-    assert Solution().findDuplicate([1, 1, 1, 1, 1]) == 1, 'Example 6'
-    assert Solution().findDuplicate([4, 4, 4, 4, 4]) == 4, 'Example 7'
+    assert Solution().findDuplicate([1, 1, 1, 1, 1]) == 1, "Example 6"
+    assert Solution().findDuplicate([4, 4, 4, 4, 4]) == 4, "Example 7"
 
-    assert Solution().findDuplicate([3, 3, 2, 3, 3]) == 3, 'Example 8'
-    assert Solution().findDuplicate([3, 2, 3, 4, 3]) == 3, 'Example 9'
-    assert Solution().findDuplicate([2, 1, 1, 1, 1]) == 1, 'Example 10'
+    assert Solution().findDuplicate([3, 3, 2, 3, 3]) == 3, "Example 8"
+    assert Solution().findDuplicate([3, 2, 3, 4, 3]) == 3, "Example 9"
+    assert Solution().findDuplicate([2, 1, 1, 1, 1]) == 1, "Example 10"
 
-    assert Solution().findDuplicate([7, 9, 7, 4, 2, 8, 7, 7, 1, 5]) == 7, 'Additional 1'
-    assert Solution().findDuplicate([1, 8, 8, 2, 3, 4, 5, 6, 7, 9]) == 8, 'Additional 2'
-    assert Solution().findDuplicate([1, 2, 2, 3, 4, 5, 6, 7, 8, 9]) == 2, 'Additional 3'
-    assert Solution().findDuplicate([1, 2, 3, 4, 5, 6, 6, 6, 6, 9]) == 6, 'Additional 4'
+    assert Solution().findDuplicate([7, 9, 7, 4, 2, 8, 7, 7, 1, 5]) == 7, "Additional 1"
+    assert Solution().findDuplicate([1, 8, 8, 2, 3, 4, 5, 6, 7, 9]) == 8, "Additional 2"
+    assert Solution().findDuplicate([1, 2, 2, 3, 4, 5, 6, 7, 8, 9]) == 2, "Additional 3"
+    assert Solution().findDuplicate([1, 2, 3, 4, 5, 6, 6, 6, 6, 9]) == 6, "Additional 4"
 
-    assert Solution().findDuplicate([18,13,14,17,9,19,7,17,4,6,17,5,11,10,2,15,8,12,16,17]) == 17, 'Additional 5'
+    assert Solution().findDuplicate([18,13,14,17,9,19,7,17,4,6,17,5,11,10,2,15,8,12,16,17]) == 17, "Additional 5"
 
-    print('all passed')
+    print("all passed")

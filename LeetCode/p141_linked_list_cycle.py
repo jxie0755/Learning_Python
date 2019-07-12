@@ -85,18 +85,18 @@ class Solution_Y(object):
         if not head:
             return False
         while head.next:
-            if head.next.val == 'X': # assume 'X' will not be in any of the original linked list node value
+            if head.next.val == "X": # assume "X" will not be in any of the original linked list node value
                 return True
             checked = head
             head = head.next
-            checked.next = ListNode('X')  # break down the previous head link to next head, force previous head all to link to a ListNode
+            checked.next = ListNode("X")  # break down the previous head link to next head, force previous head all to link to a ListNode
         return False
 
 # The Solution X is better as it only create one additional checknode for every previous node to point to
 # The Solution Y forces every node pointed to a different node but has the same value. You can not guarantee that the value is not in orignal linked list. And it also uses much more space.
 
-if __name__ == '__main__':
-    assert Solution().hasCycle(None) is False, 'Edge'
+if __name__ == "__main__":
+    assert Solution().hasCycle(None) is False, "Edge"
 
     # Example 1
     a = ListNode(3)
@@ -109,7 +109,7 @@ if __name__ == '__main__':
     c.next = d
     d.next = b
 
-    assert Solution().hasCycle(a) is True, 'Example 1'
+    assert Solution().hasCycle(a) is True, "Example 1"
 
     # Example 2
     a = ListNode(1)
@@ -117,12 +117,12 @@ if __name__ == '__main__':
     a.next = b
     b.next = a
 
-    # assert Solution().hasCycle(a) is True, 'Example 2'
+    # assert Solution().hasCycle(a) is True, "Example 2"
 
 
     # Example 3
     a = ListNode(1)
 
-    # assert Solution().hasCycle(a) is False, 'Example 3'
+    # assert Solution().hasCycle(a) is False, "Example 3"
 
-    print('all passed')
+    print("all passed")

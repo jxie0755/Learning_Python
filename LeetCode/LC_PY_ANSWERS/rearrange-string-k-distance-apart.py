@@ -10,11 +10,11 @@ class Solution(object):
         """
         cnts = [0] * 26
         for c in str:
-            cnts[ord(c) - ord('a')] += 1
+            cnts[ord(c) - ord("a")] += 1
 
         sorted_cnts = []
         for i in xrange(26):
-            sorted_cnts.append((cnts[i], chr(i + ord('a'))))
+            sorted_cnts.append((cnts[i], chr(i + ord("a"))))
         sorted_cnts.sort(reverse=True)
 
         max_cnt = sorted_cnts[0][0]

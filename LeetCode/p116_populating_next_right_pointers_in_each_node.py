@@ -50,7 +50,7 @@ class Solution:
         return root
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
 
     A = Node(1,
              Node(2,
@@ -80,5 +80,5 @@ if __name__ == '__main__':
     B.left.right.next = B.right.left
     B.right.left.next = B.right.right
 
-    assert Solution().connect(A) == B, 'Example 1'
-    print('all passed')
+    assert Solution().connect(A) == B, "Example 1"
+    print("all passed")

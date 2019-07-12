@@ -8,11 +8,11 @@
 # Each of the digits 1-9 must occur exactly once in each row.
 # Each of the digits 1-9 must occur exactly once in each column.
 # Each of the the digits 1-9 must occur exactly once in each of the 9 3x3 sub-boxes of the grid.
-# Empty cells are indicated by the character '.'
+# Empty cells are indicated by the character "."
 
 
 # Note:
-# The given board contain only digits 1-9 and the character '.'.
+# The given board contain only digits 1-9 and the character ".".
 # You may assume that the given Sudoku puzzle will have a single unique solution.
 # The given board size is always 9x9.
 
@@ -173,7 +173,7 @@ class Solution:
         for x in range(1, 10):
             for y in range(1, 10):
                 coordinate = (x, y)
-                if self.get_value(coordinate) == '.':
+                if self.get_value(coordinate) == ".":
                     all_subs = self.get_row_col_sub(coordinate)
                     cant_be = [i for i in sum(all_subs, []) if i != "."]
                     all_nums = ["1", "2", "3",
@@ -297,7 +297,7 @@ class Solution(object):
             [".", ".", ".", ".", ".", ".", ".", ".", "."],
         ]):
         """
-        只支持str的raw data, 空白处用'.'来表示 (符合Leetcode p037)
+        只支持str的raw data, 空白处用"."来表示 (符合Leetcode p037)
 
         这里用哈希表实现算法, 基本原理:
         棋盘本身不变 self.board, 只有最终出解了才变化棋盘
@@ -307,8 +307,8 @@ class Solution(object):
         建造一个哈希表 self.history 来记录操作/推理的过程
         """
 
-        self.blank = '.'
-        self.valid = ['1', '2', '3', '4', '5','6', '7', '8', '9']
+        self.blank = "."
+        self.valid = ["1", "2", "3", "4", "5","6", "7", "8", "9"]
 
         # 保留原puzzle, 用于print
         self.board = puzzle
@@ -317,7 +317,7 @@ class Solution(object):
         # self.pool = {card:9 for card in self.valid}
 
         self.hash_board = {
-            coor: {'cur': self.blank, 'possible': []}
+            coor: {"cur": self.blank, "possible": []}
             for coor in [(x, y) for x in range(1, 10) for y in range(1, 10)]
         }
 
@@ -336,29 +336,29 @@ class Solution(object):
     #     """
     #
     #     def process_raw(row):
-    #         x = '|'
+    #         x = "|"
     #         for i in row:
     #             if i not in self.valid:
     #                 x += self.blank
     #             else:
     #                 x += str(i)
-    #             x += '  '
+    #             x += "  "
     #
-    #         return x[0:9] + '  ' + x[9:18] + '  ' + x[18:]
+    #         return x[0:9] + "  " + x[9:18] + "  " + x[18:]
     #
-    #     to_print = ''
+    #     to_print = ""
     #     y_num = 9
-    #     separ = '    -----------------------------'
-    #     x_num = '    1  2  3    4  5  6    7  8  9'
+    #     separ = "    -----------------------------"
+    #     x_num = "    1  2  3    4  5  6    7  8  9"
     #
     #     for i in self.board:
     #         str_row = process_raw(i)
-    #         to_print += str(y_num) + '  ' + str_row + '\n'
+    #         to_print += str(y_num) + "  " + str_row + "\n"
     #         if y_num in [7, 4]:
-    #             to_print += '\n'
+    #             to_print += "\n"
     #         y_num -= 1
     #
-    #     to_print += separ + '\n' + x_num
+    #     to_print += separ + "\n" + x_num
     #     return to_print
 
 
@@ -368,28 +368,28 @@ class Solution(object):
             x, y = coor[0], coor[1]
             given = self.board[9-y][x-1]
             if given in self.valid:
-                value['cur'] = given
+                value["cur"] = given
 
     # define some verification method
     def cur_value(self, coor):
         """return the current value in hash_board"""
-        return self.hash_board[coor]['cur']
+        return self.hash_board[coor]["cur"]
 
     # Define moves to add numbers to the board
     def insert(self, coor, value):
         """to insert a value into the checkerboard
         for convenience, indext start from 1, and act like coordinates
         """
-        self.hash_board[coor]['cur'] = value
+        self.hash_board[coor]["cur"] = value
 
     # 基础设施, 判断行列
     def row(self, n):
         """返回一个行的值"""
-        return [self.hash_board[coor]['cur'] for coor in self.hash_board if coor[1] == n]
+        return [self.hash_board[coor]["cur"] for coor in self.hash_board if coor[1] == n]
 
     def col(self, n):
         """返回一个列的值"""
-        return [self.hash_board[coor]['cur'] for coor in self.hash_board if coor[0] == n]
+        return [self.hash_board[coor]["cur"] for coor in self.hash_board if coor[0] == n]
 
     def grid(self, n):
         """output a grid of 3*3 in the checkboard
@@ -472,7 +472,7 @@ class Solution(object):
     def all_filled(self):
         """To ensure all the place is filled with a number"""
         for coor, value in self.hash_board.items():
-            if value['cur'] == self.blank:
+            if value["cur"] == self.blank:
                 return False
         return True
 
@@ -486,17 +486,17 @@ class Solution(object):
         {(x,y): [v1, v2, v3], (x,y): [v1, v2, v3], (x,y): [v1, v2, v3]}
         """
         for coor, value in self.hash_board.items():
-            if value['cur'] == self.blank:
+            if value["cur"] == self.blank:
                 cant_be = set(sum(self.get_row_col_sub(coor),[]))
                 can_be = [i for i in self.valid if i not in cant_be]
-                value['possible'] = can_be
+                value["possible"] = can_be
 
 
     def feasible(self):
         """return True if all vacant spot can still fill in a possible number"""
         self.analysis()
         for coor, value in self.hash_board.items():
-            if value['cur'] == self.blank and value['possible'] == []:
+            if value["cur"] == self.blank and value["possible"] == []:
                 return False
         return True
 
@@ -511,8 +511,8 @@ class Solution(object):
             self.analysis()
             coor_operated = []
             for coor, value in self.hash_board.items():
-                if len(value['possible']) == 1 and value['cur']==self.blank:
-                    self.insert(coor, value['possible'][0])
+                if len(value["possible"]) == 1 and value["cur"]==self.blank:
+                    self.insert(coor, value["possible"][0])
                     coor_operated.append(coor)
             if not coor_operated:
                 added = False
@@ -527,8 +527,8 @@ class Solution(object):
         """return a coor that has least possible numbers, if cannot deduct"""
         coor_to_move = min(
             self.hash_board,
-            key=lambda x: len(self.hash_board[x]['possible'])
-            if self.hash_board[x]['cur'] == self.blank else 10
+            key=lambda x: len(self.hash_board[x]["possible"])
+            if self.hash_board[x]["cur"] == self.blank else 10
         )
         self.guess_history.append(coor_to_move)
         return coor_to_move
@@ -537,7 +537,7 @@ class Solution(object):
         """try to move a hypothsized spot with a possible number
         according to coor, the self.hash_board insert this hyperthetical value
         """
-        value = self.hash_board[coor]['possible'].pop()
+        value = self.hash_board[coor]["possible"].pop()
         self.insert(coor, value)
 
 
@@ -548,14 +548,14 @@ class Solution(object):
         undo_deducted = self.deduct_history.pop()
         guess_deducted = self.guess_history[-1]
         for coor in undo_deducted:
-            self.hash_board[coor]['cur'] = self.blank
+            self.hash_board[coor]["cur"] = self.blank
 
-        self.hash_board[guess_deducted]['cur'] = self.blank
+        self.hash_board[guess_deducted]["cur"] = self.blank
 
 
     def last_guess_availble(self):
         """check if last guess still have possible values"""
-        return len(self.hash_board[self.guess_history[-1]]['possible']) > 0
+        return len(self.hash_board[self.guess_history[-1]]["possible"]) > 0
 
 
     # Final solution
@@ -589,11 +589,11 @@ class Solution(object):
 
         for coor, value in q.hash_board.items():
             x, y = coor[0], coor[1]
-            board[9 - y][x - 1] = value['cur']
+            board[9 - y][x - 1] = value["cur"]
 
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     question = [
         ["5", "3", ".", ".", "7", ".", ".", ".", "."],
         ["6", ".", ".", "1", "9", "5", ".", ".", "."],
@@ -607,15 +607,15 @@ if __name__ == '__main__':
 
     Solution(question).solveSudoku(question)
     assert question == [
-        ['5', '3', '4', '6', '7', '8', '9', '1', '2'],
-        ['6', '7', '2', '1', '9', '5', '3', '4', '8'],
-        ['1', '9', '8', '3', '4', '2', '5', '6', '7'],
-        ['8', '5', '9', '7', '6', '1', '4', '2', '3'],
-        ['4', '2', '6', '8', '5', '3', '7', '9', '1'],
-        ['7', '1', '3', '9', '2', '4', '8', '5', '6'],
-        ['9', '6', '1', '5', '3', '7', '2', '8', '4'],
-        ['2', '8', '7', '4', '1', '9', '6', '3', '5'],
-        ['3', '4', '5', '2', '8', '6', '1', '7', '9'],
+        ["5", "3", "4", "6", "7", "8", "9", "1", "2"],
+        ["6", "7", "2", "1", "9", "5", "3", "4", "8"],
+        ["1", "9", "8", "3", "4", "2", "5", "6", "7"],
+        ["8", "5", "9", "7", "6", "1", "4", "2", "3"],
+        ["4", "2", "6", "8", "5", "3", "7", "9", "1"],
+        ["7", "1", "3", "9", "2", "4", "8", "5", "6"],
+        ["9", "6", "1", "5", "3", "7", "2", "8", "4"],
+        ["2", "8", "7", "4", "1", "9", "6", "3", "5"],
+        ["3", "4", "5", "2", "8", "6", "1", "7", "9"],
     ]
 
     question_2 = [

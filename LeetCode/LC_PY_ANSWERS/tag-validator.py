@@ -21,14 +21,14 @@ class Solution(object):
             return True, j+3
 
         def parseTagName(s, i):
-            if s[i] != '<':
+            if s[i] != "<":
                 return "", i
-            j = s.find('>', i)
+            j = s.find(">", i)
             if j == -1 or not (1 <= (j-1-i) <= 9):
                 return "", i
             tag = s[i+1:j]
             for c in tag:
-                if not (ord('A') <= ord(c) <= ord('Z')):
+                if not (ord("A") <= ord(c) <= ord("Z")):
                     return "", i
             return tag, j+1
 

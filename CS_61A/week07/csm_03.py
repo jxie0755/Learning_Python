@@ -96,14 +96,14 @@ def vegetable(kale):
     eggplant(kale)
     return eggplant
 
-spinach = vegetable('kale')
+spinach = vegetable("kale")
 
 print(spinach)
 # >>>
 # kale 9
-# when execute eggplant(kale), eggplant = 'kale', kale = 9 (changed locally)
+# when execute eggplant(kale), eggplant = "kale", kale = 9 (changed locally)
 
-# eggplant changed to spinach, which was 'kale'
+# eggplant changed to spinach, which was "kale"
 # >>> kale
 
 

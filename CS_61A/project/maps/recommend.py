@@ -74,7 +74,7 @@ def find_centroid(cluster):
 
 def k_means(restaurants, k, max_updates=100):
     """Use k-means to group restaurants by location into k clusters."""
-    assert len(restaurants) >= k, 'Not enough restaurants to cluster'
+    assert len(restaurants) >= k, "Not enough restaurants to cluster"
     old_centroids, n = [], 0
     # Select initial centroids randomly by choosing k different restaurants
     centroids = [restaurant_location(r) for r in sample(restaurants, k)]
@@ -108,9 +108,9 @@ def find_predictor(user, restaurants, feature_fn):
     reviews_by_user = {review_restaurant_name(review): review_rating(review)
                        for review in user_reviews(user).values()}
                                      # user is in the form of
-                                     # ['Denis', {'A': ['A', 5], 'B': ['B', 6], 'C': ['C', 7]}]
+                                     # ["Denis", {"A": ["A", 5], "B": ["B", 6], "C": ["C", 7]}]
     # in the form of:
-    #  {'A': 5, 'B': 6, 'C': 7}
+    #  {"A": 5, "B": 6, "C": 7}
 
     xs = [feature_fn(r) for r in restaurants]
     ys = [reviews_by_user[restaurant_name(r)] for r in restaurants]
@@ -202,28 +202,28 @@ def feature_set():
 def main(*args):
     import argparse
     parser = argparse.ArgumentParser(
-        description='Run Recommendations',
+        description="Run Recommendations",
         formatter_class=argparse.RawTextHelpFormatter
     )
-    parser.add_argument('-u', '--user', type=str, choices=USER_FILES,
-                        default='test_user',
-                        metavar='USER',
-                        help='user file, e.g.\n' +
-                        '{{{}}}'.format(','.join(sample(USER_FILES, 3))))
-    parser.add_argument('-k', '--k', type=int, help='for k-means')
-    parser.add_argument('-q', '--query', choices=CATEGORIES,
-                        metavar='QUERY',
-                        help='search for restaurants by category e.g.\n'
-                        '{{{}}}'.format(','.join(sample(CATEGORIES, 3))))
-    parser.add_argument('-p', '--predict', action='store_true',
-                        help='predict ratings for all restaurants')
-    parser.add_argument('-r', '--restaurants', action='store_true',
-                        help='outputs a list of restaurant names')
+    parser.add_argument("-u", "--user", type=str, choices=USER_FILES,
+                        default="test_user",
+                        metavar="USER",
+                        help="user file, e.g.\n" +
+                        "{{{}}}".format(",".join(sample(USER_FILES, 3))))
+    parser.add_argument("-k", "--k", type=int, help="for k-means")
+    parser.add_argument("-q", "--query", choices=CATEGORIES,
+                        metavar="QUERY",
+                        help="search for restaurants by category e.g.\n"
+                        "{{{}}}".format(",".join(sample(CATEGORIES, 3))))
+    parser.add_argument("-p", "--predict", action="store_true",
+                        help="predict ratings for all restaurants")
+    parser.add_argument("-r", "--restaurants", action="store_true",
+                        help="outputs a list of restaurant names")
     args = parser.parse_args()
 
     # Output a list of restaurant names
     if args.restaurants:
-        print('Restaurant names:')
+        print("Restaurant names:")
         for restaurant in sorted(ALL_RESTAURANTS, key=restaurant_name):
             print(repr(restaurant_name(restaurant)))
         exit(0)
@@ -235,8 +235,8 @@ def main(*args):
         restaurants = ALL_RESTAURANTS
 
     # Load a user
-    assert args.user, 'A --user is required to draw a map'
-    user = load_user_file('{}.dat'.format(args.user))
+    assert args.user, "A --user is required to draw a map"
+    user = load_user_file("{}.dat".format(args.user))
 
     # Collect ratings
     if args.predict:

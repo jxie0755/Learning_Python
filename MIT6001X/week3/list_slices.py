@@ -1,10 +1,10 @@
-x = [1, 2, [3, 'John', 4], 'Hi']
+x = [1, 2, [3, "John", 4], "Hi"]
 
 print(x[0])
 # 1
 
 print(x[2])
-# [3, 'John', 4]
+# [3, "John", 4]
 
 print(x[-1])
 # Hi
@@ -23,8 +23,8 @@ print(3 in x)
 
 x[0] =8
 print(x)
-# [8, 2, [3, 'John', 4], 'Hi']
+# [8, 2, [3, "John", 4], "Hi"]
 
 
-print('test1')
+print("test1")
 print(1, 2, 3)

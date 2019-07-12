@@ -36,12 +36,12 @@ class Solution:
 
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     assert Solution().myPow(2.00000, 10) == math.pow(2.00000, 10), "Example 1"
     assert Solution().myPow(2.10000, 3) == math.pow(2.10000, 3), "Example 2"
     assert Solution().myPow(2.00000, -2) == math.pow(2.00000, -2), "Example 3"
     assert Solution().myPow(0.00001, 2147483647) == math.pow(0.00001, 2147483647), "Large"
-    print('all passed')
+    print("all passed")
 
 
 

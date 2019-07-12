@@ -48,9 +48,9 @@ class Solution:
         return True
 
 
-if __name__ == '__main__':
-    assert Solution().validPalindrome('abccba') == True, 'born to be (even)'
-    assert Solution().validPalindrome('abcba') == True, 'born to be (odd)'
-    assert Solution().validPalindrome('aabbcecbXbaa') == True, 'delete a letter'
-    assert Solution().validPalindrome('abxcxdcba') == False, 'does not work'
-    print('all passed')
+if __name__ == "__main__":
+    assert Solution().validPalindrome("abccba") == True, "born to be (even)"
+    assert Solution().validPalindrome("abcba") == True, "born to be (odd)"
+    assert Solution().validPalindrome("aabbcecbXbaa") == True, "delete a letter"
+    assert Solution().validPalindrome("abxcxdcba") == False, "does not work"
+    print("all passed")

@@ -39,10 +39,10 @@ class Solution(object):
                self.pathSum(root.right, sum)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
 
 
-    assert Solution().pathSum(None,1) == 0, 'Edge 0'
+    assert Solution().pathSum(None,1) == 0, "Edge 0"
 
     A = genTree([
         10,
@@ -51,6 +51,6 @@ if __name__ == '__main__':
         3,-2,None,1,None,None,None,None
     ])
 
-    assert Solution().pathSum(A, 8) == 3, 'Example 1'
+    assert Solution().pathSum(A, 8) == 3, "Example 1"
 
-    print('all passed')
+    print("all passed")

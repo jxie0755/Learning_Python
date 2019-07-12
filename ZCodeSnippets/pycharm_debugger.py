@@ -1,12 +1,12 @@
 def recall_password(cipher_grille, ciphered_password):
     # define a function to express the password from the current grill
     def decrypt(cipher_grille, ciphered_password):
-        sn = ''
-        coor1 = ''.join((map(lambda x: str(x) * cipher_grille[x].count('X'), list(range(4)))))
-        coor2 = ''
+        sn = ""
+        coor1 = "".join((map(lambda x: str(x) * cipher_grille[x].count("X"), list(range(4)))))
+        coor2 = ""
         for i in cipher_grille:
             for n in range(4):
-                if i[n] == 'X':
+                if i[n] == "X":
                     coor2 += str(n)
         for c in range(0, 4):
             sn += ciphered_password[int(coor1[c])][int(coor2[c])]
@@ -15,7 +15,7 @@ def recall_password(cipher_grille, ciphered_password):
     # define a function to rotate the cipher_grille 90 degree clockwise
     def rotate(cipher_grille):
         def new(n):
-            new_line = ''
+            new_line = ""
             for i in range(4):
                 new_line += cipher_grille[i][n]
             return new_line[::-1]
@@ -24,7 +24,7 @@ def recall_password(cipher_grille, ciphered_password):
         return new_grille
 
     # add 4 runs of decrypt() together as the final password
-    password = ''
+    password = ""
     for i in range(4):
         r = decrypt(cipher_grille, ciphered_password)
         cipher_grille = rotate(cipher_grille)
@@ -33,32 +33,32 @@ def recall_password(cipher_grille, ciphered_password):
     return password
 
 # assert recall_password(
-#         ('X...',
-#          '..X.',
-#          'X..X',
-#          '....'),
-#         ('itdf',
-#          'gdce',
-#          'aton',
-#          'qrdi')) == 'icantforgetiddqd', 'First example'
+#         ("X...",
+#          "..X.",
+#          "X..X",
+#          "...."),
+#         ("itdf",
+#          "gdce",
+#          "aton",
+#          "qrdi")) == "icantforgetiddqd", "First example"
 # assert recall_password(
-#     ('....',
-#      'X..X',
-#      '.X..',
-#      '...X'),
-#     ('xhwc',
-#      'rsqx',
-#      'xqzz',
-#      'fyzr')) == 'rxqrwsfzxqxzhczy', 'Second example'
-# print('done')
+#     ("....",
+#      "X..X",
+#      ".X..",
+#      "...X"),
+#     ("xhwc",
+#      "rsqx",
+#      "xqzz",
+#      "fyzr")) == "rxqrwsfzxqxzhczy", "Second example"
+# print("done")
 
-cipher_grille = ('X...',
-                 '..X.',
-                 'X..X',
-                 '....')
-ciphered_password = ('itdf',
-                     'gdce',
-                     'aton',
-                     'qrdi')
+cipher_grille = ("X...",
+                 "..X.",
+                 "X..X",
+                 "....")
+ciphered_password = ("itdf",
+                     "gdce",
+                     "aton",
+                     "qrdi")
 
 recall_password(cipher_grille, ciphered_password)

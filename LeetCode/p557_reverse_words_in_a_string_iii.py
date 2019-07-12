@@ -11,16 +11,16 @@
 
 class Solution:
     def reverseWords(self, s):
-        result = ''
+        result = ""
         for i in s.split():
-            result += i[::-1] + ' '
+            result += i[::-1] + " "
         return result.rstrip()
 
     def reverseWords(self, s):
         # use joint, to avoid rstrip()
-        return ' '.join(map(lambda x: x[::-1], s.split()))
+        return " ".join(map(lambda x: x[::-1], s.split()))
 
 
-if __name__ == '__main__':
-    assert Solution().reverseWords("Let's take LeetCode contest") == "s'teL ekat edoCteeL tsetnoc", 'regular'
-    print('all passed')
+if __name__ == "__main__":
+    assert Solution().reverseWords("Let"s take LeetCode contest") == "s"teL ekat edoCteeL tsetnoc", "regular"
+    print("all passed")

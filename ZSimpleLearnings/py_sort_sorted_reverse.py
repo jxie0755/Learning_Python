@@ -1,5 +1,5 @@
 # sort vs sorted, reverse an order
-l = [2, 3, 1, 'b', 'c', 'a']
+l = [2, 3, 1, "b", "c", "a"]
 # l1.sort()  # can not sort a mixed list.
 
 l1 = [2, 3, 1, 4]
@@ -67,11 +67,11 @@ for i in reversed(range(5, 10)):  # this range is 5, 6, 7, 8 , 9. Then reverse t
 seqRange = range(5, 10)  # >>> [9, 8, 7, 6, 5]
 print(list(reversed(seqRange)))
 
-seqString = 'Python'
-print(list(reversed(seqString)))  # >>> ['n', 'o', 'h', 't', 'y', 'P']
+seqString = "Python"
+print(list(reversed(seqString)))  # >>> ["n", "o", "h", "t", "y", "P"]
 
-seqTuple = ('P', 'y', 't', 'h', 'o', 'n')
-print(list(reversed(seqTuple)))  # >>> ['n', 'o', 'h', 't', 'y', 'P']
+seqTuple = ("P", "y", "t", "h", "o", "n")
+print(list(reversed(seqTuple)))  # >>> ["n", "o", "h", "t", "y", "P"]
 
 seqList = [1, 2, 4, 3, 5]
 print(list(reversed(seqList)))  # >>> [5, 3, 4, 2, 1]

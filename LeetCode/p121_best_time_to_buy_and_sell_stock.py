@@ -89,7 +89,7 @@ class Solution:
 
     def maxProfit(self, prices):
         # according to the best method, Denis modified for clearer logic
-        min_price = float('inf')
+        min_price = float("inf")
         profit = 0
         i = 0
         while i != len(prices):
@@ -104,13 +104,13 @@ class Solution:
         # 若出现新的最低价, 那么就从新的最低价开始重新寻找新的利润并与之前的最高利润做对比
 
 
-if __name__ == '__main__':
-    assert Solution().maxProfit([7,1,5,3,6,4]) == 5, 'Smart trader'
+if __name__ == "__main__":
+    assert Solution().maxProfit([7,1,5,3,6,4]) == 5, "Smart trader"
     # Buy on day 2 (price = 1) and sell on day 5 (price = 6), profit = 6-1 = 5
 
-    assert Solution().maxProfit([7,6,4,3,1]) == 0, 'No Transaction'
+    assert Solution().maxProfit([7,6,4,3,1]) == 0, "No Transaction"
     # In this case, no transaction is done, i.e. max profit = 0
 
-    assert Solution().maxProfit([100, 5, 25, 1, 20]) == 20, 'Tricky'
+    assert Solution().maxProfit([100, 5, 25, 1, 20]) == 20, "Tricky"
 
-    print('all passed')
+    print("all passed")

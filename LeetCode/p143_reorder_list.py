@@ -30,7 +30,7 @@ class Solution(object):
             lst.append(cur)
             cur = cur.next
 
-        dummy = ListNode('X')
+        dummy = ListNode("X")
         for i in range(len(lst)):
             if i % 2 == 0:
                 dummy.next = lst.pop(0)
@@ -86,14 +86,14 @@ class Solution(object):
 
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     A = genNode([1,2,3,4])
     Solution().reorderList(A)
-    assert A == genNode([1,4,2,3]), 'Example 1'
+    assert A == genNode([1,4,2,3]), "Example 1"
 
     A = genNode([1,2,3,4,5])
     Solution().reorderList(A)
-    assert A == genNode([1,5,2,4,3]), 'Example 2'
+    assert A == genNode([1,5,2,4,3]), "Example 2"
 
-    print('all passed')
+    print("all passed")
 

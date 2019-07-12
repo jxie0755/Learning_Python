@@ -12,13 +12,13 @@ class Keyboard:
     >>> b2 = Button(1, "I")
     >>> k = Keyboard(b1, b2)
     >>> k.buttons[0].key
-    'H'
+    "H"
     >>> k.press(1)
-    'I'
+    "I"
     >>> k.typing([0, 1])
-    'HI'
+    "HI"
     >>> k.typing([1, 0])
-    'IH'
+    "IH"
     >>> b1.pressed
     2
     >>> b2.pressed
@@ -40,7 +40,7 @@ class Keyboard:
         """Takes in a list of positions of buttons pressed, and
         returns the total output"""
         "*** YOUR CODE HERE ***"
-        result = ''
+        result = ""
         for info in typing_input:
             result += self.press(info)
         return result
@@ -62,26 +62,26 @@ def make_advanced_counter_maker():
 
     >>> make_counter = make_advanced_counter_maker()
     >>> tom_counter = make_counter()
-    >>> tom_counter('count')
+    >>> tom_counter("count")
     1
-    >>> tom_counter('count')
+    >>> tom_counter("count")
     2
-    >>> tom_counter('global-count')
+    >>> tom_counter("global-count")
     1
     >>> jon_counter = make_counter()
-    >>> jon_counter('global-count')
+    >>> jon_counter("global-count")
     2
-    >>> jon_counter('count')
+    >>> jon_counter("count")
     1
-    >>> jon_counter('reset')
-    >>> jon_counter('count')
+    >>> jon_counter("reset")
+    >>> jon_counter("count")
     1
-    >>> tom_counter('count')
+    >>> tom_counter("count")
     3
-    >>> jon_counter('global-count')
+    >>> jon_counter("global-count")
     3
-    >>> jon_counter('global-reset')
-    >>> tom_counter('global-count')
+    >>> jon_counter("global-reset")
+    >>> tom_counter("global-count")
     1
     """
     "*** YOUR CODE HERE ***"
@@ -91,15 +91,15 @@ def make_advanced_counter_maker():
         def counter(message):
             nonlocal count
             nonlocal global_count
-            if message == 'count':
+            if message == "count":
                 count += 1
                 return count
-            elif message == 'global-count':
+            elif message == "global-count":
                 global_count += 1
                 return global_count
-            elif message == 'reset':
+            elif message == "reset":
                 count = 0
-            elif message == 'global-reset':
+            elif message == "global-reset":
                 global_count = 0
         return counter
     return make_counter
@@ -131,20 +131,20 @@ def trade(first, second):
     >>> a = [1, 1, 3, 2, 1, 1, 4]
     >>> b = [4, 3, 2, 7]
     >>> trade(a, b) # Trades 1+1+3+2=7 for 4+3=7
-    'Deal!'
+    "Deal!"
     >>> a
     [4, 3, 1, 1, 4]
     >>> b
     [1, 1, 3, 2, 2, 7]
     >>> c = [3, 3, 2, 4, 1]
     >>> trade(b, c)
-    'No deal!'
+    "No deal!"
     >>> b
     [1, 1, 3, 2, 2, 7]
     >>> c
     [3, 3, 2, 4, 1]
     >>> trade(a, c)
-    'Deal!'
+    "Deal!"
     >>> a
     [3, 3, 2, 1, 4]
     >>> b
@@ -167,9 +167,9 @@ def trade(first, second):
 
     if deal: # change this line!
         first[:m], second[:n] = second[:n], first[:m]
-        return 'Deal!'
+        return "Deal!"
     else:
-        return 'No deal!'
+        return "No deal!"
 
 
 # Recursive objects
@@ -181,13 +181,13 @@ def make_to_string(front, mid, back, empty_repr):
     >>> jerrys_to_string = make_to_string("(", " . ", ")", "()")
     >>> lst = Link(1, Link(2, Link(3, Link(4))))
     >>> kevins_to_string(lst)
-    '[1|-]-->[2|-]-->[3|-]-->[4|-]-->[]'
+    "[1|-]-->[2|-]-->[3|-]-->[4|-]-->[]"
     >>> kevins_to_string(Link.empty)
-    '[]'
+    "[]"
     >>> jerrys_to_string(lst)
-    '(1 . (2 . (3 . (4 . ()))))'
+    "(1 . (2 . (3 . (4 . ()))))"
     >>> jerrys_to_string(Link.empty)
-    '()'
+    "()"
     """
     "*** YOUR CODE HERE ***"
     def helper(lnk):
@@ -208,10 +208,10 @@ class Tree:
 
     def __repr__(self):
         if self.branches:
-            branches_str = ', ' + repr(self.branches)
+            branches_str = ", " + repr(self.branches)
         else:
-            branches_str = ''
-        return 'Tree({0}{1})'.format(self.label, branches_str)
+            branches_str = ""
+        return "Tree({0}{1})".format(self.label, branches_str)
 
     def is_leaf(self):
         return not self.branches
@@ -222,7 +222,7 @@ class Tree:
 
     def __str__(self):
         def print_tree(t, indent=0):
-            tree_str = '  ' * indent + str(t.label) + "\n"
+            tree_str = "  " * indent + str(t.label) + "\n"
             for b in t.branches:
                 tree_str += print_tree(b, indent + 1)
             return tree_str

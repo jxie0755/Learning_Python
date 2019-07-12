@@ -1,4 +1,4 @@
-favorite_languages = { 'jen': 'python', 'sarah': 'c', 'edward': 'ruby', 'phil': 'python', }
+favorite_languages = { "jen": "python", "sarah": "c", "edward": "ruby", "phil": "python", }
 for name in favorite_languages.keys():     # 可以不写keys,默认也是寻找keys
     print(name.title())
 print()

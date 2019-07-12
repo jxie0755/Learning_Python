@@ -10,17 +10,17 @@ class TreeNode:
 
         def layer(T, L=1):
             if T.val is None:
-                return 'N'
+                return "N"
 
             s = str(T.val)
             if T.left and T.right:
-                return s + '\n' + '  ' * L + layer(T.left, L + 1) + '\n' + '  ' * L + layer(T.right, L + 1)
+                return s + "\n" + "  " * L + layer(T.left, L + 1) + "\n" + "  " * L + layer(T.right, L + 1)
             elif T.left and not T.right:
-                return s + '\n' + '  ' * L + layer(T.left, L + 1) + '\n' + '  ' * L + 'N'
+                return s + "\n" + "  " * L + layer(T.left, L + 1) + "\n" + "  " * L + "N"
             elif not T.left and T.right:
-                return s + '\n' + '  ' * L + 'N' + '\n' + '  ' * L + layer(T.right, L + 1)
+                return s + "\n" + "  " * L + "N" + "\n" + "  " * L + layer(T.right, L + 1)
             else:
-                return s + '\n' + '  ' * L + 'N' + '\n' + '  ' * L + 'N'
+                return s + "\n" + "  " * L + "N" + "\n" + "  " * L + "N"
 
         return layer(self)
 

@@ -27,24 +27,24 @@ class Solution:
 
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     matrix = [
         [],
     ]
     target = 3
-    assert Solution().searchMatrix(matrix, target) == False, 'Edge 1'
+    assert Solution().searchMatrix(matrix, target) == False, "Edge 1"
 
     matrix = [
         [1], [3], [5], [7],
     ]
     target = 3
-    assert Solution().searchMatrix(matrix, target) == True, 'Edge 2'
+    assert Solution().searchMatrix(matrix, target) == True, "Edge 2"
 
     matrix = [
         [1, 3, 5, 7],
     ]
     target = 3
-    assert Solution().searchMatrix(matrix, target) == True, 'Edge 3'
+    assert Solution().searchMatrix(matrix, target) == True, "Edge 3"
 
     matrix = [
         [1, 3, 5, 7],
@@ -52,7 +52,7 @@ if __name__ == '__main__':
         [23, 30, 34, 50]
     ]
     target = 3
-    assert Solution().searchMatrix(matrix, target) == True, 'Example 1'
+    assert Solution().searchMatrix(matrix, target) == True, "Example 1"
 
     matrix = [
         [1, 3, 5, 7],
@@ -60,5 +60,5 @@ if __name__ == '__main__':
         [23, 30, 34, 50]
     ]
     target = 13
-    assert Solution().searchMatrix(matrix, target) == False, 'Example 2'
-    print('all passed')
+    assert Solution().searchMatrix(matrix, target) == False, "Example 2"
+    print("all passed")

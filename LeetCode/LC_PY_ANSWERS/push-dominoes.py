@@ -12,9 +12,9 @@ class Solution(object):
 
         f = 0
         for i in xrange(len(dominoes)):
-            if dominoes[i] == 'R':
+            if dominoes[i] == "R":
                 f = len(dominoes)
-            elif dominoes[i] == 'L':
+            elif dominoes[i] == "L":
                 f = 0
             else:
                 f = max(f-1, 0)
@@ -22,13 +22,13 @@ class Solution(object):
 
         f = 0
         for i in reversed(xrange(len(dominoes))):
-            if dominoes[i] == 'L':
+            if dominoes[i] == "L":
                 f = len(dominoes)
-            elif dominoes[i] == 'R':
+            elif dominoes[i] == "R":
                 f = 0
             else:
                 f = max(f-1, 0)
             force[i] -= f
 
-        return "".join('.' if f == 0 else 'R' if f > 0 else 'L'
+        return "".join("." if f == 0 else "R" if f > 0 else "L"
                        for f in force)

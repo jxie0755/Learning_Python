@@ -1,11 +1,11 @@
 test = {
-  'name': 'make-exp',
-  'points': 1,
-  'suites': [
+  "name": "make-exp",
+  "points": 1,
+  "suites": [
     {
-      'cases': [
+      "cases": [
         {
-          'code': r"""
+          "code": r"""
           scm> (make-exp 2 4)
           16
           scm> (make-exp 'x 1)
@@ -25,18 +25,18 @@ test = {
           scm> (exp? 'x)
           False
           """,
-          'hidden': False,
-          'locked': False
+          "hidden": False,
+          "locked": False
         }
       ],
-      'scored': True,
-      'setup': r"""
+      "scored": True,
+      "setup": r"""
       scm> (load 'hw09)
       scm> (define x^2 (make-exp 'x 2))
       scm> (define x^3 (make-exp 'x 3))
       """,
-      'teardown': '',
-      'type': 'scheme'
+      "teardown": "",
+      "type": "scheme"
     }
   ]
 }

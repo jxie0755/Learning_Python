@@ -29,7 +29,7 @@ print("\n文件/路径 操作")
 
 
 # 查看当前目录的绝对路径.初始时是脚本所在的路径:
-print(os.path.abspath('.'))
+print(os.path.abspath("."))
 # 等同于
 print(os.getcwd())
 
@@ -56,14 +56,14 @@ except FileExistsError:
 # 同样的道理，要拆分路径时，也不要直接去拆字符串，而要通过os.path.split()函数
 # 这样可以把一个路径拆分为两部分，后一部分总是最后级别的目录或文件名
 # 这些合并、拆分路径的函数并不要求目录和文件要真实存在，它们只对字符串进行操作
-print(os.path.split('/Users/dxie/testdir/file.txt'))
-# >>> ('/Users/dxie/testdir', 'file.txt')  输出为一个tuple
+print(os.path.split("/Users/dxie/testdir/file.txt"))
+# >>> ("/Users/dxie/testdir", "file.txt")  输出为一个tuple
 # 通过这个可以得到上一层路径和文件名, 非常方便
-print(os.path.split('/Users/dxie/testdir/'))
-# >>> ('/Users/dxie/testdir', '')   对于纯路径, 也可以获得上一层路径
+print(os.path.split("/Users/dxie/testdir/"))
+# >>> ("/Users/dxie/testdir", "")   对于纯路径, 也可以获得上一层路径
 # splitext分拆路径得到文件扩展名
-print(os.path.splitext('/Users/dxie/testdir/file.pdf'))  # 可以直接让你得到文件扩展名，很多时候非常方便
-# >>> ('/Users/dxie/testdir/file', '.pdf')
+print(os.path.splitext("/Users/dxie/testdir/file.pdf"))  # 可以直接让你得到文件扩展名，很多时候非常方便
+# >>> ("/Users/dxie/testdir/file", ".pdf")
 
 
 # Rename and move

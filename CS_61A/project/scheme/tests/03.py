@@ -1,11 +1,11 @@
 test = {
-  'name': 'Problem 3',
-  'points': 1,
-  'suites': [
+  "name": "Problem 3",
+  "points": 1,
+  "suites": [
     {
-      'cases': [
+      "cases": [
         {
-          'code': r"""
+          "code": r"""
           >>> global_frame = create_global_frame()
           >>> global_frame.define("x", 3)
           >>> global_frame.parent is None
@@ -18,11 +18,11 @@ test = {
           >>> global_frame.lookup("foo")
           SchemeError
           """,
-          'hidden': False,
-          'locked': False
+          "hidden": False,
+          "locked": False
         },
         {
-          'code': r"""
+          "code": r"""
           >>> first_frame = create_global_frame()
           >>> first_frame.define("x", 3)
           >>> second_frame = Frame(first_frame)
@@ -31,11 +31,11 @@ test = {
           >>> second_frame.lookup("x")
           3
           """,
-          'hidden': False,
-          'locked': False
+          "hidden": False,
+          "locked": False
         },
         {
-          'code': r"""
+          "code": r"""
           >>> first_frame = create_global_frame()
           >>> first_frame.define("x", 3)
           >>> second_frame = Frame(first_frame)
@@ -53,11 +53,11 @@ test = {
           >>> fourth_frame.lookup("y")
           2
           """,
-          'hidden': False,
-          'locked': False
+          "hidden": False,
+          "locked": False
         },
         {
-          'code': r"""
+          "code": r"""
           >>> first_frame = create_global_frame()
           >>> first_frame.define("x", 1)
           >>> second_frame = Frame(first_frame)
@@ -84,21 +84,21 @@ test = {
           >>> third_frame.lookup("x")
           2
           """,
-          'hidden': False,
-          'locked': False
+          "hidden": False,
+          "locked": False
         }
       ],
-      'scored': True,
-      'setup': r"""
+      "scored": True,
+      "setup": r"""
       >>> from scheme import *
       """,
-      'teardown': '',
-      'type': 'doctest'
+      "teardown": "",
+      "type": "doctest"
     },
     {
-      'cases': [
+      "cases": [
         {
-          'code': r"""
+          "code": r"""
           scm> +
           #[+]
           scm> display
@@ -106,14 +106,14 @@ test = {
           scm> hello
           SchemeError
           """,
-          'hidden': False,
-          'locked': False
+          "hidden": False,
+          "locked": False
         }
       ],
-      'scored': True,
-      'setup': '',
-      'teardown': '',
-      'type': 'scheme'
+      "scored": True,
+      "setup": "",
+      "teardown": "",
+      "type": "scheme"
     }
   ]
 }

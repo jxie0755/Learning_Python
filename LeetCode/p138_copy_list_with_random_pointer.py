@@ -39,16 +39,16 @@ class Solution:
         return helper(head)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     B = Node(2, None, None)
     B.random = B
     A = Node(1,B, B)
 
     AA = Solution().copyRandomList(A)
-    assert AA.val == 1, 'Val'
-    assert AA.next.val == 2, 'next val'
-    assert AA.random.val == 2, 'random val'
-    assert AA.next.random.val == 2, 'cycling'
-    assert AA.next.random == AA.next, 'True self poiting'
+    assert AA.val == 1, "Val"
+    assert AA.next.val == 2, "next val"
+    assert AA.random.val == 2, "random val"
+    assert AA.next.random.val == 2, "cycling"
+    assert AA.next.random == AA.next, "True self poiting"
 
-    print('all passed')
+    print("all passed")

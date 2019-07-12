@@ -1,8 +1,8 @@
 # set operation
 # https://docs.python.org/3/library/stdtypes.html#set-types-set-frozenset
 
-print('class set([iterable]))')
-print('class frozenset([iterable])')
+print("class set([iterable]))")
+print("class frozenset([iterable])")
 
 # Set 包含两个,一个是set,一个是frozenset.
 
@@ -21,14 +21,14 @@ print('class frozenset([iterable])')
 # use set() to create from a list or a tuple
 lst = [1,2,5,3,3,3,4,5]
 tup = (1,3,3,5,7,7,9)
-tup2 = ('a', 's', 'd', 'f')
+tup2 = ("a", "s", "d", "f")
 print(set(lst))  # >>> {1, 2, 3, 4, 5}
 print(set(tup))  # >>> {1, 3, 5, 7, 9}       # numbers sequence not showed random, but stll no sequence
-print(set(tup2)) # >>> {'b', 'a', 'd', 'c'}  # string sequence showed random (no sequence)
+print(set(tup2)) # >>> {"b", "a", "d", "c"}  # string sequence showed random (no sequence)
 
 # from dict, create a set of keys or values.
-dic = {'a': 1, 'b': 3, 'c': 3, 'd': 2}
-print(set(dic))  # >>> {'a', 'b', 'c'}
+dic = {"a": 1, "b": 3, "c": 3, "d": 2}
+print(set(dic))  # >>> {"a", "b", "c"}
 print(set(dic.values())) # >>> {1, 2, 3}
 
 # create from using {} directly for NON-EMPTY set
@@ -47,7 +47,7 @@ print(emptset)  # >>> set()
 # 基本相同,但是不能直接使用{}
 print(frozenset(lst))   # >>> frozenset({1, 2, 3, 4, 5})
 print(frozenset(tup))   # >>> frozenset({1, 3, 5, 7, 9})
-print(frozenset(tup2))  # >>> frozenset({'s', 'd', 'a', 'f'})
+print(frozenset(tup2))  # >>> frozenset({"s", "d", "a", "f"})
 
 # there is no point to create empty frozenset, but you still can
 emptfset = frozenset([])
@@ -56,25 +56,25 @@ print(emptfset)  # >>> frozenset()
 # 一旦创建便不能更改，没有add，remove方法。
 a = [0, 1, 1, 1, 2, 3, 3, 4]
 fst = frozenset(a)
-# fst.add(9)     AttributeError: 'frozenset' object has no attribute 'add'
-# fst.remove(4)  AttributeError: 'frozenset' object has no attribute 'remove'
+# fst.add(9)     AttributeError: "frozenset" object has no attribute "add"
+# fst.remove(4)  AttributeError: "frozenset" object has no attribute "remove"
 
 # 作为字典的key frozenset can be used as key of a dictionary (the whole set)
-adict = {fst:1, 'b':2}  # works
-# bdict = {st:1, 'b':2}   # TypeError: unhashable type: 'set'
+adict = {fst:1, "b":2}  # works
+# bdict = {st:1, "b":2}   # TypeError: unhashable type: "set"
 
 
 
 # basic attributes and operation
-a = [0, 1, 1, 1, 2, 3, 3, 4, 'foo', 'bar']
-st = set(a)          # >>> {0, 1, 2, 3, 4, 'foo', 'bar'}
-fst = frozenset(a)   # >>> frozenset({0, 1, 2, 3, 4, 'foo', 'bar'})
+a = [0, 1, 1, 1, 2, 3, 3, 4, "foo", "bar"]
+st = set(a)          # >>> {0, 1, 2, 3, 4, "foo", "bar"}
+fst = frozenset(a)   # >>> frozenset({0, 1, 2, 3, 4, "foo", "bar"})
 
 print(len(st))  # >>> 7
-print(2 in st, 'bar' not in st)  # >>> True False
+print(2 in st, "bar" not in st)  # >>> True False
 
 st1 = {1,2,3}
-st2 = {1, 2, 'c'}
+st2 = {1, 2, "c"}
 print(st1.isdisjoint(st2))  # >>> False
 print(emptset.isdisjoint(emptfset))  # >>> True # for two empty set
 # 如果该集合中任何一个元素都与另一个集合other中的任何一个元素都不一样（即两集合不相交），则返回True。
@@ -136,8 +136,8 @@ print(st1 ^ st2)                      # >>> {1, 2, 5, 6}
 
 # other comparisons:
 # frozenset基于其成员的实例与实例的set进行比较
-st = set([1,2,3])          # >>> {0, 1, 2, 3, 4, 'foo', 'bar'}
-fst = frozenset([1,2,3,4,5])   # >>> frozenset({0, 1, 2, 3, 4, 'foo', 'bar'})
+st = set([1,2,3])          # >>> {0, 1, 2, 3, 4, "foo", "bar"}
+fst = frozenset([1,2,3,4,5])   # >>> frozenset({0, 1, 2, 3, 4, "foo", "bar"})
 print(st == fst)  # >>> False
 print(st >= fst)  # >>> False
 print(st <= fst)  # >>> True
@@ -155,12 +155,12 @@ print(fst.symmetric_difference(st))  # >>> frozenset({4, 5})
 # set |= other | ...
 # 更新的设置，添加从所有其他的元素。
 st1 = {1,2,3,4}
-st2 = {'a', 'b', 'c', 'd'}
+st2 = {"a", "b", "c", "d"}
 
 st1.update([9], [10])  # must be interable, numbers can not be directly added
 print(st1)  # >>> {1, 2, 3, 4, 9, 10}
-st2.update('x y z', 'lol')
-print(st2)  # >>> {'c', 'l', 'a', 'b', 'd', 'x', ' ', 'z', 'y', 'o'} # 注意这里不是单独添加一个'x y z'和'lol'
+st2.update("x y z", "lol")
+print(st2)  # >>> {"c", "l", "a", "b", "d", "x", " ", "z", "y", "o"} # 注意这里不是单独添加一个"x y z"和"lol"
 
 st1 |= {10, 11, 13}  # one at a time
 print(st1)  # >>> {1, 2, 3, 4, 9, 10, 11, 13}
@@ -213,7 +213,7 @@ print(st1)  # >>> {2, 3, 4}
 # pop()
 # 从集合中移除并返回任意元素。如果此集合为空，则引发KeyError
 st1 = {4,2,1,3}
-st2 = {'a', 'b', 'c', 'd'}
+st2 = {"a", "b", "c", "d"}
 st1.pop()   # 不能添加index
 st1.pop()
 print(st1)  # >>> {3, 4}  # 似乎数字set的pop()是从最小的数字开始pop?
@@ -221,7 +221,7 @@ print(st1)  # >>> {3, 4}  # 似乎数字set的pop()是从最小的数字开始po
 # STOF: https://stackoverflow.com/q/9848693/8435726
 
 st2.pop()
-print(st2)  # >>> {'a', 'c', 'd'}  # string set 更随机
+print(st2)  # >>> {"a", "c", "d"}  # string set 更随机
 
 # clear()
 # 从集合中移除所有元素。

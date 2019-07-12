@@ -36,7 +36,7 @@ def process(data):
         content = f_obj.readlines()
     result = []
     for i in content:
-        temp = i.strip().split(' ')
+        temp = i.strip().split(" ")
         temp = [int(j) for j in temp]
         result.append(temp)
     return result
@@ -81,15 +81,15 @@ def max_path_sum_i(T):
     # for i in path_in_value:
     #     print(i)
 
-    print('total path number', len(path_in_value))
+    print("total path number", len(path_in_value))
     return sum(max(path_in_value, key=sum))
 
 
 
 
-if __name__ == '__main__':
-    print(max_path_sum_i(process('p018_data_test.txt')))
+if __name__ == "__main__":
+    print(max_path_sum_i(process("p018_data_test.txt")))
     # >>> 20 (from 1,3,6,10)
-    print(max_path_sum_i(process('p018_data.txt')))
+    print(max_path_sum_i(process("p018_data.txt")))
     # >>> 1074
     # passed

@@ -107,19 +107,19 @@ class Solution:
 
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     A = None
-    assert Solution().levelOrderBottom(A) == [], 'Edge 0'
+    assert Solution().levelOrderBottom(A) == [], "Edge 0"
 
     A = genTree([1])
-    assert Solution().levelOrderBottom(A) == [[1]], 'Edge 1'
+    assert Solution().levelOrderBottom(A) == [[1]], "Edge 1"
 
     A = genTree([3, 9, 20, None, None, 15, 7])
     assert Solution().levelOrderBottom(A) == [
         [15,7],
         [9,20],
         [3]
-    ], 'Example'
+    ], "Example"
 
     A = genTree([
         0,
@@ -133,4 +133,4 @@ if __name__ == '__main__':
         [0]
     ]
 
-    print('All passed')
+    print("All passed")

@@ -18,16 +18,16 @@ class AnonymousSurvey():
         """显示收集到的所有答卷"""
         print("Survey results:")
         for response in self.responses:
-            print('- ' + response)
+            print("- " + response)
 
 #定义一个问题，并创建一个表示调查的AnonymousSurvey对象
 # my_survey = AnonymousSurvey("What language did you first learn to speak?" )
 #
 # #显示问题并存储答案 my_survey.show_question()
-# print("Enter 'q' at any time to quit.\n")
+# print("Enter "q" at any time to quit.\n")
 # while True:
 #     response = input("Language: ")
-#     if response == 'q':
+#     if response == "q":
 #         break
 #     my_survey.store_response(response)
 #
@@ -46,9 +46,9 @@ class TestAnonymousSurvey(unittest.TestCase):
 
         # 在测试中建立实例
         my_survey = AnonymousSurvey("what language did you first learn to code?")
-        my_survey.store_response('python')
+        my_survey.store_response("python")
 
-        self.assertIn('python', my_survey.responses)
+        self.assertIn("python", my_survey.responses)
 
 
 unittest.main()

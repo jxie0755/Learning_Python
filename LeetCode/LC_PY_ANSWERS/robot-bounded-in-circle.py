@@ -10,9 +10,9 @@ class Solution(object):
         directions = [[ 1, 0], [0, -1], [-1, 0], [0, 1]]
         x, y, i = 0, 0, 0
         for instruction in instructions:
-            if instruction == 'R':
+            if instruction == "R":
                 i = (i+1) % 4;
-            elif instruction == 'L':
+            elif instruction == "L":
                 i = (i-1) % 4;
             else:
                 x += directions[i][0]

@@ -72,7 +72,7 @@ def outside():
 
 outside()
 # >>>
-# {'outside': 1, 'inside': 2}   # 没有使用nonlocal仍然从内部改变了外层变量
+# {"outside": 1, "inside": 2}   # 没有使用nonlocal仍然从内部改变了外层变量
 # 解释: 字典插入并不是赋值操作，而是方法调用（method call）。调用字典对象中的__setitem__方法
 
 # 在许多Python程序中，很少用到非局部语句
@@ -113,7 +113,7 @@ def f():
     return g
 
 # print(f()())
-# >>> UnboundLocalError: local variable 'x' referenced before assignment
+# >>> UnboundLocalError: local variable "x" referenced before assignment
 print(x)
 # # >>> 100
 
@@ -129,7 +129,7 @@ def f():
     return g
 
 # print(f()())
-# >>> SyntaxError: no binding for nonlocal 'x' found
+# >>> SyntaxError: no binding for nonlocal "x" found
 # 注意这里nonlocal只搜索外部一层的, 不会继续寻找global
 
 print(x)
@@ -171,7 +171,7 @@ def f():
     return x+1
 
 print(f())
-# >> name 'x' is assigned to before global declaration
+# >> name "x" is assigned to before global declaration
 
 # nonlocal 也是同理
 def f():
@@ -194,4 +194,4 @@ def f():
     return g
 
 print(f()())
-# >>> SyntaxError: name 'x' is assigned to before nonlocal declaration
+# >>> SyntaxError: name "x" is assigned to before nonlocal declaration

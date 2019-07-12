@@ -74,13 +74,13 @@ class Solution(object):
             factor += 1
         return result
 
-if __name__ == '__main__':
-    assert Solution().trailingZeroes(0) == 0, 'Edge 0'
-    assert Solution().trailingZeroes(1) == 0, 'Edge 1'
-    assert Solution().trailingZeroes(3) == 0, 'Example 1'
-    assert Solution().trailingZeroes(5) == 1, 'Example 2'
-    assert Solution().trailingZeroes(20) == 4, 'Additional 1'
-    assert Solution().trailingZeroes(3743) == 932, 'Additional 2'
+if __name__ == "__main__":
+    assert Solution().trailingZeroes(0) == 0, "Edge 0"
+    assert Solution().trailingZeroes(1) == 0, "Edge 1"
+    assert Solution().trailingZeroes(3) == 0, "Example 1"
+    assert Solution().trailingZeroes(5) == 1, "Example 2"
+    assert Solution().trailingZeroes(20) == 4, "Additional 1"
+    assert Solution().trailingZeroes(3743) == 932, "Additional 2"
     print(Solution().trailingZeroes(1808548329))
-    print('all passed')
+    print("all passed")
 

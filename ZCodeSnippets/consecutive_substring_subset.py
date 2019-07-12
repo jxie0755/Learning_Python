@@ -12,9 +12,9 @@ def subSequence_SL(iterable):
             result.append(iterable[i:i+lenth])
     return result
 
-if __name__ == '__main__':
-    print(subSequence_SL('abcd'))
-    # >>> ['a', 'b', 'c', 'd', 'ab', 'bc', 'cd', 'abc', 'bcd', 'abcd']
+if __name__ == "__main__":
+    print(subSequence_SL("abcd"))
+    # >>> ["a", "b", "c", "d", "ab", "bc", "cd", "abc", "bcd", "abcd"]
     print(subSequence_SL([1, 2, 3, 4]))
     # >>> [[1], [2], [3], [4], [1, 2], [2, 3], [3, 4], [1, 2, 3], [2, 3, 4], [1, 2, 3, 4]]
 
@@ -28,9 +28,9 @@ def subSequence_LS(iterable):
             result.append(iterable[i:i+lenth])
     return result
 
-if __name__ == '__main__':
-    print(subSequence_LS('abcd'))
-    # >>> ['abcd', 'abc', 'bcd', 'ab', 'bc', 'cd', 'a', 'b', 'c', 'd']
+if __name__ == "__main__":
+    print(subSequence_LS("abcd"))
+    # >>> ["abcd", "abc", "bcd", "ab", "bc", "cd", "a", "b", "c", "d"]
     print(subSequence_LS([1, 2, 3, 4]))
     # >>> [[1, 2, 3, 4], [1, 2, 3], [2, 3, 4], [1, 2], [2, 3], [3, 4], [1], [2], [3], [4]]
 
@@ -44,9 +44,9 @@ def subSequence_SEQ(iterable):
             result.append(iterable[i:i+lenth])
     return result
 
-if __name__ == '__main__':
-    print(subSequence_SEQ('abcd'))
-    # >>> ['a', 'ab', 'abc', 'abcd', 'b', 'bc', 'bcd', 'c', 'cd', 'd']
+if __name__ == "__main__":
+    print(subSequence_SEQ("abcd"))
+    # >>> ["a", "ab", "abc", "abcd", "b", "bc", "bcd", "c", "cd", "d"]
     print(subSequence_SEQ([1, 2, 3, 4]))
     # >>> [[1], [1, 2], [1, 2, 3], [1, 2, 3, 4], [2], [2, 3], [2, 3, 4], [3], [3, 4], [4]]
 
@@ -66,9 +66,9 @@ def subSequence_C(iterable):
                 right += 1
     return result
 
-if __name__ == '__main__':
-    print(subSequence_C('abcd'))
-    # >>> ['a', 'ab', 'b', 'abc', 'bc', 'abcd', 'c', 'bcd', 'cd', 'd']
+if __name__ == "__main__":
+    print(subSequence_C("abcd"))
+    # >>> ["a", "ab", "b", "abc", "bc", "abcd", "c", "bcd", "cd", "d"]
     print(subSequence_C([1, 2, 3, 4]))
     # >>> [[1], [1, 2], [2], [1, 2, 3], [2, 3], [1, 2, 3, 4], [3], [2, 3, 4], [3, 4], [4]]
 

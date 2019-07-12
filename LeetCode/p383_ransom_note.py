@@ -29,11 +29,11 @@ class Solution:
         return all(ransomNote.count(i) <= magazine.count(i) for i in set(ransomNote))
 
 
-if __name__ == '__main__':
-    assert Solution().canConstruct('aa', 'abc') == False, 'not in'
-    assert Solution().canConstruct('aa', 'aaa') == True, 'in'
-    assert Solution().canConstruct('abc', 'aaabdddd') == False, 'not in 2'
-    assert Solution().canConstruct('abc', 'cxxxbxxxxa') == True, 'in 2'
-    assert Solution().canConstruct('abc', 'xxxxxxxxxxbca') == True, 'in end 2'
-    assert Solution().canConstruct("fffbfg", "effjfggbffjdgbjjhhdegh") == True, 'put together'
-    print('all passed')
+if __name__ == "__main__":
+    assert Solution().canConstruct("aa", "abc") == False, "not in"
+    assert Solution().canConstruct("aa", "aaa") == True, "in"
+    assert Solution().canConstruct("abc", "aaabdddd") == False, "not in 2"
+    assert Solution().canConstruct("abc", "cxxxbxxxxa") == True, "in 2"
+    assert Solution().canConstruct("abc", "xxxxxxxxxxbca") == True, "in end 2"
+    assert Solution().canConstruct("fffbfg", "effjfggbffjdgbjjhhdegh") == True, "put together"
+    print("all passed")

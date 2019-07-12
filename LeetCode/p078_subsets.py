@@ -60,7 +60,7 @@ class Solution:
 print(sorted(Solution().subsets([1,2,3])))
 
 
-# if __name__ == '__main__':
+# if __name__ == "__main__":
 #     nums = [1,2]
 #     assert sorted(Solution().subsets(nums)) == sorted([[],[1],[2],[1,2]])
 #
@@ -76,4 +76,4 @@ print(sorted(Solution().subsets([1,2,3])))
 #         [1, 2],
 #         []
 #     ])
-#     print('all passed')
+#     print("all passed")

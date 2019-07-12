@@ -26,7 +26,7 @@ class WordDictionary(object):
     # @param {string} word
     # @return {boolean}
     # Returns if the word is in the data structure. A word could
-    # contain the dot character '.' to represent any one letter.
+    # contain the dot character "." to represent any one letter.
     def search(self, word):
         return self.searchHelper(word, 0, self.root)
 
@@ -35,7 +35,7 @@ class WordDictionary(object):
             return curr.is_string
         if word[start] in curr.leaves:
             return self.searchHelper(word, start+1, curr.leaves[word[start]])
-        elif word[start] == '.':
+        elif word[start] == ".":
             for c in curr.leaves:
                 if self.searchHelper(word, start+1, curr.leaves[c]):
                     return True

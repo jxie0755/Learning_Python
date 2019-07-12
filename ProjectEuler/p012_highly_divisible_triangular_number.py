@@ -45,8 +45,8 @@ def divisible_triangular(num_divisor):
     return t_num
 
 
-if __name__ == '__main__':
-    assert divisible_triangular(6) == 28, 'regular'
+if __name__ == "__main__":
+    assert divisible_triangular(6) == 28, "regular"
     print(divisible_triangular(500))
     # >>> 76576500
     # passed

@@ -17,7 +17,7 @@ class Solution(object):
         :type s: str
         :rtype: str
         """
-        t = '#' + '#'.join(s) + '#'
+        t = "#" + "#".join(s) + "#"
 
         n = len(t)
         RL = [0] * n

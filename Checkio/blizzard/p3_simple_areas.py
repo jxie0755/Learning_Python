@@ -18,7 +18,7 @@ def simple_areas(*args):
         a, b, c, p = args[0], args[1], args[2], (args[0] + args[1] + args[2])/2
         return round(math.sqrt(p*(p-a)*(p-b)*(p-c)), 2)
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     def almost_equal(checked, correct, significant_digits=2):
         precision = 0.1 ** significant_digits
         return correct - precision < checked < correct + precision

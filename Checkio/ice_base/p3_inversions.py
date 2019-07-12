@@ -11,7 +11,7 @@ def count_inversion(sequence):
     # then get a filter list of the sets that first value is larger than second, and get the length of the list
     return len(list(filter(lambda x:x[0]>x[1], itertools.combinations(sequence, 2))))
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     #These "asserts" using only for self-checking and not necessary for auto-testing
     assert count_inversion((1, 2, 5, 3, 4, 7, 6)) == 3, "Example"
     assert count_inversion((0, 1, 2, 3)) == 0, "Sorted"

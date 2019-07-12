@@ -11,14 +11,14 @@ class StringIterator(object):
         :type compressedString: str
         """
         self.__result = re.findall(r"([a-zA-Z])(\d+)", compressedString)
-        self.__index, self.__num, self.__ch = 0, 0, ' '
+        self.__index, self.__num, self.__ch = 0, 0, " "
 
     def next(self):
         """
         :rtype: str
         """
         if not self.hasNext():
-            return ' '
+            return " "
         if self.__num == 0:
             self.__ch = self.__result[self.__index][0]
             self.__num = int(self.__result[self.__index][1])

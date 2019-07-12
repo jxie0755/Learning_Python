@@ -26,19 +26,19 @@ class Solution:
 
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     A = None
-    assert Solution().isBalanced(A), 'Edge 0'
+    assert Solution().isBalanced(A), "Edge 0"
 
     A = genTree([1])
-    assert Solution().isBalanced(A), 'Edge 1'
+    assert Solution().isBalanced(A), "Edge 1"
 
     A = genTree([
         3,
         9,20,
         None,None,15,7])
 
-    assert Solution().isBalanced(A), 'Example 1'
+    assert Solution().isBalanced(A), "Example 1"
 
     A = genTree([
         1,
@@ -47,7 +47,7 @@ if __name__ == '__main__':
         4, 4, None, None, None, None, None, None
     ])
 
-    assert not Solution().isBalanced(A), 'Example 2'
+    assert not Solution().isBalanced(A), "Example 2"
 
     A = genTree([
         1,
@@ -57,7 +57,7 @@ if __name__ == '__main__':
         5,5,None,None,None,None,None,None,None,None,None,None,None,None,None,None,
     ])
 
-    assert Solution().isBalanced(A), 'Additional 1'
+    assert Solution().isBalanced(A), "Additional 1"
 
 
     A = genTree([
@@ -65,9 +65,9 @@ if __name__ == '__main__':
         None, 2,
         None, None, None, 3
     ])
-    assert not Solution().isBalanced(A), 'Additional 2'
+    assert not Solution().isBalanced(A), "Additional 2"
 
-    print('all passed')
+    print("all passed")
 
 
 

@@ -55,22 +55,22 @@ class Solution(object):
 
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     A = None
-    assert Solution().minDepth(A) == 0, 'Edge 0'
+    assert Solution().minDepth(A) == 0, "Edge 0"
 
     A = TreeNode(1)
-    assert Solution().minDepth(A) == 1, 'Edge 1'
+    assert Solution().minDepth(A) == 1, "Edge 1"
 
     A = genTree([3,9,20,None, None, 15, 7])
-    assert Solution().minDepth(A) == 2, 'Example 1'
+    assert Solution().minDepth(A) == 2, "Example 1"
 
     A = genTree([
         1,
         2, None
     ])
-    assert Solution().minDepth(A) == 2, 'Additional 1'
+    assert Solution().minDepth(A) == 2, "Additional 1"
 
-    print('All passed')
+    print("All passed")
 
 

@@ -29,7 +29,7 @@ def count_fib_digit(length):
             return i
         i += 1
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     assert count_fib_digit(3) == 12
     print(count_fib_digit(1000))
     # >>> 4782

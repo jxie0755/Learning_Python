@@ -58,19 +58,19 @@ class Solution:
 
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     A = genTree([
         1,
         2,3
     ])
-    assert Solution().sumNumbers(A) == 25, 'Example 1, 12 + 13 = 25'
+    assert Solution().sumNumbers(A) == 25, "Example 1, 12 + 13 = 25"
 
     A = genTree([
         4,
         9, 0,
         5, 1, None, None
     ])
-    assert Solution().sumNumbers(A) == 1026, 'Example 2, 495 + 491 + 40 = 1036'
-    print('all passed')
+    assert Solution().sumNumbers(A) == 1026, "Example 2, 495 + 491 + 40 = 1036"
+    print("all passed")
 
 

@@ -15,7 +15,7 @@ class TestAnonymousSurvey(unittest.TestCase):
         # 创造一个属性,作为原代码中的实例
         self.my_survey = AnonymousSurvey("what language did you first learn to code?")
         # 创造另一个,作为测试用的用户输入
-        self.uresponses = ['python', 'java', 'C#']
+        self.uresponses = ["python", "java", "C#"]
 
     def test_store_single_response(self):
         """Test single answers"""

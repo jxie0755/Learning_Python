@@ -16,11 +16,11 @@ def lexi_perm(str_int, nth):
     all = permutations(str_int)
     for i in range(nth):
         target = next(all)
-    return int(''.join(target))
+    return int("".join(target))
 
 
-if __name__ == '__main__':
-    assert lexi_perm('012', 4) == 120
-    print(lexi_perm('0123456789', 1000000))
+if __name__ == "__main__":
+    assert lexi_perm("012", 4) == 120
+    print(lexi_perm("0123456789", 1000000))
     # >>> 2783915460
     # passed

@@ -88,8 +88,8 @@ class Solution3(object):
             return any(B[j:j+length] in lookup \
                        for j in xrange(len(B)-length+1))
 
-        A = ''.join(map(chr, A))
-        B = ''.join(map(chr, B))
+        A = "".join(map(chr, A))
+        B = "".join(map(chr, B))
         left, right = 0, min(len(A), len(B)) + 1
         while left < right:
             mid = left + (right-left)/2

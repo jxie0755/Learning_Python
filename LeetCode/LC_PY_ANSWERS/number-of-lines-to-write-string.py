@@ -10,7 +10,7 @@ class Solution(object):
         """
         result = [1, 0]
         for c in S:
-            w = widths[ord(c)-ord('a')]
+            w = widths[ord(c)-ord("a")]
             result[1] += w
             if result[1] > 100:
                 result[0] += 1

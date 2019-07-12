@@ -8,4 +8,4 @@ def char_move(n):
     return dict
     
 print(raw.translate(char_move(2)))
-print('map'.translate(char_move(2)))
+print("map".translate(char_move(2)))

@@ -27,18 +27,18 @@ class BTree(Tree):
 
     def __repr__(self):
         if self.is_leaf():
-            return 'BTree({0})'.format(self.label)
+            return "BTree({0})".format(self.label)
         elif self.right is BTree.empty:
             left = repr(self.left)
-            return 'BTree({0}, {1})'.format(self.label, left)
+            return "BTree({0}, {1})".format(self.label, left)
         else:
             left, right = repr(self.left), repr(self.right)
             if self.left is BTree.empty:
-                left = 'BTree.empty'
-            template = 'BTree({0}, {1}, {2})'
+                left = "BTree.empty"
+            template = "BTree({0}, {1}, {2})"
             return template.format(self.label, left, right)
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     t = BTree(3, BTree(1),
                  BTree(7, BTree(5),
                           BTree(9, BTree.empty,

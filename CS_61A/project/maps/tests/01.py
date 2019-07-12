@@ -1,11 +1,11 @@
 test = {
-  'name': 'Problem 1',
-  'points': 1,
-  'suites': [
+  "name": "Problem 1",
+  "points": 1,
+  "suites": [
     {
-      'cases': [
+      "cases": [
         {
-          'code': r"""
+          "code": r"""
           >>> # Remember that the mean should return a decimal value
           >>> # If any line causes an error, write AssertionError
           >>> mean([0])
@@ -21,16 +21,16 @@ test = {
           >>> mean([])
           AssertionError
           """,
-          'hidden': False,
-          'locked': False
+          "hidden": False,
+          "locked": False
         }
       ],
-      'scored': True,
-      'setup': r"""
+      "scored": True,
+      "setup": r"""
       >>> from utils import mean
       """,
-      'teardown': '',
-      'type': 'doctest'
+      "teardown": "",
+      "type": "doctest"
     }
   ]
 }

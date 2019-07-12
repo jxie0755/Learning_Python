@@ -8,6 +8,7 @@
 
 # Note: You may not slant the container and n is at least 2.
 
+from typing import *
 
 class Solution:
 
@@ -84,14 +85,14 @@ class Solution:
 
 
 
-if __name__ == '__main__':
-    assert Solution().maxArea([0, 0]) == 0, 'Edge 1'
-    assert Solution().maxArea([0, 0, 0]) == 0, 'Edge 2'
+if __name__ == "__main__":
+    assert Solution().maxArea([0, 0]) == 0, "Edge 1"
+    assert Solution().maxArea([0, 0, 0]) == 0, "Edge 2"
 
-    assert Solution().maxArea([1,8,6,2,5,4,8,3,7]) == 49, 'Example 1'
-    assert Solution().maxArea([2,3,0,0,3,0,0,0,0,2]) == 18, 'Example 2'
-    assert Solution().maxArea([2,3,4,5,6,7,8,9,100,100]) == 100, 'Example 3'
-    assert Solution().maxArea([1,1,1,1,1,10,10,1,1,1,1,1]) == 11, 'Example 4'
-    assert Solution().maxArea([1,1,4,1,5,5,4,1,1,1]) == 16, 'Example 5'
+    assert Solution().maxArea([1,8,6,2,5,4,8,3,7]) == 49, "Example 1"
+    assert Solution().maxArea([2,3,0,0,3,0,0,0,0,2]) == 18, "Example 2"
+    assert Solution().maxArea([2,3,4,5,6,7,8,9,100,100]) == 100, "Example 3"
+    assert Solution().maxArea([1,1,1,1,1,10,10,1,1,1,1,1]) == 11, "Example 4"
+    assert Solution().maxArea([1,1,4,1,5,5,4,1,1,1]) == 16, "Example 5"
 
-    print('All passed')
+    print("All passed")

@@ -4,7 +4,7 @@
 # You are Cindy Tian
 # She is MaoMao
 
-filename = 'file1.txt'
+filename = "file1.txt"
 lnum = 0  # 创立行的序号
 with open(filename) as f_obj:
     for line in f_obj:

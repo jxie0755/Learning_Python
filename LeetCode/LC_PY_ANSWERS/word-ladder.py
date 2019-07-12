@@ -18,7 +18,7 @@ class Solution(object):
                 if word == endWord:
                     return distance + 1
                 for i in xrange(len(word)):
-                    for j in 'abcdefghijklmnopqrstuvwxyz':
+                    for j in "abcdefghijklmnopqrstuvwxyz":
                         candidate = word[:i] + j + word[i + 1:]
                         if candidate not in visited and candidate in lookup:
                             next_queue.append(candidate)

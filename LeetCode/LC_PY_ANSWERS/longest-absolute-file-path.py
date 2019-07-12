@@ -18,10 +18,10 @@ class Solution(object):
 
         max_len = 0
         path_len = {0: 0}
-        for line in split_iter(input, '\n'):
-            name = line.lstrip('\t')
+        for line in split_iter(input, "\n"):
+            name = line.lstrip("\t")
             depth = len(line) - len(name)
-            if '.' in name:
+            if "." in name:
                 max_len = max(max_len, path_len[depth] + len(name))
             else:
                 path_len[depth + 1] = path_len[depth] + len(name) + 1

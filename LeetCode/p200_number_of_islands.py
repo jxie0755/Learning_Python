@@ -2,7 +2,7 @@
 # Medium
 
 
-# Given a 2d grid map of '1's (land) and '0's (water), count the number of islands. An island is surrounded by water and is formed by connecting adjacent lands horizontally or vertically. You may assume all four edges of the grid are all surrounded by water.
+# Given a 2d grid map of "1"s (land) and "0"s (water), count the number of islands. An island is surrounded by water and is formed by connecting adjacent lands horizontally or vertically. You may assume all four edges of the grid are all surrounded by water.
 
 
 class LC200UnionFind(object):
@@ -63,7 +63,7 @@ class Solution:
             down = (x+1,y)
             right = (x, y+1)
             candidates = list(filter(isValid, [down, right]))  # 由于按顺序遍历coor, 只需要和右边和下面的link就行, 同样能覆盖全局
-            candidates = [translate(i) for i in candidates if grid[i[0]][i[1]] == '1']
+            candidates = [translate(i) for i in candidates if grid[i[0]][i[1]] == "1"]
             return candidates
 
 
@@ -76,7 +76,7 @@ class Solution:
                 coor = (r, c)
                 coorval = grid[r][c]
                 p = translate(coor)
-                if coorval == '1':
+                if coorval == "1":
                     for q in neighbor(coor):
                         UF.union(p, q)
                 else:
@@ -102,7 +102,7 @@ class Solution:
                 candidates.pop()
             if c == col-1:
                 candidates.pop(0)
-            return [i[0] * col + i[1] for i in candidates if grid[i[0]][i[1]] == '1']
+            return [i[0] * col + i[1] for i in candidates if grid[i[0]][i[1]] == "1"]
                    # translate coor on the run
 
         row = len(grid)
@@ -115,7 +115,7 @@ class Solution:
                 coor = (r, c)
                 coorval = grid[r][c]
                 p = r * col + c      # translate the coor on the run
-                if coorval == '1':
+                if coorval == "1":
                     for q in neighbor(coor):
                         UF.union(p, q)
                 else:
@@ -123,39 +123,39 @@ class Solution:
         return UF.groupCount()
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     M0 = []
-    assert Solution().numIslands(M0) == 0, 'Edge 1'
+    assert Solution().numIslands(M0) == 0, "Edge 1"
 
     M00 = [
-        ['1'],
-        ['1']
+        ["1"],
+        ["1"]
     ]
 
-    assert Solution().numIslands(M00) == 1, 'Edge 2'
+    assert Solution().numIslands(M00) == 1, "Edge 2"
 
     M1 = [
-        ['1', '1', '1', '1', '0'],
-        ['1', '1', '0', '1', '0'],
-        ['1', '1', '0', '0', '0'],
-        ['0', '0', '0', '0', '0'],
+        ["1", "1", "1", "1", "0"],
+        ["1", "1", "0", "1", "0"],
+        ["1", "1", "0", "0", "0"],
+        ["0", "0", "0", "0", "0"],
     ]
 
-    assert Solution().numIslands(M1) == 1, 'Example 1'
+    assert Solution().numIslands(M1) == 1, "Example 1"
 
     M2 = [
-        ['1', '1', '0', '0', '0'],
-        ['1', '1', '0', '0', '0'],
-        ['0', '0', '1', '0', '0'],
-        ['0', '0', '0', '1', '1'],
+        ["1", "1", "0", "0", "0"],
+        ["1", "1", "0", "0", "0"],
+        ["0", "0", "1", "0", "0"],
+        ["0", "0", "0", "1", "1"],
     ]
-    assert Solution().numIslands(M2) == 3, 'Example 2'
+    assert Solution().numIslands(M2) == 3, "Example 2"
 
     M3 = [
-        ['0', '1', '0'],
-        ['1', '0', '1'],
-        ['0', '1', '0'],
+        ["0", "1", "0"],
+        ["1", "0", "1"],
+        ["0", "1", "0"],
     ]
-    assert Solution().numIslands(M3) == 4, 'Additional 1'
+    assert Solution().numIslands(M3) == 4, "Additional 1"
 
-    print('all passed')
+    print("all passed")

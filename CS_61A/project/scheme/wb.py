@@ -10,16 +10,16 @@ tokens = tokenize_lines(["(+ 1 ", "(23 4)) ("])
 src = Buffer(tokens)
 
 src.current()
-# >>> '('
+# >>> "("
 
 src.remove_front()
-# >>> '('
+# >>> "("
 
 src.current()
-# >>> '+'
+# >>> "+"
 
 src.remove_front()
-# >>> '+'
+# >>> "+"
 
 src.remove_front()
 # >>> 1
@@ -28,34 +28,34 @@ scheme_read(src)  # Returns and removes the next complete expression in src
 # >>> Pair(23, Pair(4, nil))
 
 src.current()
-# >>> ')'
+# >>> ")"
 
 
 # Problem 1 > Suite 1 > Case 3
 from scheme_reader import *
 
-scheme_read(Buffer(tokenize_lines(['(23 4)'])))
+scheme_read(Buffer(tokenize_lines(["(23 4)"])))
 # >>> Pair(23, Pair(4, nil))
 
-read_line('(23 4)')  # Shorter version of above!
+read_line("(23 4)")  # Shorter version of above!
 # >>> Pair(23, Pair(4, nil))
 
 
 # Problem 1 > Suite 1 > Case 4
 from scheme_reader import *
 
-read_tail(Buffer(tokenize_lines([')'])))
+read_tail(Buffer(tokenize_lines([")"])))
 # >>> nil
 
-read_tail(Buffer(tokenize_lines(['1 2 3)'])))
+read_tail(Buffer(tokenize_lines(["1 2 3)"])))
 # >>> Pair(1, Pair(2, Pair(3, nil)))
 
-read_tail(Buffer(tokenize_lines(['2 (3 4))'])))
+read_tail(Buffer(tokenize_lines(["2 (3 4))"])))
 # >>> Pair(2, Pair(Pair(3, Pair(4, nil)), nil))
 
 # Problem 1 > Suite 1 > Case 7
 read_line("(+ (- 2 3) 1)")
-# >>> Pair('+', Pair(Pair('-', Pair(2, Pair(3, nil))), Pair(1, nil)))
+# >>> Pair("+", Pair(Pair("-", Pair(2, Pair(3, nil))), Pair(1, nil)))
 # 相当于一个分叉链表
 
 
@@ -63,19 +63,19 @@ read_line("(+ (- 2 3) 1)")
 from scheme_reader import *
 
 read_line("(a . b)")
-# >>> Pair('a', 'b')
+# >>> Pair("a", "b")
 
 read_line("(a b . c)")
-# >>> Pair('a', Pair('b', 'c'))
+# >>> Pair("a", Pair("b", "c"))
 
 read_line("(a b . c d)")
-# >>> Syntax Error   # 若'.'不在末尾, 则不行, 必须是 (a (b . c) d)
+# >>> Syntax Error   # 若"."不在末尾, 则不行, 必须是 (a (b . c) d)
 
 read_line("(a . (b . (c . ())))")
-# >>> Pair('a', Pair('b', Pair('c', nil)))  # 就是标准链表
+# >>> Pair("a", Pair("b", Pair("c", nil)))  # 就是标准链表
 
 read_line("(a . ((b . (c))))")
-# >>> Pair('a', Pair(Pair('b', Pair('c', nil)), nil))  # 双括号则又相当于分叉链表了
+# >>> Pair("a", Pair(Pair("b", Pair("c", nil)), nil))  # 双括号则又相当于分叉链表了
 
 
 
@@ -149,15 +149,15 @@ scheme_apply(oddp, twos, env) # Type SchemeError if you think this errors
 from scheme_reader import *
 from scheme import *
 
-expr = read_line('(+ 2 2)')
+expr = read_line("(+ 2 2)")
 scheme_eval(expr, create_global_frame()) # Type SchemeError if you think this errors
 # >>> 4
 
-expr = read_line('(+ (+ 2 2) (+ 1 3) (* 1 4))')
+expr = read_line("(+ (+ 2 2) (+ 1 3) (* 1 4))")
 scheme_eval(expr, create_global_frame()) # Type SchemeError if you think this errors
 # >>> 12
 
-expr = read_line('(yolo)')
+expr = read_line("(yolo)")
 scheme_eval(expr, create_global_frame()) # Type SchemeError if you think this errors
 # >>> SchemeError
 
@@ -223,7 +223,7 @@ scheme_eval(expr, create_global_frame()) # Type SchemeError if you think this er
 # scm> 'hello
 # >>> hello
 
-# scm> ''hello
+# scm> ""hello
 # >>> (quote hello)
 
 # scm> (quote (1 2))
@@ -250,26 +250,26 @@ scheme_eval(expr, create_global_frame()) # Type SchemeError if you think this er
 # scm> (quote 3)
 # >>> 3
 
-# scm> (eval (cons 'car '('(4 2))))
+# scm> (eval (cons "car "('(4 2))))
 # >>> 4
 
 # Problem 7 > Suite 3 > Case 1
 from scheme_reader import *
 
 read_line(" (quote x) ")
-# >>> Pair('quote', Pair('x', nil))
+# >>> Pair("quote", Pair("x", nil))
 
 read_line(" 'x ")
-# >>> Pair('quote', Pair('x', nil))
+# >>> Pair("quote", Pair("x", nil))
 
 read_line(" (a b) ")
-# >>> Pair('a', Pair('b', nil))
+# >>> Pair("a", Pair("b", nil))
 
 read_line(" '(a b) ")
-# >>> Pair('quote', Pair(Pair('a', Pair('b', nil)), nil))
+# >>> Pair("quote", Pair(Pair("a", Pair("b", nil)), nil))
 
 read_line(" '((a)) ")
-# Pair('quote', Pair(Pair(Pair('a', nil), nil), nil))
+# Pair("quote", Pair(Pair(Pair("a", nil), nil), nil))
 
 
 # Problem 8 > Suite 1 > Case 1
@@ -323,17 +323,17 @@ eval_all(Pair(4, Pair(5, nil)), env)  # 从末尾开始
 from scheme import *
 
 global_frame = create_global_frame()
-frame = global_frame.make_child_frame(Pair('a', Pair('b', Pair('c', nil))), Pair(1, Pair(2, Pair(3, nil))))
-global_frame.lookup('a') # Type SchemeError if you think this errors
+frame = global_frame.make_child_frame(Pair("a", Pair("b", Pair("c", nil))), Pair(1, Pair(2, Pair(3, nil))))
+global_frame.lookup("a") # Type SchemeError if you think this errors
 # >>> SchemeError
 
-frame.lookup('a')  # Type SchemeError if you think this errors
+frame.lookup("a")  # Type SchemeError if you think this errors
 # >>> 1
 
-frame.lookup('b')  # Type SchemeError if you think this errors
+frame.lookup("b")  # Type SchemeError if you think this errors
 # >>> 2
 
-frame.lookup('c')  # Type SchemeError if you think this errors
+frame.lookup("c")  # Type SchemeError if you think this errors
 # >>> 3
 
 # Problem 11 > Suite 1 > Case 2

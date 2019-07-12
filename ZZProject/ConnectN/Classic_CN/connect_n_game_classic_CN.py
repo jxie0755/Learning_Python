@@ -9,9 +9,9 @@ import itertools
 
 def start_game():
     # Game Header
-    print('\n欢迎来到立体4子棋!!!\n')
-    print('玩家 [X]\n    vs.\n玩家 [O]\n')
-    print('请双方交替下子, 实现 横/竖/斜 4子相连, 分出胜负!\n')
+    print("\n欢迎来到立体4子棋!!!\n")
+    print("玩家 [X]\n    vs.\n玩家 [O]\n")
+    print("请双方交替下子, 实现 横/竖/斜 4子相连, 分出胜负!\n")
 
     # Create the board
     rows, cols = 6, 7
@@ -22,7 +22,7 @@ def start_game():
     # Start gaming logic
 
     # Setup player logic
-    players = itertools.cycle('XO')
+    players = itertools.cycle("XO")
 
     # Game status
     game_running = True
@@ -37,21 +37,21 @@ def start_game():
         # check move
         while True:
             try:
-                move = int(input(f'请玩家 [{player_to_move}] 下子, 输入(1-7)来选择纵列:')) - 1
+                move = int(input(f"请玩家 [{player_to_move}] 下子, 输入(1-7)来选择纵列:")) - 1
             except:
-                print('输入的必须是数字')
+                print("输入的必须是数字")
                 continue
             if move == 999:
                 game_running = False
-                print('游戏中途退出!')
+                print("游戏中途退出!")
                 break
             elif move >= cols or move < 0:
-                print('请选择合适的范围(1-7)!')
+                print("请选择合适的范围(1-7)!")
                 continue
             else:
                 index, board = make_move(board, cols, move, player_to_move)
                 if index == -1:
-                    print('此纵列已满,不能再下子了!!')
+                    print("此纵列已满,不能再下子了!!")
                     continue
                 else:
                     break
@@ -63,16 +63,16 @@ def start_game():
 
         # check win
         if check_win(board, num_connect, rows, cols, player_to_move):
-            print(f'玩家 [{player_to_move}] 胜出!!')
+            print(f"玩家 [{player_to_move}] 胜出!!")
             game_running = False
         elif not check_win(board, num_connect, rows, cols, player_to_move) and total_moves == rows * cols:
-            print('平局!! 握手言和!!')
+            print("平局!! 握手言和!!")
             game_running = False
         else:
             continue
 
 start_game()
-input('游戏结束!!')
+input("游戏结束!!")
 
 # Starting the game by running:
 # python3 -i C:/Users/jxie0/Documents/GitHub/Learning_Python/zzproject/connectn/connect_n_game_classic.py

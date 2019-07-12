@@ -92,12 +92,12 @@ def balanced(s, depth=0):
         return depth == 0
     if depth < 0:
         return False
-    if s[0] == '(':
+    if s[0] == "(":
         return balanced(s[1:], depth+1)
-    if s[0] == ')':
+    if s[0] == ")":
         return balanced(s[1:], depth - 1)
     else:
         return balanced(s[1:], depth)
 
-print(balanced('(h(;;;)i)'))
+print(balanced("(h(;;;)i)"))
 # >>> True

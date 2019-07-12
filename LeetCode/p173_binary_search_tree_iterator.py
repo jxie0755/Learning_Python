@@ -120,11 +120,11 @@ class BSTIterator(object):
             return False
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     b0 = None
     iterator = BSTIterator(b0)
-    assert not iterator.next(), 'Edge step 1'
-    assert not iterator.hasNext(), 'Edge step 2'
+    assert not iterator.next(), "Edge step 1"
+    assert not iterator.hasNext(), "Edge step 2"
 
     b1 = genTree([
         7,
@@ -135,17 +135,17 @@ if __name__ == '__main__':
 
     print(iterator.kthSmallest(3))
 
-    assert iterator.next() == 3, 'Step 1'
-    assert iterator.next() == 7, 'Step 2'
-    assert iterator.hasNext(), 'Step 3'
+    assert iterator.next() == 3, "Step 1"
+    assert iterator.next() == 7, "Step 2"
+    assert iterator.hasNext(), "Step 3"
 
-    assert iterator.next() == 9, 'Step 4'
-    assert iterator.hasNext(), 'Step 5'
+    assert iterator.next() == 9, "Step 4"
+    assert iterator.hasNext(), "Step 5"
 
-    assert iterator.next() == 15, 'Step 6'
-    assert iterator.hasNext(), 'Step 7'
+    assert iterator.next() == 15, "Step 6"
+    assert iterator.hasNext(), "Step 7"
 
-    assert iterator.next() == 20, 'Step 8'
-    assert not iterator.hasNext(), 'Step 9'
+    assert iterator.next() == 20, "Step 8"
+    assert not iterator.hasNext(), "Step 9"
 
-    print('all passed')
+    print("all passed")

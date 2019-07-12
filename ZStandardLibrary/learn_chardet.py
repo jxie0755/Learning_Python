@@ -13,25 +13,25 @@ import chardet
 
 # 当我们拿到一个bytes时，就可以对其检测编码。
 # 用chardet检测编码，只需要一行代码
-print(chardet.detect(b'hello, world!'))
-# >>> {'encoding': 'ascii', 'confidence': 1.0, 'language': ''}
+print(chardet.detect(b"hello, world!"))
+# >>> {"encoding": "ascii", "confidence": 1.0, "language": ""}
 
 # 测试中文
-data = '离离原上草，一岁一枯荣'.encode('gbk')
-print(data) # >>> b'\xc0\xeb\xc0\xeb\xd4\xad\xc9\xcf\xb2\xdd\xa3\xac\xd2\xbb\xcb\xea\xd2\xbb\xbf\xdd\xc8\xd9'
+data = "离离原上草，一岁一枯荣".encode("gbk")
+print(data) # >>> b"\xc0\xeb\xc0\xeb\xd4\xad\xc9\xcf\xb2\xdd\xa3\xac\xd2\xbb\xcb\xea\xd2\xbb\xbf\xdd\xc8\xd9"
 print(chardet.detect(data))
-# >>> {'encoding': 'GB2312', 'confidence': 0.7407407407407407, 'language': 'Chinese'}
+# >>> {"encoding": "GB2312", "confidence": 0.7407407407407407, "language": "Chinese"}
 # 测的编码是GB2312，
 # 注意到GBK是GB2312的超集，两者是同一种编码，
 # 检测正确的概率是74%，
-# language字段指出的语言是'Chinese'
+# language字段指出的语言是"Chinese"
 
 
-data = '离离原上草，一岁一枯荣'.encode('utf-8')
+data = "离离原上草，一岁一枯荣".encode("utf-8")
 print(chardet.detect(data))
-# >>> {'encoding': 'utf-8', 'confidence': 0.99, 'language': ''}
+# >>> {"encoding": "utf-8", "confidence": 0.99, "language": ""}
 
 
-data = '最新の主要ニュース'.encode('euc-jp')
+data = "最新の主要ニュース".encode("euc-jp")
 print(chardet.detect(data))
-# >>> {'encoding': 'EUC-JP', 'confidence': 0.99, 'language': 'Japanese'}
+# >>> {"encoding": "EUC-JP", "confidence": 0.99, "language": "Japanese"}

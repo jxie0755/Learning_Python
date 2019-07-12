@@ -1,12 +1,12 @@
 # string operation
 
-a = '***a b c d e f g**'
-b = a.strip('*')
+a = "***a b c d e f g**"
+b = a.strip("*")
 c = b.split()
-d = ' '.join(i for i in c)
-e = d.replace(' ', '')
-f = e.split('c')  # split命令不但通过c分割,还去掉c
-g = ''.join(f)
+d = " ".join(i for i in c)
+e = d.replace(" ", "")
+f = e.split("c")  # split命令不但通过c分割,还去掉c
+g = "".join(f)
 
 
 h = []

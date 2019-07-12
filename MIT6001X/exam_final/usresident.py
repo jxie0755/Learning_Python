@@ -4,7 +4,7 @@ class Person(object):
         #create a person with name name
         self.name = name
         try:
-            firstBlank = name.rindex(' ')
+            firstBlank = name.rindex(" ")
             self.lastName = name[firstBlank+1:]
         except:
             self.lastName = name

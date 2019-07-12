@@ -14,7 +14,7 @@ CONSONANTS = "BCDFGHJKLMNPQRSTVWXZ"
 def checkio(text):
     # process the text into a striped text in a list
     punc = string.punctuation
-    space = ' ' * len(punc)
+    space = " " * len(punc)
     trantab = str.maketrans(punc, space)
     text_list = text.translate(trantab).upper().split()
     
@@ -31,7 +31,7 @@ def checkio(text):
     # apply the verification function to each element in the text_list
     return len(list(filter(verify, text_list)))
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     assert checkio("My name is ...") == 3, "All words are striped"
     assert checkio("Hello world") == 0, "No one"
     assert checkio("A quantity of striped words.") == 1, "Only of"

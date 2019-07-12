@@ -8,17 +8,17 @@
 
 class Ball:
     points = 0
-    time = lambda: 'Draco'
+    time = lambda: "Draco"
 
     def score(self, who):
         print(who, self.points)
 
     def __str__(self):
-        return 'Magic'
+        return "Magic"
 
 class Snitch(Ball):
     points = 100
-    time = lambda: 'Harry'
+    time = lambda: "Harry"
 
     def __init__(self):
         self.points = self.points + 50
@@ -41,7 +41,7 @@ chasing = quaffle.score
 time = lambda: Ball.points
 malfoy = lambda: Ball.time()
 
-print('A')
+print("A")
 print(Snitch().points)
 # >>>
 # 150
@@ -50,31 +50,31 @@ print(Snitch().points)
 print(chasing(quaffle))
 # quaffle.score(quaffle)
 # >>>
-# print('Magic', quaffle.points)
+# print("Magic", quaffle.points)
 # Magic 10
 
-print('B')
-print(Snitch().score('Seeker'))
-# Ball.score('Seeker')
+print("B")
+print(Snitch().score("Seeker"))
+# Ball.score("Seeker")
 # >>>
 # Seeker 0
 # return None
 # return None
 
-print('C')
+print("C")
 print(chase(Ball))
-# Ball.time = lambda: 'Harry'
+# Ball.time = lambda: "Harry"
 # Ball.points = 1
 # quaffle.points = 20
 # >>>
 # 1
 # return None
 
-print('D')
+print("D")
 # print(Snitch().score(malfoy()))
 # Snitch().score(Ball.time()())   # 在上一题, Ball.time = Snitch.time, 所以Ball.time改了
-# Snitch().score('Harry')  # Snitch()本身是snitch的实例,所以Snitch().points是150
-# Ball.score(self, 'Harry') # 虽然转调用Ball.score,但是self.points仍然是Snitch.points
+# Snitch().score("Harry")  # Snitch()本身是snitch的实例,所以Snitch().points是150
+# Ball.score(self, "Harry") # 虽然转调用Ball.score,但是self.points仍然是Snitch.points
 # >>>
 # Harry 150
 # return None
@@ -140,10 +140,10 @@ def print_grid(g):
     widths = [max([len(str(row[c])) for row in g]) for c in cs]
 
     for row in g:
-        line = ''
+        line = ""
         for c in cs:
             s = str(row[c])
-            line = line + s + ' ' * (widths[c]-len(s)+1)
+            line = line + s + " " * (widths[c]-len(s)+1)
         print(line.strip())
 
 
@@ -211,17 +211,17 @@ class Link:
 
     def __repr__(self):
         if self.rest is not Link.empty:
-            rest_repr = ', ' + repr(self.rest)
+            rest_repr = ", " + repr(self.rest)
         else:
-            rest_repr = ''
-        return 'Link(' + repr(self.first) + rest_repr + ')'
+            rest_repr = ""
+        return "Link(" + repr(self.first) + rest_repr + ")"
 
     def __str__(self):
-        string = '<'
+        string = "<"
         while self.rest is not Link.empty:
-            string += str(self.first) + ', '
+            string += str(self.first) + ", "
             self = self.rest
-        return string + str(self.first) + '>'
+        return string + str(self.first) + ">"
 
 # (a)
 def stretch(s, repeat=0):
@@ -273,10 +273,10 @@ class Tree:
 
     def __repr__(self):
         if self.branches:
-            branches_str = ', ' + repr(self.branches)
+            branches_str = ", " + repr(self.branches)
         else:
-            branches_str = ''
-        return 'Tree({0}{1})'.format(self.label, branches_str)
+            branches_str = ""
+        return "Tree({0}{1})".format(self.label, branches_str)
 
     def is_leaf(self):
         return not self.branches
@@ -287,7 +287,7 @@ class Tree:
 
     def __str__(self):
         def print_tree(t, indent=0):
-            tree_str = '  ' * indent + str(t.label) + "\n"
+            tree_str = "  " * indent + str(t.label) + "\n"
             for b in t.branches:
                 tree_str += print_tree(b, indent + 1)
             return tree_str

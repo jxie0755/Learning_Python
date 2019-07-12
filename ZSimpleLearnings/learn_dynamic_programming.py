@@ -5,7 +5,7 @@
 from typing import *
 
 # https://www.bilibili.com/video/av47420469/
-print('From https://www.bilibili.com/video/av47420469/')
+print("From https://www.bilibili.com/video/av47420469/")
 # Q1:
 print("\nQ1: 间隔最大和")
 # 有n个正整数, 排成一列, 可重复, 选取一些数,两两不相邻, 但是总和最大
@@ -57,7 +57,7 @@ def change_recur(target: int, coins: List[int]):
         if target == 0:
             return 0
         elif 0 < target < coins[0]:
-            return float('inf')  # so that this is not possible be selected by min()
+            return float("inf")  # so that this is not possible be selected by min()
 
         elif target in memory:
             return memory[target]
@@ -83,11 +83,11 @@ def change_iter(price, coins):
             if i <= len(num):
                 temp.append(num[-i])  # -i就是表示刚好差i面值的那个price的最优值
             else:
-                temp.append(float('inf'))
+                temp.append(float("inf"))
         num.append(min(temp) + 1)
 
     ans = num[-1]
-    return ans if ans != float('inf') else None
+    return ans if ans != float("inf") else None
 
 
 print(change_recur(12, [1, 4, 5]))
@@ -114,7 +114,7 @@ print(change_iter(123456, [1, 6, 7, 456, 678]))
 
 print("\nFrom https://zhuanlan.zhihu.com/p/31628866")
 # Q1 上楼梯
-print('\nQ1: 上楼梯')
+print("\nQ1: 上楼梯")
 
 # 有一座高度是10级台阶的楼梯，从下往上走，每跨一步只能向上1级或者2级台阶。要求用程序来求出一共有多少种走法。
 
@@ -193,7 +193,7 @@ def golddig_by_man(lst, man_total):
 
     return gold[-1][1:] # 返回第man_total个最佳, 不需要包括[0,0]
 
-print('\n金矿第一解:')
+print("\n金矿第一解:")
 print(golddig_by_man(A, 10))
 # >>> [[5, 500], [5, 400]]
 
@@ -235,6 +235,6 @@ def golddig_by_man(lst, man_total):
 # 扩展问题, 此上二法复杂度为O(m*n), m=金矿数, n=人数
 # 若n比较大, 导致m*n大于2^m, 则不如用递归来的容易!
 
-print('\n金矿第二解:')
+print("\n金矿第二解:")
 print(golddig_by_man(A, 10))
 

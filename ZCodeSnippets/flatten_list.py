@@ -32,24 +32,24 @@ def flat_list_3(lst):
         return flat_list_3(lst[0]) + flat_list_3(lst[1:])
 
 
-if __name__ == '__main__':
-    print('Check flat_list()')
+if __name__ == "__main__":
+    print("Check flat_list()")
     assert flat_list([1, 2, 3]) == [1, 2, 3], "First"
     assert flat_list([1, [2, 2, 2], 4]) == [1, 2, 2, 2, 4], "Second"
     assert flat_list([[[2]], [4, [5, 6, [6], 6, 6, 6], 7]]) == [2, 4, 5, 6, 6, 6, 6, 6, 7], "Third"
     assert flat_list([-1, [1, [-2], 1], -1]) == [-1, 1, -2, 1, -1], "Four"
-    print('All passed\n')
+    print("All passed\n")
 
-    print('Check flat_lis_2()')
+    print("Check flat_lis_2()")
     assert flat_list_2([1, 2, 3]) == [1, 2, 3], "First"
     assert flat_list_2([1, [2, 2, 2], 4]) == [1, 2, 2, 2, 4], "Second"
     assert flat_list_2([[[2]], [4, [5, 6, [6], 6, 6, 6], 7]]) == [2, 4, 5, 6, 6, 6, 6, 6, 7], "Third"
     assert flat_list_2([-1, [1, [-2], 1], -1]) == [-1, 1, -2, 1, -1], "Four"
-    print('All passed\n')
+    print("All passed\n")
 
-    print('Check flat_lis_3()')
+    print("Check flat_lis_3()")
     assert flat_list_3([1, 2, 3]) == [1, 2, 3], "First"
     assert flat_list_3([1, [2, 2, 2], 4]) == [1, 2, 2, 2, 4], "Second"
     assert flat_list_3([[[2]], [4, [5, 6, [6], 6, 6, 6], 7]]) == [2, 4, 5, 6, 6, 6, 6, 6, 7], "Third"
     assert flat_list_3([-1, [1, [-2], 1], -1]) == [-1, 1, -2, 1, -1], "Four"
-    print('All passed\n')
+    print("All passed\n")

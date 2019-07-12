@@ -26,15 +26,15 @@ print(add(2, mul(9, mul(add(4, mul(4, 6)), add(3, 5)))))
 # Objects
 # Note: Download from http://composingprograms.com/shakespeare.txt
 print()
-shakes = open('shakespeare.txt')
+shakes = open("shakespeare.txt")
 text = shakes.read().split()
 print(len(text))
 print(text[:25])
-print(text.count('the'))
-print(text.count('thou'))
-print(text.count('you'))
-print(text.count('forsooth'))
-print(text.count(','))
+print(text.count("the"))
+print(text.count("thou"))
+print(text.count("you"))
+print(text.count("forsooth"))
+print(text.count(","))
 
 # Sets
 print()
@@ -45,7 +45,7 @@ print(max(words, key=len))
 
 # Reversals
 print()
-print('draw'[::-1])
+print("draw"[::-1])
 print({w for w in words if w == w[::-1] and len(w)>4})
 print({w for w in words if w[::-1] in words and len(w) == 4})
 print({w for w in words if w[::-1] in words and len(w) > 6})

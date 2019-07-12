@@ -118,7 +118,7 @@ print_tree(fib_tree(4))
 
 # new version
 def print_tree(t, indent=0):
-    print('  ' * indent + str(label(t)))
+    print("  " * indent + str(label(t)))
     for b in branches(t):
         print_tree(b, indent+1)
 
@@ -152,10 +152,10 @@ print_tree(fib_tree(5))
 #         1
 
 
-print('f1', fib_tree(1))
-print('f2', fib_tree(2))
-print('f3', fib_tree(3))
-print('f4', fib_tree(4))
+print("f1", fib_tree(1))
+print("f2", fib_tree(2))
+print("f3", fib_tree(3))
+print("f4", fib_tree(4))
 
 print_tree(
 tree(1, [
@@ -220,7 +220,7 @@ print_tree(partition_tree(2,2))
 def print_parts(tree, partition=[]):
     if is_leaf(tree):
         if label(tree):
-            print(' + '.join(partition))
+            print(" + ".join(partition))
     else:
         left, right = branches(tree)
         m = str(label(tree))
@@ -257,41 +257,41 @@ def right_binarize(tree):
 # Linked list
 
 # Common representation of a sequence constructed fro nested aris is called a linked list
-four = [1, [2, [3, [4, 'empty']]]]
+four = [1, [2, [3, [4, "empty"]]]]
 # a pair containing the first element of the sequence (in this case 1) and the rest of the sequence
 
-empty = 'empty'
+empty = "empty"
 def is_link(s):
     """s is a linked list if it is empty or a (first, rest) pair."""
     return s == empty or (len(s) == 2 and is_link(s[1]))
 
 def link(first, rest):
     """Construct a linked list from its first element and the rest"""
-    assert is_link(rest), 'rest must be a linked list'
+    assert is_link(rest), "rest must be a linked list"
     return [first, rest]
 
 def first(s):
     """return the first element of a linked list s."""
-    assert is_link(s), 'only apllies to linked list'
-    assert s != empty, 'empty linked list has no first element'
+    assert is_link(s), "only apllies to linked list"
+    assert s != empty, "empty linked list has no first element"
     return s[0]
 
 def rest(s):
     """Return the rest of the elemetns of a linked list s"""
-    assert is_link(s), 'rest only applies to linked lists'
-    assert s != empty, 'empty linked list has no rest'
+    assert is_link(s), "rest only applies to linked lists"
+    assert s != empty, "empty linked list has no rest"
     return s[1]
 
-four = [1, [2, [3, [4, 'empty']]]]
+four = [1, [2, [3, [4, "empty"]]]]
 four = link(1, link(2, link(3, link(4, empty))))
 print(four)
 # >>>
-# [1, [2, [3, [4, 'empty']]]]
+# [1, [2, [3, [4, "empty"]]]]
 
 
 def len_link(s):
     """Return the length of linked list"""
-    assert is_link(s), 'must apply on linked list'
+    assert is_link(s), "must apply on linked list"
     if len(s) == 2:
         return 1 + len_link(rest(s))
     else:
@@ -317,16 +317,16 @@ def eval_tree(tree):
     """Evaluates an expression tree with functions the root.
     >>> eval_tree(tree(1))
     1
-    >>> expr = tree('*', [tree(2), tree(3)])
+    >>> expr = tree("*", [tree(2), tree(3)])
     >>> eval_tree(expr)
     6
-    >>> eval_tree(tree('+', [expr, tree(4), tree(5)]))
+    >>> eval_tree(tree("+", [expr, tree(4), tree(5)]))
     15
     """
-    if label(tree) == '+':
+    if label(tree) == "+":
         return sum([eval_tree(b) for b in branches(tree)])
 
-    elif label(tree) == '*':
+    elif label(tree) == "*":
         temp = 1
         for b in branches(tree):
             temp *= eval_tree(b)
@@ -337,8 +337,8 @@ def eval_tree(tree):
 
 print(eval_tree(tree(1)))
 # >>> 1
-expr = tree('*', [tree(2), tree(3)])
+expr = tree("*", [tree(2), tree(3)])
 print(eval_tree(expr))
 # >>> 6
-print(eval_tree(tree('+', [expr, tree(4), tree(5)])))
+print(eval_tree(tree("+", [expr, tree(4), tree(5)])))
 # >>> 15

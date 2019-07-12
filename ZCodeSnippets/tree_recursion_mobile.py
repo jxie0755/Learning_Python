@@ -4,10 +4,10 @@
 
 def mobile(left, right):
     """Construct a mobile from a left side and a right side."""
-    return tree('mobile', [left, right])
+    return tree("mobile", [left, right])
 
 def is_mobile(m):
-    return is_tree(m) and label(m) == 'mobile'
+    return is_tree(m) and label(m) == "mobile"
 
 def sides(m):
     """Select the sides of a mobile."""
@@ -37,7 +37,7 @@ def weight(size):
     """Construct a weight of some size."""
     assert size > 0
     "*** YOUR CODE HERE ***"
-    return tree('weight', [tree(size)])
+    return tree("weight", [tree(size)])
 
 def size(w):
     """Select the size of a weight."""
@@ -48,7 +48,7 @@ def size(w):
 def is_weight(w):
     """Whether w is a weight, not a mobile."""
     "*** YOUR CODE HERE ***"
-    return is_tree(w) and label(w) == 'weight'
+    return is_tree(w) and label(w) == "weight"
 
 def examples():
     t = mobile(side(1, weight(2)),
@@ -104,6 +104,6 @@ def balanced(m):
     else:
         return True  # 除非mobile的一边接得是weight,那就不必往下检查
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     import doctest
     doctest.testmod(verbose=True)

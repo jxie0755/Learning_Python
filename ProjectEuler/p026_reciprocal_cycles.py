@@ -50,7 +50,7 @@ def longest_reciprocal(n):
 def find_reciprocal_pattern(s):
     """give a string of numbers as the decimal part of a float
     find out the pattern of the reciprocal part
-    if it is not reciprocal, return ''
+    if it is not reciprocal, return ""
     """
     limit = int(len(s) // 3)
     for start in range(limit+1):
@@ -60,13 +60,13 @@ def find_reciprocal_pattern(s):
             repeat_n, tail = divmod(rest_len, sample_len)
             if sample * repeat_n + sample[0:tail] == rest:
                 return sample
-    return ''
+    return ""
 
 # For a better algorithm by using the division method, please check:
 # ZCodeSnippets.reciprocal_pattern.py
 
-if __name__ == '__main__':
-    print('Test enumeration method:')
+if __name__ == "__main__":
+    print("Test enumeration method:")
 
     assert longest_reciprocal(10) == 7
 
@@ -76,7 +76,7 @@ if __name__ == '__main__':
     # >>> 983
     # correct
 
-    print('passed\n')
+    print("passed\n")
 
 
 
@@ -92,15 +92,15 @@ def find_reciprocal(numerator, denominator):
     return: a string of the pattern numbers
     """
 
-    assert numerator < denominator, 'numerator must be smaller than denominator'
+    assert numerator < denominator, "numerator must be smaller than denominator"
 
-    decimal_part, remainder_list = '', [numerator % denominator]
+    decimal_part, remainder_list = "", [numerator % denominator]
     numerator *= 10 # start with numerator * 10 to avoid the first decimal point
 
     for i in range(denominator):
         quotient, numerator = divmod(numerator, denominator)
         if numerator == 0:
-            return 'the result is not reciprocal'
+            return "the result is not reciprocal"
         else:
             decimal_part += str(quotient)
             if numerator not in remainder_list:
@@ -119,13 +119,13 @@ def longest_reciprocal_2(n):
 
 
 
-if __name__ == '__main__':
-    print('Test new algorithm:')
+if __name__ == "__main__":
+    print("Test new algorithm:")
 
-    assert find_reciprocal(1, 7) == '142857'   # = 0.(142857)
-    assert find_reciprocal(1, 70) == '142857'  # = 0.0(142857)
-    assert find_reciprocal(2, 3) == '6'        # = 0.(6)
-    assert find_reciprocal(1, 12) == '3'       # = 0.08(3)
+    assert find_reciprocal(1, 7) == "142857"   # = 0.(142857)
+    assert find_reciprocal(1, 70) == "142857"  # = 0.0(142857)
+    assert find_reciprocal(2, 3) == "6"        # = 0.(6)
+    assert find_reciprocal(1, 12) == "3"       # = 0.08(3)
 
     a = find_reciprocal(1, 983)
     assert len(a) == 982
@@ -134,4 +134,4 @@ if __name__ == '__main__':
     print(longest_reciprocal_2(1000))
     print(f"--- {time.time() - start_time}s seconds ---\n")
 
-    print('passed')
+    print("passed")

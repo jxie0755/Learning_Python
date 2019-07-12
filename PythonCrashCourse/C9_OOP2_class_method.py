@@ -8,7 +8,7 @@
 # 要么就设定实参,在创造对象是就赋予一个数,要么就不设定实参,但是赋予一个默认值,二者皆可
 
 class Car(object):
-    '''car information summary'''
+    """car information summary"""
     def __init__(self, make, model, year):
         self.make = make
         self.model = model
@@ -16,11 +16,11 @@ class Car(object):
         self.odometer = 0  # 相当于设置一个(添加__则私有)属性,但是不需要在创造是外部添加,而是一个默认值(等于0)
 
     def get_car_info(self):
-        long_name = str(self.year) + ' ' + self.make + ' ' + self.model
+        long_name = str(self.year) + " " + self.make + " " + self.model
         return long_name
 
     def read_odometer(self):
-        print('The car has been driven: ' + str(self.odometer) + ' miles')
+        print("The car has been driven: " + str(self.odometer) + " miles")
 
     # 添加一个方法来改变里程表读数
     # 使用方法的好处就是对于更改里程数做一些规定,比如禁止回调
@@ -30,7 +30,7 @@ class Car(object):
         if mileage > self.odometer:
             self.odometer = mileage
         else:
-            print('you can\'t roll an odometer back!' )
+            print("you can\"t roll an odometer back!' )
 
     # 设置一个增加里程的方法,在原里程读数上增加里程
     def increment_odometer(self, add_mileage):
@@ -38,11 +38,11 @@ class Car(object):
         if add_mileage > 0:
             self.odometer += add_mileage
         else:
-            print('what are you trying to do? \nYou think I am stupid?')
+            print("what are you trying to do? \nYou think I am stupid?")
 
 # 注意:以上两个方法只能禁止用户回调里程表,如果有人能接触原代码,则可以通过直接变动属性值回调.
 
-my_car = Car('Audi', 'S4', 2016)
+my_car = Car("Audi", "S4", 2016)
 print(my_car.get_car_info())
 my_car.read_odometer()
 

@@ -47,7 +47,7 @@ class Percolation:
 
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     sample_Y1 = [
         [0, 0, 1, 0, 1, 1, 0, 0],
         [0, 0, 1, 0, 1, 1, 1, 0],
@@ -106,4 +106,4 @@ if __name__ == '__main__':
     assert not Percolation().determination(sample_N1), "Example N1"
     assert not Percolation().determination(sample_N2), "Example N2"
 
-    print('All passed')
+    print("All passed")

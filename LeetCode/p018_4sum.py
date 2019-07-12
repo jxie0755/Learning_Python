@@ -57,11 +57,11 @@ class Solution:
 
 
 
-if __name__ == '__main__':
-    assert Solution().fourSum([], 0) == [], 'Edge 1'
-    assert Solution().fourSum([1], 0) == [], 'Edge 2'
-    assert Solution().fourSum([0,0,0,0], 0) == [[0,0,0,0]], 'Edge 3'
+if __name__ == "__main__":
+    assert Solution().fourSum([], 0) == [], "Edge 1"
+    assert Solution().fourSum([1], 0) == [], "Edge 2"
+    assert Solution().fourSum([0,0,0,0], 0) == [[0,0,0,0]], "Edge 3"
 
-    assert Solution().fourSum([1, 0, -1, 0, -2, 2], 0) == [[-2, -1, 1, 2], [-2, 0, 0, 2], [-1, 0, 0, 1]], 'Example 1'
-    assert Solution().fourSum([-3,-2,-1,0,0,1,2,3], 0) == [[-3,-2,2,3],[-3,-1,1,3],[-3,0,0,3],[-3,0,1,2],[-2,-1,0,3],[-2,-1,1,2],[-2,0,0,2],[-1,0,0,1]], 'Exmaple 2'
-    print('all passed')
+    assert Solution().fourSum([1, 0, -1, 0, -2, 2], 0) == [[-2, -1, 1, 2], [-2, 0, 0, 2], [-1, 0, 0, 1]], "Example 1"
+    assert Solution().fourSum([-3,-2,-1,0,0,1,2,3], 0) == [[-3,-2,2,3],[-3,-1,1,3],[-3,0,0,3],[-3,0,1,2],[-2,-1,0,3],[-2,-1,1,2],[-2,0,0,2],[-1,0,0,1]], "Exmaple 2"
+    print("all passed")

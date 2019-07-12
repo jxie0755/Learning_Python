@@ -1,12 +1,12 @@
 test = {
-  'name': 'Problem 7',
-  'points': 3,
-  'suites': [
+  "name": "Problem 7",
+  "points": 3,
+  "suites": [
     {
-      'cases': [
+      "cases": [
         {
-          'answer': 'takes in a restaurant and returns the predicted rating for that restaurant',
-          'choices': [
+          "answer": "takes in a restaurant and returns the predicted rating for that restaurant",
+          "choices": [
             r"""
             takes in a restaurant and returns the predicted rating for that
             restaurant
@@ -15,66 +15,66 @@ test = {
             takes in a restaurant and returns the predicted location of
             that restaurant
             """,
-            'returns the r_squared value'
+            "returns the r_squared value"
           ],
-          'hidden': False,
-          'locked': False,
-          'question': r"""
+          "hidden": False,
+          "locked": False,
+          "question": r"""
           What does a predictor function returned by
           find_predictor do?
           """
         },
         {
-          'answer': 'the extracted feature value for each restaurant in restaurants',
-          'choices': [
-            'the restaurants in restaurants',
-            'the names of restaurants in restaurants',
-            'the extracted feature value for each restaurant in restaurants',
-            'the restaurants reviewed by user'
+          "answer": "the extracted feature value for each restaurant in restaurants",
+          "choices": [
+            "the restaurants in restaurants",
+            "the names of restaurants in restaurants",
+            "the extracted feature value for each restaurant in restaurants",
+            "the restaurants reviewed by user"
           ],
-          'hidden': False,
-          'locked': False,
-          'question': 'What does the list xs represent?'
+          "hidden": False,
+          "locked": False,
+          "question": "What does the list xs represent?"
         },
         {
-          'answer': "user's ratings for the restaurants in restaurants",
-          'choices': [
-            'the average rating for the restaurants in restaurants',
+          "answer": "user's ratings for the restaurants in restaurants",
+          "choices": [
+            "the average rating for the restaurants in restaurants",
             "user's ratings for the restaurants in restaurants",
-            'the names for the restaurants reviewed by user',
-            'the names for the restaurants in restaurants'
+            "the names for the restaurants reviewed by user",
+            "the names for the restaurants in restaurants"
           ],
-          'hidden': False,
-          'locked': False,
-          'question': 'What does the list ys represent?'
+          "hidden": False,
+          "locked": False,
+          "question": "What does the list ys represent?"
         }
       ],
-      'scored': False,
-      'type': 'concept'
+      "scored": False,
+      "type": "concept"
     },
     {
-      'cases': [
+      "cases": [
         {
-          'code': r"""
-          >>> user = make_user('John D.', [
-          ...     make_review('A', 1),
-          ...     make_review('B', 5),
-          ...     make_review('C', 2),
-          ...     make_review('D', 2.5),
+          "code": r"""
+          >>> user = make_user("John D.", [
+          ...     make_review("A", 1),
+          ...     make_review("B", 5),
+          ...     make_review("C", 2),
+          ...     make_review("D", 2.5),
           ... ])
-          >>> restaurant = make_restaurant('New', [-10, 2], [], 2, [
-          ...         make_review('New', 4),
+          >>> restaurant = make_restaurant("New", [-10, 2], [], 2, [
+          ...         make_review("New", 4),
           ... ])
           >>> cluster = [
-          ...     make_restaurant('B', [4, 2], [], 1, [
-          ...         make_review('B', 5)
+          ...     make_restaurant("B", [4, 2], [], 1, [
+          ...         make_review("B", 5)
           ...     ]),
-          ...     make_restaurant('C', [-2, 6], [], 4, [
-          ...         make_review('C', 2)
+          ...     make_restaurant("C", [-2, 6], [], 4, [
+          ...         make_review("C", 2)
           ...     ]),
-          ...     make_restaurant('D', [4, 2], [], 3.5, [
-          ...         make_review('D', 2.5),
-          ...         make_review('D', 3),
+          ...     make_restaurant("D", [4, 2], [], 3.5, [
+          ...         make_review("D", 2.5),
+          ...         make_review("D", 3),
           ...     ]),
           ... ]
           >>> pred, r_squared = find_predictor(user, cluster, restaurant_price)
@@ -83,30 +83,30 @@ test = {
           >>> round(r_squared, 5)
           1.0
           """,
-          'hidden': False,
-          'locked': False
+          "hidden": False,
+          "locked": False
         },
         {
-          'code': r"""
-          >>> user = make_user('John D.', [
-          ...     make_review('A', 1),
-          ...     make_review('B', 5),
-          ...     make_review('C', 2),
-          ...     make_review('D', 2.5),
+          "code": r"""
+          >>> user = make_user("John D.", [
+          ...     make_review("A", 1),
+          ...     make_review("B", 5),
+          ...     make_review("C", 2),
+          ...     make_review("D", 2.5),
           ... ])
-          >>> restaurant = make_restaurant('New', [-10, 2], [], 2, [
-          ...         make_review('New', 4),
+          >>> restaurant = make_restaurant("New", [-10, 2], [], 2, [
+          ...         make_review("New", 4),
           ... ])
           >>> cluster = [
-          ...     make_restaurant('B', [4, 2], [], 1, [
-          ...         make_review('B', 5)
+          ...     make_restaurant("B", [4, 2], [], 1, [
+          ...         make_review("B", 5)
           ...     ]),
-          ...     make_restaurant('C', [-2, 6], [], 4, [
-          ...         make_review('C', 2)
+          ...     make_restaurant("C", [-2, 6], [], 4, [
+          ...         make_review("C", 2)
           ...     ]),
-          ...     make_restaurant('D', [4, 2], [], 3.5, [
-          ...         make_review('D', 2.5),
-          ...         make_review('D', 3),
+          ...     make_restaurant("D", [4, 2], [], 3.5, [
+          ...         make_review("D", 2.5),
+          ...         make_review("D", 3),
           ...     ]),
           ... ]
           >>> pred, r_squared = find_predictor(user, cluster, lambda r: mean(restaurant_ratings(r)))
@@ -115,30 +115,30 @@ test = {
           >>> round(r_squared, 5)
           0.99256
           """,
-          'hidden': False,
-          'locked': False
+          "hidden": False,
+          "locked": False
         },
         {
-          'code': r"""
-          >>> user = make_user('John D.', [
-          ...     make_review('A', 1),
-          ...     make_review('B', 5),
-          ...     make_review('C', 2),
-          ...     make_review('D', 2.5),
+          "code": r"""
+          >>> user = make_user("John D.", [
+          ...     make_review("A", 1),
+          ...     make_review("B", 5),
+          ...     make_review("C", 2),
+          ...     make_review("D", 2.5),
           ... ])
-          >>> restaurant = make_restaurant('New', [-10, 2], [], 2, [
-          ...         make_review('New', 4),
+          >>> restaurant = make_restaurant("New", [-10, 2], [], 2, [
+          ...         make_review("New", 4),
           ... ])
           >>> cluster = [
-          ...     make_restaurant('B', [4, 2], [], 1, [
-          ...         make_review('B', 5)
+          ...     make_restaurant("B", [4, 2], [], 1, [
+          ...         make_review("B", 5)
           ...     ]),
-          ...     make_restaurant('C', [-2, 6], [], 4, [
-          ...         make_review('C', 2)
+          ...     make_restaurant("C", [-2, 6], [], 4, [
+          ...         make_review("C", 2)
           ...     ]),
-          ...     make_restaurant('D', [4, 2], [], 3.5, [
-          ...         make_review('D', 2.5),
-          ...         make_review('D', 3),
+          ...     make_restaurant("D", [4, 2], [], 3.5, [
+          ...         make_review("D", 2.5),
+          ...         make_review("D", 3),
           ...     ]),
           ... ]
           >>> pred, r_squared = find_predictor(user, cluster, lambda r: len(restaurant_ratings(r)))
@@ -147,21 +147,21 @@ test = {
           >>> round(r_squared, 5)
           0.12903
           """,
-          'hidden': False,
-          'locked': False
+          "hidden": False,
+          "locked": False
         }
       ],
-      'scored': True,
-      'setup': r"""
+      "scored": True,
+      "setup": r"""
       >>> import tests.test_functions as test
       >>> import recommend
       >>> test.swap_implementations(recommend)
       >>> from recommend import *
       """,
-      'teardown': r"""
+      "teardown": r"""
       >>> test.restore_implementations(recommend)
       """,
-      'type': 'doctest'
+      "type": "doctest"
     }
   ]
 }

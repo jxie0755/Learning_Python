@@ -35,7 +35,7 @@ class Solution:
             mapping[z[i % cycle]].append(s[i])
             i += 1
 
-        return ''.join(i for i in [''.join(j) for j in mapping])
+        return "".join(i for i in ["".join(j) for j in mapping])
 
 
 class Solution:
@@ -52,7 +52,7 @@ class Solution:
             mapping[z[i]].append(s[i])  # 也就是直接引用z中相同的index的index
             i += 1
 
-        return ''.join(i for i in [''.join(j) for j in mapping])
+        return "".join(i for i in ["".join(j) for j in mapping])
 
 
 class Solution(object):
@@ -75,12 +75,12 @@ class Solution(object):
 
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
 
-    assert Solution().convert("", 3) == "", 'Edge 1'
-    assert Solution().convert("A", 1) == "A", 'Edge 2'
-    assert Solution().convert("AB", 1) == "AB", 'Edge 3'
+    assert Solution().convert("", 3) == "", "Edge 1"
+    assert Solution().convert("A", 1) == "A", "Edge 2"
+    assert Solution().convert("AB", 1) == "AB", "Edge 3"
 
-    assert Solution().convert("PAYPALISHIRING", 3) == "PAHNAPLSIIGYIR", 'Example 1'
-    assert Solution().convert("PAYPALISHIRING", 4) == "PINALSIGYAHRPI", 'Example 2'
-    print('all passed')
+    assert Solution().convert("PAYPALISHIRING", 3) == "PAHNAPLSIIGYIR", "Example 1"
+    assert Solution().convert("PAYPALISHIRING", 4) == "PINALSIGYAHRPI", "Example 2"
+    print("all passed")

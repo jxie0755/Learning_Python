@@ -1,95 +1,95 @@
 test = {
-  'name': 'Problem 11',
-  'points': 2,
-  'suites': [
+  "name": "Problem 11",
+  "points": 2,
+  "suites": [
     {
-      'cases': [
+      "cases": [
         {
-          'code': r"""
-          >>> frame = global_frame.make_child_frame(Pair('a', Pair('b', Pair('c', nil))), Pair(1, Pair(2, Pair(3, nil))))
-          >>> global_frame.lookup('a') # Type SchemeError if you think this errors
+          "code": r"""
+          >>> frame = global_frame.make_child_frame(Pair("a", Pair("b", Pair("c", nil))), Pair(1, Pair(2, Pair(3, nil))))
+          >>> global_frame.lookup("a") # Type SchemeError if you think this errors
           SchemeError
-          >>> frame.lookup('a') # Type SchemeError if you think this errors
+          >>> frame.lookup("a") # Type SchemeError if you think this errors
           1
-          >>> frame.lookup('b') # Type SchemeError if you think this errors
+          >>> frame.lookup("b") # Type SchemeError if you think this errors
           2
-          >>> frame.lookup('c') # Type SchemeError if you think this errors
+          >>> frame.lookup("c") # Type SchemeError if you think this errors
           3
           """,
-          'hidden': False,
-          'locked': False
+          "hidden": False,
+          "locked": False
         },
         {
-          'code': r"""
+          "code": r"""
           >>> frame = global_frame.make_child_frame(nil, nil)
           >>> frame.parent is global_frame
           True
           """,
-          'hidden': False,
-          'locked': False
+          "hidden": False,
+          "locked": False
         },
         {
-          'code': r"""
+          "code": r"""
           >>> first = Frame(global_frame)
           >>> second = first.make_child_frame(nil, nil)
           >>> second.parent is first
           True
           """,
-          'hidden': False,
-          'locked': False
+          "hidden": False,
+          "locked": False
         }
       ],
-      'scored': True,
-      'setup': r"""
+      "scored": True,
+      "setup": r"""
       >>> from scheme import *
       >>> global_frame = create_global_frame()
       """,
-      'teardown': '',
-      'type': 'doctest'
+      "teardown": "",
+      "type": "doctest"
     },
     {
-      'cases': [
+      "cases": [
         {
-          'code': r"""
+          "code": r"""
           >>> # More argument values than formal parameters
-          >>> global_frame.make_child_frame(Pair('a', nil), Pair(1, Pair(2, Pair(3, nil))))
+          >>> global_frame.make_child_frame(Pair("a", nil), Pair(1, Pair(2, Pair(3, nil))))
           SchemeError
           """,
-          'hidden': False,
-          'locked': False
+          "hidden": False,
+          "locked": False
         },
         {
-          'code': r"""
+          "code": r"""
           >>> # More formal parameters than argument values
-          >>> global_frame.make_child_frame(Pair('a', Pair('b', Pair('c', nil))), Pair(1, nil))
+          >>> global_frame.make_child_frame(Pair("a", Pair("b", Pair("c", nil))), Pair(1, nil))
           SchemeError
           """,
-          'hidden': False,
-          'locked': False
+          "hidden": False,
+          "locked": False
         },
         {
-          'code': r"""
+          "code": r"""
           >>> # Values can be pairs.
-          >>> frame = global_frame.make_child_frame(Pair('a', Pair('b', nil)), Pair(Pair(1, nil), Pair(Pair(2, nil), nil)))
-          >>> frame.lookup('a')
+          >>> frame = global_frame.make_child_frame(Pair("a", Pair("b", nil)), Pair(Pair(1, nil), Pair(Pair(2, nil), nil)))
+          >>> frame.lookup("a")
           Pair(1, nil)
-          >>> frame.lookup('b')
+          >>> frame.lookup("b")
           Pair(2, nil)
           >>> frame2 = frame.make_child_frame(nil, nil) # Bind parents correctly
-          >>> frame2.lookup('a')
+          >>> frame2.lookup("a")
           Pair(1, nil)
           """,
-          'hidden': False,
-          'locked': False
+          "hidden": False,
+          "locked": False
         }
       ],
-      'scored': True,
-      'setup': r"""
+      "scored": True,
+      "setup": r"""
       >>> from scheme import *
       >>> global_frame = create_global_frame()
       """,
-      'teardown': '',
-      'type': 'doctest'
+      "teardown": "",
+      "type": "doctest"
     }
   ]
 }

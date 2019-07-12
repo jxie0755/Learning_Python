@@ -1,13 +1,13 @@
 test = {
-  'name': 'count_up_ok',
-  'points': 0,
-  'suites': [
+  "name": "count_up_ok",
+  "points": 0,
+  "suites": [
     {
-      'type': 'concept',
-      'scored': False,
-      'cases': [
+      "type": "concept",
+      "scored": False,
+      "cases": [
       {
-          'question': r"""
+          "question": r"""
           Consider another function that prints from 1 to n:
           >>> count_up(5)
           1
@@ -27,16 +27,16 @@ test = {
 
           What's is wrong with this definition?
           """,
-          'choices': [
-            'Should use return i instead of print(i)',
-            'The variable i resets back to 1 for each function call, printing 1 all the time',
-            'The return statement before the recursive call is missing',
-            'The recursive call should be count_up(n+1)',
+          "choices": [
+            "Should use return i instead of print(i)",
+            "The variable i resets back to 1 for each function call, printing 1 all the time",
+            "The return statement before the recursive call is missing",
+            "The recursive call should be count_up(n+1)",
           ],
-          'answer': 'The variable i resets back to 1 for each function call, printing 1 all the time',
+          "answer": "The variable i resets back to 1 for each function call, printing 1 all the time",
         },
         {
-          'question': r"""
+          "question": r"""
           Consider a count up function that prints from 1 to n:
           >>> count_up(5)
           1
@@ -55,13 +55,13 @@ test = {
 
           What is wrong with this definition?
           """,
-          'choices': [
-            'The variable n does not change, causing a infinite loop',
-            'The return statement in the recursive case is missing',
-            'i is a local variable, which is not allowed in recursive functions',
-            'Should use return i instead of print(i)',
+          "choices": [
+            "The variable n does not change, causing a infinite loop",
+            "The return statement in the recursive case is missing",
+            "i is a local variable, which is not allowed in recursive functions",
+            "Should use return i instead of print(i)",
           ],
-          'answer': 'The variable n does not change, causing a infinite loop',
+          "answer": "The variable n does not change, causing a infinite loop",
         },
       ]
     }

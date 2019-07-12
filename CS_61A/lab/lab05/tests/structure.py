@@ -1,13 +1,13 @@
 test = {
-  'name': 'Structure',
-  'points': 0,
-  'suites': [
+  "name": "Structure",
+  "points": 0,
+  "suites": [
     {
-      'type': 'concept',
-      'scored': False,
-      'cases': [
+      "type": "concept",
+      "scored": False,
+      "cases": [
         {
-          'question': r"""
+          "question": r"""
           Which constructor call creates the following tree structure?
               1
             / | \
@@ -15,16 +15,16 @@ test = {
              /
             5
           """,
-          'choices': [
-            'tree(1, [tree(2), tree(3, [tree(5)]), tree(4)])',
-            'tree(1, (tree(2), tree(3, (tree(5))), tree(5)))',
-            'tree(2, [tree(1, tree(3, tree(5)))], tree(4))',
-            'tree(1, [tree(2), tree(3), tree(4)], tree(5))',
+          "choices": [
+            "tree(1, [tree(2), tree(3, [tree(5)]), tree(4)])",
+            "tree(1, (tree(2), tree(3, (tree(5))), tree(5)))",
+            "tree(2, [tree(1, tree(3, tree(5)))], tree(4))",
+            "tree(1, [tree(2), tree(3), tree(4)], tree(5))",
           ],
-          'answer': 'tree(1, [tree(2), tree(3, [tree(5)]), tree(4)])',
+          "answer": "tree(1, [tree(2), tree(3, [tree(5)]), tree(4)])",
         },
         {
-          'question': r"""
+          "question": r"""
           Which constructor call creates the following tree structure?
                 3
               / | \
@@ -32,16 +32,16 @@ test = {
             / \
            2   1
           """,
-          'choices': [
-            'tree(3, [tree(6, [tree(2), tree(1)]), tree(2), tree(7)])',
-            'tree(3, tree(6, [tree(2), tree(1)]), tree(2), tree(7))',
-            'tree(3, [tree(6), [tree(2), tree(1)], tree(2), tree(7)])',
-            'tree(3, tree(6), [tree(2), tree(1)], [tree(2), tree(7)])',
+          "choices": [
+            "tree(3, [tree(6, [tree(2), tree(1)]), tree(2), tree(7)])",
+            "tree(3, tree(6, [tree(2), tree(1)]), tree(2), tree(7))",
+            "tree(3, [tree(6), [tree(2), tree(1)], tree(2), tree(7)])",
+            "tree(3, tree(6), [tree(2), tree(1)], [tree(2), tree(7)])",
           ],
-          'answer': 'tree(3, [tree(6, [tree(2), tree(1)]), tree(2), tree(7)])',
+          "answer": "tree(3, [tree(6, [tree(2), tree(1)]), tree(2), tree(7)])",
         },
         {
-          'question': r"""
+          "question": r"""
           How many branches does the following tree have?
                 7
                / \
@@ -51,16 +51,16 @@ test = {
               |
               3
           """,
-          'choices': [
-            '2',
-            '3',
-            '6',
-            '7',
+          "choices": [
+            "2",
+            "3",
+            "6",
+            "7",
           ],
-          'answer': '2',
+          "answer": "2",
         },
         {
-          'question': r"""
+          "question": r"""
           Given the following tree structure, what are all the leaves?
                 7
               / | \
@@ -68,13 +68,13 @@ test = {
             /  /|
            6  1 5
           """,
-          'choices': [
-            '6, 1, 5',
-            '6, 1, 5, 4',
-            '7, 6, 1, 5, 4',
-            'None of the above',
+          "choices": [
+            "6, 1, 5",
+            "6, 1, 5, 4",
+            "7, 6, 1, 5, 4",
+            "None of the above",
           ],
-          'answer': '6, 1, 5, 4',
+          "answer": "6, 1, 5, 4",
         }
       ]
     }

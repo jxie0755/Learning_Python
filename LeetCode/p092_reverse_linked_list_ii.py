@@ -14,7 +14,7 @@ class Solution:
         if m == n:
             return head
 
-        ans = prehead = ListNode('X')
+        ans = prehead = ListNode("X")
         prehead.next = head
         idx = 1
 
@@ -33,7 +33,7 @@ class Solution:
         tail = head               # 此时位于第一个需要被reverse的节点, 也将是reverse之后的最后一个节点
 
         # 根据leetcode p206把这一段链表反转
-        dummy = ListNode('D')
+        dummy = ListNode("D")
         while head and idx <= n:
             tempheadnext = head.next
             dummynext = dummy.next
@@ -49,14 +49,14 @@ class Solution:
 
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     s1 = genNode([1])
-    assert repr(Solution().reverseBetween(s1, 1, 1)) == '1', 'Edge 1'
+    assert repr(Solution().reverseBetween(s1, 1, 1)) == "1", "Edge 1"
 
     s1 = genNode([1,2])
-    assert repr(Solution().reverseBetween(s1, 1, 2)) == '2->1', 'Edge 2'
+    assert repr(Solution().reverseBetween(s1, 1, 2)) == "2->1", "Edge 2"
 
     s1 = genNode([1,2,3,4,5])
-    assert repr(Solution().reverseBetween(s1, 2, 4)) == '1->4->3->2->5', "Example 1"
+    assert repr(Solution().reverseBetween(s1, 2, 4)) == "1->4->3->2->5", "Example 1"
 
-    print('all passed')
+    print("all passed")

@@ -8,33 +8,33 @@
 a = [1, 2, 3, 4, 5]
 a.pop(3)
 b = a[:]
-print('a', a)
+print("a", a)
 # >>> [1, 2, 3, 5]
-print('b', b)
+print("b", b)
 # >>> [1, 2, 3, 5]
 
 a[1] = b
-print('a', a)
+print("a", a)
 # >>> [1, [1, 2, 3, 5], 3, 5]
-print('b', b) # b is a copy of a as a new object, won't be affected
+print("b", b) # b is a copy of a as a new object, won't be affected
 # >>> [1, 2, 3, 5]
 
 b[0] = a[:]
-print('b', b)
+print("b", b)
 # >>> [[1, [1, 2, 3, 5], 3, 5], 2, 3, 5]
 
 b.pop()
 b.remove(2)
-print('b', b)
+print("b", b)
 # [[1, [1, 2, 3, 5], 3, 5], 3]
 
 c = [].append(b[1])
-print('c', c)
+print("c", c)
 # >>> None
 
 
 a.insert(b.pop(1), a[-3:4:3])
-print('a', a)
+print("a", a)
 # >>> [1, [[1, [1, 2, 3, 5], 3, 5], 3], 3, 5]
 
 
@@ -42,7 +42,7 @@ print('a', a)
 # Q1 Tree Recursion with trees
 
 def about_equal(t1, t2):
-    """Returns whether two trees are 'about equal.'
+    """Returns whether two trees are "about equal."
     Two trees are about equal if and only if they contain the same labels the same number of times.
     """
     def label_counts(t):
@@ -67,18 +67,18 @@ def about_equal(t1, t2):
 def decrypt(s, d):
     """List all possible decoded strings of s.
     >>> codes = {
-    ... 'alan': 'spooky',
-    ... 'al': 'drink',
-    ... 'antu': 'your',
-    ... 'turing': 'ghosts',
-    ... 'tur': 'scary',
-    ... 'ing': 'skeletons',
-    ... 'ring': 'ovaltine'
+    ... "alan": "spooky",
+    ... "al": "drink",
+    ... "antu": "your",
+    ... "turing": "ghosts",
+    ... "tur": "scary",
+    ... "ing": "skeletons",
+    ... "ring": "ovaltine"
     ... }
-    >>> decrypt('alanturing', codes)
-    ['drink your ovaltine', 'spooky ghosts', 'spooky scary skeletons']
+    >>> decrypt("alanturing", codes)
+    ["drink your ovaltine", "spooky ghosts", "spooky scary skeletons"]
     """
-    if s == '':
+    if s == "":
         return []
     ms = []
     if s in d:
@@ -87,7 +87,7 @@ def decrypt(s, d):
         first, suffix = s[:k], s[k:]
         if first in d:
             for rest in decrypt(suffix, d):
-                ms.append(d[first] + ' ' + rest)
+                ms.append(d[first] + " " + rest)
     return ms
 
 

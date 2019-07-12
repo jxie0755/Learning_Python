@@ -49,14 +49,14 @@ def binsearch(lst, target):
 
 
 
-if __name__ == '__main__':
-    assert binsearch([1,2,4,5,6,7], 3) == -1, 'Cannot find 1'
-    assert binsearch([1,2,4,5,6,7], 0) == -1, 'Cannot find 1'
-    assert binsearch([1,2,4,5,6,7], 8) == -1, 'Cannot find 1'
+if __name__ == "__main__":
+    assert binsearch([1,2,4,5,6,7], 3) == -1, "Cannot find 1"
+    assert binsearch([1,2,4,5,6,7], 0) == -1, "Cannot find 1"
+    assert binsearch([1,2,4,5,6,7], 8) == -1, "Cannot find 1"
 
-    assert binsearch([1,2,4,5,6,7], 1) == 0, 'Test 1'
-    assert binsearch([1,2,4,5,6,7], 2) == 1, 'Test 2'
-    assert binsearch([1,2,4,5,6,7], 6) == 4, 'Test 3'
-    assert binsearch([1,2,4,5,6,7], 7) == 5, 'Test 4'
+    assert binsearch([1,2,4,5,6,7], 1) == 0, "Test 1"
+    assert binsearch([1,2,4,5,6,7], 2) == 1, "Test 2"
+    assert binsearch([1,2,4,5,6,7], 6) == 4, "Test 3"
+    assert binsearch([1,2,4,5,6,7], 7) == 5, "Test 4"
 
-    print('all passed')
+    print("all passed")

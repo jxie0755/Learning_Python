@@ -17,8 +17,8 @@ class Solution:
 
         cur = head
         swappoint = False
-        ans = prev = ListNode('X')
-        newlink = ListNode('Y')
+        ans = prev = ListNode("X")
+        newlink = ListNode("Y")
         prev.next = newlink
         tgt = None
 
@@ -44,13 +44,13 @@ class Solution:
 
         return ans.next.next
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     sample = None
-    assert repr(Solution().partition(sample, 5)) == 'None', 'Edge 1'
+    assert repr(Solution().partition(sample, 5)) == "None", "Edge 1"
 
     sample = genNode([9,1,4,3,2,5,2])
-    assert repr(Solution().partition(sample, 9)) == '1->4->3->2->5->2->9', 'Edge 2'
+    assert repr(Solution().partition(sample, 9)) == "1->4->3->2->5->2->9", "Edge 2"
 
     sample = genNode([1,4,3,2,5,2])
-    assert repr(Solution().partition(sample, 3)) == '1->2->2->4->3->5', 'Example 1'
-    print('all passed')
+    assert repr(Solution().partition(sample, 3)) == "1->2->2->4->3->5", "Example 1"
+    print("all passed")

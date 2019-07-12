@@ -14,6 +14,6 @@ class Solution(object):
         reverse(s, 0, len(s))
         i = 0
         for j in xrange(len(s) + 1):
-            if j == len(s) or s[j] == ' ':
+            if j == len(s) or s[j] == " ":
                 reverse(s, i, j)
                 i = j + 1

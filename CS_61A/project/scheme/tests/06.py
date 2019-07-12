@@ -1,12 +1,12 @@
 test = {
-  'name': 'Problem 6',
-  'points': 1,
-  'suites': [
+  "name": "Problem 6",
+  "points": 1,
+  "suites": [
     {
-      'cases': [
+      "cases": [
         {
-          'answer': 'Pair(A, Pair(B, nil)), where: A is the symbol being bound, B is an expression whose value should be bound to A',
-          'choices': [
+          "answer": "Pair(A, Pair(B, nil)), where: A is the symbol being bound, B is an expression whose value should be bound to A",
+          "choices": [
             r"""
             Pair(A, Pair(B, nil)), where:
                 A is the symbol being bound,
@@ -28,48 +28,48 @@ test = {
                 B is an expression whose value should be bound to A
             """,
             r"""
-            Pair('define', Pair(A, Pair(B, nil))), where:
+            Pair("define", Pair(A, Pair(B, nil))), where:
                 A is the symbol being bound,
                 B is an expression whose value should be bound to A
             """
           ],
-          'hidden': False,
-          'locked': False,
-          'question': 'What is the structure of the expressions argument to do_define_form?'
+          "hidden": False,
+          "locked": False,
+          "question": "What is the structure of the expressions argument to do_define_form?"
         },
         {
-          'answer': 'define',
-          'choices': [
-            'make_child_frame',
-            'define',
-            'lookup',
-            'bindings'
+          "answer": "define",
+          "choices": [
+            "make_child_frame",
+            "define",
+            "lookup",
+            "bindings"
           ],
-          'hidden': False,
-          'locked': False,
-          'question': r"""
+          "hidden": False,
+          "locked": False,
+          "question": r"""
           What method of a Frame instance will bind
           a value to a symbol in that frame?
           """
         }
       ],
-      'scored': False,
-      'type': 'concept'
+      "scored": False,
+      "type": "concept"
     },
     {
-      'cases': [
+      "cases": [
         {
-          'code': r"""
+          "code": r"""
           scm> (define size 2)
           size
           scm> size
           2
           """,
-          'hidden': False,
-          'locked': False
+          "hidden": False,
+          "locked": False
         },
         {
-          'code': r"""
+          "code": r"""
           scm> (define x (+ 2 3))
           x
           scm> x
@@ -81,11 +81,11 @@ test = {
           scm> (eval (define tau 6.28))
           6.28
           """,
-          'hidden': False,
-          'locked': False
+          "hidden": False,
+          "locked": False
         },
         {
-          'code': r"""
+          "code": r"""
           scm> (define pi 3.14159)
           pi
           scm> (define radius 10)
@@ -101,24 +101,24 @@ test = {
           scm> area
           314.159
           """,
-          'hidden': False,
-          'locked': False
+          "hidden": False,
+          "locked": False
         },
         {
-          'code': r"""
+          "code": r"""
           scm> (define 0 1)
           SchemeError
           scm> (define error (/ 1 0))
           SchemeError
           """,
-          'hidden': False,
-          'locked': False
+          "hidden": False,
+          "locked": False
         }
       ],
-      'scored': True,
-      'setup': '',
-      'teardown': '',
-      'type': 'scheme'
+      "scored": True,
+      "setup": "",
+      "teardown": "",
+      "type": "scheme"
     }
   ]
 }

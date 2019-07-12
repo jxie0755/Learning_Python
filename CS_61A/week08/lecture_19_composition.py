@@ -36,17 +36,17 @@ class Link:
 
     def __repr__(self):
         if self.rest:
-            rest_str = ', ' + repr(self.rest)
+            rest_str = ", " + repr(self.rest)
         else:
-            rest_str = ''
-        return 'Link({0}{1})'.format(self.first, rest_str)
+            rest_str = ""
+        return "Link({0}{1})".format(self.first, rest_str)
 
     def __str__(self):
-        string = '<'
+        string = "<"
         while self.rest is not Link.empty:
-            string += str(self.first) + ', '
+            string += str(self.first) + ", "
             self = self.rest
-        return string + str(self.first) + '>'
+        return string + str(self.first) + ">"
 
     @property
     def second(self):
@@ -68,19 +68,19 @@ class Tree:
 
     def __repr__(self):
         if self.branches:
-            branch_str = ', ' + repr(self.branches)
+            branch_str = ", " + repr(self.branches)
         else:
-            branch_str = ''
-        return 'Tree({0}{1})'.format(self.label, branch_str)
+            branch_str = ""
+        return "Tree({0}{1})".format(self.label, branch_str)
 
     def __str__(self):
-        return '\n'.join(self.indented())
+        return "\n".join(self.indented())
 
     def indented(self):
         lines = []
         for b in self.branches:
             for line in b.indented():
-                lines.append('  ' + line)
+                lines.append("  " + line)
         return [str(self.label)] + lines
 
     def is_leaf(self):

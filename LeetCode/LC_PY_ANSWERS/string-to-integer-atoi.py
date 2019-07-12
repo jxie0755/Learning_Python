@@ -28,7 +28,7 @@ class Solution(object):
             sign = -1
             i += 1
 
-        while i < len(str) and '0' <= str[i] <= '9':
+        while i < len(str) and "0" <= str[i] <= "9":
             if result > (INT_MAX - int(str[i])) / 10:
                 return INT_MAX if sign > 0 else INT_MIN
             result = result * 10 + int(str[i])

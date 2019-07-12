@@ -92,7 +92,7 @@ def k_mean(raw_coordinates, k, max_learn=10):
 
     max_learn: number of repeatingly calibration
     """
-    assert len(raw_coordinates) >= k, 'Not enough coordinates to cluster'
+    assert len(raw_coordinates) >= k, "Not enough coordinates to cluster"
     old_centroids, n = [], 0
 
     # Select initial centroids randomly by choosing k different coordinates
@@ -122,7 +122,7 @@ def total_distance(centroid, clusters):
     return t_distance
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     # generate raw data from 4 areas
     area_1 = [[-6, 6], [-4, 6], [-6, 4], [-4, 4]]  # center [-5, 5]
     area_2 = [[3, 5], [5, 5], [3, 3], [5, 3]]      # center [4, 4]

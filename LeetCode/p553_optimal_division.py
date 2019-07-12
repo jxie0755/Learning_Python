@@ -22,15 +22,15 @@ class Solution:
         if len(nums) == 1:
             return str(nums[0])
         elif len(nums) == 2:
-            return '/'.join(str(i) for i in nums)
-        return str(nums.pop(0)) + '/' + '(' + '/'.join(str(i) for i in nums) + ')'
+            return "/".join(str(i) for i in nums)
+        return str(nums.pop(0)) + "/" + "(" + "/".join(str(i) for i in nums) + ")"
     # Another tricky question, there is no need to calculate how to place the parenthesis
     # The only way to gurantee for maximum result is to calculate {nums[0] / (nums[1]/nums[2]/nums[3]....)}
     # but when len(nums) == 1 or 2, special condition needs to be adjusted
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     assert Solution().optimalDivision([1000,100,10,2]) == "1000/(100/10/2)"
     assert Solution().optimalDivision([2]) == "2"
     assert Solution().optimalDivision([2,3]) == "2/3"
-    print('all passed')
+    print("all passed")

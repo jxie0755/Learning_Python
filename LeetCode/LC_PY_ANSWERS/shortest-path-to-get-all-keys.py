@@ -25,7 +25,7 @@ class Solution(object):
             dist = {}
             while q:
                 r, c, d = q.popleft()
-                if source != grid[r][c] != '.':
+                if source != grid[r][c] != ".":
                     dist[grid[r][c]] = d
                     continue
                 for direction in directions:
@@ -33,7 +33,7 @@ class Solution(object):
                     if not ((0 <= cr < len(grid)) and
                             (0 <= cc < len(grid[cr]))):
                         continue
-                    if grid[cr][cc] != '#' and not lookup[cr][cc]:
+                    if grid[cr][cc] != "#" and not lookup[cr][cc]:
                         lookup[cr][cc] = True
                         q.append((cr, cc, d+1))
             return dist
@@ -41,14 +41,14 @@ class Solution(object):
         locations = {place: (r, c)
                      for r, row in enumerate(grid)
                      for c, place in enumerate(row)
-                     if place not in '.#'}
+                     if place not in ".#"}
         dists = {place: bfs(grid, place, locations) for place in locations}
 
         # Dijkstra's algorithm
-        min_heap = [(0, '@', 0)]
+        min_heap = [(0, "@", 0)]
         best = collections.defaultdict(lambda: collections.defaultdict(
                                                    lambda: float("inf")))
-        best['@'][0] = 0
+        best["@"][0] = 0
         target_state = 2**sum(place.islower() for place in locations)-1
         while min_heap:
             cur_d, place, state = heapq.heappop(min_heap)
@@ -59,9 +59,9 @@ class Solution(object):
             for dest, d in dists[place].iteritems():
                 next_state = state
                 if dest.islower():
-                    next_state |= (1 << (ord(dest)-ord('a')))
+                    next_state |= (1 << (ord(dest)-ord("a")))
                 elif dest.isupper():
-                    if not (state & (1 << (ord(dest)-ord('A')))):
+                    if not (state & (1 << (ord(dest)-ord("A")))):
                         continue
                 if cur_d+d < best[dest][next_state]:
                     best[dest][next_state] = cur_d+d

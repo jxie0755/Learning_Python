@@ -27,7 +27,7 @@ class Solution(object):
     def wordCount(self, str):
         cnt = 1 if str else 0
         for c in str:
-            if c == ' ':
+            if c == " ":
                 cnt += 1
         return cnt
 
@@ -35,7 +35,7 @@ class Solution(object):
     def wordGenerator(self, str):
         w = ""
         for c in str:
-            if c == ' ':
+            if c == " ":
                 yield w
                 w = ""
             else:

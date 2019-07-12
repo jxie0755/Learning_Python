@@ -28,7 +28,7 @@ def is_tree(tree):
 
 
 def print_tree(t, indent=0):
-    print('  ' * indent + str(label(t)))
+    print("  " * indent + str(label(t)))
     for b in branches(t):
         print_tree(b, indent+1)
 
@@ -186,7 +186,7 @@ def add_trees(t1, t2):
     return tree(lab, [add_trees(b[0], b[1]) for b in zip(b1, b2)])
 
 def about_equal(t1, t2):
-    """Returns whether two trees are 'about equal.'
+    """Returns whether two trees are "about equal."
     Two trees are about equal if and only if they contain the same labels the same number of times.
     """
     def label_counts(t):
@@ -204,7 +204,7 @@ def about_equal(t1, t2):
 
 
 # Test
-if __name__ == '__main__':
+if __name__ == "__main__":
     T = tree(1, [
     tree(2, [
         tree(4, [
@@ -246,20 +246,20 @@ if __name__ == '__main__':
 
     # Leaves
 
-    print('count leaves', count_leaves(T))
+    print("count leaves", count_leaves(T))
     # >>> 10
 
     # Tree functions
 
-    print('tree max value', tree_max(T))
+    print("tree max value", tree_max(T))
     # >>> 22
-    print('tree height', height(T))
+    print("tree height", height(T))
     # >>> 4
 
 
-    print('path', find_path(T, 10))  # >>> [1, 2, 5, 10]
-    print('path', find_path(T, 5))   # >>> [1, 2, 5]
-    print('path', find_path(T, 50))  # >>> None
+    print("path", find_path(T, 10))  # >>> [1, 2, 5, 10]
+    print("path", find_path(T, 5))   # >>> [1, 2, 5]
+    print("path", find_path(T, 50))  # >>> None
 
 
     t1 = tree(5, [tree(1, [tree(2), tree(7, [tree(4, [tree(3)])])]), tree(2, [tree(0), tree(9)])])
@@ -269,20 +269,20 @@ if __name__ == '__main__':
 
     # New tree
 
-    print('incremented tree', increment(T))
+    print("incremented tree", increment(T))
     # >>>
     # [2, [3, [5, [9], [10]], [6, [11], [12]]], [4, [7, [13], [14]], [8, [15], [16, [21],
 
-    print('squared tree', square_tree(T))
+    print("squared tree", square_tree(T))
     # >>>
     # [1, [4, [16, [64], [81]], [25, [100], [121]]], [9, [36, [144], [169]], [49, [196], [225, [400], [441], [484]]]]]
 
-    print('pruned tree', prune(T, 2))
+    print("pruned tree", prune(T, 2))
     # >>>
     # [1, [2, [4], [5]], [3, [6], [7]]]
 
     numbers = tree(1, [tree(2), tree(3, [tree(4), tree(5)]), tree(6, [tree(7)])])
-    print('prune leaves')
+    print("prune leaves")
     print_tree(numbers)
     # >>>
     # 1
@@ -300,7 +300,7 @@ if __name__ == '__main__':
     #     5
     #   6
 
-    print('sprout leaves', print_tree(sprout_leaves(numbers, [9, 10])))
+    print("sprout leaves", print_tree(sprout_leaves(numbers, [9, 10])))
     # >>>
     # 1
     #   2
@@ -319,14 +319,14 @@ if __name__ == '__main__':
     #       10
 
 
-    print('replaced leaf', replace_leaf(T, 22, 99))
+    print("replaced leaf", replace_leaf(T, 22, 99))
     # >>> a new tree, repalced the last leaf from 22 to 99
 
-    sproul = tree('roots', [tree('branch1', [tree('leaf'), tree('acorn')]), tree('branch2')])
+    sproul = tree("roots", [tree("branch1", [tree("leaf"), tree("acorn")]), tree("branch2")])
     numbers = tree(1, [tree(2), tree(3, [tree(4), tree(5)]), tree(6, [tree(7)])])
-    print('search acorn', tree_finder(sproul, 'acorn'))
-    print('search 10', tree_finder(numbers, 10))
-    print('search 6', tree_finder(numbers, 6))
+    print("search acorn", tree_finder(sproul, "acorn"))
+    print("search 10", tree_finder(numbers, 10))
+    print("search 6", tree_finder(numbers, 6))
 
     print_tree(add_trees(tree(2, [tree(3)]), tree(3, [tree(4), tree(5)])))
     # >>>

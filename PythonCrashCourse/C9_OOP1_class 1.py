@@ -1,7 +1,7 @@
 # 创建dog类, 为其设置名字和年龄,赋予蹲下和打滚的能力
 
 class Dog(object):
-    '''a simple attemp to model a dog'''
+    """a simple attemp to model a dog"""
 
     def __init__(self, name, age, doggy):
         self.dog_name = name
@@ -9,17 +9,17 @@ class Dog(object):
         self.__doggy = doggy  # attribute前加双__使得属性变为私有,外部无法访问
 
     def sit(self):
-        print(self.dog_name.title() + ' is now sitting')
+        print(self.dog_name.title() + " is now sitting")
 
     def roll_over(self):
-        print(self.dog_name.title() + ' rolled over!')
+        print(self.dog_name.title() + " rolled over!")
 
     def doggystyle(self):
-        print('doggy is', self.__doggy)
+        print("doggy is", self.__doggy)
 
-myDog = Dog('didi', 3, '123')
-print('Dog name is ' + myDog.dog_name.title() +
-      '. Dog age is ' + str(myDog.dog_age))
+myDog = Dog("didi", 3, "123")
+print("Dog name is " + myDog.dog_name.title() +
+      ". Dog age is " + str(myDog.dog_age))
 
 myDog.sit() # 等同于 Dog.sit(myDog)
 myDog.roll_over() # 等同于 Dog.roll_over(myDog)

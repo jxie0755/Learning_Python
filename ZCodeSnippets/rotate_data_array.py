@@ -6,7 +6,7 @@ def array_rotate_EH(lst, n):
         lst.insert(0, lst.pop())
     return lst
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     print(array_rotate_EH([0,1,2,3], 1))
     print(array_rotate_EH([0,1,2,3], 2))
     print(array_rotate_EH([0,1,2,3], 3))
@@ -25,7 +25,7 @@ def array_rotate_HE(lst, n):
         lst.append(lst.pop(0))
     return lst
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     print(array_rotate_HE([0,1,2,3], 1))
     print(array_rotate_HE([0,1,2,3], 2))
     print(array_rotate_HE([0,1,2,3], 3))
@@ -51,7 +51,7 @@ def array_rotate(lst, n):
     return lst
     
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     print(array_rotate([0,1,2,3], 1))
     print(array_rotate([0,1,2,3], -1))
     # >>>

@@ -11,14 +11,14 @@ class Solution(object):
         def longestSubstringHelper(s, k, start, end):
             count = [0] * 26
             for i in xrange(start, end):
-                count[ord(s[i]) - ord('a')] += 1
+                count[ord(s[i]) - ord("a")] += 1
             max_len = 0
             i = start
             while i < end:
-                while i < end and count[ord(s[i]) - ord('a')] < k:
+                while i < end and count[ord(s[i]) - ord("a")] < k:
                     i += 1
                 j = i
-                while j < end and count[ord(s[j]) - ord('a')] >= k:
+                while j < end and count[ord(s[j]) - ord("a")] >= k:
                     j += 1
 
                 if i == start and j == end:

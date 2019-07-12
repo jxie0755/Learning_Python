@@ -4,7 +4,7 @@ def always_roll(n):
     """Return a strategy that always rolls N dice.
 
     A strategy is a function that takes two total scores as arguments (the
-    current player's score, and the opponent's score), and returns a number of
+    current player"s score, and the opponent"s score), and returns a number of
     dice that the current player will roll this turn.
 
     >>> strategy = always_roll(5)
@@ -35,8 +35,8 @@ def roll_dice(num_rolls, dice=six_sided):
     dice:       A function that simulates a single dice roll outcome.
     """
     # These assert statements ensure that num_rolls is a positive integer.
-    assert type(num_rolls) == int, 'num_rolls must be an integer.'
-    assert num_rolls > 0, 'Must roll at least once.'
+    assert type(num_rolls) == int, "num_rolls must be an integer."
+    assert num_rolls > 0, "Must roll at least once."
     # BEGIN PROBLEM 1
     total_sum = 0
     pig_out = False
@@ -58,7 +58,7 @@ def free_bacon(score):
 
     score:  The opponent's current score.
     """
-    assert score < 100, 'The game should be over.'
+    assert score < 100, "The game should be over."
     # BEGIN PROBLEM 2
     str_score = str(score)
     if len(str_score) == 1:
@@ -77,10 +77,10 @@ def take_turn(num_rolls, opponent_score, dice=six_sided):
     dice:            A function that simulates a single dice roll outcome.
     """
     # Leave these assert statements here; they help check for errors.
-    assert type(num_rolls) == int, 'num_rolls must be an integer.'
-    assert num_rolls >= 0, 'Cannot roll a negative number of dice in take_turn.'
-    assert num_rolls <= 10, 'Cannot roll more than 10 dice.'
-    assert opponent_score < 100, 'The game should be over.'
+    assert type(num_rolls) == int, "num_rolls must be an integer."
+    assert num_rolls >= 0, "Cannot roll a negative number of dice in take_turn."
+    assert num_rolls <= 10, "Cannot roll more than 10 dice."
+    assert opponent_score < 100, "The game should be over."
     # BEGIN PROBLEM 3
     if num_rolls == 0:
         return free_bacon(opponent_score)
@@ -115,10 +115,10 @@ def silence(score0, score1):
 def play(strategy0, strategy1, score0=0, score1=0, dice=six_sided,
          goal=GOAL_SCORE, say=silence):
     """Simulate a game and return the final scores of both players, with Player
-    0's score first, and Player 1's score second.
+    0"s score first, and Player 1"s score second.
 
     A strategy is a function that takes two total scores as arguments (the
-    current player's score, and the opponent's score), and returns a number of
+    current player"s score, and the opponent"s score), and returns a number of
     dice that the current player will roll this turn.
 
     strategy0:  The strategy function for Player 0, who plays first.
@@ -131,7 +131,7 @@ def play(strategy0, strategy1, score0=0, score1=0, dice=six_sided,
     """
     player = 0  # Which player is about to take a turn, 0 (first) or 1 (second)
     while score0 < goal and score1 < goal:
-        print('evaluating player', player)
+        print("evaluating player", player)
         if player == 0:
             num_rolls = strategy0(score0, score1)
             score0 += take_turn(num_rolls, score1, dice) # the result should be added to score
@@ -178,7 +178,7 @@ def announce_lead_changes(previous_leader=None):
         else:
             leader = None
         if leader != None and leader != previous_leader:
-            print('Player', leader, 'takes the lead by', abs(score0 - score1))
+            print("Player", leader, "takes the lead by", abs(score0 - score1))
         return announce_lead_changes(leader)
     return say
 
@@ -215,7 +215,7 @@ def announce_highest(who, previous_high=0, previous_score=0):
     20 points! That's the biggest gain yet for Player 1
     >>> f6 = f5(20, 55) # Player 1 gets 15 points; not enough for a new high
     """
-    assert who == 0 or who == 1, 'The who argument should indicate a player.'
+    assert who == 0 or who == 1, "The who argument should indicate a player."
     # BEGIN PROBLEM 7
     "*** YOUR CODE HERE ***"
     # END PROBLEM 7
@@ -230,7 +230,7 @@ def always_roll(n):
     """Return a strategy that always rolls N dice.
 
     A strategy is a function that takes two total scores as arguments (the
-    current player's score, and the opponent's score), and returns a number of
+    current player"s score, and the opponent"s score), and returns a number of
     dice that the current player will roll this turn.
 
     >>> strategy = always_roll(5)
@@ -297,19 +297,19 @@ def run_experiments():
     """Run a series of strategy experiments and report results."""
     if True:  # Change to False when done finding max_scoring_num_rolls
         six_sided_max = max_scoring_num_rolls(six_sided)
-        print('Max scoring num rolls for six-sided dice:', six_sided_max)
+        print("Max scoring num rolls for six-sided dice:", six_sided_max)
 
     if False:  # Change to True to test always_roll(8)
-        print('always_roll(8) win rate:', average_win_rate(always_roll(8)))
+        print("always_roll(8) win rate:", average_win_rate(always_roll(8)))
 
     if False:  # Change to True to test bacon_strategy
-        print('bacon_strategy win rate:', average_win_rate(bacon_strategy))
+        print("bacon_strategy win rate:", average_win_rate(bacon_strategy))
 
     if False:  # Change to True to test swap_strategy
-        print('swap_strategy win rate:', average_win_rate(swap_strategy))
+        print("swap_strategy win rate:", average_win_rate(swap_strategy))
 
     if False:  # Change to True to test final_strategy
-        print('final_strategy win rate:', average_win_rate(final_strategy))
+        print("final_strategy win rate:", average_win_rate(final_strategy))
 
     "*** You may add additional experiments as you wish ***"
 
@@ -359,8 +359,8 @@ def run(*args):
     """
     import argparse
     parser = argparse.ArgumentParser(description="Play Hog")
-    parser.add_argument('--run_experiments', '-r', action='store_true',
-                        help='Runs strategy experiments')
+    parser.add_argument("--run_experiments", "-r", action="store_true",
+                        help="Runs strategy experiments")
 
     args = parser.parse_args()
 

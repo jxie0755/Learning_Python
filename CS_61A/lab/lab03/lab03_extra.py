@@ -52,7 +52,7 @@ def cycle(f1, f2, f3):
 
 def is_palindrome(n):
     """
-    Fill in the blanks '_____' to check if a number
+    Fill in the blanks "_____" to check if a number
     is a palindrome.
 
     >>> is_palindrome(12321)

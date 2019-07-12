@@ -58,12 +58,12 @@ class Solution(object):
         return [i[0] for i in collections.Counter(nums).items() if i[1] > len(nums) / 3]
 
 
-if __name__ == '__main__':
-    assert Solution().majorityElement([]) == [], 'Edge'
-    assert Solution().majorityElement([3,2,3]) == [3], 'Example 1'
-    assert Solution().majorityElement([1,1,1,1,3,2,2,2,2]) == [1,2], 'Example 2'
+if __name__ == "__main__":
+    assert Solution().majorityElement([]) == [], "Edge"
+    assert Solution().majorityElement([3,2,3]) == [3], "Example 1"
+    assert Solution().majorityElement([1,1,1,1,3,2,2,2,2]) == [1,2], "Example 2"
 
-    assert Solution().majorityElement([1,3,1,3,1,3,1,3,2]) == [1,3], 'Additional 1'
+    assert Solution().majorityElement([1,3,1,3,1,3,1,3,2]) == [1,3], "Additional 1"
 
 
-    print('all passed')
+    print("all passed")

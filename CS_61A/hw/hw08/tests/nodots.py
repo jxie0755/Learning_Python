@@ -1,56 +1,56 @@
 test = {
-  'name': 'nodots',
-  'points': 1,
-  'suites': [
+  "name": "nodots",
+  "points": 1,
+  "suites": [
     {
-      'cases': [
+      "cases": [
         {
-          'code': r"""
+          "code": r"""
           scm> (nodots '(1 . 2))
           (1 2)
           """,
-          'hidden': False,
-          'locked': False
+          "hidden": False,
+          "locked": False
         },
         {
-          'code': r"""
+          "code": r"""
           scm> (nodots '(1 2 . 3))
           (1 2 3)
           """,
-          'hidden': False,
-          'locked': False
+          "hidden": False,
+          "locked": False
         },
         {
-          'code': r"""
+          "code": r"""
           scm> (nodots '((1 . 2) 3))
           ((1 2) 3)
           """,
-          'hidden': False,
-          'locked': False
+          "hidden": False,
+          "locked": False
         },
         {
-          'code': r"""
+          "code": r"""
           scm> (nodots '(1 (2 3 . 4) . 3))
           (1 (2 3 4) 3)
           """,
-          'hidden': False,
-          'locked': False
+          "hidden": False,
+          "locked": False
         },
         {
-          'code': r"""
+          "code": r"""
           scm> (nodots '(1 . ((2 3 . 4) . 3)))
           (1 (2 3 4) 3)
           """,
-          'hidden': False,
-          'locked': False
+          "hidden": False,
+          "locked": False
         }
       ],
-      'scored': True,
-      'setup': r"""
+      "scored": True,
+      "setup": r"""
       scm> (load 'hw08)
       """,
-      'teardown': '',
-      'type': 'scheme'
+      "teardown": "",
+      "type": "scheme"
     }
   ]
 }

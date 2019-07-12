@@ -8,10 +8,10 @@
 # move a slightly smaller stack to the spare, move the bottom to target place, then move the stack to the target
 
 
-def printMove(A='A', B='B'):
-    print('move from ' + str(A) + ' --> ' + str(B))
+def printMove(A="A", B="B"):
+    print("move from " + str(A) + " --> " + str(B))
 
-def Towers(n, A='A', B='B', spare='S'):
+def Towers(n, A="A", B="B", spare="S"):
     global move
     if n == 1:
         printMove(A, B)
@@ -24,20 +24,20 @@ def Towers(n, A='A', B='B', spare='S'):
 
 move = 0
 Towers(4)
-print('it will take:', move, 'moves')
+print("it will take:", move, "moves")
 
 # 另解
-def hanoi(n, a='1', s='2', b='3'):
+def hanoi(n, a="1", s="2", b="3"):
     global move
     if n == 1:
-        print('move', a, '-->', b)
+        print("move", a, "-->", b)
         move += 1
     else:
         hanoi(n-1, a, b, s)
-        print('move', a, '-->', b)
+        print("move", a, "-->", b)
         move += 1
         hanoi(n-1, s, a, b)
 
 move = 0
 print(hanoi(3))
-print('it will take:', move, 'moves')
+print("it will take:", move, "moves")

@@ -6,14 +6,14 @@ t = 1,2,3
 print(t)  # without bracket, it is automatic tuple
 
 print(type(()))
-# >>> <class 'tuple'>
+# >>> <class "tuple">
 # empty bracket is also considered as tuple
 
 # immutable
 d = {(1,2): 3}  # use tuple as dictionary key
 # when used as a key, it can not contain mutable data as well
 # d = {(1,[2,3]): 3}
-# # >>> TypeError: unhashable type: 'list'
+# # >>> TypeError: unhashable type: "list"
 
 # But you can change the mutable data inside of a tuple
 t = (1,2, [3,4])

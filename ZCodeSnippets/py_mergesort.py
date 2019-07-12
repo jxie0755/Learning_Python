@@ -42,17 +42,17 @@ class MergeSort:
             right = self.mergesort(lst[N//2:])
             return self.merge(left, right)
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     a = [10,9,1,6,7,3,5,3,4,8,2,2,1]
-    assert MergeSort().sort(a) == [1, 1, 2, 2, 3, 3, 4, 5, 6, 7, 8, 9, 10], 'Example 1'
+    assert MergeSort().sort(a) == [1, 1, 2, 2, 3, 3, 4, 5, 6, 7, 8, 9, 10], "Example 1"
 
     a = []
-    assert MergeSort().sort(a) == [], 'Edge 1'
+    assert MergeSort().sort(a) == [], "Edge 1"
 
     a = [1]
-    assert MergeSort().sort(a) == [1], 'Edge 2'
+    assert MergeSort().sort(a) == [1], "Edge 2"
 
     a = [1,1,1]
-    assert MergeSort().sort(a) == [1, 1, 1], 'Edge 3'
+    assert MergeSort().sort(a) == [1, 1, 1], "Edge 3"
 
-    print('all passed')
+    print("all passed")

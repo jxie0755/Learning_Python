@@ -3,8 +3,8 @@
 # 将此文件另存为Car.py以供其他文件导入类
 
 class Car(object):
-    '''car information summary'''
-    def __init__(self, make, model, year, type='sedan', tank=35):
+    """car information summary"""
+    def __init__(self, make, model, year, type="sedan", tank=35):
         self.make = make
         self.model = model
         self.year = year
@@ -13,11 +13,11 @@ class Car(object):
         self.tank_size = tank
 
     def get_car_info(self):
-        description = str(self.year) + ' ' + self.make + ' ' + self.model + ' ' + self.type
+        description = str(self.year) + " " + self.make + " " + self.model + " " + self.type
         return description
 
 class ElectricCar(Car):
-    def __init__(self, make, model, year, type='sports car'):
+    def __init__(self, make, model, year, type="sports car"):
         super().__init__(make, model, year, type)
         self.odometer = 0
         self.battery = Battery()  # 将Battery类的一个实例Battery()做为电动车的一个属性
@@ -25,7 +25,7 @@ class ElectricCar(Car):
 
     # special attributes
     def battery(self):
-        print('battery size is ' + str(self.battery_size))
+        print("battery size is " + str(self.battery_size))
         return self.battery_size
 
 class Battery(object):
@@ -39,24 +39,24 @@ class Battery(object):
     #增加其他属性,比如续航历程
     def get_range(self):
         range = self.battery_size * 3 + 30
-        print('The car\'s range is', range, 'miles')
+        print("The car\"s range is", range, "miles')
 
     def upgrade_battery(self):
         self.battery_size = 85
 
-my_car = Car('Audi', 'S4', 2016)
+my_car = Car("Audi", "S4", 2016)
 print(my_car.get_car_info())
 
 print()
 
-my_tesla = ElectricCar('Tesla', 'Model S', 2017)
+my_tesla = ElectricCar("Tesla", "Model S", 2017)
 print(my_tesla.get_car_info())
-print(type(my_tesla))  # >>> <class '__main__.ElectricCar'>
+print(type(my_tesla))  # >>> <class "__main__.ElectricCar">
 print()
 
 my_tesla.battery.battery_info()  # 这里前半段my_tesla.battery表面是调用Ecar的battery属性,但是这个属性其实是Battery类的一个实例
 my_tesla.battery.get_range()     # 后半段的battery_info()和get_range()实际是Battery类的方法
-print(type(my_tesla.battery))    # >>> <class '__main__.Battery'> 属性为Battery的一个实例
+print(type(my_tesla.battery))    # >>> <class "__main__.Battery"> 属性为Battery的一个实例
 
 
 print()

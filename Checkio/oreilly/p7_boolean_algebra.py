@@ -20,34 +20,34 @@
 OPERATION_NAMES = ("conjunction", "disjunction", "implication", "exclusive", "equivalence")
 
 def boolean(x, y, operation):
-    if operation == 'conjunction':
+    if operation == "conjunction":
         if x == 1 and y == 1:
             return 1
         else:
             return 0
-    elif operation == 'disjunction':
+    elif operation == "disjunction":
         if x == 0 and y == 0:
             return 0
         else:
             return 1
-    elif operation == 'implication':
+    elif operation == "implication":
         if x == 1 and y == 0:
             return 0
         else:
             return 1
-    elif operation == 'exclusive':
+    elif operation == "exclusive":
         if x == y:
             return 0
         else:
             return 1
-    elif operation == 'equivalence':
+    elif operation == "equivalence":
         if x == y:
             return 1
         else:
             return 0
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     # These "asserts" using only for self-checking and not necessary for auto-testing
     assert boolean(1, 0, "conjunction") == 0, "and"
     assert boolean(1, 0, "disjunction") == 1, "or"
@@ -57,13 +57,13 @@ if __name__ == '__main__':
 
 # 另解
 def boolean(x, y, operation):
-    if operation == 'conjunction':
+    if operation == "conjunction":
         return int(x and y)
-    elif operation == 'disjunction':
+    elif operation == "disjunction":
         return int(x or y)
-    elif operation == 'exclusive':
+    elif operation == "exclusive":
         return int(x != y )
-    elif operation == 'equivalence':
+    elif operation == "equivalence":
         return int(x == y)
-    elif operation == 'implication':
+    elif operation == "implication":
         return int(not(x) or y)

@@ -81,7 +81,7 @@ class Solution:
         while L <= H:
             M = (L + H) // 2
             low, mid, high = nums[L], nums[M], nums[H]
-            print('L', L, 'M', M, 'H', H)
+            print("L", L, "M", M, "H", H)
             if L == H:
                 return low == target
             if mid == target:
@@ -104,29 +104,29 @@ class Solution:
 
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     nums = [1]
     target = 1
-    assert Solution().search(nums, target), 'Edge 1'
+    assert Solution().search(nums, target), "Edge 1"
 
     nums = [1, 1]
     target = 1
-    assert Solution().search(nums, target), 'Edge 2'
+    assert Solution().search(nums, target), "Edge 2"
 
     nums = [3, 1]
     target = 0
-    assert not Solution().search(nums, target), 'Edge 3'
+    assert not Solution().search(nums, target), "Edge 3"
 
     nums = [2, 5, 6, 0, 0, 1, 2]
     target = 0
-    assert Solution().search(nums, target), 'Example 1'
+    assert Solution().search(nums, target), "Example 1"
 
     nums = [2, 5, 6, 0, 0, 1, 2]
     target = 3
-    assert not Solution().search(nums, target), 'Example 2'
+    assert not Solution().search(nums, target), "Example 2"
 
     nums = [1, 3, 1, 1, 1]
     target = 3
-    assert Solution().search(nums, target), 'Additional 1'
+    assert Solution().search(nums, target), "Additional 1"
 
-    print('all passed')
+    print("all passed")

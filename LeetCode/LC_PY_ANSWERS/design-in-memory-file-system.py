@@ -25,7 +25,7 @@ class FileSystem(object):
         curr = self.__getNode(path)
 
         if curr.is_file:
-            return [self.__split(path, '/')[-1]]
+            return [self.__split(path, "/")[-1]]
 
         return sorted(curr.children.keys())
 
@@ -60,14 +60,14 @@ class FileSystem(object):
 
     def __getNode(self, path):
         curr = self.__root
-        for s in self.__split(path, '/'):
+        for s in self.__split(path, "/"):
             curr = curr.children[s]
         return curr
 
 
     def __putNode(self, path):
         curr = self.__root
-        for s in self.__split(path, '/'):
+        for s in self.__split(path, "/"):
             if s not in curr.children:
                 curr.children[s] = TrieNode()
             curr = curr.children[s]
@@ -75,6 +75,6 @@ class FileSystem(object):
 
 
     def __split(self, path, delim):
-        if path == '/':
+        if path == "/":
             return []
-        return path.split('/')[1:]
+        return path.split("/")[1:]

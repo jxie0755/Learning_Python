@@ -1,11 +1,11 @@
 test = {
-  'name': 'Attributes',
-  'points': 0,
-  'suites': [
+  "name": "Attributes",
+  "points": 0,
+  "suites": [
     {
-      'cases': [
+      "cases": [
         {
-          'code': r"""
+          "code": r"""
           >>> class Foo:
           ...     a = 10
           ...     def __init__(self, a):
@@ -41,12 +41,12 @@ test = {
           >>> Bar.b
           1
           """,
-          'hidden': False,
-          'locked': False
+          "hidden": False,
+          "locked": False
         }
       ],
-      'scored': False,
-      'type': 'wwpp'
+      "scored": False,
+      "type": "wwpp"
     }
   ]
 }

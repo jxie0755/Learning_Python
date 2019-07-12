@@ -22,7 +22,7 @@ def count(f):
     counted.call_count = 0
     return counted
 
-# if __name__ == '__main__':
+# if __name__ == "__main__":
 #     fib = count(fib)  # Must use the same name
 #     print(fib(20))        # >>> 6765
 #     print(fib.call_count) # >>> 21891
@@ -38,7 +38,7 @@ def memo(f):
         return cache[n]
     return memoized
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     fib = count(fib)
     counted_fib = fib
     fib = memo(fib)
@@ -62,7 +62,7 @@ def count_frames(f):
     counted.max_count = 0
     return counted
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     def fib(n):
         if n == 0 or n == 1:
             return n
@@ -112,7 +112,7 @@ def factors_fast(n):
         total += 1
     return total
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     divides = count(divides)
     print(factors(576))       # >>> 21
     print(divides.call_count) # >>> 576  # O(1)

@@ -33,8 +33,8 @@ def pe_001b(n1, n2, limit):
     return sum_divisible(n1) + sum_divisible(n2) - sum_divisible(n1*n2)
 
 
-if __name__ == '__main__':
-    assert pe_001b(3, 5, 10) == 23, 'below 10'
+if __name__ == "__main__":
+    assert pe_001b(3, 5, 10) == 23, "below 10"
     print(pe_001b(3, 5, 1000))
     # >>> 233168
     # passed

@@ -39,7 +39,7 @@ def trace1(fn):
     fn -- a function of one argument.
     """
     def traced(x):
-        print('Calling', fn, 'on argument', x)
+        print("Calling", fn, "on argument", x)
         return fn(x)
     return traced
 
@@ -78,7 +78,7 @@ print(print(5))
 # None
 
 def delay(arg):
-    print('delayed')
+    print("delayed")
     def g():
         return arg
     return g
@@ -104,20 +104,20 @@ def square(x):
     return x**2
 
 def pirate(arggg):
-    print('matey')
+    print("matey")
     def plunder(arggg):  # not the same arggg as in pirate
         return arggg
     return plunder
 
 print(add(pirate(3)(square)(4), 1))
 # >>>
-# 'matey'  --- from pirate(3)
+# "matey"  --- from pirate(3)
 # 17
 
 # print(pirate(pirate(pirate))(5)(7))
 # >>>
-# 'matey'
-# 'matey'
+# "matey"
+# "matey"
 # error  - cannot call 5 on 7
 
 def horse(mask):

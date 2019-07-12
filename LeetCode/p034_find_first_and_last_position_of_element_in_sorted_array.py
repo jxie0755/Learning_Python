@@ -130,22 +130,22 @@ class Solution:
         return [head, tail]
 
 
-if __name__ == '__main__':
-    assert Solution().searchRange([], 8) == [-1, -1], 'Edge 1'
-    assert Solution().searchRange([8], 8) == [0, 0], 'Edge 2'
-    assert Solution().searchRange([0], 8) == [-1, -1], 'Edge 3'
+if __name__ == "__main__":
+    assert Solution().searchRange([], 8) == [-1, -1], "Edge 1"
+    assert Solution().searchRange([8], 8) == [0, 0], "Edge 2"
+    assert Solution().searchRange([0], 8) == [-1, -1], "Edge 3"
 
-    assert Solution().searchRange([5,7,7,8,8,10], 8) == [3,4], 'Example 1'
-    assert Solution().searchRange([5,7,7,8,8,10], 6) == [-1,-1], 'Example 2'
+    assert Solution().searchRange([5,7,7,8,8,10], 8) == [3,4], "Example 1"
+    assert Solution().searchRange([5,7,7,8,8,10], 6) == [-1,-1], "Example 2"
 
-    assert Solution().searchRange([5,7,7,7,8,10], 8) == [4,4], 'Addtional 1'
-    assert Solution().searchRange([5,7,7,7,8,10], 7) == [1,3], 'Addtional 2'
+    assert Solution().searchRange([5,7,7,7,8,10], 8) == [4,4], "Addtional 1"
+    assert Solution().searchRange([5,7,7,7,8,10], 7) == [1,3], "Addtional 2"
 
-    assert Solution().searchRange([1,4], 4) == [1,1], 'Extra 1'
-    assert Solution().searchRange([1,3], 1) == [0,0], 'Extra 2'
-    assert Solution().searchRange([-3,-2, -1], 0) == [-1,-1], 'Extra 3'
-    assert Solution().searchRange([0,0,2,3,4,4,4,5], 5) == [7,7], 'Extra 4'
-    assert Solution().searchRange([0,0,1,1,1,2,2,3,3,3,4,4,4,4,5,5,6,6,6,8,10,10], 4) == [10, 13], 'Extra 5'
-    assert Solution().searchRange([1,2,3,3,3,3,4,5,9], 3) == [2, 5], 'Extra 6'
+    assert Solution().searchRange([1,4], 4) == [1,1], "Extra 1"
+    assert Solution().searchRange([1,3], 1) == [0,0], "Extra 2"
+    assert Solution().searchRange([-3,-2, -1], 0) == [-1,-1], "Extra 3"
+    assert Solution().searchRange([0,0,2,3,4,4,4,5], 5) == [7,7], "Extra 4"
+    assert Solution().searchRange([0,0,1,1,1,2,2,3,3,3,4,4,4,4,5,5,6,6,6,8,10,10], 4) == [10, 13], "Extra 5"
+    assert Solution().searchRange([1,2,3,3,3,3,4,5,9], 3) == [2, 5], "Extra 6"
 
-    print('all passed')
+    print("all passed")

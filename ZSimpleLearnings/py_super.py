@@ -3,18 +3,18 @@
 # 经典方式
 class A():
     def __init__(self):
-        print('A')
+        print("A")
 
 class B(A):
     def __init__(self):
         A.__init__(self)  # 经典方式直接call父类A的init方法
-        print('B')
+        print("B")
 
 class C(B, A):
     def __init__(self):
         A.__init__(self)
         B.__init__(self)
-        print('C')
+        print("C")
 
 bb = B()
 # >>>
@@ -32,18 +32,18 @@ cc = C()
 print()
 class A(object):
     def __init__(self):
-        print('A')
+        print("A")
 
 class B(A):
     def __init__(self):
         super().__init__()
-        print('B')
+        print("B")
 
 class C(B, A):
     def __init__(self):
         # A.__init__(self)  # 只有补一个A类的init在前面才可以跟上例相同输出结果
         super().__init__()  # 只会寻求第一个父类,这里也就是B类
-        print('C')
+        print("C")
 
 # 采用super()方式时，会自动找到第一个多继承中的下一个类(不是父类!)
 bb = B()
@@ -99,11 +99,11 @@ if __name__ == "__main__":
 # *如果有多个父类，会根据它们在列表中的顺序被检查
 # *如果对下一个类存在两个合法的选择，选择第一个父类
 print(Artist.mro())  # >>>
-# [<class '__main__.Artist'>,
-# <class '__main__.Singer'>,
-# <class '__main__.Actor'>,
-# <class '__main__.Person'>,
-# <class 'object'>]
+# [<class "__main__.Artist">,
+# <class "__main__.Singer">,
+# <class "__main__.Actor">,
+# <class "__main__.Person">,
+# <class "object">]
 
 # 由于python3简写了super(), 实际上是super(class, self), 而这里没有父类子类概念,只搜索class在MRO中的下一个类
 
@@ -131,7 +131,7 @@ class C(A, B):
         print("leave C")
 
 print(C.mro())  # >>>
-# [<class '__main__.C'>, <class '__main__.A'>, <class '__main__.B'>, <class '__main__.Base'>, <class 'object'>]
+# [<class "__main__.C">, <class "__main__.A">, <class "__main__.B">, <class "__main__.Base">, <class "object">]
 c = C()  # >>>
 # enter C
 # enter A

@@ -72,19 +72,19 @@ class Solution:
         return count
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     a = []
-    assert Solution().removeDuplicates(a) == 0, 'Edge 0'
+    assert Solution().removeDuplicates(a) == 0, "Edge 0"
 
     a = [1]
-    assert Solution().removeDuplicates(a) == 1, 'Edge 1'
+    assert Solution().removeDuplicates(a) == 1, "Edge 1"
 
     a = [1, 1, 1, 2, 2, 3]
-    assert Solution().removeDuplicates(a) == 5, 'Example 1'
+    assert Solution().removeDuplicates(a) == 5, "Example 1"
     assert a == [1, 1, 2, 2, 3]
 
     a = [0, 0, 1, 1, 1, 1, 2, 3, 3]
-    assert Solution().removeDuplicates(a) == 7, 'Example 2'
+    assert Solution().removeDuplicates(a) == 7, "Example 2"
     assert a == [0, 0, 1, 1, 2, 3, 3]
 
-    print('all passed')
+    print("all passed")

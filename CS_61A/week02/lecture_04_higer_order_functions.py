@@ -57,7 +57,7 @@ def area_hexagon(r):
 
 def area(r, shape_constant):
     """Return the area of a shape from length measurement R."""
-    assert r > 0, 'A length must be positive'
+    assert r > 0, "A length must be positive"
     return r * r * shape_constant
 
 def area_square(r):

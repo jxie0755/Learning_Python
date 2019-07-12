@@ -47,14 +47,14 @@ class Solution:
 
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
 
     a = genNode([1,2,3,4,5])
     f = Solution().reverseKGroup(a, 2)
-    assert repr(f) == '2->1->4->3->5'
+    assert repr(f) == "2->1->4->3->5"
 
     b = genNode([1,2,3,4,5])
     g = Solution().reverseKGroup(b, 3)
-    assert repr(g) == '3->2->1->4->5'
+    assert repr(g) == "3->2->1->4->5"
 
-    print('all passed')
+    print("all passed")

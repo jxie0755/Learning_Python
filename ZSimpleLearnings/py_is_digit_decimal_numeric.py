@@ -15,8 +15,8 @@ print(num.isnumeric())  # True
 print()
 num = b"1" # byte
 print(num.isdigit())    # True
-# num.isdecimal()  # AttributeError 'bytes' object has no attribute 'isdecimal'
-# num.isnumeric()  # AttributeError 'bytes' object has no attribute 'isnumeric'
+# num.isdecimal()  # AttributeError "bytes" object has no attribute "isdecimal"
+# num.isnumeric()  # AttributeError "bytes" object has no attribute "isnumeric"
 
 print()
 num = "四" # 汉字

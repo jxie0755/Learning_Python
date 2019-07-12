@@ -17,7 +17,7 @@ class Solution:
 
     def singleMaxProfit(self, prices):
         # according to the best method, Denis modified for clearer logic
-        min_price = float('inf')
+        min_price = float("inf")
         profit = 0
         i = 0
         while i != len(prices):
@@ -88,7 +88,7 @@ class Solution:
 
     def singleMaxProfit(self, prices):
         # according to the best method, Denis modified for clearer logic
-        min_price = float('inf')
+        min_price = float("inf")
         profit = 0
         i = 0
         while i != len(prices):
@@ -126,15 +126,15 @@ class Solution:
 
 
 
-if __name__ == '__main__':
-    assert Solution().maxProfit([]) == 0, 'Edge 0'
-    assert Solution().maxProfit([1]) == 0, 'Edge 1'
+if __name__ == "__main__":
+    assert Solution().maxProfit([]) == 0, "Edge 0"
+    assert Solution().maxProfit([1]) == 0, "Edge 1"
 
-    assert Solution().maxProfit([3,3,5,0,0,3,1,4]) == 6, 'Example 1, two transaction'
-    assert Solution().maxProfit([1,2,3,4,5]) == 4, 'Example 2, one transaction'
-    assert Solution().maxProfit([7,6,4,3,1]) == 0, 'Example 3, zero transaction'
+    assert Solution().maxProfit([3,3,5,0,0,3,1,4]) == 6, "Example 1, two transaction"
+    assert Solution().maxProfit([1,2,3,4,5]) == 4, "Example 2, one transaction"
+    assert Solution().maxProfit([7,6,4,3,1]) == 0, "Example 3, zero transaction"
 
-    assert Solution().maxProfit([1,11,1,2,3,2,3,4,3,4,5]) == 14, 'Additional 1'
-    assert Solution().maxProfit([5,6,1,4,2,6]) == 7, 'Additional 2'
+    assert Solution().maxProfit([1,11,1,2,3,2,3,4,3,4,5]) == 14, "Additional 1"
+    assert Solution().maxProfit([5,6,1,4,2,6]) == 7, "Additional 2"
 
-    print('all passed')
+    print("all passed")

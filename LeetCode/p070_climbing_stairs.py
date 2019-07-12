@@ -34,8 +34,8 @@ class Solution:
     # 而另一种方式则是走到n-2,跳过n-1直接到n,也是只有一种方法(跳两步),所以有多少走到n-2的方法就有多少种从这里跳两步到n.
     # 所以结果就是 x + y, 本质上就是斐波那契数列
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     assert Solution().climbStairs(2) == 2
     assert Solution().climbStairs(3) == 3
     assert Solution().climbStairs(7) == 21
-    print('passed')
+    print("passed")

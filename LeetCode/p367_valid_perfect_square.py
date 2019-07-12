@@ -36,10 +36,10 @@ class Solution(object):
 
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
 
-    assert Solution().isPerfectSquare(1), 'Edge 1'
-    assert Solution().isPerfectSquare(16), 'Example 1'
-    assert not Solution().isPerfectSquare(14), 'Example 2'
-    assert not Solution().isPerfectSquare(2147483647), 'Long'
-    print('all passed')
+    assert Solution().isPerfectSquare(1), "Edge 1"
+    assert Solution().isPerfectSquare(16), "Example 1"
+    assert not Solution().isPerfectSquare(14), "Example 2"
+    assert not Solution().isPerfectSquare(2147483647), "Long"
+    print("all passed")

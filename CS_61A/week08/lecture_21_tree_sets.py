@@ -13,19 +13,19 @@ class Tree:
 
     def __repr__(self):
         if self.branches:
-            branch_str = ', ' + repr(self.branches)
+            branch_str = ", " + repr(self.branches)
         else:
-            branch_str = ''
-        return 'Tree({0}{1})'.format(self.label, branch_str)
+            branch_str = ""
+        return "Tree({0}{1})".format(self.label, branch_str)
 
     def __str__(self):
-        return '\n'.join(self.indented())
+        return "\n".join(self.indented())
 
     def indented(self, k=0):
         indented = []
         for b in self.branches:
             for line in b.indented(k + 1):
-                indented.append('  ' + line)
+                indented.append("  " + line)
         return [str(self.label)] + indented
 
     def is_leaf(self):
@@ -66,15 +66,15 @@ class BTree(Tree):
 
     def __repr__(self):
         if self.is_leaf():
-            return 'BTree({0})'.format(self.label)
+            return "BTree({0})".format(self.label)
         elif self.right is BTree.empty:
             left = repr(self.left)
-            return 'BTree({0}, {1})'.format(self.label, left)
+            return "BTree({0}, {1})".format(self.label, left)
         else:
             left, right = repr(self.left), repr(self.right)
             if self.left is BTree.empty:
-                left = 'BTree.empty'
-            template = 'BTree({0}, {1}, {2})'
+                left = "BTree.empty"
+            template = "BTree({0}, {1}, {2})"
             return template.format(self.label, left, right)
 
 def fib_tree(n):

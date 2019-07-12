@@ -17,7 +17,7 @@ class Chessboard(object):
         An empty checkerboard -
         the structure should be a nested list of n lists where each list contain n spots, default to filled with 0
         """
-        assert n > 1, 'n must be larger than 1'
+        assert n > 1, "n must be larger than 1"
         self.size = n
 
         self.board = []
@@ -38,24 +38,24 @@ class Chessboard(object):
         also add a coordinate axis for easier read
         """
 
-        to_print = ''
+        to_print = ""
         y_num = self.size  # 根据棋盘大小输出
         y_num_1 = y_num
         nums = str(list(range(1,self.size+1)))[1:-1]
-        x_num = '    ' + nums
-        separ = '    ' + len(nums) * '-'
+        x_num = "    " + nums
+        separ = "    " + len(nums) * "-"
 
         for i in self.board:
             row = str(i)
             y1 = str(y_num)
             y2 = str(y_num_1)
             add_on = (len(y1) - len(y2))
-            to_print += str(y_num_1) + add_on * ' ' + '  ' + row + '\n'
+            to_print += str(y_num_1) + add_on * " " + "  " + row + "\n"
             y_num_1 -= 1
 
-        separ = add_on * ' ' + separ
-        x_num = add_on * ' ' + x_num
-        to_print += separ + '\n' + x_num
+        separ = add_on * " " + separ
+        x_num = add_on * " " + x_num
+        to_print += separ + "\n" + x_num
         return to_print
 
 
@@ -166,7 +166,7 @@ class Chessboard(object):
                     level -= 1
                 else:
                     running = False
-                    print('Analysis Finished')
+                    print("Analysis Finished")
 
             elif level == self.size:
                 if self.all_available[level]:
@@ -184,11 +184,11 @@ class Chessboard(object):
         for answer in self.result:
             print(answer)
         solution_number = len(t.result)
-        print('Total solution number:')
+        print("Total solution number:")
         return solution_number
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     # Check 5 queens
     t = Chessboard(5)
     t.queen_solve()

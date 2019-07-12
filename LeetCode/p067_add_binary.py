@@ -12,7 +12,7 @@
 class Solution:
     def addBinary(self, a, b):
         # use python characteristics
-        return '{:b}'.format(int(a, 2) + int(b, 2))
+        return "{:b}".format(int(a, 2) + int(b, 2))
 
     def addBinary(self, a, b):
         # avoid python characteristics
@@ -21,17 +21,17 @@ class Solution:
 
         def deci_to_bi(target):
             if target:
-                ans = ''
+                ans = ""
                 while target != 0:
                     target, digit = divmod(target, 2)
                     ans = str(digit) + ans
                 return ans
-            return '0'
+            return "0"
 
         return deci_to_bi(bi_to_deci(a) + bi_to_deci(b))
 
 
-if __name__ == '__main__':
-    assert Solution().addBinary('11', '1') == '100', 'regular'
-    assert Solution().addBinary('0', '0') == '0', 'zero'
-    print('all passed')
+if __name__ == "__main__":
+    assert Solution().addBinary("11", "1") == "100", "regular"
+    assert Solution().addBinary("0", "0") == "0", "zero"
+    print("all passed")

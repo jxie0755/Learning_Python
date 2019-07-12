@@ -4,4 +4,4 @@ mymodule = __import__("10_module4")
 
 mymodule.say_hi()
 
-print('Version', __version__)
+print("Version", __version__)

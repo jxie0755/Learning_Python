@@ -10,8 +10,8 @@ class Car(object):
         self.tank = Tank(self.makeC, self.modelC)
 
     def get_car_info(self):
-        long_name = self.makeC + ' ' + self.modelC
-        print('The car is', long_name)
+        long_name = self.makeC + " " + self.modelC
+        print("The car is", long_name)
 
 # 要注意这里的make和model分别是跟的那个类里的make和model
 # 这里生成Tank()实例时,引用的是Car实例的makeC和modelC作为参数
@@ -19,14 +19,14 @@ class Car(object):
 
 class Tank(object):
     # This is a better way, because the data of mapping should be in the Tank
-    car_tank_sizes = {'Audi': {'A4': 20, 'A6': 25, 'A8': 30},
-                      'BMW': {'Series 3': 21, 'Series 5': 26, 'Series 7': 31}}
+    car_tank_sizes = {"Audi": {"A4": 20, "A6": 25, "A8": 30},
+                      "BMW": {"Series 3": 21, "Series 5": 26, "Series 7": 31}}
                       # attributes does not need to be in __init__()
 
     def __init__(self, makeT, modelT):
         self.tank_size = Tank.car_tank_sizes.get(makeT, {}).get(modelT)
 
-        # self.tank_size = Tank.car_tank_sizes[f'{makeT}'][f'{modelT}']
+        # self.tank_size = Tank.car_tank_sizes[f"{makeT}"][f"{modelT}"]
         # 这样虽然可以实现,如果出现读取内置mapping之外的数据,则会引发KeyError, 除非引入try,except写法
 
         # from operator import itemgetter
@@ -35,19 +35,19 @@ class Tank(object):
 
     def tank_info(self):
         if self.tank_size == None:  # 设置一个if条件,避免意外
-            print('We don\'t have information for this car')
+            print("We don\"t have information for this car')
         else:
-            print('The tank size is', self.tank_size, 'gallons')
+            print("The tank size is", self.tank_size, "gallons")
 
 
-my_car1 = Car('Audi', 'A6')
+my_car1 = Car("Audi", "A6")
 my_car1.get_car_info()
 my_car1.tank.tank_info()
 
-my_car2 = Car('BMW', 'Series 5')
+my_car2 = Car("BMW", "Series 5")
 my_car2.get_car_info()
 my_car2.tank.tank_info()
 
-my_car3 = Car('Mercedez', 'Series E')  # get()函数引发None
+my_car3 = Car("Mercedez", "Series E")  # get()函数引发None
 my_car3.get_car_info()
 my_car3.tank.tank_info()

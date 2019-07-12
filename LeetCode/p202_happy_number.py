@@ -34,6 +34,6 @@ class Solution:
 
         return n == 1
 
-if __name__ == '__main__':
-    assert Solution().isHappy(19) is True, 'Example 1'
-    print('all passed')
+if __name__ == "__main__":
+    assert Solution().isHappy(19) is True, "Example 1"
+    print("all passed")

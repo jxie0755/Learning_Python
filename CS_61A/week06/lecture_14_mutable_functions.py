@@ -7,7 +7,7 @@ def make_withdraw(balance):
         # nonlocal is to change the variable in mother frame from sub-frame.
 
         if amount > balance: # this is ok, because it is not value-binding, so it look a frame above
-            return 'Insufficient funds'
+            return "Insufficient funds"
 
         balance = balance - amount  # re-bind value of balance
         # without non-local, this value binding action will look for balance in this frame, and it won't find any.
@@ -15,7 +15,7 @@ def make_withdraw(balance):
         return balance
     return withdraw
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     w = make_withdraw(100)
     print(w(10))
 
@@ -25,7 +25,7 @@ def make_withdraw_list(balance):
 
     def withdraw(amount):
         if amount > b[0]:
-            return 'Insufficient funds'
+            return "Insufficient funds"
         b[0] = b[0] - amount
         # b can change because it is a mutable data value.
         # it is not a value-binding, because we are merely referring to b, not changing what it is bound to.
@@ -46,7 +46,7 @@ def f(x):
             return x + y + z
         return h
     return g
-if __name__ == '__main__':
+if __name__ == "__main__":
     a = f(1)  # x = 1, but then x = 4
     b = a(2)  # y = 2
     print(b(3) + b(4)) # z = 3 and z = 4

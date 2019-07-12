@@ -4,12 +4,12 @@
 
 def verify_anagrams(first_word, second_word):
     def word_breakdown(word):
-        return sorted(word.lower().replace(' ', ''))
+        return sorted(word.lower().replace(" ", ""))
     return word_breakdown(first_word) == word_breakdown(second_word)
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     #These "asserts" using only for self-checking and not necessary for auto-testing
-    assert isinstance(verify_anagrams("a", 'z'), bool), "Boolean!"
+    assert isinstance(verify_anagrams("a", "z"), bool), "Boolean!"
     assert verify_anagrams("Programming", "Gram Ring Mop") == True, "Gram of code"
     assert verify_anagrams("Hello", "Ole Oh") == False, "Hello! Ole Oh!"
     assert verify_anagrams("Kyoto", "Tokyo") == True, "The global warming crisis of 3002"
@@ -18,5 +18,5 @@ if __name__ == '__main__':
 import re
 def verify_anagrams(first_word, second_word):
     def word_breakdown(word):
-        return sorted(''.join(re.findall("[a-z]+", word.lower())))
+        return sorted("".join(re.findall("[a-z]+", word.lower())))
     return word_breakdown(first_word) == word_breakdown(second_word)

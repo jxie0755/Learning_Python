@@ -14,4 +14,4 @@ class Solution(object):
                 result.pop()
                 k -= 1
             result.append(d)
-        return ''.join(result).lstrip('0')[:-k or None] or '0'
+        return "".join(result).lstrip("0")[:-k or None] or "0"

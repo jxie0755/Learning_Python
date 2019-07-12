@@ -10,7 +10,7 @@ def checkio(matrix):
                 return False
     return True
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     assert checkio([
         [0, 1, 2],
         [-1, 0, 1],
@@ -23,4 +23,4 @@ if __name__ == '__main__':
         [0, 1, 2],
         [-1, 0, 1],
         [-3, -1, 0]]) == False, "3rd example"
-    print('done')
+    print("done")

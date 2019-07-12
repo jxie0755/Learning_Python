@@ -17,7 +17,7 @@ from random import randint
 
 def make_fair_dice(sides):
     """Return a die that returns 1 to SIDES with equal chance."""
-    assert type(sides) == int and sides >= 1, 'Illegal value for sides'
+    assert type(sides) == int and sides >= 1, "Illegal value for sides"
     def dice():
         return randint(1,sides)
     return dice
@@ -43,9 +43,9 @@ def make_test_dice(*outcomes):
     This function uses Python syntax/techniques not yet covered in this course.
     The best way to understand it is by reading the documentation and examples.
     """
-    assert len(outcomes) > 0, 'You must supply outcomes to make_test_dice'
+    assert len(outcomes) > 0, "You must supply outcomes to make_test_dice"
     for o in outcomes:
-        assert type(o) == int and o >= 1, 'Outcome is not a positive integer'
+        assert type(o) == int and o >= 1, "Outcome is not a positive integer"
     index = len(outcomes) - 1
     def dice():
         nonlocal index

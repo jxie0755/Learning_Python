@@ -24,7 +24,7 @@ def send_request(request_data : Any,
 def test2(self, a: typing.List[str],
                     b: typing.List[str],
                     c: typing.Dict[int, str]) -> typing.Dict[str, str]:
-    return {a[1]: "a1", b[2]: "b2", c[3]: 'c3'}
+    return {a[1]: "a1", b[2]: "b2", c[3]: "c3"}
 
 
 # request_data可以是任何数据

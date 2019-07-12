@@ -29,7 +29,7 @@ class UnionFind(object):
 
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     Q1 = UnionFind(10)
     Q1.union(4, 3)
     Q1.union(3, 8)
@@ -89,7 +89,7 @@ class UnionFindWeighted(object):
                 if self.mx[rt_p] > self.mx[rt_q]:
                     self.mx[rt_q] = self.mx[rt_p]
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     Q2 = UnionFindWeighted(10)
     Q2.union(4, 3)
     Q2.union(3, 8)
@@ -155,7 +155,7 @@ class UnionFindWeightedPathCompressed(object):
                 if self.mx[rt_p] > self.mx[rt_q]:
                     self.mx[rt_q] = self.mx[rt_p]
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     Q3 = UnionFindWeightedPathCompressed(10)
     Q3.union(4, 3)
     Q3.union(3, 8)

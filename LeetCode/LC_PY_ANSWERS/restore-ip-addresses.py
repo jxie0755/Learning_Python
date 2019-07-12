@@ -19,11 +19,11 @@ class Solution(object):
         else:
             for i in xrange(start, start + 3):
                 if len(s) > i and self.isValid(s[start:i + 1]):
-                    current += s[start:i + 1] + '.'
+                    current += s[start:i + 1] + "."
                     self.restoreIpAddressesRecur(result, s, i + 1, current, dots + 1)
                     current = current[:-(i - start + 2)]
 
     def isValid(self, s):
-        if len(s) == 0 or (s[0] == '0' and s != "0"):
+        if len(s) == 0 or (s[0] == "0" and s != "0"):
             return False
         return int(s) < 256

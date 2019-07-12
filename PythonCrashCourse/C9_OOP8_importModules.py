@@ -8,20 +8,20 @@ from collections import OrderedDict
 favorite_languages = OrderedDict()
 favorite_languages2 = {}
 
-favorite_languages['jen'] = 'python'
-favorite_languages['sarah'] = 'c'
-favorite_languages['edward'] = 'ruby'
-favorite_languages['phil'] = 'python'
+favorite_languages["jen"] = "python"
+favorite_languages["sarah"] = "c"
+favorite_languages["edward"] = "ruby"
+favorite_languages["phil"] = "python"
 
 for name, language in favorite_languages.items():
     print(name.title() + "'s favorite language is " + language.title() + ".")
 
 print()
 
-favorite_languages2['jen'] = 'python'
-favorite_languages2['sarah'] = 'c'
-favorite_languages2['edward'] = 'ruby'
-favorite_languages2['phil'] = 'python'
+favorite_languages2["jen"] = "python"
+favorite_languages2["sarah"] = "c"
+favorite_languages2["edward"] = "ruby"
+favorite_languages2["phil"] = "python"
 
 for name, language in favorite_languages2.items():
     print(name.title() + "'s favorite language is " + language.title() + ".")

@@ -58,7 +58,7 @@ class Solution:
 
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     A = None
     assert not Solution().hasPathSum(A, 0), "Edge 0"
 
@@ -73,4 +73,4 @@ if __name__ == '__main__':
     ])
     assert Solution().hasPathSum(A, 22), "Example 1"
 
-    print('All passed')
+    print("All passed")

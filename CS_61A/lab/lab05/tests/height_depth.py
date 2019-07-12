@@ -1,18 +1,18 @@
 test = {
-  'name': 'Tree Height & Depth',
-  'points': 0,
-  'suites': [
+  "name": "Tree Height & Depth",
+  "points": 0,
+  "suites": [
     {
-      'cases': [
+      "cases": [
         {
-          'answer': '3',
-          'choices': [
-            '2',
-            '3',
-            '4',
-            '5'
+          "answer": "3",
+          "choices": [
+            "2",
+            "3",
+            "4",
+            "5"
           ],
-          'question': r"""
+          "question": r"""
           What is the height of this tree?
                7
              / | \
@@ -24,14 +24,14 @@ test = {
           """
         },
         {
-          'answer': '2',
-          'choices': [
-            '2',
-            '3',
-            '4',
-            '5'
+          "answer": "2",
+          "choices": [
+            "2",
+            "3",
+            "4",
+            "5"
           ],
-          'question': r"""
+          "question": r"""
           What is the depth of the node containing 3?
                7
              / | \
@@ -43,8 +43,8 @@ test = {
           """
         }
       ],
-      'scored': False,
-      'type': 'concept'
+      "scored": False,
+      "type": "concept"
     }
   ]
 }

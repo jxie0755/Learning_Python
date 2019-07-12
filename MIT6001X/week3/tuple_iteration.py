@@ -2,7 +2,7 @@
 
 # this is a function to get data from a tuple that contains a lot of sub-tuples
 
-aTuple = (('a', 1), ('b', 2), ('c', 3), ('d', 4), ('d', 5))
+aTuple = (("a", 1), ("b", 2), ("c", 3), ("d", 4), ("d", 5))
 
 
 def get_data(atuple):

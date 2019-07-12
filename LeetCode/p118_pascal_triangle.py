@@ -55,7 +55,7 @@ class Solution:
 
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
 
     assert Solution().generate(5) ==[
         [1],
@@ -73,4 +73,4 @@ if __name__ == '__main__':
         [1, 4, 6, 4, 1]
     ]
 
-    print('all passed')
+    print("all passed")

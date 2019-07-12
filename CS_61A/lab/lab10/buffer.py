@@ -4,11 +4,11 @@ class Buffer:
     The Buffer supplies elements from source one at a time through its remove_front()
     method. In addition, Buffer provides a current() method to look at the
     next item to be supplied, without moving past it.
-    >>> buf = Buffer(['(', '+', 15, 12, ')'])
+    >>> buf = Buffer(["(", "+", 15, 12, ")"])
     >>> buf.remove_front()
-    '('
+    "("
     >>> buf.remove_front()
-    '+'
+    "+"
     >>> buf.current()
     15
     >>> buf.remove_front()
@@ -18,7 +18,7 @@ class Buffer:
     >>> buf.remove_front()
     12
     >>> buf.remove_front()
-    ')'
+    ")"
     >>> buf.remove_front()  # returns None
     """
     def __init__(self, source):
@@ -42,7 +42,7 @@ class Buffer:
     def expect(self, expected):
         actual = self.remove_front()
         if expected != actual:
-            raise SyntaxError("expected '{}' but got '{}'".format(expected, actual))
+            raise SyntaxError("expected "{}" but got "{}"".format(expected, actual))
         else:
             return actual
 

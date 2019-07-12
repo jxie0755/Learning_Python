@@ -2,8 +2,8 @@
 # 继续使用Car的例子,在下面创建一个electric car的子类
 
 class Car(object):
-    '''car information summary'''
-    def __init__(self, make, model, year, type='sedan', tank=35):
+    """car information summary"""
+    def __init__(self, make, model, year, type="sedan", tank=35):
         self.make = make
         self.model = model
         self.year = year
@@ -12,30 +12,30 @@ class Car(object):
         self.tank_size = tank
 
     def get_car_info(self):
-        description = str(self.year) + ' ' + self.make + ' ' + self.model + ' ' + self.type
+        description = str(self.year) + " " + self.make + " " + self.model + " " + self.type
         return description
 
     def read_odometer(self):
-        print('The car has been driven: ' + str(self.odometer) + ' miles')
+        print("The car has been driven: " + str(self.odometer) + " miles")
         return self.odometer
 
     def update_odometer(self, mileage):
         if mileage > self.odometer:
             self.odometer = mileage
         else:
-            print('you can\'t roll an odometer back!')
+            print("you can\"t roll an odometer back!')
         return Car.read_odometer(self)
 
     def increment_odometer(self, add_mileage):
         if add_mileage > 0:
             self.odometer += add_mileage
-            print(add_mileage, 'miles has been added to the odometer')
+            print(add_mileage, "miles has been added to the odometer")
         else:
-            print('what are you trying to do? \nYou think I am stupid?')
+            print("what are you trying to do? \nYou think I am stupid?")
 
     def fill_tank(self, volume):
         if volume <= self.tank_size:
-            print('Fill up the gas', volume, 'gallons')
+            print("Fill up the gas", volume, "gallons")
         else:
             print("You can't fill up the tank more than it can take!")
 
@@ -45,7 +45,7 @@ class Car(object):
 
 class ElectricCar(Car):  # 创建子类的方法是创建时参数填写父类的名字
     # 添加一个电动车独有的属性,电瓶容量(battery_size)
-    def __init__(self, make, model, year, type='sports car', battery_size=50):  # 此处设置新默认值,而不是继承超类
+    def __init__(self, make, model, year, type="sports car", battery_size=50):  # 此处设置新默认值,而不是继承超类
         #  添加ECar的init有一个battery属性,设置默认值为50
 
         super().__init__(make, model, year, type)  # super()用于继承
@@ -58,12 +58,12 @@ class ElectricCar(Car):  # 创建子类的方法是创建时参数填写父类�
 
     # special attributes
     def battery(self):
-        print('battery size is ' + str(self.battery_size))
+        print("battery size is " + str(self.battery_size))
         return self.battery_size
 
     # 如果父类的方法对于子类不再合适,那么可以进行重写来覆盖
     def fill_tank(self, volume):
-        print('Electric car does not have a gas tank!')
+        print("Electric car does not have a gas tank!")
         # 以上方法如果被删除,则会转而执行父类的相同名称的方法
 
 # 关于默认属性的设置 -
@@ -74,7 +74,7 @@ class ElectricCar(Car):  # 创建子类的方法是创建时参数填写父类�
 # 这样做好处就是,在创造实例时,不需要输入一个固定的,重复的参数.
 
 
-my_car = Car('Audi', 'S4', 2016)
+my_car = Car("Audi", "S4", 2016)
 print(my_car.get_car_info())
 
 print(my_car.read_odometer())
@@ -87,7 +87,7 @@ my_car.fill_tank(32)
 
 print()
 
-my_tesla = ElectricCar('Tesla', 'Model S', 2017)
+my_tesla = ElectricCar("Tesla", "Model S", 2017)
 print(my_tesla.get_car_info())
 
 print(my_tesla.read_odometer())

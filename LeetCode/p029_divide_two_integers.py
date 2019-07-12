@@ -18,7 +18,7 @@
 class Solution:
     # Time:  O(logn) = O(1)
     # Space: O(1)
-    def divide(self, dividend: 'int', divisor: 'int') -> 'int':
+    def divide(self, dividend: "int", divisor: "int") -> "int":
 
         def manual_divide(mom, son):
             """Mom and Son are both non-negative integers"""
@@ -92,7 +92,7 @@ class Solution(object):
         return min(max(-2147483648, res), 2147483647)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     assert Solution().divide(10, 0) == None, "Edge1"
     assert Solution().divide(1, 3) == 0, "Edge 2"
 

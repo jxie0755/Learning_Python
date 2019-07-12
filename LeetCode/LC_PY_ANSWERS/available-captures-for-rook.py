@@ -14,7 +14,7 @@ class Solution(object):
             if r is not None:
                 break
             for j in xrange(8):
-                if board[i][j] == 'R':
+                if board[i][j] == "R":
                     r, c = i, j
                     break
 
@@ -22,9 +22,9 @@ class Solution(object):
         for d in directions:
             nr, nc = r+d[0], c+d[1]
             while 0 <= nr < 8 and 0 <= nc < 8:
-                if board[nr][nc] == 'p':
+                if board[nr][nc] == "p":
                     result += 1
-                if board[nr][nc] != '.':
+                if board[nr][nc] != ".":
                     break
                 nr, nc= nr+d[0], nc+d[1]
         return result

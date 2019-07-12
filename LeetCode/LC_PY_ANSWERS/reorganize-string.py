@@ -26,4 +26,4 @@ class Solution(object):
                 result.extend([c1, c2])
                 if count1+1: heapq.heappush(max_heap, (count1+1, c1))
                 if count2+1: heapq.heappush(max_heap, (count2+1, c2))
-        return "".join(result) + (max_heap[0][1] if max_heap else '')
+        return "".join(result) + (max_heap[0][1] if max_heap else "")

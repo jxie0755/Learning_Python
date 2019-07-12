@@ -47,7 +47,7 @@ class Quicksort:
     def raw_sort(self, array, lo, hi):
         if hi > lo:
             j = self.partition(array, lo, hi)
-            print('lo', lo, 'hi', hi, "j", j)
+            print("lo", lo, "hi", hi, "j", j)
             print(array)
             self.raw_sort(array, lo, j - 1)
             self.raw_sort(array, j + 1, hi)
@@ -58,6 +58,6 @@ class Quicksort:
         self.raw_sort(array, 0, len(array) - 1)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     b = [5, 1, 4, 2, 3, 3, 2, 4, 1, 5]
     Quicksort().sort(b)

@@ -5,19 +5,19 @@
 # 更新密码本 函数化
 
 def update_passbook():
-    with open('USER.txt', 'a') as f_obj:
-        f_obj.write(str(new_user_name) + '\n')
-    with open('SN.txt', 'a') as f_obj:
-        f_obj.write(str(new_password) + '\n')
+    with open("USER.txt", "a") as f_obj:
+        f_obj.write(str(new_user_name) + "\n")
+    with open("SN.txt", "a") as f_obj:
+        f_obj.write(str(new_password) + "\n")
 
 
 # 读取密码本 函数化
 
 def read_passbook():
     """read the passbook from USER and SN file, create a dict"""
-    with open('data/USER.txt', 'r') as f_obj:
+    with open("data/USER.txt", "r") as f_obj:
         listK = f_obj.readlines()
-    with open('data/SN.txt', 'r') as f_obj:
+    with open("data/SN.txt", "r") as f_obj:
         listV = f_obj.readlines()
 
     # 读取内容剥离转义符号, 写入两个list

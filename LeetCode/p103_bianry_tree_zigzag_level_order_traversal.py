@@ -47,19 +47,19 @@ class Solution:
 
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     A = None
-    assert Solution().zigzagLevelOrder(A) == [], 'Edge 0'
+    assert Solution().zigzagLevelOrder(A) == [], "Edge 0"
 
     A = genTree([1])
-    assert Solution().zigzagLevelOrder(A) == [[1]], 'Edge 1'
+    assert Solution().zigzagLevelOrder(A) == [[1]], "Edge 1"
 
     A = genTree([3, 9, 20, None, None, 15, 7])
     assert Solution().zigzagLevelOrder(A) == [
         [3],
         [20, 9],
         [15, 7],
-    ], 'Example 1'
+    ], "Example 1"
 
     A = genTree([
         0,
@@ -72,6 +72,6 @@ if __name__ == '__main__':
         [4, 2],
         [1, 3, -1],
         [8, 6, 1, 5],
-    ], 'Additional'
+    ], "Additional"
 
-    print('All passed')
+    print("All passed")

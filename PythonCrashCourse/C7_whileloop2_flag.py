@@ -5,7 +5,7 @@ active = True # set a flag
 while active:
     message = input(prompt)
 
-    if message == 'quit':
+    if message == "quit":
         active = False
 
     else:

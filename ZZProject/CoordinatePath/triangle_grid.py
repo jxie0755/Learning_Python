@@ -63,17 +63,17 @@ def find_triangle_paths(T):
     # 打印数值路径和路径总数
     for i in path_in_value:
         print(i)
-    print('total path number', len(path_in_value))
+    print("total path number", len(path_in_value))
 
     # 对每条路径求和然后找出最大值
-    print('max sum comes from', max(path_in_value, key=sum))
-    print('max sum is', sum(max(path_in_value, key=sum)))
+    print("max sum comes from", max(path_in_value, key=sum))
+    print("max sum is", sum(max(path_in_value, key=sum)))
     # return sum(max(path_in_value, key=sum))
 
 
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     grid_1 = [
     [1],
     [1,2],

@@ -51,24 +51,24 @@ class Solution(object):
 
         return sumOfLeftLeavesHelper(root, False)
 
-if __name__ == '__main__':
+if __name__ == "__main__":
 
-    assert Solution().sumOfLeftLeaves(None) == 0, 'Edge 0'
+    assert Solution().sumOfLeftLeaves(None) == 0, "Edge 0"
 
-    assert Solution().sumOfLeftLeaves(TreeNode(5)) == 0, 'Edge root'
+    assert Solution().sumOfLeftLeaves(TreeNode(5)) == 0, "Edge root"
 
     A = genTree([
         3,
         9, 20,
         None,None,15,7
     ])
-    assert Solution().sumOfLeftLeaves(A) == 24, 'Example 1'
+    assert Solution().sumOfLeftLeaves(A) == 24, "Example 1"
 
     A = genTree([
         1,
         2,None
     ])
-    assert Solution().sumOfLeftLeaves(A) == 2, 'Example 2'
+    assert Solution().sumOfLeftLeaves(A) == 2, "Example 2"
 
     A = genTree([
         0,
@@ -76,6 +76,6 @@ if __name__ == '__main__':
         1,None,3, -1,
         5,1,None,None,None,6,None,8
     ])
-    assert Solution().sumOfLeftLeaves(A) == 5, 'Example 3'
+    assert Solution().sumOfLeftLeaves(A) == 5, "Example 3"
 
-    print('all passed')
+    print("all passed")

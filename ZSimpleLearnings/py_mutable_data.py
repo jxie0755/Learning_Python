@@ -1,8 +1,8 @@
 # learn mutable data
 
-# '==' and 'is'
-# '==' evaluates the value
-# 'is' evaluates the identity
+# "==" and "is"
+# "==" evaluates the value
+# "is" evaluates the identity
 a = [10]
 b = [10]
 print(a == b) # >>> True

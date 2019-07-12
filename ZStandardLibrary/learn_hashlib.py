@@ -15,7 +15,7 @@
 
 # 有没有可能两个不同的数据通过某个摘要算法得到了相同的摘要？
     # 完全有可能，因为任何摘要算法都是把无限多的数据集合映射到一个有限的集合中。
-    # 这种情况称为碰撞，比如Bob试图根据你的摘要反推出一篇文章'how to learn hashlib in python - by Bob'，
+    # 这种情况称为碰撞，比如Bob试图根据你的摘要反推出一篇文章"how to learn hashlib in python - by Bob"，
     # 并且这篇文章的摘要恰好和你的文章完全一致，这种情况也并非不可能出现，但是非常非常困难
 
 
@@ -42,14 +42,14 @@ import hashlib
 
 # MD5值
 
-sample_1 = hashlib.md5('how to use md5 in python by hashlib'.encode('utf-8'))
+sample_1 = hashlib.md5("how to use md5 in python by hashlib".encode("utf-8"))
 print(sample_1.hexdigest())
 # >>> 69b674445d8489746e79a91e671d06b9
 
 # 可以分段计算
 sample_2 = hashlib.md5()
-sample_2.update('how to use md5 in '.encode('utf-8'))
-sample_2.update('python by hashlib'.encode('utf-8'))
+sample_2.update("how to use md5 in ".encode("utf-8"))
+sample_2.update("python by hashlib".encode("utf-8"))
 print(sample_1.hexdigest() == sample_2.hexdigest())
 
 

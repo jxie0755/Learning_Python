@@ -13,7 +13,7 @@ class Solution(object):
         :rtype: str
         """
         ball, hole = tuple(ball), tuple(hole)
-        dirs = {'u' : (-1, 0), 'r' : (0, 1), 'l' : (0, -1), 'd': (1, 0)}
+        dirs = {"u" : (-1, 0), "r" : (0, 1), "l" : (0, -1), "d": (1, 0)}
 
         def neighbors(maze, node):
             for dir, vec in dirs.iteritems():
@@ -28,7 +28,7 @@ class Solution(object):
                         break
                 yield tuple(cur_node), dir, dist
 
-        heap = [(0, '', ball)]
+        heap = [(0, "", ball)]
         visited = set()
         while heap:
             dist, path, node = heapq.heappop(heap)

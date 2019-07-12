@@ -4,14 +4,14 @@
 # 在Python中，读写文件这样的资源要特别注意，必须在使用完毕后正确关闭它们。
 # 正确关闭文件资源的一个方法是使用try...finally
 try:
-    f = open('./temp/2.txt', 'r')
+    f = open("./temp/2.txt", "r")
     f.read()
 finally:
     if f:
         f.close()
 
 # Python的with语句允许我们非常方便地使用资源，而不必担心资源没有关闭，所以上面的代码可以简化为
-with open('./temp/2.txt', 'r') as f:
+with open("./temp/2.txt", "r") as f:
     f.read()
 
 
@@ -25,20 +25,20 @@ class Query(object):
         self.name = name
 
     def __enter__(self):
-        print('Begin')
+        print("Begin")
         return self
     def __exit__(self, exc_type, exc_value, traceback):  # 出现异常
         if exc_type:
-            print('Error')
+            print("Error")
         else:
-            print('End')
+            print("End")
 
     def query(self):
-        print(f'Query info about {self.name}')
+        print(f"Query info about {self.name}")
     def foo(self):
         raise FileNotFoundError
 
-with Query('Denis') as q:
+with Query("Denis") as q:
     q.query()
 
 
@@ -52,19 +52,19 @@ class Query(object):
         self.name = name
 
     def query(self):
-        print(f'Query info about {self.name}')
+        print(f"Query info about {self.name}")
 
 @contextmanager
 # 这个decorator接受一个generator
 # 用yield语句把with ... as var把变量输出出去
 # 然后，with语句就可以正常地工作了
 def create_query(name):
-    print('Begin')
+    print("Begin")
     q = Query(name)
     yield q
-    print('End')
+    print("End")
 
-with create_query('Cindy') as qq:
+with create_query("Cindy") as qq:
     qq.query()
 
 # 多时候，我们希望在某段代码执行前后自动执行特定代码，也可以用@contextmanager实现
@@ -94,7 +94,7 @@ with tag("h1"):
 from contextlib import closing
 from urllib.request import urlopen
 
-with closing(urlopen('https://www.python.org')) as page:
+with closing(urlopen("https://www.python.org")) as page:
     for line in page:
         print(line)
 

@@ -69,9 +69,9 @@ def rational(n, d):
     g = gcd(n, d)
     n, d = n//g, d//g
     def select(name):
-        if name == 'n':
+        if name == "n":
             return n
-        elif name == 'd':
+        elif name == "d":
             return d
     return select
 # in this way, the rational number becomes a function instead of a two-element list
@@ -80,8 +80,8 @@ def rational(n, d):
 def numer(x):
     """Return the numerator of rational number X in lowest terms and having
     the sign of X."""
-    return x('n')
+    return x("n")
 
 def denom(x):
     """Return the denominator of rational number X in lowest terms and positive."""
-    return x('d')
+    return x("d")

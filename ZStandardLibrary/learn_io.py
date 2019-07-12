@@ -8,10 +8,10 @@ from io import StringIO
 
 # 写入StringIO
 f = StringIO()
-print(f.write('hello'))   # write返回写了几个字符
+print(f.write("hello"))   # write返回写了几个字符
 # >>> 5
-f.write(' ')
-f.write('world!')
+f.write(" ")
+f.write("world!")
 
 # 获得完整f
 print(f.getvalue())
@@ -19,10 +19,10 @@ print(f.getvalue())
 
 
 # 读取StringIO
-f = StringIO('Hello!\nHi!\nGoodbye!')
+f = StringIO("Hello!\nHi!\nGoodbye!")
 while True:
     s = f.readline()
-    if s == '':
+    if s == "":
         break
     print(s.strip())
 # >>>
@@ -37,12 +37,12 @@ while True:
 
 from io import BytesIO
 f = BytesIO()
-f.write('中文'.encode('utf-8'))
+f.write("中文".encode("utf-8"))
 print(f.getvalue())
-# >>> b'\xe4\xb8\xad\xe6\x96\x87'
+# >>> b"\xe4\xb8\xad\xe6\x96\x87"
 # 请注意，写入的不是str，而是经过UTF-8编码的bytes
 
 from io import BytesIO
-f = BytesIO(b'\xe4\xb8\xad\xe6\x96\x87')
-print(f.read().decode('utf-8'))
+f = BytesIO(b"\xe4\xb8\xad\xe6\x96\x87")
+print(f.read().decode("utf-8"))
 # >>> 中文

@@ -19,13 +19,13 @@ class Tree:
         """
         >>> T = Tree(1, [Tree(2, [Tree(4), Tree(5)]), Tree(3, [Tree(6), Tree(7)])])
         >>> repr(T)
-        'Tree(1, [Tree(2, [Tree(4), Tree(5)]), Tree(3, [Tree(6), Tree(7)])])'
+        "Tree(1, [Tree(2, [Tree(4), Tree(5)]), Tree(3, [Tree(6), Tree(7)])])"
         """
         if self.branches:
-            branch_str = ', ' + repr(self.branches)
+            branch_str = ", " + repr(self.branches)
         else:
-            branch_str = ''
-        return 'Tree({0}{1})'.format(self.label, branch_str)
+            branch_str = ""
+        return "Tree({0}{1})".format(self.label, branch_str)
 
     def __str__(self):
         """
@@ -39,13 +39,13 @@ class Tree:
             6
             7
         """
-        return '\n'.join(self.indented())
+        return "\n".join(self.indented())
 
     def indented(self):  # this is to recursively print a Tree.
         lines = []
         for b in self.branches:
             for line in b.indented():
-                lines.append('  ' + line)
+                lines.append("  " + line)
         return [str(self.label)] + lines
         # This is the original print_tree fucntion is a series of print() at different lines.
         # But __str__ requires to return a str object.
@@ -644,24 +644,24 @@ class Sib(Tree):
 # Use tree to represent and search file directories:
 def find_file_path(t, file_str):
     """
-    >>> t = Tree('data', [Tree('comm', [Tree('dummy.py')]), Tree('ecc', [Tree('hello.py'), Tree('file.py')]), Tree('file2.py')])
-    >>> find_file_path(t, 'file2.py')
-    '/data/file2.py'
-    >>> find_file_path(t, 'dummy.py')
-    '/data/comm/dummy.py'
-    >>> find_file_path(t, 'hello.py')
-    '/data/ecc/hello.py'
-    >>> find_file_path(t, 'file.py')
-    '/data/ecc/file.py'
+    >>> t = Tree("data", [Tree("comm", [Tree("dummy.py")]), Tree("ecc", [Tree("hello.py"), Tree("file.py")]), Tree("file2.py")])
+    >>> find_file_path(t, "file2.py")
+    "/data/file2.py"
+    >>> find_file_path(t, "dummy.py")
+    "/data/comm/dummy.py"
+    >>> find_file_path(t, "hello.py")
+    "/data/ecc/hello.py"
+    >>> find_file_path(t, "file.py")
+    "/data/ecc/file.py"
     """
     def helper(t, file_str, path_so_far):
         if t.label == file_str and t.is_leaf():
                                    # not necessary but to avoid folder and file as the same name
-            return path_so_far + '/' + t.label
+            return path_so_far + "/" + t.label
         elif t.is_leaf():
             return None
         for b in t.branches:
-            result = helper(b, file_str, path_so_far + '/' + t.label)
+            result = helper(b, file_str, path_so_far + "/" + t.label)
             if result:
                 return result
-    return helper(t, file_str, '')
+    return helper(t, file_str, "")

@@ -12,13 +12,13 @@ class Solution(object):
         letters = 0
 
         for c in ransomNote:
-            if counts[ord(c) - ord('a')] == 0:
+            if counts[ord(c) - ord("a")] == 0:
                 letters += 1
-            counts[ord(c) - ord('a')] += 1
+            counts[ord(c) - ord("a")] += 1
 
         for c in magazine:
-            counts[ord(c) - ord('a')] -= 1
-            if counts[ord(c) - ord('a')] == 0:
+            counts[ord(c) - ord("a")] -= 1
+            if counts[ord(c) - ord("a")] == 0:
                 letters -= 1
                 if letters == 0:
                     break

@@ -22,7 +22,7 @@ class Solution(object):
                 return level
 
             for i in xrange(len(cur)):
-                for c in ['A', 'T', 'C', 'G']:
+                for c in ["A", "T", "C", "G"]:
                     if cur[i] == c:
                         continue
 

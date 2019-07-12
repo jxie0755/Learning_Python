@@ -21,9 +21,9 @@ class BallHog(Baller):
     def pass_ball(self, other_player):
         return False
 
-if __name__ == '__main__':
-    ajay = Baller('Ajay', True)
-    surya = BallHog('Surya')
+if __name__ == "__main__":
+    ajay = Baller("Ajay", True)
+    surya = BallHog("Surya")
     print(len(Baller.all_players))   # >>> 2  # Sub-classd is also an instance of parent class.
 
     # print(Baller.name)  # >>> Error
@@ -49,7 +49,7 @@ if __name__ == '__main__':
 
 class TeamBaller(Baller):
     """
-    >>> cheerballer = TeamBaller('Thomas', has_ball=True)
+    >>> cheerballer = TeamBaller("Thomas", has_ball=True)
     >>> cheerballer.pass_ball(surya)
     Yay!
     True
@@ -60,7 +60,7 @@ class TeamBaller(Baller):
     # No need to rewrite the whole function.
     def pass_ball(self, other_player):
         did_pass = Baller.pass_ball(self, other_player)
-        print('Yay!' if did_pass else "I don't have the ball")
+        print("Yay!" if did_pass else "I don't have the ball")
         return did_pass
 
 # Q3 Pingpong OOP
@@ -77,7 +77,7 @@ class TeamBaller(Baller):
 def has_seven(k):
     """Returns True if at least one of the digits of k is a 7, False otherwise.
     """
-    # return '7' in str(k)
+    # return "7" in str(k)
     if not k:
         return False
     if k % 10 == 7:
@@ -129,7 +129,7 @@ class Penguin(Bird):
         call = "Ice to meet you"
         print(call)
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     andre = Chicken("cluck")
     gunter = Penguin("noot")
 
@@ -162,7 +162,7 @@ if __name__ == '__main__':
 #  In big-Θ notation, what is the runtime for foo?
 def foo(n):
     for i in range(n):
-        print('hello')
+        print("hello")
 # O(n)
 
 # What’s the runtime of foo if we change range(n):

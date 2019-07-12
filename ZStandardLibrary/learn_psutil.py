@@ -56,12 +56,12 @@ print(psutil.swap_memory())
 # 可以通过psutil获取磁盘分区、磁盘使用率和磁盘IO信息
 print()
 print(psutil.disk_partitions()) # 磁盘分区信息
-# [sdiskpart(device='C:\\', mountpoint='C:\\', fstype='NTFS', opts='rw,fixed'),
-# sdiskpart(device='D:\\', mountpoint='D:\\', fstype='NTFS', opts='rw,fixed'),
-# sdiskpart(device='E:\\', mountpoint='E:\\', fstype='NTFS', opts='rw,fixed'),
-# sdiskpart(device='F:\\', mountpoint='F:\\', fstype='NTFS', opts='rw,fixed')]
+# [sdiskpart(device="C:\\", mountpoint="C:\\", fstype="NTFS", opts="rw,fixed"),
+# sdiskpart(device="D:\\", mountpoint="D:\\", fstype="NTFS", opts="rw,fixed"),
+# sdiskpart(device="E:\\", mountpoint="E:\\", fstype="NTFS", opts="rw,fixed"),
+# sdiskpart(device="F:\\", mountpoint="F:\\", fstype="NTFS", opts="rw,fixed")]
 
-print(psutil.disk_usage('/')) # 磁盘使用情况
+print(psutil.disk_usage("/")) # 磁盘使用情况
 # sdiskusage(total=500090007552, used=204505022464, free=295584985088, percent=40.9)
 
 print(psutil.disk_io_counters()) # 磁盘IO
@@ -103,7 +103,7 @@ print(p.cwd())     # 进程工作目录
 # >>>  C:\Program Files\JetBrains\PyCharm 2018.3.3\bin
 
 print(p.cmdline()) # 进程启动的命令行
-# >>> ['C:\\Program Files\\JetBrains\\PyCharm 2018.3.3\\bin\\pycharm64.exe']
+# >>> ["C:\\Program Files\\JetBrains\\PyCharm 2018.3.3\\bin\\pycharm64.exe"]
 
 print(p.ppid())   # 父进程ID
 # >>> 33168
@@ -112,7 +112,7 @@ print(p.parent())   # 父进程
 # >>> None
 
 print(p.children())  # 子进程列表
-# >>>  [psutil.Process(pid=8744, name='fsnotifier64.exe', started='14:56:08'), psutil.Process(pid=15096, name='SGTool.exe', started='15:16:37'), psutil.Process(pid=29136, name='python.exe', started='15:19:33')]
+# >>>  [psutil.Process(pid=8744, name="fsnotifier64.exe", started="14:56:08"), psutil.Process(pid=15096, name="SGTool.exe", started="15:16:37"), psutil.Process(pid=29136, name="python.exe", started="15:19:33")]
 
 print(p.status())  # 进程状态
 # >>>  running

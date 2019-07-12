@@ -19,7 +19,7 @@
 class Solution:
     def compress(self, chars):
         # this actually compress chars
-        chars.append('end')
+        chars.append("end")
         index, count = 0, 1  # set index as the editing position for compress
         for i in range(1, len(chars)):  # iterate the two continguous element
             if chars[i - 1] == chars[i]:
@@ -37,9 +37,9 @@ class Solution:
         print(chars)
         return index
 
-if __name__ == '__main__':
-    assert Solution().compress(['a','a','b','b','c','c','c']) == 6, "regular, ['a', '2', 'b', '2', 'c', '3']"
-    assert Solution().compress(['a']) == 1, "length of one, ['a']"
-    assert Solution().compress(['a','b','b','b','b','b','b','b','b','b','b','b','b']) == 4, "high count, ['a', 'b', '1', '2']"
+if __name__ == "__main__":
+    assert Solution().compress(["a","a","b","b","c","c","c"]) == 6, "regular, ["a", "2", "b", "2", "c", "3"]"
+    assert Solution().compress(["a"]) == 1, "length of one, ["a"]"
+    assert Solution().compress(["a","b","b","b","b","b","b","b","b","b","b","b","b"]) == 4, "high count, ["a", "b", "1", "2"]"
 
-    print('all passed')
+    print("all passed")

@@ -43,7 +43,7 @@ def probability(dice_number, sides, target):
 # if items are different (a=[1,2,3,4,5,6], permutation = 6!)
 # if items are partially repeating (a=[1,1,2,2,2,3], permutation=6!/(2!*3!)
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     #These are only used for self-checking and are not necessary for auto-testing
     def almost_equal(checked, correct, significant_digits=4):
         precision = 0.1 ** significant_digits
@@ -55,6 +55,6 @@ if __name__ == '__main__':
     assert(almost_equal(probability(2, 3, 5), 0.2222)), "Small dice"
     assert(almost_equal(probability(2, 3, 7), 0.0000)), "Never!"
     assert(almost_equal(probability(3, 6, 7), 0.0694)), "Three dice"
-    print('done for small numbers')
+    print("done for small numbers")
     assert(almost_equal(probability(10, 10, 50), 0.0375)), "Many dice, many sides"
-    print('done for large numbers too')
+    print("done for large numbers too")

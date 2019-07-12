@@ -12,7 +12,7 @@ def genPrimes():
             yield i
             i += 1
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     P = genPrimes()
     print(type(P))
     for i in range(10):
@@ -25,7 +25,7 @@ def genPrimes2():
             yield i
         i += 1
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     print()
     P2 = genPrimes2()
     for i in range(10):

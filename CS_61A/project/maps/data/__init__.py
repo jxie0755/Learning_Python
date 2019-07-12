@@ -4,8 +4,8 @@ import os
 from abstractions import *
 import data.jsonl
 
-DATA_DIRECTORY = 'data'
-USER_DIRECTORY = 'users'
+DATA_DIRECTORY = "data"
+USER_DIRECTORY = "users"
 
 def load_data(user_dataset, review_dataset, restaurant_dataset):
     with open(os.path.join(DATA_DIRECTORY, user_dataset)) as f:
@@ -18,8 +18,8 @@ def load_data(user_dataset, review_dataset, restaurant_dataset):
     # Load users.
     userid_to_user = {}
     for user in user_data:
-        name = user['name']
-        _user_id = user['user_id']
+        name = user["name"]
+        _user_id = user["user_id"]
         user = make_user(name, []) # MISSING: reviews
 
         userid_to_user[_user_id] = user
@@ -27,15 +27,15 @@ def load_data(user_dataset, review_dataset, restaurant_dataset):
     # Load restaurants.
     busid_to_restaurant = {}
     for restaurant in restaurant_data:
-        name = restaurant['name']
-        location = float(restaurant['latitude']), float(restaurant['longitude'])
-        categories = restaurant['categories']
-        price = restaurant['price']
+        name = restaurant["name"]
+        location = float(restaurant["latitude"]), float(restaurant["longitude"])
+        categories = restaurant["categories"]
+        price = restaurant["price"]
         if price is not None:
             price = int(price)
-        num_reviews = int(restaurant['review_count'])
+        num_reviews = int(restaurant["review_count"])
 
-        _business_id = restaurant['business_id']
+        _business_id = restaurant["business_id"]
         restaurant = make_restaurant(name, location, categories, price, []) # MISSING: reviews
         busid_to_restaurant[_business_id] = restaurant
 
@@ -44,11 +44,11 @@ def load_data(user_dataset, review_dataset, restaurant_dataset):
     busid_to_reviews = collections.defaultdict(list)
     userid_to_reviews = collections.defaultdict(list)
     for review in review_data:
-        _user_id = review['user_id']
-        _business_id = review['business_id']
+        _user_id = review["user_id"]
+        _business_id = review["business_id"]
 
         restaurant = restaurant_name(busid_to_restaurant[_business_id])
-        rating = float(review['stars'])
+        rating = float(review["stars"])
 
         review = make_review(restaurant, rating)
         reviews.append(review)
@@ -79,7 +79,7 @@ def load_data(user_dataset, review_dataset, restaurant_dataset):
 
     return users, reviews, list(restaurants.values())
 
-USERS, REVIEWS, ALL_RESTAURANTS = load_data('users.json', 'reviews.json', 'restaurants.json')
+USERS, REVIEWS, ALL_RESTAURANTS = load_data("users.json", "reviews.json", "restaurants.json")
 CATEGORIES = {c for r in ALL_RESTAURANTS for c in restaurant_categories(r)}
 
 def load_user_file(user_file):
@@ -87,4 +87,4 @@ def load_user_file(user_file):
         return eval(f.read())
 
 import glob
-USER_FILES = [f[6:-4] for f in glob.glob('users/*.dat')]
+USER_FILES = [f[6:-4] for f in glob.glob("users/*.dat")]

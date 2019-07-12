@@ -9,9 +9,9 @@ def fib(n):
         k += 1
     return kth
 
-if __name__ == '__main__':
-    assert fib(0) == 0, 'regular'
-    assert fib(8) == 21, '8th'
+if __name__ == "__main__":
+    assert fib(0) == 0, "regular"
+    assert fib(8) == 21, "8th"
 
 
 # Return
@@ -50,7 +50,7 @@ def inverse(f):
     return lambda y: search(lambda x: f(x) == y)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     print(search(is_three)) # >>> 3
     print(search(positive)) # >>> 11, as 11^2 = 121 - 100 = 21 as the first positive value
     sqrt = inverse(square)
@@ -70,7 +70,7 @@ def print_sum(x):
     return next_sum
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     print_all(1)(3)(5)   # keep adding argument as it return a function of itself
     # >>>
     # 1
@@ -100,14 +100,14 @@ def encode(x):
     (See https://docs.python.org/3/library/struct.html)
     """
     i = int(16384 * x)
-    return Struct('h').pack(i)
+    return Struct("h").pack(i)
 
 
-def play(sampler, name='/Users/Jxie0755/Documents/DXcodings/Learning_Python/CS_61A/week03/mario.wav', seconds=2):
+def play(sampler, name="/Users/Jxie0755/Documents/DXcodings/Learning_Python/CS_61A/week03/mario.wav", seconds=2):
     """Write the output of a sampler function as a wav file.
     (See https://docs.python.org/3/library/wave.html)
     """
-    out = open(name, 'wb')
+    out = open(name, "wb")
     out.setnchannels(1)
     out.setsampwidth(2)
     out.setframerate(frame_rate)

@@ -72,14 +72,14 @@ def group_pos_neg_list(nums):
 # And it still have to import functools
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     assert group_pos_neg_list([1, 2, 3, -1, -2, -3, 1, 2, 3, -1, -2, -3]) == [6, -6, 6, -6]
     assert group_pos_neg_list([0, 0, -3, 1]) == [0, -3, 1]
     assert group_pos_neg_list([-1, -1, -1]) == [-3]
     assert group_pos_neg_list([0]) == [0]
     assert group_pos_neg_list([1, 2, 3, 4]) == [10]
     assert group_pos_neg_list([-1, 0, -1, 0, -1, 123]) == [-1, 0, -1, 0, -1, 123]
-    print('all passed')
+    print("all passed")
 
 
 # see more at STOF:

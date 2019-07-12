@@ -15,7 +15,7 @@ def first_ten_digits(data):
     return str(sum(int(i) for i in numbers))[:10]
 
 
-if __name__ == '__main__':
-    print(first_ten_digits('p013_data.txt'))
+if __name__ == "__main__":
+    print(first_ten_digits("p013_data.txt"))
     # >>> 5537376230
     # passed

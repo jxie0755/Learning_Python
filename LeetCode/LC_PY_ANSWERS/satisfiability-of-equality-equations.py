@@ -26,14 +26,14 @@ class Solution(object):
         """
         union_find = UnionFind(26)
         for eqn in equations:
-            x = ord(eqn[0]) - ord('a')
-            y = ord(eqn[3]) - ord('a')
-            if eqn[1] == '=':
+            x = ord(eqn[0]) - ord("a")
+            y = ord(eqn[3]) - ord("a")
+            if eqn[1] == "=":
                 union_find.union_set(x, y)
         for eqn in equations:
-            x = ord(eqn[0]) - ord('a')
-            y = ord(eqn[3]) - ord('a')
-            if eqn[1] == '!':
+            x = ord(eqn[0]) - ord("a")
+            y = ord(eqn[3]) - ord("a")
+            if eqn[1] == "!":
                 if union_find.find_set(x) == union_find.find_set(y):
                     return False
         return True
@@ -50,9 +50,9 @@ class Solution2(object):
         graph = [[] for _ in xrange(26)]
 
         for eqn in equations:
-            x = ord(eqn[0]) - ord('a')
-            y = ord(eqn[3]) - ord('a')
-            if eqn[1] == '!':
+            x = ord(eqn[0]) - ord("a")
+            y = ord(eqn[3]) - ord("a")
+            if eqn[1] == "!":
                 if x == y:
                     return False
             else:
@@ -75,10 +75,10 @@ class Solution2(object):
                     stack.append(nei)
 
         for eqn in equations:
-            if eqn[1] != '!':
+            if eqn[1] != "!":
                 continue
-            x = ord(eqn[0]) - ord('a')
-            y = ord(eqn[3]) - ord('a')
+            x = ord(eqn[0]) - ord("a")
+            y = ord(eqn[3]) - ord("a")
             if color[x] is not None and \
                color[x] == color[y]:
                 return False

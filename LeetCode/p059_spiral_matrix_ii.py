@@ -31,13 +31,13 @@ class Solution:
 
 
 
-if __name__ == '__main__':
-    assert Solution().generateMatrix(1) == [[1]], 'Edge 1'
+if __name__ == "__main__":
+    assert Solution().generateMatrix(1) == [[1]], "Edge 1"
 
     assert Solution().generateMatrix(3) == [
         [1, 2, 3],
         [8, 9, 4],
         [7, 6, 5]
-    ], 'Example 1'
+    ], "Example 1"
 
-    print('all passed')
+    print("all passed")

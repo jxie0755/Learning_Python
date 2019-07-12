@@ -10,7 +10,7 @@ class Solution(object):
         result, dvd = "", n
 
         while dvd:
-            result += chr((dvd - 1) % 26 + ord('A'))
+            result += chr((dvd - 1) % 26 + ord("A"))
             dvd = (dvd - 1) / 26
 
         return result[::-1]

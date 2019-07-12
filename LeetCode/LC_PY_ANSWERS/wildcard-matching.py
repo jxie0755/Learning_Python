@@ -8,10 +8,10 @@ class Solution(object):
     def isMatch(self, s, p):
         p_ptr, s_ptr, last_s_ptr, last_p_ptr = 0, 0, -1, -1
         while s_ptr < len(s):
-            if p_ptr < len(p) and (s[s_ptr] == p[p_ptr] or p[p_ptr] == '?'):
+            if p_ptr < len(p) and (s[s_ptr] == p[p_ptr] or p[p_ptr] == "?"):
                 s_ptr += 1
                 p_ptr += 1
-            elif p_ptr < len(p) and p[p_ptr] == '*':
+            elif p_ptr < len(p) and p[p_ptr] == "*":
                 p_ptr += 1
                 last_s_ptr = s_ptr
                 last_p_ptr = p_ptr
@@ -22,7 +22,7 @@ class Solution(object):
             else:
                 return False
 
-        while p_ptr < len(p) and p[p_ptr] == '*':
+        while p_ptr < len(p) and p[p_ptr] == "*":
             p_ptr += 1
 
         return p_ptr == len(p)
@@ -38,13 +38,13 @@ class Solution2(object):
 
         result[0][0] = True
         for i in xrange(1, len(p) + 1):
-            if p[i-1] == '*':
+            if p[i-1] == "*":
                 result[0][i] = result[0][i-1]
         for i in xrange(1,len(s) + 1):
             result[i % k][0] = False
             for j in xrange(1, len(p) + 1):
-                if p[j-1] != '*':
-                    result[i % k][j] = result[(i-1) % k][j-1] and (s[i-1] == p[j-1] or p[j-1] == '?')
+                if p[j-1] != "*":
+                    result[i % k][j] = result[(i-1) % k][j-1] and (s[i-1] == p[j-1] or p[j-1] == "?")
                 else:
                     result[i % k][j] = result[i % k][j-1] or result[(i-1) % k][j]
 
@@ -60,13 +60,13 @@ class Solution3(object):
 
         result[0][0] = True
         for i in xrange(1, len(p) + 1):
-            if p[i-1] == '*':
+            if p[i-1] == "*":
                 result[0][i] = result[0][i-1]
         for i in xrange(1,len(s) + 1):
             result[i][0] = False
             for j in xrange(1, len(p) + 1):
-                if p[j-1] != '*':
-                    result[i][j] = result[i-1][j-1] and (s[i-1] == p[j-1] or p[j-1] == '?')
+                if p[j-1] != "*":
+                    result[i][j] = result[i-1][j-1] and (s[i-1] == p[j-1] or p[j-1] == "?")
                 else:
                     result[i][j] = result[i][j-1] or result[i-1][j]
 
@@ -80,8 +80,8 @@ class Solution4(object):
         if not p or not s:
             return not s and not p
 
-        if p[0] != '*':
-            if p[0] == s[0] or p[0] == '?':
+        if p[0] != "*":
+            if p[0] == s[0] or p[0] == "?":
                 return self.isMatch(s[1:], p[1:])
             else:
                 return False

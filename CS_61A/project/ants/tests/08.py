@@ -1,67 +1,67 @@
 test = {
-  'name': 'Problem 8',
-  'points': 1,
-  'suites': [
+  "name": "Problem 8",
+  "points": 1,
+  "suites": [
     {
-      'cases': [
+      "cases": [
         {
-          'answer': 'Ant',
-          'choices': [
-            'Ant',
-            'ThrowerAnt',
-            'NinjaAnt',
-            'The WallAnt class does not inherit from any class'
+          "answer": "Ant",
+          "choices": [
+            "Ant",
+            "ThrowerAnt",
+            "NinjaAnt",
+            "The WallAnt class does not inherit from any class"
           ],
-          'hidden': False,
-          'locked': False,
-          'question': 'What class does WallAnt inherit from?'
+          "hidden": False,
+          "locked": False,
+          "question": "What class does WallAnt inherit from?"
         },
         {
-          'answer': 'A WallAnt takes no action each turn',
-          'choices': [
-            'A WallAnt takes no action each turn',
-            'A WallAnt increases its own armor by 1 each turn',
-            'A WallAnt reduces its own armor by 1 each turn',
-            'A WallAnt attacks all the Bees in its place each turn'
+          "answer": "A WallAnt takes no action each turn",
+          "choices": [
+            "A WallAnt takes no action each turn",
+            "A WallAnt increases its own armor by 1 each turn",
+            "A WallAnt reduces its own armor by 1 each turn",
+            "A WallAnt attacks all the Bees in its place each turn"
           ],
-          'hidden': False,
-          'locked': False,
-          'question': "What is a WallAnt's action?"
+          "hidden": False,
+          "locked": False,
+          "question": "What is a WallAnt's action?"
         },
         {
-          'answer': 'Ant subclasses inherit the action method from the Insect class',
-          'choices': [
-            'Ant subclasses inherit the action method from the Insect class',
-            'Ant subclasses inherit the action method from the Ant class',
-            'Ant subclasses do not inherit the action method from any class'
+          "answer": "Ant subclasses inherit the action method from the Insect class",
+          "choices": [
+            "Ant subclasses inherit the action method from the Insect class",
+            "Ant subclasses inherit the action method from the Ant class",
+            "Ant subclasses do not inherit the action method from any class"
           ],
-          'hidden': False,
-          'locked': False,
-          'question': 'Where do Ant subclasses inherit the action method from?'
+          "hidden": False,
+          "locked": False,
+          "question": "Where do Ant subclasses inherit the action method from?"
         },
         {
-          'answer': 'Nothing',
-          'choices': [
-            'Nothing',
-            'Throw a leaf at the nearest Bee',
-            'Move to the next place',
-            'Reduce the armor of all Bees in its place'
+          "answer": "Nothing",
+          "choices": [
+            "Nothing",
+            "Throw a leaf at the nearest Bee",
+            "Move to the next place",
+            "Reduce the armor of all Bees in its place"
           ],
-          'hidden': False,
-          'locked': False,
-          'question': r"""
+          "hidden": False,
+          "locked": False,
+          "question": r"""
           If a subclass of Ant does not override the action method, what is the
           default action?
           """
         }
       ],
-      'scored': False,
-      'type': 'concept'
+      "scored": False,
+      "type": "concept"
     },
     {
-      'cases': [
+      "cases": [
         {
-          'code': r"""
+          "code": r"""
           >>> # Testing WallAnt parameters
           >>> wall = WallAnt()
           >>> wall.armor
@@ -69,15 +69,15 @@ test = {
           >>> WallAnt.food_cost
           4
           """,
-          'hidden': False,
-          'locked': False
+          "hidden": False,
+          "locked": False
         },
         {
-          'code': r"""
+          "code": r"""
           >>> # Testing WallAnt holds strong
           >>> hive, layout = Hive(AssaultPlan()), dry_layout
           >>> colony = AntColony(None, hive, ant_types(), layout, (1, 9))
-          >>> place = colony.places['tunnel_0_4']
+          >>> place = colony.places["tunnel_0_4"]
           >>> wall = WallAnt()
           >>> bee = Bee(1000)
           >>> place.add_insect(wall)
@@ -94,16 +94,16 @@ test = {
           >>> bee.place is place
           True
           """,
-          'hidden': False,
-          'locked': False
+          "hidden": False,
+          "locked": False
         }
       ],
-      'scored': True,
-      'setup': r"""
+      "scored": True,
+      "setup": r"""
       >>> from ants import *
       """,
-      'teardown': '',
-      'type': 'doctest'
+      "teardown": "",
+      "type": "doctest"
     }
   ]
 }

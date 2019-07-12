@@ -25,8 +25,8 @@ class Solution(object):
         for i in xrange(1, len(num)):
             for j in xrange(i + 1, len(num)):
                 s1, s2 = num[0:i], num[i:j]
-                if (len(s1) > 1 and s1[0] == '0') or \
-                   (len(s2) > 1 and s2[0] == '0'):
+                if (len(s1) > 1 and s1[0] == "0") or \
+                   (len(s2) > 1 and s2[0] == "0"):
                     continue
 
                 expected = add(s1, s2)

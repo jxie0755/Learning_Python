@@ -19,11 +19,11 @@ class Buffer(object):
     The __str__ method prints all tokens read so far, up to the end of the
     current line, and marks the current token with >>.
 
-    >>> buf = Buffer(iter([['(', '+'], [15], [12, ')']]))
+    >>> buf = Buffer(iter([["(", "+"], [15], [12, ")"]]))
     >>> buf.pop()
-    '('
+    "("
     >>> buf.pop()
-    '+'
+    "+"
     >>> buf.current()
     15
     >>> print(buf)
@@ -40,7 +40,7 @@ class Buffer(object):
     2: 15
     3: 12 >> )
     >>> buf.pop()
-    ')'
+    ")"
     >>> print(buf)
     1: ( +
     2: 15
@@ -81,16 +81,16 @@ class Buffer(object):
         """Return recently read contents; current element marked with >>."""
         # Format string for right-justified line numbers
         n = len(self.lines)
-        msg = '{0:>' + str(math.floor(math.log10(n))+1) + "}: "
+        msg = "{0:>" + str(math.floor(math.log10(n))+1) + "}: "
 
         # Up to three previous lines and current line are included in output
-        s = ''
+        s = ""
         for i in range(max(0, n-4), n-1):
-            s += msg.format(i+1) + ' '.join(map(str, self.lines[i])) + '\n'
+            s += msg.format(i+1) + " ".join(map(str, self.lines[i])) + "\n"
         s += msg.format(n)
-        s += ' '.join(map(str, self.current_line[:self.index]))
-        s += ' >> '
-        s += ' '.join(map(str, self.current_line[self.index:]))
+        s += " ".join(map(str, self.current_line[:self.index]))
+        s += " >> "
+        s += " ".join(map(str, self.current_line[self.index:]))
         return s.strip()
 
 # Try to import readline for interactive history
@@ -107,4 +107,4 @@ class InputReader(object):
     def __iter__(self):
         while True:
             yield input(self.prompt)
-            self.prompt = ' ' * len(self.prompt)
+            self.prompt = " " * len(self.prompt)

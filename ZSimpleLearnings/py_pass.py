@@ -7,7 +7,7 @@ def fun(x):
     for i in range(5):
         pass
 
-print('hello world')  # >>> hello world
+print("hello world")  # >>> hello world
 
 # 定义一个函数iplaypython，但函数体部分暂时还没有完成，又不能空着不写内容，因此可以用pass来替代占个位置
 
@@ -20,11 +20,11 @@ class Person(object):
 class Student(Person):
     pass
 
-print(type(Student))  # >>> <class 'type'>
-print(Student.mro())  # >>> [<class '__main__.Student'>, <class '__main__.Person'>, <class 'object'>]
+print(type(Student))  # >>> <class "type">
+print(Student.mro())  # >>> [<class "__main__.Student">, <class "__main__.Person">, <class "object">]
 
 # 子类拥有OOP继承结构,并完全继承父类, 只是没有其他改写
-denis = Student('Denis Xie')
+denis = Student("Denis Xie")
 print(denis.name)  # >>> Denis Xie
 
 # pass基本就是用于确立程序结构时,留下代码残缺导致无法运行

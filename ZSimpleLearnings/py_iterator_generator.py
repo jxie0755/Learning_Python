@@ -12,8 +12,8 @@ def squares(start, stop):
     for i in range(start, stop + 1):
         yield i * i
 
-if __name__ == '__main__':
-    print('Test generator:')
+if __name__ == "__main__":
+    print("Test generator:")
     generator_1 = squares(5, 9)
     for i in generator_1:
         print(i)
@@ -36,8 +36,8 @@ class Squares(object):
         self.start += 1
         return current
 
-if __name__ == '__main__':
-    print('Test iterator:')
+if __name__ == "__main__":
+    print("Test iterator:")
     iterator_1 = Squares(5, 9)
     for i in iterator_1:
         print(i)

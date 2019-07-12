@@ -1,12 +1,12 @@
 test = {
-  'name': 'Problem 12',
-  'points': 1,
-  'suites': [
+  "name": "Problem 12",
+  "points": 1,
+  "suites": [
     {
-      'cases': [
+      "cases": [
         {
-          'answer': "It is watersafe, so its armor won't be reduced to 0 when it is placed in a Water Place",
-          'choices': [
+          "answer": "It is watersafe, so its armor won't be reduced to 0 when it is placed in a Water Place",
+          "choices": [
             r"""
             It is watersafe, so its armor won't be reduced to 0 when it is
             placed in a Water Place
@@ -15,35 +15,35 @@ test = {
             It is not watersafe, so its armor will be reduced to 0 when it is
             placed in a Water Place
             """,
-            'It throws water pellets instead of leaves'
+            "It throws water pellets instead of leaves"
           ],
-          'hidden': False,
-          'locked': False,
-          'question': 'How is a ScubaThrower different from a regular ThrowerAnt?'
+          "hidden": False,
+          "locked": False,
+          "question": "How is a ScubaThrower different from a regular ThrowerAnt?"
         },
         {
-          'answer': 'name, watersafe, food_cost',
-          'choices': [
-            'name, watersafe, food_cost',
-            'food_cost, action, damage',
-            'watersafe, action',
-            'name, nearest_bee, watersafe'
+          "answer": "name, watersafe, food_cost",
+          "choices": [
+            "name, watersafe, food_cost",
+            "food_cost, action, damage",
+            "watersafe, action",
+            "name, nearest_bee, watersafe"
           ],
-          'hidden': False,
-          'locked': False,
-          'question': r"""
+          "hidden": False,
+          "locked": False,
+          "question": r"""
           Which inherited attributes and/or methods should ScubaThrower
           override?
           """
         }
       ],
-      'scored': False,
-      'type': 'concept'
+      "scored": False,
+      "type": "concept"
     },
     {
-      'cases': [
+      "cases": [
         {
-          'code': r"""
+          "code": r"""
           >>> # Testing ScubaThrower parameters
           >>> scuba = ScubaThrower()
           >>> ScubaThrower.food_cost
@@ -51,23 +51,23 @@ test = {
           >>> scuba.armor
           1
           """,
-          'hidden': False,
-          'locked': False
+          "hidden": False,
+          "locked": False
         }
       ],
-      'scored': False,
-      'setup': r"""
+      "scored": False,
+      "setup": r"""
       >>> from ants import *
       """,
-      'teardown': '',
-      'type': 'doctest'
+      "teardown": "",
+      "type": "doctest"
     },
     {
-      'cases': [
+      "cases": [
         {
-          'code': r"""
+          "code": r"""
           >>> # Testing if ScubaThrower is watersafe
-          >>> water = Water('Water')
+          >>> water = Water("Water")
           >>> ant = ScubaThrower()
           >>> water.add_insect(ant)
           >>> ant.place is water
@@ -75,11 +75,11 @@ test = {
           >>> ant.armor
           1
           """,
-          'hidden': False,
-          'locked': False
+          "hidden": False,
+          "locked": False
         },
         {
-          'code': r"""
+          "code": r"""
           >>> # Testing ScubaThrower on land
           >>> place1 = colony.places["tunnel_0_0"]
           >>> place2 = colony.places["tunnel_0_4"]
@@ -91,11 +91,11 @@ test = {
           >>> bee.armor  # ScubaThrower can throw on land
           2
           """,
-          'hidden': False,
-          'locked': False
+          "hidden": False,
+          "locked": False
         },
         {
-          'code': r"""
+          "code": r"""
           >>> # Testing ScubaThrower in the water
           >>> water = Water("water")
           >>> water.entrance = colony.places["tunnel_0_1"]
@@ -108,24 +108,24 @@ test = {
           >>> bee.armor  # ScubaThrower can throw in water
           2
           """,
-          'hidden': False,
-          'locked': False
+          "hidden": False,
+          "locked": False
         }
       ],
-      'scored': True,
-      'setup': r"""
+      "scored": True,
+      "setup": r"""
       >>> from ants import *
       >>> hive, layout = Hive(AssaultPlan()), dry_layout
       >>> dimensions = (1, 9)
       >>> colony = AntColony(None, hive, ant_types(), layout, dimensions)
       """,
-      'teardown': '',
-      'type': 'doctest'
+      "teardown": "",
+      "type": "doctest"
     },
     {
-      'cases': [
+      "cases": [
         {
-          'code': r"""
+          "code": r"""
           >>> # Testing ScubaThrower Inheritance from ThrowerAnt
           >>> def new_action(self, colony):
           ...     raise NotImplementedError()
@@ -149,12 +149,12 @@ test = {
           >>> passed
           2
           """,
-          'hidden': False,
-          'locked': False
+          "hidden": False,
+          "locked": False
         }
       ],
-      'scored': True,
-      'setup': r"""
+      "scored": True,
+      "setup": r"""
       >>> from ants import *
       >>> hive, layout = Hive(AssaultPlan()), dry_layout
       >>> dimensions = (1, 9)
@@ -162,11 +162,11 @@ test = {
       >>> old_thrower_action = ThrowerAnt.action
       >>> old_throw_at = ThrowerAnt.throw_at
       """,
-      'teardown': r"""
+      "teardown": r"""
       >>> ThrowerAnt.action = old_thrower_action
       >>> ThrowerAnt.throw_at = old_throw_at
       """,
-      'type': 'doctest'
+      "type": "doctest"
     }
   ]
 }

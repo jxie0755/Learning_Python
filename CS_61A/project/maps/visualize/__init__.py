@@ -23,31 +23,31 @@ def draw_map(centroids, restaurants, ratings):
         rating = ratings[name]
         if p not in locations:
             data.append({
-                'x': p[0],
-                'y': p[1],
-                'weight': rating,
-                'name': name,
-                'cluster': cluster,
+                "x": p[0],
+                "y": p[1],
+                "weight": rating,
+                "name": name,
+                "cluster": cluster,
             })
             locations.add(p)
-    with open('visualize/voronoi.json', 'w') as f:
+    with open("visualize/voronoi.json", "w") as f:
         json.dump(data, f)
-    load_visualization('voronoi.html')
+    load_visualization("voronoi.html")
 
 port = 8000
-base_url = 'http://localhost:{0}/visualize/'.format(port)
+base_url = "http://localhost:{0}/visualize/".format(port)
 
 def load_visualization(url):
     """Load the visualization located at URL."""
     if not check_port():
-        print('Address already in use! Check if recommend.py is running in a separate terminal.')
+        print("Address already in use! Check if recommend.py is running in a separate terminal.")
         return
     server = start_threaded_server()
     webbrowser.open_new(base_url + url)
     try:
         server.join()
     except KeyboardInterrupt:
-        print('\nKeyboard interrupt received, exiting.')
+        print("\nKeyboard interrupt received, exiting.")
 
 class SilentServer(http.server.SimpleHTTPRequestHandler):
     def log_message(self, format, *args):
@@ -55,16 +55,16 @@ class SilentServer(http.server.SimpleHTTPRequestHandler):
 
 def check_port():
     sock = socket.socket()
-    success = sock.connect_ex(('localhost', port))
+    success = sock.connect_ex(("localhost", port))
     sock.close()
     return success
 
 def start_server():
     server, handler = http.server.HTTPServer, SilentServer
-    httpd = server(('', port), handler)
+    httpd = server(("", port), handler)
     sa = httpd.socket.getsockname()
-    print('Serving HTTP on', sa[0], 'port', sa[1], '...')
-    print('Type Ctrl-C to exit.')
+    print("Serving HTTP on", sa[0], "port", sa[1], "...")
+    print("Type Ctrl-C to exit.")
     try:
         httpd.serve_forever()
     finally:

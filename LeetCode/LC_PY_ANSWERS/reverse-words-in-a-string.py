@@ -5,4 +5,4 @@ class Solution(object):
     # @param s, a string
     # @return a string
     def reverseWords(self, s):
-        return ' '.join(reversed(s.split()))
+        return " ".join(reversed(s.split()))

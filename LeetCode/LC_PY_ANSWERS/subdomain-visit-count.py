@@ -14,7 +14,7 @@ class Solution(object):
         for domain in cpdomains:
             count, domain = domain.split()
             count = int(count)
-            frags = domain.split('.')
+            frags = domain.split(".")
             curr = []
             for i in reversed(xrange(len(frags))):
                 curr.append(frags[i])

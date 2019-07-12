@@ -9,7 +9,7 @@ class Person(object):
         """create a person called name"""
         self.name = name
         self.birthday = None
-        self.lastName = name.split(' ')[-1]
+        self.lastName = name.split(" ")[-1]
     def getLasstName(self):
         return self.lastName
     def __str__(self):
@@ -27,14 +27,14 @@ class Person(object):
             return self.name < other.name
         return self.lastName < other.lastName
 
-p1 = Person('Mark Zuckerberg')
+p1 = Person("Mark Zuckerberg")
 p1.setBirthday(5, 14, 1984)
-p2 = Person('Drew Houston')
+p2 = Person("Drew Houston")
 p2.setBirthday(3, 4, 1983)
-p3 = Person('Bill Gates')
+p3 = Person("Bill Gates")
 p3.setBirthday(10, 28, 1955)
-p4 = Person('Andrew Gates')
-p5 = Person('Steve Wozniak')
+p4 = Person("Andrew Gates")
+p5 = Person("Steve Wozniak")
 personList = [p1, p2, p3, p4, p5]
 
 print(p1.birthday)
@@ -60,21 +60,21 @@ class MITPerson(Person):
         return self.idNum < other.idNum
 
     def speak(self, utterance):
-        return self.name + ' says: ' + utterance
+        return self.name + " says: " + utterance
 
-m1 = MITPerson('Denis Xie')
-print(m1.speak('how are you'))
-m2 = MITPerson('Cindy Tian')
-m3 = MITPerson('Adrienne Xie')
+m1 = MITPerson("Denis Xie")
+print(m1.speak("how are you"))
+m2 = MITPerson("Cindy Tian")
+m3 = MITPerson("Adrienne Xie")
 
 print(m1.getIdNum(), m2.getIdNum(), m3.getIdNum())
 # >>> 0 1 2
 lst = [m2, m1, m3]
 lst.sort()
-print(lst)  # >>> ['Denis Xie', 'Cindy Tian', 'Adrienne Xie']  # by ID
+print(lst)  # >>> ["Denis Xie", "Cindy Tian", "Adrienne Xie"]  # by ID
 
 # print(denis < p4)  # denis.__lt__(p4)
-# >>> AttributeError: 'Person' object has no attribute 'idNum'
+# >>> AttributeError: "Person" object has no attribute "idNum"
 print(p4 < m1)    # p4.__lt__(denis)
 # >>> True   # this calls Person's method, compare by last name
 # Whoever got called first, the method from that class is used
@@ -91,7 +91,7 @@ class Student(MITPerson):
     def getClass(self):
         return self.year
     def speak(self, utterance):
-        return MITPerson.speak(self, 'Dude, ' + utterance)
+        return MITPerson.speak(self, "Dude, " + utterance)
 
 class UG(Student):  # UG as undergraduates
     pass
@@ -106,19 +106,19 @@ class TransferStudent(Student):  # this caused a problem of rewriting the isStud
 def isStudent(obj):
     return isinstance(obj, Student)  # so the method can be built on one superclass
 
-s1 = UG('Denis Xie', 2008)
-s2 = UG('Cindy Tian', 2007)
-s3 = UG('Adrienne Xie', 2035)
-s4 = UG('Fan Chen', 1978)
+s1 = UG("Denis Xie", 2008)
+s2 = UG("Cindy Tian", 2007)
+s3 = UG("Adrienne Xie", 2035)
+s4 = UG("Fan Chen", 1978)
 
 print(s1)  # >>> Denis Xie
 print(s1.getClass())  # >>> 2008
-print(s1.speak("What's up"))  # >>> Xie says: Dude, What's up
+print(s1.speak("What"s up"))  # >>> Xie says: Dude, What"s up
 
 print(s1, s1.getIdNum(), s2, s2.getIdNum())  # >>> Denis Xie 3 Cindy Tian 4
 lst = [s2, s4, s1, s3]
 lst.sort()
-print(lst)  # >>> ['Denis Xie', 'Cindy Tian', 'Adrienne Xie', 'Fan Chen']  # by ID
+print(lst)  # >>> ["Denis Xie", "Cindy Tian", "Adrienne Xie", "Fan Chen"]  # by ID
 
 
 
@@ -129,14 +129,14 @@ class Professor(MITPerson):
         MITPerson.__init__(self, name)
         self.department = department
     def speak(self, utterance):
-        new = 'In course ' + self.department + ' we say '
+        new = "In course " + self.department + " we say "
         return MITPerson.speak(self, new + utterance)
     def lecture(self, topic):
-        return self.speak('it is obvious that ' + topic)
+        return self.speak("it is obvious that " + topic)
 
-prof1 = Professor('Denis Xie', 'Food Science')
-print(prof1.speak('Hello world'))
-print(prof1.lecture('Organic Chemistry'))
+prof1 = Professor("Denis Xie", "Food Science")
+print(prof1.speak("Hello world"))
+print(prof1.lecture("Organic Chemistry"))
 
 
 
@@ -156,7 +156,7 @@ class Grades(object):
         """Assumes: student is of type Student
            Add student to the grade book"""
         if student in self.students:
-            raise ValueError('Duplicate student')
+            raise ValueError("Duplicate student")
         self.students.append(student)
         self.grades[student.getIdNum()] = []
         self.isSorted = False
@@ -166,13 +166,13 @@ class Grades(object):
         try:
             self.grades[student.getIdNum()].append(grade)
         except KeyError:
-            raise ValueError('Student not in grade book')
+            raise ValueError("Student not in grade book")
     def getGrades(self, student):
         """Return a list of grades for student"""
         try:
             return self.grades[student.getIdNum()][:]
         except KeyError:
-            raise ValueError('Student not in grade book')
+            raise ValueError("Student not in grade book")
     # def allStudents(self):
     #     """Return a list of students (sorted and copied) in the grade book"""
     #     if not self.isSorted:
@@ -198,10 +198,10 @@ def gradeReport(course):  # a function to export a report for grades of a course
             numGrades += 1
         try:
             average = tot/numGrades
-            report.append(str(s) + '\'s mean grade is ' + str(average))
+            report.append(str(s) + "\"s mean grade is ' + str(average))
         except ZeroDivisionError:
-            report.append(str(s) + ' has no grades')
-    return '\n'.join(report)
+            report.append(str(s) + " has no grades")
+    return "\n".join(report)
 
 MIT6001X = Grades()
 studenList = [s2, s1, s3]  # use previous UG class example list

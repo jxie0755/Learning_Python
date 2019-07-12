@@ -9,8 +9,8 @@ class Solution(object):
         """
         stack = []
         for i in S:
-            if i == 'c':
-                if stack[-2:] == ['a', 'b']:
+            if i == "c":
+                if stack[-2:] == ["a", "b"]:
                     stack.pop()
                     stack.pop()
                 else:

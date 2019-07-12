@@ -15,7 +15,7 @@ class Solution(object):
         lookup = collections.defaultdict(int)
         for i in xrange(len(picture)):
             for j in xrange(len(picture[0])):
-                if picture[i][j] == 'B':
+                if picture[i][j] == "B":
                     rows[i] += 1
                     cols[j] += 1
             lookup[tuple(picture[i])] += 1
@@ -24,7 +24,7 @@ class Solution(object):
         for i in xrange(len(picture)):
             if rows[i] == N and lookup[tuple(picture[i])] == N:
                 for j in xrange(len(picture[0])):
-                     result += picture[i][j] == 'B' and cols[j] == N
+                     result += picture[i][j] == "B" and cols[j] == N
         return result
 
 
@@ -36,7 +36,7 @@ class Solution2(object):
         :rtype: int
         """
         lookup = collections.Counter(map(tuple, picture))
-        cols = [col.count('B') for col in zip(*picture)]
-        return sum(N * zip(row, cols).count(('B', N)) \
+        cols = [col.count("B") for col in zip(*picture)]
+        return sum(N * zip(row, cols).count(("B", N)) \
                    for row, cnt in lookup.iteritems() \
-                   if cnt == N == row.count('B'))
+                   if cnt == N == row.count("B"))

@@ -1,20 +1,20 @@
 test = {
-  'name': 'Orders of Growth',
-  'points': 0,
-  'suites': [
+  "name": "Orders of Growth",
+  "points": 0,
+  "suites": [
     {
-      'cases': [
+      "cases": [
         {
-          'answer': 'Theta(n)',
-          'choices': [
-            'Theta(log(n))',
-            'Theta(n)',
-            'Theta(n^2)',
-            'Theta(2^n)'
+          "answer": "Theta(n)",
+          "choices": [
+            "Theta(log(n))",
+            "Theta(n)",
+            "Theta(n^2)",
+            "Theta(2^n)"
           ],
-          'hidden': False,
-          'locked': False,
-          'question': r"""
+          "hidden": False,
+          "locked": False,
+          "question": r"""
           What is the order of growth of `is_prime` in terms of `n`?
           
           def is_prime(n):
@@ -25,16 +25,16 @@ test = {
           """
         },
         {
-          'answer': 'Theta(n^2)',
-          'choices': [
-            'Theta(log(n))',
-            'Theta(n)',
-            'Theta(n^2)',
-            'Theta(2^n)'
+          "answer": "Theta(n^2)",
+          "choices": [
+            "Theta(log(n))",
+            "Theta(n)",
+            "Theta(n^2)",
+            "Theta(2^n)"
           ],
-          'hidden': False,
-          'locked': False,
-          'question': r"""
+          "hidden": False,
+          "locked": False,
+          "question": r"""
           What is the order of growth of `bar` in terms of `n`?
           
           def bar(n):
@@ -53,16 +53,16 @@ test = {
           """
         },
         {
-          'answer': 'Theta(log(n))',
-          'choices': [
-            'Theta(log(n))',
-            'Theta(n)',
-            'Theta(n^2)',
-            'Theta(2^n)'
+          "answer": "Theta(log(n))",
+          "choices": [
+            "Theta(log(n))",
+            "Theta(n)",
+            "Theta(n^2)",
+            "Theta(2^n)"
           ],
-          'hidden': False,
-          'locked': False,
-          'question': r"""
+          "hidden": False,
+          "locked": False,
+          "question": r"""
           What is the order of growth of `foo` in terms of `n`, where `n` is
           the length of `lst`?
           
@@ -77,8 +77,8 @@ test = {
           """
         }
       ],
-      'scored': False,
-      'type': 'concept'
+      "scored": False,
+      "type": "concept"
     }
   ]
 }

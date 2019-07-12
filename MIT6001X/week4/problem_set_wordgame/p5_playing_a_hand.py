@@ -24,22 +24,22 @@ def playHand(hand, wordList, n):
     uhand = hand.copy()
 
     while calculateHandlen(uhand) > 0:
-        print('Current hand: ', end=' ')
+        print("Current hand: ", end=" ")
         displayHand(uhand)
-        word = input('Enter word, or a "." to indicate that you are finished: ')
-        if word == '.':
+        word = input("Enter word, or a "." to indicate that you are finished: ")
+        if word == ".":
             break        else:
             if isValidWord(word, uhand, wordList) == False:
-                print('Invalid word, please try again.')
+                print("Invalid word, please try again.")
                 print
             else:
                 score += getWordScore(word, n)
-                print('"' + str(word) + '" earned ' + str(getWordScore(word, n)) + ' points. Total: ' + str(
-                    score) + ' points.')
+                print(""" + str(word) + "" earned " + str(getWordScore(word, n)) + " points. Total: " + str(
+                    score) + " points.")
                 print
                 uhand = updateHand(uhand, word)
 
     if calculateHandlen(uhand) > 0:
-        print('Goodbye! Total score: ' + str(score) + ' points.')
+        print("Goodbye! Total score: " + str(score) + " points.")
     else:
-        print('Run out of letters. Total score: ' + str(score) + ' points.')
+        print("Run out of letters. Total score: " + str(score) + " points.")

@@ -59,7 +59,7 @@ def bi_search2(L, e):
     return False
 
 # O(log(n)) and no need for extra space
-if __name__ == '__main__':
+if __name__ == "__main__":
     L = list(range(100))
     print(bi_search2(L, 99))
     print(bi_search([], 3))
@@ -84,7 +84,7 @@ def bisect_search2(L, e):
     else:
         return bisect_search_helper(L, e, 0, len(L) - 1)
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     L = list(range(100))
     print(bisect_search2(L, 99))
 
@@ -108,10 +108,10 @@ def bogo_sort(L):
     while not is_sorted(L):
         random.shuffle(L)
         count += 1
-    print(L, 'shuffled', count, 'times')
+    print(L, "shuffled", count, "times")
 
-# if __name__ == '__main__':
-#     print('bogo sort')
+# if __name__ == "__main__":
+#     print("bogo sort")
 #     bogo_sort([1, 5, 3, 8, 4, 9, 6, 2, 7])
 
 # Bubble Sort
@@ -132,11 +132,11 @@ def bubble_sort(L):
                 L[j-1], L[j] = L[j], L[j-1]
 
                 count += 1
-    print(L, 'swapped', count, 'times')
+    print(L, "swapped", count, "times")
 # complexity is O(n^2), while n = len(L)
 
-if __name__ == '__main__':
-    print('bubble sort')
+if __name__ == "__main__":
+    print("bubble sort")
     bubble_sort([1, 5, 3, 8, 4, 9, 6, 2, 7])
     bubble_sort([3, 3, 2, 1, 4, 3, 2])  # works on repeated item list
 
@@ -181,8 +181,8 @@ def selSort(L):
     # it creates an internal variable of index for the minimum in the rest of the list
     # this index will keep updating until finish one round of looping, and swap once if needed
 
-if __name__ == '__main__':
-    print('selection sort')
+if __name__ == "__main__":
+    print("selection sort")
     selection_sort([1, 5, 3, 8, 4, 9, 6, 2, 7])
     selection_sort([3, 3, 2, 1, 4, 3, 2])
 
@@ -201,7 +201,7 @@ def bub_Sort(L): # bubble sort
                 L[j] = L[j-1]
                 L[j-1] = temp
                 count += 1
-    print('swapped', count, 'times')
+    print("swapped", count, "times")
 
 def sel_Sort(L):
     """ L, list with unique elements """
@@ -215,11 +215,11 @@ def sel_Sort(L):
                 L[j] = temp
                 count += 1
             j += 1
-    print('swapped', count, 'times')
+    print("swapped", count, "times")
 
 
-if __name__ == '__main__':
-    print('bubble sort vs. selection sort')
+if __name__ == "__main__":
+    print("bubble sort vs. selection sort")
     bub_Sort([1, 5, 3, 8, 4, 9, 6, 2, 7])  # >>> 13 times
     sel_Sort([1, 5, 3, 8, 4, 9, 6, 2, 7])  # >>> 13 times
     # They both swap the value same amount of times
@@ -257,7 +257,7 @@ def merge_sort(L):
     # Each divide, merge O(n)
     # Overall O(n*log(n)), better than O(n^2)
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     L = [1, 5, 3, 8, 4, 9, 6, 2, 7]
     print(merge_sort(L))
     print(L)  # this method takes extra space

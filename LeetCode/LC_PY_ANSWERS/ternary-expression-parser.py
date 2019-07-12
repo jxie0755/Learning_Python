@@ -12,13 +12,13 @@ class Solution(object):
 
         stack = []
         for c in expression[::-1]:
-            if stack and stack[-1] == '?':
-                stack.pop()  # pop '?'
+            if stack and stack[-1] == "?":
+                stack.pop()  # pop "?"
                 first = stack.pop()
-                stack.pop()  # pop ':'
+                stack.pop()  # pop ":"
                 second = stack.pop()
 
-                if c == 'T':
+                if c == "T":
                     stack.append(first)
                 else:
                     stack.append(second)

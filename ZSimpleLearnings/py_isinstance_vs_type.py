@@ -6,11 +6,11 @@ class Cat(Animal):
     pass
 
 
-monster = Animal('Denis')
-hello_kitty = Cat('HK')
+monster = Animal("Denis")
+hello_kitty = Cat("HK")
 
-print(type(monster))      # >>> <class '__main__.Animal'>
-print(type(hello_kitty))  # >>> <class '__main__.Cat'>
+print(type(monster))      # >>> <class "__main__.Animal">
+print(type(hello_kitty))  # >>> <class "__main__.Cat">
 
 print(isinstance(monster, Animal)) # >>> True
 

@@ -27,20 +27,20 @@ def postorderTraversal(root: TreeNode) -> List[int]:
     return postorderTraversal(root.left) + postorderTraversal(root.right) + [root.val]
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     A = genTree([
         1,
         2, 3,
         4, 5, 6, 7])
-    print('\npre order traversal:')
+    print("\npre order traversal:")
     print(preorderTraversal(A))
     # >>> [1, 2, 4, None, None, 5, None, None, 3, 6, None, None, 7, None, None]
 
-    print('\nin order traversal:')
+    print("\nin order traversal:")
     print(inorderTraversal(A))
     # >>>  [None, 4, None, 2, None, 5, None, 1, None, 6, None, 3, None, 7, None]
 
-    print('\npost order traversal:')
+    print("\npost order traversal:")
     print(postorderTraversal(A))
     # >>> [None, None, 4, None, None, 5, 2, None, None, 6, None, None, 7, 3, 1]
 
@@ -93,12 +93,12 @@ def showPerfectLayers(root):  # Include None
 
     return result
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     A = genTree([3, None, 20, None, None, 15, 7])
-    print('\nshowLayers:')
+    print("\nshowLayers:")
     print(showLayers(A))
     # >>> [[3], [20], [15, 7]]
-    print('showPerfectLayers:')
+    print("showPerfectLayers:")
     print(showPerfectLayers(A))
     # >>> [[3], [None, 20], [None, None, 15, 7]]
 
@@ -129,9 +129,9 @@ def showPerfectNodeLayers(root):
 
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     A = genTree([3, None, 20, None, None, 15, 7])
-    print('\nshowPerfectNodeLayers:')
+    print("\nshowPerfectNodeLayers:")
     L = showPerfectNodeLayers(A)
     LV = []
     for i in L:
@@ -143,26 +143,26 @@ if __name__ == '__main__':
 
 
 def allPathsLtoL(root: TreeNode) -> List:
-    def helper(idx, prev_location='U', cur_path=[], end=False):
+    def helper(idx, prev_location="U", cur_path=[], end=False):
         """
         recursive go around the nodes through parent-children link
         node only going from left to right
         only from leaf to leaf
 
         prev_location -
-        'N' : 'None', starting point at the Leaf
-        'U' : 'Up',   Coming down from parent
-        'L' : 'Left'  Coming up from left child
-        'R' : 'Right' Coming up from rgiht child
+        "N" : "None", starting point at the Leaf
+        "U" : "Up",   Coming down from parent
+        "L" : "Left"  Coming up from left child
+        "R" : "Right" Coming up from rgiht child
 
         """
 
-        # print('idx', idx, 'prev', prev_location, 'curpath', cur_path, 'end', end)
+        # print("idx", idx, "prev", prev_location, "curpath", cur_path, "end", end)
         node = nodelist[idx]
 
         if node:
             cur_path.append(node.val)
-            this_location = 'L' if idx % 2 == 0 else 'R'
+            this_location = "L" if idx % 2 == 0 else "R"
 
             right_side = []
             rr = root
@@ -175,24 +175,24 @@ def allPathsLtoL(root: TreeNode) -> List:
 
             elif node:
                 if idx == 1:
-                    helper(idx * 2 + 1, 'U', cur_path[:], True)  # go right (only from left)
+                    helper(idx * 2 + 1, "U", cur_path[:], True)  # go right (only from left)
 
-                elif prev_location == 'N':
+                elif prev_location == "N":
                     if node not in right_side:
                         helper(idx // 2, this_location, cur_path[:], True)  # go up if not on the right side
 
-                elif prev_location == 'L':
+                elif prev_location == "L":
                     if node not in right_side:
                         helper(idx // 2, this_location, cur_path[:], True)  # go up if not on the right side
-                    helper(idx * 2 + 1, 'U', cur_path[:], True)  # go right down
+                    helper(idx * 2 + 1, "U", cur_path[:], True)  # go right down
 
-                elif prev_location == 'R':
+                elif prev_location == "R":
                     if node not in right_side:
                         helper(idx // 2, this_location, cur_path[:], True)  # go up if not on the right side
 
-                elif prev_location == 'U':
-                    helper(idx * 2, 'U', cur_path[:], True)  # go down left
-                    helper(idx * 2 + 1, 'U', cur_path[:], True)  # go down right
+                elif prev_location == "U":
+                    helper(idx * 2, "U", cur_path[:], True)  # go down left
+                    helper(idx * 2 + 1, "U", cur_path[:], True)  # go down right
             else:
                 paths.append(cur_path)  # end
 
@@ -201,23 +201,23 @@ def allPathsLtoL(root: TreeNode) -> List:
     for k in range(len(nodelist)):
         node = nodelist[k]
         if node and not node.left and not node.right:
-            helper(k, 'N', [], False)
+            helper(k, "N", [], False)
 
     # If no nodes ont the left side from root, special cases from root to botoom is needed
     if not root.left:
-        helper(1, 'U', [], False)
+        helper(1, "U", [], False)
 
     return paths
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     A = genTree([
         1,
         2, 3,
         4, 5, 6, 7,
     ])
 
-    print('\nall paths leaf to leaf:')
+    print("\nall paths leaf to leaf:")
     for i in allPathsLtoL(A):
         print(i)
 
@@ -247,13 +247,13 @@ def allPath(root):
     return result
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     A = genTree([
         1,
         2, 3,
         4, 5, 6, 7
     ])
-    print('\nall path:')
+    print("\nall path:")
     for i in allPath(A):
         print(i)
     # >>>

@@ -17,7 +17,7 @@ def checkio(words_set):
     return False
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     assert checkio({"hello", "lo", "he"}) == True, "helLO"
     assert checkio({"hello", "la", "hellow", "cow"}) == False, "hellow la cow"
     assert checkio({"walk", "duckwalk"}) == True, "duck to walk"

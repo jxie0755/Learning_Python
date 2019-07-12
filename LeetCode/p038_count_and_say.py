@@ -22,9 +22,9 @@ class Solution:
     def countAndSay(self, n):
         # a version to create the say logic, then loop the say() to get nth number
         def say(num):
-            num = str(num) + ' '
+            num = str(num) + " "
             lenth = 1
-            result = ''
+            result = ""
             for i in range(len(num)-1):
                 if num[i] == num[i + 1]:
                     lenth += 1
@@ -42,9 +42,9 @@ class Solution:
         # combine the say() and loop together
         number = 1
         for i in range(1, n):
-            number = str(number) + ' '
+            number = str(number) + " "
             lenth = 1
-            result = ''
+            result = ""
             for i in range(len(number) - 1):
                 if number[i] == number[i + 1]:
                     lenth += 1
@@ -54,11 +54,11 @@ class Solution:
             number = int(result)
         return str(number)
 
-if __name__ == '__main__':
-    assert Solution().countAndSay(1) == '1', 'first'
-    assert Solution().countAndSay(2) == '11', 'second'
-    assert Solution().countAndSay(3) == '21', 'third'
-    assert Solution().countAndSay(4) == '1211', 'forth'
-    assert Solution().countAndSay(5) == '111221', 'fifth'
-    assert Solution().countAndSay(6) == '312211', 'sixth'
-    print('all passed')
+if __name__ == "__main__":
+    assert Solution().countAndSay(1) == "1", "first"
+    assert Solution().countAndSay(2) == "11", "second"
+    assert Solution().countAndSay(3) == "21", "third"
+    assert Solution().countAndSay(4) == "1211", "forth"
+    assert Solution().countAndSay(5) == "111221", "fifth"
+    assert Solution().countAndSay(6) == "312211", "sixth"
+    print("all passed")

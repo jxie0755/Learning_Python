@@ -25,22 +25,22 @@ class Solution:
 
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     edge_1 = []
     assert Solution().groupAnagrams(edge_1) == [
         []
-    ], 'edge 1'
+    ], "edge 1"
 
     edge_2 = ["a"]
     assert Solution().groupAnagrams(edge_2) == [
         ["a"]
-    ], 'edge 2'
+    ], "edge 2"
 
     sample_1 = ["eat", "tea", "tan", "ate", "nat", "bat"]
     assert Solution().groupAnagrams(sample_1) == [
-        ['eat', 'tea', 'ate'],
-        ['tan', 'nat'],
-        ['bat']
-    ], 'Example 1'
+        ["eat", "tea", "ate"],
+        ["tan", "nat"],
+        ["bat"]
+    ], "Example 1"
 
-    print('all passed')
+    print("all passed")

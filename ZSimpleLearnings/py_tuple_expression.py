@@ -8,18 +8,18 @@
 
 x = 1,
 print(type(x))
-# >>> <class 'tuple'>
+# >>> <class "tuple">
 
 # However
 print(type(1,))   # Equivalent to type(1)
-# >>> <class 'int'>
+# >>> <class "int">
 # because , can be used as a comma in type()
 
 print(type((1,)))  # or type((1,),)
-# >>> <class 'tuple'>
+# >>> <class "tuple">
 
 # This is essentially same idea of:
-for x, y in enumerate(['a', 'b', 'c']):
+for x, y in enumerate(["a", "b", "c"]):
     print(x, y)
 # >>>
 # 0 a

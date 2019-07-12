@@ -14,7 +14,7 @@ class Solution(object):
 
     def reverseBits2(self, n):
         string = bin(n)
-        if '-' in string:
+        if "-" in string:
             string = string[:3] + string[3:].zfill(32)[::-1]
         else:
             string = string[:2] + string[2:].zfill(32)[::-1]

@@ -26,11 +26,11 @@ class Solution:
         row, col = len(board), len(board[0])
         N = len(word)
 
-        # 给board周围加一圈'0', 防止检查周围时index找不到
-        board = [['0'] * col] + board + [['0'] * col]
+        # 给board周围加一圈"0", 防止检查周围时index找不到
+        board = [["0"] * col] + board + [["0"] * col]
         for i in board:
-            i.insert(0,'0')
-            i.append('0')
+            i.insert(0,"0")
+            i.append("0")
 
         # Starting list
         start = [(r, c) for r in range(1, row+1) for c in range(1, col+1) if board[r][c] == word[0]]
@@ -48,16 +48,16 @@ class Solution:
 
         return any([helper(board, i, word, []) for i in start])
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     board = [
-        ['A', 'B', 'C', 'E'],
-        ['S', 'F', 'C', 'S'],
-        ['A', 'D', 'E', 'E']
+        ["A", "B", "C", "E"],
+        ["S", "F", "C", "S"],
+        ["A", "D", "E", "E"]
     ]
 
-    assert Solution().exist(board, 'ABCCED'), 'Example 1'
-    assert Solution().exist(board, 'SEE'), 'Example 2'
-    assert not Solution().exist(board, 'ABCB'), 'Example 3'
+    assert Solution().exist(board, "ABCCED"), "Example 1"
+    assert Solution().exist(board, "SEE"), "Example 2"
+    assert not Solution().exist(board, "ABCB"), "Example 3"
 
     board = [
         ["b","a","b","a","a","a"],
@@ -65,7 +65,7 @@ if __name__ == '__main__':
         ["b","a","b","a","b","a"]
     ]
 
-    assert Solution().exist(board, 'ba'), 'Additional 1'
+    assert Solution().exist(board, "ba"), "Additional 1"
 
     long = [
         ["a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a",
@@ -132,4 +132,4 @@ if __name__ == '__main__':
     target = "baaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
     # print(Solution().exist(long, target))
 
-    print('all passed')
+    print("all passed")

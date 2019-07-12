@@ -24,7 +24,7 @@ class Solution:
     def inorderTraversal(self, root: TreeNode) -> List[int]:
         if not root:
             # Must write this way to avoid val=0
-            # Do not write 'not root.val'
+            # Do not write "not root.val"
             return []
 
         return self.inorderTraversal(root.left) + [root.val] + self.inorderTraversal(root.right)
@@ -43,9 +43,9 @@ class Solution:
 
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     A = genTree([2,1,3])
-    assert Solution().isValidBST(A), 'Example 1'
+    assert Solution().isValidBST(A), "Example 1"
 
     A = genTree([
         5,
@@ -53,16 +53,16 @@ if __name__ == '__main__':
         None, None, 3, 6
     ])
 
-    assert not Solution().isValidBST(A), 'Example 2'
+    assert not Solution().isValidBST(A), "Example 2"
 
     A = genTree([
         5,
         1, 6,
         None, None, 3, 7
     ])
-    assert not Solution().isValidBST(A), 'Additional'
+    assert not Solution().isValidBST(A), "Additional"
 
     A = genTree([0, None, -1])
-    assert not Solution().isValidBST(A), 'Additional'
+    assert not Solution().isValidBST(A), "Additional"
 
-    print('all passed')
+    print("all passed")

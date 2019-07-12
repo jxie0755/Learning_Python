@@ -12,13 +12,13 @@ class Solution(object):
 
         for c in s:
             if c.isdigit():
-                n = n * 10 + ord(c) - ord('0')
-            elif c == '[':
+                n = n * 10 + ord(c) - ord("0")
+            elif c == "[":
                 nums.append(n)
                 n = 0
                 strs.append(curr)
                 curr = []
-            elif c == ']':
+            elif c == "]":
                 strs[-1].extend(curr * nums.pop())
                 curr = strs.pop()
             else:

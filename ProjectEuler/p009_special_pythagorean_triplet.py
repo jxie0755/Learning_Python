@@ -15,14 +15,14 @@ def pythagorean_triplet(n):
         for b in range((rest-a)//2 + 1, rest//2 + 1):  # set the condition tighter to improve algorithm
             c = n - a - b
             if a < b and a + b > c and a**2 + b**2 == c**2:
-                    print(a, '*', b, '*', c)
+                    print(a, "*", b, "*", c)
                     return a * b * c
     else:
         return None  # In case can't find any.
 
-if __name__ == '__main__':
-    assert pythagorean_triplet(12) == 60, 'regular'
-    assert pythagorean_triplet(14) == None, 'check None'
+if __name__ == "__main__":
+    assert pythagorean_triplet(12) == 60, "regular"
+    assert pythagorean_triplet(14) == None, "check None"
     print(pythagorean_triplet(1000))
     # >>>
     # 200 * 375 * 425

@@ -28,18 +28,18 @@
 import hashlib
 import hmac
 
-message = b'Hello, world!'
+message = b"Hello, world!"
 # 普通MD5
 message_md5 = hashlib.md5(message)
 print(message_md5.hexdigest()) # >>> 6cd3556deb0da54bca060b4c39479839
 
 # 使用hmac
-key_f = b''
-key_t = b'secret'
+key_f = b""
+key_t = b"secret"
 # 如果消息很长，同样可以多次调用h_f.update(msg)
-h_f = hmac.new(key_f, message, digestmod='MD5')
+h_f = hmac.new(key_f, message, digestmod="MD5")
 print(h_f.hexdigest())         # >>> aa9a95b3aa6dcef53bf23e2a3f801b44
                                # 即使是空字符也会不一样
 
-h_t = hmac.new(key_t, message, digestmod='MD5')
+h_t = hmac.new(key_t, message, digestmod="MD5")
 print(h_t.hexdigest())         # >>>  fa4ee7d173f2d97ee79022d1a7355bcf

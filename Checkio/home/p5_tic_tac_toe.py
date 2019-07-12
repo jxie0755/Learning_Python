@@ -1,10 +1,10 @@
 def checkio(game_result):
     def judge(R):
         for i in R:
-            if i.count('X') == 3:
-                return 'X'
-            if i.count('O') == 3:
-                return 'O'
+            if i.count("X") == 3:
+                return "X"
+            if i.count("O") == 3:
+                return "O"
     # Horizontal line, go straight with judge()
     
     # Vertical line
@@ -22,10 +22,10 @@ def checkio(game_result):
         c2.append(game_result[i][i])
     
     # Return result
-    return judge(game_result) or judge(list(map(f, (0, 1, 2)))) or judge(cline) or 'D'
+    return judge(game_result) or judge(list(map(f, (0, 1, 2)))) or judge(cline) or "D"
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     #These "asserts" using only for self-checking and not necessary for auto-testing
     assert checkio([
         "X.O",
@@ -43,4 +43,4 @@ if __name__ == '__main__':
         "O.X",
         "XX.",
         "XOO"]) == "X", "Xs wins again"
-    print("Coding complete? Click 'Check' to review your tests and earn cool rewards!")
+    print("Coding complete? Click "Check" to review your tests and earn cool rewards!")

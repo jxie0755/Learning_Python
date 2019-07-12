@@ -130,7 +130,7 @@ def sum_largest(n, k):
 
 # c
 X = (lambda a, x: x + (lambda y: lambda z: y+z+1000)(1000)(10))(5, (lambda: 8)())
-print('X is', X)
+print("X is", X)
 
 
 # --------------------------------------------------------------------
@@ -142,7 +142,7 @@ print('X is', X)
 
 def make_editor(n, pr):
     """Return an editor for N.
-    >>> f = make_editor(2018, lambda n: print('n is now', n))
+    >>> f = make_editor(2018, lambda n: print("n is now", n))
     >>> f = f(delete(3)) # delete the last 3 digits from the end of 2018
     n is now 2
     >>> f = f(insert(4, 0)) # insert digit 4 at the end of 2 (position 0)

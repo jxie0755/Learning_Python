@@ -20,22 +20,22 @@ import random
 # heap没有独特的数据结构, 以list形式表现,但是被称为heap的话必须确保list首先被heapify
 # 以下直接用heap或者H表示被heapify的list
 
-print('\n')
-print('heapq.heapify(x)', '\nx is a list')
+print("\n")
+print("heapq.heapify(x)", "\nx is a list")
 A = [3, 4, 1, 9, 2, 5, 8, 7]
 # random.shuffle(A)
-print('startting list', A)
+print("startting list", A)
 heapq.heapify(A)
 H = A[:]
-print('heapified list', H)
+print("heapified list", H)
 # >> [1, 2, 4, 3, 5, 9, 7, 8, 6]
 # 注意, 同样1-9的list, 随机打乱后, 由于初始排序不同可能导致生成的堆绝对顺序不同
 # 但是他们都保持堆的特性, 父节点<=子节点
 # 如果重复heapify, 不会有任何变化
 
 
-print('\n')
-print('heapq.heappop(heap)')
+print("\n")
+print("heapq.heappop(heap)")
 print(heapq.heappop(H)) # >>> 1
 print(H) # >>> [2, 4, 3, 7, 9, 5, 8]
 print(heapq.heappop(H)) # >>>  2
@@ -52,7 +52,7 @@ print(H) # >>> [3, 4, 5, 7, 9, 8]
 #  R    b
 # c d  a
 
-print('如果事先不变成heap,直接pop会如何?')
+print("如果事先不变成heap,直接pop会如何?")
 A = [6,5,4,3,2,1]
 print(heapq.heappop(A)) # >>> 6
 print(A) # >>> [1, 5, 4, 3, 2]
@@ -60,8 +60,8 @@ print(A) # >>> [1, 5, 4, 3, 2]
 
 
 
-print('\n')
-print('heapq.heappush(heap, item)')
+print("\n")
+print("heapq.heappush(heap, item)")
 # 将 item 的值加入 heap 中，保持堆的不变性。
 H = [1, 5, 3, 8, 6, 9, 7]
 heapq.heappush(H, 2)
@@ -74,45 +74,45 @@ print(H) # >>> [1, 2, 4, 3, 6, 7, 8, 5]
 
 
 
-print('\n')
-print('heappushpop(heap, item)')
+print("\n")
+print("heappushpop(heap, item)")
 # 将 item 放入堆中，然后弹出并返回 heap 的最小元素
 # 该组合操作比先调用  heappush() 再调用 heappop() 运行起来更有效率
-print('\ntest push then pop')
+print("\ntest push then pop")
 H = [1, 2, 4, 3, 9, 7, 8, 6]
 heapq.heappush(H, 5)
 print(H) # >>> [1, 2, 4, 3, 9, 7, 8, 6, 5]
 heapq.heappop(H)
 print(H) # >>> [2, 3, 4, 5, 9, 7, 8, 6]
-print('test pushpop')
+print("test pushpop")
 H = [1, 2, 4, 3, 9, 7, 8, 6]
 print(heapq.heappushpop(H, 5)) # >>> 1
 print(H) # >>> [2, 3, 4, 5, 9, 7, 8, 6]
 print()
 
-print('\ntest push then pop 2')
+print("\ntest push then pop 2")
 H = [2,3,4,5,6,7,8]
 heapq.heappush(H, 1)
 print(H) # >>> [1, 2, 4, 3, 6, 7, 8, 5]
 heapq.heappop(H)
 print(H) # >>> [2, 3, 4, 5, 6, 7, 8]
-print('test pushpop 2')
+print("test pushpop 2")
 H = [2,3,4,5,6,7,8]
 print(heapq.heappushpop(H, 1)) # >>> 1
 print(H) # >>> [2, 3, 4, 5, 6, 7, 8]
 print()
 
 
-print('\n')
-print('heapq.heapreplace(heap, item)')
+print("\n")
+print("heapq.heapreplace(heap, item)")
 # 基本和pushpop相同逻辑,但是先pop再push
 H = [2,3,4,5,6,7,8]
 print(heapq.heapreplace(H, 1)) # >>> 2
 print(H) # >>> [1, 3, 4, 5, 6, 7, 8]
 
 
-print('\n')
-print('heapq.merge(*iterables, key=None, reverse=False)')
+print("\n")
+print("heapq.merge(*iterables, key=None, reverse=False)")
 # Merge multiple sorted inputs into a single sorted output.
 # *iterable must already be a sorted
 # Similar to sorted(itertools.chain(*iterables)) but returns an iterable, does not pull the data into memory all at once, and assumes that each of the input streams is already sorted (smallest to largest).
@@ -135,10 +135,10 @@ F = heapq.merge(A, B,  key=lambda x:abs(x), reverse=True)
 print(list(F)) # >>> [8, -7, 6, -5, 4, -3, 2, -1]
 
 
-print('\n')
-print('heapq.nlargest(n, iterable, key=None)')
+print("\n")
+print("heapq.nlargest(n, iterable, key=None)")
 # Return a list with the n smallest elements from the dataset defined by iterable.
-print('heapq.nsmallest(n, iterable, key=None)')
+print("heapq.nsmallest(n, iterable, key=None)")
 # Return a list with the n smallest elements from the dataset defined by iterable.
 
 # Best for smaller values of n (len(list)). For larger values, it is more efficient to use the sorted() function.
@@ -149,10 +149,10 @@ print(heapq.nsmallest(5, A)) # >>> [1, 2, 3, 4, 5]  sorted n-smallest
 
 
 
-print('\n\n')
-print('Additional')
+print("\n\n")
+print("Additional")
 print()
-print('Achieve heapsort')
+print("Achieve heapsort")
 def heapsort(iterable):
     h = []
     for value in iterable:
@@ -163,14 +163,14 @@ print(heapsort([1, 3, 5, 7, 9, 2, 4, 6, 8, 0]))
 # This is not stable sort (break sequence of previously sorted subsequence)
 
 
-print('\n')
-print('Heap elements can be tuples')
+print("\n")
+print("Heap elements can be tuples")
 # sorted(list) can't easily do this
 # This is useful for assigning comparison values (such as task priorities) alongside the main record being tracked
 h = []
-heapq.heappush(h, (5, 'write code'))
-heapq.heappush(h, (7, 'release product'))
-heapq.heappush(h, (1, 'write spec'))
-heapq.heappush(h, (3, 'create tests'))
-print(h) # >>>  [(1, 'write spec'), (3, 'create tests'), (5, 'write code'), (7, 'release product')]
+heapq.heappush(h, (5, "write code"))
+heapq.heappush(h, (7, "release product"))
+heapq.heappush(h, (1, "write spec"))
+heapq.heappush(h, (3, "create tests"))
+print(h) # >>>  [(1, "write spec"), (3, "create tests"), (5, "write code"), (7, "release product")]
 

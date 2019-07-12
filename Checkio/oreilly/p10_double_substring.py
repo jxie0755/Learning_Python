@@ -24,12 +24,12 @@ def double_substring(line):
             if len(re.findall(i, line)) == 2:
                 return len(i)
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     #These "asserts" using only for self-checking and not necessary for auto-testing
-    assert double_substring('aaaa') == 2, "First"
-    assert double_substring('abc') == 0, "Second"
-    assert double_substring('aghtfghkofgh') == 3, "Third"
-    print('"Run" is good. How is "Check"?')
+    assert double_substring("aaaa") == 2, "First"
+    assert double_substring("abc") == 0, "Second"
+    assert double_substring("aghtfghkofgh") == 3, "Third"
+    print(""Run" is good. How is "Check"?")
 
 # 另解
 def double_substring2(line):
@@ -40,4 +40,4 @@ def double_substring2(line):
                 result = len(line[i:j])
     return result
 
-print(double_substring2('aghtfghkofgh'))
+print(double_substring2("aghtfghkofgh"))

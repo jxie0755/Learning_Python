@@ -47,13 +47,13 @@ def checkio(data):
     # output the result
     F2 = sum(result)
     if F2 % 10 == 0:
-        F1 = '0'
+        F1 = "0"
     else:
         F1 = str(10 - (F2 % 10))
     return [F1, F2]
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     assert (checkio("799 273 9871") == ["3", 67]), "First Test"
     assert (checkio("139-MT") == ["8", 52]), "Second Test"
     assert (checkio("123") == ["0", 10]), "Test for zero"

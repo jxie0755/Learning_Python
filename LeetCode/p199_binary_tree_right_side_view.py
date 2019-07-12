@@ -42,8 +42,8 @@ class Solution(object):
         return result
 
 
-if __name__ == '__main__':
-    assert Solution().rightSideView(None) == [], 'Edge 0'
+if __name__ == "__main__":
+    assert Solution().rightSideView(None) == [], "Edge 0"
 
     A = genTree([
         1,
@@ -51,7 +51,7 @@ if __name__ == '__main__':
         None, 5, None, 4
     ])
 
-    assert Solution().rightSideView(A) == [1,3,4], 'Example 1'
+    assert Solution().rightSideView(A) == [1,3,4], "Example 1"
 
     A = genTree([
         1,
@@ -59,7 +59,7 @@ if __name__ == '__main__':
         None, 5, None, None
     ])
 
-    assert Solution().rightSideView(A) == [1, 2, 5], 'Additional 1'
+    assert Solution().rightSideView(A) == [1, 2, 5], "Additional 1"
 
     A = genTree([
         1,
@@ -67,7 +67,7 @@ if __name__ == '__main__':
         None, 5, None, None
     ])
 
-    assert Solution().rightSideView(A) == [1, 3, 5], 'Additional 1'
+    assert Solution().rightSideView(A) == [1, 3, 5], "Additional 1"
 
-    print('all passed')
+    print("all passed")
 

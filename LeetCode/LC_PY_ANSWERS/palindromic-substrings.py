@@ -8,7 +8,7 @@ class Solution(object):
         :rtype: int
         """
         def manacher(s):
-            s = '^#' + '#'.join(s) + '#$'
+            s = "^#" + "#".join(s) + "#$"
             P = [0] * len(s)
             C, R = 0, 0
             for i in xrange(1, len(s) - 1):

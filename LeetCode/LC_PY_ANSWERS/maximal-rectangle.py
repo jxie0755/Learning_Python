@@ -28,7 +28,7 @@ class Solution(object):
         heights = [0] * len(matrix[0])
         for i in xrange(len(matrix)):
             for j in xrange(len(matrix[0])):
-                heights[j] = heights[j] + 1 if matrix[i][j] == '1' else 0
+                heights[j] = heights[j] + 1 if matrix[i][j] == "1" else 0
             result = max(result, largestRectangleArea(heights))
 
         return result
@@ -56,7 +56,7 @@ class Solution2(object):
         for i in xrange(m):
             left = 0
             for j in xrange(n):
-                if matrix[i][j] == '1':
+                if matrix[i][j] == "1":
                     L[j] = max(L[j], left)
                     H[j] += 1
                 else:
@@ -67,7 +67,7 @@ class Solution2(object):
 
             right = n
             for j in reversed(xrange(n)):
-                if matrix[i][j] == '1':
+                if matrix[i][j] == "1":
                     R[j] = min(R[j], right)
                     result = max(result, H[j] * (R[j] - L[j]))
                 else:

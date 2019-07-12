@@ -22,7 +22,7 @@ class Node:
 class Solution:
 
     # Version A, use showLayer idea
-    def levelOrder(self, root: 'Node') -> List[List[int]]:
+    def levelOrder(self, root: "Node") -> List[List[int]]:
         """Show the tree layer by layer from top to bottom"""
         if root is None:
             return []
@@ -42,7 +42,7 @@ class Solution:
 
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
 
     C1, C2 = Node(5, []), Node(6,[])
     B1, B2, B3 = Node(3,[C1, C2]), Node(2, []), Node(4, [])
@@ -52,7 +52,7 @@ if __name__ == '__main__':
         [1],
         [3, 2, 4],
         [5, 6]
-    ], 'Example'
+    ], "Example"
 
-    print('all passed')
+    print("all passed")
 

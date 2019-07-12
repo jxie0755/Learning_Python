@@ -44,11 +44,11 @@ class Solution:
                 # 当到达一个新的idx,如果对应的数字出现在之前建立的字典的key里,也就是找到了match
                 # 这样就把那个key的值(也就是第一个idx)找出来,和新的idx配对
 
-if __name__ == '__main__':
+if __name__ == "__main__":
 
-    assert Solution().twoSum([11, 2, 7, 15], 9) == [1,2],  'regular'
-    assert Solution().twoSum([11, 7, 2, 15], 9) == [1,2],  'regular revert'
-    assert Solution().twoSum([3, 3], 6) == [0,1],  'two identical'
-    assert Solution().twoSum([-1, -2, -3, -4, -5], -8) == [2, 4],  'negative int'
-    assert Solution().twoSum([3, 2, 4], 6) == [1, 2],  'struggle with 1/2 target'
-    print('all passed')
+    assert Solution().twoSum([11, 2, 7, 15], 9) == [1,2],  "regular"
+    assert Solution().twoSum([11, 7, 2, 15], 9) == [1,2],  "regular revert"
+    assert Solution().twoSum([3, 3], 6) == [0,1],  "two identical"
+    assert Solution().twoSum([-1, -2, -3, -4, -5], -8) == [2, 4],  "negative int"
+    assert Solution().twoSum([3, 2, 4], 6) == [1, 2],  "struggle with 1/2 target"
+    print("all passed")

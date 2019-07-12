@@ -82,11 +82,11 @@ class Solution(object):
         def compute(operands, operators):
             left, right = operands.pop(), operands.pop()
             op = operators.pop()
-            if op == '+':
+            if op == "+":
                 operands.append(left + right)
-            elif op == '-':
+            elif op == "-":
                 operands.append(left - right)
-            elif op == '*':
+            elif op == "*":
                 operands.append(left * right)
 
         def parse(s):
@@ -100,14 +100,14 @@ class Solution(object):
                     if i == 0 or not s[i-1].isalnum():
                         operands.append(Poly(operand[::-1]))
                         operand = ""
-                elif s[i] == ')' or s[i] == '*':
+                elif s[i] == ")" or s[i] == "*":
                     operators.append(s[i])
-                elif s[i] == '+' or s[i] == '-':
-                    while operators and operators[-1] == '*':
+                elif s[i] == "+" or s[i] == "-":
+                    while operators and operators[-1] == "*":
                         compute(operands, operators)
                     operators.append(s[i])
-                elif s[i] == '(':
-                    while operators[-1] != ')':
+                elif s[i] == "(":
+                    while operators[-1] != ")":
                         compute(operands, operators)
                     operators.pop()
             while operators:

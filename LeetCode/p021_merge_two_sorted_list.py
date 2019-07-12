@@ -37,12 +37,12 @@ class Solution(object):
 
         return head.next
 
-if __name__ == '__main__':
+if __name__ == "__main__":
 
     l1 = genNode([1,2,4])
     l2 = genNode([1,3,4])
 
     check = Solution().mergeTwoLists(l1, l2)
-    assert repr(check) == '1->1->2->3->4->4'
+    assert repr(check) == "1->1->2->3->4->4"
 
-    print('all passed')
+    print("all passed")

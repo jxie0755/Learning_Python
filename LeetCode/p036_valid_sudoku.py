@@ -10,7 +10,7 @@
 # Note:
 # A Sudoku board (partially filled) could be valid but is not necessarily solvable.
 # Only the filled cells need to be validated according to the mentioned rules.
-# The given board contain only digits 1-9 and the character '.'.
+# The given board contain only digits 1-9 and the character ".".
 # The given board size is always 9x9.
 
 
@@ -48,14 +48,14 @@ class Solution:
                     return False
         return True
 
-    def isValidSudoku(self, board: 'List[List[str]]') -> 'bool':
+    def isValidSudoku(self, board: "List[List[str]]") -> "bool":
         return self.all_rows(board) and self.all_cols(board) and self.all_blocks(board)
 
 
 
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     example_1 = [
         ["5","3",".",".","7",".",".",".","."],
         ["6",".",".","1","9","5",".",".","."],
@@ -97,4 +97,4 @@ if __name__ == '__main__':
     ]
 
     assert Solution().isValidSudoku(example_3) == False
-    print('all passed')
+    print("all passed")

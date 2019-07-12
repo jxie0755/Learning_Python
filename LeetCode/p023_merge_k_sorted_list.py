@@ -11,9 +11,9 @@ from a0_ListNode import *
 class Solution:
     # Exceeded time limit
     def mergeKLists(self, lst) -> ListNode:
-        cur = dummy = ListNode('X')
+        cur = dummy = ListNode("X")
         while any([i for i in lst]):
-            i, min_val, min_idx = 0, float('inf'), float('inf')
+            i, min_val, min_idx = 0, float("inf"), float("inf")
 
             while i < len(lst):
                 node = lst[i]
@@ -47,7 +47,7 @@ class SolutionFinal:
     def merge_two(self, l1, l2):
         """merge two sorted linked list"""
         global count
-        curr = dummy = ListNode('X')
+        curr = dummy = ListNode("X")
         while l1 and l2:
             if l1.val < l2.val:
                 curr.next, l1 = l1, l1.next
@@ -61,7 +61,7 @@ class SolutionFinal:
 
     # 但是这个合并的方法偏慢, 相当于要流经的重复节点太多次了
     def mergeKLists_X(self, lst) -> ListNode:
-        dummy = ListNode(float('-inf'))
+        dummy = ListNode(float("-inf"))
         for i in lst:
             dummy = self.merge_two(dummy, i)
 
@@ -95,17 +95,17 @@ SolutionFinal().mergeKLists_O(ls)
 # >>> count:  8977
 
 
-if __name__ == '__main__':
-    assert Solution().mergeKLists([]) is None, 'Empty'
+if __name__ == "__main__":
+    assert Solution().mergeKLists([]) is None, "Empty"
     single = genNode([1])
     e = Solution().mergeKLists([single])
-    assert repr(e) == '1', 'single'
+    assert repr(e) == "1", "single"
 
     a = genNode([1,4,5])
     b = genNode([1,3,4])
     c = genNode([2,6])
     lst = [a,b,c]
     check = Solution().mergeKLists(lst)
-    assert repr(check) == '1->1->2->3->4->4->5->6', 'Example'
+    assert repr(check) == "1->1->2->3->4->4->5->6", "Example"
 
-    print('all passed')
+    print("all passed")

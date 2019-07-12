@@ -16,26 +16,26 @@ class Solution(object):
     # Use the op stack and number staock
     # This is quite slow
     def calculate(self, s: str) -> int:
-        nums = '0123456789'
+        nums = "0123456789"
 
         number, op = [], []
-        temp = ''
+        temp = ""
         for i in s:
             if i in nums:
                 temp += i
-            elif i in '*/+-':
+            elif i in "*/+-":
                 number.append(int(temp))
-                temp = ''
+                temp = ""
                 op.append(i)
         number.append(int(temp))
 
         k = 0
         while k != len(op):
             o = op[k]
-            if o in '*/':
-                if o == '*':
+            if o in "*/":
+                if o == "*":
                     number[k] = number[k] * number[k + 1]
-                if o == '/':
+                if o == "/":
                     number[k] = number[k] // number[k + 1]
                 number.pop(k + 1)
                 op.pop(k)
@@ -45,9 +45,9 @@ class Solution(object):
         k = 0
         while k != len(op):
             o = op[k]
-            if o == '+':
+            if o == "+":
                 number[k] = number[k] + number[k + 1]
-            if o == '-':
+            if o == "-":
                 number[k] = number[k] - number[k + 1]
             number.pop(k + 1)
             op.pop(k)
@@ -64,39 +64,39 @@ class Solution(object):
         n1, n2 will be numbers
         op will be operator in str
         """
-        if op == '*':
+        if op == "*":
             return n1 * n2
-        if op == '/':
+        if op == "/":
             return n1 // n2
-        if op == '+':
+        if op == "+":
             return n1 + n2
-        if op == '-':
+        if op == "-":
             return n1 - n2
 
     def calculate(self, s: str) -> int:
-        n = '0123456789'
+        n = "0123456789"
         op = []
         number = []
         priority = False
 
-        temp = ''
+        temp = ""
         for i in s:
             if i in n:
                 temp += i
-            elif i in '+-':
+            elif i in "+-":
                 number.append(int(temp))
                 op.append(i)
-                temp = ''
+                temp = ""
 
                 # when meet next operator + and -, condentse all previous stacks to one number
                 while len(number) >= 2:
                     number.append(self.calc(number.pop(-2), op.pop(-2), number.pop()))
                 priority = False
 
-            elif i in '*/':
+            elif i in "*/":
                 number.append(int(temp))
                 op.append(i)
-                temp = ''
+                temp = ""
                 # when meet next operator * and / only calculate if previous calculation is also * and /
                 # Otherwise, hold for priority
                 if priority and len(number) >= 2:
@@ -120,13 +120,13 @@ class Solution(object):
     def compute(self, operands, operators):
         left, right = operands.pop(), operands.pop()
         op = operators.pop()
-        if op == '+':
+        if op == "+":
             operands.append(left + right)
-        elif op == '-':
+        elif op == "-":
             operands.append(left - right)
-        elif op == '*':
+        elif op == "*":
             operands.append(left * right)
-        elif op == '/':
+        elif op == "/":
             operands.append(left // right)
 
     def calculate(self, s: str) -> int:
@@ -139,15 +139,15 @@ class Solution(object):
                 if i == 0 or not s[i-1].isdigit():
                     operands.append(int(operand[::-1]))
                     operand = ""
-            elif elem == ')' or elem == '*' or elem == '/':
+            elif elem == ")" or elem == "*" or elem == "/":
                 operators.append(s[i])
-            elif elem == '+' or elem == '-':
+            elif elem == "+" or elem == "-":
                 while operators and \
-                      (operators[-1] == '*' or operators[-1] == '/'):
+                      (operators[-1] == "*" or operators[-1] == "/"):
                     self.compute(operands, operators)
                 operators.append(elem)
-            elif elem == '(':
-                while operators[-1] != ')':
+            elif elem == "(":
+                while operators[-1] != ")":
                     self.compute(operands, operators)
                 operators.pop()
 
@@ -158,11 +158,11 @@ class Solution(object):
 
 
 
-if __name__ == '__main__':
-    assert Solution().calculate("3+2*2") == 7, 'Example 1'
-    assert Solution().calculate(" 3/2 ") == 1, 'Example 2'
-    assert Solution().calculate(" 3+5 / 2 ") == 5, 'Example 3'
-    assert Solution().calculate("282-1*2*13-30-2*2*2/2-95/5*2+55+804+3024") == 4067, 'Additional 1'
-    # assert Solution().calculate("(3-1)*(4-1)") == 6, 'Additional 2'
+if __name__ == "__main__":
+    assert Solution().calculate("3+2*2") == 7, "Example 1"
+    assert Solution().calculate(" 3/2 ") == 1, "Example 2"
+    assert Solution().calculate(" 3+5 / 2 ") == 5, "Example 3"
+    assert Solution().calculate("282-1*2*13-30-2*2*2/2-95/5*2+55+804+3024") == 4067, "Additional 1"
+    # assert Solution().calculate("(3-1)*(4-1)") == 6, "Additional 2"
 
-    print('all passed')
+    print("all passed")

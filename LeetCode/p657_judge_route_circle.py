@@ -18,27 +18,27 @@ class Solution:
         # this method is slow, but can easily be used for telling the coordinate from any movement.
         x, y = 0, 0
         for i in moves:
-            if i == 'U':
+            if i == "U":
                 y += 1
-            elif i == 'D':
+            elif i == "D":
                 y -= 1
-            elif i == 'L':
+            elif i == "L":
                 x -= 1
-            elif i == 'R':
+            elif i == "R":
                 x += 1
         return (x, y) == (0, 0)
 
     def judgeCircle(self, moves):
-        # Based on count of compensating movements: 'U' and 'D', 'L' and 'R'
-        return moves.count('L') == moves.count('R') and moves.count('U') == moves.count('D')
+        # Based on count of compensating movements: "U" and "D", "L" and "R"
+        return moves.count("L") == moves.count("R") and moves.count("U") == moves.count("D")
 
     def judgeCircle(self, moves):
         # good answer from online(use map() and a dictionary)
-        return not sum(map({'U': 1, 'D': -1, 'L': 1, 'R': -1}.get, moves))
+        return not sum(map({"U": 1, "D": -1, "L": 1, "R": -1}.get, moves))
 
 
-if __name__ == '__main__':
-    assert Solution().judgeCircle('UDUD') == True, 'regular up and down'
-    assert Solution().judgeCircle('UDU') == False, 'regular False'
-    assert Solution().judgeCircle('UULDDR') == True, 'regular circcle'
-    print('all passed')
+if __name__ == "__main__":
+    assert Solution().judgeCircle("UDUD") == True, "regular up and down"
+    assert Solution().judgeCircle("UDU") == False, "regular False"
+    assert Solution().judgeCircle("UULDDR") == True, "regular circcle"
+    print("all passed")

@@ -11,7 +11,7 @@
 # If no valid conversion could be performed, a zero value is returned.
 
 # Note:
-# Only the space character ' ' is considered as whitespace character.
+# Only the space character " " is considered as whitespace character.
 # Assume we are dealing with an environment which could only store integers within the 32-bit signed integer range: [−231,  231 − 1]. If the numerical value is out of the range of representable values, INT_MAX (2^31 − 1) or INT_MIN (−2^31) is returned.
 
 import re
@@ -22,19 +22,19 @@ class Solution:
     def myAtoi(self, str: str) -> int:
 
         # Two hashmap to convert char to digit
-        digits = ['0', '1', '2', '3',
-                  '4', '5', '6', '7',
-                  '8', '9']
-        prefix = ['+', '-']
+        digits = ["0", "1", "2", "3",
+                  "4", "5", "6", "7",
+                  "8", "9"]
+        prefix = ["+", "-"]
 
         low = -2**31
         high = 2**31 - 1
 
         # Get the numeric first (before decimal point)
         found = False
-        extract = ''
+        extract = ""
         for i in str:
-            if i == ' ' and not found:
+            if i == " " and not found:
                 pass
 
             elif i in prefix:
@@ -48,7 +48,7 @@ class Solution:
                 extract += i
                 found = True
 
-            elif i == '.':
+            elif i == ".":
                 break
 
             else:
@@ -62,7 +62,7 @@ class Solution:
                 if i in digits:
                     result += int(i) * base
                     base *= 10
-                elif i == '-':
+                elif i == "-":
                     result *= -1
 
             if result < low:
@@ -73,7 +73,7 @@ class Solution:
 
     # Version B, use regex method
     def myAtoi(self, str: str) -> int:
-        mo = re.search(r'^[\s]*([+\-]?)(\d+)', str)
+        mo = re.search(r"^[\s]*([+\-]?)(\d+)", str)
 
         if not mo:
             return 0
@@ -82,7 +82,7 @@ class Solution:
         for i in mo.group(2)[::-1]:
             result += int(i) * base
             base *= 10
-        result = -1* result if mo.group(1) == '-' else result
+        result = -1* result if mo.group(1) == "-" else result
         if result < -2**31:
             return -2**31
         elif result > 2**31 - 1:
@@ -90,24 +90,24 @@ class Solution:
         return result
 
 
-if __name__ == '__main__':
-    assert Solution().myAtoi("ABC") == 0, 'Edge 1'
+if __name__ == "__main__":
+    assert Solution().myAtoi("ABC") == 0, "Edge 1"
 
-    assert Solution().myAtoi("42") == 42, 'Example 1'
-    assert Solution().myAtoi("   -42") == -42, 'Example 2'
-    assert Solution().myAtoi("4193 with words") == 4193, 'Example 3'
-    assert Solution().myAtoi("words and 987") == 0, 'Example 4'
-    assert Solution().myAtoi("-91283472332") == -2147483648, 'Example 5, return -2^31'
+    assert Solution().myAtoi("42") == 42, "Example 1"
+    assert Solution().myAtoi("   -42") == -42, "Example 2"
+    assert Solution().myAtoi("4193 with words") == 4193, "Example 3"
+    assert Solution().myAtoi("words and 987") == 0, "Example 4"
+    assert Solution().myAtoi("-91283472332") == -2147483648, "Example 5, return -2^31"
 
-    assert Solution().myAtoi("3.14159") == 3, 'Extra 1'
-    assert Solution().myAtoi("+1") == 1, 'Extra 2'
-    assert Solution().myAtoi("+-2") == 0, 'Extra 3'
-    assert Solution().myAtoi("  -0012a42") == -12, 'Extra 4'
-    assert Solution().myAtoi("   +0 123") == 0, 'Extra 5'
-    assert Solution().myAtoi("-5-") == -5, 'Extra 6'
-    assert Solution().myAtoi("9223372036854775808") == 2147483647, 'Extra 6'
+    assert Solution().myAtoi("3.14159") == 3, "Extra 1"
+    assert Solution().myAtoi("+1") == 1, "Extra 2"
+    assert Solution().myAtoi("+-2") == 0, "Extra 3"
+    assert Solution().myAtoi("  -0012a42") == -12, "Extra 4"
+    assert Solution().myAtoi("   +0 123") == 0, "Extra 5"
+    assert Solution().myAtoi("-5-") == -5, "Extra 6"
+    assert Solution().myAtoi("9223372036854775808") == 2147483647, "Extra 6"
 
-    print('all passed')
+    print("all passed")
 
 
 

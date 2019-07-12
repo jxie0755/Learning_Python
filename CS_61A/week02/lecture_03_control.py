@@ -10,8 +10,8 @@
 # >>>
 # -2
 #
-# 'Go Bears'
-print('Go Bears')
+# "Go Bears"
+print("Go Bears")
 print(1, 2, 3)
 # >>> None
 # won't show because python does not show None value.

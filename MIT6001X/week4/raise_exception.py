@@ -4,9 +4,9 @@ def get_ratios(L1, L2):
         try:
             ratios.append(L1[index]/float(L2[index]))
         except ZeroDivisionError:
-            ratios.append(float('NaN'))  # NaN = Not a Number
+            ratios.append(float("NaN"))  # NaN = Not a Number
         except:
-            raise ValueError('get_ratios called with bad arg')
+            raise ValueError("get_ratios called with bad arg")
     return ratios
 
 a = [1, 2, 3]

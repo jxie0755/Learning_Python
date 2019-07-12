@@ -33,13 +33,13 @@ class Solution(object):
             inputType = InputType.INVALID
             if char.isspace():
                 inputType = InputType.SPACE
-            elif char == '+' or char == '-':
+            elif char == "+" or char == "-":
                 inputType = InputType.SIGN
             elif char.isdigit():
                 inputType = InputType.DIGIT
-            elif char == '.':
+            elif char == ".":
                 inputType = InputType.DOT
-            elif char == 'e' or char == 'E':
+            elif char == "e" or char == "E":
                 inputType = InputType.EXPONENT
 
             state = transition_table[state][inputType]

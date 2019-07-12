@@ -113,7 +113,7 @@ print(uncurry2(pow_curried)(2, 4))  # >>> 16  # Same as pow(2,4)
 
 def trace(fn):
     def wrapped(x):
-        print('-> ', fn, '(', x, ')')
+        print("-> ", fn, "(", x, ")")
         return fn(x)
     return wrapped
 
@@ -131,7 +131,7 @@ print(triple(12))
 
 def trace(fn):
     def wrapped(x):
-        print('-> ', fn, '(', x, ')')
+        print("-> ", fn, "(", x, ")")
         return fn(x)
     return wrapped
 

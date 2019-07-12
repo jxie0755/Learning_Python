@@ -8,7 +8,7 @@ def is_palindrome(text):
 
 while True:                   # 先设置循环, 把input包括在循环中,这样每次循环才让人输入内容
     something = input("Enter text: ")
-    if something == 'quit':
+    if something == "quit":
         break
     if is_palindrome(something):
         print("Yes, it s a palindrome")

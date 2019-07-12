@@ -15,7 +15,7 @@ from decimal import *
 # 解决四舍五入问题,请看ZSimpleLearnings/round_float.py
 
 print()
-print('decimal.getcontext()')
+print("decimal.getcontext()")
 # 使用getcontext()查看当前上下文，如果需要，可以为精度，四舍五入或启用陷阱设置新值
 # python 3.5新功能: 上下文精度和舍入仅在算术运算期间起作用
 print(decimal.getcontext())
@@ -27,7 +27,7 @@ print(decimal.getcontext())
 # 计算精度控制
 decimal.getcontext().prec = 6
 num1 = Decimal(1) / Decimal(7)
-print(type(num1))  # >>> <class 'decimal.Decimal'>  # 计算结果仍然是decimal的实例
+print(type(num1))  # >>> <class "decimal.Decimal">  # 计算结果仍然是decimal的实例
 print(num1)  # >>> 0.142857  # show as __str__ for human to read
 
 getcontext().prec = 12
@@ -35,33 +35,33 @@ print(num1)  # >>> 0.142857  # 一旦num1在精度为6计算出来,则保持精�
 num2 = Decimal(1) / Decimal(7)
 print(num2)  # >>> 0.142857142857
 
-print(type(num2))  # >>> <class 'decimal.Decimal'>
-print(repr(num2))  # >>> Decimal('0.142857142857')
+print(type(num2))  # >>> <class "decimal.Decimal">
+print(repr(num2))  # >>> Decimal("0.142857142857")
 
 
 
 print()
-print('class decimal.Decimal(value="0", context=None)')
+print("class decimal.Decimal(value="0", context=None)")
 
-# value可以是整数，字符串，元组，float或另一个Decimal对象。如果未给出值，则返回Decimal('0')
+# value可以是整数，字符串，元组，float或另一个Decimal对象。如果未给出值，则返回Decimal("0")
 # 推荐使用字符串
 
 # value 可选字符串
-# sign           ::=  '+' | '-'
-# digit          ::=  '0' | '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9'
-# indicator      ::=  'e' | 'E'
+# sign           ::=  "+" | "-"
+# digit          ::=  "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9"
+# indicator      ::=  "e" | "E"
 # digits         ::=  digit [digit]...
-# decimal-part   ::=  digits '.' [digits] | ['.'] digits
+# decimal-part   ::=  digits "." [digits] | ["."] digits
 # exponent-part  ::=  indicator [sign] digits
-# infinity       ::=  'Infinity' | 'Inf'
-# nan            ::=  'NaN' [digits] | 'sNaN' [digits]
+# infinity       ::=  "Infinity" | "Inf"
+# nan            ::=  "NaN" [digits] | "sNaN" [digits]
 # numeric-value  ::=  decimal-part [exponent-part] | infinity
 # numeric-string ::=  [sign] numeric-value | [sign] nan
 
 n0 = Decimal()
-n1 = Decimal('12.13')
-n2 = Decimal('infinity')
-n3 = Decimal('NaN')
+n1 = Decimal("12.13")
+n2 = Decimal("infinity")
+n3 = Decimal("NaN")
 
 # If value is a tuple, it should have three components
 # a sign (0 for positive or 1 for negative), a tuple of digits, and an integer exponent.
@@ -74,7 +74,7 @@ print(n2 * n1)  # >>> Infinity
 
 
 print()
-print('余数处理')
+print("余数处理")
 
 # 余数操作符%应用于十进制对象时，结果的符号是被除数的符号，而不是除数的符号
 print((-7) % 4)                  # >>> 1   # 余数为正
@@ -97,39 +97,39 @@ print(Decimal(-7) // Decimal(4) * Decimal(4) + Decimal(-7) % Decimal(4))  # >>> 
 
 
 print()
-print('Decimal类方法')
+print("Decimal类方法")
 
 # adjusted()
 # 在移出系数的最右边数字之后，返回调整后的指数，直到只剩下前导数字
-print(Decimal('12345').adjusted())  # >>> 4  # 1.2345e4
-print(Decimal('321e5').adjusted())  # >>> 7　# 这里321e5 == 32100000 = 3.21e7, 所以为7
+print(Decimal("12345").adjusted())  # >>> 4  # 1.2345e4
+print(Decimal("321e5").adjusted())  # >>> 7　# 这里321e5 == 32100000 = 3.21e7, 所以为7
 
 # as_integer_ratio()  # python 3.6 新方法
 # Return a pair (n, d) of integers that represent the given Decimal instance as a fraction, in lowest terms and with a positive denominator
-print(Decimal('1.25').as_integer_ratio())  # >>> (5, 4)
+print(Decimal("1.25").as_integer_ratio())  # >>> (5, 4)
 # print(Decimal(1.33).as_integer_ratio())    # >>> (748723438050345, 562949953421312)  # because input floats
-print(Decimal('1.33').as_integer_ratio())  # >>> (133, 100)   # always use string input!!!
+print(Decimal("1.33").as_integer_ratio())  # >>> (133, 100)   # always use string input!!!
 # getcontext() can solve the floats problem
 # getcontext().traps[FloatOperation] = True  # this can raise error message to remind that you made a mistake by using floats
 print(Decimal(0.8) > 0.7)  # >>> True  # this will be prevented if FloatOperation was set to True
 
 # as_tuple()
 # 返回named tuple表示形式
-print(Decimal('12345').as_tuple())  # >>> DecimalTuple(sign=0, digits=(1, 2, 3, 4, 5), exponent=0)
-print(Decimal('-321e5').as_tuple())  # >>> DecimalTuple(sign=1, digits=(3, 2, 1), exponent=5)
+print(Decimal("12345").as_tuple())  # >>> DecimalTuple(sign=0, digits=(1, 2, 3, 4, 5), exponent=0)
+print(Decimal("-321e5").as_tuple())  # >>> DecimalTuple(sign=1, digits=(3, 2, 1), exponent=5)
 # same as tuple input, but this output as a tuple
 
 # canonical()
 # 返回参数的规范编码。目前，Decimal实例的编码始终是规范的，因此此操作将返回其参数不变
-print(Decimal('123').canonical())  # >>> 123
+print(Decimal("123").canonical())  # >>> 123
 
 # compare(other, context=None)
 # 比较两个小数实例的值。compare()返回一个Decimal实例，如果任一操作数是NaN，则结果为NaN
 n1 = Decimal(207)
 n2 = Decimal(133)
-print(n1.compare(n2))  # >>> 1   # a > b : Decimal('1')
-print(n2.compare(n1))  # >>> -1  # a < b : Decimal('-1')
-print(Decimal(1.23e+4).compare(Decimal(12.3e+3)))  # >>> 0  # a == b : Decimal('0')
+print(n1.compare(n2))  # >>> 1   # a > b : Decimal("1")
+print(n2.compare(n1))  # >>> -1  # a < b : Decimal("-1")
+print(Decimal(1.23e+4).compare(Decimal(12.3e+3)))  # >>> 0  # a == b : Decimal("0")
 
 # compare_signal(other, context=None)
 # This operation is identical to the compare() method, except that all NaNs signal.
@@ -139,29 +139,29 @@ print(Decimal(1.23e+4).compare(Decimal(12.3e+3)))  # >>> 0  # a == b : Decimal('
 # Compare two operands using their abstract representation rather than their numerical value.
 # Similar to the compare() method, but the result gives a total ordering on Decimal instances.
 # Two Decimal instances with the same numeric value but different representations compare unequal in this ordering
-print(Decimal('12.0').compare_total(Decimal('12')))  # >>> -1
-print(Decimal('12.0').compare_total(Decimal(12.0)))  # >>> -1
-print(Decimal('12').compare_total(Decimal(12)))  # >>> 0
+print(Decimal("12.0").compare_total(Decimal("12")))  # >>> -1
+print(Decimal("12.0").compare_total(Decimal(12.0)))  # >>> -1
+print(Decimal("12").compare_total(Decimal(12)))  # >>> 0
 
 # compare_total_mag(other, context=None)
-print(Decimal('-12').compare_total_mag(Decimal(12)))  # >>> 0
+print(Decimal("-12").compare_total_mag(Decimal(12)))  # >>> 0
 
 # copy_abs()
 # Return the absolute value of the argument
-print(Decimal('-5e3').copy_abs())  # >>> 5E+3
+print(Decimal("-5e3").copy_abs())  # >>> 5E+3
 
 # copy_negate()
 # Return the negation of the argument
-print(Decimal('-5e3').copy_negate())  # >>> 5E+3
-print(Decimal('5e-3').copy_negate())  # >>> -0.005
+print(Decimal("-5e3").copy_negate())  # >>> 5E+3
+print(Decimal("5e-3").copy_negate())  # >>> -0.005
 
 # copy_sign(other, context=None)
 # Return a copy of the first operand with the sign set to be the same as the sign of the second operand
-print(Decimal('2.3').copy_sign(Decimal('-1.5')))  # >>> -2.3
+print(Decimal("2.3").copy_sign(Decimal("-1.5")))  # >>> -2.3
 
 # exp(context=None)
 # Return the value of the (natural) exponential function e**x at the given number.
-print(Decimal('2').exp())  # >>> 7.389056098930650227230427461  # e^2
+print(Decimal("2").exp())  # >>> 7.389056098930650227230427461  # e^2
 
 # from_float(f)
 # Classmethod that converts a float to a decimal number
@@ -171,6 +171,6 @@ print(0.1000000000000000055511151231257827021181583404541015625 * 2)  # >>> 0.2
 
 # fma(other, third, context=None)
 # Fused multiply-add. Return self*other+third with no rounding of the intermediate product self*other
-print(Decimal('5.1').fma(2, 3))  # >>> 13.2
+print(Decimal("5.1").fma(2, 3))  # >>> 13.2
 
 # TODO 未学完

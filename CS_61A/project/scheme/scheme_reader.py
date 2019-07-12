@@ -39,17 +39,17 @@ class Pair:
         self.second = second
 
     def __repr__(self):
-        return 'Pair({0}, {1})'.format(repr(self.first), repr(self.second))
+        return "Pair({0}, {1})".format(repr(self.first), repr(self.second))
 
     def __str__(self):
-        s = '(' + repl_str(self.first)
+        s = "(" + repl_str(self.first)
         second = self.second
         while isinstance(second, Pair):
-            s += ' ' + repl_str(second.first)
+            s += " " + repl_str(second.first)
             second = second.second
         if second is not nil:
-            s += ' . ' + repl_str(second)
-        return s + ')'
+            s += " . " + repl_str(second)
+        return s + ")"
 
     def __len__(self):
         n, second = 1, self.second
@@ -57,7 +57,7 @@ class Pair:
             n += 1
             second = second.second
         if second is not nil:
-            raise TypeError('length attempted on improper list')
+            raise TypeError("length attempted on improper list")
         return n
 
     def __eq__(self, p):
@@ -71,16 +71,16 @@ class Pair:
         if self.second is nil or isinstance(self.second, Pair):
             return Pair(mapped, self.second.map(fn))
         else:
-            raise TypeError('ill-formed list')
+            raise TypeError("ill-formed list")
 
 class nil:
     """The empty list"""
 
     def __repr__(self):
-        return 'nil'
+        return "nil"
 
     def __str__(self):
-        return '()'
+        return "()"
 
     def __len__(self):
         return 0
@@ -96,64 +96,64 @@ nil = nil() # Assignment hides the nil class; there is only one instance
 def scheme_read(src):
     """Read the next expression from SRC, a Buffer of tokens.
 
-    >>> scheme_read(Buffer(tokenize_lines(['nil'])))
+    >>> scheme_read(Buffer(tokenize_lines(["nil"])))
     nil
-    >>> scheme_read(Buffer(tokenize_lines(['1'])))
+    >>> scheme_read(Buffer(tokenize_lines(["1"])))
     1
-    >>> scheme_read(Buffer(tokenize_lines(['true'])))
+    >>> scheme_read(Buffer(tokenize_lines(["true"])))
     True
-    >>> scheme_read(Buffer(tokenize_lines(['(+ 1 2)'])))
-    Pair('+', Pair(1, Pair(2, nil)))
+    >>> scheme_read(Buffer(tokenize_lines(["(+ 1 2)"])))
+    Pair("+", Pair(1, Pair(2, nil)))
     """
     if src.current() is None:
         raise EOFError
     val = src.remove_front() # Get the first token
-    if val == 'nil':
+    if val == "nil":
         # BEGIN PROBLEM 1
         return nil
         # END PROBLEM 1
-    elif val == '(':
+    elif val == "(":
         # BEGIN PROBLEM 1
         return read_tail(src)
         # END PROBLEM 1
     elif val == "'":
         # BEGIN PROBLEM 7
-        return Pair('quote', Pair(scheme_read(src), nil))
+        return Pair("quote", Pair(scheme_read(src), nil))
         # END PROBLEM 7
     elif val not in DELIMITERS:
         return val
     else:
-        raise SyntaxError('unexpected token: {0}'.format(val))
+        raise SyntaxError("unexpected token: {0}".format(val))
 
 def read_tail(src):
     """Return the remainder of a list in SRC, starting before an element or ).
 
-    >>> read_tail(Buffer(tokenize_lines([')'])))
+    >>> read_tail(Buffer(tokenize_lines([")"])))
     nil
-    >>> read_tail(Buffer(tokenize_lines(['2 3)'])))
+    >>> read_tail(Buffer(tokenize_lines(["2 3)"])))
     Pair(2, Pair(3, nil))
-    >>> read_line('(1 . 2)')
+    >>> read_line("(1 . 2)")
     Pair(1, 2)
     """
     try:
         if src.current() is None:
-            raise SyntaxError('unexpected end of file')
-        elif src.current() == ')':
+            raise SyntaxError("unexpected end of file")
+        elif src.current() == ")":
             # BEGIN PROBLEM 1
             src.remove_front()
             return nil
             # END PROBLEM 1
-        elif src.current() == '.':
+        elif src.current() == ".":
             # BEGIN PROBLEM 2
-            src.remove_front() # getting rid of the '.'
+            src.remove_front() # getting rid of the "."
             val = scheme_read(src) # reads one expression
 
             # there should be no more expressions
-            if src.current() == ')':
+            if src.current() == ")":
                 src.remove_front()
                 return val
             else:
-                raise SyntaxError("Invalid number of elements after '.'")
+                raise SyntaxError("Invalid number of elements after "."")
             # END PROBLEM 2
         else:
             # BEGIN PROBLEM 1
@@ -162,15 +162,15 @@ def read_tail(src):
             return Pair(first, second)
             # END PROBLEM 1
     except EOFError:
-        raise SyntaxError('unexpected end of file')
+        raise SyntaxError("unexpected end of file")
 
 # Convenience methods
 
-def buffer_input(prompt='scm> '):
+def buffer_input(prompt="scm> "):
     """Return a Buffer instance containing interactive input."""
     return Buffer(tokenize_lines(InputReader(prompt)))
 
-def buffer_lines(lines, prompt='scm> ', show_prompt=False):
+def buffer_lines(lines, prompt="scm> ", show_prompt=False):
     """Return a Buffer instance iterating through LINES."""
     if show_prompt:
         input_lines = lines
@@ -199,13 +199,13 @@ def read_print_loop():
     """Run a read-print loop for Scheme expressions."""
     while True:
         try:
-            src = buffer_input('read> ')
+            src = buffer_input("read> ")
             while src.more_on_line:
                 expression = scheme_read(src)
-                print('str :', expression)
-                print('repr:', repr(expression))
+                print("str :", expression)
+                print("repr:", repr(expression))
         except (SyntaxError, ValueError) as err:
-            print(type(err).__name__ + ':', err)
+            print(type(err).__name__ + ":", err)
         except (KeyboardInterrupt, EOFError):  # <Control>-D, etc.
             print()
             return

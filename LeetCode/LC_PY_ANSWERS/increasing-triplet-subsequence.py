@@ -30,7 +30,7 @@ class Solution_Generalization(object):
         :rtype: bool
         """
         def increasingKUplet(nums, k):
-            inc = [float('inf')] * (k - 1)
+            inc = [float("inf")] * (k - 1)
             for num in nums:
                 i = bisect.bisect_left(inc, num)
                 if i >= k - 1:

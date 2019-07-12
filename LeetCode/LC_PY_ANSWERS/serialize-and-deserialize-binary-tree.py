@@ -18,14 +18,14 @@ class Codec(object):
         """
         def serializeHelper(node):
             if not node:
-                vals.append('#')
+                vals.append("#")
                 return
             vals.append(str(node.val))
             serializeHelper(node.left)
             serializeHelper(node.right)
         vals = []
         serializeHelper(root)
-        return ' '.join(vals)
+        return " ".join(vals)
 
 
     def deserialize(self, data):
@@ -36,7 +36,7 @@ class Codec(object):
         """
         def deserializeHelper():
             val = next(vals)
-            if val == '#':
+            if val == "#":
                 return None
             node = TreeNode(int(val))
             node.left = deserializeHelper()
@@ -52,5 +52,5 @@ class Codec(object):
                     return
                 yield source[start:idx]
                 start = idx + sepsize
-        vals = iter(isplit(data, ' '))
+        vals = iter(isplit(data, " "))
         return deserializeHelper()

@@ -46,23 +46,23 @@ def checkio(price, coins):
             if i <= len(num):
                 temp.append(num[-i])  # -i就是表示刚好差i面值的那个price的最优值
             else:
-                temp.append(float('inf'))
+                temp.append(float("inf"))
 
         if temp:
             num.append(min(temp) + 1)
 
     ans = num[-1]
-    return ans if ans != float('inf') else None
+    return ans if ans != float("inf") else None
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     # These "asserts" using only for self-checking and not necessary for auto-testing
 
-    assert not checkio(3, [4, 5]), 'Edge 1'
-    assert not checkio(15, [6, 7]), 'Edge 2'
+    assert not checkio(3, [4, 5]), "Edge 1"
+    assert not checkio(15, [6, 7]), "Edge 2"
 
-    assert checkio(8, [1, 3, 5]) == 2, 'Example 1, 3+5'
-    assert checkio(12, [1, 4, 5]) == 3, 'Example 2, 4+4+4'
-    assert checkio(123456, [1, 6, 7, 456, 678]) == 187, 'Big number, 4+4+4'
-    print('Done')
+    assert checkio(8, [1, 3, 5]) == 2, "Example 1, 3+5"
+    assert checkio(12, [1, 4, 5]) == 3, "Example 2, 4+4+4"
+    assert checkio(123456, [1, 6, 7, 456, 678]) == 187, "Big number, 4+4+4"
+    print("Done")
 

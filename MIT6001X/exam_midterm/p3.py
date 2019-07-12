@@ -9,7 +9,7 @@ def isMyNumber(x):
         return 1
 
 def jumpAndBackpedal(isMyNumber):
-    '''
+    ""'
     isMyNumber: Procedure that hides a secret number.
      It takes as a parameter one number and returns:
      *  -1 if the number is less than the secret number
@@ -17,7 +17,7 @@ def jumpAndBackpedal(isMyNumber):
      *  1 if the number is greater than the secret number
 
     returns: integer, the secret number
-    '''
+    ""'
     guess = 1
     while True:
         if isMyNumber(guess) == -1:

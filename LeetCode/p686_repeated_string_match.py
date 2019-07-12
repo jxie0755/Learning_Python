@@ -62,19 +62,19 @@ class Solution:
         return -1
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     # A > B
-    assert Solution().repeatedStringMatch('aaaaaaaaaa', 'a') == 1, 'A>B, in'
-    assert Solution().repeatedStringMatch('aaaaaaaaab', 'ba') == 2, 'A>B in 2'
-    assert Solution().repeatedStringMatch('abababaaba', 'aabaaba') == 2, 'A>B 3'
-    assert Solution().repeatedStringMatch('abcd', 'da') == 2, 'A>B, extra characters in A'
+    assert Solution().repeatedStringMatch("aaaaaaaaaa", "a") == 1, "A>B, in"
+    assert Solution().repeatedStringMatch("aaaaaaaaab", "ba") == 2, "A>B in 2"
+    assert Solution().repeatedStringMatch("abababaaba", "aabaaba") == 2, "A>B 3"
+    assert Solution().repeatedStringMatch("abcd", "da") == 2, "A>B, extra characters in A"
     # A <= B
-    assert Solution().repeatedStringMatch('abcd', 'abcdabcd') == 2, 'A<B regular in'
-    assert Solution().repeatedStringMatch('abcd', 'cccccccccccccc') == -1, 'A<B regular not in'
-    assert Solution().repeatedStringMatch('abcd', 'abcd') == 1, 'A=B in'
-    assert Solution().repeatedStringMatch('abcd', 'dabcda') == 3, 'A<=B one extra on both end 1'
-    assert Solution().repeatedStringMatch('a', 'aaa') == 3, 'A<B one extra on both end 2'
-    assert Solution().repeatedStringMatch('abcd', 'dabcdabcdabcdabcdabcdabcdabcdabcdabcdabcd') == 11, 'A<B long in 1'
-    assert Solution().repeatedStringMatch('a', 'aaaaaaaaaa') == 10, 'A<B long in 2'
-    assert Solution().repeatedStringMatch('a', 'aaaaaaaaaax') == -1, 'A<B long not in'
-    print('all passed')
+    assert Solution().repeatedStringMatch("abcd", "abcdabcd") == 2, "A<B regular in"
+    assert Solution().repeatedStringMatch("abcd", "cccccccccccccc") == -1, "A<B regular not in"
+    assert Solution().repeatedStringMatch("abcd", "abcd") == 1, "A=B in"
+    assert Solution().repeatedStringMatch("abcd", "dabcda") == 3, "A<=B one extra on both end 1"
+    assert Solution().repeatedStringMatch("a", "aaa") == 3, "A<B one extra on both end 2"
+    assert Solution().repeatedStringMatch("abcd", "dabcdabcdabcdabcdabcdabcdabcdabcdabcdabcd") == 11, "A<B long in 1"
+    assert Solution().repeatedStringMatch("a", "aaaaaaaaaa") == 10, "A<B long in 2"
+    assert Solution().repeatedStringMatch("a", "aaaaaaaaaax") == -1, "A<B long not in"
+    print("all passed")

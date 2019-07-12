@@ -26,13 +26,13 @@ def search_largest_palindrome(min_prod, max_prod):
             for divisor in limit:
                 other_divisor = sample // divisor
                 if sample % divisor == 0 and other_divisor in limit:
-                    print(sample, 'by', divisor, '*', other_divisor)
+                    print(sample, "by", divisor, "*", other_divisor)
                     return sample
         except StopIteration:
             running = False
 
-if __name__ == '__main__':
-    assert search_largest_palindrome(10, 99) == 9009, 'regular'
+if __name__ == "__main__":
+    assert search_largest_palindrome(10, 99) == 9009, "regular"
     print(search_largest_palindrome(100, 999))
     # >>>
     # 906609 by 913 * 993

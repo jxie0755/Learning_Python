@@ -1220,17 +1220,17 @@ $#_}*!(+([_&%{^&[([%]}*^{{([@+@]@*&@_!]_+([(#&!]]#$$#]@#{_]][_{@]{*))$({%}_![@$]
 }!)$]&($)@](+(#{$)_%^%_^^#][{*[)%}+[##(##^{$}^]#&(&*{)%)&][&{]&#]}[[^^&[!#}${@_(
 #@}&$[[%]_&$+)$!%{(}$^$}*"""
 
-result = ''
+result = ""
 for i in msg:
     if ord(i) in range(65, 91) or ord(i) in range(97, 123):
         result += i
 print(result)
 
 import string
-print(''.join(filter(lambda x: x in string.ascii_lowercase, msg)))
+print("".join(filter(lambda x: x in string.ascii_lowercase, msg)))
 
 
 # use re
 import re
 m = re.findall("[A-Za-z]",msg)
-print(''.join(m))
+print("".join(m))

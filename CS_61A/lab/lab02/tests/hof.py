@@ -1,11 +1,11 @@
 test = {
-  'name': 'HOF',
-  'points': 0,
-  'suites': [
+  "name": "HOF",
+  "points": 0,
+  "suites": [
     {
-      'cases': [
+      "cases": [
         {
-          'code': r"""
+          "code": r"""
           >>> def even(f):
           ...     def odd(x):
           ...         if x < 0:
@@ -21,18 +21,18 @@ test = {
           >>> stewart(-4)
           4
           """,
-          'hidden': False,
-          'locked': False
+          "hidden": False,
+          "locked": False
         },
         {
-          'code': r"""
+          "code": r"""
           >>> # Try drawing an environment diagram if you get stuck!
           >>> higher_order_lambda = lambda f: lambda x: f(x)
           >>> def cake():
-          ...    print('beets')
+          ...    print("beets")
           ...    def pie():
-          ...        print('sweets')
-          ...        return 'cake'
+          ...        print("sweets")
+          ...        return "cake"
           ...    return pie
           >>> chocolate = cake()
           beets
@@ -40,11 +40,11 @@ test = {
           Function
           >>> chocolate()
           sweets
-          'cake'
+          "cake"
           >>> more_chocolate, more_cake = chocolate(), cake
           sweets
           >>> more_chocolate
-          'cake'
+          "cake"
           >>> def snake(x, y):
           ...    if cake == more_cake:
           ...        return lambda y: x + y
@@ -54,16 +54,16 @@ test = {
           Function
           >>> snake(10, 20)(30)
           40
-          >>> cake = 'cake'
+          >>> cake = "cake"
           >>> snake(10, 20)
           30
           """,
-          'hidden': False,
-          'locked': False
+          "hidden": False,
+          "locked": False
         }
       ],
-      'scored': False,
-      'type': 'wwpp'
+      "scored": False,
+      "type": "wwpp"
     }
   ]
 }

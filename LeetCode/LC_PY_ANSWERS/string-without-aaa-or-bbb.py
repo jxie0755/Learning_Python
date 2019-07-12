@@ -12,14 +12,14 @@ class Solution(object):
         put_A = None
         while A or B:
             if len(result) >= 2 and result[-1] == result[-2]:
-                put_A = result[-1] == 'b'
+                put_A = result[-1] == "b"
             else:
                 put_A = A >= B
 
             if put_A:
                 A -= 1
-                result.append('a')
+                result.append("a")
             else:
                 B -= 1
-                result.append('b')
+                result.append("b")
         return "".join(result)

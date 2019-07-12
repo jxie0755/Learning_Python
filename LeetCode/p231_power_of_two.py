@@ -27,10 +27,10 @@ class Solution(object):
         return n > 0 and (n & (n - 1)) == 0
 
 
-if __name__ == '__main__':
-    assert Solution().isPowerOfTwo(-1) == False, 'Edege 1'
-    assert Solution().isPowerOfTwo(0) == False, 'Edge 2'
-    assert Solution().isPowerOfTwo(1) == True, 'Example 1'
-    assert Solution().isPowerOfTwo(16) == True, 'Example 2'
-    assert Solution().isPowerOfTwo(218) == False, 'Example 3'
-    print('all passed')
+if __name__ == "__main__":
+    assert Solution().isPowerOfTwo(-1) == False, "Edege 1"
+    assert Solution().isPowerOfTwo(0) == False, "Edge 2"
+    assert Solution().isPowerOfTwo(1) == True, "Example 1"
+    assert Solution().isPowerOfTwo(16) == True, "Example 2"
+    assert Solution().isPowerOfTwo(218) == False, "Example 3"
+    print("all passed")

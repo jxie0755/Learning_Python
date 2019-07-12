@@ -35,7 +35,7 @@ class Solution:
     def twoSum(self, numbers, target):
         # slightly modified to skip the same number, O(N^2)
         i = 0
-        prev = -float('inf')
+        prev = -float("inf")
         while numbers[i] <= target // 2:
             if numbers[i] == prev:
                 i += 1   # direct skip
@@ -75,9 +75,9 @@ class Solution:
         return [head+1, tail+1]
 
 
-if __name__ == '__main__':
-    assert Solution().twoSum([2,7,11,15], 9) == [1, 2], 'Example'
-    assert Solution().twoSum([5,25,75], 100) == [2, 3], 'T1'
-    assert Solution().twoSum([-1, 0], -1) == [1, 2], 'T2'
-    assert Solution().twoSum([1,2,3,4,4,9,56,90], 8) == [4, 5], 'T3'
-    print('all passed')
+if __name__ == "__main__":
+    assert Solution().twoSum([2,7,11,15], 9) == [1, 2], "Example"
+    assert Solution().twoSum([5,25,75], 100) == [2, 3], "T1"
+    assert Solution().twoSum([-1, 0], -1) == [1, 2], "T2"
+    assert Solution().twoSum([1,2,3,4,4,9,56,90], 8) == [4, 5], "T3"
+    print("all passed")

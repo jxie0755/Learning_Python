@@ -9,9 +9,9 @@ import json
 
 def get_stored_username():
     """如果储存了用户名,就获取它"""
-    filename = 'username.json'
+    filename = "username.json"
     try:
-        with open(filename, 'r') as f_obj:
+        with open(filename, "r") as f_obj:
             username = json.load(f_obj)
     except FileNotFoundError:
         return None
@@ -33,8 +33,8 @@ def greet_user():
     # 如果不能得到就输入新用户名
     else:
         username = input("What's your name:")
-        filename = filename = 'username.json'
-        with open(filename, 'w') as f_obj:
+        filename = filename = "username.json"
+        with open(filename, "w") as f_obj:
             json.dump(username, f_obj)
             print("We will remember you when you come back, " + username + "!")
 

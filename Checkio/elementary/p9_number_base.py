@@ -20,13 +20,13 @@ def checkio(str_number, radix):
         ans += c[str_number[numlevel - index - 1]] * radix**index
     return ans
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     assert checkio("AF", 16) == 175, "Hex"
     assert checkio("101", 2) == 5, "Bin"
     assert checkio("101", 5) == 26, "5 base"
     assert checkio("Z", 36) == 35, "Z base"
     assert checkio("AB", 10) == -1, "B > A = 10"
-    print("Coding complete? Click 'Check' to review your tests and earn cool rewards!")
+    print("Coding complete? Click "Check" to review your tests and earn cool rewards!")
 
 # Other solutions
 def checkio(str_number, radix):

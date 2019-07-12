@@ -1,12 +1,12 @@
 test = {
-  'name': 'Problem 1',
-  'points': 1,
-  'suites': [
+  "name": "Problem 1",
+  "points": 1,
+  "suites": [
     {
-      'cases': [
+      "cases": [
         {
-          'answer': "Placing an ant into the colony will decrease the colony's total available food by that ant's food_cost",
-          'choices': [
+          "answer": "Placing an ant into the colony will decrease the colony"s total available food by that ant"s food_cost",
+          "choices": [
             r"""
             Placing an ant into the colony will decrease the colony's total
             available food by that ant's food_cost
@@ -20,40 +20,40 @@ test = {
             colony's total available food
             """
           ],
-          'hidden': False,
-          'locked': False,
-          'question': 'What is the purpose of the food_cost attribute?'
+          "hidden": False,
+          "locked": False,
+          "question": "What is the purpose of the food_cost attribute?"
         },
         {
-          'answer': 'class, all Ants of the same subclass cost the same to deploy',
-          'choices': [
-            'class, all Ants of the same subclass cost the same to deploy',
-            'class, all Ants cost the same to deploy no matter what type of Ant it is',
-            'instance, the food_cost of an Ant depends on the location it is placed',
-            'instance, the food_cost of an Ant is randomized upon initialization'
+          "answer": "class, all Ants of the same subclass cost the same to deploy",
+          "choices": [
+            "class, all Ants of the same subclass cost the same to deploy",
+            "class, all Ants cost the same to deploy no matter what type of Ant it is",
+            "instance, the food_cost of an Ant depends on the location it is placed",
+            "instance, the food_cost of an Ant is randomized upon initialization"
           ],
-          'hidden': False,
-          'locked': False,
-          'question': 'What type of attribute is food_cost?'
+          "hidden": False,
+          "locked": False,
+          "question": "What type of attribute is food_cost?"
         }
       ],
-      'scored': True,
-      'type': 'concept'
+      "scored": True,
+      "type": "concept"
     },
     {
-      'cases': [
+      "cases": [
         {
-          'code': r"""
+          "code": r"""
           >>> HarvesterAnt.food_cost
           2
           >>> ThrowerAnt.food_cost
           3
           """,
-          'hidden': False,
-          'locked': False
+          "hidden": False,
+          "locked": False
         },
         {
-          'code': r"""
+          "code": r"""
           >>> # Testing HarvesterAnt action
           >>> # Note that initializing an Ant here doesn't cost food, only
           >>> # deploying an Ant in the game simulation does
@@ -69,16 +69,16 @@ test = {
           >>> colony.food
           6
           """,
-          'hidden': False,
-          'locked': False
+          "hidden": False,
+          "locked": False
         }
       ],
-      'scored': True,
-      'setup': r"""
+      "scored": True,
+      "setup": r"""
       >>> from ants import *
       """,
-      'teardown': '',
-      'type': 'doctest'
+      "teardown": "",
+      "type": "doctest"
     }
   ]
 }

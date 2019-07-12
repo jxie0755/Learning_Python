@@ -17,7 +17,7 @@ class Solution:
         if not s:
             return True
         # process the string
-        s_processed = ''
+        s_processed = ""
         for i in s:
             if i.isalnum():
                 s_processed += i.lower()
@@ -40,7 +40,7 @@ class Solution:
         return True
 
 
-if __name__ == '__main__':
-    assert Solution().isPalindrome('A man, a plan, a canal: Panama') == True
-    assert Solution().isPalindrome('race a car') == False
-    print('all passed')
+if __name__ == "__main__":
+    assert Solution().isPalindrome("A man, a plan, a canal: Panama") == True
+    assert Solution().isPalindrome("race a car") == False
+    print("all passed")

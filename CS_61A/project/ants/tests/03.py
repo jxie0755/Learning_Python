@@ -1,12 +1,12 @@
 test = {
-  'name': 'Problem 3',
-  'points': 1,
-  'suites': [
+  "name": "Problem 3",
+  "points": 1,
+  "suites": [
     {
-      'cases': [
+      "cases": [
         {
-          'answer': 'The ThrowerAnt finds the nearest place in front of its own place that has Bees and throws at a random Bee in that place',
-          'choices': [
+          "answer": "The ThrowerAnt finds the nearest place in front of its own place that has Bees and throws at a random Bee in that place",
+          "choices": [
             r"""
             The ThrowerAnt finds the nearest place in front of its own place
             that has Bees and throws at a random Bee in that place
@@ -19,61 +19,61 @@ test = {
             The ThrowerAnt finds the nearest place in either direction that has
             Bees and throws at a random Bee in that place
             """,
-            'The ThrowerAnt throws at a random Bee in its own Place'
+            "The ThrowerAnt throws at a random Bee in its own Place"
           ],
-          'hidden': False,
-          'locked': False,
-          'question': 'What Bee should a ThrowerAnt throw at?'
+          "hidden": False,
+          "locked": False,
+          "question": "What Bee should a ThrowerAnt throw at?"
         },
         {
-          'answer': "The place's entrance instance attribute",
-          'choices': [
+          "answer": "The place's entrance instance attribute",
+          "choices": [
             "The place's entrance instance attribute",
             "The place's exit instance attribute",
-            'Increment the place by 1',
-            'Decrement the place by 1'
+            "Increment the place by 1",
+            "Decrement the place by 1"
           ],
-          'hidden': False,
-          'locked': False,
-          'question': 'How do you get the Place object in front of another Place object?'
+          "hidden": False,
+          "locked": False,
+          "question": "How do you get the Place object in front of another Place object?"
         },
         {
-          'answer': 'The Hive',
-          'choices': [
-            'The Hive',
-            'None',
-            'An empty Place'
+          "answer": "The Hive",
+          "choices": [
+            "The Hive",
+            "None",
+            "An empty Place"
           ],
-          'hidden': False,
-          'locked': False,
-          'question': 'What is the entrance of the first Place in a tunnel?'
+          "hidden": False,
+          "locked": False,
+          "question": "What is the entrance of the first Place in a tunnel?"
         },
         {
-          'answer': 'None',
-          'choices': [
-            'None',
-            'A random Bee in the Hive',
-            'The closest Bee behind the ThrowerAnt'
+          "answer": "None",
+          "choices": [
+            "None",
+            "A random Bee in the Hive",
+            "The closest Bee behind the ThrowerAnt"
           ],
-          'hidden': False,
-          'locked': False,
-          'question': 'What should nearest_bee return if there is no Bee in front of the ThrowerAnt in the tunnel?'
+          "hidden": False,
+          "locked": False,
+          "question": "What should nearest_bee return if there is no Bee in front of the ThrowerAnt in the tunnel?"
         }
       ],
-      'scored': False,
-      'type': 'concept'
+      "scored": False,
+      "type": "concept"
     },
     {
-      'cases': [
+      "cases": [
         {
-          'code': r"""
+          "code": r"""
           >>> # Testing nearest_bee
           >>> thrower = ThrowerAnt()
           >>> near_bee = Bee(2) # A Bee with 2 armor
           >>> far_bee = Bee(3)  # A Bee with 3 armor
-          >>> ant_place = colony.places['tunnel_0_0']
-          >>> near_place = colony.places['tunnel_0_3']
-          >>> far_place = colony.places['tunnel_0_6']
+          >>> ant_place = colony.places["tunnel_0_0"]
+          >>> near_place = colony.places["tunnel_0_3"]
+          >>> far_place = colony.places["tunnel_0_6"]
           >>> ant_place.add_insect(thrower)
           >>> near_place.add_insect(near_bee)
           >>> far_place.add_insect(far_bee)
@@ -88,15 +88,15 @@ test = {
           >>> thrower.place is ant_place    # Don't change self.place!
           True
           """,
-          'hidden': False,
-          'locked': False
+          "hidden": False,
+          "locked": False
         },
         {
-          'code': r"""
+          "code": r"""
           >>> # Testing nearest_bee
           >>> thrower = ThrowerAnt()
-          >>> colony.places['tunnel_0_0'].add_insect(thrower)
-          >>> place = colony.places['tunnel_0_0']
+          >>> colony.places["tunnel_0_0"].add_insect(thrower)
+          >>> place = colony.places["tunnel_0_0"]
           >>> near_bee = Bee(2)
           >>> far_bee = Bee(2)
           >>> colony.places["tunnel_0_3"].add_insect(near_bee)
@@ -112,11 +112,11 @@ test = {
           >>> thrower.place is place    # Don't change self.place!
           True
           """,
-          'hidden': False,
-          'locked': False
+          "hidden": False,
+          "locked": False
         },
         {
-          'code': r"""
+          "code": r"""
           >>> # Testing Nearest bee not in the hive
           >>> thrower = ThrowerAnt()
           >>> colony.places["tunnel_0_0"].add_insect(thrower)
@@ -129,14 +129,14 @@ test = {
           >>> bee.armor                 # Bee armor should not change
           2
           """,
-          'hidden': False,
-          'locked': False
+          "hidden": False,
+          "locked": False
         },
         {
-          'code': r"""
+          "code": r"""
           >>> # Test that ThrowerAnt attacks bees on its own square
           >>> thrower = ThrowerAnt()
-          >>> colony.places['tunnel_0_0'].add_insect(thrower)
+          >>> colony.places["tunnel_0_0"].add_insect(thrower)
           >>> near_bee = Bee(2)
           >>> colony.places["tunnel_0_0"].add_insect(near_bee)
           >>> thrower.nearest_bee(colony.hive) is near_bee
@@ -145,14 +145,14 @@ test = {
           >>> near_bee.armor           # should do 1 damage
           1
           """,
-          'hidden': False,
-          'locked': False
+          "hidden": False,
+          "locked": False
         },
         {
-          'code': r"""
+          "code": r"""
           >>> # Test that ThrowerAnt attacks bees at end of tunnel
           >>> thrower = ThrowerAnt()
-          >>> colony.places['tunnel_0_0'].add_insect(thrower)
+          >>> colony.places["tunnel_0_0"].add_insect(thrower)
           >>> near_bee = Bee(2)
           >>> colony.places["tunnel_0_8"].add_insect(near_bee)
           >>> thrower.nearest_bee(colony.hive) is near_bee
@@ -161,11 +161,11 @@ test = {
           >>> near_bee.armor           # should do 1 damage
           1
           """,
-          'hidden': False,
-          'locked': False
+          "hidden": False,
+          "locked": False
         },
         {
-          'code': r"""
+          "code": r"""
           >>> # Testing ThrowerAnt chooses a random target
           >>> thrower = ThrowerAnt()
           >>> colony.places["tunnel_0_0"].add_insect(thrower)
@@ -184,19 +184,19 @@ test = {
           >>> dmg_within_tolerance()
           True
           """,
-          'hidden': False,
-          'locked': False
+          "hidden": False,
+          "locked": False
         }
       ],
-      'scored': True,
-      'setup': r"""
+      "scored": True,
+      "setup": r"""
       >>> from ants import *
       >>> hive, layout = Hive(AssaultPlan()), dry_layout
       >>> dimensions = (1, 9)
       >>> colony = AntColony(None, hive, ant_types(), layout, dimensions)
       """,
-      'teardown': '',
-      'type': 'doctest'
+      "teardown": "",
+      "type": "doctest"
     }
   ]
 }

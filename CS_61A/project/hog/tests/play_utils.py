@@ -2,7 +2,7 @@ import random
 
 from hashlib import md5
 
-TRACE_SOL = 'tests/play.sol'
+TRACE_SOL = "tests/play.sol"
 TEST_SEED = 1337
 NUM_TESTS = 1000
 
@@ -70,17 +70,17 @@ class GameTurn(object):
         """Returns a string containing a description of how who rolled how many
         dice this turn."""
         if self.num_rolls == 0:
-            return 'Player {0} rolls 0 dice:'.format(self.who)
+            return "Player {0} rolls 0 dice:".format(self.who)
         elif self.num_rolls == 1:
-            return 'Player {0} rolls {1} {2}-sided die:'.format(
+            return "Player {0} rolls {1} {2}-sided die:".format(
                     self.who,
                     self.num_rolls,
-                    'six' if self.dice_sides == 6 else 'four')
+                    "six" if self.dice_sides == 6 else "four")
         else:
-            return 'Player {0} rolls {1} {2}-sided dice:'.format(
+            return "Player {0} rolls {1} {2}-sided dice:".format(
                     self.who,
                     self.num_rolls,
-                    'six' if self.dice_sides == 6 else 'four')
+                    "six" if self.dice_sides == 6 else "four")
 
     @property
     def turn_rolls(self):
@@ -92,10 +92,10 @@ class GameTurn(object):
         """Returns a string containing a summary of the dice values rolled this
         turn."""
         if len(self.rolls) == 0:
-            return ''
-        return 'Dice sum: {0} {1}'.format(
+            return ""
+        return "Dice sum: {0} {1}".format(
                 sum(self.rolls),
-                '(rolled ones)' if 1 in self.rolls else '')
+                "(rolled ones)" if 1 in self.rolls else "")
 
     def __repr__(self):
         return str((self.score0, self.score1, self.score0_final,
@@ -171,13 +171,13 @@ def check_play_function(hog):
         trace = play_traced(hog, strat0, strat1)
         incorrect = compare_trace(trace, sol_traces[i])
         if incorrect != -1:
-            print('Incorrect result after playing {0} game(s):'.format(i + 1))
+            print("Incorrect result after playing {0} game(s):".format(i + 1))
             print_trace(trace, incorrect)
-            print('Incorrect implementation of game at turn {0}.'.format(incorrect))
-            print('Please read over the trace to find your error.')
+            print("Incorrect implementation of game at turn {0}.".format(incorrect))
+            print("Please read over the trace to find your error.")
             print("\nIf you're having trouble, try looking up the error ID on Piazza,")
-            print('or making a post with this full trace output.')
-            print('(error_id: {0})'.format(
+            print("or making a post with this full trace output.")
+            print("(error_id: {0})".format(
                 hash((trace[incorrect], incorrect, i))))
             break
 
@@ -211,39 +211,39 @@ def compare_trace(trace, sol):
 
 def print_trace(trace, incorrect=None):
     """Prints out the student trace."""
-    print('-'*64)
-    print('{0:>10}{1:>8}{2:>8}    {3}'.format(
-        '',
-        'score0',
-        'score1',
-        'Turn Summary'))
-    print('-'*64)
+    print("-"*64)
+    print("{0:>10}{1:>8}{2:>8}    {3}".format(
+        "",
+        "score0",
+        "score1",
+        "Turn Summary"))
+    print("-"*64)
     for i, turn in enumerate(trace):
         if incorrect is not None and i != incorrect:
             continue
         s0_change = turn.score0_final - turn.score0
         s1_change = turn.score1_final - turn.score1
-        print('{0:<10}{1:8}{2:8}    {3}'.format(
-            'Turn {0}:'.format(i),
+        print("{0:<10}{1:8}{2:8}    {3}".format(
+            "Turn {0}:".format(i),
             turn.score0,
             turn.score1,
             turn.turn_summary))
-        print('{0:<10}{1:>8}{2:>8}        {3}'.format(
-            '',
-            '' if s0_change == 0 else '{0:+}'.format(s0_change),
-            '' if s1_change == 0 else '{0:+}'.format(s1_change),
+        print("{0:<10}{1:>8}{2:>8}        {3}".format(
+            "",
+            "" if s0_change == 0 else "{0:+}".format(s0_change),
+            "" if s1_change == 0 else "{0:+}".format(s1_change),
             turn.turn_rolls))
-        print('{0:<10}{1:8}{2:8}    {3}'.format(
-            '',
+        print("{0:<10}{1:8}{2:8}    {3}".format(
+            "",
             turn.score0_final,
             turn.score1_final,
             turn.dice_summary))
-        print('-'*64)
-    print('{0:<15}{1:3}{2:8}'.format(
-        'Final Score:',
+        print("-"*64)
+    print("{0:<15}{1:3}{2:8}".format(
+        "Final Score:",
         turn.score0_final,
         turn.score1_final))
-    print('-'*64)
+    print("-"*64)
 
 
 def load_traces_from_file(path):
@@ -254,5 +254,5 @@ def load_traces_from_file(path):
 def write_traces_to_file(path, traces):
     """Given a target file specified by a PATH, and a solution trace, writes
     the trace to the file."""
-    with open(path, 'w') as f:
+    with open(path, "w") as f:
         f.write(str(traces))

@@ -20,13 +20,13 @@ class Solution(object):
         stack = []
         while i < len(S):
             level = 0
-            while i < len(S) and S[i] == '-':
+            while i < len(S) and S[i] == "-":
                 level += 1
                 i += 1
             while len(stack) > level:
                 stack.pop()
             val = []
-            while i < len(S) and S[i] != '-':
+            while i < len(S) and S[i] != "-":
                 val.append(S[i])
                 i += 1
             node = TreeNode(int("".join(val)))
@@ -50,12 +50,12 @@ class Solution2(object):
         """
         def recoverFromPreorderHelper(S, level, i):
             j = i[0]
-            while j < len(S) and S[j] == '-':
+            while j < len(S) and S[j] == "-":
                 j += 1 
             if level != j - i[0]:
                 return None
             i[0] = j
-            while j < len(S) and S[j] != '-':
+            while j < len(S) and S[j] != "-":
                 j += 1
             node = TreeNode(int(S[i[0]:j]))
             i[0] = j

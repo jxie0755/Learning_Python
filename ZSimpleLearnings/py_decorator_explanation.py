@@ -3,12 +3,12 @@
 
 # 问题起源
 def login():
-    print('in login')
+    print("in login")
 
 def printdebug(func):
-    print('enter the login')
+    print("enter the login")
     func()
-    print('exit the login')
+    print("exit the login")
 
 printdebug(login)
 # >>>
@@ -20,13 +20,13 @@ printdebug(login)
 
 # 既然函数可以作为返回值，可以赋值给变量，我们可以让代码优美一点
 def login():
-    print('in login')
+    print("in login")
 
 def printdebug(func):
     def __decorator():
-        print('enter the login')
+        print("enter the login")
         func()
-        print('exit the login')
+        print("exit the login")
     return __decorator  # function as return value
 debug_login = printdebug(login)  #function assign to variable
 
@@ -41,14 +41,14 @@ debug_login()  # 这样call这个debug的函数就显得更直观了
 # Python的解决方案是提供一个语法糖(Syntax Sugar)，用一个@符号来结合它们
 def printdebug(func):
     def __decorator():
-        print('enter the login')
+        print("enter the login")
         func()
-        print('exit the login')
+        print("exit the login")
     return __decorator
 
 @printdebug  # combine the printdebug and login
 def login():
-    print('in login')
+    print("in login")
 
 login()  # make the calling point more intuitive
 # >>>
@@ -60,16 +60,16 @@ login()  # make the calling point more intuitive
 # 传入参数
 def printdebug(func):
     def __decorator(arg):    #add parameter receive the user information
-        print('enter the login')
+        print("enter the login")
         func(arg)  # pass arg to login
-        print('exit the login')
+        print("exit the login")
     return __decorator
 
 @printdebug
 def login(user):
-    print('in login: ' + user)
+    print("in login: " + user)
 
-login('Denis')
+login("Denis")
 # >>>
 # enter the login
 # in login: Denis
@@ -80,17 +80,17 @@ login('Denis')
 def printdebug(level):  # add wrapper to recevie decorator's parameter
     def printdebug(func):
         def __decorator(arg):
-            print('enter the login, level: ', level)
+            print("enter the login, level: ", level)
             func(arg)
-            print('exit the login')
+            print("exit the login")
         return __decorator
     return printdebug    #return original decorator
 
 @printdebug(level=5)   #decorator's parameter, debug level set to 5
 def login(user):
-    print('in login: ' + user)
+    print("in login: " + user)
 
-login('Denis')
+login("Denis")
 # >>>
 # enter the login, level:  5
 # in login: Denis
@@ -100,19 +100,19 @@ login('Denis')
 # 装饰有返回值的函数
 def printdebug(func):
     def __decorator(user):
-        print('enter the login')
+        print("enter the login")
         result = func(user)  # recevie the native function call result
-        print('exit the login')
+        print("exit the login")
         return result        # return to caller
     return __decorator
 
 @printdebug
 def login(user):
-    print('in login:' + user)
-    msg = 'success' if user == 'Denis' else 'fail'
+    print("in login:" + user)
+    msg = "success" if user == "Denis" else "fail"
     return msg  # login with a return value
 
-result1 = login('Denis')
+result1 = login("Denis")
 print(result1)
 # >>>
 # enter the login
@@ -120,7 +120,7 @@ print(result1)
 # exit the login
 # success
 
-result2 = login('Cindy')
+result2 = login("Cindy")
 print(result2)
 # enter the login
 # in login:Cindy
@@ -131,21 +131,21 @@ print(result2)
 # 应用多个装饰器
 def printdebug(func):
     def __decorator():
-        print('enter the login')
+        print("enter the login")
         func()
-        print('exit the login')
+        print("exit the login")
     return __decorator
 
 def others(func):    # define a other decorator
     def __decorator():
-        print('***other decorator***')
+        print("***other decorator***")
         func()
     return __decorator
 
 @others         #apply two of decorator
 @printdebug
 def login():
-    print('in login:')
+    print("in login:")
 
 login()
 # >>>
@@ -158,7 +158,7 @@ login()
 @printdebug    #switch decorator order
 @others
 def logout():
-    print('in logout:')
+    print("in logout:")
 
 logout()
 # >>>
@@ -173,14 +173,14 @@ logout()
 # 一个变通的办法是“提取函数”，我们将函数中的一行语句提取成函数，然后对提取出来的函数应用装饰器
 def printdebug(func):
     def __decorator(user):
-        print('enter the login')
+        print("enter the login")
         result = func(user)
-        print('exit the login')
+        print("exit the login")
         return result
     return __decorator
 
 def login(user):
-    print('in login:' + user)
+    print("in login:" + user)
     msg = validate(user)  # exact to a method
     return msg
 
@@ -189,7 +189,7 @@ def validate(user):
     message = "success" if user == "Cindy" else "fail"
     return message
 
-result1 = login('Denis')
+result1 = login("Denis")
 print(result1)
 # >>>
 # in login:Denis

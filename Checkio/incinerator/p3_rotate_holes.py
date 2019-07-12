@@ -13,7 +13,7 @@ def rotate(state, pipe_numbers):
         state.insert(0, state.pop())
     return result
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     #These "asserts" using only for self-checking and not necessary for auto-testing
     assert rotate([1, 0, 0, 0, 1, 1, 0, 1, 0, 0, 0, 1], [0, 1]) == [1, 8], "Example"
     assert rotate([1, 0, 0, 0, 1, 1, 0, 1, 0, 0, 0, 1], [0, 1, 2]) == [], "Mission impossible"

@@ -49,9 +49,9 @@ class Solution(object):
     # 若各项加起来刚好等于9 是什么意思? 也就是数字可以被9整除,但是当余到9时我们人为终止,因为9已经是个位数了.
 
 
-if __name__ == '__main__':
-    assert Solution().addDigits(1) == 1, 'Edge 1'
-    assert Solution().addDigits(10) == 1, 'Edge 2'
+if __name__ == "__main__":
+    assert Solution().addDigits(1) == 1, "Edge 1"
+    assert Solution().addDigits(10) == 1, "Edge 2"
 
-    assert Solution().addDigits(38) == 2, 'Example 1'
-    print('all passed')
+    assert Solution().addDigits(38) == 2, "Example 1"
+    print("all passed")

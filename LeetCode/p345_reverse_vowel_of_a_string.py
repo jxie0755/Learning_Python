@@ -13,7 +13,7 @@
 class Solution:
     def reverseVowels(self, s):
         # O(n), n as len(s)
-        vowels = 'aeiouAEIOU'
+        vowels = "aeiouAEIOU"
 
         # Extract the vowels out as a string
         vowel_string = []
@@ -22,7 +22,7 @@ class Solution:
                 vowel_string.append(i)
 
         # Replace the vowels
-        result = ''
+        result = ""
         for i in s:
             if i in vowels:
                 result += vowel_string.pop()  # use pop() to reverse
@@ -33,7 +33,7 @@ class Solution:
 
     def reverseVowels(self, s):
         # two pointer method
-        vowels = {'a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U'}
+        vowels = {"a", "e", "i", "o", "u", "A", "E", "I", "O", "U"}
         L = list(s)
         i = 0
         j = len(L) - 1
@@ -45,10 +45,10 @@ class Solution:
             L[i], L[j] = L[j], L[i]
             i += 1
             j -= 1
-        return ''.join(L)
+        return "".join(L)
 
-if __name__ == '__main__':
-    assert Solution().reverseVowels('hello') == 'holle', 'test 1'
-    assert Solution().reverseVowels('leetcode') == 'leotcede', 'test 2'
-    assert Solution().reverseVowels('aA') == 'Aa', 'vowel mixed case'
-    print('all passed')
+if __name__ == "__main__":
+    assert Solution().reverseVowels("hello") == "holle", "test 1"
+    assert Solution().reverseVowels("leetcode") == "leotcede", "test 2"
+    assert Solution().reverseVowels("aA") == "Aa", "vowel mixed case"
+    print("all passed")

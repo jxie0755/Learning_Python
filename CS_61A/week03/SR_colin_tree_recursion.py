@@ -39,8 +39,8 @@ def kstairs(n, k):
 def permutations(lst):
     """List all permutations of the given list
     enumerate() function might be helpful
-    >>> permutations(['angie', 'cat'])
-    [['angie', 'cat'], ['cat', 'angie']]
+    >>> permutations(["angie", "cat"])
+    [["angie", "cat"], ["cat", "angie"]]
     >>> permutations([1, 2, 3])
     [[1, 2, 3], [1, 3, 2], [2, 1, 3], [2, 3, 1], [3, 1, 2], [3, 2, 1]]
     """
@@ -63,8 +63,8 @@ class Tree(object):
     def __repr__(self):
         args = repr(self.entry)
         if self.left or self.right:
-            args += ', {0}, {1}'.format(repr(self.left), repr(self.right))
-        return 'Tree({0})'.format(args)
+            args += ", {0}, {1}".format(repr(self.left), repr(self.right))
+        return "Tree({0})".format(args)
 
     def print(self):
         def print_helper(tree, depth):

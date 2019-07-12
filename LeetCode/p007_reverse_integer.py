@@ -15,7 +15,7 @@ class Solution:
             result = int(str(x)[::-1])
             return result if result <= 2147483647 else 0
         else:
-            result = int('-' + str(x)[-1:0:-1])
+            result = int("-" + str(x)[-1:0:-1])
             return result if result >= -2147483648 else 0
 
     # Version B, use math method
@@ -30,9 +30,9 @@ class Solution:
             result = -result
         return result if 2147483647 > result > -2147483648 else 0
 
-if __name__ == '__main__':
-    assert Solution().reverse(123) == 321, 'regular'
-    assert Solution().reverse(-120) == -21, 'tricky reverse'
-    assert Solution().reverse(1534236469) == 0, 'large number'
-    assert Solution().reverse(0) == 0, 'zero'
-    print('all passed')
+if __name__ == "__main__":
+    assert Solution().reverse(123) == 321, "regular"
+    assert Solution().reverse(-120) == -21, "tricky reverse"
+    assert Solution().reverse(1534236469) == 0, "large number"
+    assert Solution().reverse(0) == 0, "zero"
+    print("all passed")

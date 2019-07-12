@@ -57,16 +57,16 @@ class Solution:
         return lst
 
 
-if __name__ == '__main__':
-    assert Solution().trap([]) == 0, 'Edge 1'
-    assert Solution().trap([0]) == 0, 'Edge 2'
-    assert Solution().trap([1]) == 0, 'Edge 3'
-    assert Solution().trap([1,1]) == 0, 'Edge 4'
-    assert Solution().trap([2,2,2]) == 0, 'Edge 5'
-    assert Solution().trap([2,0,2]) == 2, 'Edge 6'
+if __name__ == "__main__":
+    assert Solution().trap([]) == 0, "Edge 1"
+    assert Solution().trap([0]) == 0, "Edge 2"
+    assert Solution().trap([1]) == 0, "Edge 3"
+    assert Solution().trap([1,1]) == 0, "Edge 4"
+    assert Solution().trap([2,2,2]) == 0, "Edge 5"
+    assert Solution().trap([2,0,2]) == 2, "Edge 6"
 
-    assert Solution().trap([0,1,0,2,1,0,1,3,2,1,2,1]) == 6, 'Example 1'
-    assert Solution().trap([10,1,2,1,2,1,10]) == 43, 'Example 2'
-    assert Solution().trap([5,5,1,7,1,1,5,2,7,6]) == 23, 'Example 3'
+    assert Solution().trap([0,1,0,2,1,0,1,3,2,1,2,1]) == 6, "Example 1"
+    assert Solution().trap([10,1,2,1,2,1,10]) == 43, "Example 2"
+    assert Solution().trap([5,5,1,7,1,1,5,2,7,6]) == 23, "Example 3"
 
-    print('all passed')
+    print("all passed")

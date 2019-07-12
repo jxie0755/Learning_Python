@@ -40,10 +40,10 @@ class Solution(object):
         return num == 1
 
 
-if __name__ == '__main__':
-    assert Solution().isUgly(0) is False, 'Edge 1'
-    assert Solution().isUgly(1) is True, 'Edge 2'
-    assert Solution().isUgly(6) is True, 'Example 1'
-    assert Solution().isUgly(8) is True, 'Example 2'
-    assert Solution().isUgly(14) is False, 'Example 3'
-    print('all passed')
+if __name__ == "__main__":
+    assert Solution().isUgly(0) is False, "Edge 1"
+    assert Solution().isUgly(1) is True, "Edge 2"
+    assert Solution().isUgly(6) is True, "Example 1"
+    assert Solution().isUgly(8) is True, "Example 2"
+    assert Solution().isUgly(14) is False, "Example 3"
+    print("all passed")

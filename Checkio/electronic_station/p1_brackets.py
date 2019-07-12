@@ -30,11 +30,11 @@ def checkio(expression):
 # 综上: 排除了open和close数量的差别造成错误, 也排除了位置不对应的结构性错误.
 # 思路: 创建一个空list,若出现正符号则加入,若出现反符号则抵消对应的正符号,最终list回到empty状态为True, 反之为False
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     assert checkio("((5+3)*2+1)") == True, "Simple"
     assert checkio("{[(3+1)+2]+}") == True, "Different types"
     assert checkio("(3+{1-1)}") == False, ") is alone inside {}"
     assert checkio("[1+1]+(2*2)-{3/3}") == True, "Different operators"
     assert checkio("(({[(((1)-2)+3)-3]/3}-3)") == False, "One is redundant"
     assert checkio("2+3") == True, "No brackets, no problem"
-    print('done')
+    print("done")

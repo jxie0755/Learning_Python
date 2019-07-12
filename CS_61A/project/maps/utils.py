@@ -22,11 +22,11 @@ def map_and_filter(s, map_fn, filter_fn):
 def key_of_min_value(d):
     """Returns the key in a dict d that corresponds to the minimum value of d.
 
-    >>> letters = {'a': 6, 'b': 5, 'c': 4, 'd': 5}
+    >>> letters = {"a": 6, "b": 5, "c": 4, "d": 5}
     >>> min(letters)
-    'a'
+    "a"
     >>> key_of_min_value(letters)
-    'c'
+    "c"
     """
     # BEGIN Question 0
     return min(d, key=d.get)
@@ -43,11 +43,11 @@ def zip(*sequences):
     1 4
     2 5
     3 6
-    >>> for triple in zip(['a', 'b', 'c'], [1, 2, 3], ['do', 're', 'mi']):
+    >>> for triple in zip(["a", "b", "c"], [1, 2, 3], ["do", "re", "mi"]):
     ...     print(triple)
-    ['a', 1, 'do']
-    ['b', 2, 're']
-    ['c', 3, 'mi']
+    ["a", 1, "do"]
+    ["b", 2, "re"]
+    ["c", 3, "mi"]
     """
     return list(map(list, _zip(*sequences)))
 
@@ -55,10 +55,10 @@ def enumerate(s, start=0):
     """Returns a list of lists, where the i-th list contains i+start and
     the i-th element of s.
 
-    >>> enumerate([6, 1, 'a'])
-    [[0, 6], [1, 1], [2, 'a']]
-    >>> enumerate('five', 5)
-    [[5, 'f'], [6, 'i'], [7, 'v'], [8, 'e']]
+    >>> enumerate([6, 1, "a"])
+    [[0, 6], [1, 1], [2, "a"]]
+    >>> enumerate("five", 5)
+    [[5, "f"], [6, "i"], [7, "v"], [8, "e"]]
     """
     # BEGIN Question 0
     return zip(range(start, start+len(s)), s)

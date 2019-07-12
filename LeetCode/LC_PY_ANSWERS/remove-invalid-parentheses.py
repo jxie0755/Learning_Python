@@ -11,9 +11,9 @@ class Solution(object):
         def findMinRemove(s):
             left_removed, right_removed = 0, 0
             for c in s:
-                if c == '(':
+                if c == "(":
                     left_removed += 1
-                elif c == ')':
+                elif c == ")":
                     if not left_removed:
                         right_removed += 1
                     else:
@@ -24,9 +24,9 @@ class Solution(object):
         def isValid(s):
             sum = 0
             for c in s:
-                if c == '(':
+                if c == "(":
                     sum += 1
-                elif c == ')':
+                elif c == ")":
                     sum -= 1
                 if sum < 0:
                     return False
@@ -43,12 +43,12 @@ class Solution(object):
                 return
 
             for i in xrange(start, len(s)):
-                if right_removed == 0 and left_removed > 0 and s[i] == '(':
+                if right_removed == 0 and left_removed > 0 and s[i] == "(":
                     if i == start or s[i] != s[i - 1]:  # Skip duplicated.
                         removed[i] = True
                         removeInvalidParenthesesHelper(i + 1, left_removed - 1, right_removed)
                         del removed[i]
-                elif right_removed > 0 and s[i] == ')':
+                elif right_removed > 0 and s[i] == ")":
                     if i == start or s[i] != s[i - 1]:  # Skip duplicated.
                         removed[i] = True
                         removeInvalidParenthesesHelper(i + 1, left_removed, right_removed - 1)

@@ -15,10 +15,10 @@ class Solution(object):
         if not nums:
             return []
 
-        nums = nums + [float('inf')]
+        nums = nums + [float("inf")]
         result = []
         rangefound = False
-        temp = ''
+        temp = ""
         i = 0
         while i != len(nums)-1:
             cur, nex = nums[i], nums[i+1]
@@ -29,20 +29,20 @@ class Solution(object):
                 else:
                     temp += str(cur)
                     result.append(temp)
-                    temp = ''
+                    temp = ""
                 rangefound = False
             else:
                 rangefound = True
                 if not temp:
-                    temp += str(cur) + '->'
+                    temp += str(cur) + "->"
             i += 1
         return result
 
 
-if __name__ == '__main__':
-    assert Solution().summaryRanges([]) == [], 'Edge'
+if __name__ == "__main__":
+    assert Solution().summaryRanges([]) == [], "Edge"
 
-    assert Solution().summaryRanges([0,1,2,4,5,7]) == ["0->2","4->5","7"], 'Example 1'
-    assert Solution().summaryRanges([0,2,3,4,6,8,9]) == ["0","2->4","6","8->9"], 'Example 2'
+    assert Solution().summaryRanges([0,1,2,4,5,7]) == ["0->2","4->5","7"], "Example 1"
+    assert Solution().summaryRanges([0,2,3,4,6,8,9]) == ["0","2->4","6","8->9"], "Example 2"
 
-    print('all passed')
+    print("all passed")

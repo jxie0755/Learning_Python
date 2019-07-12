@@ -15,10 +15,10 @@ class Solution(object):
         i, j = 0, 0
         while i < n1 or j < n2:
             v1, v2 = 0, 0
-            while i < n1 and version1[i] != '.':
+            while i < n1 and version1[i] != ".":
                 v1 = v1 * 10 + int(version1[i])
                 i += 1
-            while j < n2 and version2[j] != '.':
+            while j < n2 and version2[j] != ".":
                 v2 = v2 * 10 + int(version2[j])
                 j += 1
             if v1 != v2:
@@ -42,9 +42,9 @@ class Solution2(object):
         v1, v2 = version1.split("."), version2.split(".")
 
         if len(v1) > len(v2):
-            v2 += ['0' for _ in xrange(len(v1) - len(v2))]
+            v2 += ["0" for _ in xrange(len(v1) - len(v2))]
         elif len(v1) < len(v2):
-            v1 += ['0' for _ in xrange(len(v2) - len(v1))]
+            v1 += ["0" for _ in xrange(len(v2) - len(v1))]
 
         i = 0
         while i < len(v1):
@@ -63,8 +63,8 @@ class Solution2(object):
         :type version2: str
         :rtype: int
         """
-        v1 = [int(x) for x in version1.split('.')]
-        v2 = [int(x) for x in version2.split('.')]
+        v1 = [int(x) for x in version1.split(".")]
+        v2 = [int(x) for x in version2.split(".")]
         while len(v1) != len(v2):
             if len(v1) > len(v2):
                 v2.append(0)
@@ -73,10 +73,10 @@ class Solution2(object):
         return cmp(v1, v2)
 
     def compareVersion3(self, version1, version2):
-        splits = (map(int, v.split('.')) for v in (version1, version2))
+        splits = (map(int, v.split(".")) for v in (version1, version2))
         return cmp(*zip(*itertools.izip_longest(*splits, fillvalue=0)))
 
     def compareVersion4(self, version1, version2):
-        main1, _, rest1 = ('0' + version1).partition('.')
-        main2, _, rest2 = ('0' + version2).partition('.')
+        main1, _, rest1 = ("0" + version1).partition(".")
+        main2, _, rest2 = ("0" + version2).partition(".")
         return cmp(int(main1), int(main2)) or len(rest1 + rest2) and self.compareVersion4(rest1, rest2)

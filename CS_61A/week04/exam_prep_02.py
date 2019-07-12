@@ -41,7 +41,7 @@ def kbonacci(n, k):
 
 # Combine Reverse and Remove
 def combine(left, right):
-    """Return all of LEFT's digits followed by all of RIGHT's digits."""
+    """Return all of LEFT"s digits followed by all of RIGHT"s digits."""
     factor = 1
     while factor <= right:
         factor = factor * 10

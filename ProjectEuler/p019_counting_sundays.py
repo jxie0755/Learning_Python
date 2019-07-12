@@ -40,7 +40,7 @@ def count_weekday_of_monthly_first_day(weekday_code, date1, date2):
     return count
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     A = datetime.date(1901, 1, 1)
     B = datetime.date(2000, 12, 31)
     print(count_weekday_of_monthly_first_day(7, A, B))

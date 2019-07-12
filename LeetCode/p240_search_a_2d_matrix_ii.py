@@ -69,7 +69,7 @@ class Solution(object):
 
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     A = [
         [1, 4, 7, 11, 15],
         [2, 5, 8, 12, 19],
@@ -78,7 +78,7 @@ if __name__ == '__main__':
         [18, 21, 23, 26, 30]
     ]
 
-    assert Solution().searchMatrix(A, 5), 'Example 1'
-    assert not Solution().searchMatrix(A, 20), 'Example 2'
+    assert Solution().searchMatrix(A, 5), "Example 1"
+    assert not Solution().searchMatrix(A, 20), "Example 2"
 
-    print('all passed')
+    print("all passed")

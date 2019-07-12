@@ -1,6 +1,6 @@
 # Moving items from one list to another
 
-unconfirmed_users = ['alice', 'brian', 'candace']
+unconfirmed_users = ["alice", "brian", "candace"]
 confirmed_users = []
 
 while len(unconfirmed_users) > 0:
@@ -12,7 +12,7 @@ print(confirmed_users)
 
 # 也可以用pop命令, 可以省一行命令
 
-unconfirmed_users = ['alice', 'brian', 'candace']
+unconfirmed_users = ["alice", "brian", "candace"]
 confirmed_users = []
 
 while len(unconfirmed_users) > 0:
@@ -26,9 +26,9 @@ def movinglist(listU, listC):
     while listU: # 等同于while len(listU) > 0:
       listC.append(listU.pop(0))
 
-unconfirmed_users = ['alice', 'brian', 'candace']
+unconfirmed_users = ["alice", "brian", "candace"]
 confirmed_users = []
 
 movinglist(unconfirmed_users, confirmed_users)
-print('U:', unconfirmed_users)
-print('C:', confirmed_users)
+print("U:", unconfirmed_users)
+print("C:", confirmed_users)

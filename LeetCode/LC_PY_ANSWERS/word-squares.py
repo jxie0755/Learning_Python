@@ -9,9 +9,9 @@ class TrieNode(object):
     def insert(self, words, i):
         cur = self
         for c in words[i]:
-            if not cur.children[ord(c)-ord('a')]:
-                cur.children[ord(c)-ord('a')] = TrieNode()
-            cur = cur.children[ord(c)-ord('a')]
+            if not cur.children[ord(c)-ord("a")]:
+                cur.children[ord(c)-ord("a")] = TrieNode()
+            cur = cur.children[ord(c)-ord("a")]
             cur.indices.append(i)
 
 
@@ -41,7 +41,7 @@ class Solution(object):
 
         node = trie
         for s in curr:
-            node = node.children[ord(s[len(curr)]) - ord('a')]
+            node = node.children[ord(s[len(curr)]) - ord("a")]
             if not node:
                 return
 

@@ -3,11 +3,11 @@
 # which returns the key corresponding to the entry with the largest number of values associated with it.
 # If there is more than one such entry, return any one of the matching keys.
 
-animals = { 'a': ['aardvark'], 'b': ['baboon'], 'c': ['coati']}
+animals = { "a": ["aardvark"], "b": ["baboon"], "c": ["coati"]}
 
-animals['d'] = ['donkey']
-animals['d'].append('dog')
-animals['d'].append('dingo')
+animals["d"] = ["donkey"]
+animals["d"].append("dog")
+animals["d"].append("dingo")
 
 def biggest(aDict):
     """

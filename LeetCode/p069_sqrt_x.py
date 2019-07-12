@@ -49,11 +49,11 @@ class Solution:
         # Cheating by use python internal function
         return int(x ** 0.5)
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     assert Solution().mySqrt(0) == 0
     assert Solution().mySqrt(1) == 1
     assert Solution().mySqrt(4) == 2
     assert Solution().mySqrt(8) == 2
     assert Solution().mySqrt(36) == 6
     assert Solution().mySqrt(2147395600) == 46340
-    print('all passed')
+    print("all passed")

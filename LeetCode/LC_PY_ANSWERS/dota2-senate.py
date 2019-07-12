@@ -13,7 +13,7 @@ class Solution(object):
         n = len(senate)
         radiant, dire = collections.deque(), collections.deque()
         for i, c in enumerate(senate):
-            if c == 'R':
+            if c == "R":
                 radiant.append(i)
             else:
                 dire.append(i)

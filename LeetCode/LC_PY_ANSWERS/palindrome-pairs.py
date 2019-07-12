@@ -39,11 +39,11 @@ class Solution_TLE(object):
         def manacher(s, P):
             def preProcess(s):
                 if not s:
-                    return ['^', '$']
-                T = ['^']
+                    return ["^", "$"]
+                T = ["^"]
                 for c in s:
                     T +=  ["#", c]
-                T += ['#', '$']
+                T += ["#", "$"]
                 return T
 
             T = preProcess(s)

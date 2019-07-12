@@ -15,14 +15,14 @@ class Solution(object):
         """
         def str2treeHelper(s, i):
             start = i
-            if s[i] == '-': i += 1
+            if s[i] == "-": i += 1
             while i < len(s) and s[i].isdigit(): i += 1
             node = TreeNode(int(s[start:i]))
-            if i < len(s) and s[i] == '(':
+            if i < len(s) and s[i] == "(":
                 i += 1
                 node.left, i = str2treeHelper(s, i)
                 i += 1
-            if i < len(s) and s[i] == '(':
+            if i < len(s) and s[i] == "(":
                 i += 1
                 node.right, i = str2treeHelper(s, i)
                 i += 1

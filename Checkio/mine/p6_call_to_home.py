@@ -18,16 +18,16 @@ def total_cost(calls):
     # create dataset as a list of dictionary for groupby
     dataset = []
     for i in calls:
-        temp = {'date': i[0:10], 'minutes': i[20:]}
+        temp = {"date": i[0:10], "minutes": i[20:]}
         dataset.append(temp)
     # sort first to avoid accidents
-    dataset.sort(key=lambda x:x['date'])
-    # grouby 'date'
-    lstg = itertools.groupby(dataset, key=lambda x: x['date'])
+    dataset.sort(key=lambda x:x["date"])
+    # grouby "date"
+    lstg = itertools.groupby(dataset, key=lambda x: x["date"])
 
     def dayprice(x):
         """"calculate the price by 1 day"""
-        minutes = list(map(lambda y:int(y['minutes']), x))
+        minutes = list(map(lambda y:int(y["minutes"]), x))
         billable = []
         for i in minutes:
             if i % 60 != 0:
@@ -43,7 +43,7 @@ def total_cost(calls):
     return sum(map(dayprice, [list(g) for k, g in lstg]))
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     assert total_cost(("2014-01-01 01:12:13 181",
                        "2014-01-02 20:11:10 600",
                        "2014-01-03 01:12:13 6009",
@@ -56,7 +56,7 @@ if __name__ == '__main__':
                        "2014-02-05 02:00:00 60",
                        "2014-02-05 03:00:00 60",
                        "2014-02-05 04:00:00 6000")) == 106, "Precise calls"
-    print('done')
+    print("done")
 
 
 # print(total_cost(("2014-01-01 01:12:13 181",

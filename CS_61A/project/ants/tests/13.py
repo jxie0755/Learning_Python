@@ -1,51 +1,51 @@
 test = {
-  'name': 'Problem 13',
-  'points': 4,
-  'suites': [
+  "name": "Problem 13",
+  "points": 4,
+  "suites": [
     {
-      'cases': [
+      "cases": [
         {
-          'answer': 'ScubaThrower',
-          'choices': [
-            'ScubaThrower',
-            'Ant',
-            'Insect',
-            'AntColony'
+          "answer": "ScubaThrower",
+          "choices": [
+            "ScubaThrower",
+            "Ant",
+            "Insect",
+            "AntColony"
           ],
-          'hidden': False,
-          'locked': False,
-          'question': 'What class does QueenAnt inherit from?'
+          "hidden": False,
+          "locked": False,
+          "question": "What class does QueenAnt inherit from?"
         },
         {
-          'answer': 'The first QueenAnt that is instantiated',
-          'choices': [
-            'The first QueenAnt that is instantiated',
-            'The second QueenAnt that is instantiated',
-            'The most recent QueenAnt that is instantiated',
-            'All QueenAnt instances are true QueenAnts'
+          "answer": "The first QueenAnt that is instantiated",
+          "choices": [
+            "The first QueenAnt that is instantiated",
+            "The second QueenAnt that is instantiated",
+            "The most recent QueenAnt that is instantiated",
+            "All QueenAnt instances are true QueenAnts"
           ],
-          'hidden': False,
-          'locked': False,
-          'question': 'Which QueenAnt instance is the true QueenAnt?'
+          "hidden": False,
+          "locked": False,
+          "question": "Which QueenAnt instance is the true QueenAnt?"
         },
         {
-          'answer': 'Its armor is reduced to 0 upon taking its first action',
-          'choices': [
-            'Its armor is reduced to 0 upon taking its first action',
-            'Nothing, the game ends',
-            'The armor of the first QueenAnt is reduced to 0',
-            'It doubles the damage of all the ants behind it'
+          "answer": "Its armor is reduced to 0 upon taking its first action",
+          "choices": [
+            "Its armor is reduced to 0 upon taking its first action",
+            "Nothing, the game ends",
+            "The armor of the first QueenAnt is reduced to 0",
+            "It doubles the damage of all the ants behind it"
           ],
-          'hidden': False,
-          'locked': False,
-          'question': r"""
+          "hidden": False,
+          "locked": False,
+          "question": r"""
           What happens to any QueenAnt instance that is instantiated after the
           first one?
           """
         },
         {
-          'answer': "Attacks the nearest bee and doubles the damage of all the ants behind her (that haven't already been doubled)",
-          'choices': [
+          "answer": "Attacks the nearest bee and doubles the damage of all the ants behind her (that haven't already been doubled)",
+          "choices": [
             r"""
             Attacks the nearest bee and doubles the damage of all the ants
             behind her (that haven't already been doubled)
@@ -63,30 +63,30 @@ test = {
             already been doubled)
             """
           ],
-          'hidden': False,
-          'locked': False,
-          'question': 'What does the true QueenAnt do each turn?'
+          "hidden": False,
+          "locked": False,
+          "question": "What does the true QueenAnt do each turn?"
         },
         {
-          'answer': 'If a Bee reaches the end of a tunnel or the true QueenAnt dies',
-          'choices': [
-            'If a Bee reaches the end of a tunnel or the true QueenAnt dies',
-            'If there are no ants left in the colony',
-            'If an imposter QueenAnt is placed in the colony',
-            'If a Bee attacks the true QueenAnt'
+          "answer": "If a Bee reaches the end of a tunnel or the true QueenAnt dies",
+          "choices": [
+            "If a Bee reaches the end of a tunnel or the true QueenAnt dies",
+            "If there are no ants left in the colony",
+            "If an imposter QueenAnt is placed in the colony",
+            "If a Bee attacks the true QueenAnt"
           ],
-          'hidden': False,
-          'locked': False,
-          'question': 'Under what circumstances do Bees win the game?'
+          "hidden": False,
+          "locked": False,
+          "question": "Under what circumstances do Bees win the game?"
         }
       ],
-      'scored': False,
-      'type': 'concept'
+      "scored": False,
+      "type": "concept"
     },
     {
-      'cases': [
+      "cases": [
         {
-          'code': r"""
+          "code": r"""
           >>> # Testing QueenAnt parameters
           >>> QueenAnt.food_cost
           7
@@ -94,26 +94,26 @@ test = {
           >>> queen.armor
           1
           """,
-          'hidden': False,
-          'locked': False
+          "hidden": False,
+          "locked": False
         }
       ],
-      'scored': True,
-      'setup': r"""
+      "scored": True,
+      "setup": r"""
       >>> from ants import *
       """,
-      'teardown': '',
-      'type': 'doctest'
+      "teardown": "",
+      "type": "doctest"
     },
     {
-      'cases': [
+      "cases": [
         {
-          'code': r"""
+          "code": r"""
           >>> # QueenAnt Placement
           >>> queen = ants.QueenAnt()
           >>> impostor = ants.QueenAnt()
           >>> front_ant, back_ant = ants.ThrowerAnt(), ants.ThrowerAnt()
-          >>> tunnel = [colony.places['tunnel_0_{0}'.format(i)]
+          >>> tunnel = [colony.places["tunnel_0_{0}".format(i)]
           ...         for i in range(9)]
           >>> tunnel[1].add_insect(back_ant)
           >>> tunnel[7].add_insect(front_ant)
@@ -136,15 +136,15 @@ test = {
           >>> front_ant.damage
           1
           """,
-          'hidden': False,
-          'locked': False
+          "hidden": False,
+          "locked": False
         },
         {
-          'code': r"""
+          "code": r"""
           >>> # QueenAnt Removal
           >>> queen = ants.QueenAnt()
           >>> impostor = ants.QueenAnt()
-          >>> place = colony.places['tunnel_0_2']
+          >>> place = colony.places["tunnel_0_2"]
           >>> place.add_insect(impostor)
           >>> place.remove_insect(impostor)
           >>> place.ant is None         # Impostors can be removed
@@ -154,25 +154,25 @@ test = {
           >>> place.ant is queen        # True queen cannot be removed
           True
           """,
-          'hidden': False,
-          'locked': False
+          "hidden": False,
+          "locked": False
         },
         {
-          'code': r"""
+          "code": r"""
           >>> # QueenAnt knows how to swim
           >>> queen = ants.QueenAnt()
-          >>> water = ants.Water('Water')
+          >>> water = ants.Water("Water")
           >>> water.add_insect(queen)
           >>> queen.armor
           1
           """,
-          'hidden': False,
-          'locked': False
+          "hidden": False,
+          "locked": False
         },
         {
-          'code': r"""
+          "code": r"""
           >>> # Testing damage multiplier
-          >>> queen_tunnel, side_tunnel = [[colony.places['tunnel_{0}_{1}'.format(i, j)]
+          >>> queen_tunnel, side_tunnel = [[colony.places["tunnel_{0}_{1}".format(i, j)]
           ...         for j in range(9)] for i in range(2)]
           >>> queen = ants.QueenAnt()
           >>> back = ants.ThrowerAnt()
@@ -206,12 +206,12 @@ test = {
           >>> side_bee.armor
           9
           """,
-          'hidden': False,
-          'locked': False
+          "hidden": False,
+          "locked": False
         }
       ],
-      'scored': True,
-      'setup': r"""
+      "scored": True,
+      "setup": r"""
       >>> import ants, importlib
       >>> importlib.reload(ants)
       >>> hive = ants.Hive(ants.AssaultPlan())
@@ -220,17 +220,17 @@ test = {
       ...         ants.dry_layout, dimensions)
       >>> ants.bees_win = lambda: None
       """,
-      'teardown': '',
-      'type': 'doctest'
+      "teardown": "",
+      "type": "doctest"
     },
     {
-      'cases': [
+      "cases": [
         {
-          'code': r"""
+          "code": r"""
           >>> # Testing game over
           >>> queen = ants.QueenAnt()
           >>> impostor = ants.QueenAnt()
-          >>> tunnel = [colony.places['tunnel_0_{0}'.format(i)]
+          >>> tunnel = [colony.places["tunnel_0_{0}".format(i)]
           ...         for i in range(9)]
           >>> tunnel[4].add_insect(queen)
           >>> tunnel[6].add_insect(impostor)
@@ -242,36 +242,36 @@ test = {
           >>> bee.action(colony)            # Game should end
           BeesWinException
           """,
-          'hidden': False,
-          'locked': False
+          "hidden": False,
+          "locked": False
         },
         {
-          'code': r"""
+          "code": r"""
           >>> # Testing if queen will not crash with no one to buff
           >>> queen = ants.QueenAnt()
-          >>> colony.places['tunnel_0_2'].add_insect(queen)
+          >>> colony.places["tunnel_0_2"].add_insect(queen)
           >>> queen.action(colony)
           >>> # Attack a bee
           >>> bee = ants.Bee(3)
-          >>> colony.places['tunnel_0_4'].add_insect(bee)
+          >>> colony.places["tunnel_0_4"].add_insect(bee)
           >>> queen.action(colony)
           >>> bee.armor # Queen should still hit the bee
           2
           """,
-          'hidden': False,
-          'locked': False
+          "hidden": False,
+          "locked": False
         },
         {
-          'code': r"""
+          "code": r"""
           >>> # Testing QueenAnt action method
           >>> queen = ants.QueenAnt()
           >>> impostor = ants.QueenAnt()
           >>> bee = ants.Bee(10)
           >>> ant = ants.ThrowerAnt()
-          >>> colony.places['tunnel_0_0'].add_insect(ant)
-          >>> colony.places['tunnel_0_1'].add_insect(queen)
-          >>> colony.places['tunnel_0_2'].add_insect(impostor)
-          >>> colony.places['tunnel_0_4'].add_insect(bee)
+          >>> colony.places["tunnel_0_0"].add_insect(ant)
+          >>> colony.places["tunnel_0_1"].add_insect(queen)
+          >>> colony.places["tunnel_0_2"].add_insect(impostor)
+          >>> colony.places["tunnel_0_4"].add_insect(bee)
           
           >>> impostor.action(colony)
           >>> bee.armor   # Impostor should not damage bee
@@ -293,13 +293,13 @@ test = {
           >>> impostor.armor  # Short-lived impostor
           0
           """,
-          'hidden': False,
-          'locked': False
+          "hidden": False,
+          "locked": False
         },
         {
-          'code': r"""
+          "code": r"""
           >>> # Extensive damage doubling tests
-          >>> queen_tunnel, side_tunnel = [[colony.places['tunnel_{0}_{1}'.format(i, j)]
+          >>> queen_tunnel, side_tunnel = [[colony.places["tunnel_{0}_{1}".format(i, j)]
           ...         for j in range(9)] for i in range(2)]
           >>> queen = ants.QueenAnt()
           >>> queen_tunnel[7].add_insect(queen)
@@ -324,7 +324,7 @@ test = {
           ...     assert ant.damage == dmg,\
           ...         "{0}'s damage is {1}, but should be {2}".format(ant, ant.damage, dmg)
           >>> assert queen.damage == 1,\
-          ...     'QueenAnt damage was modified to {0}'.format(ant.damage)
+          ...     "QueenAnt damage was modified to {0}".format(ant.damage)
           >>> # Turn 1
           >>> tank = ants.TankAnt()
           >>> guard = ants.BodyguardAnt()
@@ -356,40 +356,40 @@ test = {
           ...     assert ant.damage == dmg * 2,\
           ...         "{0}'s damage is {1}, but should be {2}".format(ant, ant.damage, dmg * 2)
           """,
-          'hidden': False,
-          'locked': False
+          "hidden": False,
+          "locked": False
         },
         {
-          'code': r"""
+          "code": r"""
           >>> # Adding/Removing QueenAnt with Container
           >>> queen = ants.QueenAnt()
           >>> impostor = ants.QueenAnt()
           >>> container = ants.TankAnt()
-          >>> colony.places['tunnel_0_3'].add_insect(container)
-          >>> colony.places['tunnel_0_3'].add_insect(impostor)
+          >>> colony.places["tunnel_0_3"].add_insect(container)
+          >>> colony.places["tunnel_0_3"].add_insect(impostor)
           >>> impostor.action(colony)
-          >>> colony.places['tunnel_0_3'].ant is container
+          >>> colony.places["tunnel_0_3"].ant is container
           True
-          >>> container.place is colony.places['tunnel_0_3']
+          >>> container.place is colony.places["tunnel_0_3"]
           True
           >>> container.ant is None
           True
           >>> impostor.place is None
           True
-          >>> colony.places['tunnel_0_3'].add_insect(queen)
-          >>> colony.places['tunnel_0_3'].remove_insect(queen)
+          >>> colony.places["tunnel_0_3"].add_insect(queen)
+          >>> colony.places["tunnel_0_3"].remove_insect(queen)
           >>> container.ant is queen
           True
-          >>> queen.place is colony.places['tunnel_0_3']
+          >>> queen.place is colony.places["tunnel_0_3"]
           True
           >>> queen.action(colony)
           """,
-          'hidden': False,
-          'locked': False
+          "hidden": False,
+          "locked": False
         }
       ],
-      'scored': True,
-      'setup': r"""
+      "scored": True,
+      "setup": r"""
       >>> import ants, importlib
       >>> importlib.reload(ants)
       >>> hive = ants.Hive(ants.AssaultPlan())
@@ -397,8 +397,8 @@ test = {
       >>> colony = ants.AntColony(None, hive, ants.ant_types(),
       ...         ants.dry_layout, dimensions)
       """,
-      'teardown': '',
-      'type': 'doctest'
+      "teardown": "",
+      "type": "doctest"
     }
   ]
 }

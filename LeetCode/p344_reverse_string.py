@@ -13,9 +13,9 @@ class Solution:
         return s[::-1]
 
     def reverseString(self, s):
-        return ''.join(reversed(s))
+        return "".join(reversed(s))
 
 
-if __name__ == '__main__':
-    assert Solution().reverseString('hello') == 'olleh'
-    print('all passed')
+if __name__ == "__main__":
+    assert Solution().reverseString("hello") == "olleh"
+    print("all passed")

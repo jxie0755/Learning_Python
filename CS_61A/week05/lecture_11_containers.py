@@ -12,7 +12,7 @@ odds = [41, 43, 47, 49]
 
 digits = [1, 8, 2, 8]
 # print(1 in digits) # >>> True
-# print('1' in digits) # >>> False
+# print("1" in digits) # >>> False
 # print([1, 8] in digits) # >>> False
 # print([1, 2] in [[1, 2], 3]) # >>> True
 
@@ -72,7 +72,7 @@ def sum_below(n):
 
 def cheer():
     for _ in range(3):
-        print('Go Bears!')
+        print("Go Bears!")
 
 
 # List comprehensions
@@ -97,14 +97,14 @@ def divisors(n):
 # (unordered!)
 
 def dict_demos():
-    numerals = {'I': 1, 'V': 5, 'X': 10}
-    numerals['X']
+    numerals = {"I": 1, "V": 5, "X": 10}
+    numerals["X"]
     numerals.values()
     list(numerals.values())
     sum(numerals.values())
     dict([(3, 9), (4, 16), (5, 25)])
-    numerals.get('X', 0)
-    numerals.get('X-ray', 0)  # second parameter as the default value if not in the dict
+    numerals.get("X", 0)
+    numerals.get("X-ray", 0)  # second parameter as the default value if not in the dict
     {x: x*x for x in range(3,6)}
 
     {1: 2, 1: 3} # throw out the lower value elements

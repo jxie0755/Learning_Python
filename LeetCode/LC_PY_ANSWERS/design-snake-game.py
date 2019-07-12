@@ -28,7 +28,7 @@ class SnakeGame(object):
     def move(self, direction):
         """
         Moves the snake.
-        @param direction - 'U' = Up, 'L' = Left, 'R' = Right, 'D' = Down
+        @param direction - "U" = Up, "L" = Left, "R" = Right, "D" = Down
         @return The game's score after the move. Return -1 if game over.
         Game over when snake crosses the screen boundary or bites its body.
         :type direction: str

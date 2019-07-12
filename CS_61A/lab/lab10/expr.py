@@ -15,7 +15,7 @@ class Expr:
         - lambda expressions (e.g. lambda x: x)
 
     Call expressions and lambda expressions are built from simpler expressions.
-    A lambda's body and a call expression's operator and operands are expressions
+    A lambda"s body and a call expression"s operator and operands are expressions
     as well. This means `Expr` is a recursive data structure, similar to a tree.
     This type of a tree is called an "abstract syntax tree".
 
@@ -46,9 +46,9 @@ class Expr:
         Returns a parsable and human-readable string of this expression (i.e.
         what you would type into the interpreter).
 
-        >>> expr = CallExpr(LambdaExpr(['x'], Name('x')), [Literal(5)])
+        >>> expr = CallExpr(LambdaExpr(["x"], Name("x")), [Literal(5)])
         >>> str(expr)
-        '(lambda x: x)(5)'
+        "(lambda x: x)(5)"
         """
         raise NotImplementedError
 
@@ -56,15 +56,15 @@ class Expr:
         """
         Returns how this expression is written in our Python representation.
 
-        >>> expr1 = LambdaExpr(['f'], CallExpr(Name('f'), [Literal(0)]))
+        >>> expr1 = LambdaExpr(["f"], CallExpr(Name("f"), [Literal(0)]))
         >>> expr1
-        LambdaExpr(['f'], CallExpr(Name('f'), [Literal(0)]))
+        LambdaExpr(["f"], CallExpr(Name("f"), [Literal(0)]))
 
         >>> expr2 = CallExpr(LambdaExpr([], Literal(5)), [])
         >>> expr2
         CallExpr(LambdaExpr([], Literal(5)), [])
         """
-        args = '(' + comma_separated([repr(arg) for arg in self.args]) + ')'
+        args = "(" + comma_separated([repr(arg) for arg in self.args]) + ")"
         return type(self).__name__ + args
 
 class Literal(Expr):
@@ -98,24 +98,24 @@ class Name(Expr):
     def eval(self, env):
         """
         >>> env = {
-        ...     'a': Number(1),
-        ...     'b': LambdaFunction([], Literal(0), {})
+        ...     "a": Number(1),
+        ...     "b": LambdaFunction([], Literal(0), {})
         ... }
-        >>> Name('a').eval(env)
+        >>> Name("a").eval(env)
         Number(1)
-        >>> Name('b').eval(env)
+        >>> Name("b").eval(env)
         LambdaFunction([], Literal(0), {})
         >>> try:
-        ...     print(Name('c').eval(env))
+        ...     print(Name("c").eval(env))
         ... except NameError:
-        ...     print('Exception raised!')
+        ...     print("Exception raised!")
         Exception raised!
         """
         "*** YOUR CODE HERE ***"
         try:
             return env[self.string]
         except KeyError:
-            raise NameError('your error message here (a string)')
+            raise NameError("your error message here (a string)")
 
     def __str__(self):
         return self.string
@@ -128,10 +128,10 @@ class LambdaExpr(Expr):
 
     For example, the lambda expression `lambda x, y: add(x, y)` is parsed as
 
-    LambdaExpr(['x', 'y'], CallExpr(Name('add'), [Name('x'), Name('y')]))
+    LambdaExpr(["x", "y"], CallExpr(Name("add"), [Name("x"), Name("y")]))
 
-    where `parameters` is the list ['x', 'y'] and `body` is the expression
-    CallExpr('add', [Name('x'), Name('y')]).
+    where `parameters` is the list ["x", "y"] and `body` is the expression
+    CallExpr("add", [Name("x"), Name("y")]).
     """
     def __init__(self, parameters, body):
         Expr.__init__(self, parameters, body)
@@ -144,9 +144,9 @@ class LambdaExpr(Expr):
     def __str__(self):
         body = str(self.body)
         if not self.parameters:
-            return 'lambda: ' + body
+            return "lambda: " + body
         else:
-            return 'lambda ' + comma_separated(self.parameters) + ': ' + body
+            return "lambda " + comma_separated(self.parameters) + ": " + body
 
 class CallExpr(Expr):
     """A call expression represents a function call.
@@ -156,9 +156,9 @@ class CallExpr(Expr):
 
     For example, the call expression `add(3, 4)` is parsed as
 
-    CallExpr(Name('add'), [Literal(3), Literal(4)])
+    CallExpr(Name("add"), [Literal(3), Literal(4)])
 
-    where `operator` is Name('add') and `operands` are [Literal(3), Literal(4)].
+    where `operator` is Name("add") and `operands` are [Literal(3), Literal(4)].
     """
     def __init__(self, operator, operands):
         Expr.__init__(self, operator, operands)
@@ -169,16 +169,16 @@ class CallExpr(Expr):
         """
         >>> from reader import read
         >>> new_env = global_env.copy()
-        >>> new_env.update({'a': Number(1), 'b': Number(2)})
-        >>> add = CallExpr(Name('add'), [Literal(3), Name('a')])
+        >>> new_env.update({"a": Number(1), "b": Number(2)})
+        >>> add = CallExpr(Name("add"), [Literal(3), Name("a")])
         >>> add.eval(new_env)
         Number(4)
-        >>> new_env['a'] = Number(5)
+        >>> new_env["a"] = Number(5)
         >>> add.eval(new_env)
         Number(8)
-        >>> read('max(b, a, 4, -1)').eval(new_env)
+        >>> read("max(b, a, 4, -1)").eval(new_env)
         Number(5)
-        >>> read('add(mul(3, 4), b)').eval(new_env)
+        >>> read("add(mul(3, 4), b)").eval(new_env)
         Number(14)
         """
         "*** YOUR CODE HERE ***"
@@ -189,9 +189,9 @@ class CallExpr(Expr):
 
     def __str__(self):
         function = str(self.operator)
-        args = '(' + comma_separated(self.operands) + ')'
+        args = "(" + comma_separated(self.operands) + ")"
         if isinstance(self.operator, LambdaExpr):
-            return '(' + function + ')' + args
+            return "(" + function + ")" + args
         else:
             return function + args
 
@@ -238,7 +238,7 @@ class Value:
         """
         Returns how this value is written in our Python representation.
         """
-        args = '(' + comma_separated([repr(arg) for arg in self.args]) + ')'
+        args = "(" + comma_separated([repr(arg) for arg in self.args]) + ")"
         return type(self).__name__ + args
 
 class Number(Value):
@@ -277,19 +277,19 @@ class LambdaFunction(Value):
     def apply(self, arguments):
         """
         >>> from reader import read
-        >>> add_lambda = read('lambda x, y: add(x, y)').eval(global_env)
+        >>> add_lambda = read("lambda x, y: add(x, y)").eval(global_env)
         >>> add_lambda.apply([Number(1), Number(2)])
         Number(3)
         >>> add_lambda.apply([Number(3), Number(4)])
         Number(7)
-        >>> sub_lambda = read('lambda add: sub(10, add)').eval(global_env)
+        >>> sub_lambda = read("lambda add: sub(10, add)").eval(global_env)
         >>> sub_lambda.apply([Number(8)])
         Number(2)
         >>> add_lambda.apply([Number(8), Number(10)]) # Make sure you made a copy of env
         Number(18)
-        >>> read('(lambda x: lambda y: add(x, y))(3)(4)').eval(global_env)
+        >>> read("(lambda x: lambda y: add(x, y))(3)(4)").eval(global_env)
         Number(7)
-        >>> read('(lambda x: x(x))(lambda y: 4)').eval(global_env)
+        >>> read("(lambda x: x(x))(lambda y: 4)").eval(global_env)
         Number(4)
         """
         "*** YOUR CODE HERE ***"
@@ -305,7 +305,7 @@ class LambdaFunction(Value):
 
     def __str__(self):
         definition = LambdaExpr(self.parameters, self.body)
-        return '<function {}>'.format(definition)
+        return "<function {}>".format(definition)
 
 class PrimitiveFunction(Value):
     """A built-in function. For a full list of built-in functions, see
@@ -326,20 +326,20 @@ class PrimitiveFunction(Value):
         return Number(self.operator(*[arg.value for arg in arguments]))
 
     def __str__(self):
-        return '<primitive function {}>'.format(self.operator.__name__)
+        return "<primitive function {}>".format(self.operator.__name__)
 
 # The environment that the REPL evaluates expressions in.
 global_env = {
-    'abs': PrimitiveFunction(operator.abs),
-    'add': PrimitiveFunction(operator.add),
-    'float': PrimitiveFunction(float),
-    'floordiv': PrimitiveFunction(operator.floordiv),
-    'int': PrimitiveFunction(int),
-    'max': PrimitiveFunction(max),
-    'min': PrimitiveFunction(min),
-    'mod': PrimitiveFunction(operator.mod),
-    'mul': PrimitiveFunction(operator.mul),
-    'pow': PrimitiveFunction(pow),
-    'sub': PrimitiveFunction(operator.sub),
-    'truediv': PrimitiveFunction(operator.truediv),
+    "abs": PrimitiveFunction(operator.abs),
+    "add": PrimitiveFunction(operator.add),
+    "float": PrimitiveFunction(float),
+    "floordiv": PrimitiveFunction(operator.floordiv),
+    "int": PrimitiveFunction(int),
+    "max": PrimitiveFunction(max),
+    "min": PrimitiveFunction(min),
+    "mod": PrimitiveFunction(operator.mod),
+    "mul": PrimitiveFunction(operator.mul),
+    "pow": PrimitiveFunction(pow),
+    "sub": PrimitiveFunction(operator.sub),
+    "truediv": PrimitiveFunction(operator.truediv),
 }

@@ -8,18 +8,18 @@ def process(x):
 mylist = [1,2,3,4]
 theflag = 3
 
-print('Example A1:')
+print("Example A1:")
 for i in mylist:
     if i == theflag:
         break
     process(i)
 else:
     print("List argument missing terminal flag.\n")
-print('Bypassed else condition\n')
+print("Bypassed else condition\n")
 
 # once for loop is break, else is bypassed
 # compare to:
-print('Example A2:')
+print("Example A2:")
 theflag = 5
 for i in mylist:
     if i == theflag:
@@ -30,7 +30,7 @@ else:
 
 
 # Compare this to a method that does not use this syntactic sugar:
-print('Example B1:')
+print("Example B1:")
 theflag = 3
 flagfound = False
 for i in mylist:
@@ -41,9 +41,9 @@ for i in mylist:
 
 if not flagfound:
     print("List argument missing terminal flag.\n")
-print('Bypassed else condition\n')
+print("Bypassed else condition\n")
 
-print('Example B2:')
+print("Example B2:")
 theflag = 5
 flagfound = False
 for i in mylist:

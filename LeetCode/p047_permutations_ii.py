@@ -94,7 +94,7 @@ class Solution:
 
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     assert Solution().permuteUnique([1]) == [
         [1]
     ], "Edge 1"
@@ -115,4 +115,4 @@ if __name__ == '__main__':
         [2, 1, 1]
     ], "Example 2"
 
-    print('all passed')
+    print("all passed")

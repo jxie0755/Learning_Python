@@ -14,9 +14,9 @@ class Solution(object):
             for d in xrange(1, n+1):
                 left = S[i:i+d]
                 right = S[i+d:i+n]
-                if ((not left.startswith('0') or left == '0')
-                        and (not right.endswith('0'))):
-                    yield "".join([left, '.' if right else '', right])
+                if ((not left.startswith("0") or left == "0")
+                        and (not right.endswith("0"))):
+                    yield "".join([left, "." if right else "", right])
 
         return ["({}, {})".format(*cand)
                 for i in xrange(1, len(S)-2)

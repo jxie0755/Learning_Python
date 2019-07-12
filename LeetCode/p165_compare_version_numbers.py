@@ -25,8 +25,8 @@ class Solution(object):
         :type version2: str
         :rtype: int
         """
-        v1 = [int(i) for i in version1.split('.')]
-        v2 = [int(i) for i in version2.split('.')]
+        v1 = [int(i) for i in version1.split(".")]
+        v2 = [int(i) for i in version2.split(".")]
 
 
         def helper(lst1, lst2):
@@ -59,13 +59,13 @@ class Solution(object):
         return helper(v1, v2)
 
 
-if __name__ == '__main__':
-    assert Solution().compareVersion('0.1', '1.1') == -1, 'Example 1'
-    assert Solution().compareVersion('1.0.1', '1') == 1, 'Example 2'
-    assert Solution().compareVersion('7.5.2.4', '7.5.3') == -1, 'Example 3'
-    assert Solution().compareVersion('1.01', '1.001') == 0, 'Example 4, ignore leding zero'
-    assert Solution().compareVersion('1.0', '1.0.0') == 0, 'Example 5'
+if __name__ == "__main__":
+    assert Solution().compareVersion("0.1", "1.1") == -1, "Example 1"
+    assert Solution().compareVersion("1.0.1", "1") == 1, "Example 2"
+    assert Solution().compareVersion("7.5.2.4", "7.5.3") == -1, "Example 3"
+    assert Solution().compareVersion("1.01", "1.001") == 0, "Example 4, ignore leding zero"
+    assert Solution().compareVersion("1.0", "1.0.0") == 0, "Example 5"
 
-    print('all passed')
+    print("all passed")
 
 

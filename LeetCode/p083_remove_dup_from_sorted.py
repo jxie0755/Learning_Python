@@ -46,15 +46,15 @@ class Solution:
         return head
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
 
     a = genNode([1,1,2,3,3])
     check = Solution().deleteDuplicates(a)
-    assert repr(check) == '1->2->3'
+    assert repr(check) == "1->2->3"
 
     b = genNode([1,1,2])
     check = Solution().deleteDuplicates(b)
-    assert repr(check) == '1->2'
+    assert repr(check) == "1->2"
 
     a = None
     check = Solution().deleteDuplicates(a)
@@ -62,6 +62,6 @@ if __name__ == '__main__':
 
     a = genNode([4])
     check = Solution().deleteDuplicates(a)
-    assert repr(check) == '4'
+    assert repr(check) == "4"
 
-    print('all passed')
+    print("all passed")

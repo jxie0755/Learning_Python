@@ -11,9 +11,9 @@ def find_miss(lst1, lst2):
 
     return check
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     a = [2,3,4,1,2]
     b = [4,2,3,8,2,1]
 
-    assert find_miss(a, b) == 8, 'Test case'
-    print('all passed')
+    assert find_miss(a, b) == 8, "Test case"
+    print("all passed")

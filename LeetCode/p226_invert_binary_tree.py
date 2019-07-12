@@ -28,11 +28,11 @@ class Solution(object):
 
 
 
-if __name__ == '__main__':
-    assert Solution().invertTree(None) is None, 'Edge 0'
+if __name__ == "__main__":
+    assert Solution().invertTree(None) is None, "Edge 0"
 
     A = genTree([1])
-    assert Solution().invertTree(A) == A, 'Edge 1'
+    assert Solution().invertTree(A) == A, "Edge 1"
 
     A = genTree([
         4,
@@ -45,7 +45,7 @@ if __name__ == '__main__':
         7,2,
         9,6,3,1
     ])
-    assert Solution().invertTree(A) == B, 'Example 1'
+    assert Solution().invertTree(A) == B, "Example 1"
 
     A = genTree([
         4,
@@ -58,6 +58,6 @@ if __name__ == '__main__':
         7, 2,
         9, None, 3, None
     ])
-    assert Solution().invertTree(A) == B, 'Example 1b'
+    assert Solution().invertTree(A) == B, "Example 1b"
 
-    print('all passed')
+    print("all passed")

@@ -10,7 +10,7 @@ class Solution:
 
     # Version A, Use set
     def longestCommonPrefix(self, strs: List[str]) -> str:
-        result = ''
+        result = ""
         if len(strs) == 0:
             return result
 
@@ -26,7 +26,7 @@ class Solution:
 
     # Version B, Use Deque
     def longestCommonPrefix(self, strs: List[str]) -> str:
-        result = ''
+        result = ""
         if len(strs) == 0:
             return result
         for i in range(len(min(strs, key=len))):
@@ -37,12 +37,12 @@ class Solution:
                 break
         return result
 
-if __name__ == '__main__':
+if __name__ == "__main__":
 
-    lst = ['Denis Xie', 'Dennis X', 'Dendi Den', 'Denn']
-    assert Solution().longestCommonPrefix(lst) == 'Den', 'regular test'
+    lst = ["Denis Xie", "Dennis X", "Dendi Den", "Denn"]
+    assert Solution().longestCommonPrefix(lst) == "Den", "regular test"
 
     lst2 = []
-    assert Solution().longestCommonPrefix(lst2) == '', 'empty list'
+    assert Solution().longestCommonPrefix(lst2) == "", "empty list"
 
-    print('all passed')
+    print("all passed")

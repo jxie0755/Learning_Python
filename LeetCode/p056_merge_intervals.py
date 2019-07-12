@@ -11,7 +11,7 @@ class Interval:
         self.start = s
         self.end = e
     def __repr__(self):
-        return f'[{self.start} -> {self.end}]'
+        return f"[{self.start} -> {self.end}]"
     def __eq__(self, other):
         if self.start ==other.start and self.end == other.end:
             return True
@@ -48,7 +48,7 @@ class Solution(object):
         return result
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     E0 = Interval(0,1)
     lst = [E0]
     assert Solution().merge(lst) == [E0], "Edge 1"
@@ -64,7 +64,7 @@ if __name__ == '__main__':
         Interval(1,6),
         Interval(8,10),
         Interval(15,18),
-    ], 'Example 1'
+    ], "Example 1"
 
 
     B1 = Interval(1,4)
@@ -72,6 +72,6 @@ if __name__ == '__main__':
     lst = [B1, B2]
     assert Solution().merge(lst) == [
         Interval(1, 5),
-    ], 'Example 2'
+    ], "Example 2"
 
-    print('all passed')
+    print("all passed")

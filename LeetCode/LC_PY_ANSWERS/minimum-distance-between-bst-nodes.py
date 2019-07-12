@@ -15,7 +15,7 @@ class Solution(object):
             self.prev = node.val
             dfs(node.right)
 
-        self.prev = float('-inf')
-        self.result = float('inf')
+        self.prev = float("-inf")
+        self.result = float("inf")
         dfs(root)
         return self.result

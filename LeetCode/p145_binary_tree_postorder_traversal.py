@@ -25,15 +25,15 @@ class Solution(object):
         return self.postorderTraversal(root.left) + self.postorderTraversal(root.right) + [root.val]
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     A = genTree([
         1,
         None, 2,
         None, None, 3, None
     ])
 
-    assert Solution().postorderTraversal(A) == [3,2,1], 'Example 1'
+    assert Solution().postorderTraversal(A) == [3,2,1], "Example 1"
 
-    print('all passed')
+    print("all passed")
 
 

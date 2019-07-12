@@ -1,59 +1,59 @@
 test = {
-  'name': 'Lambda the Free',
-  'points': 0,
-  'suites': [
+  "name": "Lambda the Free",
+  "points": 0,
+  "suites": [
     {
-      'cases': [
+      "cases": [
         {
-          'answer': 'A lambda expression does not bind the function object that it returns to any name.',
-          'choices': [
-            'A lambda expression does not bind the function object that it returns to any name.',
-            'A lambda expression can have any number of parameters.',
-            'A lambda expression cannot return another function.',
-            'A def statement can only have one line in its body.'
+          "answer": "A lambda expression does not bind the function object that it returns to any name.",
+          "choices": [
+            "A lambda expression does not bind the function object that it returns to any name.",
+            "A lambda expression can have any number of parameters.",
+            "A lambda expression cannot return another function.",
+            "A def statement can only have one line in its body."
           ],
-          'hidden': False,
-          'locked': False,
-          'question': r"""
+          "hidden": False,
+          "locked": False,
+          "question": r"""
           Which of the following statements describes a difference between a def statement
           and a lambda expression?
           """
         },
         {
-          'answer': '2',
-          'choices': [
-            '1',
-            '2',
-            '3',
-            'Not enough information'
+          "answer": "2",
+          "choices": [
+            "1",
+            "2",
+            "3",
+            "Not enough information"
           ],
-          'hidden': False,
-          'locked': False,
-          'question': r"""
+          "hidden": False,
+          "locked": False,
+          "question": r"""
           How many parameters does the following lambda expression have?
           lambda a, b: c + d
           """
         },
         {
-          'answer': 'When the function returned by the lambda expression is called.',
-          'choices': [
-            'When the function returned by the lambda expression is called.',
-            'When you assign the lambda expression to a name.',
-            'When the lambda expression is evaluated.',
-            'When you pass the lambda expression into another function.'
+          "answer": "When the function returned by the lambda expression is called.",
+          "choices": [
+            "When the function returned by the lambda expression is called.",
+            "When you assign the lambda expression to a name.",
+            "When the lambda expression is evaluated.",
+            "When you pass the lambda expression into another function."
           ],
-          'hidden': False,
-          'locked': False,
-          'question': 'When is the return expression of a lambda expression executed?'
+          "hidden": False,
+          "locked": False,
+          "question": "When is the return expression of a lambda expression executed?"
         }
       ],
-      'scored': False,
-      'type': 'concept'
+      "scored": False,
+      "type": "concept"
     },
     {
-      'cases': [
+      "cases": [
         {
-          'code': r"""
+          "code": r"""
           >>> lambda x: x  # A lambda expression with one parameter x
           Function
           >>> a = lambda x: x  # Assigning a lambda function to the name a
@@ -73,11 +73,11 @@ test = {
           >>> d(square)
           16
           """,
-          'hidden': False,
-          'locked': False
+          "hidden": False,
+          "locked": False
         },
         {
-          'code': r"""
+          "code": r"""
           >>> #
           >>> # Pay attention to the scope of variables
           >>> z = 3
@@ -88,11 +88,11 @@ test = {
           >>> f(3)
           Error
           """,
-          'hidden': False,
-          'locked': False
+          "hidden": False,
+          "locked": False
         },
         {
-          'code': r"""
+          "code": r"""
           >>> # Try drawing an environment diagram if you get stuck!
           >>> higher_order_lambda = lambda f: lambda x: f(x)
           >>> g = lambda x: x * x
@@ -111,12 +111,12 @@ test = {
           >>> one_thousand
           Nothing
           """,
-          'hidden': False,
-          'locked': False
+          "hidden": False,
+          "locked": False
         }
       ],
-      'scored': False,
-      'type': 'wwpp'
+      "scored": False,
+      "type": "wwpp"
     }
   ]
 }

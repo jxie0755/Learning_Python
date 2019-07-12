@@ -1,4 +1,4 @@
-HW_SOURCE_FILE = 'hw04.py'
+HW_SOURCE_FILE = "hw04.py"
 
 ###############
 #  Questions  #
@@ -78,7 +78,7 @@ def g(n):
     >>> g(5)
     22
     >>> from construct_check import check
-    >>> check(HW_SOURCE_FILE, 'g', ['While', 'For'])
+    >>> check(HW_SOURCE_FILE, "g", ["While", "For"])
     True
     """
     "*** YOUR CODE HERE ***"
@@ -101,7 +101,7 @@ def g_iter(n):
     >>> g_iter(5)
     22
     >>> from construct_check import check
-    >>> check(HW_SOURCE_FILE, 'g_iter', ['Recursion'])
+    >>> check(HW_SOURCE_FILE, "g_iter", ["Recursion"])
     True
     """
     "*** YOUR CODE HERE ***"
@@ -143,7 +143,7 @@ def pingpong(n):
     >>> pingpong(100)
     2
     >>> from construct_check import check
-    >>> check(HW_SOURCE_FILE, 'pingpong', ['Assign', 'AugAssign'])
+    >>> check(HW_SOURCE_FILE, "pingpong", ["Assign", "AugAssign"])
     True
     """
     "*** YOUR CODE HERE ***"
@@ -234,7 +234,7 @@ def make_anonymous_factorial():
     >>> make_anonymous_factorial()(5)
     120
     >>> from construct_check import check
-    >>> check(HW_SOURCE_FILE, 'make_anonymous_factorial', ['Assign', 'AugAssign', 'FunctionDef', 'Recursion'])
+    >>> check(HW_SOURCE_FILE, "make_anonymous_factorial", ["Assign", "AugAssign", "FunctionDef", "Recursion"])
     True
     """
     # my own version needs functools.reduce

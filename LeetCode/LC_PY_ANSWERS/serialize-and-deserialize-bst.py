@@ -28,7 +28,7 @@ class Codec(object):
         vals = []
         serializeHelper(root, vals)
 
-        return ' '.join(map(str, vals))
+        return " ".join(map(str, vals))
 
 
     def deserialize(self, data):
@@ -52,4 +52,4 @@ class Codec(object):
 
         vals = collections.deque([int(val) for val in data.split()])
 
-        return deserializeHelper(float('-inf'), float('inf'), vals)
+        return deserializeHelper(float("-inf"), float("inf"), vals)

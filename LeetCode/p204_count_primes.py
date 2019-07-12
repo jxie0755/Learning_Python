@@ -153,14 +153,14 @@ class Solution_extend(object):
 
 print(Solution().countPrimes(10))
 
-if __name__ == '__main__':
-    assert Solution().countPrimes(0) == 0, 'Edge 1'
-    assert Solution().countPrimes(2) == 0, 'Edge 1'
-    assert Solution().countPrimes(3) == 1, 'Example 1'
-    assert Solution().countPrimes(10) == 4, 'Example 2'
-    assert Solution().countPrimes(12) == 5, 'Example 3'
-    assert Solution().countPrimes(20) == 8, 'Example 4' # 2,3,5,7,11,13,17,19
+if __name__ == "__main__":
+    assert Solution().countPrimes(0) == 0, "Edge 1"
+    assert Solution().countPrimes(2) == 0, "Edge 1"
+    assert Solution().countPrimes(3) == 1, "Example 1"
+    assert Solution().countPrimes(10) == 4, "Example 2"
+    assert Solution().countPrimes(12) == 5, "Example 3"
+    assert Solution().countPrimes(20) == 8, "Example 4" # 2,3,5,7,11,13,17,19
     print(Solution().countPrimes(499979))
     print(Solution().countPrimes(999983))
     print(Solution().countPrimes(1500000))
-    print('all passed')
+    print("all passed")

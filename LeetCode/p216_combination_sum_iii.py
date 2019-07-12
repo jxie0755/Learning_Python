@@ -34,11 +34,11 @@ class Solution(object):
 
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
 
 
 
-    assert Solution().combinationSum3(3, 7) == [[1,2,4]], 'Example 1'
-    assert Solution().combinationSum3(3, 9) == [[1,2,6], [1,3,5], [2,3,4]], 'Example 2'
-    print('all passed')
+    assert Solution().combinationSum3(3, 7) == [[1,2,4]], "Example 1"
+    assert Solution().combinationSum3(3, 9) == [[1,2,6], [1,3,5], [2,3,4]], "Example 2"
+    print("all passed")
 

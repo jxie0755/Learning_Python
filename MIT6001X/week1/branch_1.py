@@ -1,5 +1,5 @@
 varA = -5
-varB = 'sadfadf'
+varB = "sadfadf"
 
 print(type(varA))
 

@@ -134,17 +134,17 @@ class Solution(object):
         return A1 + A2 - overlap(R1_in, R2_in)
 
 
-if __name__ == '__main__':
-    assert Solution().computeArea(0, 0, 1, 0, 2, 0, 3, 0) == 0, 'Edge 1, horizontal line'
-    assert Solution().computeArea(0, 0, 0, 1, 0, 2, 0, 3) == 0, 'Edge 2, vertical line'
+if __name__ == "__main__":
+    assert Solution().computeArea(0, 0, 1, 0, 2, 0, 3, 0) == 0, "Edge 1, horizontal line"
+    assert Solution().computeArea(0, 0, 0, 1, 0, 2, 0, 3) == 0, "Edge 2, vertical line"
 
-    assert Solution().computeArea(-3, 0, 3, 4, 0, -1, 9, 2) == 45, 'Example 1'
+    assert Solution().computeArea(-3, 0, 3, 4, 0, -1, 9, 2) == 45, "Example 1"
 
-    assert Solution().computeArea(-2, -2, 2, 2, -2, -4, 2, -2) == 24, 'Additional 1'
-    assert Solution().computeArea(-2, -2, 2, 2, -2, -2, 2, 2) == 16, 'Additional 2'
-    assert Solution().computeArea(-5, -5, -3, 3, -3, -3, 3, 3) == 52, 'Additional 3'
-    assert Solution().computeArea(-5, -3, 3, 0, -3, -3, 3, 3) == 42, 'Additional 4'
-    assert Solution().computeArea(-5, -2, 5, 1, -3, -3, 3, 3) == 48, 'Additional 5'
-    assert Solution().computeArea(-5, -5, -4, 5, -3, -3, 3, 3) == 46, 'Additional 6'
+    assert Solution().computeArea(-2, -2, 2, 2, -2, -4, 2, -2) == 24, "Additional 1"
+    assert Solution().computeArea(-2, -2, 2, 2, -2, -2, 2, 2) == 16, "Additional 2"
+    assert Solution().computeArea(-5, -5, -3, 3, -3, -3, 3, 3) == 52, "Additional 3"
+    assert Solution().computeArea(-5, -3, 3, 0, -3, -3, 3, 3) == 42, "Additional 4"
+    assert Solution().computeArea(-5, -2, 5, 1, -3, -3, 3, 3) == 48, "Additional 5"
+    assert Solution().computeArea(-5, -5, -4, 5, -3, -3, 3, 3) == 46, "Additional 6"
 
-    print('all passed')
+    print("all passed")

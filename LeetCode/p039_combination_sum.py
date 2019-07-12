@@ -106,16 +106,16 @@ class Solution(object):
         return result
 
 
-if __name__ == '__main__':
-    assert Solution().combinationSum([], 1) == [], 'Edge 1'
-    assert Solution().combinationSum([1], 1) == [[1]], 'Edge 2'
-    assert Solution().combinationSum([1], 2) == [[1,1]], 'Edge 3'
-    assert Solution().combinationSum([2], 1) == [], 'Edge 4'
-    assert Solution().combinationSum([2], 5) == [], 'Edge 5'
+if __name__ == "__main__":
+    assert Solution().combinationSum([], 1) == [], "Edge 1"
+    assert Solution().combinationSum([1], 1) == [[1]], "Edge 2"
+    assert Solution().combinationSum([1], 2) == [[1,1]], "Edge 3"
+    assert Solution().combinationSum([2], 1) == [], "Edge 4"
+    assert Solution().combinationSum([2], 5) == [], "Edge 5"
 
-    assert Solution().combinationSum([2,3,6,7], 7) == [[2, 2, 3], [7]], 'Example 1'
-    assert Solution().combinationSum([2,3,5], 8) == [[2, 2, 2, 2], [2, 3, 3], [3, 5]], 'Example 2'
+    assert Solution().combinationSum([2,3,6,7], 7) == [[2, 2, 3], [7]], "Example 1"
+    assert Solution().combinationSum([2,3,5], 8) == [[2, 2, 2, 2], [2, 3, 3], [3, 5]], "Example 2"
 
-    assert Solution().combinationSum([2,4], 10) == [[2, 2, 2, 2, 2], [2, 2, 2, 4], [2, 4, 4]], 'Extra 1'
+    assert Solution().combinationSum([2,4], 10) == [[2, 2, 2, 2, 2], [2, 2, 2, 4], [2, 4, 4]], "Extra 1"
 
-    print('all passed')
+    print("all passed")

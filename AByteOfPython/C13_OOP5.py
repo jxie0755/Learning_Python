@@ -5,7 +5,7 @@ class SchoolMember:
         self.age = age
 
     def tell(self):
-        print('Name: {}, Age: {}'.format(self.name, self.age), end=", ")
+        print("Name: {}, Age: {}".format(self.name, self.age), end=", ")
 
 class Teacher(SchoolMember):    # ----这里就是创造subclass
     def __init__(self, name, age, salary):
@@ -14,7 +14,7 @@ class Teacher(SchoolMember):    # ----这里就是创造subclass
 
     def tell(self):
         SchoolMember.tell(self)
-        print('Salary: ${}'.format(self.salary))
+        print("Salary: ${}".format(self.salary))
 
 class Student(SchoolMember):
     def __init__(self, name, age, marks):
@@ -23,12 +23,12 @@ class Student(SchoolMember):
 
     def tell(self):
         SchoolMember.tell(self)
-        print('Marks: {}'.format(self.marks))
+        print("Marks: {}".format(self.marks))
 
-t1 = Teacher('Karen Schaich', 55, 90000)
-s1 = Student('Denis Xie', 28, 'B-')
-t2 = Teacher('Kit Yam', 60, 125000)
-s2 = Student('Cindy Tian', 29, 'A')
+t1 = Teacher("Karen Schaich", 55, 90000)
+s1 = Student("Denis Xie", 28, "B-")
+t2 = Teacher("Kit Yam", 60, 125000)
+s2 = Student("Cindy Tian", 29, "A")
 
 print()
 members = [t1, t2, s1, s2]

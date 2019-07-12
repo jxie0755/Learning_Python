@@ -8,9 +8,9 @@ class Solution(object):
         :rtype: int
         """
         missing_type_cnt = 3
-        if any('a' <= c <= 'z' for c in s):
+        if any("a" <= c <= "z" for c in s):
             missing_type_cnt -= 1
-        if any('A' <= c <= 'Z' for c in s):
+        if any("A" <= c <= "Z" for c in s):
             missing_type_cnt -= 1
         if any(c.isdigit() for c in s):
             missing_type_cnt -= 1

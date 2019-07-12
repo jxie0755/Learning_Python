@@ -28,5 +28,5 @@ class Solution(object):
                 start, end = i, j
         return S[start:end+1] if end < len(S) else ""
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     print(Solution().minWindow("ADOBECODEBANC","ABC"))

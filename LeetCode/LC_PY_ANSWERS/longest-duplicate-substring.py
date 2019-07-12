@@ -18,12 +18,12 @@ class Solution(object):
 
         def check(S, L):
             p = pow(D, L, M)
-            curr = reduce(lambda x, y: (D*x+ord(y)-ord('a')) % M, S[:L], 0)
+            curr = reduce(lambda x, y: (D*x+ord(y)-ord("a")) % M, S[:L], 0)
             lookup = collections.defaultdict(list)
             lookup[curr].append(L-1)
             for i in xrange(L, len(S)):
-                curr = ((D*curr) % M + ord(S[i])-ord('a') -
-                        ((ord(S[i-L])-ord('a'))*p) % M) % M
+                curr = ((D*curr) % M + ord(S[i])-ord("a") -
+                        ((ord(S[i-L])-ord("a"))*p) % M) % M
                 if curr in lookup:
                     for j in lookup[curr]:  # check if string is the same when hash is the same
                         if S[j-L+1:j+1] == S[i-L+1:i+1]:

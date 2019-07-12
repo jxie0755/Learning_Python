@@ -82,7 +82,7 @@ print(list_from_zero(5))
 print(list_to_zero(5))
 # >>> [5, 4, 3, 2, 1, 0]
 
-# It's taking advantage of the fact that the same list (which is initially empty) is shared by all recursive calls that don't explicitly provide a list
+# It"s taking advantage of the fact that the same list (which is initially empty) is shared by all recursive calls that don"t explicitly provide a list
 # Essentiall equal to:
 
 L = []

@@ -15,10 +15,10 @@ def output(column,counter):
     for i in range(0,n):
         for j in range(0,n):
             if column[i] == j:
-                print('O',end=' ')
+                print("O",end=" ")
             else:
-                print('X',end=' ')
-        print(end='\n')
+                print("X",end=" ")
+        print(end="\n")
 
 def possible_remove(column,n,i):
     possible = [x for x in range(0,n)]

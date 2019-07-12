@@ -11,16 +11,16 @@ class Solution(object):
         N = len(start)
         i, j = 0, 0
         while i < N and j < N:
-            while i < N and start[i] == 'X':
+            while i < N and start[i] == "X":
                 i += 1
-            while j < N and end[j] == 'X':
+            while j < N and end[j] == "X":
                 j += 1
             if (i < N) != (j < N):
                 return False
             elif i < N and j < N:
                 if start[i] != end[j] or \
-                   (start[i] == 'L' and i < j) or \
-                   (start[i] == 'R' and i > j):
+                   (start[i] == "L" and i < j) or \
+                   (start[i] == "R" and i > j):
                     return False
             i += 1
             j += 1

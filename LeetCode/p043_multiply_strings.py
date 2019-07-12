@@ -16,13 +16,13 @@
 class Solution:
     def num2str(self, num):
         hmp = {
-            0: '0', 1: '1', 2: '2', 3: '3', 4: '4',
-            5: '5', 6: '6', 7: '7', 8: '8', 9: '9'
+            0: "0", 1: "1", 2: "2", 3: "3", 4: "4",
+            5: "5", 6: "6", 7: "7", 8: "8", 9: "9"
         }
         if num == 0:
             return "0"
 
-        result = ''
+        result = ""
         while num:
             result = hmp[num % 10] + result
             num //= 10
@@ -57,7 +57,7 @@ class Solution:
 
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     assert Solution().multiply("0", "23") == "0", "Edge 1"
     assert Solution().multiply("2", "23") == "46", "Edge 2"
     assert Solution().multiply("2", "3") == "6", "Example 1"

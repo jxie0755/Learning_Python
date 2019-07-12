@@ -116,45 +116,45 @@ class Solution:
 
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     a = []
     Solution().nextPermutation(a)
-    assert a == [], 'Edge 1'
+    assert a == [], "Edge 1"
 
     a = [1]
     Solution().nextPermutation(a)
-    assert a == [1], 'Edge 2'
+    assert a == [1], "Edge 2"
 
     a = [1,2]
     Solution().nextPermutation(a)
-    assert a == [2,1], 'Edge 3'
+    assert a == [2,1], "Edge 3"
 
     a = [1,2,3]
     Solution().nextPermutation(a)
-    assert a == [1,3,2], 'Example 1'
+    assert a == [1,3,2], "Example 1"
 
     a = [3,2,1]
     Solution().nextPermutation(a)
-    assert a == [1,2,3], 'Example 2'
+    assert a == [1,2,3], "Example 2"
 
     a = [1,1,5]
     Solution().nextPermutation(a)
-    assert a == [1,5,1], 'Example 3'
+    assert a == [1,5,1], "Example 3"
 
     a = [5,1,1]
     Solution().nextPermutation(a)
-    assert a == [1,1,5], 'Extra 1'
+    assert a == [1,1,5], "Extra 1"
 
     a = [2,2,2]
     Solution().nextPermutation(a)
-    assert a == [2,2,2], 'Extra 2'
+    assert a == [2,2,2], "Extra 2"
 
     a = [1,2,2,2]
     Solution().nextPermutation(a)
-    assert a == [2,1,2,2], 'Extra 3'
+    assert a == [2,1,2,2], "Extra 3"
 
     a = [2,3,1]
     Solution().nextPermutation(a)
     assert a == [3,1,2]
 
-    print('all passed')
+    print("all passed")

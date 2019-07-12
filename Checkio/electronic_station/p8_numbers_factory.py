@@ -32,19 +32,19 @@ def checkio(number):
         if int(number) !=1 and int(number) not in result:
             return 0
         else:
-            return int(''.join([str(i) for i in sorted(result)]))
+            return int("".join([str(i) for i in sorted(result)]))
     # if number is prime number in the first place return 0
     except IndexError:
         return 0
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     assert checkio(20) == 45, "1st example"
     assert checkio(21) == 37, "2nd example"
     assert checkio(17) == 0, "3rd example"
     assert checkio(33) == 0, "4th example"
     assert checkio(3125) == 55555, "5th example"
     assert checkio(9973) == 0, "6th example"
-    print('done')
+    print("done")
 
 # Good Version
 # 思路几乎完全相同,但是他写了一个更好的循环

@@ -24,13 +24,13 @@ class Solution:
 
 
 
-if __name__ == '__main__':
-    assert Solution().isPowerOfThree(1), 'Edge 1'
-    assert not Solution().isPowerOfThree(2), 'Edge 2'
-    assert Solution().isPowerOfThree(27), 'Example 1'
-    assert not Solution().isPowerOfThree(0), 'Example 2'
-    assert Solution().isPowerOfThree(9), 'Example 3'
-    assert not Solution().isPowerOfThree(45), 'Example 3'
-    assert not Solution().isPowerOfThree(19684), 'Example 4'
-    print('all passed')
+if __name__ == "__main__":
+    assert Solution().isPowerOfThree(1), "Edge 1"
+    assert not Solution().isPowerOfThree(2), "Edge 2"
+    assert Solution().isPowerOfThree(27), "Example 1"
+    assert not Solution().isPowerOfThree(0), "Example 2"
+    assert Solution().isPowerOfThree(9), "Example 3"
+    assert not Solution().isPowerOfThree(45), "Example 3"
+    assert not Solution().isPowerOfThree(19684), "Example 4"
+    print("all passed")
 

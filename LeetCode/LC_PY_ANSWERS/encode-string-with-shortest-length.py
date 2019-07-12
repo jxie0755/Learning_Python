@@ -12,7 +12,7 @@ class Solution(object):
             pos = (temp + temp).find(temp, 1)  # O(n) on average
             if pos >= len(temp):
                 return temp
-            return str(len(temp)/pos) + '[' + dp[i][i + pos - 1] + ']'
+            return str(len(temp)/pos) + "[" + dp[i][i + pos - 1] + "]"
 
         dp = [["" for _ in xrange(len(s))] for _ in xrange(len(s))]
         for length in xrange(1, len(s)+1):

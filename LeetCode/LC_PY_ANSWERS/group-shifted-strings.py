@@ -23,7 +23,7 @@ class Solution(object):
         hashcode = ""
         for i in xrange(len(s)):
             if ord(s[i]) - base >= 0:
-                hashcode += unichr(ord('a') + ord(s[i]) - base)
+                hashcode += unichr(ord("a") + ord(s[i]) - base)
             else:
-                hashcode += unichr(ord('a') + ord(s[i]) - base + 26)
+                hashcode += unichr(ord("a") + ord(s[i]) - base + 26)
         return hashcode

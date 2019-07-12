@@ -22,7 +22,7 @@ class Solution:
     def nthSuperUglyNumber(self, n: int, primes: List[int]) -> int:
         result = [1]
         while len(result) < n:
-            temp = float('inf')
+            temp = float("inf")
             for i in result:
                 for p in primes:
                     sample = i * p
@@ -69,9 +69,9 @@ class Solution(object):
 
         for i in range(1, n):
             uglies[i] = min(ugly_by_prime)
-            # print(uglies, 'uglies[i]', uglies[i])
+            # print(uglies, "uglies[i]", uglies[i])
             for k in range(len(primes)):
-                # print('k', k, 'ugly_by_prime[k]', ugly_by_prime[k])
+                # print("k", k, "ugly_by_prime[k]", ugly_by_prime[k])
                 if uglies[i] == ugly_by_prime[k]:
                     idx[k] += 1
                     ugly_by_prime[k] = primes[k] * uglies[idx[k]]
@@ -110,8 +110,8 @@ class Solution(object):
 
 
 
-if __name__ == '__main__':
-    assert Solution().nthSuperUglyNumber(12, [2,7,13,19]) == 32, 'Example 1'
-    assert Solution().nthSuperUglyNumber(800, [37,43,59,61,67,71,79,83,89,97,101,103,113,127,131,157,163,167,173,179,191,193,197,199,211,229,233,239,251,257]) == 411811, 'Long'
+if __name__ == "__main__":
+    assert Solution().nthSuperUglyNumber(12, [2,7,13,19]) == 32, "Example 1"
+    assert Solution().nthSuperUglyNumber(800, [37,43,59,61,67,71,79,83,89,97,101,103,113,127,131,157,163,167,173,179,191,193,197,199,211,229,233,239,251,257]) == 411811, "Long"
 
-    print('all passed')
+    print("all passed")

@@ -16,12 +16,12 @@ class Solution(object):
         right = [[0 for _ in xrange(len(grid[0]))] for _ in xrange(len(grid))]
         for i in reversed(xrange(len(grid))):
             for j in reversed(xrange(len(grid[0]))):
-                if grid[i][j] != 'W':
+                if grid[i][j] != "W":
                     if i + 1 < len(grid):
                         down[i][j] = down[i + 1][j]
                     if j + 1 < len(grid[0]):
                         right[i][j] = right[i][j + 1]
-                    if grid[i][j] == 'E':
+                    if grid[i][j] == "E":
                         down[i][j] += 1
                         right[i][j] += 1
 
@@ -29,9 +29,9 @@ class Solution(object):
         for i in xrange(len(grid)):
             left = 0
             for j in xrange(len(grid[0])):
-                if grid[i][j] == 'W':
+                if grid[i][j] == "W":
                     up[j], left = 0, 0
-                elif grid[i][j] == 'E':
+                elif grid[i][j] == "E":
                     up[j] += 1
                     left += 1
                 else:

@@ -1,7 +1,7 @@
 # P063 Unique Paths II
 # Medium
 
-# The robot can only move either down or right at any point in time. The robot is trying to reach the bottom-right corner of the grid (marked 'Finish' in the diagram below).
+# The robot can only move either down or right at any point in time. The robot is trying to reach the bottom-right corner of the grid (marked "Finish" in the diagram below).
 
 # Now consider if some obstacles are added to the grids. How many unique paths would there be?
 
@@ -35,37 +35,37 @@ class Solution:
         return paths_to[n-1][m-1]
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     e0 = [[0]]
-    assert Solution().uniquePathsWithObstacles(e0) == 1, 'Edge 0'
+    assert Solution().uniquePathsWithObstacles(e0) == 1, "Edge 0"
 
     e1 = [[1]]
-    assert Solution().uniquePathsWithObstacles(e1) == 0, 'Edge 1'
+    assert Solution().uniquePathsWithObstacles(e1) == 0, "Edge 1"
 
     e2 = [
         [0, 0],
         [1, 0]
     ]
-    assert Solution().uniquePathsWithObstacles(e2) == 1, 'Edge 2'
+    assert Solution().uniquePathsWithObstacles(e2) == 1, "Edge 2"
 
     e3 = [[1,1]]
-    assert Solution().uniquePathsWithObstacles(e3) == 0, 'Edge 3'
+    assert Solution().uniquePathsWithObstacles(e3) == 0, "Edge 3"
 
     e4 = [[1, 0]]
-    assert Solution().uniquePathsWithObstacles(e4) == 0, 'Edge 4'
+    assert Solution().uniquePathsWithObstacles(e4) == 0, "Edge 4"
 
     e5 = [
         [0, 1],
         [0, 0]
     ]
-    assert Solution().uniquePathsWithObstacles(e5) == 1, 'Edge 5'
+    assert Solution().uniquePathsWithObstacles(e5) == 1, "Edge 5"
 
     s1 = [
         [0, 0, 0],
         [0, 1, 0],
         [0, 0, 0]
     ]
-    assert Solution().uniquePathsWithObstacles(s1) == 2, 'Example 1'
+    assert Solution().uniquePathsWithObstacles(s1) == 2, "Example 1"
 
     s2 = [
         [0, 0, 0, 0],
@@ -74,6 +74,6 @@ if __name__ == '__main__':
         [0, 0, 1, 0],
         [0, 0, 0, 0]
     ]
-    assert Solution().uniquePathsWithObstacles(s2) == 7, 'Example 2'
+    assert Solution().uniquePathsWithObstacles(s2) == 7, "Example 2"
 
-    print('all passed')
+    print("all passed")

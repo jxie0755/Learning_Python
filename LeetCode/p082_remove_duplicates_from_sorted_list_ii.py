@@ -18,8 +18,8 @@ class Solution:
         if not head.next:  # this can be removed but this will go faster
             return head
 
-        check = 'X'
-        new_head = ListNode('X')
+        check = "X"
+        new_head = ListNode("X")
         cur = new_head
 
         while head:
@@ -38,20 +38,20 @@ class Solution:
         return new_head.next
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     L = None
-    assert not Solution().deleteDuplicates(L), 'Edge 1'
+    assert not Solution().deleteDuplicates(L), "Edge 1"
 
     L = genNode([1,1])
-    assert not Solution().deleteDuplicates(L), 'Edge 2'
+    assert not Solution().deleteDuplicates(L), "Edge 2"
 
     L = genNode([1])
-    assert repr(Solution().deleteDuplicates(L)) == '1', 'Edge 3'
+    assert repr(Solution().deleteDuplicates(L)) == "1", "Edge 3"
 
     L = genNode([1, 2, 3, 3, 4, 4, 5])
-    assert repr(Solution().deleteDuplicates(L)) == '1->2->5', 'Example 1'
+    assert repr(Solution().deleteDuplicates(L)) == "1->2->5", "Example 1"
 
     L = genNode([1, 1, 1, 2, 3])
-    assert repr(Solution().deleteDuplicates(L)) == '2->3', 'Example 1'
+    assert repr(Solution().deleteDuplicates(L)) == "2->3", "Example 1"
 
-    print('all passed')
+    print("all passed")

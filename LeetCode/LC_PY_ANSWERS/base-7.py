@@ -4,12 +4,12 @@
 class Solution(object):
     def convertToBase7(self, num):
         if num < 0:
-            return '-' + self.convertToBase7(-num)
-        result = ''
+            return "-" + self.convertToBase7(-num)
+        result = ""
         while num:
             result = str(num % 7) + result
             num //= 7
-        return result if result else '0'
+        return result if result else "0"
 
 
 class Solution2(object):
@@ -19,7 +19,7 @@ class Solution2(object):
         :rtype: str
         """
         if num < 0:
-            return '-' + self.convertToBase7(-num)
+            return "-" + self.convertToBase7(-num)
         if num < 7:
             return str(num)
         return self.convertToBase7(num // 7) + str(num % 7)

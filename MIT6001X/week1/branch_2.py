@@ -11,11 +11,11 @@ print()
 num = 10
 while True:
     if num < 7:
-        print('Breaking out of loop')
+        print("Breaking out of loop")
         break
     print(num)
     num -= 1
-print('Outside of loop')
+print("Outside of loop")
 
 print()
 i = 2
@@ -28,7 +28,7 @@ while True:
 print()
 
 i = 10
-print('Hello!')
+print("Hello!")
 while True:
     if i < 2:
         break

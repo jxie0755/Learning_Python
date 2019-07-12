@@ -39,19 +39,19 @@ class Solution:
 
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     A = None
-    assert Solution().levelOrder(A) == [], 'Edge 0'
+    assert Solution().levelOrder(A) == [], "Edge 0"
 
     A = genTree([1])
-    assert Solution().levelOrder(A) == [[1]], 'Edge 1'
+    assert Solution().levelOrder(A) == [[1]], "Edge 1"
 
     A = genTree([3, 9, 20, None, None, 15, 7])
     assert Solution().levelOrder(A) == [
         [3],
         [9, 20],
         [15, 7],
-    ], 'Example 1'
+    ], "Example 1"
 
     A = genTree([
         0,
@@ -64,6 +64,6 @@ if __name__ == '__main__':
         [2, 4],
         [1, 3, -1],
         [5, 1, 6, 8],
-    ], 'Additional'
+    ], "Additional"
 
-    print('All passed')
+    print("All passed")

@@ -7,7 +7,7 @@ class Solution(object):
     def lengthOfLastWord(self, s):
         length = 0
         for i in reversed(s):
-            if i == ' ':
+            if i == " ":
                 if length:
                     break
             else:

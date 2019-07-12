@@ -34,18 +34,18 @@ class Chessboard(object):
         also add a coordinate axis for easier read
         """
 
-        to_print = ''
+        to_print = ""
         y_num = 7
-        separ = '    -------------------'
-        x_num = '    1, 2, 3, 4, 5, 6, 7'
+        separ = "    -------------------"
+        x_num = "    1, 2, 3, 4, 5, 6, 7"
 
 
         for i in self.board:
             row = str(i)
-            to_print += str(y_num) + '  ' + row + '\n'
+            to_print += str(y_num) + "  " + row + "\n"
             y_num -= 1
 
-        to_print += separ + '\n' + x_num + '\n'
+        to_print += separ + "\n" + x_num + "\n"
         return to_print
 
     # Basic get and set
@@ -220,11 +220,11 @@ class Chessboard(object):
                                             [0, 0, 0, 0, 0, 0, 0],
                                         ]
 
-        print('Total solution:', len(result))
-        print('Total count:', count)
+        print("Total solution:", len(result))
+        print("Total count:", count)
         return result
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     import time
     t = Chessboard()
     start_time = time.time()

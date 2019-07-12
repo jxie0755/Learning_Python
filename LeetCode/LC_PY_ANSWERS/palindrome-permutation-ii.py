@@ -12,8 +12,8 @@ class Solution(object):
         :rtype: List[str]
         """
         cnt = collections.Counter(s)
-        mid = ''.join(k for k, v in cnt.iteritems() if v % 2)
-        chars = ''.join(k * (v / 2) for k, v in cnt.iteritems())
+        mid = "".join(k for k, v in cnt.iteritems() if v % 2)
+        chars = "".join(k * (v / 2) for k, v in cnt.iteritems())
         return self.permuteUnique(mid, chars) if len(mid) < 2 else []
 
     def permuteUnique(self, mid, nums):
@@ -24,7 +24,7 @@ class Solution(object):
 
     def permuteUniqueRecu(self, mid, result, used, cur, nums):
         if len(cur) == len(nums):
-            half_palindrome = ''.join(cur)
+            half_palindrome = "".join(cur)
             result.append(half_palindrome + mid + half_palindrome[::-1])
             return
         for i in xrange(len(nums)):
@@ -43,6 +43,6 @@ class Solution2(object):
         """
         cnt = collections.Counter(s)
         mid = tuple(k for k, v in cnt.iteritems() if v % 2)
-        chars = ''.join(k * (v / 2) for k, v in cnt.iteritems())
-        return [''.join(half_palindrome + mid + half_palindrome[::-1]) \
+        chars = "".join(k * (v / 2) for k, v in cnt.iteritems())
+        return ["".join(half_palindrome + mid + half_palindrome[::-1]) \
                 for half_palindrome in set(itertools.permutations(chars))] if len(mid) < 2 else []

@@ -34,7 +34,7 @@ class Sudoku(object):
             if blank is <int>, then the data is <int>, output will be 1 to 9
         """
         type_check = type(puzzle[0][0])
-        print('Type: ', type_check)
+        print("Type: ", type_check)
         blank = None
         for row in puzzle:
             for element in row:
@@ -47,9 +47,9 @@ class Sudoku(object):
         self.valid = Sudoku.STR_LIST if type_check == str else Sudoku.INT_LIST
         self.puzzle_type = type_check
 
-        print('puzzle is generated:')
+        print("puzzle is generated:")
         print(self)
-        print('')
+        print("")
 
         # Also create a permanent puzzle copy for future use
         self.puzzle = self.board_mem()
@@ -60,30 +60,30 @@ class Sudoku(object):
         """
 
         def process_raw(row):
-            x = '|'
+            x = "|"
             for i in row:
                 if i == self.blank:
-                    x += '.'
+                    x += "."
                 else:
                     x += str(i)
                 x += "  "
 
-            return x[0:9] + '  ' + x[9:18] + '  ' + x[18:]
+            return x[0:9] + "  " + x[9:18] + "  " + x[18:]
 
 
-        to_print = ''
+        to_print = ""
         y_num = 9
-        separ = '    -----------------------------'
-        x_num = '    1  2  3    4  5  6    7  8  9'
+        separ = "    -----------------------------"
+        x_num = "    1  2  3    4  5  6    7  8  9"
 
         for i in self.board:
             str_row = process_raw(i)
-            to_print += str(y_num) + '  ' + str_row + '\n'
+            to_print += str(y_num) + "  " + str_row + "\n"
             if y_num in [7, 4]:
-                to_print += '\n'
+                to_print += "\n"
             y_num -= 1
 
-        to_print += separ + '\n' + x_num
+        to_print += separ + "\n" + x_num
         return to_print
 
 
@@ -310,14 +310,14 @@ class Sudoku(object):
                 self.hyper_move(snapshot_to_do.pop())
 
 
-        print('problem solved!')
+        print("problem solved!")
         print(self)
-        print('Total hypothesis: ', count)
-        print('max_layer_counted:', max(hypo_layer_all))
-        print('\n')
+        print("Total hypothesis: ", count)
+        print("max_layer_counted:", max(hypo_layer_all))
+        print("\n")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     import time
     # Hardest SUDOKU ever!
     ultimate_puzzle_int = [
@@ -338,15 +338,15 @@ if __name__ == '__main__':
     print(f"--- {time.time() - start_time}s seconds ---\n")
 
     ultimate_puzzle_str_1 = [
-        ['8', '.', '.', '.', '.', '.', '.', '.', '.'],
-        ['.', '.', '3', '6', '.', '.', '.', '.', '.'],
-        ['.', '7', '.', '.', '9', '.', '2', '.', '.'],
-        ['.', '5', '.', '.', '.', '7', '.', '.', '.'],
-        ['.', '.', '.', '.', '4', '5', '7', '.', '.'],
-        ['.', '.', '.', '1', '.', '.', '.', '3', '.'],
-        ['.', '.', '1', '.', '.', '.', '.', '6', '8'],
-        ['.', '.', '8', '5', '.', '.', '.', '1', '.'],
-        ['.', '9', '.', '.', '.', '.', '4', '.', '.'],
+        ["8", ".", ".", ".", ".", ".", ".", ".", "."],
+        [".", ".", "3", "6", ".", ".", ".", ".", "."],
+        [".", "7", ".", ".", "9", ".", "2", ".", "."],
+        [".", "5", ".", ".", ".", "7", ".", ".", "."],
+        [".", ".", ".", ".", "4", "5", "7", ".", "."],
+        [".", ".", ".", "1", ".", ".", ".", "3", "."],
+        [".", ".", "1", ".", ".", ".", ".", "6", "8"],
+        [".", ".", "8", "5", ".", ".", ".", "1", "."],
+        [".", "9", ".", ".", ".", ".", "4", ".", "."],
     ]
 
     ultimate_sudoku_1 = Sudoku(ultimate_puzzle_str_1)
@@ -355,15 +355,15 @@ if __name__ == '__main__':
     print(f"--- {time.time() - start_time}s seconds ---\n")
 
     ultimate_puzzle_str_2 = [
-        ['8', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
-        [' ', ' ', '3', '6', ' ', ' ', ' ', ' ', ' '],
-        [' ', '7', ' ', ' ', '9', ' ', '2', ' ', ' '],
-        [' ', '5', ' ', ' ', ' ', '7', ' ', ' ', ' '],
-        [' ', ' ', ' ', ' ', '4', '5', '7', ' ', ' '],
-        [' ', ' ', ' ', '1', ' ', ' ', ' ', '3', ' '],
-        [' ', ' ', '1', ' ', ' ', ' ', ' ', '6', '8'],
-        [' ', ' ', '8', '5', ' ', ' ', ' ', '1', ' '],
-        [' ', '9', ' ', ' ', ' ', ' ', '4', ' ', ' '],
+        ["8", " ", " ", " ", " ", " ", " ", " ", " "],
+        [" ", " ", "3", "6", " ", " ", " ", " ", " "],
+        [" ", "7", " ", " ", "9", " ", "2", " ", " "],
+        [" ", "5", " ", " ", " ", "7", " ", " ", " "],
+        [" ", " ", " ", " ", "4", "5", "7", " ", " "],
+        [" ", " ", " ", "1", " ", " ", " ", "3", " "],
+        [" ", " ", "1", " ", " ", " ", " ", "6", "8"],
+        [" ", " ", "8", "5", " ", " ", " ", "1", " "],
+        [" ", "9", " ", " ", " ", " ", "4", " ", " "],
     ]
 
     ultimate_sudoku_2 = Sudoku(ultimate_puzzle_str_2)
@@ -372,15 +372,15 @@ if __name__ == '__main__':
     print(f"--- {time.time() - start_time}s seconds ---\n")
 
     ultimate_puzzle_str_3 = [
-        ['8', '0', '0', '0', '0', '0', '0', '0', '0'],
-        ['0', '0', '3', '6', '0', '0', '0', '0', '0'],
-        ['0', '7', '0', '0', '9', '0', '2', '0', '0'],
-        ['0', '5', '0', '0', '0', '7', '0', '0', '0'],
-        ['0', '0', '0', '0', '4', '5', '7', '0', '0'],
-        ['0', '0', '0', '1', '0', '0', '0', '3', '0'],
-        ['0', '0', '1', '0', '0', '0', '0', '6', '8'],
-        ['0', '0', '8', '5', '0', '0', '0', '1', '0'],
-        ['0', '9', '0', '0', '0', '0', '4', '0', '0'],
+        ["8", "0", "0", "0", "0", "0", "0", "0", "0"],
+        ["0", "0", "3", "6", "0", "0", "0", "0", "0"],
+        ["0", "7", "0", "0", "9", "0", "2", "0", "0"],
+        ["0", "5", "0", "0", "0", "7", "0", "0", "0"],
+        ["0", "0", "0", "0", "4", "5", "7", "0", "0"],
+        ["0", "0", "0", "1", "0", "0", "0", "3", "0"],
+        ["0", "0", "1", "0", "0", "0", "0", "6", "8"],
+        ["0", "0", "8", "5", "0", "0", "0", "1", "0"],
+        ["0", "9", "0", "0", "0", "0", "4", "0", "0"],
     ]
 
     ultimate_sudoku_3 = Sudoku(ultimate_puzzle_str_3)

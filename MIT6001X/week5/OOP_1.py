@@ -1,4 +1,4 @@
-print('Coordinate example')
+print("Coordinate example")
 
 
 class Coordinate(object):
@@ -12,7 +12,7 @@ class Coordinate(object):
         return (x_diff_sq + y_diff_sq) ** 0.5
 
     def __str__(self):
-        return f'<{self.x},{self.y}>'
+        return f"<{self.x},{self.y}>"
 
     def __sub__(self, other):  # this is actually from operator module!!
         # see other special methods in Language reference section 3.3
@@ -33,7 +33,7 @@ class Coordinate(object):
 
     # Define __repr__, a special method that returns a string that looks like a valid Python expression
     def __repr__(self):
-        return 'Coordinate(' + str(self.x) + ',' + str(self.y) + ')'
+        return "Coordinate(" + str(self.x) + "," + str(self.y) + ")"
 
 
 c = Coordinate(3, 4)
@@ -62,7 +62,7 @@ print(ccopy)
 # create a new type as a fraction type of number
 # 分子Numerator and 分母denominator
 print()
-print('Fraction example')
+print("Fraction example")
 
 
 class Fraction(object):
@@ -71,7 +71,7 @@ class Fraction(object):
         self.denom = denom
 
     def __str__(self):
-        return f'{self.numer} / {self.denom}'
+        return f"{self.numer} / {self.denom}"
 
     def getNumer(self):
         return self.numer
@@ -96,7 +96,7 @@ class Fraction(object):
 oneHalf = Fraction(1, 2)
 twoThirds = Fraction(2, 3)
 threeQuarters = Fraction(3, 4)
-print(f'{oneHalf}, {twoThirds}')  # >>> 1 / 2, 2 / 3
+print(f"{oneHalf}, {twoThirds}")  # >>> 1 / 2, 2 / 3
 
 print(oneHalf + twoThirds)  # >>> 7 / 6
 print(oneHalf - twoThirds)  # >>> -1 / 6
@@ -112,7 +112,7 @@ print(threeQuarters.convert())  # >>> 0.75
 
 
 print()
-print('intSet example')
+print("intSet example")
 
 
 class intSet(object):
@@ -140,12 +140,12 @@ class intSet(object):
         try:
             self.vals.remove(e)
         except:
-            raise ValueError(str(e) + ' not found')
+            raise ValueError(str(e) + " not found")
 
     def __str__(self):
         """Returns a string representation of self"""
         self.vals.sort()
-        return '{' + ','.join([str(e) for e in self.vals]) + '}'
+        return "{" + ",".join([str(e) for e in self.vals]) + "}"
 
     # Define an intersect method that returns a new intSet containing elements that appear in both sets. (交集)
     def intersect(self, other):
@@ -197,7 +197,7 @@ print(set1.intersect(set2))  # >>> {2, 4, 6}
 
 # Mimic real life
 print()
-print('Hierarchy example')
+print("Hierarchy example")
 
 
 class Animal(object):
@@ -218,38 +218,38 @@ class Animal(object):
     def set_age(self, newage):
         self.age = newage
 
-    def set_name(self, newname=''):
+    def set_name(self, newname=""):
         self.name = newname
 
     def __str__(self):
-        return 'animal:' + str(self.name) + ':' + str(self.age)
+        return "animal:" + str(self.name) + ":" + str(self.age)
 
 
 myAnimal = Animal(3)
-myAnimal.set_name('foobar')
+myAnimal.set_name("foobar")
 print(myAnimal)
 # >>> animal:foobar:3
 
 class Cat(Animal):
     def speak(self):
-        print('meow')
+        print("meow")
 
     def __str__(self):
-        return 'cat:' + str(self.name) + ':' + str(self.age)
+        return "cat:" + str(self.name) + ":" + str(self.age)
 
 
 jelly = Cat(1)
-jelly.set_name('JellyBelly')
+jelly.set_name("JellyBelly")
 print(jelly)  # >>> cat:JellyBelly:1
 print(Animal.__str__(jelly))  # >>> animal:JellyBelly:1  # still get access to Animal's method by using this way
 
 
 class Rabbit(Animal):
     def speak(self):
-        print('meep')
+        print("meep")
 
     def __str__(self):
-        return 'rabbit:' + str(self.name) + ':' + str(self.age)
+        return "rabbit:" + str(self.name) + ":" + str(self.age)
 
 
 peter = Rabbit(5)
@@ -290,11 +290,11 @@ class Rabbit(Animal):
 
 
 print()
-print('new Rabbit class example')
+print("new Rabbit class example")
 peter = Rabbit(2)
-peter.set_name('Peter')
+peter.set_name("Peter")
 hopsy = Rabbit(3)
-hopsy.set_name('Hopsy')
+hopsy.set_name("Hopsy")
 cotton = Rabbit(1, peter, hopsy)
 print(peter.get_rid(), hopsy.get_rid(), cotton.get_rid())  # >>> 001 002 003
 print(cotton.get_parent2().get_name())  # >>> Hopsy
@@ -304,7 +304,7 @@ print(cotton2.get_rid(), cotton2.get_parent1().get_name(), cotton2.get_parent2()
 print(cotton == cotton2)  # >>> True
 
 print()
-print('Person class')
+print("Person class")
 
 
 class Person(Animal):
@@ -321,21 +321,21 @@ class Person(Animal):
             self.friends.append(fname)
 
     def speak(self):
-        print('hello')
+        print("hello")
 
     def age_diff(self, other):
         diff = self.get_age() - other.get_age()
         if self.age > other.age:
-            print(self.name, 'is', diff, 'years older than', other.name)
+            print(self.name, "is", diff, "years older than", other.name)
         else:
-            print(self.name, 'is', -diff, 'years younger than', other.name)
+            print(self.name, "is", -diff, "years younger than", other.name)
 
     def __str__(self):
-        return 'person:' + str(self.name) + ':' + str(self.age)
+        return "person:" + str(self.name) + ":" + str(self.age)
 
 
-eric = Person('eric', 45)
-john = Person('john', 55)
+eric = Person("eric", 45)
+john = Person("john", 55)
 eric.speak()  # >>> hello
 eric.age_diff(john)  # >>> eric is 10 years younger than john
 john.age_diff(eric)  # >>> john is 10 years older than eric
@@ -354,19 +354,19 @@ class Student(Person):
     def speak(self):
         r = random.random()  # gives a float between 0 and 1
         if r < 0.25:
-            print('i have homework')
+            print("i have homework")
         elif 0.25 <= r < 0.5:
-            print('i need sleep')
+            print("i need sleep")
         elif 0.5 <= r < 0.75:
-            print('i should eat')
+            print("i should eat")
         else:
-            print('i am watching tv')
+            print("i am watching tv")
 
     def __str__(self):
-        return 'student:' + str(self.name) + ':' + str(self.age) + ':' + str(self.major)
+        return "student:" + str(self.name) + ":" + str(self.age) + ":" + str(self.major)
 
 
-fred = Student('Fred', 18, 'Course VI')
+fred = Student("Fred", 18, "Course VI")
 print(fred)  # >>> studentFred:18:Course VI
 fred.speak()  # >>> random
 

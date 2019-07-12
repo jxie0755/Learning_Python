@@ -70,19 +70,19 @@ class Solution:
         return new_node
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
 
     a1 = genNode([0])
     b1 = genNode([0, 1])
 
     c = Solution().addTwoNumbers(a1, b1)
-    assert repr(c) == '0->1'
+    assert repr(c) == "0->1"
 
     a1 = genNode([9])
     b1 = genNode([9])
 
     c = Solution().addTwoNumbers(a1, b1)
-    assert repr(c) == '8->1'
+    assert repr(c) == "8->1"
 
 
     # Example 1
@@ -93,7 +93,7 @@ if __name__ == '__main__':
     a1 = genNode([2,4,3])
     b1 = genNode([5,6,4])
     c = Solution().addTwoNumbers(a1, b1)
-    assert repr(c) == '7->0->8'
+    assert repr(c) == "7->0->8"
 
 
     # Example 2
@@ -105,5 +105,5 @@ if __name__ == '__main__':
     b1 = genNode([8,9])
 
     c = Solution().addTwoNumbers(a1, b1)
-    assert repr(c) == '0->4->4'
-    print('all passed')
+    assert repr(c) == "0->4->4"
+    print("all passed")

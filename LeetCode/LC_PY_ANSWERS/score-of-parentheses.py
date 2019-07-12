@@ -10,11 +10,11 @@ class Solution(object):
         """
         result, depth = 0, 0
         for i in xrange(len(S)):
-            if S[i] == '(':
+            if S[i] == "(":
                 depth += 1
             else:
                 depth -= 1
-                if S[i-1] == '(':
+                if S[i-1] == "(":
                     result += 2**depth
         return result
 
@@ -29,7 +29,7 @@ class Solution2(object):
         """
         stack = [0]
         for c in S:
-            if c == '(':
+            if c == "(":
                 stack.append(0)
             else:
                 last = stack.pop()

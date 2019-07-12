@@ -59,5 +59,5 @@ class Codec(object):
         if not data:
             return None
     
-        return dfs(iter(isplit(data, ' ')))
+        return dfs(iter(isplit(data, " ")))
         

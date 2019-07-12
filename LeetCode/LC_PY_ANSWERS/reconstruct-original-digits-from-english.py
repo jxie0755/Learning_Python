@@ -18,8 +18,8 @@ class Solution(object):
         order = [0, 2, 4, 6, 8, 1, 3, 5, 7, 9]
 
         # The unique char in the order.
-        unique_chars = ['z', 'o', 'w', 't', 'u', \
-                        'f', 'x', 's', 'g', 'n']
+        unique_chars = ["z", "o", "w", "t", "u", \
+                        "f", "x", "s", "g", "n"]
 
         cnt = Counter(list(s))
         res = []

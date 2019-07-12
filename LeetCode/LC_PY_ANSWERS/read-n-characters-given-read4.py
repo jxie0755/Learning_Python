@@ -22,7 +22,7 @@ class Solution(object):
         :rtype: The number of characters read (int)
         """
         read_bytes = 0
-        buffer = [''] * 4
+        buffer = [""] * 4
         for i in xrange(n / 4 + 1):
             size = read4(buffer)
             if size:

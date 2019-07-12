@@ -21,13 +21,13 @@ def g(x):
     """
     return x * 3
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     import doctest
     doctest.testmod(verbose=True)  # 此处verbose默认为True,会输出结果,若为false则只有出错才出结果
     # 这里会测试整个文件的所有函数
 
 # 若只单独测试一个函数, 可以利用独立测试文件,只测试模块中的一个函数
-if __name__ == '__main__':
+if __name__ == "__main__":
     import doctest
     doctest.run_docstring_examples(f, globals(),verbose=True)
 

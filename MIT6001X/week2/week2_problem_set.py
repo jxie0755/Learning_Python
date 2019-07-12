@@ -11,10 +11,10 @@ while month > 0:
     unpaid_balance = round(balance - minimum_payment, 2)
     interest = round(unpaid_balance * monthlyInterestRate, 2)
     balance = round(unpaid_balance + interest, 2)
-    print('remaining balance is', balance)
+    print("remaining balance is", balance)
     month -= 1
 
-print('Remaining balance:', balance)
+print("Remaining balance:", balance)
 
 # Write a program to calculate the fixed monthly payment in order to pay off the balance.
 balance = 999999
@@ -36,7 +36,7 @@ while running_flag:
     if new_balance >= 0:
         monthlyPayment += 10
     else:
-        print('Lowest Payment:', monthlyPayment)
+        print("Lowest Payment:", monthlyPayment)
         running_flag = False
         
 # Write a program to calculate the fixed monthly payment in order to pay off the balance.
@@ -65,7 +65,7 @@ while running_flag:
         high = monthlyPayment
     else:
         monthlyPayment = monthlyPayment + 0.1
-        print('monthly payment is', round(monthlyPayment, 2))
+        print("monthly payment is", round(monthlyPayment, 2))
         running_flag = False
     monthlyPayment = (low + high) / 2
 

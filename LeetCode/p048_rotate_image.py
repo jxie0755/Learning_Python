@@ -41,7 +41,7 @@ class Solution:
                                                                                      M[N - j - 1][i]
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     edge_1 = [[1]]
     Solution().rotate(edge_1)
     assert edge_1 == [[1]]
@@ -79,4 +79,4 @@ if __name__ == '__main__':
         [16, 7, 10, 11]
     ]
 
-    print('all passed')
+    print("all passed")

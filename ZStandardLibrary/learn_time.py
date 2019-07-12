@@ -7,7 +7,7 @@
 import time
 
 # For direct use
-if __name__ == '__main__':
+if __name__ == "__main__":
     import time
     start_time = time.time()
     # run main() codes
@@ -36,13 +36,13 @@ def functionTime(fn, *args, **kwds):
         print(fn(*args, **kwds))
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
 
     # testing function
     def fib_gen_r(i):
         """
         Fibonacci function generator
-        generate the fibonacci number at 'i'th posistion
+        generate the fibonacci number at "i"th posistion
         """
         if i == 0:
             return 0

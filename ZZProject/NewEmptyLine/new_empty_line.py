@@ -4,13 +4,13 @@
 import os
 
 def process_win_dir(directory):
-    """revise the windows dir from using '\' to '/'
+    """revise the windows dir from using "\" to "/"
     dir: a string of window directory, must be in raw stirng type with "r" as prefix
     """
-    result = ''
+    result = ""
     for i in dir:
-        if i == '\\':
-            result += '/'
+        if i == "\\":
+            result += "/"
         else:
             result += i
     return result
@@ -20,7 +20,7 @@ def count_empty(content):
     splt = content.split("\n")
     emtcount = 0
     for i in splt[::-1]:
-        if i == '':
+        if i == "":
             emtcount += 1
         else:
             return emtcount
@@ -44,24 +44,24 @@ def add_empty_line(full_dir, target):
             add_empty_line(full_sub_file, target)
         elif sub_file.endswith(target):
             print("Processing:", full_sub_file)
-            with open(full_sub_file, encoding='utf-8', mode='r') as py_obj:
+            with open(full_sub_file, encoding="utf-8", mode="r") as py_obj:
                 content = py_obj.read()
 
             emp = count_empty(content)
             if emp: # 如果是空白文件就不处理
                 if emp == 0:
-                    new_content = content + '\n'
+                    new_content = content + "\n"
                 elif emp == 1:
                     new_content = content
                 else:
                     new_content = content[:1 - emp]
 
-                with open(full_sub_file, encoding='utf-8', mode='w') as py_obj:
+                with open(full_sub_file, encoding="utf-8", mode="w") as py_obj:
                     py_obj.write(new_content)
                     count += 1
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     directory = input("Please input full directory:")
     file_type = input("Plase input file type: ")
 

@@ -30,10 +30,10 @@ class BetterWidget(object):
 class TextWidget(BetterWidget):
     """A TextWidget contains a mutable line of text."""
     def __init__(self, **kwargs):
-        self.textvar = kwargs.get('textvariable', tk.StringVar())
+        self.textvar = kwargs.get("textvariable", tk.StringVar())
         self.config(textvariable=self.textvar)
-        if 'text' in kwargs:
-            self.textvar.set(kwargs['text'])
+        if "text" in kwargs:
+            self.textvar.set(kwargs["text"])
 
     @property
     def text(self):
@@ -146,7 +146,7 @@ class HogGUI(Frame):
         for i in (0, 1):
             self.p_frames[i] = Frame(self.score_frame, padx=25).pack(side=LEFT)
             self.p_labels[i] = Label(self.p_frames[i],
-                        text=name(i) + ':').pack()
+                        text=name(i) + ":").pack()
             self.s_labels[i] = Label(self.p_frames[i]).pack()
 
     def init_rolls(self):
@@ -162,11 +162,11 @@ class HogGUI(Frame):
         self.roll_label = Label(self.roll_frame).pack()
         self.roll_entry = Entry(self.roll_frame,
                                 justify=CENTER).pack()
-        self.roll_entry.bind('<Return>',
+        self.roll_entry.bind("<Return>",
                              lambda event: self.roll_button.invoke())
         self.roll_verified = IntVar()
         self.roll_button = Button(self.roll_frame,
-                                  text='Roll!',
+                                  text="Roll!",
                                   command=self.roll).pack()
 
     def init_dice(self):
@@ -200,7 +200,7 @@ class HogGUI(Frame):
 
     def init_restart(self):
         """Creates child widgets associated with restarting the game."""
-        self.restart_button = Button(self, text='Restart',
+        self.restart_button = Button(self, text="Restart",
                                      command=self.restart).pack()
 
     ##############
@@ -240,7 +240,7 @@ class HogGUI(Frame):
         result = self.roll_entry.text
         try:
             rolls = 10 >= int(result) >= 0
-            assert rolls, 'Rolls must be between 0 and 10, inclusive'
+            assert rolls, "Rolls must be between 0 and 10, inclusive"
             self.roll_verified.set(int(result))
         except (ValueError, AssertionError) as e:
             print(e)
@@ -269,7 +269,7 @@ class HogGUI(Frame):
         s1 = opp_score if self.who == 0 else score
         self.s_labels[0].text = s0
         self.s_labels[1].text = s1
-        self.roll_label.text = name(self.who) +' will roll:'
+        self.roll_label.text = name(self.who) +" will roll:"
         status = self.status_label.text
         self.status_label.text = status
 
@@ -281,13 +281,13 @@ class HogGUI(Frame):
             self.roll_entry.focus_set()
             self.wait_variable(self.roll_verified)
             result = self.roll_verified.get()
-            self.roll_entry.text = ''
+            self.roll_entry.text = ""
         if result == HogGUI.KILL:
             raise HogGUIException
 
         self.clear_dice()
         self.dice_count = 0
-        self.status_label.text = '{} chose to roll {}.'.format(name(self.who),
+        self.status_label.text = "{} chose to roll {}.".format(name(self.who),
                                                                result)
         self.switch()
         return result
@@ -302,9 +302,9 @@ class HogGUI(Frame):
         """
         self.turn = 1 - self.turn
         self.switch(0)
-        self.s_labels[0].text = '0'
-        self.s_labels[1].text = '0'
-        self.status_label.text = ''
+        self.s_labels[0].text = "0"
+        self.s_labels[1].text = "0"
+        self.status_label.text = ""
         try:
             commentary = hog.both(hog.announce_highest(0),
                          hog.both(hog.announce_highest(1),
@@ -319,13 +319,13 @@ class HogGUI(Frame):
             self.s_labels[0].text = score
             self.s_labels[1].text = opponent_score
             winner = 0 if score > opponent_score else 1
-            self.status_label.text = 'Game over! {} wins!'.format(
+            self.status_label.text = "Game over! {} wins!".format(
                                         name(winner))
 
     def restart(self):
         """Kills the current game and begins another game."""
         self.roll_verified.set(HogGUI.KILL)
-        self.status_label.text = ''
+        self.status_label.text = ""
         self.clear_dice()
         self.clear_messages()
         self.play()
@@ -341,18 +341,18 @@ def run_GUI(computer=False):
     computer -- True if playing against computer
     """
     root = Tk()
-    root.title('The Game of Hog')
+    root.title("The Game of Hog")
     root.minsize(520, 600)
     root.geometry("520x600")
 
     # Tkinter only works with GIFs
     HogGUI.IMAGES = {
-        1: PhotoImage(file='images/die1.gif'),
-        2: PhotoImage(file='images/die2.gif'),
-        3: PhotoImage(file='images/die3.gif'),
-        4: PhotoImage(file='images/die4.gif'),
-        5: PhotoImage(file='images/die5.gif'),
-        6: PhotoImage(file='images/die6.gif'),
+        1: PhotoImage(file="images/die1.gif"),
+        2: PhotoImage(file="images/die2.gif"),
+        3: PhotoImage(file="images/die3.gif"),
+        4: PhotoImage(file="images/die4.gif"),
+        5: PhotoImage(file="images/die5.gif"),
+        6: PhotoImage(file="images/die6.gif"),
     }
 
     app = HogGUI(root, computer)
@@ -362,41 +362,41 @@ def run_GUI(computer=False):
 # THEMES #
 ##########
 
-select_bg = '#a6d785'
-bg='#ffffff'
-fg='#000000'
-font=('Arial', 14)
+select_bg = "#a6d785"
+bg="#ffffff"
+fg="#000000"
+font=("Arial", 14)
 height=5  # Lines
 
 frame_theme = {
-    'bg': bg,
+    "bg": bg,
 }
 
 label_theme = {
-    'font': font,
-    'bg': bg,
-    'fg': fg,
+    "font": font,
+    "bg": bg,
+    "fg": fg,
 }
 
 text_theme = {
-    'font': font,
-    'bg': bg,
-    'fg': fg,
-    'height': height,
+    "font": font,
+    "bg": bg,
+    "fg": fg,
+    "height": height,
 }
 
 button_theme = {
-    'font': font,
-    'activebackground': select_bg,
-    'bg': bg,
-    'fg': fg,
+    "font": font,
+    "activebackground": select_bg,
+    "bg": bg,
+    "fg": fg,
 }
 
 entry_theme = {
-    'fg': fg,
-    'bg': bg,
-    'font': font,
-    'insertbackground': fg,
+    "fg": fg,
+    "bg": bg,
+    "font": font,
+    "insertbackground": fg,
 }
 
 ##########################
@@ -407,13 +407,13 @@ DELAY=2000
 
 @main
 def run(*args):
-    parser = argparse.ArgumentParser(description='Hog GUI')
-    parser.add_argument('-f', '--final',
-                        help='play against the final strategy in hog.py. '
-                             'Computer alternates playing as player 0 and 1.',
-                        action='store_true')
-    parser.add_argument('-d', '--delay',
-                        help='time delay for computer, in seconds', type=int,
+    parser = argparse.ArgumentParser(description="Hog GUI")
+    parser.add_argument("-f", "--final",
+                        help="play against the final strategy in hog.py. "
+                             "Computer alternates playing as player 0 and 1.",
+                        action="store_true")
+    parser.add_argument("-d", "--delay",
+                        help="time delay for computer, in seconds", type=int,
                         default=2)
     args = parser.parse_args()
     global DELAY

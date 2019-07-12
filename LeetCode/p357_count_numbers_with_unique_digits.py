@@ -44,17 +44,17 @@ class Solution:
 
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
 
-    assert Solution().countNumbersWithUniqueDigits(0) == 1, 'Edge 0, just 0'
-    assert Solution().countNumbersWithUniqueDigits(1) == 10, 'Edge 1, 0 to 9'
-    assert Solution().countNumbersWithUniqueDigits(2) == 91, 'Example 1, exclude 9 digits (11,22,33,...99)'
+    assert Solution().countNumbersWithUniqueDigits(0) == 1, "Edge 0, just 0"
+    assert Solution().countNumbersWithUniqueDigits(1) == 10, "Edge 1, 0 to 9"
+    assert Solution().countNumbersWithUniqueDigits(2) == 91, "Example 1, exclude 9 digits (11,22,33,...99)"
 
-    assert Solution().countNumbersWithUniqueDigits(3) == 739, 'Example 4'
-    assert Solution().countNumbersWithUniqueDigits(5) == 32491, 'Example 5'
-    assert Solution().countNumbersWithUniqueDigits(9) == 5611771, 'Example Last'
-    assert Solution().countNumbersWithUniqueDigits(10) == 5611771, 'Example Exceed Last'
+    assert Solution().countNumbersWithUniqueDigits(3) == 739, "Example 4"
+    assert Solution().countNumbersWithUniqueDigits(5) == 32491, "Example 5"
+    assert Solution().countNumbersWithUniqueDigits(9) == 5611771, "Example Last"
+    assert Solution().countNumbersWithUniqueDigits(10) == 5611771, "Example Exceed Last"
 
-    print('all passed')
+    print("all passed")
 
 

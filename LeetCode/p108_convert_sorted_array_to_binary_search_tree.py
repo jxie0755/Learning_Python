@@ -42,14 +42,14 @@ class Solution:
 
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     A = []
-    assert Solution().sortedArrayToBST(A) is None, 'Edge 0'
+    assert Solution().sortedArrayToBST(A) is None, "Edge 0"
 
     A = [1]
-    assert Solution().sortedArrayToBST(A) == genTree([1]), 'Edge 1'
+    assert Solution().sortedArrayToBST(A) == genTree([1]), "Edge 1"
 
     A = [-10, -3, 0, 5, 9]
-    assert Solution().sortedArrayToBST(A) == genTree([0, -3, 9, -10, None, 5, None]), 'Example 1'
+    assert Solution().sortedArrayToBST(A) == genTree([0, -3, 9, -10, None, 5, None]), "Example 1"
 
-    print('all passed')
+    print("all passed")

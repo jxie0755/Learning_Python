@@ -28,16 +28,16 @@ class Solution:
         return global_max
 
 
-if __name__ == '__main__':
-    assert Solution().maxSubArray([1, 2, 3, 4]) == 10, 'regular, all positives'
-    assert Solution().maxSubArray([-1, -2, -3, -4]) == -1, 'all negatives'
-    assert Solution().maxSubArray([-2, 1, -3, 4, -1, 2, 1, -5, 4]) == 6, 'mixed positive and negative'
-    assert Solution().maxSubArray([2, 2, 0, -1]) == 4, 'contains 0'
-    assert Solution().maxSubArray([-2, -1, -1, -1, -1, -1, -1, -1, 1]) == 1, 'a lot of negatives'
-    assert Solution().maxSubArray([0, 0, -3, 1]) == 1, 'group of all zero'
-    assert Solution().maxSubArray([1]) == 1, 'only one pos'
-    assert Solution().maxSubArray([-1]) == -1, 'only one neg'
-    assert Solution().maxSubArray([0]) == 0, 'only one zero'
-    assert Solution().maxSubArray([0, -1, -1, 0, 0, 0, -1, -2, -3]) == 0, 'only one zero'
-    assert Solution().maxSubArray([0, 0, 0, 0, 0, 0]) == 0, 'all zeros'
-    print('all passed')
+if __name__ == "__main__":
+    assert Solution().maxSubArray([1, 2, 3, 4]) == 10, "regular, all positives"
+    assert Solution().maxSubArray([-1, -2, -3, -4]) == -1, "all negatives"
+    assert Solution().maxSubArray([-2, 1, -3, 4, -1, 2, 1, -5, 4]) == 6, "mixed positive and negative"
+    assert Solution().maxSubArray([2, 2, 0, -1]) == 4, "contains 0"
+    assert Solution().maxSubArray([-2, -1, -1, -1, -1, -1, -1, -1, 1]) == 1, "a lot of negatives"
+    assert Solution().maxSubArray([0, 0, -3, 1]) == 1, "group of all zero"
+    assert Solution().maxSubArray([1]) == 1, "only one pos"
+    assert Solution().maxSubArray([-1]) == -1, "only one neg"
+    assert Solution().maxSubArray([0]) == 0, "only one zero"
+    assert Solution().maxSubArray([0, -1, -1, 0, 0, 0, -1, -2, -3]) == 0, "only one zero"
+    assert Solution().maxSubArray([0, 0, 0, 0, 0, 0]) == 0, "all zeros"
+    print("all passed")

@@ -1,19 +1,19 @@
 def create_row(size):
     """Returns a single, empty row with the given size. Each empty spot is
-    represented by the string '-'.
+    represented by the string "-".
 
     >>> create_row(5)
-    ['-', '-', '-', '-', '-']
+    ["-", "-", "-", "-", "-"]
     """
     "*** YOUR CODE HERE ***"
-    return ['-'] * size
+    return ["-"] * size
 
 
 def create_board(rows, columns):
     """Returns a board with the given dimensions.
 
     >>> create_board(3, 5)
-    [['-', '-', '-', '-', '-'], ['-', '-', '-', '-', '-'], ['-', '-', '-', '-', '-']]
+    [["-", "-", "-", "-", "-"], ["-", "-", "-", "-", "-"], ["-", "-", "-", "-", "-"]]
     """
     "*** YOUR CODE HERE ***"
     return [create_row(columns)] * rows
@@ -30,7 +30,7 @@ def replace_elem(lst, index, elem):
     >>> new is old   # check that replace_elem outputs a new list
     False
     """
-    assert index >= 0 and index < len(lst), 'Index is out of bounds'
+    assert index >= 0 and index < len(lst), "Index is out of bounds"
     "*** YOUR CODE HERE ***"
     result = lst[:]
     result[index] = elem
@@ -42,12 +42,12 @@ def get_piece(board, row, column):
 
     >>> rows, columns = 2, 2
     >>> board = create_board(rows, columns)
-    >>> board = put_piece(board, rows, 0, 'X')[1] # Puts piece "X" in column 0 of board and updates board
-    >>> board = put_piece(board, rows, 0, 'O')[1] # Puts piece "O" in column 0 of board and updates board
+    >>> board = put_piece(board, rows, 0, "X")[1] # Puts piece "X" in column 0 of board and updates board
+    >>> board = put_piece(board, rows, 0, "O")[1] # Puts piece "O" in column 0 of board and updates board
     >>> get_piece(board, 1, 0)
-    'X'
+    "X"
     >>> get_piece(board, 1, 1)
-    '-'
+    "-"
     """
     "*** YOUR CODE HERE ***"
     return board[row][column]
@@ -63,13 +63,13 @@ def put_piece(board, max_rows, column, player):
 
     >>> rows, columns = 2, 2
     >>> board = create_board(rows, columns)
-    >>> row, new_board = put_piece(board, rows, 0, 'X')
+    >>> row, new_board = put_piece(board, rows, 0, "X")
     >>> row
     1
-    >>> row, new_board = put_piece(new_board, rows, 0, 'O')
+    >>> row, new_board = put_piece(new_board, rows, 0, "O")
     >>> row
     0
-    >>> row, new_board = put_piece(new_board, rows, 0, 'X')
+    >>> row, new_board = put_piece(new_board, rows, 0, "X")
     >>> row
     -1
     """
@@ -77,7 +77,7 @@ def put_piece(board, max_rows, column, player):
     # get the index
     index = -1
     for i in board:
-        if i[column] == '-':
+        if i[column] == "-":
             index += 1
     # get the new board
     if index != -1:
@@ -95,18 +95,18 @@ def make_move(board, max_rows, max_cols, col, player):
 
     >>> rows, columns = 2, 2
     >>> board = create_board(rows, columns)
-    >>> row, board = make_move(board, rows, columns, 0, 'X')
+    >>> row, board = make_move(board, rows, columns, 0, "X")
     >>> row
     1
     >>> get_piece(board, 1, 0)
-    'X'
-    >>> row, board = make_move(board, rows, columns, 0, 'O')
+    "X"
+    >>> row, board = make_move(board, rows, columns, 0, "O")
     >>> row
     0
-    >>> row, board = make_move(board, rows, columns, 0, 'X')
+    >>> row, board = make_move(board, rows, columns, 0, "X")
     >>> row
     -1
-    >>> row, board = make_move(board, rows, columns, -4, 'O')
+    >>> row, board = make_move(board, rows, columns, -4, "O")
     >>> row
     -1
     """
@@ -125,7 +125,7 @@ def print_board(board, max_rows, max_cols):
     >>> print_board(board, rows, columns)
     - -
     - -
-    >>> new_board = make_move(board, rows, columns, 0, 'X')[1]
+    >>> new_board = make_move(board, rows, columns, 0, "X")[1]
     >>> print_board(new_board, rows, columns)
 
     - -
@@ -134,20 +134,20 @@ def print_board(board, max_rows, max_cols):
     """
     "*** YOUR CODE HERE ***"
     # This acrossed the abtraction barrier
-    # board_view = ''
+    # board_view = ""
     # for i in board:
-    #     board_view = board_view + ' '.join(i) + '\n'
+    #     board_view = board_view + " ".join(i) + "\n"
     # print(board_view.strip())
-    print('')
+    print("")
 
     for i in range(0, max_rows):
-        board_view = ''
+        board_view = ""
         for j in range(0, max_cols):
-            board_view += get_piece(board, i, j) + ' '
+            board_view += get_piece(board, i, j) + " "
         print(board_view.strip())
 
-    print(' '.join(str(i) for i in range(max_cols)))
-    print('')
+    print(" ".join(str(i) for i in range(max_cols)))
+    print("")
 
 
 def check_win_row(board, max_rows, max_cols, num_connect, row, player):
@@ -156,25 +156,25 @@ def check_win_row(board, max_rows, max_cols, num_connect, row, player):
 
     >>> rows, columns, num_connect = 4, 4, 2
     >>> board = create_board(rows, columns)
-    >>> board = make_move(board, rows, columns, 0, 'X')[1]
-    >>> board = make_move(board, rows, columns, 0, 'O')[1]
-    >>> check_win_row(board, rows, columns, num_connect, 3, 'O')
+    >>> board = make_move(board, rows, columns, 0, "X")[1]
+    >>> board = make_move(board, rows, columns, 0, "O")[1]
+    >>> check_win_row(board, rows, columns, num_connect, 3, "O")
     False
-    >>> board = make_move(board, rows, columns, 2, 'X')[1]
-    >>> board = make_move(board, rows, columns, 0, 'O')[1]
-    >>> check_win_row(board, rows, columns, num_connect, 3, 'X')
+    >>> board = make_move(board, rows, columns, 2, "X")[1]
+    >>> board = make_move(board, rows, columns, 0, "O")[1]
+    >>> check_win_row(board, rows, columns, num_connect, 3, "X")
     False
-    >>> board = make_move(board, rows, columns, 1, 'X')[1]
-    >>> check_win_row(board, rows, columns, num_connect, 3, 'X')
+    >>> board = make_move(board, rows, columns, 1, "X")[1]
+    >>> check_win_row(board, rows, columns, num_connect, 3, "X")
     True
-    >>> check_win_row(board, rows, columns, 4, 3, 'X')    # A win depends on the value of num_connect
+    >>> check_win_row(board, rows, columns, 4, 3, "X")    # A win depends on the value of num_connect
     False
-    >>> check_win_row(board, rows, columns, num_connect, 3, 'O')   # We only detect wins for the given player
+    >>> check_win_row(board, rows, columns, num_connect, 3, "O")   # We only detect wins for the given player
     False
     """
     "*** YOUR CODE HERE ***"
     for i in range(0, max_rows):
-        check = ''
+        check = ""
         for j in range(0, max_cols):
             check += get_piece(board, i, j)
         if player * num_connect in check:
@@ -188,26 +188,26 @@ def check_win_column(board, max_rows, max_cols, num_connect, col, player):
 
     >>> rows, columns, num_connect = 5, 5, 2
     >>> board = create_board(rows, columns)
-    >>> board = make_move(board, rows, columns, 0, 'X')[1]
-    >>> board = make_move(board, rows, columns, 1, 'O')[1]
-    >>> check_win_column(board, rows, columns, num_connect, 0, 'X')
+    >>> board = make_move(board, rows, columns, 0, "X")[1]
+    >>> board = make_move(board, rows, columns, 1, "O")[1]
+    >>> check_win_column(board, rows, columns, num_connect, 0, "X")
     False
-    >>> board = make_move(board, rows, columns, 1, 'X')[1]
-    >>> board = make_move(board, rows, columns, 1, 'O')[1]
-    >>> check_win_column(board, rows, columns, num_connect, 1, 'O')
+    >>> board = make_move(board, rows, columns, 1, "X")[1]
+    >>> board = make_move(board, rows, columns, 1, "O")[1]
+    >>> check_win_column(board, rows, columns, num_connect, 1, "O")
     False
-    >>> board = make_move(board, rows, columns, 2, 'X')[1]
-    >>> board = make_move(board, rows, columns, 1, 'O')[1]
-    >>> check_win_column(board, rows, columns, num_connect, 1, 'O')
+    >>> board = make_move(board, rows, columns, 2, "X")[1]
+    >>> board = make_move(board, rows, columns, 1, "O")[1]
+    >>> check_win_column(board, rows, columns, num_connect, 1, "O")
     True
-    >>> check_win_column(board, rows, columns, 4, 1, 'O')
+    >>> check_win_column(board, rows, columns, 4, 1, "O")
     False
-    >>> check_win_column(board, rows, columns, num_connect, 1, 'X')
+    >>> check_win_column(board, rows, columns, num_connect, 1, "X")
     False
     """
     "*** YOUR CODE HERE ***"
     for i in range(0, max_cols):
-        check = ''
+        check = ""
         for j in range(0, max_rows):
             check += get_piece(board, j, i)
         if player * num_connect in check:
@@ -266,30 +266,30 @@ def check_win(board, max_rows, max_cols, num_connect, row, col, player):
 
     >>> rows, columns, num_connect = 2, 2, 2
     >>> board = create_board(rows, columns)
-    >>> board = make_move(board, rows, columns, 0, 'X')[1]
-    >>> board = make_move(board, rows, columns, 1, 'O')[1]
-    >>> board = make_move(board, rows, columns, 0, 'X')[1]
-    >>> check_win(board, rows, columns, num_connect, 0, 0, 'O')
+    >>> board = make_move(board, rows, columns, 0, "X")[1]
+    >>> board = make_move(board, rows, columns, 1, "O")[1]
+    >>> board = make_move(board, rows, columns, 0, "X")[1]
+    >>> check_win(board, rows, columns, num_connect, 0, 0, "O")
     False
-    >>> check_win(board, rows, columns, num_connect, 0, 0, 'X')
+    >>> check_win(board, rows, columns, num_connect, 0, 0, "X")
     True
 
     >>> board = create_board(rows, columns)
-    >>> board = make_move(board, rows, columns, 0, 'X')[1]
-    >>> board = make_move(board, rows, columns, 0, 'O')[1]
-    >>> board = make_move(board, rows, columns, 1, 'X')[1]
-    >>> check_win(board, rows, columns, num_connect, 1, 0, 'X')
+    >>> board = make_move(board, rows, columns, 0, "X")[1]
+    >>> board = make_move(board, rows, columns, 0, "O")[1]
+    >>> board = make_move(board, rows, columns, 1, "X")[1]
+    >>> check_win(board, rows, columns, num_connect, 1, 0, "X")
     True
-    >>> check_win(board, rows, columns, num_connect, 0, 0, 'X')
+    >>> check_win(board, rows, columns, num_connect, 0, 0, "X")
     False
 
     >>> board = create_board(rows, columns)
-    >>> board = make_move(board, rows, columns, 0, 'X')[1]
-    >>> board = make_move(board, rows, columns, 1, 'O')[1]
-    >>> board = make_move(board, rows, columns, 1, 'X')[1]
-    >>> check_win(board, rows, columns, num_connect, 0, 0, 'X')
+    >>> board = make_move(board, rows, columns, 0, "X")[1]
+    >>> board = make_move(board, rows, columns, 1, "O")[1]
+    >>> board = make_move(board, rows, columns, 1, "X")[1]
+    >>> check_win(board, rows, columns, num_connect, 0, 0, "X")
     False
-    >>> check_win(board, rows, columns, num_connect, 1, 0, 'X')
+    >>> check_win(board, rows, columns, num_connect, 1, 0, "X")
     True
     """
     diagonal_win = check_win_diagonal(board, max_rows, max_cols, num_connect, row, col, player)

@@ -55,7 +55,7 @@ class User(Abstract):
     def __init__(self, name, reviews):
         self.a, self.b = name, {review_restaurant_name(r): r for r in reviews}
     def __repr__(self):
-        return '<User {} {}>'.format(self.a, list(map(repr, self.b)))
+        return "<User {} {}>".format(self.a, list(map(repr, self.b)))
 
 make_user = User
 user_name = lambda u: u.a
@@ -67,7 +67,7 @@ class Review(Abstract):
     def __init__(self, restaurant_name, rating):
         self.a, self.b = restaurant_name, rating
     def __repr__(self):
-        return '<Review {} {}>'.format(self.a, self.b)
+        return "<Review {} {}>".format(self.a, self.b)
 
 make_review = Review
 review_restaurant_name = lambda r: r.a
@@ -80,7 +80,7 @@ class Restaurant(Abstract):
         self.g = len(self.e)
         self.h = sum(review_rating(r) for r in self.e) / len(self.e)
     def __repr__(self):
-        return '<Restaurant {}>'.format(self.a)
+        return "<Restaurant {}>".format(self.a)
 
 make_restaurant = Restaurant
 restaurant_name = lambda r: r.a
@@ -92,9 +92,9 @@ restaurant_ratings = lambda r: r.f
 old = {}
 def swap_implementations(impl, user=True, review=True, rest=True):
     # save other implementations
-    old['user'] = impl.make_user, impl.user_name, impl.user_reviews, impl.user_reviewed_restaurants, impl.user_rating
-    old['review'] = impl.make_review, impl.review_restaurant_name, impl.review_rating
-    old['rest'] = impl.make_restaurant, impl.restaurant_name, impl.restaurant_location, impl.restaurant_categories, impl.restaurant_price, impl.restaurant_ratings
+    old["user"] = impl.make_user, impl.user_name, impl.user_reviews, impl.user_reviewed_restaurants, impl.user_rating
+    old["review"] = impl.make_review, impl.review_restaurant_name, impl.review_rating
+    old["rest"] = impl.make_restaurant, impl.restaurant_name, impl.restaurant_location, impl.restaurant_categories, impl.restaurant_price, impl.restaurant_ratings
 
     # save our implementations
     new_user = make_user, user_name, user_reviews, user_reviewed_restaurants, user_rating
@@ -110,9 +110,9 @@ def swap_implementations(impl, user=True, review=True, rest=True):
         impl.make_restaurant, impl.restaurant_name, impl.restaurant_location, impl.restaurant_categories, impl.restaurant_price, impl.restaurant_ratings = new_rest
 
 def restore_implementations(impl):
-    impl.make_user, impl.user_name, impl.user_reviews, impl.user_reviewed_restaurants, impl.user_rating = old['user']
-    impl.make_review, impl.review_restaurant_name, impl.review_rating = old['review']
-    impl.make_restaurant, impl.restaurant_name, impl.restaurant_location, impl.restaurant_categories, impl.restaurant_price, impl.restaurant_ratings = old['rest']
+    impl.make_user, impl.user_name, impl.user_reviews, impl.user_reviewed_restaurants, impl.user_rating = old["user"]
+    impl.make_review, impl.review_restaurant_name, impl.review_rating = old["review"]
+    impl.make_restaurant, impl.restaurant_name, impl.restaurant_location, impl.restaurant_categories, impl.restaurant_price, impl.restaurant_ratings = old["rest"]
 
 def check_same_elements(cluster1, cluster2):
     return len(cluster1) == len(cluster2) and all(el1 == el2 for el1, el2 in zip(cluster1, cluster2))

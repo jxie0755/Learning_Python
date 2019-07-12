@@ -33,18 +33,18 @@ class Chessboard(object):
         also add a coordinate axis for easier read
         """
 
-        to_print = ''
+        to_print = ""
         y_num = 6
-        separ = '    ----------------'
-        x_num = '    1, 2, 3, 4, 5, 6'
+        separ = "    ----------------"
+        x_num = "    1, 2, 3, 4, 5, 6"
 
 
         for i in self.board:
             row = str(i)
-            to_print += str(y_num) + '  ' + row + '\n'
+            to_print += str(y_num) + "  " + row + "\n"
             y_num -= 1
 
-        to_print += str(y_num) + '  ' + row + '\n'
+        to_print += str(y_num) + "  " + row + "\n"
         return to_print
 
     # Basic get and set
@@ -204,10 +204,10 @@ class Chessboard(object):
                                         [0, 0, 0, 0, 0, 0],
                                     ]
 
-        print('Total solution:', len(result))
+        print("Total solution:", len(result))
         return result
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     import time
     t = Chessboard()
     start_time = time.time()

@@ -3,7 +3,7 @@
 
 # Lists
 
-if __name__ == '__main__':
+if __name__ == "__main__":
 
     t = [1,2,3]
     t[1:3] = [t]
@@ -21,38 +21,38 @@ if __name__ == '__main__':
 # Work
 
 class Worker:
-    greeting = 'Sir'
+    greeting = "Sir"
     def __init__(self):
         self.elf = Worker
     def work(self):
-        return self.greeting + ', I work'
+        return self.greeting + ", I work"
     def __repr__(self):
         return Bourgeoisie.greeting
 
 class Bourgeoisie(Worker):
-    greeting = 'Peon'
+    greeting = "Peon"
     def work(self):
         print(Worker.work(self))
-        return 'My job is to gather wealth'
+        return "My job is to gather wealth"
 
 jack = Worker()
 john = Bourgeoisie()
-jack.greeting = 'Maam'
+jack.greeting = "Maam"
 
 def work():
     """Working.
 
     >>> Worker().work()
-    'Sir, I work'
+    "Sir, I work"
     >>> jack
     Peon
     >>> jack.work()
-    'Maam, I work'
+    "Maam, I work"
     >>> john.work()
     Peon, I work
-    'My job is to gather wealth'
+    "My job is to gather wealth"
     >>> john.elf.work(john)
-    'Peon, I work'
+    "Peon, I work"
     """
 
 # Cycles
@@ -73,7 +73,7 @@ def cycle_demo():
 
 # Morse tree
 
-abcde = {'a': '.-', 'b': '-...', 'c': '-.-.', 'd': '-..', 'e': '.'}
+abcde = {"a": ".-", "b": "-...", "c": "-.-.", "d": "-..", "e": "."}
 
 def morse(code):
     """Return a tree representing the code. Each internal (non-leaf) node
@@ -112,8 +112,8 @@ def decode(signals, tree):
     morse().
 
     >>> t = morse(abcde)
-    >>> [decode(s, t) for s in ['-..', '.', '-.-.', '.-', '-..', '.']]
-    ['d', 'e', 'c', 'a', 'd', 'e']
+    >>> [decode(s, t) for s in ["-..", ".", "-.-.", ".-", "-..", "."]]
+    ["d", "e", "c", "a", "d", "e"]
     """
     for signal in signals:
         tree = [b for b in tree.branches if b.label == signal][0]
@@ -140,19 +140,19 @@ class Tree:
 
     def __repr__(self):
         if self.branches:
-            branch_str = ', ' + repr(self.branches)
+            branch_str = ", " + repr(self.branches)
         else:
-            branch_str = ''
-        return 'Tree({0}{1})'.format(repr(self.label), branch_str)
+            branch_str = ""
+        return "Tree({0}{1})".format(repr(self.label), branch_str)
 
     def __str__(self):
-        return '\n'.join(self.indented())
+        return "\n".join(self.indented())
 
     def indented(self):
         lines = []
         for b in self.branches:
             for line in b.indented():
-                lines.append('  ' + line)
+                lines.append("  " + line)
         return [str(self.label)] + lines
 
     def is_leaf(self):

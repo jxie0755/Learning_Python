@@ -28,9 +28,9 @@ class NestedInteger:
 
     def __repr__(self):
         if self.isInteger():
-            return '[' + str(self.val) + ']'
+            return "[" + str(self.val) + "]"
         else:
-            return '[' + str(self.val) + ',' + str(self.getList()[0]) + ']'
+            return "[" + str(self.val) + "," + str(self.getList()[0]) + "]"
 
 
     def isInteger(self):
@@ -78,24 +78,24 @@ class NestedInteger:
             return self.lst
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
 
     A = NestedInteger(1)
-    assert repr(A) == '[1]', 'Eaxmple 1'
-    assert A.getInteger() == 1, 'get integer'
-    assert A.isInteger(), 'Single integer'
-    assert not A.getList(), 'Single integer has no list'
+    assert repr(A) == "[1]", "Eaxmple 1"
+    assert A.getInteger() == 1, "get integer"
+    assert A.isInteger(), "Single integer"
+    assert not A.getList(), "Single integer has no list"
 
     A.add(-2)
-    assert repr(A) == '[1,[-2]]', 'Add -2'
-    assert repr(A.getList()) == '[[-2]]', 'nested list'
+    assert repr(A) == "[1,[-2]]", "Add -2"
+    assert repr(A.getList()) == "[[-2]]", "nested list"
     assert not A.isInteger()
     assert not A.getInteger()
 
     A.setInteger(5)
-    assert repr(A) == '[5]', 'set Integer'
+    assert repr(A) == "[5]", "set Integer"
 
-    print('all passed')
+    print("all passed")
 
 
 
@@ -107,20 +107,20 @@ class Solution(object):
         if not s:
             return NestedInteger()
 
-        if s[0] != '[':
+        if s[0] != "[":
             return NestedInteger(int(s))
 
         stk = []
 
         i = 0
         for j in range(len(s)):
-            if s[j] == '[':
+            if s[j] == "[":
                 stk += NestedInteger(),
                 i = j+1
-            elif s[j] in ',]':
+            elif s[j] in ",]":
                 if s[j-1].isdigit():
                     stk[-1].add(NestedInteger(int(s[i:j])))
-                if s[j] == ']' and len(stk) > 1:
+                if s[j] == "]" and len(stk) > 1:
                     cur = stk[-1]
                     stk.pop()
                     stk[-1].add(cur)

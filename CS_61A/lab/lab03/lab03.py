@@ -91,12 +91,12 @@ print(c)
 # None
 
 def welcome():
-    print('welcome to')
-    return 'hello'
+    print("welcome to")
+    return "hello"
 
 def cs61a():
-    print('cs61a')
-    return 'world'
+    print("cs61a")
+    return "world"
 
 print(welcome(), cs61a())
 # >>>

@@ -12,8 +12,8 @@ def power_digit_sum(n):
     return sum([int(i) for i in str(num)])
 
 
-if __name__ == '__main__':
-    assert power_digit_sum(15) == 26, 'regular'
+if __name__ == "__main__":
+    assert power_digit_sum(15) == 26, "regular"
     print(power_digit_sum(1000))
     # >>> 1366
     # passed

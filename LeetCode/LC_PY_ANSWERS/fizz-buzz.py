@@ -30,16 +30,16 @@ class Solution(object):
         l3 = range(0, n + 1, 3)
         l5 = range(0, n + 1, 5)
         for i in l3:
-            l[i] = 'Fizz'
+            l[i] = "Fizz"
         for i in l5:
-            if l[i] == 'Fizz':
-                l[i] += 'Buzz'
+            if l[i] == "Fizz":
+                l[i] += "Buzz"
             else:
-                l[i] = 'Buzz'
+                l[i] = "Buzz"
         return l[1:]
 
     def fizzBuzz3(self, n):
-        return ['Fizz' * (not i % 3) + 'Buzz' * (not i % 5) or str(i) for i in range(1, n + 1)]
+        return ["Fizz" * (not i % 3) + "Buzz" * (not i % 5) or str(i) for i in range(1, n + 1)]
 
     def fizzBuzz4(self, n):
-        return ['FizzBuzz'[i % -3 & -4:i % -5 & 8 ^ 12] or repr(i) for i in range(1, n + 1)]
+        return ["FizzBuzz"[i % -3 & -4:i % -5 & 8 ^ 12] or repr(i) for i in range(1, n + 1)]

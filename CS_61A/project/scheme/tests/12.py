@@ -1,11 +1,11 @@
 test = {
-  'name': 'Problem 12',
-  'points': 1,
-  'suites': [
+  "name": "Problem 12",
+  "points": 1,
+  "suites": [
     {
-      'cases': [
+      "cases": [
         {
-          'code': r"""
+          "code": r"""
           scm> (define (square x) (* x x))
           square
           scm> square
@@ -19,27 +19,27 @@ test = {
           scm> (square (square 21))
           194481
           """,
-          'hidden': False,
-          'locked': False
+          "hidden": False,
+          "locked": False
         },
         {
-          'code': r"""
+          "code": r"""
           scm> ((lambda (x) (list x (list (quote quote) x))) (quote (lambda (x) (list x (list (quote quote) x)))))
           ((lambda (x) (list x (list (quote quote) x))) (quote (lambda (x) (list x (list (quote quote) x)))))
           """,
-          'hidden': False,
-          'locked': False
+          "hidden": False,
+          "locked": False
         }
       ],
-      'scored': True,
-      'setup': '',
-      'teardown': '',
-      'type': 'scheme'
+      "scored": True,
+      "setup": "",
+      "teardown": "",
+      "type": "scheme"
     },
     {
-      'cases': [
+      "cases": [
         {
-          'code': r"""
+          "code": r"""
           scm> (define (outer x y)
           ....   (define (inner z x)
           ....     (+ x (* y 2) (* z 3)))
@@ -55,11 +55,11 @@ test = {
           scm> ((outer-func 1 2) 1 10)
           17
           """,
-          'hidden': False,
-          'locked': False
+          "hidden": False,
+          "locked": False
         },
         {
-          'code': r"""
+          "code": r"""
           scm> (define square (lambda (x) (* x x)))
           square
           scm> (define (sum-of-squares x y) (+ (square x) (square y)))
@@ -75,14 +75,14 @@ test = {
           scm> ((apply-twice double) 5)
           20
           """,
-          'hidden': False,
-          'locked': False
+          "hidden": False,
+          "locked": False
         }
       ],
-      'scored': True,
-      'setup': '',
-      'teardown': '',
-      'type': 'scheme'
+      "scored": True,
+      "setup": "",
+      "teardown": "",
+      "type": "scheme"
     }
   ]
 }

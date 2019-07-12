@@ -122,32 +122,32 @@ class Solution(object):
         return L
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     A = []
-    assert Solution().minSubArrayLen(11, A) == 0, 'Edge 0'
+    assert Solution().minSubArrayLen(11, A) == 0, "Edge 0"
 
     A = [1, 2, 3, 4]
-    assert Solution().minSubArrayLen(11, A) == 0, 'Edge 1'
+    assert Solution().minSubArrayLen(11, A) == 0, "Edge 1"
 
     A = [2, 3, 1, 2, 4, 3]
-    assert Solution().minSubArrayLen(7, A) == 2, 'Example 1'
+    assert Solution().minSubArrayLen(7, A) == 2, "Example 1"
 
     A = [1, 2, 3, 4, 5]
-    assert Solution().minSubArrayLen(11, A) == 3, 'Additional 1'
+    assert Solution().minSubArrayLen(11, A) == 3, "Additional 1"
 
     A = [2, 16, 14, 15]
-    assert Solution().minSubArrayLen(20, A) == 2, 'Additional 2'
+    assert Solution().minSubArrayLen(20, A) == 2, "Additional 2"
 
     A = [12,28,83,4,25,26,25,2,25,25,25,12]
-    assert Solution().minSubArrayLen(213, A) == 8, 'Additional 3'
+    assert Solution().minSubArrayLen(213, A) == 8, "Additional 3"
 
     A = [1,4,4]
-    assert Solution().minSubArrayLen(3, A) == 1, 'Additional 4'
+    assert Solution().minSubArrayLen(3, A) == 1, "Additional 4"
 
     A = [4,1,1,1,4,3]
-    assert Solution().minSubArrayLen(7, A) == 2, 'Additional 5'
+    assert Solution().minSubArrayLen(7, A) == 2, "Additional 5"
 
     A = [4,4,1,1,1,5,1,1]
-    assert Solution().minSubArrayLen(8, A) == 2, 'Additional 6'
+    assert Solution().minSubArrayLen(8, A) == 2, "Additional 6"
 
-    print('all passed')
+    print("all passed")

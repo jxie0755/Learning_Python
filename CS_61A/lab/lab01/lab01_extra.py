@@ -1,24 +1,24 @@
 # Optional Questions
-print('\nOptional Questions')
+print("\nOptional Questions")
 
 # Q6 Truthiness What Would Python Display?
-print('\nQ6: WWPD: Truthiness')
+print("\nQ6: WWPD: Truthiness")
 # python3 ok -q truthiness -u
-if __name__ == '__main__':
-    print('answers hidden')
+if __name__ == "__main__":
+    print("answers hidden")
     # print(0 or True)                   # >>> True
-    # print(not '' or not 0 and False)   # >>> True # 注意运算优先级
+    # print(not "" or not 0 and False)   # >>> True # 注意运算优先级
     # print(13 and False)                # >>> False
     # print(False or 1)           # >>> True but actually show the value 1
-    # # print('' or 1 and 1/0)      # >>> Error
+    # # print("" or 1 and 1/0)      # >>> Error
     # print(not 0 and 12 or 0)    # >>> True but actually show the value 12
 
 
 # Q7 What if? What Would Python Display?
-print('\nQ7: WWPD: What If?')
+print("\nQ7: WWPD: What If?")
 # python3 ok -q what_if -u
-if __name__ == '__main__':
-    print('answers hidden')
+if __name__ == "__main__":
+    print("answers hidden")
     # def xk(c, d):
     #     if c == 4:
     #         return 6
@@ -34,30 +34,30 @@ if __name__ == '__main__':
 
     # def how_big(x):
     #     if x > 10:
-    #         print('huge')
+    #         print("huge")
     #     elif x > 5:
-    #         return 'big'
+    #         return "big"
     #     elif x > 0:
-    #         print('small')
+    #         print("small")
     #     else:
     #         print("nothin'")
 
-    # how_big(7)   # >>> return 'big'  # terminal will still show the return as the actuall string
+    # how_big(7)   # >>> return "big"  # terminal will still show the return as the actuall string
     # how_big(12)  # >>> huge   # when print, it will ingore the "'"
     # how_big(1)   # >>> small
     # how_big(-1)  # >>> nothin'
 
     # def so_big(x):
     #     if x > 10:
-    #         print('huge')
+    #         print("huge")
     #     if x > 5:
-    #         return 'big'
+    #         return "big"
     #     if x > 0:
-    #         print('small')
+    #         print("small")
     #     print("nothin'")
 
-    # so_big(7)   # >>> return 'big'
-    # so_big(12)  # >>> huge and return 'big'
+    # so_big(7)   # >>> return "big"
+    # so_big(12)  # >>> huge and return "big"
     # so_big(1)   # >>> small and nothin'
 
     # def ab(c, d):
@@ -65,9 +65,9 @@ if __name__ == '__main__':
     #         print(c)
     #     elif c > 7:
     #         print(d)
-    #     print('foo')
+    #     print("foo")
 
-    # print('\nab')
+    # print("\nab")
     # ab(10, 20)  # >>> 10 and foo
 
     # def bake(cake, make):
@@ -80,14 +80,14 @@ if __name__ == '__main__':
     #         return cake
     #     return make
 
-    # print('\nbake')
+    # print("\nbake")
     # bake(0, 29)                 # >>>  1 and 29 and return 29
-    # bake(1, 'mashed potatoes')  # >>>  mashed potatoes and return 'mashed potatoes
+    # bake(1, "mashed potatoes")  # >>>  mashed potatoes and return 'mashed potatoes
 
 
 # More Coding Practice
 
-print('\nQ8: Fix the Bug')
+print("\nQ8: Fix the Bug")
 
 # The following snippet of code doesn't work! Figure out what is wrong and fix the bugs.
 def both_positive(x, y):
@@ -102,10 +102,10 @@ def both_positive(x, y):
     return x > 0 and y > 0
 
 # python3 ok -q both_positive
-print('passed')
+print("passed")
 
 
-print('\nQ9: Falling Factorial')
+print("\nQ9: Falling Factorial")
 
 def falling(n, k):
     """Compute the falling factorial of n to depth k.
@@ -127,10 +127,10 @@ def falling(n, k):
     return result
 
 # python3 ok -q falling
-print('passed')
+print("passed")
 
 # I want to play a game
-print('\nGuessing Game')
+print("\nGuessing Game")
 
 
 from random import randint
@@ -186,25 +186,25 @@ def prompt_for_number(lower, upper):
     is_valid_number = False
     while not is_valid_number:
         # You don't need to understand the following two lines.
-        number = input('Pick an integer between {0} and {1} (inclusive) for me to guess: '.format(lower, upper))
+        number = input("Pick an integer between {0} and {1} (inclusive) for me to guess: ".format(lower, upper))
         number = int(number)
         if lower <= number <= upper:
             is_valid_number = True
 
 def is_correct(guess):
     """Ask the user if a guess is correct and return whether they respond y."""
-    return is_yes('Is {0} your number? [y/n] '.format(guess))
+    return is_yes("Is {0} your number? [y/n] ".format(guess))
 
 def is_too_high(guess):
     """Ask the user if a guess is too high and return whether they say yes."""
-    return is_yes('Is {0} too high? [y/n] '.format(guess))
+    return is_yes("Is {0} too high? [y/n] ".format(guess))
 
 def is_yes(prompt):
     """Ask the user a yes or no question and return whether they say yes."""
     while True: # This while statement will loop until a "return" is reached.
         yes_no = input(prompt).strip()
-        if yes_no == 'y':
+        if yes_no == "y":
             return True
-        elif yes_no == 'n':
+        elif yes_no == "n":
             return False
-        print('Please type y or n and press return/enter')
+        print("Please type y or n and press return/enter")

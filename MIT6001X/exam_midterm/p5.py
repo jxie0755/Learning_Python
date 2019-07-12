@@ -1,8 +1,8 @@
 def keysWithValue(aDict, target):
-    '''
+    ""'
     aDict: a dictionary
     target: an integer
-    '''
+    ""'
     result = []
     for k, v in aDict.items():
         if v == target:

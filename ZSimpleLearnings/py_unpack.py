@@ -5,7 +5,7 @@ a, b = 2, 3
 a, b = [2, 3]
 a, b = (2, 3)
 a, b = {2, 3}
-a, b = {2:'x', 3:'y'}  # go with keys
+a, b = {2:"x", 3:"y"}  # go with keys
 # all above: a=2, b=3
 
 # can be used in iterators
@@ -21,11 +21,11 @@ for x, y in [(1,2), (2,3), (3,4)]:
     print(x, y)
 
 # keys and values are unpack of dict
-d ={'a': 1, 'b': 2}
+d ={"a": 1, "b": 2}
 for k, v in d.items():
     print(k,v)
 
-dd = [('a', 1, 'x'), ('b', 2, 'y'), ('c', 3, 'z')]
+dd = [("a", 1, "x"), ("b", 2, "y"), ("c", 3, "z")]
 for k, v, c in dd:
     print(k)
 # >>>

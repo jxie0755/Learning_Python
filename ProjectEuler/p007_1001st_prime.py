@@ -20,9 +20,9 @@ def prime(n):
             count += 1
     return sample
 
-if __name__ == '__main__':
-    assert prime(1) == 2, 'starting point'
-    assert prime(6) == 13, 'simple case'
+if __name__ == "__main__":
+    assert prime(1) == 2, "starting point"
+    assert prime(6) == 13, "simple case"
     print(prime(10001))
     # >>> 104743
     # passed

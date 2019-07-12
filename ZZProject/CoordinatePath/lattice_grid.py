@@ -9,7 +9,7 @@ from math import factorial
 
 # 核心算法,生成路径,以移动方式表达
 def generate_lattice_path_move(coor_1, coor_2):
-    """generate all the shortest possible paths, reprented by a string composed by 'R', 'U', 'D'
+    """generate all the shortest possible paths, reprented by a string composed by "R", "U", "D"
 
     coor_1: a tuple to represent coordination (x, y)
     coor_2: a tuple to represent coordination (x, y)
@@ -23,17 +23,17 @@ def generate_lattice_path_move(coor_1, coor_2):
     start, end = sorted(ordered_coor_list)[0], sorted(ordered_coor_list)[1]
 
     if start[0] == end[0]:
-        move_h = ''  # 若x值相同,则处于同一条y轴,不必左右移动
+        move_h = ""  # 若x值相同,则处于同一条y轴,不必左右移动
     else:
-        move_h = 'R'  # 由于start,end是排序所得,所以start一定在end的左侧,只能向右移.
+        move_h = "R"  # 由于start,end是排序所得,所以start一定在end的左侧,只能向右移.
 
     # determine the movement direction up or down
     if start[1] > end[1]:
-        move_v = 'D'  # 从start开始必须向下移动才能到end
+        move_v = "D"  # 从start开始必须向下移动才能到end
     elif start[1] < end[1]:
-        move_v = 'U'  # 从start开始必须向上移动才能到end
+        move_v = "U"  # 从start开始必须向上移动才能到end
     else:
-        move_v = ''  # 若y值相同,则处于同一条x轴,不必上下移动
+        move_v = ""  # 若y值相同,则处于同一条x轴,不必上下移动
 
     move_h_num, move_v_num = (end[0] - start[0]), abs(end[1] - start[1])
     path_length = move_h_num + move_v_num
@@ -46,8 +46,8 @@ def generate_lattice_path_move(coor_1, coor_2):
     # 通过set()来过滤到重复的路径移动方式,利用sorted()来维持顺序
     filtered_raw = sorted(set(raw), key=raw.index)
 
-    print('From', coor_1, 'To', coor_2, ':')
-    print('Total path number:', total_paths_num)
+    print("From", coor_1, "To", coor_2, ":")
+    print("Total path number:", total_paths_num)
     return filtered_raw
 
 
@@ -57,7 +57,7 @@ def move_translate(coor_1, coor_2, moves):
 
     coor_1: a tuple to represent coordination (x, y)
     coor_2: a tuple to represent coordination (x, y)
-    moves: a tuple represents the movement, example: ('R', 'U', 'R', 'U')
+    moves: a tuple represents the movement, example: ("R", "U", "R", "U")
 
     return: a list of tuples, each tuple represent a cooridnate, as start follows the direction of moves
     """
@@ -69,11 +69,11 @@ def move_translate(coor_1, coor_2, moves):
     path = [start]
     current = start
     for move in moves:
-        if move == 'R':
+        if move == "R":
             current = (current[0] + 1, current[1])
-        elif move == 'U':
+        elif move == "U":
             current = (current[0], current[1] + 1)
-        elif move == 'D':
+        elif move == "D":
             current = (current[0], current[1] - 1)
         path.append(current)
     return path
@@ -90,7 +90,7 @@ def find_lattice_paths(coor_1, coor_2):
     return: all the paths in a list of coordinates
     """
     if coor_1 == coor_2:
-        print('The two point is overlapped')
+        print("The two point is overlapped")
 
     result = []
     moves = generate_lattice_path_move(coor_1, coor_2)
@@ -100,15 +100,15 @@ def find_lattice_paths(coor_1, coor_2):
         result.append(path)
 
     # for printing the paths
-    print('Path list:')
+    print("Path list:")
     for path in result:
         print(path)
-    print('\n')
+    print("\n")
     # return the result for further use
     return result
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     find_lattice_paths((1, 1), (1, 1))  # 如果两个坐标完全重合
     find_lattice_paths((-1, 1), (5, 1))  # 如果坐标在一条x轴上
     find_lattice_paths((-1, -1), (-1, 4))  # 如果坐标在一条y轴上

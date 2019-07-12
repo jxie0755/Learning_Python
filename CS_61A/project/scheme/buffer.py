@@ -19,11 +19,11 @@ class Buffer:
     The __str__ method prints all tokens read so far, up to the end of the
     current line, and marks the current token with >>.
 
-    >>> buf = Buffer(iter([['(', '+'], [15], [12, ')']]))
+    >>> buf = Buffer(iter([["(", "+"], [15], [12, ")"]]))
     >>> buf.remove_front()
-    '('
+    "("
     >>> buf.remove_front()
-    '+'
+    "+"
     >>> buf.current()
     15
     >>> print(buf)
@@ -40,7 +40,7 @@ class Buffer:
     2: 15
     3: 12 >> )
     >>> buf.remove_front()
-    ')'
+    ")"
     >>> print(buf)
     1: ( +
     2: 15
@@ -81,16 +81,16 @@ class Buffer:
         """Return recently read contents; current element marked with >>."""
         # Format string for right-justified line numbers
         n = len(self.lines)
-        msg = '{0:>' + str(math.floor(math.log10(n))+1) + "}: "
+        msg = "{0:>" + str(math.floor(math.log10(n))+1) + "}: "
 
         # Up to three previous lines and current line are included in output
-        s = ''
+        s = ""
         for i in range(max(0, n-4), n-1):
-            s += msg.format(i+1) + ' '.join(map(str, self.lines[i])) + '\n'
+            s += msg.format(i+1) + " ".join(map(str, self.lines[i])) + "\n"
         s += msg.format(n)
-        s += ' '.join(map(str, self.current_line[:self.index]))
-        s += ' >> '
-        s += ' '.join(map(str, self.current_line[self.index:]))
+        s += " ".join(map(str, self.current_line[:self.index]))
+        s += " >> "
+        s += " ".join(map(str, self.current_line[self.index:]))
         return s.strip()
 
 # Try to import readline for interactive history
@@ -107,7 +107,7 @@ class InputReader:
     def __iter__(self):
         while True:
             yield input(self.prompt)
-            self.prompt = ' ' * len(self.prompt)
+            self.prompt = " " * len(self.prompt)
 
 class LineReader:
     """A LineReader is an iterable that prints lines after a prompt."""
@@ -118,10 +118,10 @@ class LineReader:
 
     def __iter__(self):
         while self.lines:
-            line = self.lines.pop(0).strip('\n')
+            line = self.lines.pop(0).strip("\n")
             if (self.prompt is not None and line != "" and
                 not line.lstrip().startswith(self.comment)):
                 print(self.prompt + line)
-                self.prompt = ' ' * len(self.prompt)
+                self.prompt = " " * len(self.prompt)
             yield line
         raise EOFError

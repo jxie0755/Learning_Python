@@ -3,12 +3,12 @@
 import random
 import string
 
-VOWELS = 'aeiou'
-CONSONANTS = 'bcdfghjklmnpqrstvwxyz'
+VOWELS = "aeiou"
+CONSONANTS = "bcdfghjklmnpqrstvwxyz"
 HAND_SIZE = 7
 
 SCRABBLE_LETTER_VALUES = {
-    'a': 1, 'b': 3, 'c': 3, 'd': 2, 'e': 1, 'f': 4, 'g': 2, 'h': 4, 'i': 1, 'j': 8, 'k': 5, 'l': 1, 'm': 3, 'n': 1, 'o': 1, 'p': 3, 'q': 10, 'r': 1, 's': 1, 't': 1, 'u': 1, 'v': 4, 'w': 4, 'x': 8, 'y': 4, 'z': 10
+    "a": 1, "b": 3, "c": 3, "d": 2, "e": 1, "f": 4, "g": 2, "h": 4, "i": 1, "j": 8, "k": 5, "l": 1, "m": 3, "n": 1, "o": 1, "p": 3, "q": 10, "r": 1, "s": 1, "t": 1, "u": 1, "v": 4, "w": 4, "x": 8, "y": 4, "z": 10
 }
 
 # -----------------------------------
@@ -26,7 +26,7 @@ def loadWords():
     """
     print("Loading word list from file...")
     # inFile: file
-    inFile = open(WORDLIST_FILENAME, 'r')
+    inFile = open(WORDLIST_FILENAME, "r")
     # wordList: list of strings
     wordList = []
     for line in inFile:
@@ -87,7 +87,7 @@ def displayHand(hand):
     Displays the letters currently in the hand.
 
     For example:
-    displayHand({'a':1, 'x':2, 'l':3, 'e':1})
+    displayHand({"a":1, "x":2, "l":3, "e":1})
     Should print out something like:
        a x x l l l e
     The order of the letters is unimportant.
@@ -132,9 +132,9 @@ def dealHand(n):
 #
 def updateHand(hand, word):
     """
-    Assumes that 'hand' has all the letters in word.
+    Assumes that "hand" has all the letters in word.
     In other words, this assumes that however many times
-    a letter appears in 'word', 'hand' has at least as
+    a letter appears in "word", "hand" has at least as
     many of that letter in it. 
 
     Updates the hand: uses up the letters in the given word
@@ -223,26 +223,26 @@ def playHand(hand, wordList, n):
     uhand = hand.copy()
 
     while calculateHandlen(uhand) > 0:
-        print('Current hand: ', end=' ')
+        print("Current hand: ", end=" ")
         displayHand(uhand)
-        word = input('Enter word, or a "." to indicate that you are finished: ')
-        if word == '.':
+        word = input("Enter word, or a "." to indicate that you are finished: ")
+        if word == ".":
             break
         else:
             if isValidWord(word, uhand, wordList) == False:
-                print('Invalid word, please try again.')
+                print("Invalid word, please try again.")
                 print
             else:
                 score += getWordScore(word, n)
-                print('"' + str(word) + '" earned ' + str(getWordScore(word, n)) + ' points. Total: ' + str(
-                    score) + ' points.')
+                print(""" + str(word) + "" earned " + str(getWordScore(word, n)) + " points. Total: " + str(
+                    score) + " points.")
                 print
                 uhand = updateHand(uhand, word)
 
     if calculateHandlen(uhand) > 0:
-        print('Goodbye! Total score: ' + str(score) + ' points.')
+        print("Goodbye! Total score: " + str(score) + " points.")
     else:
-        print('Run out of letters. Total score: ' + str(score) + ' points.')
+        print("Run out of letters. Total score: " + str(score) + " points.")
 
 
 # Problem #5: Playing a game
@@ -251,36 +251,36 @@ def playGame(wordList):
     """
     Allow the user to play an arbitrary number of hands.
 
-    1) Asks the user to input 'n' or 'r' or 'e'.
-      * If the user inputs 'n', let the user play a new (random) hand.
-      * If the user inputs 'r', let the user play the last hand again.
-      * If the user inputs 'e', exit the game.
+    1) Asks the user to input "n" or "r" or "e".
+      * If the user inputs "n", let the user play a new (random) hand.
+      * If the user inputs "r", let the user play the last hand again.
+      * If the user inputs "e", exit the game.
       * If the user inputs anything else, tell them their input was invalid.
  
     2) When done playing the hand, repeat from step 1    
     """
     player_option = None
     player_hand = None
-    while player_option != 'e':
+    while player_option != "e":
         player_option = input("Enter n to deal a new hand, r to replay the" +
                               "  last hand, or e to end game: ").lower()
-        if player_option == 'n':
+        if player_option == "n":
             player_hand = dealHand(HAND_SIZE)
             playHand(player_hand.copy(), wordList, HAND_SIZE)
             print
-        elif player_option == 'r':
+        elif player_option == "r":
             if player_hand != None:
                 playHand(player_hand.copy(), wordList, HAND_SIZE)
                 print
             else:
                 print("You ve not played a hand yet. Please play a" +
                       " new hand first!\n")
-        elif player_option != 'e':
+        elif player_option != "e":
             print("Invalid command.")
 
 #
 # Build data structures used for entire session and play game
 #
-if __name__ == '__main__':
+if __name__ == "__main__":
     wordList = loadWords()
     playGame(wordList)

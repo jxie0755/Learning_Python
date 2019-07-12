@@ -13,17 +13,17 @@ class Link:
 
     def __repr__(self):
         if self.rest:
-            rest_str = ', ' + repr(self.rest)
+            rest_str = ", " + repr(self.rest)
         else:
-            rest_str = ''
-        return 'Link({0}{1})'.format(self.first, rest_str)
+            rest_str = ""
+        return "Link({0}{1})".format(self.first, rest_str)
 
     def __str__(self):
-        string = '<'
+        string = "<"
         while self.rest is not Link.empty:
-            string += str(self.first) + ', '
+            string += str(self.first) + ", "
             self = self.rest
-        return string + str(self.first) + '>'
+        return string + str(self.first) + ">"
 
 # Sets as un-sorted sequences
 

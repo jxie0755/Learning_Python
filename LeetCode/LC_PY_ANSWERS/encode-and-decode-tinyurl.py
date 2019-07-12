@@ -45,7 +45,7 @@ class Codec2(object):
 
     def __init__(self):
         self._cache = {}
-        self.url = 'http://tinyurl.com/'
+        self.url = "http://tinyurl.com/"
 
     def encode(self, long_url):
         """Encodes a URL to a shortened URL.
@@ -63,5 +63,5 @@ class Codec2(object):
         :type short_url: str
         :rtype: str
         """
-        key = short_url.replace(self.url, '')
+        key = short_url.replace(self.url, "")
         return self._cache[key]

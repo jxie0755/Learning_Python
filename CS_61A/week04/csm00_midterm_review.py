@@ -66,20 +66,20 @@ print(foo(-2))
 
 # cannot use for or while loop.
 # use recursion in repeat
-# cannot use string operation except '+' operation
+# cannot use string operation except "+" operation
 def fox_says(start, middle, end, num):
     """
-    >>> fox_says('wa', 'pa', 'pow', 3)
-    'wa-pa-pa-pa-pow'
-    >>> fox_says('fraka', 'kaka', 'kow', 4)
-    'fraka-kaka-kaka-kaka-kaka-kow'
+    >>> fox_says("wa", "pa", "pow", 3)
+    "wa-pa-pa-pa-pow"
+    >>> fox_says("fraka", "kaka", "kow", 4)
+    "fraka-kaka-kaka-kaka-kaka-kow"
     """
     def repeat(k):
         if k == 1:
-            return middle + '-'
+            return middle + "-"
         else:
-            return middle + '-' + repeat(k-1)
-    return start + '-' + repeat(num) + end
+            return middle + "-" + repeat(k-1)
+    return start + "-" + repeat(num) + end
 
 
 from operator import add, mul

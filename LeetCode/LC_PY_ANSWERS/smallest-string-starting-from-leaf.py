@@ -19,7 +19,7 @@ class Solution(object):
             if not node:
                 return
 
-            candidate.append(chr(ord('a') + node.val))
+            candidate.append(chr(ord("a") + node.val))
             if not node.left and not node.right:
                 result[0] = min(result[0], "".join(reversed(candidate)))
             dfs(node.left, candidate, result)

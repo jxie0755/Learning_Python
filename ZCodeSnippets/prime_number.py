@@ -14,7 +14,7 @@ def prime_list_original(n1, n2):
             pnumber_list.append(x)
     return pnumber_list
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     print(prime_list_original(2, 20))
     # >>> [2, 3, 5, 7, 11, 13, 17]
 
@@ -27,7 +27,7 @@ def gen_primes(max=None):  # set a max limit
             yield p
         p += 1
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     P = gen_primes(17)
     print(list(P))
     # >>> [2, 3, 5, 7, 11, 13, 17]
@@ -42,7 +42,7 @@ def is_prime(n):
     n can be any integer"""
     return n != 0 and n != 1 and all(map(lambda x: n % x != 0, range(2, int(n ** 0.5) + 1)))
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     print(list(filter(is_prime, range(100))))
 
 
@@ -50,6 +50,6 @@ def show_prime_list(n1, n2):
     pnumber = [x for x in range(n1, n2+1) if all(x % i for i in range(2, int(x**0.5)+1))]
     return pnumber
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     print(show_prime_list(10, 30))
     # >>> [11, 13, 17, 19, 23, 29]

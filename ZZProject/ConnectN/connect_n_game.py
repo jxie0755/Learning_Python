@@ -7,34 +7,34 @@ import itertools
 
 def start_game():
     # Game Header
-    print('Welcome to play Connect N!!!\n')
-    print('Please create a game board:')
+    print("Welcome to play Connect N!!!\n")
+    print("Please create a game board:")
 
     # Create the board
     def board_parameter():
         while True:
-            parameter = int(input('please choose a positive integer:'))
+            parameter = int(input("please choose a positive integer:"))
             if parameter <= 0 or type(parameter) != int:
-                print('\nyou must pick a positive integer')
+                print("\nyou must pick a positive integer")
                 continue
             else:
                 break
         return parameter
 
-    print('How may rows?')
+    print("How may rows?")
     rows = board_parameter()
-    print('How may columns?')
+    print("How may columns?")
     cols = board_parameter()
     board = create_board(rows, cols)
 
     # set the rules:
-    print('\nhow many to connect? usually it is 4:')
+    print("\nhow many to connect? usually it is 4:")
     while True:
         num_connect = board_parameter()
         if num_connect <= rows or num_connect <= cols:
             break
         else:
-            print('\nyou must pick a number smaller than rows or cols')
+            print("\nyou must pick a number smaller than rows or cols")
             continue
 
     print_board(board, rows, cols)
@@ -42,8 +42,8 @@ def start_game():
     # Start gaming logic
 
     # Setup player logic
-    print('Player 1 is X\nPlayer 2 is O')
-    players = itertools.cycle('XO')
+    print("Player 1 is X\nPlayer 2 is O")
+    players = itertools.cycle("XO")
 
     # Game status
     game_running = True
@@ -57,14 +57,14 @@ def start_game():
 
         # check move
         while True:
-            move = int(input(f'Player {player_to_move} move, choose the column number:'))
+            move = int(input(f"Player {player_to_move} move, choose the column number:"))
             if move >= cols or move < 0:
-                print('please choose the column number again')
+                print("please choose the column number again")
                 continue
             else:
                 index, board = make_move(board, rows, cols, move, player_to_move)
                 if index == -1:
-                    print('This column is full! Please re-pick!')
+                    print("This column is full! Please re-pick!")
                     continue
                 else:
                     break
@@ -76,10 +76,10 @@ def start_game():
         # check win
 
         if check_win(board, rows, cols, num_connect, rows, cols, player_to_move):
-            print(f'Play {player_to_move} wins!')
+            print(f"Play {player_to_move} wins!")
             game_running = False
         elif not check_win(board, rows, cols, num_connect, rows, cols, player_to_move) and total_moves == rows * cols:
-            print('Tie Game!')
+            print("Tie Game!")
             game_running = False
         else:
             continue

@@ -15,7 +15,7 @@ class Solution(object):
         counts = collections.Counter(word.strip("!?',.")
                                      for word in paragraph.lower().split())
 
-        result = ''
+        result = ""
         for word in counts:
             if (not result or counts[word] > counts[result]) and \
                word not in lookup:

@@ -30,13 +30,13 @@ def non_repeat(line):
     try:
         return max(list(filter(check_repeat, substring_list)), key=len)
     except ValueError:
-        return ''
+        return ""
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     #These "asserts" using only for self-checking and not necessary for auto-testing
-    assert non_repeat('aaaaa') == 'a', "First"
-    assert non_repeat('abdjwawk') == 'abdjw', "Second"
-    assert non_repeat('abcabcffab') == 'abcf', "Third"
-    assert non_repeat('fghfrtyfgh') ==  'ghfrty', "extra check"
-    assert non_repeat('') == '', 'empty string'
-    print('"Run" is good. How is "Check"?')
+    assert non_repeat("aaaaa") == "a", "First"
+    assert non_repeat("abdjwawk") == "abdjw", "Second"
+    assert non_repeat("abcabcffab") == "abcf", "Third"
+    assert non_repeat("fghfrtyfgh") ==  "ghfrty", "extra check"
+    assert non_repeat("") == "", "empty string"
+    print(""Run" is good. How is "Check"?")

@@ -15,7 +15,7 @@ class Solution(object):
                 a, b = b, a%b
             return a
 
-        ints = map(int, re.findall('[+-]?\d+', expression))
+        ints = map(int, re.findall("[+-]?\d+", expression))
         A, B = 0, 1
         for i in xrange(0, len(ints), 2):
             a, b = ints[i], ints[i+1]
@@ -24,4 +24,4 @@ class Solution(object):
             g = gcd(A, B)
             A //= g
             B //= g
-        return '%d/%d' % (A, B)
+        return "%d/%d" % (A, B)

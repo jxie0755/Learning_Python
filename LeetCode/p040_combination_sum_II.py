@@ -48,7 +48,7 @@ class Solution:
 
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     candidates = [10, 1, 2, 7, 6, 1, 5]
     target = 8
     assert Solution().combinationSum2(candidates, target) == [[1, 1, 6], [1, 2, 5], [1, 7], [2, 6]]

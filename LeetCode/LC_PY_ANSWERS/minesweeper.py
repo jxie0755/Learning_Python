@@ -14,8 +14,8 @@ class Solution(object):
         q = collections.deque([click])
         while q:
             row, col = q.popleft()
-            if board[row][col] == 'M':
-                board[row][col] = 'X'
+            if board[row][col] == "M":
+                board[row][col] = "X"
             else:
                 count = 0
                 for i in xrange(-1, 2):
@@ -25,13 +25,13 @@ class Solution(object):
                         r, c = row + i, col + j
                         if not (0 <= r < len(board)) or not (0 <= c < len(board[r])):
                             continue
-                        if board[r][c] == 'M' or board[r][c] == 'X':
+                        if board[r][c] == "M" or board[r][c] == "X":
                             count += 1
 
                 if count:
-                    board[row][col] = chr(count + ord('0'))
+                    board[row][col] = chr(count + ord("0"))
                 else:
-                    board[row][col] = 'B'
+                    board[row][col] = "B"
                     for i in xrange(-1, 2):
                         for j in xrange(-1, 2):
                             if i == 0 and j == 0:
@@ -39,9 +39,9 @@ class Solution(object):
                             r, c = row + i, col + j
                             if not (0 <= r < len(board)) or not (0 <= c < len(board[r])):
                                 continue
-                            if board[r][c] == 'E':
+                            if board[r][c] == "E":
                                 q.append((r, c))
-                                board[r][c] = ' '
+                                board[r][c] = " "
 
         return board
 
@@ -56,8 +56,8 @@ class Solution2(object):
         :rtype: List[List[str]]
         """
         row, col = click[0], click[1]
-        if board[row][col] == 'M':
-            board[row][col] = 'X'
+        if board[row][col] == "M":
+            board[row][col] = "X"
         else:
             count = 0
             for i in xrange(-1, 2):
@@ -67,13 +67,13 @@ class Solution2(object):
                     r, c = row + i, col + j
                     if not (0 <= r < len(board)) or not (0 <= c < len(board[r])):
                         continue
-                    if board[r][c] == 'M' or board[r][c] == 'X':
+                    if board[r][c] == "M" or board[r][c] == "X":
                         count += 1
 
             if count:
-                board[row][col] = chr(count + ord('0'))
+                board[row][col] = chr(count + ord("0"))
             else:
-                board[row][col] = 'B'
+                board[row][col] = "B"
                 for i in xrange(-1, 2):
                     for j in xrange(-1, 2):
                         if i == 0 and j == 0:
@@ -81,7 +81,7 @@ class Solution2(object):
                         r, c = row + i, col + j
                         if not (0 <= r < len(board)) or not (0 <= c < len(board[r])):
                             continue
-                        if board[r][c] == 'E':
+                        if board[r][c] == "E":
                             self.updateBoard(board, (r, c))
 
         return board

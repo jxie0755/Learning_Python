@@ -4,4 +4,4 @@
 x = 5
 y = 6
 (x, y) = (y, x)
-print('x is now', x, 'y is now', y)
+print("x is now", x, "y is now", y)

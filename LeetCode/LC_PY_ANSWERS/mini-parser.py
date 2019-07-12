@@ -46,20 +46,20 @@ class Solution(object):
         if not s:
             return NestedInteger()
 
-        if s[0] != '[':
+        if s[0] != "[":
             return NestedInteger(int(s))
 
         stk = []
 
         i = 0
         for j in xrange(len(s)):
-            if s[j] == '[':
+            if s[j] == "[":
                 stk += NestedInteger(),
                 i = j+1
-            elif s[j] in ',]':
+            elif s[j] in ",]":
                 if s[j-1].isdigit():
                     stk[-1].add(NestedInteger(int(s[i:j])))
-                if s[j] == ']' and len(stk) > 1:
+                if s[j] == "]" and len(stk) > 1:
                     cur = stk[-1]
                     stk.pop()
                     stk[-1].add(cur)

@@ -20,15 +20,15 @@ class Solution(object):
             return []
 
         paths = []
-        def helper(node, path=''):
+        def helper(node, path=""):
             """add a path to paths if each to a leaf"""
             if not node.left and not node.right:
                 paths.append(path + str(node.val))
             if node.left:
-                l_path = path + str(node.val) + '->'
+                l_path = path + str(node.val) + "->"
                 helper(node.left, l_path)
             if node.right:
-                r_path = path + str(node.val) + '->'
+                r_path = path + str(node.val) + "->"
                 helper(node.right, r_path)
 
         helper(root)
@@ -36,14 +36,14 @@ class Solution(object):
 
 
 
-if __name__ == '__main__':
-    assert Solution().binaryTreePaths(None) == [], 'Edge 0'
+if __name__ == "__main__":
+    assert Solution().binaryTreePaths(None) == [], "Edge 0"
 
     A = genTree([
         1,
         2,3,
         None, 5
     ])
-    assert Solution().binaryTreePaths(A) == ["1->2->5", "1->3"], 'Example 1'
+    assert Solution().binaryTreePaths(A) == ["1->2->5", "1->3"], "Example 1"
 
-    print('all passed')
+    print("all passed")

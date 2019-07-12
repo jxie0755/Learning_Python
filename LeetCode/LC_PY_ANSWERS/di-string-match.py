@@ -10,7 +10,7 @@ class Solution(object):
         result = []
         left, right = 0, len(S)
         for c in S:
-            if c == 'I':
+            if c == "I":
                 result.append(left)
                 left += 1
             else:

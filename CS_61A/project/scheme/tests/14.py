@@ -1,11 +1,11 @@
 test = {
-  'name': 'Problem 14',
-  'points': 2,
-  'suites': [
+  "name": "Problem 14",
+  "points": 2,
+  "suites": [
     {
-      'cases': [
+      "cases": [
         {
-          'code': r"""
+          "code": r"""
           scm> (cond ((> 2 3) 5)
           ....       ((> 2 4) 6)
           ....       ((< 2 5) 7)
@@ -16,19 +16,19 @@ test = {
           ....       (else 8))
           8
           """,
-          'hidden': False,
-          'locked': False
+          "hidden": False,
+          "locked": False
         }
       ],
-      'scored': True,
-      'setup': '',
-      'teardown': '',
-      'type': 'scheme'
+      "scored": True,
+      "setup": "",
+      "teardown": "",
+      "type": "scheme"
     },
     {
-      'cases': [
+      "cases": [
         {
-          'code': r"""
+          "code": r"""
           scm> (cond ((> 2 3) 5)
           ....       ((> 2 4) 6)
           ....       ((< 2 5) 7))
@@ -59,20 +59,20 @@ test = {
           hi
           scm> (eval (cond (False 1) (False 2)))
           """,
-          'hidden': False,
-          'locked': False
+          "hidden": False,
+          "locked": False
         },
         {
-          'code': r"""
+          "code": r"""
           scm> (cond (0 'yea)
           ....       (else 'nay))
           yea
           """,
-          'hidden': False,
-          'locked': False
+          "hidden": False,
+          "locked": False
         },
         {
-          'code': r"""
+          "code": r"""
           scm> (define x 0)
           x
           scm> (define y 0)
@@ -91,11 +91,11 @@ test = {
           scm> (list x y z)
           (1 1 1)
           """,
-          'hidden': False,
-          'locked': False
+          "hidden": False,
+          "locked": False
         },
         {
-          'code': r"""
+          "code": r"""
           scm> (define (print-and-false val)
           ....         (print val)
           ....         #f)
@@ -121,14 +121,14 @@ test = {
           cond3
           #t
           """,
-          'hidden': False,
-          'locked': False
+          "hidden": False,
+          "locked": False
         }
       ],
-      'scored': True,
-      'setup': '',
-      'teardown': '',
-      'type': 'scheme'
+      "scored": True,
+      "setup": "",
+      "teardown": "",
+      "type": "scheme"
     }
   ]
 }

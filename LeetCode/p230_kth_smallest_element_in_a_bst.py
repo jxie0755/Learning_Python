@@ -101,13 +101,13 @@ class Solution(object):
 
         return float("-inf")
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     A = genTree([
         3,
         1,4,
         None, 2
     ])
-    assert Solution().kthSmallest(A, 1) == 1, 'Example 1'
+    assert Solution().kthSmallest(A, 1) == 1, "Example 1"
 
     A = genTree([
         5,
@@ -115,6 +115,6 @@ if __name__ == '__main__':
         2,4,None,None,
         1,
     ])
-    assert Solution().kthSmallest(A, 3) == 3, 'Example 2'
+    assert Solution().kthSmallest(A, 3) == 3, "Example 2"
 
-    print('all passed')
+    print("all passed")

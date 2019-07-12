@@ -3,12 +3,12 @@
 
 # def checkio(text):
 #     # raw string process, transfer to lower case and remove spaces
-#     text = text.lower().replace(' ', '')
+#     text = text.lower().replace(" ", "")
 #
 #     # raw string process 2, create a list, sort and add an empty string at the end.
 #     text_list = [i for i in text if ord(i) in range(97, 123)]
 #     text_list = sorted(text_list)
-#     text_list.append('')
+#     text_list.append("")
 #
 #     # create an empty dict and a loop to add data to the dict
 #     text_dict = {}
@@ -34,21 +34,21 @@
 # def checkio(text):
 #     """
 #     We iterate through latyn alphabet and count each letter in the text.
-#     Then 'max' selects the most frequent letter.
+#     Then "max" selects the most frequent letter.
 #     For the case when we have several equal letter,
-#     'max' selects the first from them.
+#     "max" selects the first from them.
 #     """
 #     text = text.lower()
 #     return max(string.ascii_lowercase, key=text.count)
 
 def checkio(text):
     import string
-    text = ''.join(sorted(list(filter(lambda x: x in string.ascii_lowercase, text.lower()))))
+    text = "".join(sorted(list(filter(lambda x: x in string.ascii_lowercase, text.lower()))))
     for i in text:
         if text.count(i) == max(map(text.count, string.ascii_lowercase)):
             return i
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     #These "asserts" using only for self-checking and not necessary for auto-testing
     assert checkio("Hello World!") == "l", "Hello test"
     assert checkio("How do you do?") == "o", "O is most wanted"

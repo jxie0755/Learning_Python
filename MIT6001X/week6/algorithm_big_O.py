@@ -113,10 +113,10 @@ def program3(L1, L2):
 # A function to transfer integer to a string O(log(n))
 def intToStr(i):
     """i is a poositive integer"""
-    digits = '0123456789'
+    digits = "0123456789"
     if i == 0:
-        return '0'
-    result = ''
+        return "0"
+    result = ""
     while i > 0:
         result = digits[i%10] + result
         i //= 10
@@ -218,7 +218,7 @@ print(fib_iter(4))
 def fib_gen_r(i):
     """
     Fibonacci function generator
-    generate the fibonacci number at 'i'th posistion
+    generate the fibonacci number at "i"th posistion
     """
     if i == 0:
         return 0

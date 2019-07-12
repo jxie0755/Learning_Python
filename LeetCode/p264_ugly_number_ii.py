@@ -40,7 +40,7 @@ class Solution(object):
         sieve_size = 1000*n
         sieve = list(range(sieve_size))
         primes = self.primesunder(sieve_size)
-        # print('prime list', primes)
+        # print("prime list", primes)
 
         for i in primes:
             if sieve[i]:
@@ -48,8 +48,8 @@ class Solution(object):
                     sieve[k] = 0
 
         sieve = list(filter(lambda x:bool(x), sieve))
-        # print('n is', n, 'sieve length:', len(sieve))
-        # print('final sieve:', sieve)
+        # print("n is", n, "sieve length:", len(sieve))
+        # print("final sieve:", sieve)
         return sieve[n-1]
 
 
@@ -61,7 +61,7 @@ class Solution(object):
         result = [1]
 
         while len(result) < n:
-            temp = float('inf')
+            temp = float("inf")
             for i in result:
                 for p in [2, 3, 5]:
                     sample = i * p
@@ -148,15 +148,15 @@ class Solution(object):
 
 
 
-if __name__ == '__main__':
-    assert Solution().nthUglyNumber(1) == 1, 'Edge'
-    assert Solution().nthUglyNumber(2) == 2, 'Example 1'
-    assert Solution().nthUglyNumber(6) == 6, 'Example 2'
-    assert Solution().nthUglyNumber(7) == 8, 'Example 3'
-    assert Solution().nthUglyNumber(10) == 12, 'Example 4'
-    assert Solution().nthUglyNumber(11) == 15, 'Example 5'
+if __name__ == "__main__":
+    assert Solution().nthUglyNumber(1) == 1, "Edge"
+    assert Solution().nthUglyNumber(2) == 2, "Example 1"
+    assert Solution().nthUglyNumber(6) == 6, "Example 2"
+    assert Solution().nthUglyNumber(7) == 8, "Example 3"
+    assert Solution().nthUglyNumber(10) == 12, "Example 4"
+    assert Solution().nthUglyNumber(11) == 15, "Example 5"
 
-    assert Solution().nthUglyNumber(80) == 800, 'Long 1'
-    assert Solution().nthUglyNumber(1690) == 2123366400, 'End'
-    print('all passed')
+    assert Solution().nthUglyNumber(80) == 800, "Long 1"
+    assert Solution().nthUglyNumber(1690) == 2123366400, "End"
+    print("all passed")
 

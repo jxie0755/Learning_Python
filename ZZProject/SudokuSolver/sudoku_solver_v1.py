@@ -34,9 +34,9 @@ class Sudoku(object):
         """
         self.board = puzzle
 
-        print('puzzle is generated:')
+        print("puzzle is generated:")
         print(self)
-        print('')
+        print("")
 
         # Also create a permanent puzzle copy for future use
         self.puzzle = self.board_mem()
@@ -46,22 +46,22 @@ class Sudoku(object):
         also add a coordinate axis for easier read
         """
 
-        to_print = ''
+        to_print = ""
         y_num = 9
-        separ = '    -----------------------------'
-        x_num = '    1, 2, 3,   4, 5, 6,   7, 8, 9'
+        separ = "    -----------------------------"
+        x_num = "    1, 2, 3,   4, 5, 6,   7, 8, 9"
 
 
         for i in self.board:
             row = str(i)
-            row = row[0:9] + '  ' + row[9:18] + '  ' + row[18:]
-            to_print += str(y_num) + '  ' + row + '\n'
+            row = row[0:9] + "  " + row[9:18] + "  " + row[18:]
+            to_print += str(y_num) + "  " + row + "\n"
             if y_num in [7, 4]:
-                to_print += '\n'
+                to_print += "\n"
             y_num -= 1
 
 
-        to_print += separ + '\n' + x_num
+        to_print += separ + "\n" + x_num
         return to_print
 
 
@@ -290,14 +290,14 @@ class Sudoku(object):
 
 
         # difficulty =
-        print('problem solved!')
+        print("problem solved!")
         print(self)
-        print('Total hypothesis: ', count)
-        print('max_layer_counted:', max(hypo_layer_all))
-        print('\n')
+        print("Total hypothesis: ", count)
+        print("max_layer_counted:", max(hypo_layer_all))
+        print("\n")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     # list out 4 problems for test case
 
     # websudoku easy puzzle 10

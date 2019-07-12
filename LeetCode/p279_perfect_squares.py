@@ -109,7 +109,7 @@ class Solution(object):
         return result
 
     def numSquares(self, n: int) -> int or float:
-        result = [float('inf')]
+        result = [float("inf")]
         sqlist = self.SQlist(n)
 
         def helper(n, sum_so_far=0, length_so_far=0):
@@ -211,31 +211,31 @@ class Solution(object):
                         temp.append(helper(n-i, new_depth))
 
                 temp_n = min(temp) + 1
-                if temp_n != float('inf'):  # 字典只记录真实值
+                if temp_n != float("inf"):  # 字典只记录真实值
                     hashmap[n] = temp_n  # 返回之前记录结果
                 return temp_n
             else:
-                return float('inf')  # 由于只走4层深度, 所以超过四层按无穷大来算,避免被min计算进去
+                return float("inf")  # 由于只走4层深度, 所以超过四层按无穷大来算,避免被min计算进去
 
         ans = helper(n)
         return ans
 
 
-if __name__ == '__main__':
-    assert Solution().numSquares(1) == 1, 'Edge, just 1'
-    assert Solution().numSquares(7) == 4, ' Example 1:  4+1+1+1'
-    assert Solution().numSquares(12) == 3, 'Example 2:  4+4+4'
-    assert Solution().numSquares(13) == 2, 'Example 3:  4+9'
-    assert Solution().numSquares(18) == 2, 'Example 4:  9+9'
-    assert Solution().numSquares(19) == 3, 'Example 5:  9+9+1'
+if __name__ == "__main__":
+    assert Solution().numSquares(1) == 1, "Edge, just 1"
+    assert Solution().numSquares(7) == 4, " Example 1:  4+1+1+1"
+    assert Solution().numSquares(12) == 3, "Example 2:  4+4+4"
+    assert Solution().numSquares(13) == 2, "Example 3:  4+9"
+    assert Solution().numSquares(18) == 2, "Example 4:  9+9"
+    assert Solution().numSquares(19) == 3, "Example 5:  9+9+1"
 
-    assert Solution().numSquares(43) == 3, 'Example 6:  25+9+9'
-    assert Solution().numSquares(67) == 3, 'Example 7:  9+9+49'
-    assert Solution().numSquares(99) == 3, 'Example 8:  49+25+25'
-    assert Solution().numSquares(143) == 4, 'Example 9'
-    assert Solution().numSquares(488) == 2, 'Example 10'
+    assert Solution().numSquares(43) == 3, "Example 6:  25+9+9"
+    assert Solution().numSquares(67) == 3, "Example 7:  9+9+49"
+    assert Solution().numSquares(99) == 3, "Example 8:  49+25+25"
+    assert Solution().numSquares(143) == 4, "Example 9"
+    assert Solution().numSquares(488) == 2, "Example 10"
 
-    print('all passed')
+    print("all passed")
 
     # import time
     # start_time = time.time()

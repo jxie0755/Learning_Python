@@ -10,7 +10,7 @@ class Solution(object):
         """
         def ipToInt(ip):
             result = 0
-            for i in ip.split('.'):
+            for i in ip.split("."):
                 result = 256 * result + int(i)
             return result
 
@@ -23,7 +23,7 @@ class Solution(object):
         while n:
             mask = max(33-(start & ~(start-1)).bit_length(), \
                        33-n.bit_length())
-            result.append(intToIP(start) + '/' + str(mask))
+            result.append(intToIP(start) + "/" + str(mask))
             start += 1 << (32-mask)
             n -= 1 << (32-mask)
         return result

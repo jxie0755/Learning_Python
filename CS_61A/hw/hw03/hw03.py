@@ -1,4 +1,4 @@
-HW_SOURCE_FILE = 'hw03.py'
+HW_SOURCE_FILE = "hw03.py"
 
 #############
 # Questions #
@@ -20,8 +20,8 @@ def has_seven(k):
     >>> has_seven(7777)
     True
     >>> from construct_check import check
-    >>> check(HW_SOURCE_FILE, 'has_seven',
-    ...       ['Assign', 'AugAssign'])
+    >>> check(HW_SOURCE_FILE, "has_seven",
+    ...       ["Assign", "AugAssign"])
     True
     """
     if not k:
@@ -44,8 +44,8 @@ def summation(n, term):
     62
     >>> # Do not use while/for loops!
     >>> from construct_check import check
-    >>> check(HW_SOURCE_FILE, 'summation',
-    ...       ['While', 'For'])
+    >>> check(HW_SOURCE_FILE, "summation",
+    ...       ["While", "For"])
     True
     """
     assert n >= 1
@@ -98,8 +98,8 @@ def summation_using_accumulate(n, term):
     >>> summation_using_accumulate(5, triple)
     45
     >>> from construct_check import check
-    >>> check(HW_SOURCE_FILE, 'summation_using_accumulate',
-    ...       ['Recursion', 'For', 'While'])
+    >>> check(HW_SOURCE_FILE, "summation_using_accumulate",
+    ...       ["Recursion", "For", "While"])
     True
     """
     return accumulate(add, 0, n, term)
@@ -112,8 +112,8 @@ def product_using_accumulate(n, term):
     >>> product_using_accumulate(6, triple)
     524880
     >>> from construct_check import check
-    >>> check(HW_SOURCE_FILE, 'product_using_accumulate',
-    ...       ['Recursion', 'For', 'While'])
+    >>> check(HW_SOURCE_FILE, "product_using_accumulate",
+    ...       ["Recursion", "For", "While"])
     True
     """
     return accumulate(mul, 1, n, term)
@@ -137,8 +137,8 @@ def filtered_accumulate(combiner, base, pred, n, term):
     3600
     >>> # Do not use while/for loops or recursion
     >>> from construct_check import check
-    >>> check(HW_SOURCE_FILE, 'filtered_accumulate',
-    ...       ['While', 'For', 'Recursion'])
+    >>> check(HW_SOURCE_FILE, "filtered_accumulate",
+    ...       ["While", "For", "Recursion"])
     True
     """
     def combine_if(x, y):

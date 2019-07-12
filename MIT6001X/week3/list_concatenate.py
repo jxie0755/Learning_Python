@@ -6,8 +6,8 @@ L3 = L1 + L2
 print(L3)
 
 L3.extend((7, 8))
-L3.extend(['X', 'Y'])
-L3.extend({'a': 1, 'b': 2})  # does not have to be a list, a tuple is also ok.
+L3.extend(["X", "Y"])
+L3.extend({"a": 1, "b": 2})  # does not have to be a list, a tuple is also ok.
 
 print(L3)
 

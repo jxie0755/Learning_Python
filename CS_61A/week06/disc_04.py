@@ -15,12 +15,12 @@ print(s()) # >>> 4
 print(s()) # >>> 5
 
 
-lamb = 'da'
+lamb = "da"
 def da(da):
     def lamb(lamb):
         nonlocal da
         def da(nk):
-            da = nk + ['da']
+            da = nk + ["da"]
             da.append(nk[0:2])
             return nk.pop()
     da(lamb)
@@ -145,10 +145,10 @@ def group_by(s, fn):
 
 def replace_all_deep(d, x, y):
     """
-    >>> d = {1: {2: 'x', 'x': 4}, 2: {4: 4, 5: 'x'}}
-    >>> replace_all_deep(d, 'x', 'y')
+    >>> d = {1: {2: "x", "x": 4}, 2: {4: 4, 5: "x"}}
+    >>> replace_all_deep(d, "x", "y")
     >>> d
-    {1: {2: 'y', 'x': 4}, 2: {4: 4, 5: 'y'}}
+    {1: {2: "y", "x": 4}, 2: {4: 4, 5: "y"}}
     """
     for k, v in d.items():
         if type(v) == dict:

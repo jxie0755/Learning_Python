@@ -30,7 +30,7 @@ def sum_amicable(limit):
             find_amicable_pair(num)
     return sum(result)
     
-if __name__ == '__main__':
+if __name__ == "__main__":
     print(sum_amicable(10000))
     # >>> 31626
     # passed

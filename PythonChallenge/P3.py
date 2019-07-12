@@ -1252,14 +1252,14 @@ dCdFLtBQPtFQuCdKOrpndJNUFQIDSbetUKylhSUjcDVtbiQrWMRQhAwGUZyPneCGUjGBBTkLqxLAXXtB
 KfErkDaWMFZZeuqDmXKJEGHyToPUhPphfVhgUZgbIuRAtWnroImpJKqqmEZqeNQCKzhjIkKQHURWLXFw
 PBuijeoTSpsVLaOGuLVjMZXkBvVXwUuHfBihziiavGSYofPNeKsTXruMUumRRPQJzvSzJkKbtSipiqBd"""
 
-msg = 'a' + msg.replace('\n', '') + 'a'
+msg = "a" + msg.replace("\n", "") + "a"
 raw_list = []
 for i in range(len(msg)-8):
        raw_list.append(msg[i:i+9])
 
 
 # by now the raw_list contains a string of 9 char in the form of aAAAaAAAa.
-# and we also considered the first and last string because we added 'a' in the beginning and the end.
+# and we also considered the first and last string because we added "a" in the beginning and the end.
 
 # Create a function to return the mid char, for a 9 char string, if it fits the form aAAAaAAAa
 
@@ -1271,12 +1271,12 @@ def f(x):
     and x[5:8].isupper() \
     and x[8].islower()                  # this return a boolean
 
-# result = ''
+# result = ""
 # for i in list(filter(f, raw_list)):
 #     result += i[4]
 # print(result)
 
-print(''.join(map(lambda x: x[4], list(filter(f, raw_list)))))
+print("".join(map(lambda x: x[4], list(filter(f, raw_list)))))
 
 # solution 2, also use map + lambda + filter
 def f(x):
@@ -1287,13 +1287,13 @@ def f(x):
     and x[8].islower():
         return x[4]                     # difference is that it return the value
 
-print(''.join((list(filter(lambda x: x, list(map(f, raw_list)))))))
+print("".join((list(filter(lambda x: x, list(map(f, raw_list)))))))
 
 # use re
 import re
 
-text = '[a-z][A-Z]{3}[a-z][A-Z]{3}[a-z]'
-result = ''
+text = "[a-z][A-Z]{3}[a-z][A-Z]{3}[a-z]"
+result = ""
 for match in re.finditer(text, msg):
     s = match.start()
     e = match.end()
@@ -1306,4 +1306,4 @@ print(result)
 import re
 # 注意这个([a-z]), 括号表示目标,不然会把整段取出
 m = re.findall("[a-z][A-Z]{3}([a-z])[A-Z]{3}[a-z]+",msg)
-print(''.join(m))
+print("".join(m))

@@ -14,13 +14,13 @@ class Solution:
         data = list(range(1, n))
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     assert Solution().generateTrees(3) == [
         genTree([1, None, 3, None, None, 2, None]),
         genTree([3, 2, None, 1, None, None, None]),
         genTree([3, 1, None, None, 2, None, None]),
         genTree([2, 1, 3]),
         genTree([1, None, 2, None, None, None, 3]),
-    ], 'Example 1'
+    ], "Example 1"
 
-    print('all passed')
+    print("all passed")

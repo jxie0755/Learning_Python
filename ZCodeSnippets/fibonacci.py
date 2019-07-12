@@ -6,7 +6,7 @@
 def fib_gen_r(i):
     """
     Fibonacci function generator
-    generate the fibonacci number at 'i'th posistion
+    generate the fibonacci number at "i"th posistion
     """
     if i == 0:
         return 0
@@ -15,7 +15,7 @@ def fib_gen_r(i):
     else:
         return fib_gen_r(i - 1) + fib_gen_r(i - 2)
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     print(fib_gen_r(7))  # >>> 13
     print()
 
@@ -29,7 +29,7 @@ if __name__ == '__main__':
 def fib_gen_nr(i):
     """
         Fibonacci function generator
-        generate the fibonacci number at 'i'th posistion
+        generate the fibonacci number at "i"th posistion
     """
     lst = [0, 1]
     if i == 0:
@@ -42,19 +42,19 @@ def fib_gen_nr(i):
             lst.append(temp)
         return lst[-1]
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     print(fib_gen_nr(7))  # >>> 13
     print()
 
 
 
-# if need to output a list of fibonacci numbers till 'i'th position
+# if need to output a list of fibonacci numbers till "i"th position
 # only have Non-recursive way
 # just need to revise the nr method slightly
 def fiblist_gen_nr(i):
     """
         Fibonacci function generator
-        generate the fibonacci list till 'i'th posistion
+        generate the fibonacci list till "i"th posistion
     """
     lst = [0, 1]
     if i == 0:
@@ -67,7 +67,7 @@ def fiblist_gen_nr(i):
             lst.append(temp)
         return lst
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     print(fiblist_gen_nr(7))  # >>> [0, 1, 1, 2, 3, 5, 8, 13]
     print()
 
@@ -79,7 +79,7 @@ def fib_gen_nr2(i):
         a, b = b, a+b  # 必须是同排,这样会调用上一次的a,b值,a值不会由于a=b后改变!
     return a
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     print(fib_gen_nr2(7))  # >>> 13
     print()
 
@@ -92,7 +92,7 @@ def fiblist_gen_nr2(i):
         lst.append(a)
     return lst
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     print(fiblist_gen_nr2(7))  # >>> [0, 1, 1, 2, 3, 5, 8, 13]
     print()
 
@@ -114,7 +114,7 @@ def fib_gen_nr3(x):
     for n in genFib():
         if n >= x:
             break
-if __name__ == '__main__':
+if __name__ == "__main__":
     fib_gen_nr3(13)
     # >>>
     # 0
@@ -194,7 +194,7 @@ def fib_leaves(t):
 
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
 
     import time
 

@@ -1,7 +1,7 @@
 # 此内容是额外的，不包括在A byte of python这本书里，源自http://www.jianshu.com/p/dc5675b4317c
 # 用函数id()来获取存储单元的编号
-fruits_1 = ['apple', 'banana', 'grape', 'orange', 'pear']
-fruits_2 = ['apple', 'banana', 'grape', 'orange', 'pear']
+fruits_1 = ["apple", "banana", "grape", "orange", "pear"]
+fruits_2 = ["apple", "banana", "grape", "orange", "pear"]
 print(id(fruits_1))
 print(id(fruits_2))
 

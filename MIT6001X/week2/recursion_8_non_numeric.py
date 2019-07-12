@@ -17,10 +17,10 @@ def palindrome(raw_text):
     :return: True if it is palindrome, else False.
     """
     text = raw_text.lower()
-    text = text.replace(' ', '')
+    text = text.replace(" ", "")
 
-    print('text is now', text)
-    print('length of text is', len(text))
+    print("text is now", text)
+    print("length of text is", len(text))
 
     if len(text) <= 3:
         return text[0] == text[-1]
@@ -31,17 +31,17 @@ def palindrome(raw_text):
             return False
         # DO NOT FORGET TO RECURSE properly, with a return command here!
 
-raw_text = 'a bca'
+raw_text = "a bca"
 print(palindrome(raw_text))
 
 print()
 # MIT 另解
 def palindrome2(raw_text):
     text = raw_text.lower()
-    text = text.replace(' ', '')
+    text = text.replace(" ", "")
 
-    print('text is now', text)
-    print('length of text is', len(text))
+    print("text is now", text)
+    print("length of text is", len(text))
 
     if len(text) <= 3:
         return text[0] == text[-1]
@@ -49,5 +49,5 @@ def palindrome2(raw_text):
         return text[0] == text[-1] and palindrome2(text[1:-1])
         # 注意这里巧用and来节省代码数量
 
-raw_text2 = 'zabcbaz'
+raw_text2 = "zabcbaz"
 print(palindrome2(raw_text2))

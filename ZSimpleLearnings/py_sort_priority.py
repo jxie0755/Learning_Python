@@ -19,14 +19,14 @@ class SubPerson(Person):
     def __gt__(self, other):
         return self.name > other.name
 
-s1 = SubPerson('AAA'); s1.id = 14
-s2 = SubPerson('BBB'); s2.id = 12
-s3 = SubPerson('CCC'); s3.id = 11
-s4 = SubPerson('DDD'); s4.id = 13
+s1 = SubPerson("AAA"); s1.id = 14
+s2 = SubPerson("BBB"); s2.id = 12
+s3 = SubPerson("CCC"); s3.id = 11
+s4 = SubPerson("DDD"); s4.id = 13
 
 lst = [s2, s1, s4, s3]
 lst.sort()
-print([i.__str__() for i in lst])  # >>> ['CCC', 'BBB', 'DDD', 'AAA']  # still sort by id in superclass
+print([i.__str__() for i in lst])  # >>> ["CCC", "BBB", "DDD", "AAA"]  # still sort by id in superclass
 
 # Observation:
 # __gt__ will work solo without __lt__

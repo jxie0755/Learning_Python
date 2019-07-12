@@ -14,7 +14,7 @@ def fib(n):
 
 numFibCalls = 0
 print(fib(35))
-print('called', numFibCalls, 'times')
+print("called", numFibCalls, "times")
 # it repeatedly compute the fib(3), fib(2), and fib(1)
 # use dict to avoid
 
@@ -33,4 +33,4 @@ def fib_e(n, d):
 numFibCalls = 0
 d = {1: 1, 2: 2}
 print(fib_e(35, d))  # the dict will become longer and longer during the run, calculation become faster
-print('called', numFibCalls, 'times')
+print("called", numFibCalls, "times")

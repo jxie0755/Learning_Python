@@ -40,11 +40,11 @@ class Solution2(object):
         """
         def preProcess(s):
             if not s:
-                return ['^', '$']
-            string = ['^']
+                return ["^", "$"]
+            string = ["^"]
             for c in s:
-                string +=  ['#', c]
-            string += ['#', '$']
+                string +=  ["#", c]
+            string += ["#", "$"]
             return string
 
         string = preProcess(s)

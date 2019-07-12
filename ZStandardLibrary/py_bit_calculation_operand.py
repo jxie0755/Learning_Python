@@ -28,13 +28,13 @@ print(bin(60))  #   111100
 print(bin(-61))  # -111101
 print(bin(61))   #  111101
                 #   000011
-print(int('000011', 2))     # 3 ???
+print(int("000011", 2))     # 3 ???
 
 print(~100) # (-101)
 print(bin(100))  #  1100100
 print(bin(-101)) # -1100101
                  #  0011011
-print(int('0011011', 2))    # 27 ???
+print(int("0011011", 2))    # 27 ???
 
 # 以上都不对,原因是:
 
@@ -74,7 +74,7 @@ bin(~0b110) # get the binary representation of inverted 0b110
 a = 7978
 print(bin(a)) # 0001 1111 0010 1010
               # 1110 0000 1101 0101
-print(int('1110000011010101', 2))  # 57557
+print(int("1110000011010101", 2))  # 57557
 
 
 # Final Example, 10
@@ -99,7 +99,7 @@ def intToBinary(iNum, bUnsigned = False):
 a = 10
 print(bin(a)) # 01010
     # invert to 10101
-print(int('10101', 2)) # 21 ??
+print(int("10101", 2)) # 21 ??
 # It is not right! Because, this is not how negative number is tranlated!!
 print(bin(-11))  # -1011?? Not right!
 # Correct way:
@@ -113,7 +113,7 @@ print(bin(11))   # 01011
 # 32bit
 # 10 is      00000000000000000000000000001010
 # invert to  11111111111111111111111111110101
-print(int('11111111111111111111111111110101', 2))  # 4294967285
+print(int("11111111111111111111111111110101", 2))  # 4294967285
 
 print(binaryToInt("11111111111111111111111111110101", True))  # 4294967285
 print(binaryToInt("11111111111111111111111111110101", False)) # -2147483637
@@ -122,7 +122,7 @@ print(binaryToInt("11111111111111111111111111110101", False)) # -2147483637
 # 维基百科 2补数
 
 # 符号
-print(int('1111111', 2)) # 127
+print(int("1111111", 2)) # 127
 # 0	| 111 1111	=	127
 # 1	| 000 0000	=	−128  (invert)
 # 1	| 000 0001	=	−127

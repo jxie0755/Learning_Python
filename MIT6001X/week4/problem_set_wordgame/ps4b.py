@@ -68,7 +68,7 @@ def compPlayHand(hand, wordList, n):
     # As long as there are still letters left in the hand:
     while (calculateHandlen(hand) > 0) :
         # Display the hand
-        print("Current Hand: ", end=' ')
+        print("Current Hand: ", end=" ")
         displayHand(hand)
         # computer's word
         word = compChooseWord(hand, wordList, n)
@@ -81,19 +81,19 @@ def compPlayHand(hand, wordList, n):
         else :
             # If the word is not valid:
             if (not isValidWord(word, hand, wordList)) :
-                print('This is a terrible error! I need to check my own code!')
+                print("This is a terrible error! I need to check my own code!")
                 break
             # Otherwise (the word is valid):
             else :
                 # Tell the user how many points the word earned, and the updated total score 
                 score = getWordScore(word, n)
                 totalScore += score
-                print('"' + word + '" earned ' + str(score) + ' points. Total: ' + str(totalScore) + ' points')              
+                print(""" + word + "" earned " + str(score) + " points. Total: " + str(totalScore) + " points")              
                 # Update hand and show the updated hand to the user
                 hand = updateHand(hand, word)
                 print()
-    # Game is over (user entered a '.' or ran out of letters), so tell user the total score
-    print('Total score: ' + str(totalScore) + ' points.')
+    # Game is over (user entered a "." or ran out of letters), so tell user the total score
+    print("Total score: " + str(totalScore) + " points.")
 
     
 #
@@ -104,20 +104,20 @@ def playGame(wordList):
     """
     Allow the user to play an arbitrary number of hands.
  
-    1) Asks the user to input 'n' or 'r' or 'e'.
-        * If the user inputs 'e', immediately exit the game.
-        * If the user inputs anything that's not 'n', 'r', or 'e', keep asking them again.
+    1) Asks the user to input "n" or "r" or "e".
+        * If the user inputs "e", immediately exit the game.
+        * If the user inputs anything that"s not "n", "r", or "e', keep asking them again.
 
-    2) Asks the user to input a 'u' or a 'c'.
-        * If the user inputs anything that's not 'c' or 'u', keep asking them again.
+    2) Asks the user to input a "u" or a "c".
+        * If the user inputs anything that"s not "c" or "u', keep asking them again.
 
     3) Switch functionality based on the above choices:
-        * If the user inputted 'n', play a new (random) hand.
-        * Else, if the user inputted 'r', play the last hand again.
+        * If the user inputted "n", play a new (random) hand.
+        * Else, if the user inputted "r", play the last hand again.
       
-        * If the user inputted 'u', let the user play the game
+        * If the user inputted "u", let the user play the game
           with the selected hand, using playHand.
-        * If the user inputted 'c', let the computer play the 
+        * If the user inputted "c", let the computer play the 
           game with the selected hand, using compPlayHand.
 
     4) After the computer or user has played the hand, repeat from step 1
@@ -129,22 +129,22 @@ def playGame(wordList):
         """
         Allow the user to play an arbitrary number of hands.
 
-        1) Asks the user to input 'n' or 'r' or 'e'.
-            * If the user inputs 'e', immediately exit the game.
-            * If the user inputs anything that's not 'n', 'r', or 'e', keep asking them again.
+        1) Asks the user to input "n" or "r" or "e".
+            * If the user inputs "e", immediately exit the game.
+            * If the user inputs anything that"s not "n", "r", or "e', keep asking them again.
 
-        2) Asks the user to input a 'u' or a 'c'.
-            * If the user inputs anything that's not 'c' or 'u', keep asking them again.
+        2) Asks the user to input a "u" or a "c".
+            * If the user inputs anything that"s not "c" or "u', keep asking them again.
 
         3) Switch functionality based on the above choices:
-            * If the user inputted 'n', play a new (random) hand.
-            * Else, if the user inputted 'r', play the last hand again.
+            * If the user inputted "n", play a new (random) hand.
+            * Else, if the user inputted "r", play the last hand again.
               But if no hand was played, output "You have not played a hand yet.
               Please play a new hand first!"
 
-            * If the user inputted 'u', let the user play the game
+            * If the user inputted "u", let the user play the game
               with the selected hand, using playHand.
-            * If the user inputted 'c', let the computer play the
+            * If the user inputted "c", let the computer play the
               game with the selected hand, using compPlayHand.
 
         4) After the computer or user has played the hand, repeat from step 1
@@ -154,40 +154,40 @@ def playGame(wordList):
         hand = {}
 
         while True:
-            getInput = input('Enter n to deal a new hand, r to replay the last hand, or e to end game: ')
+            getInput = input("Enter n to deal a new hand, r to replay the last hand, or e to end game: ")
             print()
-            if getInput == 'e':
+            if getInput == "e":
                 return None
 
-            elif getInput not in ('n', 'r'):
-                print('Invalid command.')
+            elif getInput not in ("n", "r"):
+                print("Invalid command.")
 
-            elif hand == {} and getInput == 'r':
-                print('You have not played a hand yet. Please play a new hand first!')
+            elif hand == {} and getInput == "r":
+                print("You have not played a hand yet. Please play a new hand first!")
 
-            elif getInput == 'n' or getInput == 'r':  # if input is 'n' then need to get new hand, and store it for repeat later
-                if (getInput == 'n'):
+            elif getInput == "n" or getInput == "r":  # if input is "n" then need to get new hand, and store it for repeat later
+                if (getInput == "n"):
                     hand = dealHand(HAND_SIZE)
                     handCopy = hand.copy()
-                else:  # if input is 'r', use the hand which saved previously
+                else:  # if input is "r", use the hand which saved previously
                     hand = handCopy.copy()
 
                 while True:
-                    getInputCom = input('Enter u to have yourself play, c to have the computer play: ')
+                    getInputCom = input("Enter u to have yourself play, c to have the computer play: ")
                     print()
 
-                    if getInputCom == 'u':
+                    if getInputCom == "u":
                         playHand(hand, wordList, HAND_SIZE)
                         print()
                         break
 
-                    elif getInputCom == 'c':
+                    elif getInputCom == "c":
                         compPlayHand(hand, wordList, HAND_SIZE)
                         print()
                         break
 
                     else:
-                        print('Invalid command.')
+                        print("Invalid command.")
                         print()
 
 
@@ -195,6 +195,6 @@ def playGame(wordList):
                     #
 # Build data structures used for entire session and play game
 #
-if __name__ == '__main__':
+if __name__ == "__main__":
     wordList = loadWords()
     playGame(wordList)

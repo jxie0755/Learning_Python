@@ -17,8 +17,8 @@ def largetst_prime_factor(target):
         if target % i == 0 and is_prime(i):
             return i
 
-if __name__ == '__main__':
-    assert largetst_prime_factor(13195) == 29, 'regular'
+if __name__ == "__main__":
+    assert largetst_prime_factor(13195) == 29, "regular"
     print(largetst_prime_factor(600851475143))
     # >>> 6857
     # passed

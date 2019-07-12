@@ -13,9 +13,9 @@ is_even(3)
 def f():
     global x   # global 不能作用于argument
     x = x + 1
-    print('x=', x)
+    print("x=", x)
     return x
-    print('nnnn')  # code after return can not be executed
+    print("nnnn")  # code after return can not be executed
 
 x = 3
 f()

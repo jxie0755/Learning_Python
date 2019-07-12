@@ -99,7 +99,7 @@ def prune(t, k):
 
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     T = tree(1, [
     tree(2, [
         tree(4, [

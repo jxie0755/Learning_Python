@@ -1,11 +1,11 @@
 test = {
-  'name': 'Problem 16',
-  'points': 1,
-  'suites': [
+  "name": "Problem 16",
+  "points": 1,
+  "suites": [
     {
-      'cases': [
+      "cases": [
         {
-          'code': r"""
+          "code": r"""
           scm> (define y 1)
           y
           scm> (define f (mu (x) (+ x y)))
@@ -15,19 +15,19 @@ test = {
           scm> (g 3 7)
           13
           """,
-          'hidden': False,
-          'locked': False
+          "hidden": False,
+          "locked": False
         }
       ],
-      'scored': True,
-      'setup': '',
-      'teardown': '',
-      'type': 'scheme'
+      "scored": True,
+      "setup": "",
+      "teardown": "",
+      "type": "scheme"
     },
     {
-      'cases': [
+      "cases": [
         {
-          'code': r"""
+          "code": r"""
           scm> (define h (mu () x))
           h
           scm> (define (high fn x) (fn))
@@ -43,14 +43,14 @@ test = {
           scm> (mu ())
           SchemeError
           """,
-          'hidden': False,
-          'locked': False
+          "hidden": False,
+          "locked": False
         }
       ],
-      'scored': True,
-      'setup': '',
-      'teardown': '',
-      'type': 'scheme'
+      "scored": True,
+      "setup": "",
+      "teardown": "",
+      "type": "scheme"
     }
   ]
 }

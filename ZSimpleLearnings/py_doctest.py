@@ -6,14 +6,14 @@ def multiply(a, b):
     """
     >>> multiply(4, 3)
     12
-    >>> multiply('a', 3)
-    'aaa'
+    >>> multiply("a", 3)
+    "aaa"
     """
     return a * b
 
 # in pycharm, doctest will be run even without import doctest module and command
 
-# if __name__=='__main__':
+# if __name__=="__main__":
 #     import doctest
 #     doctest.testmod(verbose=True)
 
@@ -25,9 +25,9 @@ def multiply(a, b):
 # 12
 # ok
 # Trying:
-#     multiply('a', 3)
+#     multiply("a", 3)
 # Expecting:
-#     'aaa'
+#     "aaa"
 # ok
 # 1 items had no tests:
 #     __main__

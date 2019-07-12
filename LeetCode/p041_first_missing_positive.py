@@ -46,7 +46,7 @@ class Solution(object):
 
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     assert Solution().firstMissingPositive([]) == 1, "Edge 1"
     assert Solution().firstMissingPositive([1]) == 2, "Edge 2"
     assert Solution().firstMissingPositive([2]) == 1, "Edge 3"
@@ -56,4 +56,4 @@ if __name__ == '__main__':
     assert Solution().firstMissingPositive([3,4,-1,1]) == 2, "Example 2"
     assert Solution().firstMissingPositive([7,8,9,11,12]) == 1, "Example 3"
 
-    print('all passed')
+    print("all passed")

@@ -1,11 +1,11 @@
 test = {
-  'name': 'make-list',
-  'points': 1,
-  'suites': [
+  "name": "make-list",
+  "points": 1,
+  "suites": [
     {
-      'cases': [
+      "cases": [
         {
-          'code': r"""
+          "code": r"""
           scm> (define a '(1))
           a
           scm> a
@@ -27,25 +27,25 @@ test = {
           scm> (cdr (car (cdr c)))
           (1)
           """,
-          'hidden': False,
-          'locked': False
+          "hidden": False,
+          "locked": False
         },
         {
-          'code': r"""
+          "code": r"""
           scm> lst  ; type out exactly how Scheme would print the list
           ((1) 2 (3 . 4) 5)
           """,
-          'hidden': False,
-          'locked': False
+          "hidden": False,
+          "locked": False
         }
       ],
-      'scored': True,
-      'setup': r"""
+      "scored": True,
+      "setup": r"""
       scm> (load 'lab09)
       scm> (load 'lab09_extra)
       """,
-      'teardown': '',
-      'type': 'scheme'
+      "teardown": "",
+      "type": "scheme"
     }
   ]
 }

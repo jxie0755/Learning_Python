@@ -72,7 +72,7 @@ class Solution(object):
         return result
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     t0 = None
     # assert Solution().inorderTraversal(t0) == []
 
@@ -82,7 +82,7 @@ if __name__ == '__main__':
         None,None,3,None])
     assert Solution().inorderTraversal(t1) == [1,3,2]
 
-    print('all passed')
+    print("all passed")
 
 
 

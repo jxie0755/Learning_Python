@@ -24,14 +24,14 @@ class Solution:
             return 1 + max(self.maxDepth(root.left), self.maxDepth(root.right))
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     A = None
-    assert Solution().maxDepth(A) == 0, 'Edge 0'
+    assert Solution().maxDepth(A) == 0, "Edge 0"
 
     A = TreeNode([1])
-    assert Solution().maxDepth(A) == 1, 'Edge 1'
+    assert Solution().maxDepth(A) == 1, "Edge 1"
 
     A = genTree([3,9,20,None, None, 15, 7])
-    assert Solution().maxDepth(A) == 3, 'Example'
+    assert Solution().maxDepth(A) == 3, "Example"
 
-    print('All passed')
+    print("All passed")

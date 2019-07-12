@@ -17,11 +17,11 @@ from copy import deepcopy
 
 def checkio(first, second, goal):
 
-    current = ['00', [0, 0]]
+    current = ["00", [0, 0]]
     # first string represent action, second represent water in [first, second]
 
-    methods = ['01', '02', '12', '21', '10', '20'] # '0' is the lake
-    # The string '01' reprenst from lake to first jar, same applies to the other strings '
+    methods = ["01", "02", "12", "21", "10", "20"] # "0" is the lake
+    # The string "01" reprenst from lake to first jar, same applies to the other strings '
 
     temp_method_list = [current]
     result = []
@@ -43,17 +43,17 @@ def checkio(first, second, goal):
 
         now = lst[-1][:]
 
-        if method == '01':
+        if method == "01":
             now[0] = first
-        elif method == '02':
+        elif method == "02":
             now[1] = second
-        elif method == '12':
+        elif method == "12":
             now = pour(now, first, second)
-        elif method == '21':
+        elif method == "21":
             now = pour(now[::-1], second, first)[::-1]
-        elif method == '10':
+        elif method == "10":
             now[0] = 0
-        elif method == '20':
+        elif method == "20":
             now[1] = 0
 
         return now
@@ -90,13 +90,13 @@ def checkio(first, second, goal):
     if result:
         return result[0]
     else:
-        return 'Not possible'
+        return "Not possible"
 
 
 
 
-if __name__ == '__main__':
-    assert checkio(5, 7, 6) == ['0002211021022110210221', [0, 0], [0, 7], [5, 2], [0, 2], [2, 0], [2, 7], [5, 4], [0, 4], [4, 0], [4, 7], [5, 6]]
-    assert checkio(3, 4, 1) == ['000221', [0, 0], [0, 4], [3, 1]]
-    assert checkio(4, 8, 3) == 'Not possible'
-    print('all passed')
+if __name__ == "__main__":
+    assert checkio(5, 7, 6) == ["0002211021022110210221", [0, 0], [0, 7], [5, 2], [0, 2], [2, 0], [2, 7], [5, 4], [0, 4], [4, 0], [4, 7], [5, 6]]
+    assert checkio(3, 4, 1) == ["000221", [0, 0], [0, 4], [3, 1]]
+    assert checkio(4, 8, 3) == "Not possible"
+    print("all passed")

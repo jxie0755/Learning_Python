@@ -32,13 +32,13 @@ class Link:
         """
         >>> s = Link(3, Link(4, Link(5)))
         >>> repr(s)
-        'Link(3, Link(4, Link(5)))'
+        "Link(3, Link(4, Link(5)))"
         """
         if self.rest:
-            rest_str = ', ' + repr(self.rest)
+            rest_str = ", " + repr(self.rest)
         else:
-            rest_str = ''
-        return 'Link({0}{1})'.format(self.value, rest_str)
+            rest_str = ""
+        return "Link({0}{1})".format(self.value, rest_str)
 
     def __str__(self):
         """
@@ -48,11 +48,11 @@ class Link:
         >>> print(s.rest)
         <4, 5>
         """
-        string = '<'
+        string = "<"
         while self.rest is not Link.empty:
-            string += str(self.value) + ', '
+            string += str(self.value) + ", "
             self = self.rest
-        return string + str(self.value) + '>'
+        return string + str(self.value) + ">"
 
     @property
     def second(self):
@@ -90,7 +90,7 @@ class Link:
             else:
                 return 1
         except:
-            # print('cycled linked list has no length')
+            # print("cycled linked list has no length")
             raise ValueError
 
     def __eq__(self, other):
@@ -270,13 +270,13 @@ def stretch(linked, repeat=0):
 # Use Linked list to represent file directories
 def convert_to_string(link):
     """
-    >>> link = Link('data' , Link('file2.py'))
+    >>> link = Link("data" , Link("file2.py"))
     >>> convert_to_string(link)
-    '/data/file2.py'
+    "/data/file2.py"
     """
     if not link:
-        return ''
-    return '/' + link.value + convert_to_string(link.rest)
+        return ""
+    return "/" + link.value + convert_to_string(link.rest)
 
 # Skip
 def skip(lnk, n):

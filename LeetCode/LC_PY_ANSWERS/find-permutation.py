@@ -9,6 +9,6 @@ class Solution(object):
         """
         result = []
         for i in xrange(len(s)+1):
-            if i == len(s) or s[i] == 'I':
+            if i == len(s) or s[i] == "I":
                 result += range(i+1, len(result), -1)
         return result

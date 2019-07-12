@@ -15,7 +15,7 @@ class Solution(object):
                 if read > anchor:
                     n, left = read-anchor+1, write
                     while n > 0:
-                        chars[write] = chr(n%10+ord('0'))
+                        chars[write] = chr(n%10+ord("0"))
                         write += 1
                         n /= 10
                     right = write-1

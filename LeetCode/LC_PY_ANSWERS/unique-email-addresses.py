@@ -8,9 +8,9 @@ class Solution(object):
         :rtype: int
         """
         def convert(email):
-            name, domain = email.split('@')
-            name = name[:name.index('+')]
-            return "".join(["".join(name.split(".")), '@', domain])
+            name, domain = email.split("@")
+            name = name[:name.index("+")]
+            return "".join(["".join(name.split(".")), "@", domain])
 
         lookup = set()
         for email in emails:

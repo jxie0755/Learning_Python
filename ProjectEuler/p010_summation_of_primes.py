@@ -18,8 +18,8 @@ def prime_summation(prime_under):
 
     return result
 
-if __name__ == '__main__':
-    assert prime_summation(10) == 17, 'regular'
+if __name__ == "__main__":
+    assert prime_summation(10) == 17, "regular"
     print(prime_summation(2000000))
     # >>> 142913828922
     # passed

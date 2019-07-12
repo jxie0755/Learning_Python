@@ -5,16 +5,16 @@
 # Input: A bird phrase as a string.
 # Output: The translation as a string.
 
-VOWELS = 'aeiouy'
-CONSONANTS = 'bcdfghjklmnpqrstvwxz'
+VOWELS = "aeiouy"
+CONSONANTS = "bcdfghjklmnpqrstvwxz"
 
 def translate(phrase):
     result = list(phrase)
     # filter out the vowels after the cononants
     for i in range((len(phrase) - 1)):
         if phrase[i] in CONSONANTS:
-            result[i + 1] = ''
-    result = ''.join([x for x in result if x])
+            result[i + 1] = ""
+    result = "".join([x for x in result if x])
 
     # translate the triple vowel to single vowel
     trans = dict(zip([i * 3 for i in VOWELS], VOWELS))
@@ -24,7 +24,7 @@ def translate(phrase):
 
 # It would be much easier to solve the problem with while loop
 def translate(phrase):
-    result = ''
+    result = ""
     i = 0
     while i < len(phrase):
         if phrase[i] in CONSONANTS:
@@ -39,7 +39,7 @@ def translate(phrase):
     return result
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     # These "asserts" using only for self-checking and not necessary for auto-testing
     assert translate("hieeelalaooo") == "hello", "Hi!"
     assert translate("hoooowe yyyooouuu duoooiiine") == "how you doin", "Joey?"

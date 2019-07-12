@@ -42,9 +42,9 @@ num = [15, 300, 2700, 821]
 num1 = [12, 20000000]
 num2 = [34, 567, 78]
 dd = [num, num1, num2]
-# print('Maximum is:', max(num, num1, num2, key=len))
-print('Maximum is:', maxx(dd, key=len))
-bb = 'aggbbbbscd'
+# print("Maximum is:", max(num, num1, num2, key=len))
+print("Maximum is:", maxx(dd, key=len))
+bb = "aggbbbbscd"
 print(maxx(bb))
 print(maxx(bb, key=bb.count))
 

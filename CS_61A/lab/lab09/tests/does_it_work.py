@@ -1,18 +1,18 @@
 choices = [
-    'No problem, this is a beautiful iterator!',
-    'Uh oh, this is missing __next__.',
-    'This "iterator" doesn\'t even define __iter__.',
+    "No problem, this is a beautiful iterator!",
+    "Uh oh, this is missing __next__.",
+    "This "iterator" doesn\"t even define __iter__.',
 ]
 
 test = {
-  'name': 'Does it work?',
-  'points': 0,
-  'suites': [
+  "name": "Does it work?",
+  "points": 0,
+  "suites": [
     {
-      'type': 'concept',
-      'cases': [
+      "type": "concept",
+      "cases": [
         {
-          'question': """
+          "question": """
           Does IteratorA work?
           class IteratorA:
              def __init__(self):
@@ -25,11 +25,11 @@ test = {
              def __iter__(self):
                  return self
           """,
-          'answer': choices[0],
-          'choices': choices
+          "answer": choices[0],
+          "choices": choices
         },
         {
-          'question': """
+          "question": """
           Does IteratorB work?
           class IteratorB:
               def __init__(self):
@@ -37,11 +37,11 @@ test = {
               def __iter__(self):
                   return self
           """,
-          'answer': choices[1],
-          'choices': choices
+          "answer": choices[1],
+          "choices": choices
         },
         {
-          'question': """
+          "question": """
           Does IteratorC work?
           class IteratorC:
               def __init__(self):
@@ -52,11 +52,11 @@ test = {
                   self.start += 1
                   return self.start
           """,
-          'answer': choices[2],
-          'choices': choices
+          "answer": choices[2],
+          "choices": choices
         },
         {
-          'question': """
+          "question": """
           Does IteratorD work?
           class IteratorD:
               def __init__(self):
@@ -67,8 +67,8 @@ test = {
               def __iter__(self):
                   return self
           """,
-          'answer': choices[0],
-          'choices': choices
+          "answer": choices[0],
+          "choices": choices
         },
       ]
     }

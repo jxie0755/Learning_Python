@@ -40,13 +40,13 @@ def reduce(combiner, seq):
 
 # Q3 Acorn Finder
 def acorn_finder(t):
-    """Returns True if t contains a node with the value 'acorn' and
+    """Returns True if t contains a node with the value "acorn" and
     False otherwise.
 
-    >>> scrat = tree('acorn')
+    >>> scrat = tree("acorn")
     >>> acorn_finder(scrat)
     True
-    >>> sproul = tree('roots', [tree('branch1', [tree('leaf'), tree('acorn')]), tree('branch2')])
+    >>> sproul = tree("roots", [tree("branch1", [tree("leaf"), tree("acorn")]), tree("branch2")])
     >>> acorn_finder(sproul)
     True
     >>> numbers = tree(1, [tree(2), tree(3, [tree(4), tree(5)]), tree(6, [tree(7)])])
@@ -61,9 +61,9 @@ def acorn_finder(t):
     #     for b in branches(t):
     #         search(b)
     # search(t)
-    # return 'acorn' in result
+    # return "acorn" in result
 
-    return label(t) == 'acorn' or True in [acorn_finder(b) for b in branches(t)]
+    return label(t) == "acorn" or True in [acorn_finder(b) for b in branches(t)]
 
 
 # Q4 Replace Leaf
@@ -71,18 +71,18 @@ def replace_leaf(t, old, new):
     """Returns a new tree where every leaf value equal to old has
     been replaced with new.
 
-    >>> yggdrasil = tree('odin',
-    ...                  [tree('balder',
-    ...                        [tree('thor'),
-    ...                         tree('loki')]),
-    ...                   tree('frigg',
-    ...                        [tree('thor')]),
-    ...                   tree('thor',
-    ...                        [tree('sif'),
-    ...                         tree('thor')]),
-    ...                   tree('thor')])
+    >>> yggdrasil = tree("odin",
+    ...                  [tree("balder",
+    ...                        [tree("thor"),
+    ...                         tree("loki")]),
+    ...                   tree("frigg",
+    ...                        [tree("thor")]),
+    ...                   tree("thor",
+    ...                        [tree("sif"),
+    ...                         tree("thor")]),
+    ...                   tree("thor")])
     >>> laerad = copy_tree(yggdrasil) # copy yggdrasil for testing purposes
-    >>> print_tree(replace_leaf(yggdrasil, 'thor', 'freya'))
+    >>> print_tree(replace_leaf(yggdrasil, "thor", "freya"))
     odin
       balder
         freya
@@ -106,7 +106,7 @@ def replace_leaf(t, old, new):
 def tree(label, branches=[]):
     """Construct a tree with the given label value and a list of branches."""
     for branch in branches:
-        assert is_tree(branch), 'branches must be trees'
+        assert is_tree(branch), "branches must be trees"
     return [label] + list(branches)
 
 def label(tree):
@@ -151,7 +151,7 @@ def print_tree(t, indent=0):
       6
         7
     """
-    print('  ' * indent + str(label(t)))
+    print("  " * indent + str(label(t)))
     for b in branches(t):
         print_tree(b, indent + 1)
 

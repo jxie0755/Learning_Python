@@ -8,7 +8,7 @@
 # __init__是在类实例创建之后调用, 而 __new__方法正是创建这个类实例的方法
 # __new__ 方法创建实例对象供__init__ 方法使用，__init__方法定制实例对象
 
-print('mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm')
+print("mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm")
 class newStyleClass(object):
     # In Python2, we need to specify the object as the base.
     # In Python3 it's default.

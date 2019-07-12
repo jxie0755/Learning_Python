@@ -17,24 +17,24 @@ for variable in range(20):
     if variable % 4 == 0:
         print(variable)
     if variable % 16 == 0:
-        print('Foo!')
+        print("Foo!")
 print()
 
-for letter in 'hola':
+for letter in "hola":
     print(letter)
 
 print()
 
 count = 0
-for letter in 'Snow!':
-    print('Letter # ' + str(count) + ' is ' + str(letter))
+for letter in "Snow!":
+    print("Letter # " + str(count) + " is " + str(letter))
     count += 1
     break
 print(count)
 
 print()
 
-greeting = 'Hello!'
+greeting = "Hello!"
 count = 0
 
 for letter in greeting:
@@ -43,22 +43,22 @@ for letter in greeting:
         print(letter)
     print(letter)
 
-print('done')
+print("done")
 
 print()
 
-school = 'Massachusetts Institute of Technology'
+school = "Massachusetts Institute of Technology"
 numVowels = 0
 numCons = 0
 
 for char in school:
-    if char == 'a' or char == 'e' or char == 'i' \
-       or char == 'o' or char == 'u':
+    if char == "a" or char == "e" or char == "i" \
+       or char == "o" or char == "u":
         numVowels += 1
-    elif char == 'o' or char == 'M':
+    elif char == "o" or char == "M":
         print(char)
     else:
         numCons -= 1
 
-print('numVowels is: ' + str(numVowels))
-print('numCons is: ' + str(numCons))
+print("numVowels is: " + str(numVowels))
+print("numCons is: " + str(numCons))

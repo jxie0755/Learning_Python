@@ -34,12 +34,12 @@ def longest_collatz_chain(limit):
             max_so_far = current
             answer = num
 
-    print(max_so_far, 'is the maximum chain length')
+    print(max_so_far, "is the maximum chain length")
     return answer
 
 
-if __name__ == '__main__':
-    assert collatz_chain_length(13) == 10, 'regular'
+if __name__ == "__main__":
+    assert collatz_chain_length(13) == 10, "regular"
     print(longest_collatz_chain(1000000))
     # >>>
     # 525 is the maximum chain length
