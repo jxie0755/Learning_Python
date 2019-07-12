@@ -35,12 +35,12 @@ class Solution:
             if i == 0:
                 result = hashtable[current]
             else:
-                new = hashtable[current]
-                result_len, new_len = len(result), len(new)
+                new_list = hashtable[current]
+                result_len, new_len = len(result), len(new_list)
                 result = sum([[i] * new_len for i in result], [])
                 j, cycle = 0, 0
                 while j != len(result):
-                    result[j] = result[j] + new[cycle % new_len]
+                    result[j] = result[j] + new_list[cycle % new_len]
                     j += 1
                     cycle += 1
             i += 1
