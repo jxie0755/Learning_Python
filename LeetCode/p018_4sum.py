@@ -8,15 +8,14 @@
 # Note:
 # The solution set must not contain duplicate quadruplets.
 
+from typing import *
 
 class Solution:
-    def fourSum(self, nums, target):
-        # Same idea from 3Sum O(N*3^N)
-        """
-        :type nums: List[int]
-        :type target: int
-        :rtype: List[List[int]]
-        """
+
+    # Version A
+    # Same idea from 3Sum O(N*3^N)
+    def fourSum(self, nums: List[int], target: int) -> List[List[int]]:
+
         length = len(nums)
         if length < 4:
             return []
