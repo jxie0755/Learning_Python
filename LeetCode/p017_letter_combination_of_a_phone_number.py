@@ -36,13 +36,7 @@ class Solution:
                 result = hashtable[current]
             else:
                 new_list = hashtable[current]
-                result_len, new_len = len(result), len(new_list)
-                result = sum([[i] * new_len for i in result], [])
-                j, cycle = 0, 0
-                while j != len(result):
-                    result[j] = result[j] + new_list[cycle % new_len]
-                    j += 1
-                    cycle += 1
+                result = [j+k for j in result for k in new_list]
             i += 1
 
         return result
@@ -60,3 +54,4 @@ if __name__ == "__main__":
     assert Solution().letterCombinations("213") == ["ad", "ae", "af", "bd", "be", "bf", "cd", "ce", "cf"], "Example 4"
 
     print("all passed")
+
