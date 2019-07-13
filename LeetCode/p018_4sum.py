@@ -21,7 +21,7 @@ class Solution:
             return []
 
         nums = sorted(nums)
-        nums, result, i = sorted(nums), [], 0
+        result, i = [], 0
 
         while i < length - 3:
             if i == 0 or nums[i] != nums[i - 1]:  # 跳跃i
