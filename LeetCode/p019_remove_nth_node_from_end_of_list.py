@@ -11,6 +11,8 @@ from a0_TreeNode import *
 from a0_ListNode import *
 
 class Solution:
+
+    # Version A
     # 笨办法,先判断链表长度, 再正向解决
     def removeNthFromEnd(self, head: ListNode, n: int) -> ListNode:
         cur, length = head, 0
@@ -31,8 +33,11 @@ class Solution:
             return head
 
 class Solution(object):
-    # @return a ListNode
-    def removeNthFromEnd(self, head, n):
+
+    # STD Ans
+    # Two flags slow and fast
+    def removeNthFromEnd(self, head: ListNode, n: int) -> ListNode:
+
         dummy = ListNode(-1)
         dummy.next = head
         slow, fast = dummy, dummy
