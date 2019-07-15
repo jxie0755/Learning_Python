@@ -16,16 +16,9 @@ class Solution(object):
         head = ListNode(0)
         current = head
 
-        while l1 is not None or l2 is not None:
-            if l1 is None:
-                current.next = l2
-                l2 = l2.next
+        while l1 is not None and l2 is not None:
 
-            elif l2 is None:
-                current.next = l1
-                l1 = l1.next
-
-            elif l1.val < l2.val:
+            if l1.val < l2.val:
                 current.next = l1
                 l1 = l1.next
 
@@ -34,6 +27,12 @@ class Solution(object):
                 l2 = l2.next
 
             current = current.next
+
+        if l1:
+            current.next = l1
+
+        if l2:
+            current.next = l2
 
         return head.next
 
@@ -44,6 +43,6 @@ if __name__ == "__main__":
     l2 = genNode([1,3,4])
 
     check = Solution().mergeTwoLists(l1, l2)
-    assert repr(check) == "1->1->2->3->4->4"
+    assert repr(check) == "1->1->2->3->4->4", "Example 1"
 
     print("all passed")
