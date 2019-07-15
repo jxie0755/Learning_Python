@@ -222,3 +222,11 @@
 #  +    ->   +?
 # {n,}  ->  {n,}?
 
+
+# 重叠group序号解释
+# Capturing groups are numbered by counting their opening parentheses from left to right.
+# In the expression ((A)(B(C))), for example, there are 4 such groups:
+    # G1:  ((A)(B(C)))
+    # G2:  (A)
+    # G3:  (B(C))
+    # G4:  (C)
