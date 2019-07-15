@@ -10,7 +10,9 @@ from a0_ListNode import *
 
 
 class Solution(object):
-    def mergeTwoLists(self, l1, l2):
+
+    # Version A
+    def mergeTwoLists(self, l1: ListNode, l2: ListNode) -> ListNode:
         head = ListNode(0)
         current = head
 
@@ -19,11 +21,9 @@ class Solution(object):
                 current.next = l2
                 l2 = l2.next
 
-
             elif l2 is None:
                 current.next = l1
                 l1 = l1.next
-
 
             elif l1.val < l2.val:
                 current.next = l1
@@ -36,6 +36,7 @@ class Solution(object):
             current = current.next
 
         return head.next
+
 
 if __name__ == "__main__":
 
