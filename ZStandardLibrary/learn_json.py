@@ -29,7 +29,7 @@ print(json.dumps(d))
 # dumps()方法返回一个str，内容就是标准的JSON。类似的，dump()方法可以直接把JSON写入一个file-like Object
 
 # loads
-json_str = "{"name": "Bob", "age": 20, "score": 88, "graduate": false, "record": null}"
+json_str = '{"name": "Bob", "age": 20, "score": 88, "graduate": false, "record": null}'
 ld = json.loads(json_str)
 print(ld)
 # >>> {"name": "Bob", "age": 20, "score": 88, "graduate": False, "record": None}
