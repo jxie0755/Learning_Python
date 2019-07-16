@@ -3,7 +3,7 @@
 
 # Given n pairs of parentheses, write a function to generate all combinations of well-formed parentheses.
 
-
+from typing import *
 
 class Solution:
 
@@ -22,7 +22,7 @@ class Solution:
             result.append(par[:i+1] + "()" + par[i+1:])
         return result
 
-    def generateParenthesis(self, n):
+    def generateParenthesis(self, n: int) -> List[str]:
         if n == 1:
             return ["()"]
         else:
@@ -38,7 +38,7 @@ class Solution:
     # STD ANS, recursive
     # Time:  O(4^n / n^(3/2)) ~= Catalan numbers
     # Space: O(n)
-    def generateParenthesis(self, n):
+    def generateParenthesis(self, n: int) -> List[str]:
         def generate(p, left, right, parens=[]):
             if left:
                 generate(p + "(", left - 1, right)
@@ -55,7 +55,7 @@ class Solution:
 class Solution:
 
     # Version B, An easier way to understand STD ans
-    def generateParenthesis(self, n):
+    def generateParenthesis(self, n: int) -> List[str]:
         parens = []
         def generate(p, left, right):
             if left:
