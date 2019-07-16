@@ -3,15 +3,11 @@
 
 # Given n pairs of parentheses, write a function to generate all combinations of well-formed parentheses.
 
-# """
-# :type n: int
-# :rtype: List[str]
-# """
 
-# my own solusion
+
 class Solution:
 
-    # recursive
+    # Version A, recursive
     # Time  O(N^2)
     # Space O(N^2)
     def gen_par(self, par):
@@ -38,6 +34,10 @@ class Solution:
 
 
 class Solution:
+
+    # STD ANS, recursive
+    # Time:  O(4^n / n^(3/2)) ~= Catalan numbers
+    # Space: O(n)
     def generateParenthesis(self, n):
         def generate(p, left, right, parens=[]):
             if left:
@@ -51,16 +51,13 @@ class Solution:
         return generate("", n, n)
 
 
-# An easier way to understand previous
+
 class Solution:
-    # Time:  O(4^n / n^(3/2)) ~= Catalan numbers
-    # Space: O(n)
+
+    # Version B, An easier way to understand STD ans
     def generateParenthesis(self, n):
         parens = []
         def generate(p, left, right):
-
-            nonlocal parens
-
             if left:
                 generate(p + "(", left - 1, right)
             if right > left:
@@ -74,6 +71,7 @@ class Solution:
 
 
 if __name__ == "__main__":
+
     assert Solution().generateParenthesis(1) == ["()"], "Edge 1"
 
     assert set(Solution().generateParenthesis(2)) == set(["(())", "()()"])
