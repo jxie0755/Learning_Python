@@ -45,7 +45,8 @@ class Solution:
             if right > left:
                 generate(p + ")", left, right - 1)
             if not right:
-                parens += p,   # Here p, means a tuple (p,) see ZSimpleLearnings.py_tuple_expression
+                # parens += p,   # Here p, means a tuple (p,) see ZSimpleLearnings.py_tuple_expression
+                parens.append(p)
             return parens
 
         return generate("", n, n)
