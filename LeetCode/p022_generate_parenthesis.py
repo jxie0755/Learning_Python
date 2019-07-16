@@ -30,7 +30,7 @@ class Solution:
             prev = self.generateParenthesis(n-1)   # 根据n-1的答案, 其中每一个括号组做一个新的生成
             for par in prev:
                 result += self.gen_par(par)
-            return list(set(result))              # 需要用set来去重复
+            return list(set(result))              # 需要用set来去重复 (注意顺序可能变化,不能match test case)
 
 
 class Solution:
@@ -74,7 +74,7 @@ if __name__ == "__main__":
 
     assert Solution().generateParenthesis(1) == ["()"], "Edge 1"
 
-    assert set(Solution().generateParenthesis(2)) == set(["(())", "()()"])
-    assert set(Solution().generateParenthesis(3)) == set(["((()))", "(()())", "(())()", "()(())", "()()()"])
-    assert set(Solution().generateParenthesis(4)) == set(["(((())))", "((()()))", "((())())", "((()))()", "(()(()))", "(()()())", "(()())()", "(())(())", "(())()()", "()((()))", "()(()())", "()(())()", "()()(())", "()()()()"])
+    assert Solution().generateParenthesis(2) == ["(())", "()()"]
+    assert Solution().generateParenthesis(3) == ["((()))", "(()())", "(())()", "()(())", "()()()"]
+    assert Solution().generateParenthesis(4) == ["(((())))", "((()()))", "((())())", "((()))()", "(()(()))", "(()()())", "(()())()", "(())(())", "(())()()", "()((()))", "()(()())", "()(())()", "()()(())", "()()()()"]
     print("all passed")
