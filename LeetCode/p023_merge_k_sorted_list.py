@@ -75,6 +75,7 @@ class Solution:
 
     # Version C2, improved
     # 这个方法采用首尾合并, 这样能显著减少重复流经的节点
+    # 首尾相遇后, 重置首为0, 尾不变(因为已经都被合并到前面去了)
     def mergeKLists_O(self, lst) -> ListNode:
         if not lst:
             return None
