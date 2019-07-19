@@ -54,8 +54,11 @@ class Solution:
 
 if __name__ == "__main__":
 
-    a = genNode([1,2,3,4])
-    e = Solution().swapPairs(a)
-    assert repr(e) == "2->1->4->3"
+    assert Solution().swapPairs(None) is None, "Empty"
+    assert Solution().swapPairs(genNode([1])) == genNode([1]), "Single"
+
+    assert Solution().swapPairs(genNode([1,2])) == genNode([2, 1]), "1 pair"
+    assert Solution().swapPairs(genNode([1,2,3,4])) == genNode([2,1,4,3]), "Even Pairs"
+    assert Solution().swapPairs(genNode([1,2,3,4,5])) == genNode([2,1,4,3,5]), "with Odd"
 
     print("all passed")
