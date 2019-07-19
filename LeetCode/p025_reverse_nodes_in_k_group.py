@@ -15,6 +15,16 @@ from a0_TreeNode import *
 from a0_ListNode import *
 
 class Solution:
+
+    # 参见Leetcode P206, reverse the whole linked-list
+    def reverseNodes(self, head):
+        dummy = ListNode(float("-inf"))
+        while head:
+            dummy.next, head.next, head = head, dummy.next, head.next
+        return dummy.next
+
+
+    # Version A, use reverse whole linked list
     def reverseKGroup(self, head: ListNode, k: int) -> ListNode:
         if k == 1 or not head:
             return head
@@ -38,23 +48,16 @@ class Solution:
         cur.next = self.reverseKGroup(next_head, k)
         return new_head
 
-    # 参见Leetcode P206
-    def reverseNodes(self, head):
-        dummy = ListNode(float("-inf"))
-        while head:
-            dummy.next, head.next, head = head, dummy.next, head.next
-        return dummy.next
-
 
 
 if __name__ == "__main__":
 
     a = genNode([1,2,3,4,5])
     f = Solution().reverseKGroup(a, 2)
-    assert repr(f) == "2->1->4->3->5"
+    assert repr(f) == "2->1->4->3->5", "Example 1"
 
     b = genNode([1,2,3,4,5])
     g = Solution().reverseKGroup(b, 3)
-    assert repr(g) == "3->2->1->4->5"
+    assert repr(g) == "3->2->1->4->5", "Example 2"
 
     print("all passed")
