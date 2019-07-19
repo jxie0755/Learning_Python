@@ -11,6 +11,7 @@ from a0_ListNode import *
 
 class Solution:
 
+    # Version A
     # 用list重排, 再重新连接
     # O(N)
     def swapPairs(self, head: ListNode) -> ListNode:
@@ -40,6 +41,7 @@ class Solution:
 
             return new_head
 
+    # Version B
     # 不使用list,直接原地改
     def swapPairs(self, head: ListNode) -> ListNode:
         if head and head.next:
@@ -51,7 +53,9 @@ class Solution:
 
 
 if __name__ == "__main__":
+
     a = genNode([1,2,3,4])
     e = Solution().swapPairs(a)
     assert repr(e) == "2->1->4->3"
+
     print("all passed")
