@@ -18,7 +18,6 @@ class Solution:
         if not head or not head.next:
             return head
         else:
-            new_head = head.next
 
             # 把node放入list
             node_list = []
@@ -39,7 +38,7 @@ class Solution:
                 i += 1
             node_list[i].next = None
 
-            return new_head
+            return node_list[0]
 
     # Version B
     # 不使用list,直接原地改
