@@ -22,13 +22,13 @@ class Solution:
             # Instead, use temp variables to implement the swap
 
             # catch head.next and dummy.next before break the link:
-            tempheadnext = head.next
-            dummynext = dummy.next
+            rest = head.next
+            tail = dummy.next
             # Build new link
             dummy.next = head
-            head.next = dummynext
+            head.next = tail
             # iterate the head to next node
-            head = tempheadnext
+            head = rest
 
 
         return dummy.next

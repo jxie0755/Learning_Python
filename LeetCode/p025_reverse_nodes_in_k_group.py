@@ -20,7 +20,11 @@ class Solution:
     def reverseNodes(self, head):
         dummy = ListNode(float("-inf"))
         while head:
-            dummy.next, head.next, head = head, dummy.next, head.next
+            rest = head.next
+            tail = dummy.next
+            head.next = tail
+            dummy.next = head
+            head = rest
         return dummy.next
 
 
