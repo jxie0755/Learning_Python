@@ -28,5 +28,17 @@ class Solution(object):
 
 if __name__ == "__main__":
 
-    assert Solution().removeDuplicates([1,1,2,2,3]) == 3, "regular test"
+    Empty = []
+    assert Solution().removeDuplicates(Empty) == 0, "Empty"
+    assert Empty == [], "Empty revised list"
+
+    Q0 = [1, 1]
+    assert Solution().removeDuplicates(Q0) == 1, "Edge"
+    assert Q0 == [1,1], "Edge 0 revised list"
+
+
+    Q1 = [1,1,2,2,3]
+    assert Solution().removeDuplicates(Q1) == 3, "regular test"
+    assert Q1 == [1,2,3,2,3], "regular test revised list"
+
     print("all passed")
