@@ -1,0 +1,16 @@
+UPDATE sakila.category SET name = 'Action', last_update = '2006-02-15 04:46:27' WHERE category_id = 1;
+UPDATE sakila.category SET name = 'Animation', last_update = '2006-02-15 04:46:27' WHERE category_id = 2;
+UPDATE sakila.category SET name = 'Children', last_update = '2006-02-15 04:46:27' WHERE category_id = 3;
+UPDATE sakila.category SET name = 'Classics', last_update = '2006-02-15 04:46:27' WHERE category_id = 4;
+UPDATE sakila.category SET name = 'Comedy', last_update = '2006-02-15 04:46:27' WHERE category_id = 5;
+UPDATE sakila.category SET name = 'Documentary', last_update = '2006-02-15 04:46:27' WHERE category_id = 6;
+UPDATE sakila.category SET name = 'Drama', last_update = '2006-02-15 04:46:27' WHERE category_id = 7;
+UPDATE sakila.category SET name = 'Family', last_update = '2006-02-15 04:46:27' WHERE category_id = 8;
+UPDATE sakila.category SET name = 'Foreign', last_update = '2006-02-15 04:46:27' WHERE category_id = 9;
+UPDATE sakila.category SET name = 'Games', last_update = '2006-02-15 04:46:27' WHERE category_id = 10;
+UPDATE sakila.category SET name = 'Horror', last_update = '2006-02-15 04:46:27' WHERE category_id = 11;
+UPDATE sakila.category SET name = 'Music', last_update = '2006-02-15 04:46:27' WHERE category_id = 12;
+UPDATE sakila.category SET name = 'New', last_update = '2006-02-15 04:46:27' WHERE category_id = 13;
+UPDATE sakila.category SET name = 'Sci-Fi', last_update = '2006-02-15 04:46:27' WHERE category_id = 14;
+UPDATE sakila.category SET name = 'Sports', last_update = '2006-02-15 04:46:27' WHERE category_id = 15;
+UPDATE sakila.category SET name = 'Travel', last_update = '2006-02-15 04:46:27' WHERE category_id = 16;
