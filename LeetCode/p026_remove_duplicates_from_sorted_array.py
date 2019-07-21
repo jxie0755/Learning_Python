@@ -27,5 +27,6 @@ class Solution(object):
         return index
 
 if __name__ == "__main__":
+
     assert Solution().removeDuplicates([1,1,2,2,3]) == 3, "regular test"
     print("all passed")
