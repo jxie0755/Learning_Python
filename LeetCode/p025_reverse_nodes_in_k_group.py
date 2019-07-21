@@ -74,7 +74,7 @@ class Solution:
             if count % k == 0:  # 若发现一个完整k循环
                 flag = False    # 撤销flag
                 cur.next = None # 与后面断开
-                H.next = self.reverseNodes(head) # H街上反转的head (此时head就是反转后的最后一个节点)
+                H.next = self.reverseNodes(head) # H接上反转的head (此时head就是反转后的最后一个节点)
                 H = head                         # 移动H到新链表的最后一个节点
                 cur = head = next_node           # 把cur和head定位到next下一个开头
 
