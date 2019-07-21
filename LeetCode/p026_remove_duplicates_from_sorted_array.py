@@ -5,13 +5,12 @@
 # Do not allocate extra space for another array, you must do this by modifying the input array in-place with O(1) extra memory.
 # 意思是不能再造一个新list,而是在原list上改动
 
-# """
-# :type nums: List[int]
-# :rtype: int
-# """
+from typing import *
 
 class Solution(object):
-    def removeDuplicates(self, nums):
+
+    # Version A
+    def removeDuplicates(self, nums: List[int]) -> int:
         if not nums:
             return 0
 
@@ -22,6 +21,7 @@ class Solution(object):
                 nums[index] = nums[i]
                 index += 1
                 start = i
+
         # 思路在于利用外部游标对应遍历时的瞬间赋值
         print(nums)
         return index
