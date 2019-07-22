@@ -46,6 +46,7 @@ CREATE TABLE my_contacts(
     last_name VARCHAR(30),
     first_name VARCHAR(20),
     email VARCHAR(50),
+    gender CHAR(1),
     birthday DATE,
     profession VARCHAR(50),
     location VARCHAR(50),
@@ -61,7 +62,15 @@ CREATE TABLE my_contacts(
 # 查看表 Describe
 DESC my_contacts;
 
+# 删除表 (删除表和表内的所有数据, 务必小心, 这里无法挽回)
+# DROP TABLE my_contacts;
 
 
+# 插入值
+INSERT INTO my_contacts
+    (last_name, first_name, email, gender, birthday, profession, location, status, interest, seeking)
+VALUES # 注意换行 (注意, VALUE和VALUES 都是可以的, 作用完全相同
+       ('Bnderson', 'Jillian', 'jill_anderson@breakneckpizza.com', 'F', '1980-09-05', 'TechnicalWriter', 'Palo Alto, CA', 'Single', 'Kayaking, Reptiles', 'Relationship, Friends');
+# 数据值得顺序必须和列的顺序完全一样!
 
 
