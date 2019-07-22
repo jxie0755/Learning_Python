@@ -11,6 +11,7 @@ from typing import *
 class Solution(object):
 
     # Version A
+    # Wrong, change of the Array length should be avoided
     def removeElement(self, nums: List[int], val: int) -> int:
         n = 0
         while n < len(nums):
@@ -30,6 +31,21 @@ class Solution(object):
             nums.remove(val)
         return len(nums)
 
+    # Version C
+    # No pop, re-arrange with two flags
+    def removeElement(self, nums: List[int], val: int) -> int:
+        i = n = 0
+        L = len(nums)
+        while n < len(nums):
+            if nums[n] != val:
+                nums[i] = nums[n]
+                i += 1
+            else:
+                L -= 1
+            n += 1
+
+        return L
+
 
 if __name__ == "__main__":
     nums = []
@@ -38,10 +54,10 @@ if __name__ == "__main__":
 
     nums = [3, 2, 2, 3]
     assert Solution().removeElement(nums, 3) == 2, "Example 1"
-    assert nums == [2, 2], "Example 1 final list"
+    assert nums == [2, 2, 2, 3], "Example 1 final list"
 
     nums = [0, 1, 2, 2, 3, 0, 4, 2]
     assert Solution().removeElement(nums, 2) == 5, "Example 2"
-    assert nums == [0, 1, 3, 0, 4], "Example 2 final list"
+    assert nums == [0, 1, 3, 0, 4, 0, 4, 2], "Example 2 final list"
 
     print('all passed')
