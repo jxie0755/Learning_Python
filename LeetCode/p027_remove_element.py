@@ -6,7 +6,6 @@
 # The order of elements can be changed. It doesn't matter what you leave beyond the new length.
 
 from typing import *
-import timeit
 
 
 class Solution(object):
@@ -33,6 +32,9 @@ class Solution(object):
 
 
 if __name__ == "__main__":
+    nums = []
+    assert Solution().removeElement(nums, 3) == 0, "Edge"
+    assert nums == [], "Edge final list"
 
     nums = [3, 2, 2, 3]
     assert Solution().removeElement(nums, 3) == 2, "Example 1"
