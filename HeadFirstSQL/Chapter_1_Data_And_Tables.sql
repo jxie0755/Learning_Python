@@ -62,6 +62,8 @@ CREATE TABLE my_contacts
 # 查看表 Describe
 DESC my_contacts;
 
+
+
 # 删除表 (删除表和表内的所有数据, 务必小心, 这里无法挽回)
 # DROP TABLE my_contacts;
 

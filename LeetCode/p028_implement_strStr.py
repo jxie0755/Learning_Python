@@ -21,7 +21,7 @@ if __name__ == "__main__":
     assert Solution().strStr("", "a") == -1, "Edge 0"
     assert Solution().strStr("", "") == 0, "Edge 1"
 
-    assert Solution().strStr("abcdeabc", "de") == 3, "Example 1"
-    assert Solution().strStr("abcdeabc", "zz") == -1, "Example 2"
+    assert Solution().strStr("abcdeabcde", "de") == 3, "Example 1"
+    assert Solution().strStr("abcdeabcde", "zz") == -1, "Example 2"
 
     print("all passed")
