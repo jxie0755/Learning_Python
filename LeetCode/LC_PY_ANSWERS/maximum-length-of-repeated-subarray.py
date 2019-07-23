@@ -13,14 +13,14 @@ class Solution(object):
         """
         if len(A) < len(B): return self.findLength(B, A)
         result = 0
-        dp = [[0] * (len(B)+1) for _ in xrange(2)]
+        dp = [[0] * (len(B) + 1) for _ in xrange(2)]
         for i in xrange(len(A)):
             for j in xrange(len(B)):
                 if A[i] == B[j]:
-                    dp[(i+1)%2][j+1] = dp[i%2][j]+1
+                    dp[(i + 1) % 2][j + 1] = dp[i % 2][j] + 1
                 else:
-                    dp[(i+1)%2][j+1] = 0
-            result = max(result, max(dp[(i+1)%2]))
+                    dp[(i + 1) % 2][j + 1] = 0
+            result = max(result, max(dp[(i + 1) % 2]))
         return result
 
 
@@ -35,8 +35,9 @@ class Solution2(object):
         :rtype: int
         """
         if len(A) > len(B): return self.findLength(B, A)
-        M, p = 10**9+7, 113
-        p_inv = pow(p, M-2, M)
+        M, p = 10 ** 9 + 7, 113
+        p_inv = pow(p, M - 2, M)
+
         def check(guess):
             def rolling_hashes(source, length):
                 if length == 0:
@@ -45,29 +46,29 @@ class Solution2(object):
 
                 val, power = 0, 1
                 for i, x in enumerate(source):
-                    val = (val + x*power) % M
+                    val = (val + x * power) % M
                     if i < length - 1:
-                        power = (power*p) % M
+                        power = (power * p) % M
                     else:
-                        yield val, i-(length-1)
-                        val = (val-source[i-(length-1)])*p_inv % M
+                        yield val, i - (length - 1)
+                        val = (val - source[i - (length - 1)]) * p_inv % M
 
             hashes = collections.defaultdict(list)
             for hash_val, i in rolling_hashes(A, guess):
                 hashes[hash_val].append(i)
             for hash_val, j in rolling_hashes(B, guess):
-                if any(A[i:i+guess] == B[j:j+guess] for i in hashes[hash_val]):
+                if any(A[i:i + guess] == B[j:j + guess] for i in hashes[hash_val]):
                     return True
             return False
 
         left, right = 0, min(len(A), len(B)) + 1
         while left < right:
-            mid = left + (right-left)/2
+            mid = left + (right - left) / 2
             if not check(mid):  # find the min idx such that check(idx) == false
                 right = mid
             else:
-                left = mid+1
-        return left-1
+                left = mid + 1
+        return left - 1
 
 
 # Time:  O(m * n * min(m, n) * log(min(m, n)))
@@ -83,18 +84,18 @@ class Solution3(object):
         if len(A) > len(B): return self.findLength(B, A)
 
         def check(length):
-            lookup = set(A[i:i+length] \
-                       for i in xrange(len(A)-length+1))
-            return any(B[j:j+length] in lookup \
-                       for j in xrange(len(B)-length+1))
+            lookup = set(A[i:i + length] \
+                         for i in xrange(len(A) - length + 1))
+            return any(B[j:j + length] in lookup \
+                       for j in xrange(len(B) - length + 1))
 
         A = "".join(map(chr, A))
         B = "".join(map(chr, B))
         left, right = 0, min(len(A), len(B)) + 1
         while left < right:
-            mid = left + (right-left)/2
+            mid = left + (right - left) / 2
             if not check(mid):  # find the min idx such that check(idx) == false
                 right = mid
             else:
-                left = mid+1
-        return left-1
+                left = mid + 1
+        return left - 1

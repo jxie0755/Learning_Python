@@ -9,12 +9,13 @@
 
 from typing import *
 
+
 class Solution:
     # O(N), space O(N)
     def firstMissingPositive(self, nums: List[int]) -> int:
         if not nums:
             return 1
-        all_int = list(range(1, len(nums)+1))
+        all_int = list(range(1, len(nums) + 1))
         max_i = all_int[-1]
         for i in nums:
             try:
@@ -45,15 +46,14 @@ class Solution(object):
         return n
 
 
-
 if __name__ == "__main__":
     assert Solution().firstMissingPositive([]) == 1, "Edge 1"
     assert Solution().firstMissingPositive([1]) == 2, "Edge 2"
     assert Solution().firstMissingPositive([2]) == 1, "Edge 3"
     assert Solution().firstMissingPositive([-1]) == 1, "Edge 4"
 
-    assert Solution().firstMissingPositive([1,2,0]) == 3, "Example 1"
-    assert Solution().firstMissingPositive([3,4,-1,1]) == 2, "Example 2"
-    assert Solution().firstMissingPositive([7,8,9,11,12]) == 1, "Example 3"
+    assert Solution().firstMissingPositive([1, 2, 0]) == 3, "Example 1"
+    assert Solution().firstMissingPositive([3, 4, -1, 1]) == 2, "Example 2"
+    assert Solution().firstMissingPositive([7, 8, 9, 11, 12]) == 1, "Example 3"
 
     print("all passed")

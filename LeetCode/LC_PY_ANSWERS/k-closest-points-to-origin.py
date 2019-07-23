@@ -12,9 +12,10 @@ class Solution(object):
         :type K: int
         :rtype: List[List[int]]
         """
+
         def dist(point):
-            return point[0]**2 + point[1]**2
-        
+            return point[0] ** 2 + point[1] ** 2
+
         def kthElement(nums, k, compare):
             def PartitionAroundPivot(left, right, pivot_idx, nums, compare):
                 new_pivot_idx = left
@@ -37,11 +38,11 @@ class Solution(object):
                     right = new_pivot_idx - 1
                 else:  # new_pivot_idx < k - 1.
                     left = new_pivot_idx + 1
-                    
+
         kthElement(points, K, lambda a, b: dist(a) < dist(b))
         return points[:K]
 
-    
+
 # Time:  O(nlogk)
 # Space: O(k)
 import heapq
@@ -54,9 +55,10 @@ class Solution2(object):
         :type K: int
         :rtype: List[List[int]]
         """
+
         def dist(point):
-            return point[0]**2 + point[1]**2
-        
+            return point[0] ** 2 + point[1] ** 2
+
         max_heap = []
         for point in points:
             heapq.heappush(max_heap, (-dist(point), point))

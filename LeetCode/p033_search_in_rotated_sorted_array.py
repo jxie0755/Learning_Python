@@ -10,6 +10,7 @@
 
 from typing import *
 
+
 class Solution:
     def search(self, nums, target):
         # Regular while loop, binary search O(logN)
@@ -25,7 +26,7 @@ class Solution:
         L, H = 0, len(nums) - 1
         while L <= H:
             M = (L + H) // 2
-            low, mid, high= nums[L], nums[M], nums[H]
+            low, mid, high = nums[L], nums[M], nums[H]
             if L == H:
                 return L if low == target else -1
             if mid == target:
@@ -41,7 +42,6 @@ class Solution:
                 H = M - 1
             elif mid >= low:
                 L = M + 1
-
 
     # def search(self, nums, target):
     #     # Recursion method, binary search O(logN)
@@ -85,27 +85,25 @@ class Solution:
     #     return -1 if not nums else helper(L, H)
 
 
-
 if __name__ == "__main__":
     assert Solution().search([], 1) == -1, "Edge 1"
     assert Solution().search([1], 1) == 0, "Edge 2"
     assert Solution().search([0], 1) == -1, "Edge 3"
 
-    assert Solution().search([4,5,6,7,0,1,2], 0) == 4, "Example 1"
-    assert Solution().search([4,5,6,7,0,1,2], 3) == -1, "Example 2"
+    assert Solution().search([4, 5, 6, 7, 0, 1, 2], 0) == 4, "Example 1"
+    assert Solution().search([4, 5, 6, 7, 0, 1, 2], 3) == -1, "Example 2"
 
+    assert Solution().search([3, 4, 5, 6, 7, 8, 9, 10, 1, 2], 3) == 0, "Additional 1"
+    assert Solution().search([3, 4, 5, 6, 7, 8, 9, 10, 1, 2], 4) == 1, "Additional 2"
+    assert Solution().search([3, 4, 5, 6, 7, 8, 9, 10, 1, 2], 8) == 5, "Additional 3"
+    assert Solution().search([3, 4, 5, 6, 7, 8, 9, 10, 1, 2], 10) == 7, "Additional 4"
+    assert Solution().search([3, 4, 5, 6, 7, 8, 9, 10, 1, 2], 1) == 8, "Additional 5"
+    assert Solution().search([3, 4, 5, 6, 7, 8, 9, 10, 1, 2], 2) == 9, "Additional 6"
 
-    assert Solution().search([3,4,5,6,7,8,9,10,1,2], 3) == 0, "Additional 1"
-    assert Solution().search([3,4,5,6,7,8,9,10,1,2], 4) == 1, "Additional 2"
-    assert Solution().search([3,4,5,6,7,8,9,10,1,2], 8) == 5, "Additional 3"
-    assert Solution().search([3,4,5,6,7,8,9,10,1,2], 10) == 7, "Additional 4"
-    assert Solution().search([3,4,5,6,7,8,9,10,1,2], 1) == 8, "Additional 5"
-    assert Solution().search([3,4,5,6,7,8,9,10,1,2], 2) == 9, "Additional 6"
+    assert Solution().search([8, 9, 10, 1, 2, 3, 4, 5, 6, 7], 8) == 0, "Additional 7"
+    assert Solution().search([8, 9, 10, 1, 2, 3, 4, 5, 6, 7], 1) == 3, "Additional 8"
+    assert Solution().search([8, 9, 10, 1, 2, 3, 4, 5, 6, 7], 6) == 8, "Additional 9"
 
-    assert Solution().search([8,9,10,1,2,3,4,5,6,7], 8) == 0, "Additional 7"
-    assert Solution().search([8,9,10,1,2,3,4,5,6,7], 1) == 3, "Additional 8"
-    assert Solution().search([8,9,10,1,2,3,4,5,6,7], 6) == 8, "Additional 9"
-
-    assert Solution().search([1,3], 2) == -1, "Extra"
+    assert Solution().search([1, 3], 2) == -1, "Extra"
 
     print("all passed")

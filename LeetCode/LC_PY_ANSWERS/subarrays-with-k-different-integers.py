@@ -11,6 +11,7 @@ class Solution(object):
         :type K: int
         :rtype: int
         """
+
         def atMostK(A, K):
             count = collections.defaultdict(int)
             result, left = 0, 0
@@ -21,10 +22,10 @@ class Solution(object):
                     if count[A[left]] == 0:
                         count.pop(A[left])
                     left += 1
-                result += right-left+1
+                result += right - left + 1
             return result
-        
-        return atMostK(A, K) - atMostK(A, K-1)
+
+        return atMostK(A, K) - atMostK(A, K - 1)
 
 
 # Time:  O(n)
@@ -40,7 +41,7 @@ class Window(object):
         self.__count[x] -= 1
         if self.__count[x] == 0:
             self.__count.pop(x)
-            
+
     def size(self):
         return len(self.__count)
 
@@ -63,5 +64,5 @@ class Solution2(object):
             while window2.size() >= K:
                 window2.remove(A[left2])
                 left2 += 1
-            result += left2-left1
+            result += left2 - left1
         return result

@@ -9,10 +9,11 @@ class Solution(object):
         :type needs: List[int]
         :rtype: int
         """
+
         def shoppingOffersHelper(price, special, needs, i):
             if i == len(special):
-                return sum(map(lambda x, y: x*y, price, needs))
-            result = shoppingOffersHelper(price, special, needs, i+1)
+                return sum(map(lambda x, y: x * y, price, needs))
+            result = shoppingOffersHelper(price, special, needs, i + 1)
             for j in xrange(len(needs)):
                 needs[j] -= special[i][j]
             if all(need >= 0 for need in needs):

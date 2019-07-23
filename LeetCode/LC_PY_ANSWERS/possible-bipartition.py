@@ -13,10 +13,10 @@ class Solution(object):
         """
         adj = [[] for _ in xrange(N)]
         for u, v in dislikes:
-            adj[u-1].append(v-1)
-            adj[v-1].append(u-1)
+            adj[u - 1].append(v - 1)
+            adj[v - 1].append(u - 1)
 
-        color = [0]*N
+        color = [0] * N
         color[0] = 1
         q = collections.deque([0])
         while q:
@@ -29,4 +29,3 @@ class Solution(object):
                 color[nei] = -color[cur]
                 q.append(nei)
         return True
- 

@@ -18,13 +18,14 @@ class Solution(object):
         :type root: TreeNode
         :rtype: List[List[int]]
         """
+
         def dfs(node, lookup, x, y):
             if not node:
                 return
             lookup[x][y].append(node)
-            dfs(node.left, lookup, x-1, y+1)
-            dfs(node.right, lookup, x+1, y+1)
-                
+            dfs(node.left, lookup, x - 1, y + 1)
+            dfs(node.right, lookup, x + 1, y + 1)
+
         lookup = collections.defaultdict(lambda: collections.defaultdict(list))
         dfs(root, lookup, 0, 0)
 

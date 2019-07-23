@@ -12,10 +12,11 @@
 class Solution:
     def repeatedSubstringPattern(self, s):
         # O(n), n as len(s)
-        for i in range(1, len(s)//2 + 1):
+        for i in range(1, len(s) // 2 + 1):
             if s[0:i] * (len(s) // i) == s:
                 return True
         return False
+
 
 if __name__ == "__main__":
     assert Solution().repeatedSubstringPattern("abab") == True

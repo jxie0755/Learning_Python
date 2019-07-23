@@ -14,5 +14,5 @@ class Solution(object):
             col = 0
             for r in xrange(R):
                 col += A[r][c] ^ A[r][0]
-            result += max(col, R-col) * 2**(C-1-c)
+            result += max(col, R - col) * 2 ** (C - 1 - c)
         return result

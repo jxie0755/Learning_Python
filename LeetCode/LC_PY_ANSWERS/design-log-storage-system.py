@@ -10,7 +10,6 @@ class LogSystem(object):
         self.__granularity = {"Year": 4, "Month": 7, "Day": 10, \
                               "Hour": 13, "Minute": 16, "Second": 19}
 
-
     def put(self, id, timestamp):
         """
         :type id: int
@@ -18,7 +17,6 @@ class LogSystem(object):
         :rtype: void
         """
         self.__logs.append((id, timestamp))
-
 
     def retrieve(self, s, e, gra):
         """

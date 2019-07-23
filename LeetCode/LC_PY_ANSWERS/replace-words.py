@@ -23,7 +23,7 @@ class Solution(object):
                     break
                 curr = curr[c]
                 if "_end" in curr:
-                    return word[:i+1]
+                    return word[:i + 1]
             return word
 
         return " ".join(map(replace, sentence.split()))

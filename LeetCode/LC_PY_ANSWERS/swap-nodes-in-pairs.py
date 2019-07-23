@@ -10,6 +10,7 @@ class ListNode(object):
         if self:
             return "{} -> {}".format(self.val, self.next)
 
+
 class Solution(object):
     # @param a ListNode
     # @return a ListNode

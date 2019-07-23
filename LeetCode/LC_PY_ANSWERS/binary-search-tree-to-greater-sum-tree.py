@@ -15,6 +15,7 @@ class Solution(object):
         :type root: TreeNode
         :rtype: TreeNode
         """
+
         def bstToGstHelper(root, prev):
             if not root:
                 return root
@@ -23,6 +24,6 @@ class Solution(object):
             prev[0] = root.val
             bstToGstHelper(root.left, prev)
             return root
-        
+
         prev = [0]
         return bstToGstHelper(root, prev)

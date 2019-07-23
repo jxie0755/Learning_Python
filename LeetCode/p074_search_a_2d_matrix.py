@@ -8,12 +8,11 @@
 # The first integer of each row is greater than the last integer of the previous row.
 
 
-
 class Solution:
     # Since it is strictly sorted, combine all the list and do a binary search
     def searchMatrix(self, matrix, target: int) -> bool:
         flat = sum(matrix, [])
-        lo, high = 0, len(flat)-1
+        lo, high = 0, len(flat) - 1
 
         while lo <= high:
             mid = (lo + high) // 2
@@ -24,7 +23,6 @@ class Solution:
             else:
                 lo = mid + 1
         return False
-
 
 
 if __name__ == "__main__":

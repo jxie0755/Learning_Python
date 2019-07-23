@@ -16,6 +16,7 @@ class Solution(object):
             preorder[i] = p
         return True
 
+
 # Time:  O(n)
 # Space: O(h)
 class Solution2(object):

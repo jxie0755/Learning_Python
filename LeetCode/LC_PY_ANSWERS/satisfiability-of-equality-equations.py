@@ -59,7 +59,7 @@ class Solution2(object):
                 graph[x].append(y)
                 graph[y].append(x)
 
-        color = [None]*26
+        color = [None] * 26
         c = 0
         for i in xrange(26):
             if color[i] is not None:
@@ -80,6 +80,6 @@ class Solution2(object):
             x = ord(eqn[0]) - ord("a")
             y = ord(eqn[3]) - ord("a")
             if color[x] is not None and \
-               color[x] == color[y]:
+                    color[x] == color[y]:
                 return False
         return True

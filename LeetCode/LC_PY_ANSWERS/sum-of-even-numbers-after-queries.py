@@ -9,7 +9,7 @@ class Solution(object):
         :rtype: List[int]
         """
         total = sum(v for v in A if v % 2 == 0)
-        
+
         result = []
         for v, i in queries:
             if A[i] % 2 == 0:

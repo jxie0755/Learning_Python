@@ -45,5 +45,3 @@ class Solution(object):
             else:
                 left = mid
         return left if left != -1 and compare(nums[left], target) else right
-
-

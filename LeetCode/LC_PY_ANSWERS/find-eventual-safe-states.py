@@ -20,7 +20,7 @@ class Solution(object):
                 if lookup[child] == BLACK:
                     continue
                 if lookup[child] == GRAY or \
-                   not dfs(graph, child, lookup):
+                        not dfs(graph, child, lookup):
                     return False
             lookup[node] = BLACK
             return True

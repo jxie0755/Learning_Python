@@ -8,9 +8,9 @@ class Solution(object):
         :rtype: bool
         """
         inc, dec = False, False
-        for i in xrange(len(A)-1):
-            if A[i] < A[i+1]:
+        for i in xrange(len(A) - 1):
+            if A[i] < A[i + 1]:
                 inc = True
-            elif A[i] > A[i+1]:
+            elif A[i] > A[i + 1]:
                 dec = True
         return not inc or not dec

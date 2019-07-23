@@ -11,7 +11,7 @@ class TreeNode(object):
 class Solution(object):
     def __init__(self):
         self.__memo = {1: [TreeNode(0)]}
-    
+
     def allPossibleFBT(self, N):
         """
         :type N: int
@@ -24,7 +24,7 @@ class Solution(object):
             result = []
             for i in xrange(N):
                 for left in self.allPossibleFBT(i):
-                    for right in self.allPossibleFBT(N-1-i):
+                    for right in self.allPossibleFBT(N - 1 - i):
                         node = TreeNode(0)
                         node.left = left
                         node.right = right
@@ -32,4 +32,3 @@ class Solution(object):
             self.__memo[N] = result
 
         return self.__memo[N]
- 

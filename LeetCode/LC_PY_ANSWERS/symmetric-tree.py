@@ -8,6 +8,7 @@ class TreeNode(object):
         self.left = None
         self.right = None
 
+
 # Iterative solution
 class Solution(object):
     # @param root, a tree node
@@ -35,6 +36,7 @@ class Solution(object):
             stack.append(q.left)
 
         return True
+
 
 # Recursive solution
 class Solution2(object):

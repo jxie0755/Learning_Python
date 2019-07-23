@@ -7,6 +7,7 @@ class Solution(object):
         :type root: TreeNode
         :rtype: List[int]
         """
+
         def largestValuesHelper(root, depth, result):
             if not root:
                 return
@@ -14,8 +15,8 @@ class Solution(object):
                 result.append(root.val)
             else:
                 result[depth] = max(result[depth], root.val)
-            largestValuesHelper(root.left, depth+1, result)
-            largestValuesHelper(root.right, depth+1, result)
+            largestValuesHelper(root.left, depth + 1, result)
+            largestValuesHelper(root.right, depth + 1, result)
 
         result = []
         largestValuesHelper(root, 0, result)

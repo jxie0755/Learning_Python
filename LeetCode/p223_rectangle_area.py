@@ -22,7 +22,7 @@ class Solution(object):
         x, y = coor[0], coor[1]
         top, bottom, left, right = rec[1][1], rec[0][1], rec[0][0], rec[1][0]
         # print(top, bottom, left, right)
-        if left <= x <= right and  bottom <= y <= top:
+        if left <= x <= right and bottom <= y <= top:
             return True
         else:
             return False
@@ -32,13 +32,13 @@ class Solution(object):
         (A,B), (C,D) - first rectangular
         (E,F), (G,H) - second rectagular
         """
-        R1 = [(A,B), (C,D), (A,D), (C,B)]
-        R2 = [(E,F), (G,H), (E,H), (G,F)]
+        R1 = [(A, B), (C, D), (A, D), (C, B)]
+        R2 = [(E, F), (G, H), (E, H), (G, F)]
         R1_left, R1_top, R1_bot, R1_right = A, D, B, C
         R2_left, R2_top, R2_bot, R2_right = E, H, F, G
 
-        A1 = abs(D-B) * (C-A)
-        A2 = abs(H-F) * (G-E)
+        A1 = abs(D - B) * (C - A)
+        A2 = abs(H - F) * (G - E)
 
         R1_in = []
         for i in R1:

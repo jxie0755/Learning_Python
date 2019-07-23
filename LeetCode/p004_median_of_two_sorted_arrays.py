@@ -9,6 +9,7 @@
 
 from typing import *
 
+
 class Solution:
 
     # Version A, O(N)
@@ -24,12 +25,12 @@ class Solution:
             elif length % 2 != 0:
                 return array[half]
             else:
-                return (array[half-1] + array[half]) / 2
+                return (array[half - 1] + array[half]) / 2
 
         # Merge sort
         i, j = 0, 0
         merge = []
-        while i <= len(nums1)-1 or j <= len(nums2)-1:
+        while i <= len(nums1) - 1 or j <= len(nums2) - 1:
             if i == len(nums1):
                 merge += nums2[j:]
                 break
@@ -39,7 +40,7 @@ class Solution:
             elif nums1[i] <= nums2[j]:
                 merge.append(nums1[i])
                 i += 1
-            elif nums1[i] >nums2[j]:
+            elif nums1[i] > nums2[j]:
                 merge.append(nums2[j])
                 j += 1
 
@@ -54,7 +55,7 @@ class Solution:
 
         i, j = 0, 0
         merge = []
-        while i <= len(nums1)-1 or j <= len(nums2)-1:
+        while i <= len(nums1) - 1 or j <= len(nums2) - 1:
             if len(merge) == total_l // 2 + 1:
                 break
 
@@ -67,10 +68,9 @@ class Solution:
             elif nums1[i] <= nums2[j]:
                 merge.append(nums1[i])
                 i += 1
-            elif nums1[i] >nums2[j]:
+            elif nums1[i] > nums2[j]:
                 merge.append(nums2[j])
                 j += 1
-
 
         if len(merge) == 1:
             return merge[-1]
@@ -85,13 +85,13 @@ class Solution:
 
         cur1, cur2 = 0, 0
         ct, lst = 0, []
-        m1 = (len(nums1)+len(nums2)+1)//2 -1
-        m2 = (len(nums1)+len(nums2)+2)//2 -1
+        m1 = (len(nums1) + len(nums2) + 1) // 2 - 1
+        m2 = (len(nums1) + len(nums2) + 2) // 2 - 1
 
         if not nums1:
-            return (nums2[m1]+nums2[m2])/2
+            return (nums2[m1] + nums2[m2]) / 2
         if not nums2:
-            return (nums1[m1]+nums1[m2])/2
+            return (nums1[m1] + nums1[m2]) / 2
 
         while ct <= m2:
             if cur1 == len(nums1):
@@ -108,7 +108,7 @@ class Solution:
                 cur2 += 1
             ct += 1
 
-        return (lst[m1]+lst[m2])/2
+        return (lst[m1] + lst[m2]) / 2
 
     # Version C2, Time O(N), space O(1)
     # Same half way method with different index, but only keep track last two
@@ -139,7 +139,7 @@ class Solution:
             if ct < mid_idx:  # record cur position to pre and go for next cur
                 pre = cur
                 ct += 1
-            else:             # don't update pre, stay as it is
+            else:  # don't update pre, stay as it is
                 break
 
         if total_length % 2 == 0:
@@ -149,7 +149,6 @@ class Solution:
 
 
 if __name__ == "__main__":
-
     assert Solution().findMedianSortedArrays([], [1]) == 1.0, "Edge 1"
     assert Solution().findMedianSortedArrays([1], [2]) == 1.5, "Edge 2"
     assert Solution().findMedianSortedArrays([2], []) == 2.0, "Edge 3"

@@ -8,10 +8,11 @@ class Solution(object):
         :type R: str
         :rtype: int
         """
+
         def is_palindrome(k):
             return str(k) == str(k)[::-1]
 
-        K = int((10**((len(R)+1)*0.25)))
+        K = int((10 ** ((len(R) + 1) * 0.25)))
         l, r = int(L), int(R)
 
         result = 0
@@ -20,7 +21,7 @@ class Solution(object):
         for k in xrange(K):
             s = str(k)
             t = s + s[-2::-1]
-            v = int(t)**2
+            v = int(t) ** 2
             if v > r:
                 break
             if v >= l and is_palindrome(v):
@@ -30,7 +31,7 @@ class Solution(object):
         for k in xrange(K):
             s = str(k)
             t = s + s[::-1]
-            v = int(t)**2
+            v = int(t) ** 2
             if v > r:
                 break
             if v >= l and is_palindrome(v):

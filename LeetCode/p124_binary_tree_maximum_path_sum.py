@@ -44,7 +44,6 @@ class Solution:
         # add the first one to be None, to move the index starting from 1
         return [None] + result
 
-
     def maxPathSum(self, root: TreeNode) -> int:
 
         if not root.left and not root.right:
@@ -56,6 +55,7 @@ class Solution:
         while rr:
             right_side.append(rr)
             rr = rr.right
+
         # print([id(i) for i in right_side])
 
         def helper(idx, prev_location="U", cur_path=[], end=False):
@@ -80,31 +80,31 @@ class Solution:
                 this_location = "L" if idx % 2 == 0 else "R"
 
                 if node and not node.left and not node.right and end:
-                    paths.append(cur_path) # end
+                    paths.append(cur_path)  # end
 
                 elif node:
                     if idx == 1:
                         if node.right:
-                            helper(idx*2+1, "U", cur_path[:], True) # go right (only from left)
+                            helper(idx * 2 + 1, "U", cur_path[:], True)  # go right (only from left)
                         else:
-                            paths.append(cur_path) # end
+                            paths.append(cur_path)  # end
 
                     elif prev_location == "N":
                         if node not in right_side:
-                            helper(idx//2, this_location, cur_path[:], True)  # go up if not on the right side
+                            helper(idx // 2, this_location, cur_path[:], True)  # go up if not on the right side
 
                     elif prev_location == "L":
                         if node not in right_side:
-                            helper(idx//2, this_location, cur_path[:], True)  # go up if not on the right side
-                        helper(idx*2+1, "U", cur_path[:], True) # go right down
+                            helper(idx // 2, this_location, cur_path[:], True)  # go up if not on the right side
+                        helper(idx * 2 + 1, "U", cur_path[:], True)  # go right down
 
                     elif prev_location == "R":
                         if node not in right_side:
-                            helper(idx//2, this_location, cur_path[:], True)  # go up if not on the right side
+                            helper(idx // 2, this_location, cur_path[:], True)  # go up if not on the right side
 
                     elif prev_location == "U":
-                        helper(idx * 2, "U", cur_path[:], True) # go down left
-                        helper(idx*2+1, "U", cur_path[:], True) # go down right
+                        helper(idx * 2, "U", cur_path[:], True)  # go down left
+                        helper(idx * 2 + 1, "U", cur_path[:], True)  # go down right
             else:
                 paths.append(cur_path)  # end
 
@@ -128,16 +128,13 @@ class Solution:
         return max_so_far
 
 
-
-
 if __name__ == "__main__":
-
     A = TreeNode(1)
     assert Solution().maxPathSum(A) == 1, "Edge 1"
 
     A = genTree([
         1,
-        2,3
+        2, 3
     ])
     assert Solution().maxPathSum(A) == 6, "Example 1, 2+1+3 = 6"
 
@@ -150,12 +147,11 @@ if __name__ == "__main__":
 
     A = genTree([
         1,
-        2,3,
-        4,5,6,7,
-        8,9,100,11,12,100,14,15
+        2, 3,
+        4, 5, 6, 7,
+        8, 9, 100, 11, 12, 100, 14, 15
     ])
     assert Solution().maxPathSum(A) == 217, "Additional 1, 100+5+2+1+3+6+100=217"
-
 
     A = genTree([
         -1,
@@ -171,9 +167,9 @@ if __name__ == "__main__":
 
     A = genTree([
         -1,
-        1,-1,
-        1,1,-1,-2,
-        -1,-1
+        1, -1,
+        1, 1, -1, -2,
+        -1, -1
     ])
     assert Solution().maxPathSum(A) == 3, "Additional 4, 1+1+1=3"
 

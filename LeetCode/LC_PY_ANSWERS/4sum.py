@@ -60,7 +60,7 @@ class Solution2(object):
                     lookup[nums[i] + nums[j]].append([i, j])
         ans = {}
         for c in xrange(2, len(nums)):
-            for d in xrange(c+1, len(nums)):
+            for d in xrange(c + 1, len(nums)):
                 if target - nums[c] - nums[d] in lookup:
                     for [a, b] in lookup[target - nums[c] - nums[d]]:
                         if b < c:
@@ -92,7 +92,7 @@ class Solution3(object):
                     for y in lookup[target - i]:
                         [a, b], [c, d] = x, y
                         if a is not c and a is not d and \
-                           b is not c and b is not d:
+                                b is not c and b is not d:
                             quad = sorted([nums[a], nums[b], nums[c], nums[d]])
                             if quad not in result:
                                 result.append(quad)

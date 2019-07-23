@@ -15,7 +15,6 @@ class KthLargest(object):
         self.__min_heap = []
         for n in nums:
             self.add(n)
-        
 
     def add(self, val):
         """

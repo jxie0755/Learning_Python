@@ -14,21 +14,21 @@ class Solution(object):
         for i in xrange(N):
             l = 0
             for j in xrange(N):
-                l = 0 if (i, j) in lookup else l+1
+                l = 0 if (i, j) in lookup else l + 1
                 dp[i][j] = l
             l = 0
             for j in reversed(xrange(N)):
-                l = 0 if (i, j) in lookup else l+1
+                l = 0 if (i, j) in lookup else l + 1
                 dp[i][j] = min(dp[i][j], l)
 
         for j in xrange(N):
             l = 0
             for i in xrange(N):
-                l = 0 if (i, j) in lookup else l+1
+                l = 0 if (i, j) in lookup else l + 1
                 dp[i][j] = min(dp[i][j], l)
             l = 0
             for i in reversed(xrange(N)):
-                l = 0 if (i, j) in lookup else l+1
+                l = 0 if (i, j) in lookup else l + 1
                 dp[i][j] = min(dp[i][j], l)
                 result = max(result, dp[i][j])
         return result

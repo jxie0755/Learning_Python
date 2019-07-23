@@ -7,6 +7,7 @@ class TreeNode(object):
         self.left = None
         self.right = None
 
+
 class Solution(object):
     # @param inorder, a list of integers
     # @param postorder, a list of integers

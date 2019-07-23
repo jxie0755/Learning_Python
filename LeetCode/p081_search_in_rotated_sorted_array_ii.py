@@ -96,12 +96,10 @@ class Solution:
             # 1 - Truely sorted
             # 2 - Fake sorted because all elements is the same
             # modified the way to tell which half is sorted, considering repeating elements, by excluding situation 2
-            elif len(set(nums[L:M+1])) == 1 or low < mid:
+            elif len(set(nums[L:M + 1])) == 1 or low < mid:
                 L = M + 1
-            elif len(set(nums[M:H+1])) == 1 or mid < high:
+            elif len(set(nums[M:H + 1])) == 1 or mid < high:
                 H = M - 1
-
-
 
 
 if __name__ == "__main__":

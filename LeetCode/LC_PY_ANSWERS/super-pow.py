@@ -8,6 +8,7 @@ class Solution(object):
         :type b: List[int]
         :rtype: int
         """
+
         def myPow(a, n, b):
             result = 1
             x = a % b

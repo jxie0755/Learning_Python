@@ -20,7 +20,7 @@ class Solution(object):
 
             image[r][c] = newColor
             for d in directions:
-                dfs(image, r+d[0], c+d[1], newColor, color)
+                dfs(image, r + d[0], c + d[1], newColor, color)
 
         color = image[sr][sc]
         if color == newColor: return image

@@ -8,13 +8,14 @@ class Solution(object):
         :type R: int
         :rtype: int
         """
+
         def bitCount(n):
             result = 0
             while n:
-                n &= n-1
+                n &= n - 1
                 result += 1
             return result
 
         primes = {2, 3, 5, 7, 11, 13, 17, 19}
         return sum(bitCount(i) in primes
-                   for i in xrange(L, R+1))
+                   for i in xrange(L, R + 1))

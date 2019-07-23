@@ -12,6 +12,7 @@ class ListNode(object):
         else:
             return "Nil"
 
+
 class Solution(object):
     # @param head, a ListNode
     # @return a ListNode

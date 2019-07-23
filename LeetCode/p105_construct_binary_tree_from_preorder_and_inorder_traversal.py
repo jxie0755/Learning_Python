@@ -12,6 +12,7 @@ from typing import *
 from a0_TreeNode import *
 from a0_ListNode import *
 
+
 class Solution:
     # This will pass but exceed max time limit
     def buildTree(self, preorder: List[int], inorder: List[int]) -> TreeNode:
@@ -23,18 +24,18 @@ class Solution:
 
         left_found, right_found = False, False
         left_preorder, right_preorder = [], []
-        left_inorder, right_inorder = [],[]
+        left_inorder, right_inorder = [], []
 
         # 从preorder后面找到left和right的值
         for i in range(1, len(preorder)):
             check = preorder[i]
             if check in inorder:
                 check_idx = inorder.index(check)
-                if check_idx < root_idx and not left_found: # 第一个出现的在root_idx左侧的preorder值
+                if check_idx < root_idx and not left_found:  # 第一个出现的在root_idx左侧的preorder值
                     left_preorder = preorder[i:]
                     left_inorder = inorder[:root_idx]
                     left_found = True
-                if check_idx > root_idx and not right_found: # 第二个出现的在root_idx左侧的preorder值
+                if check_idx > root_idx and not right_found:  # 第二个出现的在root_idx左侧的preorder值
                     right_preorder = preorder[i:]
                     right_inorder = inorder[root_idx:]
                     right_found = True
@@ -100,15 +101,13 @@ class Solution(object):
         return node
 
 
-
-
 if __name__ == "__main__":
-    assert not Solution().buildTree([],[]), "Edge 0"
-    assert Solution().buildTree([1],[1]) == genTree([1]), "Edge 1"
-    assert Solution().buildTree([3,9,20,15,7],[9,3,15,20,7]) == genTree([
+    assert not Solution().buildTree([], []), "Edge 0"
+    assert Solution().buildTree([1], [1]) == genTree([1]), "Edge 1"
+    assert Solution().buildTree([3, 9, 20, 15, 7], [9, 3, 15, 20, 7]) == genTree([
         3,
-        9,20,
-        None,None,15,7
+        9, 20,
+        None, None, 15, 7
     ]), "Example 1"
 
     print("all passed")

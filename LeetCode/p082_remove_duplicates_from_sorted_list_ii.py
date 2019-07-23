@@ -42,7 +42,7 @@ if __name__ == "__main__":
     L = None
     assert not Solution().deleteDuplicates(L), "Edge 1"
 
-    L = genNode([1,1])
+    L = genNode([1, 1])
     assert not Solution().deleteDuplicates(L), "Edge 2"
 
     L = genNode([1])

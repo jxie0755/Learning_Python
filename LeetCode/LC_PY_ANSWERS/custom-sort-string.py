@@ -12,6 +12,6 @@ class Solution(object):
         :rtype: str
         """
         counter, s = collections.Counter(T), set(S)
-        result = [c*counter[c] for c in S]
-        result.extend([c*counter for c, counter in counter.iteritems() if c not in s])
+        result = [c * counter[c] for c in S]
+        result.extend([c * counter for c, counter in counter.iteritems() if c not in s])
         return "".join(result)

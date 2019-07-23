@@ -9,6 +9,7 @@ class Solution(object):
         :type k: int
         :rtype: List[int]
         """
+
         # Helper to make a stack to the next node.
         def nextNode(stack, child1, child2):
             if stack:
@@ -31,7 +32,7 @@ class Solution(object):
             stack.append(root)
             root = root.left if target < root.val else root.right
         dist = lambda node: abs(node.val - target)
-        forward_stack = stack[:stack.index(min(stack, key=dist))+1]
+        forward_stack = stack[:stack.index(min(stack, key=dist)) + 1]
 
         # Get the stack to the next smaller node.
         backward_stack = list(forward_stack)
@@ -41,11 +42,11 @@ class Solution(object):
         result = []
         for _ in xrange(k):
             if forward_stack and \
-                (not backward_stack or dist(forward_stack[-1]) < dist(backward_stack[-1])):
+                    (not backward_stack or dist(forward_stack[-1]) < dist(backward_stack[-1])):
                 result.append(forward_stack[-1].val)
                 nextNode(forward_stack, forward, backward)
             elif backward_stack and \
-                (not forward_stack or dist(backward_stack[-1]) <= dist(forward_stack[-1])):
+                    (not forward_stack or dist(backward_stack[-1]) <= dist(forward_stack[-1])):
                 result.append(backward_stack[-1].val)
                 nextNode(backward_stack, backward, forward)
         return result
@@ -59,6 +60,7 @@ class Solution2(object):
         :type k: int
         :rtype: List[int]
         """
+
         # Helper class to make a stack to the next node.
         class BSTIterator:
             # @param root, a binary search tree's root node
@@ -95,7 +97,7 @@ class Solution2(object):
             stack.append(root)
             root = root.left if target < root.val else root.right
         dist = lambda node: abs(node.val - target) if node else float("inf")
-        stack = stack[:stack.index(min(stack, key=dist))+1]
+        stack = stack[:stack.index(min(stack, key=dist)) + 1]
 
         # The forward or backward iterator.
         backward = lambda node: node.left

@@ -21,7 +21,7 @@ class Solution:
             if remain == 0:
                 prod = (n // k) ** k
             else:
-                prod = (n // k) ** (k-remain)
+                prod = (n // k) ** (k - remain)
                 for _ in range(remain):
                     prod *= (n // k) + 1
 
@@ -63,21 +63,17 @@ class Solution2(object):
         #          if n = 3Q + 2,   the max of the product = 3^Q * 2^1
         #          if n = 3Q + 2*2, the max of the product = 3^Q * 2^2
 
-        if n % 3 == 0:            #  n = 3Q + 0, the max is 3^Q * 2^0
+        if n % 3 == 0:  # n = 3Q + 0, the max is 3^Q * 2^0
             return 3 ** (n // 3)
-        elif n % 3 == 2:          #  n = 3Q + 2, the max is 3^Q * 2^1
+        elif n % 3 == 2:  # n = 3Q + 2, the max is 3^Q * 2^1
             return 3 ** (n // 3) * 2
-        else:                     #  n = 3Q + 4, the max is 3^Q * 2^2
+        else:  # n = 3Q + 4, the max is 3^Q * 2^2
             return 3 ** (n // 3 - 1) * 4
 
 
-
 if __name__ == "__main__":
-
     assert Solution().integerBreak(2) == 1, "Example 1, 1+1, 1*1=1"
     assert Solution().integerBreak(10) == 36, "Example 2, 3+3+4, 3*3*4=36"
     assert Solution().integerBreak(17) == 486, "Example 2, 3+3+4, 3*3*4=36"
 
-
     print("all passed")
-

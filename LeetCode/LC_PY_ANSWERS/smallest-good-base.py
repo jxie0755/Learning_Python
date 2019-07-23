@@ -11,9 +11,9 @@ class Solution(object):
         :rtype: str
         """
         num = int(n)
-        max_len = int(math.log(num,2))
+        max_len = int(math.log(num, 2))
         for l in xrange(max_len, 1, -1):
-            b = int(num ** (l**-1))
-            if (b**(l+1)-1) // (b-1) == num:
+            b = int(num ** (l ** -1))
+            if (b ** (l + 1) - 1) // (b - 1) == num:
                 return str(b)
-        return str(num-1)
+        return str(num - 1)

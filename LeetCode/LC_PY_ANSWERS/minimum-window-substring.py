@@ -22,7 +22,7 @@ class Solution(object):
 
             if count == len(t):
                 while expected_count[ord(s[start]) - ord("a")] == 0 or \
-                      current_count[ord(s[start]) - ord("a")] > expected_count[ord(s[start]) - ord("a")]:
+                        current_count[ord(s[start]) - ord("a")] > expected_count[ord(s[start]) - ord("a")]:
                     current_count[ord(s[start]) - ord("a")] -= 1
                     start += 1
 

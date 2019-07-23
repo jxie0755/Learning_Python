@@ -14,5 +14,5 @@ class Solution(object):
     def nextNumber(self, n):
         new = 0
         for char in str(n):
-            new += int(char)**2
+            new += int(char) ** 2
         return new

@@ -12,4 +12,4 @@ class Solution(object):
         :rtype: bool
         """
         return reduce(xor, nums) == 0 or \
-            len(nums) % 2 == 0
+               len(nums) % 2 == 0

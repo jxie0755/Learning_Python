@@ -3,6 +3,7 @@
 
 from collections import defaultdict
 
+
 class TwoSum(object):
 
     def __init__(self):
@@ -11,15 +12,12 @@ class TwoSum(object):
         """
         self.lookup = defaultdict(int)
 
-
-
     def add(self, number):
         """
         Add the number to an internal data structure.
         :rtype: nothing
         """
         self.lookup[number] += 1
-
 
     def find(self, value):
         """

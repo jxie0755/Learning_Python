@@ -11,7 +11,7 @@ class Solution(object):
         for i in reversed(xrange(len(s))):
             if s[i].isdigit():
                 operand += s[i]
-                if i == 0 or not s[i-1].isdigit():
+                if i == 0 or not s[i - 1].isdigit():
                     operands.append(int(operand[::-1]))
                     operand = ""
             elif s[i] == ")" or s[i] == "+" or s[i] == "-":

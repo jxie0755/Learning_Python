@@ -7,6 +7,7 @@ class RandomListNode(object):
         self.next = None
         self.random = None
 
+
 class Solution(object):
     # @param head, a RandomListNode
     # @return a RandomListNode
@@ -34,6 +35,7 @@ class Solution(object):
             current.next = current.next.next
             copied_current, current = copied_current.next, current.next
         return dummy.next
+
 
 # Time:  O(n)
 # Space: O(n)

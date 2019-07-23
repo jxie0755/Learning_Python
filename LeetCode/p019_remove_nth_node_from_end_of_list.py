@@ -10,6 +10,7 @@ from typing import *
 from a0_TreeNode import *
 from a0_ListNode import *
 
+
 class Solution:
 
     # Version A
@@ -20,7 +21,7 @@ class Solution:
             length += 1
             cur = cur.next
 
-        p_length = length-n
+        p_length = length - n
         if p_length == 0:
             return head.next
         else:
@@ -31,6 +32,7 @@ class Solution:
 
             curr.next = curr.next.next
             return head
+
 
 class Solution(object):
 
@@ -65,7 +67,7 @@ class Solution(object):
 
 if __name__ == "__main__":
     # Given linked list: 1->2->3->4->5, and n = 2
-    a = genNode([1,2,3,4,5])
+    a = genNode([1, 2, 3, 4, 5])
 
     f = Solution().removeNthFromEnd(a, 2)
     assert repr(f) == "1->2->3->5"

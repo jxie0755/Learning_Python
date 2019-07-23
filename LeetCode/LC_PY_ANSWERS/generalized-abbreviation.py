@@ -7,6 +7,7 @@ class Solution(object):
         :type word: str
         :rtype: List[str]
         """
+
         def generateAbbreviationsHelper(word, i, cur, res):
             if i == len(word):
                 res.append("".join(cur))

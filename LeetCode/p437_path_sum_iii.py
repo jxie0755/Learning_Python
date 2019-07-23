@@ -40,15 +40,13 @@ class Solution(object):
 
 
 if __name__ == "__main__":
-
-
-    assert Solution().pathSum(None,1) == 0, "Edge 0"
+    assert Solution().pathSum(None, 1) == 0, "Edge 0"
 
     A = genTree([
         10,
-        5,-3,
-        3,2,None, 11,
-        3,-2,None,1,None,None,None,None
+        5, -3,
+        3, 2, None, 11,
+        3, -2, None, 1, None, None, None, None
     ])
 
     assert Solution().pathSum(A, 8) == 3, "Example 1"

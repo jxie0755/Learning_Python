@@ -39,4 +39,4 @@ class Solution(object):
             return x - 1  # case 1: the left subtree of the root is perfect and the right subtree has less nodes
         else:
             return n - x // 2  # case 2 == n - (x//2 - 1) - 1 : the left subtree of the root
-                               # has more nodes and the right subtree is perfect.
+            # has more nodes and the right subtree is perfect.

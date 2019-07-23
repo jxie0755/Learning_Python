@@ -3,6 +3,7 @@
 
 from typing import *
 
+
 class Solution(object):
     def findDuplicate(self, nums):
         """

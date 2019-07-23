@@ -25,12 +25,12 @@ class Solution(object):
         while q:
             r, c, result = q.popleft()
             for d in directions:
-                nr, nc = r+d[0], c+d[1]
+                nr, nc = r + d[0], c + d[1]
                 if not (0 <= nr < len(grid) and \
                         0 <= nc < len(grid[r])):
                     continue
                 if grid[nr][nc] == 1:
                     count -= 1
                     grid[nr][nc] = 2
-                    q.append((nr, nc, result+1))
+                    q.append((nr, nc, result + 1))
         return result if count == 0 else -1

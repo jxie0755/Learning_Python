@@ -23,6 +23,7 @@ class Solution(object):
 
         return "".join(map(str, res[i::-1]))
 
+
 # Time:  O(m * n)
 # Space: O(m + n)
 # Using built-in bignum solution.

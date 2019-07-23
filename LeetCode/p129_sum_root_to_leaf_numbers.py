@@ -46,9 +46,8 @@ class Solution:
         N = len(path)
         result = 0
         for i in range(N):
-            result += pow(10, N-1-i) * path[i]
+            result += pow(10, N - 1 - i) * path[i]
         return result
-
 
     def sumNumbers(self, root: TreeNode) -> int:
         result = 0
@@ -57,11 +56,10 @@ class Solution:
         return result
 
 
-
 if __name__ == "__main__":
     A = genTree([
         1,
-        2,3
+        2, 3
     ])
     assert Solution().sumNumbers(A) == 25, "Example 1, 12 + 13 = 25"
 
@@ -72,5 +70,3 @@ if __name__ == "__main__":
     ])
     assert Solution().sumNumbers(A) == 1026, "Example 2, 495 + 491 + 40 = 1036"
     print("all passed")
-
-

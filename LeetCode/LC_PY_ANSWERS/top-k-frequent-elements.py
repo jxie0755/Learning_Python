@@ -12,7 +12,7 @@ class Solution(object):
         :rtype: List[int]
         """
         counts = collections.Counter(nums)
-        buckets = [[] for _ in xrange(len(nums)+1)]
+        buckets = [[] for _ in xrange(len(nums) + 1)]
         for i, count in counts.iteritems():
             buckets[count].append(i)
 
@@ -29,6 +29,8 @@ class Solution(object):
 # Space: O(n)
 # Quick Select Solution
 from random import randint
+
+
 class Solution2(object):
     def topKFrequent(self, nums, k):
         """

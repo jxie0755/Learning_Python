@@ -3,6 +3,7 @@
 
 from collections import Counter
 
+
 class Solution(object):
     def originalDigits(self, s):
         """

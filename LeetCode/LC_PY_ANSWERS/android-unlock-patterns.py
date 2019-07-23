@@ -10,6 +10,7 @@ class Solution(object):
         :type n: int
         :rtype: int
         """
+
         def merge(used, i):
             return used | (1 << i)
 
@@ -54,9 +55,9 @@ class Solution(object):
                     if ((x1 == x2 and abs(y1 - y2) == 2) or
                         (y1 == y2 and abs(x1 - x2) == 2) or
                         (abs(x1 - x2) == 2 and abs(y1 - y2) == 2)) and \
-                       not contain(used,
-                                   convert((x1 + x2) // 2, (y1 + y2) // 2)):
-                            continue
+                            not contain(used,
+                                        convert((x1 + x2) // 2, (y1 + y2) // 2)):
+                        continue
 
                     dp[merge(used, j)][j] += dp[used][i]
 
@@ -73,6 +74,7 @@ class Solution2(object):
         :type n: int
         :rtype: int
         """
+
         def merge(used, i):
             return used | (1 << i)
 
@@ -117,9 +119,9 @@ class Solution2(object):
                     if ((x1 == x2 and abs(y1 - y2) == 2) or
                         (y1 == y2 and abs(x1 - x2) == 2) or
                         (abs(x1 - x2) == 2 and abs(y1 - y2) == 2)) and \
-                       not contain(used,
-                                   convert((x1 + x2) // 2, (y1 + y2) // 2)):
-                            continue
+                            not contain(used,
+                                        convert((x1 + x2) // 2, (y1 + y2) // 2)):
+                        continue
 
                     dp[used][i] += dp[exclude(used, i)][j]
 
@@ -139,6 +141,7 @@ class Solution_TLE(object):
         :type n: int
         :rtype: int
         """
+
         def merge(used, i):
             return used | (1 << i)
 
@@ -165,9 +168,9 @@ class Solution_TLE(object):
                 if ((x1 == x2 and abs(y1 - y2) == 2) or
                     (y1 == y2 and abs(x1 - x2) == 2) or
                     (abs(x1 - x2) == 2 and abs(y1 - y2) == 2)) and \
-                   not contain(used,
-                               convert((x1 + x2) // 2, (y1 + y2) // 2)):
-                        continue
+                        not contain(used,
+                                    convert((x1 + x2) // 2, (y1 + y2) // 2)):
+                    continue
 
                 number += numberOfPatternsHelper(m, n, level + 1, merge(used, j), j)
 

@@ -8,6 +8,7 @@ class Solution(object):
         :rtype: int
         """
         LIS = []
+
         def insert(target):
             left, right = 0, len(LIS) - 1
             # Find the first index "left" which satisfies LIS[left] >= target
@@ -27,6 +28,7 @@ class Solution(object):
             insert(num)
 
         return len(LIS)
+
 
 # Time:  O(n^2)
 # Space: O(n)

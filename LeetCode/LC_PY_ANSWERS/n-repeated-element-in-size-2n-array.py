@@ -8,6 +8,6 @@ class Solution(object):
         :rtype: int
         """
         for i in xrange(2, len(A)):
-            if A[i-1] == A[i] or A[i-2] == A[i]:
+            if A[i - 1] == A[i] or A[i - 2] == A[i]:
                 return A[i]
         return A[0]

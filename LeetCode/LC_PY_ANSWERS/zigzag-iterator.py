@@ -20,7 +20,7 @@ class ZigzagIterator(object):
         """
         len, iter = self.q.popleft()
         if len > 1:
-            self.q.append((len-1, iter))
+            self.q.append((len - 1, iter))
         return next(iter)
 
     def hasNext(self):

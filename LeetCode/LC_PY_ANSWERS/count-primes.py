@@ -17,7 +17,7 @@ class Solution(object):
             if not is_prime[i]:
                 continue
 
-            for j in range(i*i, n, 2*i):
+            for j in range(i * i, n, 2 * i):
                 if not is_prime[j]:
                     continue
 

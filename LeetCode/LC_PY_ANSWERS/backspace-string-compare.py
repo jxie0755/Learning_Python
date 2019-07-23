@@ -11,6 +11,7 @@ class Solution(object):
         :type T: str
         :rtype: bool
         """
+
         def findNextChar(S):
             skip = 0
             for i in reversed(xrange(len(S))):

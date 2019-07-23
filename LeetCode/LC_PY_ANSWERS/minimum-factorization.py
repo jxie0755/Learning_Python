@@ -13,6 +13,6 @@ class Solution(object):
         for i in reversed(xrange(2, 10)):
             while a % i == 0:
                 a /= i
-                result = mul*i + result
+                result = mul * i + result
                 mul *= 10
-        return  result if a == 1 and result < 2**31 else 0
+        return result if a == 1 and result < 2 ** 31 else 0

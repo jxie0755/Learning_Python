@@ -81,13 +81,10 @@ class Solution:
         return helper(root)
 
 
-
-
 class Solution(object):
 
     # STD ans
     def rob(self, root: TreeNode) -> int:
-
         def robHelper(root):
             if not root:
                 return 0, 0
@@ -95,12 +92,9 @@ class Solution(object):
             left, right = robHelper(root.left), robHelper(root.right)
 
             return root.val + left[1] + right[1], max(left) + max(right)
-                     # if skip left and right     # if skip root
+            # if skip left and right     # if skip root
 
         return max(robHelper(root))
-
-
-
 
 
 if not __name__ == "__main__":

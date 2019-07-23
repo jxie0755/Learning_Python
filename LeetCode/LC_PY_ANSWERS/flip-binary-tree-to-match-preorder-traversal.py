@@ -8,7 +8,7 @@ class TreeNode(object):
         self.left = None
         self.right = None
 
-        
+
 class Solution(object):
     def flipMatchVoyage(self, root, voyage):
         """
@@ -16,6 +16,7 @@ class Solution(object):
         :type voyage: List[int]
         :rtype: List[int]
         """
+
         def dfs(root, voyage, i, result):
             if not root:
                 return True
@@ -28,6 +29,6 @@ class Solution(object):
                        dfs(root.left, voyage, i, result)
             return dfs(root.left, voyage, i, result) and \
                    dfs(root.right, voyage, i, result)
-        
+
         result = []
         return result if dfs(root, voyage, [0], result) else [-1]

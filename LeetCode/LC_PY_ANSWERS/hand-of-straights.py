@@ -21,7 +21,7 @@ class Solution(object):
 
         min_heap = hand[:]
         heapq.heapify(min_heap)
-        for _ in xrange(len(min_heap)//W):
+        for _ in xrange(len(min_heap) // W):
             while counts[min_heap[0]] == 0:
                 heapq.heappop(min_heap)
             start = heapq.heappop(min_heap)

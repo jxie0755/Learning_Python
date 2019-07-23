@@ -21,7 +21,7 @@ class Solution(object):
 
 if __name__ == "__main__":
     assert Solution().findMin([1]) == 1, "Edge 0"
-    assert Solution().findMin([3,4,5,1,2]) == 1, "Example 1"
-    assert Solution().findMin([4,5,6,7,0,1,2]) == 0, "Example 2"
+    assert Solution().findMin([3, 4, 5, 1, 2]) == 1, "Example 1"
+    assert Solution().findMin([4, 5, 6, 7, 0, 1, 2]) == 0, "Example 2"
 
     print("all passed")

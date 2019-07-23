@@ -10,7 +10,7 @@ class Solution(object):
         result = 0
         for c in xrange(len(A[0])):
             for r in xrange(1, len(A)):
-                if A[r-1][c] > A[r][c]:
+                if A[r - 1][c] > A[r][c]:
                     result += 1
                     break
         return result
@@ -29,6 +29,6 @@ class Solution2(object):
         """
         result = 0
         for col in itertools.izip(*A):
-            if any(col[i] > col[i+1] for i in xrange(len(col)-1)):
+            if any(col[i] > col[i + 1] for i in xrange(len(col) - 1)):
                 result += 1
         return result

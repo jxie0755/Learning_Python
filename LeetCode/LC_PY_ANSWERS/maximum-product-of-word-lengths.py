@@ -7,6 +7,7 @@ class Solution(object):
         :type words: List[str]
         :rtype: int
         """
+
         def counting_sort(words):
             k = 1000  # k is max length of words in the dictionary
             buckets = [[] for _ in xrange(k)]
@@ -34,6 +35,7 @@ class Solution(object):
                 if not (bits[i] & bits[j]):
                     max_product = len(words[i]) * len(words[j])
         return max_product
+
 
 # Time:  O(nlogn) ~ O(n^2)
 # Space: O(n)

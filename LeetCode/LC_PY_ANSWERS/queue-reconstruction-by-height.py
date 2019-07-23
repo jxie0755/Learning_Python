@@ -20,8 +20,8 @@ class Solution(object):
             block.insert(index, p)
 
             if len(block) * len(block) > len(people):
-                blocks.insert(i+1, block[len(block)/2:])
-                del block[len(block)/2:]
+                blocks.insert(i + 1, block[len(block) / 2:])
+                del block[len(block) / 2:]
 
         return [p for block in blocks for p in block]
 

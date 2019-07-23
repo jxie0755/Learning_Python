@@ -5,6 +5,7 @@
 import collections
 import heapq
 
+
 class Solution(object):
     def reachableNodes(self, edges, M, N):
         """
@@ -29,12 +30,12 @@ class Solution(object):
                 continue
             result += 1
             for v, w in adj[u]:
-                count[u][v] = min(w, M-curr_total)
-                next_total = curr_total+w+1
+                count[u][v] = min(w, M - curr_total)
+                next_total = curr_total + w + 1
                 if next_total <= M and next_total < best[v]:
                     best[v] = next_total
                     heapq.heappush(min_heap, (next_total, v))  # binary heap O(|E|*log|V|) in total
-                                                               # Fibonacci heap O(|E|) in total
+                    # Fibonacci heap O(|E|) in total
         for u, v, w in edges:
-            result += min(w, count[u][v]+count[v][u])
+            result += min(w, count[u][v] + count[v][u])
         return result

@@ -23,7 +23,7 @@ class Solution:
 
         while L != 0:
             for i in range(0, length - L + 1):
-                sample = s[i:i+L]
+                sample = s[i:i + L]
                 if is_palindrome(sample):
                     return sample
             L -= 1
@@ -41,17 +41,17 @@ class Solution:
         result = ""
         for a in range(0, len(s)):
 
-            theoretical_length = (min(a-0, length -a) + 1) * 2
+            theoretical_length = (min(a - 0, length - a) + 1) * 2
 
-            if theoretical_length < len(result): # 此处得到一个该中心点的理论最长回文长度, 如果仍然不够当前result
+            if theoretical_length < len(result):  # 此处得到一个该中心点的理论最长回文长度, 如果仍然不够当前result
                 break  # 就可以break, 因为后面也不可能出现更长的回文了
 
-            for b in range(a+1,a+3): # 这里控制起始字符要么就是a, 要么就是aa, 用于奇数和偶数回文
+            for b in range(a + 1, a + 3):  # 这里控制起始字符要么就是a, 要么就是aa, 用于奇数和偶数回文
                 head, tail = a, b
 
-                while head >= 0 and tail <= length and s[head] == s[tail-1]:
-                    sample =s[head:tail] # 根据起始点,向两侧扩展, 直到发现不是回文为止
-                    if len(sample) > len(result): # 如果发现长于result就取代
+                while head >= 0 and tail <= length and s[head] == s[tail - 1]:
+                    sample = s[head:tail]  # 根据起始点,向两侧扩展, 直到发现不是回文为止
+                    if len(sample) > len(result):  # 如果发现长于result就取代
                         result = sample
                     head -= 1
                     tail += 1
@@ -67,7 +67,6 @@ class Solution:
 #         pass
 
 Solution().longestPalindrome("abccba")
-
 
 # if __name__ == "__main__":
 #     assert Solution().longestPalindrome("") == "", "Edge 1"

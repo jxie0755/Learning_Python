@@ -2,7 +2,7 @@
 # Space: O(n)
 
 class Solution(object):
-    lookup = {"0":"0", "1":"1", "6":"9", "8":"8", "9":"6"}
+    lookup = {"0": "0", "1": "1", "6": "9", "8": "8", "9": "6"}
     cache = {}
 
     # @param {string} low
@@ -14,7 +14,7 @@ class Solution(object):
                 self.isStrobogrammatic(low)
         return count if count >= 0 else 0
 
-    def countStrobogrammaticUntil(self, num,  can_start_with_0):
+    def countStrobogrammaticUntil(self, num, can_start_with_0):
         if can_start_with_0 and num in self.cache:
             return self.cache[num]
 
@@ -44,7 +44,7 @@ class Solution(object):
                             count += self.countStrobogrammaticUntil(self.getMid(num), True) - \
                                      self.isStrobogrammatic(self.getMid(num))
 
-        if not can_start_with_0: # Sum up each length.
+        if not can_start_with_0:  # Sum up each length.
             for i in xrange(len(num) - 1, 0, -1):
                 count += self.countStrobogrammaticByLength(i)
         else:
@@ -67,8 +67,8 @@ class Solution(object):
 
     def isStrobogrammatic(self, num):
         n = len(num)
-        for i in xrange((n+1) / 2):
-            if num[n-1-i] not in self.lookup or \
-               num[i] != self.lookup[num[n-1-i]]:
+        for i in xrange((n + 1) / 2):
+            if num[n - 1 - i] not in self.lookup or \
+                    num[i] != self.lookup[num[n - 1 - i]]:
                 return False
         return True

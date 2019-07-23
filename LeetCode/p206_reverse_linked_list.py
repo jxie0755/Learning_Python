@@ -9,13 +9,13 @@ from typing import *
 from a0_TreeNode import *
 from a0_ListNode import *
 
+
 class Solution:
     # iteration
     # @return {ListNode}
-    def reverseList(self, head: ListNode) -> ListNode:# @param {ListNode} head
+    def reverseList(self, head: ListNode) -> ListNode:  # @param {ListNode} head
         dummy = ListNode(float("-inf"))
         while head:
-
             # dummy.next, head.next, head = head, dummy.next, head.next
             # https://stackoverflow.com/q/55850332/8435726
             # The swap can cause confusions, avoid using swap like this in complicated data structures
@@ -29,7 +29,6 @@ class Solution:
             head.next = tail
             # iterate the head to next node
             head = rest
-
 
         return dummy.next
 
@@ -52,9 +51,7 @@ class Solution:
     # d - 5 - 4 - 3 - 2 - 1 - N    |        N
     #    d.nx                               h  h为None,终止
 
-
-
-    def reverseList(self, head: ListNode) -> ListNode:# @param {ListNode} head
+    def reverseList(self, head: ListNode) -> ListNode:  # @param {ListNode} head
         if not head or not head.next:
             return head
 
@@ -64,12 +61,11 @@ class Solution:
             # 一行写法可以避免temp的使用, 甚至避免if条件, 也不需要假头
             # 但不推荐, 原因同上
 
-            nexthead = head.next    # t移动到h.next
-            head.next = end     # h连上e
-            end = head          # 然后e移动到h
-            head = nexthead        # h移动到t
+            nexthead = head.next  # t移动到h.next
+            head.next = end  # h连上e
+            end = head  # 然后e移动到h
+            head = nexthead  # h移动到t
         return end
-
 
     # 反向推理
     # 1-2-3-4-5-N    N
@@ -114,8 +110,6 @@ class Solution2(object):
             return [head, head]
 
 
-
-
 if __name__ == "__main__":
     emp = None
     f = Solution().reverseList(emp)
@@ -125,7 +119,7 @@ if __name__ == "__main__":
     f = Solution().reverseList(single)
     assert repr(f) == "99"
 
-    a = genNode([1,2,3,4,5])
+    a = genNode([1, 2, 3, 4, 5])
     f = Solution().reverseList(a)
     assert repr(f) == "5->4->3->2->1"
     print("all passed!")

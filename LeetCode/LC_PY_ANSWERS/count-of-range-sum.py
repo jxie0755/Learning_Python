@@ -9,6 +9,7 @@ class Solution(object):
         :type upper: int
         :rtype: int
         """
+
         def countAndMergeSort(sums, start, end, lower, upper):
             if end - start <= 1:  # The size of range [start, end) less than 2 is always with count 0.
                 return 0
@@ -31,7 +32,7 @@ class Solution(object):
                     r += 1
                 tmp.append(sums[i])
             # Copy tmp back to sums.
-            sums[start:start+len(tmp)] = tmp
+            sums[start:start + len(tmp)] = tmp
             return count
 
         sums = [0] * (len(nums) + 1)
@@ -49,6 +50,7 @@ class Solution2(object):
         :type upper: int
         :rtype: int
         """
+
         def countAndMergeSort(sums, start, end, lower, upper):
             if end - start <= 0:  # The size of range [start, end] less than 2 is always with count 0.
                 return 0
@@ -73,7 +75,7 @@ class Solution2(object):
                 tmp.append(sums[i])
 
             # Copy tmp back to sums
-            sums[start:start+len(tmp)] = tmp
+            sums[start:start + len(tmp)] = tmp
             return count
 
         sums = [0] * (len(nums) + 1)

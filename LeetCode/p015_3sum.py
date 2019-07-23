@@ -8,6 +8,7 @@
 
 from typing import *
 
+
 class Solution:
 
     def twoSum_for_3sum(self, numbers, target, jump):
@@ -18,7 +19,7 @@ class Solution:
             if idx == jump:
                 pass  # jump over current check in 3sum, to avoid repeat use
             elif numbers[idx] not in hashtable.keys():
-                hashtable[target-numbers[idx]] = idx
+                hashtable[target - numbers[idx]] = idx
             else:
                 result.append([numbers[hashtable[numbers[idx]]], numbers[idx]])
                 # do not return, but get every possible group of target two sum
@@ -44,6 +45,7 @@ class Solution:
 
         return result
 
+
 class Solution:
 
     # Version B
@@ -59,10 +61,10 @@ class Solution:
         i = 0
         while i != length - 2:
             first = nums[i]
-            j = i+1
+            j = i + 1
             while j != length - 1:
                 second = nums[j]
-                k = j+1
+                k = j + 1
                 while k != length:
                     third = nums[k]
                     if first + second + third == 0:
@@ -73,6 +75,7 @@ class Solution:
                 j += 1
             i += 1
         return result
+
 
 class Solution:
 
@@ -88,7 +91,7 @@ class Solution:
         result = []
         nums = sorted(nums)
         if nums.count(0) >= 3:
-            result.append([0,0,0])
+            result.append([0, 0, 0])
 
         break_point, length = 0, len(nums)
         while break_point != length:
@@ -121,6 +124,7 @@ class Solution:
 
         return result
 
+
 class Solution:
 
     # Version D
@@ -136,10 +140,10 @@ class Solution:
         if length < 3:
             return []
 
-        while nums[head] <=0 and head != length - 1:
+        while nums[head] <= 0 and head != length - 1:
             first, last = nums[head], nums[tail]
             mid = 0 - first - last
-            if mid in nums[head+1:tail]:
+            if mid in nums[head + 1:tail]:
                 ans = [first, mid, last]
                 if ans not in result:
                     result.append(ans)
@@ -153,13 +157,12 @@ class Solution:
         return result
 
 
-
 class Solution:
     def twoSum(self, numbers, target, jump):
         # 提取p167 two sum II 中的头尾缩进法 O(N)
 
         result = []
-        head, tail = 0, len(numbers) -1
+        head, tail = 0, len(numbers) - 1
         while head < tail:
             first, second = numbers[head], numbers[tail]
             if first + second > target or tail == jump:
@@ -171,7 +174,6 @@ class Solution:
                 tail -= 1
 
         return result
-
 
     # Version E
     # Use modified method of two_sum
@@ -207,7 +209,7 @@ class Solution(object):
         while i < len(nums) - 2:
 
             if i == 0 or nums[i] != nums[i - 1]:
-                          # 优化, 因为如果相同就别搞了
+                # 优化, 因为如果相同就别搞了
 
                 j, k = i + 1, len(nums) - 1
                 # i 是下一个, k是尾部
@@ -233,14 +235,18 @@ class Solution(object):
             i += 1
         return result
 
+
 if __name__ == "__main__":
     assert Solution().threeSum([]) == [], "Edge 1"
     assert Solution().threeSum([1]) == [], "Edge 2"
-    assert Solution().threeSum([1,1]) == [], "Edge 3"
+    assert Solution().threeSum([1, 1]) == [], "Edge 3"
 
     assert Solution().threeSum([-1, 0, 1, 2, -1, -4]) == [[-1, -1, 2], [-1, 0, 1]], "Example 1"
-    assert Solution().threeSum([-4,-2,-2,-2,0,1,2,2,2,3,3,4,4,6,6]) == [[-4,-2,6],[-4,0,4],[-4,1,3],[-4,2,2],[-2,-2,4],[-2,0,2]], "Example 2"
-    assert Solution().threeSum([-4,-2,-1]) == [], "Example 3"
-    assert Solution().threeSum([0,0,0]) == [[0,0,0]], "Example 4"
+    assert Solution().threeSum([-4, -2, -2, -2, 0, 1, 2, 2, 2, 3, 3, 4, 4, 6, 6]) == [[-4, -2, 6], [-4, 0, 4],
+                                                                                      [-4, 1, 3], [-4, 2, 2],
+                                                                                      [-2, -2, 4],
+                                                                                      [-2, 0, 2]], "Example 2"
+    assert Solution().threeSum([-4, -2, -1]) == [], "Example 3"
+    assert Solution().threeSum([0, 0, 0]) == [[0, 0, 0]], "Example 4"
 
     print("all passed")

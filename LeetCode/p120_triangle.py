@@ -23,9 +23,9 @@ class Solution:
                 return row[idx]
             else:
                 # recursive add the value on the idex to next roll's minimum value of the two adjacent index
-                return min(row[idx] + helper(depth+1, idx), row[idx] + helper(depth+1, idx+1))
+                return min(row[idx] + helper(depth + 1, idx), row[idx] + helper(depth + 1, idx + 1))
 
-        return helper(0,0)
+        return helper(0, 0)
 
 
 class Solution:
@@ -44,11 +44,10 @@ class Solution:
             row = triangle[N]
             new_min = []
             for i in range(0, len(row)):
-                new_min.append(row[i] + min(+next_row_min[i], next_row_min[i+1]))
+                new_min.append(row[i] + min(+next_row_min[i], next_row_min[i + 1]))
             next_row_min = new_min
             N -= 1
         return next_row_min[0]
-
 
     # do not general now next_row_min, modify in-place, for bonus
     def minimumTotal(self, triangle: List[List[int]]) -> int:
@@ -61,19 +60,18 @@ class Solution:
         while N >= 0:
             row = triangle[N]
             for i in range(0, len(row)):
-                next_row_min[i] = row[i] + min(next_row_min[i], next_row_min[i+1])
+                next_row_min[i] = row[i] + min(next_row_min[i], next_row_min[i + 1])
             N -= 1
         return next_row_min[0]
-
 
 
 if __name__ == "__main__":
     assert Solution().minimumTotal([[1]]) == 1, "Edge 1"
 
     A = [
-           [2],
-          [3, 4],
-         [6, 5, 7],
+        [2],
+        [3, 4],
+        [6, 5, 7],
         [4, 1, 8, 3]
     ]
 

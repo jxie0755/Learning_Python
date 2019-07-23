@@ -9,6 +9,7 @@ class Solution(object):
         :type cols: int
         :rtype: int
         """
+
         def words_fit(sentence, start, cols):
             if len(sentence[start]) > cols:
                 return 0

@@ -40,6 +40,7 @@
 from itertools import permutations
 import math
 
+
 class Solution:
     def nextPermutation(self, nums):
         # Use itertool.permutations itearate the permutation sequence from small to large,
@@ -65,6 +66,7 @@ class Solution:
         if first_sample:
             nums[:] = first
 
+
 class Solution:
     def nextPermutation(self, nums):
         # O(N), directly find next different permutations
@@ -75,8 +77,8 @@ class Solution:
         length = len(nums)
         cur_i = None
 
-        for i in range(-2, -length-1, -1):
-            if nums[i] < nums[i+1]:
+        for i in range(-2, -length - 1, -1):
+            if nums[i] < nums[i + 1]:
                 cur_i = i
                 break
 
@@ -86,7 +88,7 @@ class Solution:
             for rev_i in range(-1, cur_i, -1):
                 if nums[rev_i] > nums[cur_i]:
                     nums[cur_i], nums[rev_i] = nums[rev_i], nums[cur_i]  # switch
-                    nums[cur_i+1:] = nums[cur_i+1:][::-1]
+                    nums[cur_i + 1:] = nums[cur_i + 1:][::-1]
                     break
 
     # Addtional: prevPermute, which is the reverse process
@@ -115,7 +117,6 @@ class Solution:
         return nums
 
 
-
 if __name__ == "__main__":
     a = []
     Solution().nextPermutation(a)
@@ -125,36 +126,36 @@ if __name__ == "__main__":
     Solution().nextPermutation(a)
     assert a == [1], "Edge 2"
 
-    a = [1,2]
+    a = [1, 2]
     Solution().nextPermutation(a)
-    assert a == [2,1], "Edge 3"
+    assert a == [2, 1], "Edge 3"
 
-    a = [1,2,3]
+    a = [1, 2, 3]
     Solution().nextPermutation(a)
-    assert a == [1,3,2], "Example 1"
+    assert a == [1, 3, 2], "Example 1"
 
-    a = [3,2,1]
+    a = [3, 2, 1]
     Solution().nextPermutation(a)
-    assert a == [1,2,3], "Example 2"
+    assert a == [1, 2, 3], "Example 2"
 
-    a = [1,1,5]
+    a = [1, 1, 5]
     Solution().nextPermutation(a)
-    assert a == [1,5,1], "Example 3"
+    assert a == [1, 5, 1], "Example 3"
 
-    a = [5,1,1]
+    a = [5, 1, 1]
     Solution().nextPermutation(a)
-    assert a == [1,1,5], "Extra 1"
+    assert a == [1, 1, 5], "Extra 1"
 
-    a = [2,2,2]
+    a = [2, 2, 2]
     Solution().nextPermutation(a)
-    assert a == [2,2,2], "Extra 2"
+    assert a == [2, 2, 2], "Extra 2"
 
-    a = [1,2,2,2]
+    a = [1, 2, 2, 2]
     Solution().nextPermutation(a)
-    assert a == [2,1,2,2], "Extra 3"
+    assert a == [2, 1, 2, 2], "Extra 3"
 
-    a = [2,3,1]
+    a = [2, 3, 1]
     Solution().nextPermutation(a)
-    assert a == [3,1,2]
+    assert a == [3, 1, 2]
 
     print("all passed")

@@ -28,6 +28,7 @@ class Solution(object):
 
         return uglies[-1]
 
+
 # Time:  O(n * k)
 # Space: O(n + k)
 # Hash solution. (932ms)
@@ -54,6 +55,7 @@ class Solution2(object):
 
         return uglies[-1]
 
+
 # Time:  O(n * logk) ~ O(n * klogk)
 # Space: O(n + k)
 class Solution3(object):
@@ -78,6 +80,7 @@ class Solution3(object):
 
         return uglies[-1]
 
+
 # Time:  O(n * k)
 # Space: O(n + k)
 # TLE due to the last test case, but it passess and performs the best in C++.
@@ -101,6 +104,7 @@ class Solution4(object):
                     ugly_by_prime[k] = primes[k] * uglies[idx[k]]
 
         return uglies[-1]
+
 
 # Time:  O(n * logk) ~ O(n * klogk)
 # Space: O(k^2)

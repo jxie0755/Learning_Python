@@ -11,13 +11,14 @@ class Solution(object):
         :type S: int
         :rtype: int
         """
+
         def subsetSum(nums, S):
             dp = collections.defaultdict(int)
             dp[0] = 1
             for n in nums:
-                for i in reversed(xrange(n, S+1)):
-                    if i-n in dp:
-                        dp[i] += dp[i-n]
+                for i in reversed(xrange(n, S + 1)):
+                    if i - n in dp:
+                        dp[i] += dp[i - n]
             return dp[S]
 
         total = sum(nums)

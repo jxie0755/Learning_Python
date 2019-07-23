@@ -23,6 +23,7 @@ class Solution(object):
                 return i
         return h
 
+
 # Time:  O(nlogn)
 # Space: O(1)
 class Solution2(object):
@@ -39,6 +40,7 @@ class Solution2(object):
             else:
                 break
         return h
+
 
 # Time:  O(nlogn)
 # Space: O(n)

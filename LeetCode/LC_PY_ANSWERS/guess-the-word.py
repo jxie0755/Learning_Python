@@ -12,6 +12,7 @@ class Solution(object):
         :type master: Master
         :rtype: None
         """
+
         def solve(H, possible):
             min_max_group, best_guess = possible, None
             for guess in possible:
@@ -25,8 +26,8 @@ class Solution(object):
             return best_guess
 
         H = [[sum(a == b for a, b in itertools.izip(wordlist[i], wordlist[j]))
-                  for j in xrange(len(wordlist))]
-                  for i in xrange(len(wordlist))]
+              for j in xrange(len(wordlist))]
+             for i in xrange(len(wordlist))]
         possible = range(len(wordlist))
         n = 0
         while possible and n < 6:
@@ -44,6 +45,7 @@ class Solution2(object):
         :type master: Master
         :rtype: None
         """
+
         def solve(H, possible):
             min_max_group, best_guess = possible, None
             for guess in possible:
@@ -57,8 +59,8 @@ class Solution2(object):
             return best_guess
 
         H = [[sum(a == b for a, b in itertools.izip(wordlist[i], wordlist[j]))
-                  for j in xrange(len(wordlist))]
-                  for i in xrange(len(wordlist))]
+              for j in xrange(len(wordlist))]
+             for i in xrange(len(wordlist))]
         possible = range(len(wordlist))
         n = 0
         while possible and n < 6:

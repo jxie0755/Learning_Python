@@ -7,16 +7,16 @@
 
 count = 0
 
+
 class Solution:
     def neighbor(self, board, coor):
         x, y = coor[0], coor[1]
         hmp = dict()
-        hmp[(x-1, y)] = board[x-1][y]   # up
-        hmp[(x+1, y)] = board[x+1][y]   # down
-        hmp[(x, y-1)] = board[x][y-1]   # left
-        hmp[(x, y+1)] = board[x][y+1]   # right
+        hmp[(x - 1, y)] = board[x - 1][y]  # up
+        hmp[(x + 1, y)] = board[x + 1][y]  # down
+        hmp[(x, y - 1)] = board[x][y - 1]  # left
+        hmp[(x, y + 1)] = board[x][y + 1]  # right
         return hmp
-
 
     def exist(self, board, word: str):
         # This recursive method passed most cased but exceeded max time when case is long.
@@ -29,11 +29,11 @@ class Solution:
         # 给board周围加一圈"0", 防止检查周围时index找不到
         board = [["0"] * col] + board + [["0"] * col]
         for i in board:
-            i.insert(0,"0")
+            i.insert(0, "0")
             i.append("0")
 
         # Starting list
-        start = [(r, c) for r in range(1, row+1) for c in range(1, col+1) if board[r][c] == word[0]]
+        start = [(r, c) for r in range(1, row + 1) for c in range(1, col + 1) if board[r][c] == word[0]]
 
         def helper(board, coor, word, result):
             result.append(coor)
@@ -48,6 +48,7 @@ class Solution:
 
         return any([helper(board, i, word, []) for i in start])
 
+
 if __name__ == "__main__":
     board = [
         ["A", "B", "C", "E"],
@@ -60,9 +61,9 @@ if __name__ == "__main__":
     assert not Solution().exist(board, "ABCB"), "Example 3"
 
     board = [
-        ["b","a","b","a","a","a"],
-        ["b","b","b","a","a","a"],
-        ["b","a","b","a","b","a"]
+        ["b", "a", "b", "a", "a", "a"],
+        ["b", "b", "b", "a", "a", "a"],
+        ["b", "a", "b", "a", "b", "a"]
     ]
 
     assert Solution().exist(board, "ba"), "Additional 1"

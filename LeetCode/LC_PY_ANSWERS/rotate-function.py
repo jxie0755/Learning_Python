@@ -13,7 +13,7 @@ class Solution(object):
             fi += i * A[i]
 
         result = fi
-        for i in range(1, len(A)+1):
+        for i in range(1, len(A) + 1):
             fi += s - len(A) * A[-i]
             result = max(result, fi)
         return result

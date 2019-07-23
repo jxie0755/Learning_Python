@@ -8,7 +8,7 @@ class Solution(object):
         :type dominoes: str
         :rtype: str
         """
-        force = [0]*len(dominoes)
+        force = [0] * len(dominoes)
 
         f = 0
         for i in xrange(len(dominoes)):
@@ -17,7 +17,7 @@ class Solution(object):
             elif dominoes[i] == "L":
                 f = 0
             else:
-                f = max(f-1, 0)
+                f = max(f - 1, 0)
             force[i] += f
 
         f = 0
@@ -27,7 +27,7 @@ class Solution(object):
             elif dominoes[i] == "R":
                 f = 0
             else:
-                f = max(f-1, 0)
+                f = max(f - 1, 0)
             force[i] -= f
 
         return "".join("." if f == 0 else "R" if f > 0 else "L"

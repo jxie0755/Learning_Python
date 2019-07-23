@@ -8,11 +8,11 @@ class Solution(object):
         :type trust: List[List[int]]
         :rtype: int
         """
-        degrees = [0]*N
+        degrees = [0] * N
         for i, j in trust:
-            degrees[i-1] -= 1
-            degrees[j-1] += 1
+            degrees[i - 1] -= 1
+            degrees[j - 1] += 1
         for i in xrange(len(degrees)):
-            if degrees[i] == N-1:
-                return i+1
+            if degrees[i] == N - 1:
+                return i + 1
         return -1

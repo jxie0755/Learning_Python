@@ -8,6 +8,7 @@ class Solution(object):
         :type k: int
         :rtype: int
         """
+
         def longestSubstringHelper(s, k, start, end):
             count = [0] * 26
             for i in xrange(start, end):

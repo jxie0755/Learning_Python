@@ -3,6 +3,7 @@
 
 from random import randint
 
+
 class Solution(object):
 
     def __init__(self, head):
@@ -11,7 +12,6 @@ class Solution(object):
         :type head: ListNode
         """
         self.__head = head
-
 
     # Proof of Reservoir Sampling:
     # https://discuss.leetcode.com/topic/53753/brief-explanation-for-reservoir-sampling
@@ -23,6 +23,6 @@ class Solution(object):
         reservoir = -1
         curr, n = self.__head, 0
         while curr:
-            reservoir = curr.val if randint(1, n+1) == 1 else reservoir
-            curr, n = curr.next, n+1
+            reservoir = curr.val if randint(1, n + 1) == 1 else reservoir
+            curr, n = curr.next, n + 1
         return reservoir

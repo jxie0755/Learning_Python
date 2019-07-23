@@ -6,6 +6,7 @@
 
 from typing import *
 
+
 class Solution:
 
     # Version A, hashmap method
@@ -25,7 +26,7 @@ class Solution:
 
         return result
 
-if __name__ == "__main__":
 
+if __name__ == "__main__":
     assert Solution().romanToInt("MMMCDXCIX") == 3499, "Example 1"
     print("all passed")

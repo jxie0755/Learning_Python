@@ -19,8 +19,8 @@ class Solution(object):
                 return False
             elif i < N and j < N:
                 if start[i] != end[j] or \
-                   (start[i] == "L" and i < j) or \
-                   (start[i] == "R" and i > j):
+                        (start[i] == "L" and i < j) or \
+                        (start[i] == "R" and i > j):
                     return False
             i += 1
             j += 1

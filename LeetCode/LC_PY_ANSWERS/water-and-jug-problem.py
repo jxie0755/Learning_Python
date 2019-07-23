@@ -9,9 +9,10 @@ class Solution(object):
         :type z: int
         :rtype: bool
         """
+
         def gcd(a, b):
             while b:
-                a, b = b, a%b
+                a, b = b, a % b
             return a
 
         # The problem is to solve:

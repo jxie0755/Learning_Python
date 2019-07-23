@@ -21,7 +21,7 @@ class Solution(object):
             is_border = False
 
             for direction in directions:
-                nr, nc = r+direction[0], c+direction[1]
+                nr, nc = r + direction[0], c + direction[1]
                 if not ((0 <= nr < len(grid)) and \
                         (0 <= nc < len(grid[0])) and \
                         grid[nr][nc] == grid[r][c]):
@@ -38,4 +38,3 @@ class Solution(object):
         for r, c in borders:
             grid[r][c] = color
         return grid
-    

@@ -17,5 +17,5 @@ class Solution(object):
                                  reversed(xrange(len(S)))):
             if S[i] == C:
                 prev = i
-            result[i] = min(result[i], abs(i-prev))
+            result[i] = min(result[i], abs(i - prev))
         return result

@@ -25,10 +25,10 @@ class Solution(object):
                     return False
                 if i == 0:
                     continue
-                if pos[seq[i-1]] >= pos[seq[i]]:
+                if pos[seq[i - 1]] >= pos[seq[i]]:
                     return False
-                if is_matched[seq[i-1]] == False and pos[seq[i-1]] + 1 == pos[seq[i]]:
-                    is_matched[seq[i-1]] = True
+                if is_matched[seq[i - 1]] == False and pos[seq[i - 1]] + 1 == pos[seq[i]]:
+                    is_matched[seq[i - 1]] = True
                     cnt_to_match -= 1
 
         return cnt_to_match == 0
@@ -53,12 +53,12 @@ class Solution2(object):
                 if seq[0] not in indegree:
                     indegree[seq[0]] = 0
                 continue
-            for i in xrange(len(seq)-1):
+            for i in xrange(len(seq) - 1):
                 if seq[i] not in indegree:
                     indegree[seq[i]] = 0
-                if seq[i+1] not in graph[seq[i]]:
-                    graph[seq[i]].add(seq[i+1])
-                    indegree[seq[i+1]] += 1
+                if seq[i + 1] not in graph[seq[i]]:
+                    graph[seq[i]].add(seq[i + 1])
+                    indegree[seq[i + 1]] += 1
 
         cnt_of_zero_indegree = 0
         res = []

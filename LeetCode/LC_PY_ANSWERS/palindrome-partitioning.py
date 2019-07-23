@@ -10,7 +10,7 @@ class Solution(object):
         is_palindrome = [[0 for j in xrange(n)] for i in xrange(n)]
         for i in reversed(xrange(0, n)):
             for j in xrange(i, n):
-                is_palindrome[i][j] = s[i] == s[j] and ((j - i < 2 ) or is_palindrome[i + 1][j - 1])
+                is_palindrome[i][j] = s[i] == s[j] and ((j - i < 2) or is_palindrome[i + 1][j - 1])
 
         sub_partition = [[] for i in xrange(n)]
         for i in reversed(xrange(n)):
@@ -23,6 +23,7 @@ class Solution(object):
                         sub_partition[i].append([s[i:j + 1]])
 
         return sub_partition[0]
+
 
 # Time:  O(2^n)
 # Space: O(n)

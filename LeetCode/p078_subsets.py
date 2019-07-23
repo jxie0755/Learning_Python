@@ -6,7 +6,6 @@
 # Note: The solution set must not contain duplicate subsets.
 
 
-
 class Solution:
     def combinationSolo(self, nums, k):
         if k == 0:
@@ -19,14 +18,14 @@ class Solution:
             result = []
             next_list = nums[:]
             head = next_list.pop(0)
-            result += [[head] + com for com in self.combinationSolo(next_list, k - 1)] + self.combinationSolo(nums[1:], k)
+            result += [[head] + com for com in self.combinationSolo(next_list, k - 1)] + self.combinationSolo(nums[1:],
+                                                                                                              k)
             return result
-
 
     # passed but on the slow side
     def subsets(self, nums):
         result = []
-        for i in range(0, len(nums)+1):
+        for i in range(0, len(nums) + 1):
             result += self.combinationSolo(nums, i)
         return result
 
@@ -46,7 +45,7 @@ class Solution:
         range_to = N // 2 + 1
         if N % 2 == 0:
             range_to = N // 2
-            result += self.combinationSolo(nums, N//2)
+            result += self.combinationSolo(nums, N // 2)
 
         for i in range(0, range_to):
             ans = self.combinationSolo(nums, i)
@@ -56,9 +55,7 @@ class Solution:
         return result
 
 
-
-print(sorted(Solution().subsets([1,2,3])))
-
+print(sorted(Solution().subsets([1, 2, 3])))
 
 # if __name__ == "__main__":
 #     nums = [1,2]

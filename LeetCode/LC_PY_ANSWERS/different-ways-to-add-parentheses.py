@@ -30,6 +30,7 @@ class Solution(object):
 
         return diffWaysToComputeRecu(0, len(nums) - 1)
 
+
 class Solution2(object):
     # @param {string} input
     # @return {integer[]}

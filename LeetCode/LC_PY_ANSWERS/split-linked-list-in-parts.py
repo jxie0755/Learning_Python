@@ -19,7 +19,7 @@ class Solution(object):
         curr = root
         for i in xrange(k):
             head = curr
-            for j in xrange(width-1+int(i < remainder)):
+            for j in xrange(width - 1 + int(i < remainder)):
                 if curr:
                     curr = curr.next
             if curr:

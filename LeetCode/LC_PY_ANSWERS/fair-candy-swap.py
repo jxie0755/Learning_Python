@@ -8,9 +8,9 @@ class Solution(object):
         :type B: List[int]
         :rtype: List[int]
         """
-        diff = (sum(A)-sum(B))//2
+        diff = (sum(A) - sum(B)) // 2
         setA = set(A)
         for b in set(B):
-            if diff+b in setA:
-                return [diff+b, b]
+            if diff + b in setA:
+                return [diff + b, b]
         return []

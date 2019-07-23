@@ -30,6 +30,7 @@ class Solution:
             result = -result
         return result if 2147483647 > result > -2147483648 else 0
 
+
 if __name__ == "__main__":
     assert Solution().reverse(123) == 321, "regular"
     assert Solution().reverse(-120) == -21, "tricky reverse"

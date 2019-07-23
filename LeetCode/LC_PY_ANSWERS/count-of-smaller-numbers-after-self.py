@@ -7,6 +7,7 @@ class Solution(object):
         :type nums: List[int]
         :rtype: List[int]
         """
+
         def countAndMergeSort(num_idxs, start, end, counts):
             if end - start <= 0:  # The size of range [start, end] less than 2 is always with count 0.
                 return 0
@@ -25,7 +26,7 @@ class Solution(object):
                 counts[num_idxs[i][1]] += r - (mid + 1)
 
             # Copy tmp back to num_idxs
-            num_idxs[start:start+len(tmp)] = tmp
+            num_idxs[start:start + len(tmp)] = tmp
 
         num_idxs = []
         counts = [0] * len(nums)
@@ -33,6 +34,7 @@ class Solution(object):
             num_idxs.append((num, i))
         countAndMergeSort(num_idxs, 0, len(num_idxs) - 1, counts)
         return counts
+
 
 # Time:  O(nlogn)
 # Space: O(n)
@@ -43,6 +45,7 @@ class Solution2(object):
         :type nums: List[int]
         :rtype: List[int]
         """
+
         def binarySearch(A, target, compare):
             start, end = 0, len(A) - 1
             while start <= end:
@@ -75,11 +78,12 @@ class Solution2(object):
             places[i] = binarySearch(sorted_nums, num, lambda x, y: x <= y)
 
         # Count the smaller elements after the number.
-        ans, bit= [0] * len(nums), BIT(len(nums) + 1)
+        ans, bit = [0] * len(nums), BIT(len(nums) + 1)
         for i in reversed(xrange(len(nums))):
             ans[i] = bit.query(places[i])
             bit.add(places[i] + 1, 1)
         return ans
+
 
 # Time:  O(nlogn)
 # Space: O(n)

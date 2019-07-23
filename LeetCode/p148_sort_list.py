@@ -64,8 +64,8 @@ if __name__ == "__main__":
     A = genNode([1])
     assert Solution().sortList(A) == A, "Edge 1"
 
-    A = genNode([4,2,1,3])
-    assert Solution().sortList(A) == genNode([1,2,3,4]), "Example 1"
+    A = genNode([4, 2, 1, 3])
+    assert Solution().sortList(A) == genNode([1, 2, 3, 4]), "Example 1"
 
     A = genNode([-1, 5, 3, 4, 0])
     assert Solution().sortList(A) == genNode([-1, 0, 3, 4, 5]), "Example 2"

@@ -6,6 +6,7 @@ class UndirectedGraphNode(object):
         self.label = x
         self.neighbors = []
 
+
 class Solution(object):
     # @param node, a undirected graph node
     # @return a undirected graph node
@@ -13,7 +14,7 @@ class Solution(object):
         if node is None:
             return None
         cloned_node = UndirectedGraphNode(node.label)
-        cloned, queue = {node:cloned_node}, [node]
+        cloned, queue = {node: cloned_node}, [node]
 
         while queue:
             current = queue.pop()

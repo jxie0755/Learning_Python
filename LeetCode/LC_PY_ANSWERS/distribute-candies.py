@@ -9,4 +9,4 @@ class Solution(object):
         :rtype: int
         """
         lookup = set(candies)
-        return min(len(lookup), len(candies)/2)
+        return min(len(lookup), len(candies) / 2)

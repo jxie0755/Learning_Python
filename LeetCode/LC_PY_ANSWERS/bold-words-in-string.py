@@ -27,15 +27,15 @@ class Solution(object):
                 curr = curr[S[j]]
                 if "_end" in curr:
                     k = j
-            for j in xrange(i, k+1):
+            for j in xrange(i, k + 1):
                 lookup[j] = True
 
         result = []
         for i in xrange(len(S)):
-            if lookup[i] and (i == 0 or not lookup[i-1]):
+            if lookup[i] and (i == 0 or not lookup[i - 1]):
                 result.append("<b>")
             result.append(S[i])
-            if lookup[i] and (i == len(S)-1 or not lookup[i+1]):
+            if lookup[i] and (i == len(S) - 1 or not lookup[i + 1]):
                 result.append("</b>")
         return "".join(result)
 
@@ -53,14 +53,14 @@ class Solution2(object):
         for d in words:
             pos = S.find(d)
             while pos != -1:
-                lookup[pos:pos+len(d)] = [1] * len(d)
-                pos = S.find(d, pos+1)
+                lookup[pos:pos + len(d)] = [1] * len(d)
+                pos = S.find(d, pos + 1)
 
         result = []
         for i in xrange(len(S)):
-            if lookup[i] and (i == 0 or not lookup[i-1]):
+            if lookup[i] and (i == 0 or not lookup[i - 1]):
                 result.append("<b>")
             result.append(S[i])
-            if lookup[i] and (i == len(S)-1 or not lookup[i+1]):
+            if lookup[i] and (i == len(S) - 1 or not lookup[i + 1]):
                 result.append("</b>")
         return "".join(result)

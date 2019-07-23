@@ -18,6 +18,6 @@ class Solution(object):
         result = ""
         for word in counts:
             if (not result or counts[word] > counts[result]) and \
-               word not in lookup:
+                    word not in lookup:
                 result = word
         return result

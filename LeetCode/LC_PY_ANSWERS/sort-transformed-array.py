@@ -10,7 +10,7 @@ class Solution(object):
         :type c: int
         :rtype: List[int]
         """
-        f = lambda x, a, b, c : a * x * x + b * x + c
+        f = lambda x, a, b, c: a * x * x + b * x + c
 
         result = []
         if not nums:

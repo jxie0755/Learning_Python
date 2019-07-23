@@ -19,6 +19,7 @@ class Solution(object):
         :type root2: TreeNode
         :rtype: bool
         """
+
         def dfs(node):
             if not node:
                 return
@@ -28,5 +29,6 @@ class Solution(object):
                 yield i
             for i in dfs(node.right):
                 yield i
+
         return all(a == b for a, b in
                    itertools.izip_longest(dfs(root1), dfs(root2)))

@@ -9,7 +9,7 @@ class Node(object):
         self.right = right
         self.parent = parent
 
-        
+
 class Solution(object):
     def inorderSuccessor(self, node):
         """
@@ -18,13 +18,13 @@ class Solution(object):
         """
         if not node:
             return None
-        
+
         if node.right:
             node = node.right
             while node.left:
                 node = node.left
             return node
-        
+
         while node.parent and node.parent.right is node:
             node = node.parent
         return node.parent

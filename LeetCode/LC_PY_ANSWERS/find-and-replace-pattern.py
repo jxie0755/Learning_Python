@@ -11,6 +11,7 @@ class Solution(object):
         :type pattern: str
         :rtype: List[str]
         """
+
         def match(word):
             lookup = {}
             for x, y in itertools.izip(pattern, word):

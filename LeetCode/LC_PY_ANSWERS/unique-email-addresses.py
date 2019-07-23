@@ -7,6 +7,7 @@ class Solution(object):
         :type emails: List[str]
         :rtype: int
         """
+
         def convert(email):
             name, domain = email.split("@")
             name = name[:name.index("+")]
@@ -16,4 +17,3 @@ class Solution(object):
         for email in emails:
             lookup.add(convert(email))
         return len(lookup)
-  

@@ -20,7 +20,7 @@ class Solution(object):
         while radiant and dire:
             r_idx, d_idx = radiant.popleft(), dire.popleft()
             if r_idx < d_idx:
-                radiant.append(r_idx+n)
+                radiant.append(r_idx + n)
             else:
-                dire.append(d_idx+n)
+                dire.append(d_idx + n)
         return "Radiant" if len(radiant) > len(dire) else "Dire"

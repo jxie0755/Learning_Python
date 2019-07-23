@@ -12,11 +12,11 @@ class Solution(object):
         :type target: List[int]
         :rtype: bool
         """
-        R, C = 10**6, 10**6
+        R, C = 10 ** 6, 10 ** 6
         directions = [(0, -1), (0, 1), (-1, 0), (1, 0)]
 
         def bfs(blocks, source, target):
-            max_area_surrounded_by_blocks = len(blocks)*(len(blocks)-1)//2
+            max_area_surrounded_by_blocks = len(blocks) * (len(blocks) - 1) // 2
             lookup = set([source])
             if len(lookup) > max_area_surrounded_by_blocks:
                 return True
@@ -26,9 +26,9 @@ class Solution(object):
                 if source == target:
                     return True
                 for direction in directions:
-                    nr, nc = source[0]+direction[0], source[1]+direction[1]
+                    nr, nc = source[0] + direction[0], source[1] + direction[1]
                     if not ((0 <= nr < R) and
-                            (0 <= nc < C) and 
+                            (0 <= nc < C) and
                             (nr, nc) not in lookup and
                             (nr, nc) not in blocks):
                         continue
@@ -37,6 +37,6 @@ class Solution(object):
                         return True
                     q.append((nr, nc))
             return False
-        
+
         return bfs(set(map(tuple, blocked)), tuple(source), tuple(target)) and \
                bfs(set(map(tuple, blocked)), tuple(target), tuple(source))

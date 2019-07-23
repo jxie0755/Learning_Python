@@ -44,7 +44,7 @@ class Solution(object):
                     ANS = str(val)
                     if remain:  # do not record the divide calculation yet
                         ANS += "."
-                else: # only after the first divide calculation
+                else:  # only after the first divide calculation
                     remains_dict[a] = str(val)
                     remains_list.append(a)
 
@@ -99,18 +99,17 @@ class Solution(object):
         return "-" + ANS if neg else ANS
 
 
-
 if __name__ == "__main__":
     assert Solution().fractionToDecimal(0, 3) == "0", "Edge"
     assert Solution().fractionToDecimal(-50, 8) == "-6.25", "Edge Negative"
 
     assert Solution().fractionToDecimal(1, 2) == "0.5", "Example 1"
     assert Solution().fractionToDecimal(2, 1) == "2", "Example 2"
-    assert Solution().fractionToDecimal(2,3) == "0.(6)", "Example 3"
+    assert Solution().fractionToDecimal(2, 3) == "0.(6)", "Example 3"
 
-    assert Solution().fractionToDecimal(1,6) == "0.1(6)", "Additional 1"
-    assert Solution().fractionToDecimal(19,75) == "0.25(3)", "Additional 2"
-    assert Solution().fractionToDecimal(1,90) == "0.0(1)", "Additional 3"
-    assert Solution().fractionToDecimal(10,333) == "0.(030)", "Additional 4"
+    assert Solution().fractionToDecimal(1, 6) == "0.1(6)", "Additional 1"
+    assert Solution().fractionToDecimal(19, 75) == "0.25(3)", "Additional 2"
+    assert Solution().fractionToDecimal(1, 90) == "0.0(1)", "Additional 3"
+    assert Solution().fractionToDecimal(10, 333) == "0.(030)", "Additional 4"
 
     print("all passed")

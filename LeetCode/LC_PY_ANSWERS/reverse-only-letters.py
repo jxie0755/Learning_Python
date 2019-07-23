@@ -7,6 +7,7 @@ class Solution(object):
         :type S: str
         :rtype: str
         """
+
         def getNext(S):
             for i in reversed(xrange(len(S))):
                 if S[i].isalpha():

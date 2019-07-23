@@ -11,7 +11,7 @@ class Solution(object):
         if len(nums) == 1:
             return nums[0]
 
-        return max(self.robRange(nums, 0, len(nums) - 1),\
+        return max(self.robRange(nums, 0, len(nums) - 1), \
                    self.robRange(nums, 1, len(nums)))
 
     def robRange(self, nums, start, end):

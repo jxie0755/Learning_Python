@@ -11,12 +11,13 @@
 
 from math import factorial
 
+
 # This is the same as ProjectEuler p 015 lattice paths
 # use combination method: Combination pick r out of n : n! // r! // (n-r)!
 class Solution:
     def uniquePaths(self, m: int, n: int) -> int:
         total = m + n - 2
-        return factorial(total) // (factorial(total - (n-1))* factorial(n-1))
+        return factorial(total) // (factorial(total - (n - 1)) * factorial(n - 1))
 
 
 if __name__ == "__main__":
@@ -28,4 +29,3 @@ if __name__ == "__main__":
     assert Solution().uniquePaths(7, 3) == 28, "Example 2"
 
     print("all passed")
-

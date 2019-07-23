@@ -20,8 +20,8 @@ class Solution(object):
         can_break[0] = True
         for i in xrange(1, n + 1):
             for l in xrange(1, min(i, max_len) + 1):
-                if can_break[i-l] and s[i-l:i] in wordDict:
-                    valid[i-l][i-1] = True
+                if can_break[i - l] and s[i - l:i] in wordDict:
+                    valid[i - l][i - 1] = True
                     can_break[i] = True
 
         result = []
@@ -35,6 +35,6 @@ class Solution(object):
             return
         for i in xrange(start, len(s)):
             if valid[start][i]:
-                path += [s[start:i+1]]
+                path += [s[start:i + 1]]
                 self.wordBreakHelper(s, valid, i + 1, path, result)
                 path.pop()

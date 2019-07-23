@@ -17,11 +17,11 @@ class Solution(object):
 
     def isPeak(self, lst, i):
         if i == 0:
-            return lst[i] > lst[i+1]
-        elif i == len(lst)-1:
-            return lst[i] > lst[i-1]
+            return lst[i] > lst[i + 1]
+        elif i == len(lst) - 1:
+            return lst[i] > lst[i - 1]
         else:
-            return lst[i] > lst[i+1] and lst[i] > lst[i-1]
+            return lst[i] > lst[i + 1] and lst[i] > lst[i - 1]
 
     def findPeakElement(self, nums):
         """
@@ -32,6 +32,7 @@ class Solution(object):
         if len(nums) == 1:
             return 0
         result = []
+
         def helper(lo, hi):
             """a helper function to find peaks in nums"""
             if not result:
@@ -42,9 +43,9 @@ class Solution(object):
                 elif lo < hi - 1:
                     mid = (lo + hi) // 2
                     helper(lo, mid)
-                    helper(mid+1, hi)
+                    helper(mid + 1, hi)
 
-        helper(0, len(nums)-1)
+        helper(0, len(nums) - 1)
         if result:
             return result[0]
 
@@ -70,15 +71,14 @@ class Solution_2(object):
         return left
 
 
-
 if __name__ == "__main__":
     assert Solution().findPeakElement([1]) == 0, "Edge 1"
-    assert Solution().findPeakElement([2,1]) == 0, "Edge 2"
+    assert Solution().findPeakElement([2, 1]) == 0, "Edge 2"
     assert Solution().findPeakElement([3, 2, 1]) == 0, "Edge 3"
 
-    assert Solution().findPeakElement([1,2,3,1]) == 2, "Example 1"
+    assert Solution().findPeakElement([1, 2, 3, 1]) == 2, "Example 1"
 
-    B = Solution().findPeakElement([1,2,1,3,5,6,4])
+    B = Solution().findPeakElement([1, 2, 1, 3, 5, 6, 4])
     assert B == 1 or B == 5, "Example 2"
 
     assert Solution().findPeakElement([1, 2]) == 1, "Additional 1"

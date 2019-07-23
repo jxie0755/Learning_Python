@@ -38,22 +38,21 @@ class Solution:
             i += 1
 
 
-
 if __name__ == "__main__":
-    a = [1,2,3,4,5,6,7]
+    a = [1, 2, 3, 4, 5, 6, 7]
     Solution().rotate(a, 0)
-    assert a == [1,2,3,4,5,6,7], "Edge"
+    assert a == [1, 2, 3, 4, 5, 6, 7], "Edge"
 
-    a = [1,2,3,4,5,6,7]
+    a = [1, 2, 3, 4, 5, 6, 7]
     Solution().rotate(a, 3)
-    assert a == [5,6,7,1,2,3,4], "Example 1"
+    assert a == [5, 6, 7, 1, 2, 3, 4], "Example 1"
 
-    a = [-1,-100,3,99]
+    a = [-1, -100, 3, 99]
     Solution().rotate(a, 2)
-    assert a == [3,99,-1,-100], "Example 2"
+    assert a == [3, 99, -1, -100], "Example 2"
 
-    a = [1,2,3,4]
+    a = [1, 2, 3, 4]
     Solution().rotate(a, 5)
-    assert a == [4,1,2,3], "Large k"
+    assert a == [4, 1, 2, 3], "Large k"
 
     print("all passed")

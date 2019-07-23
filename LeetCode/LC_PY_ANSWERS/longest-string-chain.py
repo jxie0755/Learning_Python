@@ -14,5 +14,5 @@ class Solution(object):
         dp = collections.defaultdict(int)
         for w in words:
             for i in xrange(len(w)):
-                dp[w] = max(dp[w], dp[w[:i]+w[i+1:]]+1)
+                dp[w] = max(dp[w], dp[w[:i] + w[i + 1:]] + 1)
         return max(dp.itervalues())

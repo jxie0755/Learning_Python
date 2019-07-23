@@ -10,10 +10,10 @@ class Solution(object):
         """
         len1, len2 = len(nums1), len(nums2)
         if (len1 + len2) % 2 == 1:
-            return self.getKth(nums1, nums2, (len1 + len2)/2 + 1)
+            return self.getKth(nums1, nums2, (len1 + len2) / 2 + 1)
         else:
-            return (self.getKth(nums1, nums2, (len1 + len2)/2) + \
-                    self.getKth(nums1, nums2, (len1 + len2)/2 + 1)) * 0.5
+            return (self.getKth(nums1, nums2, (len1 + len2) / 2) + \
+                    self.getKth(nums1, nums2, (len1 + len2) / 2 + 1)) * 0.5
 
     def getKth(self, A, B, k):
         m, n = len(A), len(B)
@@ -46,10 +46,10 @@ class Solution_Generic(object):
         """
         len1, len2 = len(nums1), len(nums2)
         if (len1 + len2) % 2 == 1:
-            return self.getKth([nums1, nums2], (len1 + len2)/2 + 1)
+            return self.getKth([nums1, nums2], (len1 + len2) / 2 + 1)
         else:
-            return (self.getKth([nums1, nums2], (len1 + len2)/2) + \
-                    self.getKth([nums1, nums2], (len1 + len2)/2 + 1)) * 0.5
+            return (self.getKth([nums1, nums2], (len1 + len2) / 2) + \
+                    self.getKth([nums1, nums2], (len1 + len2) / 2 + 1)) * 0.5
 
     def getKth(self, arrays, k):
         def binary_search(array, left, right, target, compare):
@@ -77,6 +77,7 @@ class Solution_Generic(object):
 
         return binary_search(arrays, left, right, k, match)
 
+
 class Solution_3(object):
     def findMedianSortedArrays(self, A, B):
 
@@ -86,7 +87,7 @@ class Solution_3(object):
         lenB = len(B)
         lenn = lenA + lenB
 
-        indexA,indexB,indexC = 0,0,0
+        indexA, indexB, indexC = 0, 0, 0
         C = [False for i in xrange(lenn)]
         while indexA < lenA and indexB < lenB:
             if A[indexA] < B[indexB]:

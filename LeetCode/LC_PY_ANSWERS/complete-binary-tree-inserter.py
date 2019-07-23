@@ -9,6 +9,7 @@ class TreeNode(object):
         self.left = None
         self.right = None
 
+
 class CBTInserter(object):
 
     def __init__(self, root):
@@ -20,7 +21,7 @@ class CBTInserter(object):
             if i.left:
                 self.__tree.append(i.left)
             if i.right:
-                self.__tree.append(i.right)        
+                self.__tree.append(i.right)
 
     def insert(self, v):
         """
@@ -30,10 +31,10 @@ class CBTInserter(object):
         n = len(self.__tree)
         self.__tree.append(TreeNode(v))
         if n % 2:
-            self.__tree[(n-1)//2].left = self.__tree[-1]
+            self.__tree[(n - 1) // 2].left = self.__tree[-1]
         else:
-            self.__tree[(n-1)//2].right = self.__tree[-1]
-        return self.__tree[(n-1)//2].val
+            self.__tree[(n - 1) // 2].right = self.__tree[-1]
+        return self.__tree[(n - 1) // 2].val
 
     def get_root(self):
         """

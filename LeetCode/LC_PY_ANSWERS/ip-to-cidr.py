@@ -8,6 +8,7 @@ class Solution(object):
         :type n: int
         :rtype: List[str]
         """
+
         def ipToInt(ip):
             result = 0
             for i in ip.split("."):
@@ -21,9 +22,9 @@ class Solution(object):
         start = ipToInt(ip)
         result = []
         while n:
-            mask = max(33-(start & ~(start-1)).bit_length(), \
-                       33-n.bit_length())
+            mask = max(33 - (start & ~(start - 1)).bit_length(), \
+                       33 - n.bit_length())
             result.append(intToIP(start) + "/" + str(mask))
-            start += 1 << (32-mask)
-            n -= 1 << (32-mask)
+            start += 1 << (32 - mask)
+            n -= 1 << (32 - mask)
         return result

@@ -12,6 +12,6 @@ class Solution(object):
         times = sum(shifts) % 26
         for i, c in enumerate(S):
             index = ord(c) - ord("a")
-            result.append(chr(ord("a") + (index+times) % 26))
-            times = (times-shifts[i]) % 26
+            result.append(chr(ord("a") + (index + times) % 26))
+            times = (times - shifts[i]) % 26
         return "".join(result)

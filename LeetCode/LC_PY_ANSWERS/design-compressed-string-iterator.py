@@ -26,7 +26,6 @@ class StringIterator(object):
         self.__num -= 1
         return self.__ch
 
-
     def hasNext(self):
         """
         :rtype: bool

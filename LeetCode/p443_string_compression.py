@@ -29,7 +29,7 @@ class Solution:
                     chars[index] = chars[i - 1]
                     index += 1
                 else:
-                    string_to_add = chars[i-1] + str(count)
+                    string_to_add = chars[i - 1] + str(count)
                     for i in range(len(string_to_add)):
                         chars[index] = string_to_add[i]
                         index += 1
@@ -37,9 +37,26 @@ class Solution:
         print(chars)
         return index
 
+
 if __name__ == "__main__":
-    assert Solution().compress(["a","a","b","b","c","c","c"]) == 6, "regular, ["a", "2", "b", "2", "c", "3"]"
-    assert Solution().compress(["a"]) == 1, "length of one, ["a"]"
-    assert Solution().compress(["a","b","b","b","b","b","b","b","b","b","b","b","b"]) == 4, "high count, ["a", "b", "1", "2"]"
+    assert Solution().compress(["a", "a", "b", "b", "c", "c", "c"]) == 6, "regular, ["
+    a
+    ", "
+    2
+    ", "b", "
+    2
+    ", "c", "
+    3
+    "]"
+    assert Solution().compress(["a"]) == 1, "length of one, ["
+    a
+    "]"
+    assert Solution().compress(["a", "b", "b", "b", "b", "b", "b", "b", "b", "b", "b", "b", "b"]) == 4, "high count, ["
+    a
+    ", "b", "
+    1
+    ", "
+    2
+    "]"
 
     print("all passed")

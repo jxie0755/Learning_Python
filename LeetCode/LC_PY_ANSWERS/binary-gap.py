@@ -12,6 +12,6 @@ class Solution(object):
         for i in xrange(32):
             if (N >> i) & 1:
                 if last is not None:
-                    result = max(result, i-last)
+                    result = max(result, i - last)
                 last = i
         return result

@@ -22,8 +22,8 @@ class Solution:
     def isBalanced(self, root: TreeNode) -> bool:
         if not root:
             return True
-        return abs(self.maxDepth(root.left) - self.maxDepth(root.right)) <= 1 and self.isBalanced(root.left) and self.isBalanced(root.right)
-
+        return abs(self.maxDepth(root.left) - self.maxDepth(root.right)) <= 1 and self.isBalanced(
+            root.left) and self.isBalanced(root.right)
 
 
 if __name__ == "__main__":
@@ -35,8 +35,8 @@ if __name__ == "__main__":
 
     A = genTree([
         3,
-        9,20,
-        None,None,15,7])
+        9, 20,
+        None, None, 15, 7])
 
     assert Solution().isBalanced(A), "Example 1"
 
@@ -51,14 +51,13 @@ if __name__ == "__main__":
 
     A = genTree([
         1,
-        2,2,
-        3,3,3,3,
-        4,4,4,4,4,4,None,None,
-        5,5,None,None,None,None,None,None,None,None,None,None,None,None,None,None,
+        2, 2,
+        3, 3, 3, 3,
+        4, 4, 4, 4, 4, 4, None, None,
+        5, 5, None, None, None, None, None, None, None, None, None, None, None, None, None, None,
     ])
 
     assert Solution().isBalanced(A), "Additional 1"
-
 
     A = genTree([
         1,
@@ -68,6 +67,3 @@ if __name__ == "__main__":
     assert not Solution().isBalanced(A), "Additional 2"
 
     print("all passed")
-
-
-

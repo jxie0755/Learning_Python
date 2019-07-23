@@ -19,18 +19,16 @@ class MaxStack(object):
         self.__top = None
         self.__max = None
 
-
     def push(self, x):
         """
         :type x: int
         :rtype: void
         """
-        idx = self.__val_to_idxs[self.__top][-1]+1 if self.__val_to_idxs else 0
+        idx = self.__val_to_idxs[self.__top][-1] + 1 if self.__val_to_idxs else 0
         self.__idx_to_val[idx] = x
         self.__val_to_idxs[x].append(idx)
         self.__top = x
         self.__max = max(self.__max, x)
-
 
     def pop(self):
         """
@@ -40,20 +38,17 @@ class MaxStack(object):
         self.__remove(val)
         return val
 
-
     def top(self):
         """
         :rtype: int
         """
         return self.__top
 
-
     def peekMax(self):
         """
         :rtype: int
         """
         return self.__max
-
 
     def popMax(self):
         """
@@ -62,7 +57,6 @@ class MaxStack(object):
         val = self.__max
         self.__remove(val)
         return val
-
 
     def __remove(self, val):
         idx = self.__val_to_idxs[val][-1]

@@ -32,6 +32,7 @@ class TreeNode(object):
         else:
             return None
 
+
 class Solution(object):
     # @param root, a tree node
     # @return a tree node
@@ -55,7 +56,7 @@ class Solution(object):
                     node = node.right
 
                 if node.right is None:
-                    node.right =cur
+                    node.right = cur
                     cur = cur.left
                 else:
                     self.detectBroken(broken, pre, cur)

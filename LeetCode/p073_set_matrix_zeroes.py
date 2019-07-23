@@ -2,7 +2,6 @@
 # Medium
 
 
-
 # Given a m x n matrix, if an element is 0, set its entire row and column to 0.
 # Do it in-place.
 
@@ -25,8 +24,6 @@ class Solution:
             matrix[x] = [0 for _ in range(m)]
             for nn in range(n):
                 matrix[nn][y] = 0
-
-
 
 
 if __name__ == "__main__":

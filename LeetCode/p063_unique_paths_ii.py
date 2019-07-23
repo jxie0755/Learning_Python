@@ -10,6 +10,7 @@
 
 from math import factorial
 
+
 class Solution:
 
     # According to ProjectEuler p015 2nd version
@@ -27,12 +28,12 @@ class Solution:
                 elif mm == 0:
                     paths_to[nn][mm] = paths_to[nn - 1][mm]
                 else:
-                    paths_to[nn][mm] = paths_to[nn][mm-1] + paths_to[nn-1][mm]
+                    paths_to[nn][mm] = paths_to[nn][mm - 1] + paths_to[nn - 1][mm]
 
         # for i in paths_to:
         #     print(i)
 
-        return paths_to[n-1][m-1]
+        return paths_to[n - 1][m - 1]
 
 
 if __name__ == "__main__":
@@ -48,7 +49,7 @@ if __name__ == "__main__":
     ]
     assert Solution().uniquePathsWithObstacles(e2) == 1, "Edge 2"
 
-    e3 = [[1,1]]
+    e3 = [[1, 1]]
     assert Solution().uniquePathsWithObstacles(e3) == 0, "Edge 3"
 
     e4 = [[1, 0]]

@@ -3,7 +3,6 @@
 
 import operator
 
-
 # One pass solution.
 from collections import defaultdict, Counter
 from itertools import izip, imap

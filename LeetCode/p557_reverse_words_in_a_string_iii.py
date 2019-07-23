@@ -22,5 +22,12 @@ class Solution:
 
 
 if __name__ == "__main__":
-    assert Solution().reverseWords("Let"s take LeetCode contest") == "s"teL ekat edoCteeL tsetnoc", "regular"
+    assert Solution().reverseWords("Let"
+    s
+    take
+    LeetCode
+    contest
+    ") == "
+    s
+    "teL ekat edoCteeL tsetnoc", "regular"
     print("all passed")

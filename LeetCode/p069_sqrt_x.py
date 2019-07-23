@@ -15,22 +15,20 @@ class Solution:
         :rtype: int
         """
         high, low = x, 1
-        temp_result= (high + low) / 2
-        while abs(temp_result** 2 - x) >= 1:
-            if temp_result**2 > x:
+        temp_result = (high + low) / 2
+        while abs(temp_result ** 2 - x) >= 1:
+            if temp_result ** 2 > x:
                 high = temp_result
-            elif temp_result**2 < x:
+            elif temp_result ** 2 < x:
                 low = temp_result
 
             temp_result = (high + low) / 2
 
         temp_result = int(temp_result)
-        if (temp_result+1)**2 > x:
+        if (temp_result + 1) ** 2 > x:
             return temp_result
         else:
-            return temp_result+1
-
-
+            return temp_result + 1
 
     def mySqrt2(self, x):
         # A modified binary search:
@@ -44,10 +42,10 @@ class Solution:
             else:
                 left = middle
 
-
     def mySqrt3(self, x):
         # Cheating by use python internal function
         return int(x ** 0.5)
+
 
 if __name__ == "__main__":
     assert Solution().mySqrt(0) == 0

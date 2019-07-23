@@ -10,7 +10,6 @@ class NestedIterator(object):
         """
         self.__depth = [[nestedList, 0]]
 
-
     def next(self):
         """
         :rtype: int
@@ -18,7 +17,6 @@ class NestedIterator(object):
         nestedList, i = self.__depth[-1]
         self.__depth[-1][1] += 1
         return nestedList[i].getInteger()
-
 
     def hasNext(self):
         """
@@ -29,7 +27,7 @@ class NestedIterator(object):
             if i == len(nestedList):
                 self.__depth.pop()
             elif nestedList[i].isInteger():
-                    return True
+                return True
             else:
                 self.__depth[-1][1] += 1
                 self.__depth.append([nestedList[i].getList(), 0])

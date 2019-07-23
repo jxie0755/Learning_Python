@@ -3,6 +3,7 @@
 
 import math
 
+
 # Cantor ordering solution
 class Solution(object):
     def getPermutation(self, n, k):

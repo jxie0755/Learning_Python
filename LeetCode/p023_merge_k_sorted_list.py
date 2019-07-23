@@ -33,6 +33,7 @@ class Solution:
 
         return dummy.next
 
+
 class Solution:
 
     # Version B
@@ -45,8 +46,6 @@ class Solution:
                 result.append(node.val)
                 node = node.next
         return genNode(sorted(result))
-
-
 
 
 class Solution:
@@ -92,17 +91,16 @@ class Solution:
 
 
 if __name__ == "__main__":
-
     assert Solution().mergeKLists_O([]) is None, "Empty"
 
     single = genNode([1])
     e = Solution().mergeKLists_O([single])
     assert repr(e) == "1", "single"
 
-    a = genNode([1,4,5])
-    b = genNode([1,3,4])
-    c = genNode([2,6])
-    lst = [a,b,c]
+    a = genNode([1, 4, 5])
+    b = genNode([1, 3, 4])
+    c = genNode([2, 6])
+    lst = [a, b, c]
     check = Solution().mergeKLists_O(lst)
     assert repr(check) == "1->1->2->3->4->4->5->6", "Example"
 

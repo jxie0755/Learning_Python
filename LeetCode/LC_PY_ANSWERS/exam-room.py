@@ -33,23 +33,23 @@ class ExamRoom(object):
 
         curr = heapq.heappop(self.__max_heap)
         if curr[L] == -1 and curr[R] == self.__num:
-            heapq.heappush(self.__max_heap, (-(curr[R]-1),
-                                             curr[R]-1,
-                                             curr[L]+1, curr[R]))
+            heapq.heappush(self.__max_heap, (-(curr[R] - 1),
+                                             curr[R] - 1,
+                                             curr[L] + 1, curr[R]))
         elif curr[L] == -1:
-            heapq.heappush(self.__max_heap, (-(curr[R]//2),
-                                             curr[R]//2,
-                                             curr[L]+1, curr[R]))
+            heapq.heappush(self.__max_heap, (-(curr[R] // 2),
+                                             curr[R] // 2,
+                                             curr[L] + 1, curr[R]))
         elif curr[R] == self.__num:
-            heapq.heappush(self.__max_heap, (-((curr[R]-1-curr[L])//2),
-                                             (curr[R]-1-curr[L])//2+curr[L],
-                                             curr[L], curr[R]-1))
+            heapq.heappush(self.__max_heap, (-((curr[R] - 1 - curr[L]) // 2),
+                                             (curr[R] - 1 - curr[L]) // 2 + curr[L],
+                                             curr[L], curr[R] - 1))
         else:
-            heapq.heappush(self.__max_heap, (-((curr[POS]-curr[L])//2),
-                                             (curr[POS]-curr[L])//2+curr[L],
+            heapq.heappush(self.__max_heap, (-((curr[POS] - curr[L]) // 2),
+                                             (curr[POS] - curr[L]) // 2 + curr[L],
                                              curr[L], curr[POS]))
-            heapq.heappush(self.__max_heap, (-((curr[R]-curr[POS])//2),
-                                             (curr[R]-curr[POS])//2+curr[POS],
+            heapq.heappush(self.__max_heap, (-((curr[R] - curr[POS]) // 2),
+                                             (curr[R] - curr[POS]) // 2 + curr[POS],
                                              curr[POS], curr[R]))
         self.__seats[curr[POS]] = [curr[L], curr[R]]
         self.__seats[curr[L]][RIGHT] = curr[POS]
@@ -66,22 +66,22 @@ class ExamRoom(object):
         if neighbors[LEFT] == -1 and neighbors[RIGHT] == self.__num:
             heapq.heappush(self.__max_heap,
                            (-neighbors[RIGHT],
-                            neighbors[LEFT]+1,
+                            neighbors[LEFT] + 1,
                             neighbors[LEFT], neighbors[RIGHT]))
         elif neighbors[LEFT] == -1:
             heapq.heappush(self.__max_heap,
                            (-neighbors[RIGHT],
-                            neighbors[LEFT]+1,
+                            neighbors[LEFT] + 1,
                             neighbors[LEFT], neighbors[RIGHT]))
         elif neighbors[RIGHT] == self.__num:
             heapq.heappush(self.__max_heap,
-                           (-(neighbors[RIGHT]-1-neighbors[LEFT]),
-                            neighbors[RIGHT]-1,
+                           (-(neighbors[RIGHT] - 1 - neighbors[LEFT]),
+                            neighbors[RIGHT] - 1,
                             neighbors[LEFT], neighbors[RIGHT]))
         else:
             heapq.heappush(self.__max_heap,
-                           (-((neighbors[RIGHT]-neighbors[LEFT])//2),
-                            (neighbors[RIGHT]-neighbors[LEFT])//2 +
+                           (-((neighbors[RIGHT] - neighbors[LEFT]) // 2),
+                            (neighbors[RIGHT] - neighbors[LEFT]) // 2 +
                             neighbors[LEFT],
                             neighbors[LEFT], neighbors[RIGHT]))
         self.__seats[neighbors[LEFT]][RIGHT] = neighbors[RIGHT]

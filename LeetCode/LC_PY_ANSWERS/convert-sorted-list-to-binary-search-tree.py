@@ -6,6 +6,8 @@ class TreeNode(object):
         self.val = x
         self.left = None
         self.right = None
+
+
 #
 # Definition for singly-linked list.
 class ListNode(object):
@@ -13,8 +15,10 @@ class ListNode(object):
         self.val = x
         self.next = None
 
+
 class Solution(object):
     head = None
+
     # @param head, a list node
     # @return a tree node
     def sortedListToBST(self, head):

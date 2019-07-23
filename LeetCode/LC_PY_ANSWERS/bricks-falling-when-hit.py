@@ -3,8 +3,8 @@
 
 class UnionFind(object):
     def __init__(self, n):
-        self.set = range(n+1)
-        self.size = [1]*(n+1)
+        self.set = range(n + 1)
+        self.size = [1] * (n + 1)
         self.size[-1] = 0
 
     def find_set(self, x):
@@ -21,7 +21,7 @@ class UnionFind(object):
         return True
 
     def top(self):
-        return self.size[self.find_set(len(self.size)-1)]
+        return self.size[self.find_set(len(self.size) - 1)]
 
 
 class Solution(object):
@@ -31,8 +31,9 @@ class Solution(object):
         :type hits: List[List[int]]
         :rtype: List[int]
         """
+
         def index(C, r, c):
-            return r*C+c
+            return r * C + c
 
         directions = [(0, -1), (0, 1), (-1, 0), (1, 0)]
         R, C = len(grid), len(grid[0])
@@ -41,17 +42,17 @@ class Solution(object):
         for i, j in hits:
             hit_grid[i][j] = 0
 
-        union_find = UnionFind(R*C)
+        union_find = UnionFind(R * C)
         for r, row in enumerate(hit_grid):
             for c, val in enumerate(row):
                 if not val:
                     continue
                 if r == 0:
-                    union_find.union_set(index(C, r, c), R*C)
-                if r and hit_grid[r-1][c]:
-                    union_find.union_set(index(C, r, c), index(C, r-1, c))
-                if c and hit_grid[r][c-1]:
-                    union_find.union_set(index(C, r, c), index(C, r, c-1))
+                    union_find.union_set(index(C, r, c), R * C)
+                if r and hit_grid[r - 1][c]:
+                    union_find.union_set(index(C, r, c), index(C, r - 1, c))
+                if c and hit_grid[r][c - 1]:
+                    union_find.union_set(index(C, r, c), index(C, r, c - 1))
 
         result = []
         for r, c in reversed(hits):
@@ -60,11 +61,11 @@ class Solution(object):
                 result.append(0)
                 continue
             for d in directions:
-                nr, nc = (r+d[0], c+d[1])
+                nr, nc = (r + d[0], c + d[1])
                 if 0 <= nr < R and 0 <= nc < C and hit_grid[nr][nc]:
                     union_find.union_set(index(C, r, c), index(C, nr, nc))
             if r == 0:
-                union_find.union_set(index(C, r, c), R*C)
+                union_find.union_set(index(C, r, c), R * C)
             hit_grid[r][c] = 1
-            result.append(max(0, union_find.top()-prev_roof-1))
+            result.append(max(0, union_find.top() - prev_roof - 1))
         return result[::-1]

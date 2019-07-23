@@ -17,10 +17,11 @@ class Codec(object):
         :type longUrl: str
         :rtype: str
         """
+
         def getRand():
             rand = []
             for _ in xrange(self.__random_length):
-                rand += self.__alphabet[random.randint(0, len(self.__alphabet)-1)]
+                rand += self.__alphabet[random.randint(0, len(self.__alphabet) - 1)]
             return "".join(rand)
 
         key = getRand()

@@ -16,7 +16,7 @@ class Solution:
             return True
 
         def remove_ugly_factor(num):
-            for i in [2,3,5]:
+            for i in [2, 3, 5]:
                 if num % i == 0:
                     return num // i
             return num

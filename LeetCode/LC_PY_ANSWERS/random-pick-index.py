@@ -3,6 +3,7 @@
 
 from random import randint
 
+
 class Solution(object):
 
     def __init__(self, nums):
@@ -23,6 +24,6 @@ class Solution(object):
         for i in xrange(len(self.__nums)):
             if self.__nums[i] != target:
                 continue
-            reservoir = i if randint(1, n+1) == 1 else reservoir
+            reservoir = i if randint(1, n + 1) == 1 else reservoir
             n += 1
         return reservoir

@@ -9,7 +9,7 @@ class Solution(object):
         :type speed: List[int]
         :rtype: int
         """
-        times = [float(target-p)/s for p, s in sorted(zip(position, speed))]
+        times = [float(target - p) / s for p, s in sorted(zip(position, speed))]
         result, curr = 0, 0
         for t in reversed(times):
             if t > curr:

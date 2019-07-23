@@ -20,6 +20,7 @@ class Solution(object):
             return []
 
         paths = []
+
         def helper(node, path=""):
             """add a path to paths if each to a leaf"""
             if not node.left and not node.right:
@@ -35,13 +36,12 @@ class Solution(object):
         return paths
 
 
-
 if __name__ == "__main__":
     assert Solution().binaryTreePaths(None) == [], "Edge 0"
 
     A = genTree([
         1,
-        2,3,
+        2, 3,
         None, 5
     ])
     assert Solution().binaryTreePaths(A) == ["1->2->5", "1->3"], "Example 1"

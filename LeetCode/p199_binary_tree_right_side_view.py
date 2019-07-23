@@ -47,11 +47,11 @@ if __name__ == "__main__":
 
     A = genTree([
         1,
-        2,3,
+        2, 3,
         None, 5, None, 4
     ])
 
-    assert Solution().rightSideView(A) == [1,3,4], "Example 1"
+    assert Solution().rightSideView(A) == [1, 3, 4], "Example 1"
 
     A = genTree([
         1,
@@ -70,4 +70,3 @@ if __name__ == "__main__":
     assert Solution().rightSideView(A) == [1, 3, 5], "Additional 1"
 
     print("all passed")
-

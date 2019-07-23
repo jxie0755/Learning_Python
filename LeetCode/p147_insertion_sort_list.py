@@ -4,9 +4,9 @@
 # Sort a linked list using insertion sort.
 
 # Algorithm of Insertion Sort:
-    # Insertion sort iterates, consuming one input element each repetition, and growing a sorted output list.
-    # At each iteration, insertion sort removes one element from the input data, finds the location it belongs within the sorted list, and inserts it there.
-    # It repeats until no input elements remain.
+# Insertion sort iterates, consuming one input element each repetition, and growing a sorted output list.
+# At each iteration, insertion sort removes one element from the input data, finds the location it belongs within the sorted list, and inserts it there.
+# It repeats until no input elements remain.
 
 
 from typing import *
@@ -23,7 +23,7 @@ class Solution(object):
     def insertionsort(self, lst):
 
         for i in range(1, len(lst)):
-            j = i-1
+            j = i - 1
             cur = lst[i]
             while j >= 0:
                 pre = lst[j]
@@ -34,7 +34,6 @@ class Solution(object):
                 else:
                     break
         return lst
-
 
     def insertionSortList(self, head):
         """
@@ -71,9 +70,8 @@ class Solution(object):
         """find the node before the tail"""
         cur = head
         while cur.next != tail:
-                cur = cur.next
+            cur = cur.next
         return cur
-
 
     def insertion(self, head):
         """
@@ -111,7 +109,6 @@ class Solution(object):
         return head
 
 
-
 class Solution(object):
 
     # Version C1
@@ -123,7 +120,7 @@ class Solution(object):
         :type head: ListNode
         :rtype: ListNode
         """
-        if head is None or self.isSorted(head): # if already sorted, skip # this will save a lot of time
+        if head is None or self.isSorted(head):  # if already sorted, skip # this will save a lot of time
             return head
 
         dummy = ListNode(-float("inf"))
@@ -156,6 +153,7 @@ class Solution(object):
             head = head.next
         return True
 
+
 class Solution(object):
 
     # Version C2
@@ -167,7 +165,7 @@ class Solution(object):
         :type head: ListNode
         :rtype: ListNode
         """
-        if head is None or self.isSorted(head): # if already sorted, skip # this will save a lot of time
+        if head is None or self.isSorted(head):  # if already sorted, skip # this will save a lot of time
             return head
 
         dummy = ListNode(-float("inf"))
@@ -193,7 +191,6 @@ class Solution(object):
 
         return dummy.next
 
-
     # This is very IMPORTANT
     # because insertion sort will take same time even if the list is already sorted
     def isSorted(self, head):
@@ -204,7 +201,6 @@ class Solution(object):
         return True
 
 
-
 if __name__ == "__main__":
     A = None
     assert Solution().insertionSortList(A) == A, "Edge 0"
@@ -212,8 +208,8 @@ if __name__ == "__main__":
     A = genNode([1])
     assert Solution().insertionSortList(A) == A, "Edge 1"
 
-    A = genNode([4,2,1,3])
-    assert Solution().insertionSortList(A) == genNode([1,2,3,4]), "Example 1"
+    A = genNode([4, 2, 1, 3])
+    assert Solution().insertionSortList(A) == genNode([1, 2, 3, 4]), "Example 1"
 
     A = genNode([-1, 5, 3, 4, 0])
     assert Solution().insertionSortList(A) == genNode([-1, 0, 3, 4, 5]), "Example 2"

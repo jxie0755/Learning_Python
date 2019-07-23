@@ -80,6 +80,7 @@ class Solution4(object):
     :type k: int
     :rtype: void Do not return anything, modify nums in-place instead.
     """
+
     def rotate(self, nums, k):
         """
         :type nums: List[int]
@@ -87,7 +88,7 @@ class Solution4(object):
         :rtype: void Do not return anything, modify nums in-place instead.
         """
         nums[:] = nums[len(nums) - k:] + nums[:len(nums) - k]
-        
+
 
 # Time:  O(k * n)
 # Space: O(1)
@@ -97,9 +98,8 @@ class Solution5(object):
     :type k: int
     :rtype: void Do not return anything, modify nums in-place instead.
     """
+
     def rotate(self, nums, k):
         while k > 0:
             nums.insert(0, nums.pop())
             k -= 1
-
- 

@@ -13,6 +13,6 @@ class Solution(object):
                 count_A += 1
                 if count_A == 2:
                     return False
-            if i < len(s) - 2 and s[i] == s[i+1] == s[i+2] == "L":
+            if i < len(s) - 2 and s[i] == s[i + 1] == s[i + 2] == "L":
                 return False
         return True

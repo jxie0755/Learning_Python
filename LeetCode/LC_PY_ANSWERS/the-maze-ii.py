@@ -17,9 +17,9 @@ class Solution(object):
         def neighbors(maze, node):
             for dir in [(-1, 0), (0, 1), (0, -1), (1, 0)]:
                 cur_node, dist = list(node), 0
-                while 0 <= cur_node[0]+dir[0] < len(maze) and \
-                      0 <= cur_node[1]+dir[1] < len(maze[0]) and \
-                      not maze[cur_node[0]+dir[0]][cur_node[1]+dir[1]]:
+                while 0 <= cur_node[0] + dir[0] < len(maze) and \
+                        0 <= cur_node[1] + dir[1] < len(maze[0]) and \
+                        not maze[cur_node[0] + dir[0]][cur_node[1] + dir[1]]:
                     cur_node[0] += dir[0]
                     cur_node[1] += dir[1]
                     dist += 1
@@ -34,6 +34,6 @@ class Solution(object):
                 return dist
             visited.add(node)
             for neighbor_dist, neighbor in neighbors(maze, node):
-                heapq.heappush(heap, (dist+neighbor_dist, neighbor))
+                heapq.heappush(heap, (dist + neighbor_dist, neighbor))
 
         return -1

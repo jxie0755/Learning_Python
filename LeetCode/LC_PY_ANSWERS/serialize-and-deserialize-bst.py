@@ -19,6 +19,7 @@ class Codec(object):
         :type root: TreeNode
         :rtype: str
         """
+
         def serializeHelper(node, vals):
             if node:
                 vals.append(node.val)
@@ -30,13 +31,13 @@ class Codec(object):
 
         return " ".join(map(str, vals))
 
-
     def deserialize(self, data):
         """Decodes your encoded data to tree.
 
         :type data: str
         :rtype: TreeNode
         """
+
         def deserializeHelper(minVal, maxVal, vals):
             if not vals:
                 return None

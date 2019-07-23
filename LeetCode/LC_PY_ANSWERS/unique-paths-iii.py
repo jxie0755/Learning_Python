@@ -8,9 +8,9 @@ class Solution(object):
         :rtype: int
         """
         directions = [(0, 1), (1, 0), (0, -1), (-1, 0)]
-        
+
         def index(grid, r, c):
-            return 1 << (r*len(grid[0])+c)
+            return 1 << (r * len(grid[0]) + c)
 
         def dp(grid, src, dst, todo, lookup):
             if src == dst:
@@ -21,10 +21,10 @@ class Solution(object):
 
             result = 0
             for d in directions:
-                r, c = src[0]+d[0], src[1]+d[1]
+                r, c = src[0] + d[0], src[1] + d[1]
                 if 0 <= r < len(grid) and 0 <= c < len(grid[0]) and \
-                   grid[r][c] % 2 == 0 and \
-                   todo & index(grid, r, c):
+                        grid[r][c] % 2 == 0 and \
+                        todo & index(grid, r, c):
                     result += dp(grid, (r, c), dst, todo ^ index(grid, r, c), lookup)
 
             lookup[key] = result

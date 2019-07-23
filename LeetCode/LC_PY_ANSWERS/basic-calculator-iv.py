@@ -49,7 +49,7 @@ class Poly(collections.Counter):
         result = Poly()
         for k1, v1 in self.items():
             for k2, v2 in other.items():
-                result.update({tuple(merge(k1, k2)): v1*v2})
+                result.update({tuple(merge(k1, k2)): v1 * v2})
         return result
 
     def eval(self, lookup):
@@ -79,6 +79,7 @@ class Solution(object):
         :type evalints: List[int]
         :rtype: List[str]
         """
+
         def compute(operands, operators):
             left, right = operands.pop(), operands.pop()
             op = operators.pop()
@@ -97,7 +98,7 @@ class Solution(object):
             for i in reversed(xrange(len(s))):
                 if s[i].isalnum():
                     operand += s[i]
-                    if i == 0 or not s[i-1].isalnum():
+                    if i == 0 or not s[i - 1].isalnum():
                         operands.append(Poly(operand[::-1]))
                         operand = ""
                 elif s[i] == ")" or s[i] == "*":

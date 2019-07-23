@@ -17,7 +17,7 @@ class Solution:
     def addStrings(self, num1: str, num2: str) -> str:
         result = ""
 
-        N1,N2 = num1[::-1], num2[::-1]
+        N1, N2 = num1[::-1], num2[::-1]
         L1, L2 = len(N1), len(N2)
 
         i = 0
@@ -26,7 +26,7 @@ class Solution:
 
             d1 = int(N1[i]) if i < L1 else 0
             d2 = int(N2[i]) if i < L2 else 0
-            r = d1+d2+add
+            r = d1 + d2 + add
             result += str(r)[-1]
 
             if r >= 10:
@@ -41,9 +41,7 @@ class Solution:
         return result[::-1]
 
 
-
 if __name__ == "__main__":
-
     assert Solution().addStrings("1", "1") == "2", "Example 1"
     assert Solution().addStrings("10", "1") == "11", "Example 2"
     assert Solution().addStrings("5", "9") == "14", "Example 3"
@@ -51,7 +49,4 @@ if __name__ == "__main__":
     assert Solution().addStrings("15", "19") == "34", "Example 5"
     assert Solution().addStrings("111", "889") == "1000", "Example 6"
 
-
     print("all passed")
-
-

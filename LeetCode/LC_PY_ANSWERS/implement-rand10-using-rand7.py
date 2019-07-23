@@ -17,12 +17,13 @@ class Solution(object):
         """
         :rtype: int
         """
+
         def generate(cache):
             n = 32
-            curr = sum((rand7()-1) * (7**i) for i in xrange(n))
-            rang = 7**n
-            while curr < rang//10*10:
-                cache.append(curr%10+1)
+            curr = sum((rand7() - 1) * (7 ** i) for i in xrange(n))
+            rang = 7 ** n
+            while curr < rang // 10 * 10:
+                cache.append(curr % 10 + 1)
                 curr /= 10
                 rang /= 10
 
@@ -39,6 +40,6 @@ class Solution2(object):
         :rtype: int
         """
         while True:
-            x = (rand7()-1)*7 + (rand7()-1)
+            x = (rand7() - 1) * 7 + (rand7() - 1)
             if x < 40:
-                return x%10 + 1
+                return x % 10 + 1

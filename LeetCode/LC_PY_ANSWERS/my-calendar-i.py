@@ -8,7 +8,6 @@ class Node(object):
         self.__left = None
         self.__right = None
 
-
     def insert(self, node):
         if node.__start >= self.__end:
             if not self.__right:
@@ -28,7 +27,6 @@ class MyCalendar(object):
     def __init__(self):
         self.__root = None
 
-
     def book(self, start, end):
         """
         :type start: int
@@ -47,7 +45,6 @@ class MyCalendar2(object):
 
     def __init__(self):
         self.__calendar = []
-
 
     def book(self, start, end):
         """

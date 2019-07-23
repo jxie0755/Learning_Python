@@ -18,7 +18,7 @@ class Solution(object):
             result = 1
             grid[r][c] = index
             for d in directions:
-                result += dfs(r+d[0], c+d[1], index, grid)
+                result += dfs(r + d[0], c + d[1], index, grid)
             return result
 
         area = {}
@@ -35,7 +35,7 @@ class Solution(object):
                 if grid[r][c] == 0:
                     seen = set()
                     for d in directions:
-                        nr, nc = r+d[0], c+d[1]
+                        nr, nc = r + d[0], c + d[1]
                         if not (0 <= nr < len(grid) and
                                 0 <= nc < len(grid[0]) and
                                 grid[nr][nc] > 1):

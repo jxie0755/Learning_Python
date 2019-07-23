@@ -19,7 +19,7 @@ class Solution:
         # find index to separate two parts, and extract the integers out
 
         i_a, i_b = a.find("+"), b.find("+")
-        a1, a2, b1, b2 = a[:i_a], a[i_a+1:], b[:i_b], b[i_b+1:]
+        a1, a2, b1, b2 = a[:i_a], a[i_a + 1:], b[:i_b], b[i_b + 1:]
         int_a1, int_a2, int_b1, int_b2 = int(a1), int(a2[:-1]), int(b1), int(b2[:-1])
 
         # calculation logic and string output
@@ -33,6 +33,7 @@ class Solution:
         int_b1, int_b2 = map(int, b[:-1].split("+"))
         return f"{int_a1 * int_b1 - int_a2 * int_b2}+{int_a1 * int_b2 + int_a2 * int_b1}i"
         # LeetCode not support f-string yet
+
 
 if __name__ == "__main__":
     assert Solution().complexNumberMultiply("1+1i", "1+1i") == "0+2i", "positive test"

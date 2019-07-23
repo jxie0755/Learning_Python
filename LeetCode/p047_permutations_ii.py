@@ -2,10 +2,10 @@
 # Medium
 
 
-
 # Given a collection of numbers that might contain duplicates, return all possible unique permutations.
 from typing import *
 import math
+
 
 class Solution:
     def next_permute(self, indexes):
@@ -31,7 +31,6 @@ class Solution:
                     indexes[cur_i + 1:] = indexes[cur_i + 1:][::-1]
                     break
             return indexes
-
 
     def permuteUnique(self, nums):
         # First handle index, then convert to nuns[index], if not repeating then append.
@@ -66,13 +65,14 @@ class Solution:
                 next_list_list = []
                 for i in lst:
                     next_list = self.restList(i, lst)
-                    if next_list not in next_list_list:   # 在这里去重, 只要剩下的list完全相同就不要递归了
+                    if next_list not in next_list_list:  # 在这里去重, 只要剩下的list完全相同就不要递归了
                         next_list_list.append(next_list)
                         updated_permute_list = permute_list + [i]
                         helper(next_list, updated_permute_list)
 
         helper(nums)
         return result
+
 
 class Solution:
     # recursive method, single and pure recursion from leetcode P046
@@ -93,14 +93,12 @@ class Solution:
             return result
 
 
-
 if __name__ == "__main__":
     assert Solution().permuteUnique([1]) == [
         [1]
     ], "Edge 1"
 
-
-    assert Solution().permuteUnique([1,2,3]) == [
+    assert Solution().permuteUnique([1, 2, 3]) == [
         [1, 2, 3],
         [1, 3, 2],
         [2, 1, 3],

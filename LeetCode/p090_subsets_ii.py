@@ -35,7 +35,7 @@ class Solution:
             for d in nums_hmp:
                 if d in comb:
                     # Updating the list by list concatenation of adding the every sub-list in result with newest
-                    result = [x + y for x in result for y in [[d] * n for n in range(1, nums_hmp[d]+1)]]
+                    result = [x + y for x in result for y in [[d] * n for n in range(1, nums_hmp[d] + 1)]]
 
             return result
 
@@ -43,12 +43,11 @@ class Solution:
         nums_hmp = {i: nums.count(i) for i in nums_set}
 
         result = []
-        for k in range(len(nums_set)+1):
-            for i in self.combination(nums_set,k):
+        for k in range(len(nums_set) + 1):
+            for i in self.combination(nums_set, k):
                 result += helper(i)
 
         return result
-
 
 
 if __name__ == "__main__":
@@ -58,9 +57,9 @@ if __name__ == "__main__":
     assert sorted(Solution().subsetsWithDup([1, 2])) == [[], [1], [1, 2], [2]], "Example 0"
     assert sorted(Solution().subsetsWithDup([1, 2, 2])) == [[], [1], [1, 2], [1, 2, 2], [2], [2, 2]], "Example 1"
 
-    assert sorted(Solution().subsetsWithDup([1,2,3])) == [[], [1], [1, 2], [1, 2, 3], [1, 3], [2], [2, 3], [3]], "Additional 1"
-    assert sorted(Solution().subsetsWithDup([1,1,2,2])) == [[], [1], [1, 1], [1, 1, 2], [1, 1, 2, 2], [1, 2], [1, 2, 2], [2], [2, 2]], "Additional 2"
+    assert sorted(Solution().subsetsWithDup([1, 2, 3])) == [[], [1], [1, 2], [1, 2, 3], [1, 3], [2], [2, 3],
+                                                            [3]], "Additional 1"
+    assert sorted(Solution().subsetsWithDup([1, 1, 2, 2])) == [[], [1], [1, 1], [1, 1, 2], [1, 1, 2, 2], [1, 2],
+                                                               [1, 2, 2], [2], [2, 2]], "Additional 2"
 
     print("all passed")
-
-

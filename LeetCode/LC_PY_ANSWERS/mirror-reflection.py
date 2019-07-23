@@ -21,12 +21,13 @@ class Solution2(object):
         :type q: int
         :rtype: int
         """
+
         def gcd(a, b):
             while b:
                 a, b = b, a % b
             return a
 
-        lcm = p*q // gcd(p, q)
+        lcm = p * q // gcd(p, q)
         # let a = lcm / p, b = lcm / q
         if lcm // p % 2 == 1:
             if lcm // q % 2 == 1:

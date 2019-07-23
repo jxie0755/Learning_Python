@@ -9,6 +9,7 @@
 # Note that 1 does not map to any letters.
 from typing import *
 
+
 class Solution:
 
     # Version A, hashtable
@@ -36,14 +37,13 @@ class Solution:
                 result = hashtable[current]
             else:
                 new_list = hashtable[current]
-                result = [j+k for j in result for k in new_list]
+                result = [j + k for j in result for k in new_list]
             i += 1
 
         return result
 
 
 if __name__ == "__main__":
-
     assert Solution().letterCombinations("") == [], "Edge 1"
     assert Solution().letterCombinations("1") == [""], "Edge 2"
     assert Solution().letterCombinations("0") == [" "], "Edge 3"
@@ -54,4 +54,3 @@ if __name__ == "__main__":
     assert Solution().letterCombinations("213") == ["ad", "ae", "af", "bd", "be", "bf", "cd", "ce", "cf"], "Example 4"
 
     print("all passed")
-

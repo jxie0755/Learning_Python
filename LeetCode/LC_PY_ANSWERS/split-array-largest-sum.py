@@ -8,6 +8,7 @@ class Solution(object):
         :type m: int
         :rtype: int
         """
+
         def canSplit(nums, m, s):
             cnt, curr_sum = 1, 0
             for num in nums:

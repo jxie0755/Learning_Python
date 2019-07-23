@@ -8,7 +8,7 @@ class Solution(object):
         :type abbr: str
         :rtype: bool
         """
-        i , digit = 0, 0
+        i, digit = 0, 0
         for c in abbr:
             if c.isdigit():
                 if digit == 0 and c == "0":

@@ -8,6 +8,7 @@ class ListNode(object):
         self.next = None
         self.prev = None
 
+
 class LinkedList(object):
     def __init__(self):
         self.head = None
@@ -33,6 +34,7 @@ class LinkedList(object):
             self.tail = node.prev
         node.next, node.prev = None, None  # make node clean
 
+
 class LRUCache(object):
 
     # @param capacity, an integer
@@ -46,7 +48,6 @@ class LRUCache(object):
         self.list.insert(node)
         self.dict[key] = node
 
-
     # @return an integer
     def get(self, key):
         if key in self.dict:
@@ -55,7 +56,6 @@ class LRUCache(object):
             self._insert(key, val)
             return val
         return -1
-
 
     # @param key, an integer
     # @param value, an integer
@@ -70,6 +70,8 @@ class LRUCache(object):
 
 
 import collections
+
+
 class LRUCache2(object):
     def __init__(self, capacity):
         self.cache = collections.OrderedDict()

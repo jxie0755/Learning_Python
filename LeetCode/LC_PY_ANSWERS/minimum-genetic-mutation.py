@@ -3,6 +3,7 @@
 
 from collections import deque
 
+
 class Solution(object):
     def minMutation(self, start, end, bank):
         """
@@ -26,9 +27,9 @@ class Solution(object):
                     if cur[i] == c:
                         continue
 
-                    next_str = cur[:i] + c + cur[i+1:]
+                    next_str = cur[:i] + c + cur[i + 1:]
                     if next_str in lookup and lookup[next_str] == False:
-                        q.append((next_str, level+1))
+                        q.append((next_str, level + 1))
                         lookup[next_str] = True
 
         return -1

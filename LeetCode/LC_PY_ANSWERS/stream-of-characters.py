@@ -28,11 +28,11 @@ class AhoTrie(object):
             self.__node = self.__node.suffix
         self.__node = self.__node.children[letter] if self.__node else self.__root
         return self.__get_ac_node_outputs(self.__node)
-    
+
     def __init__(self, patterns):
         self.__root = self.__create_ac_trie(patterns)
         self.__node = self.__create_ac_suffix_and_output_links(self.__root)
-    
+
     def __create_ac_trie(self, patterns):  # Time:  O(n), Space: O(t)
         root = AhoNode()
         for i, pattern in enumerate(patterns):
@@ -57,11 +57,11 @@ class AhoTrie(object):
                     suffix = suffix.suffix
                 child.suffix = suffix.children[c] if suffix else root
                 child.output = child.suffix if child.suffix.indices else child.suffix.output
-                
+
         return root
 
     def __get_ac_node_outputs(self, node):  # Time:  O(z), in this question, it could be improved to O(1)
-                                            # if we only return a matched pattern without all matched ones
+        # if we only return a matched pattern without all matched ones
         result = []
         for i in node.indices:
             result.append(i)
@@ -89,7 +89,6 @@ class StreamChecker(object):
         :rtype: bool
         """
         return len(self.__trie.step(letter)) > 0
-        
 
 # Your StreamChecker object will be instantiated and called as such:
 # obj = StreamChecker(words)

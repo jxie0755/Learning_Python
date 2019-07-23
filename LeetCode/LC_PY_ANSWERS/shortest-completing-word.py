@@ -11,6 +11,7 @@ class Solution(object):
         :type words: List[str]
         :rtype: str
         """
+
         def contains(counter1, w2):
             c2 = collections.Counter(w2.lower())
             c2.subtract(counter1)
@@ -20,6 +21,6 @@ class Solution(object):
         counter = collections.Counter(c.lower() for c in licensePlate if c.isalpha())
         for word in words:
             if (result is None or (len(word) < len(result))) and \
-               contains(counter, word):
+                    contains(counter, word):
                 result = word
         return result

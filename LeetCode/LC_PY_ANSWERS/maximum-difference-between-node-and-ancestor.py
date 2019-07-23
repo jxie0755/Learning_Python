@@ -22,7 +22,7 @@ class Solution(object):
             node, mx, mn = stack.pop()
             if not node:
                 continue
-            result = max(result, mx-node.val, node.val-mn)
+            result = max(result, mx - node.val, node.val - mn)
             mx = max(mx, node.val)
             mn = min(mn, node.val)
             stack.append((node.left, mx, mn))
@@ -39,10 +39,11 @@ class Solution2(object):
         :type root: TreeNode
         :rtype: int
         """
-        def maxAncestorDiffHelper(node, mx, mn): 
+
+        def maxAncestorDiffHelper(node, mx, mn):
             if not node:
                 return 0
-            result = max(mx-node.val, node.val-mn)
+            result = max(mx - node.val, node.val - mn)
             mx = max(mx, node.val)
             mn = min(mn, node.val)
             result = max(result, maxAncestorDiffHelper(node.left, mx, mn))

@@ -25,9 +25,9 @@ class Solution(object):
         # => -><-
         # it proves that there must be some N in range (1..K) s.t. f(N) % K = 0
         result = 0
-        for N in xrange(1, K+1):
-            result = (result*10+1) % K
+        for N in xrange(1, K + 1):
+            result = (result * 10 + 1) % K
             if not result:
                 return N
-        assert(False)
+        assert (False)
         return -1  # never reach

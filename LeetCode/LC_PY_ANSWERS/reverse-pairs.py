@@ -7,6 +7,7 @@ class Solution(object):
         :type nums: List[int]
         :rtype: int
         """
+
         def merge(nums, start, mid, end):
             r = mid + 1
             tmp = []
@@ -15,7 +16,7 @@ class Solution(object):
                     tmp.append(nums[r])
                     r += 1
                 tmp.append(nums[i])
-            nums[start:start+len(tmp)] = tmp
+            nums[start:start + len(tmp)] = tmp
 
         def countAndMergeSort(nums, start, end):
             if end - start <= 0:

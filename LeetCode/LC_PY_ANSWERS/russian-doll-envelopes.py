@@ -7,6 +7,7 @@ class Solution(object):
         :type envelopes: List[List[int]]
         :rtype: int
         """
+
         def insert(target):
             left, right = 0, len(result) - 1
             while left <= right:
@@ -23,7 +24,7 @@ class Solution(object):
         result = []
 
         envelopes.sort(lambda x, y: y[1] - x[1] if x[0] == y[0] else \
-                                    x[0] - y[0])
+            x[0] - y[0])
         for envelope in envelopes:
             insert(envelope[1])
 

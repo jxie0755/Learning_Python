@@ -10,7 +10,7 @@ class Solution(object):
         """
         tokens.sort()
         result, points = 0, 0
-        left, right = 0, len(tokens)-1
+        left, right = 0, len(tokens) - 1
         while left <= right:
             if P >= tokens[left]:
                 P -= tokens[left]

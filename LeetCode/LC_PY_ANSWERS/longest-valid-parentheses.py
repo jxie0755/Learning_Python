@@ -7,6 +7,7 @@ class Solution(object):
         :type s: str
         :rtype: int
         """
+
         def length(it, start, c):
             depth, longest = 0, 0
             for i in it:

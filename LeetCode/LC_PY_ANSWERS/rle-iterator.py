@@ -17,11 +17,11 @@ class RLEIterator(object):
         :rtype: int
         """
         while self.__i < len(self.__A):
-            if  n > self.__A[self.__i] - self.__cnt:
+            if n > self.__A[self.__i] - self.__cnt:
                 n -= self.__A[self.__i] - self.__cnt
                 self.__cnt = 0
                 self.__i += 2
             else:
                 self.__cnt += n
-                return self.__A[self.__i+1]
+                return self.__A[self.__i + 1]
         return -1

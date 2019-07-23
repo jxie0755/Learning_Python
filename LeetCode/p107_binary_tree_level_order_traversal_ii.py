@@ -38,7 +38,7 @@ class Solution:
 
         result = []
         for i in self.showLayers(root)[::-1]:
-            filtered = list(filter(lambda x:x is not None, i))  # Be careful with the t.val == 0
+            filtered = list(filter(lambda x: x is not None, i))  # Be careful with the t.val == 0
             result.append(filtered)
         return result[1:]
 
@@ -86,7 +86,7 @@ class Solution:
         stack = [[root]]
         current = [root]
         while current:
-            next_level= []
+            next_level = []
             for node in current:
                 if node.left:
                     next_level.append(node.left)
@@ -106,7 +106,6 @@ class Solution:
         return result
 
 
-
 if __name__ == "__main__":
     A = None
     assert Solution().levelOrderBottom(A) == [], "Edge 0"
@@ -116,8 +115,8 @@ if __name__ == "__main__":
 
     A = genTree([3, 9, 20, None, None, 15, 7])
     assert Solution().levelOrderBottom(A) == [
-        [15,7],
-        [9,20],
+        [15, 7],
+        [9, 20],
         [3]
     ], "Example"
 
@@ -127,9 +126,9 @@ if __name__ == "__main__":
         1, None, 3, -1,
         5, 1, None, None, 6, None, 8, None])
     assert Solution().levelOrderBottom(A) == [
-        [5,1,6,8],
-        [1,3,-1],
-        [2,4],
+        [5, 1, 6, 8],
+        [1, 3, -1],
+        [2, 4],
         [0]
     ]
 

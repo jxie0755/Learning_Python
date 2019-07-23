@@ -10,15 +10,16 @@ class Solution(object):
         :type expression: str
         :rtype: str
         """
+
         def gcd(a, b):
             while b:
-                a, b = b, a%b
+                a, b = b, a % b
             return a
 
         ints = map(int, re.findall("[+-]?\d+", expression))
         A, B = 0, 1
         for i in xrange(0, len(ints), 2):
-            a, b = ints[i], ints[i+1]
+            a, b = ints[i], ints[i + 1]
             A = A * b + a * B
             B *= b
             g = gcd(A, B)

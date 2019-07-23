@@ -15,4 +15,4 @@ class Solution(object):
         if not intersect:
             return -1
         x = intersect.pop()
-        return min(len(A)-A.count(x), len(B)-B.count(x))
+        return min(len(A) - A.count(x), len(B) - B.count(x))

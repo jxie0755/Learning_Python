@@ -14,7 +14,7 @@ class Solution(object):
         result = []
         for i in xrange(len(nums)):
             if nums[i] > 0:
-                result.append(i+1)
+                result.append(i + 1)
             else:
                 nums[i] *= -1
         return result

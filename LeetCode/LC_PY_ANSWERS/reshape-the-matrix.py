@@ -10,13 +10,13 @@ class Solution(object):
         :rtype: List[List[int]]
         """
         if not nums or \
-           r*c != len(nums) * len(nums[0]):
+                r * c != len(nums) * len(nums[0]):
             return nums
 
         result = [[0 for _ in xrange(c)] for _ in xrange(r)]
         count = 0
         for i in xrange(len(nums)):
             for j in xrange(len(nums[0])):
-                result[count/c][count%c] = nums[i][j]
+                result[count / c][count % c] = nums[i][j]
                 count += 1
         return result

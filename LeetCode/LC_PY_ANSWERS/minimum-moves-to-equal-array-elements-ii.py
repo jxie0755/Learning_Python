@@ -3,6 +3,7 @@
 
 from random import randint
 
+
 # Quick select solution.
 class Solution(object):
     def minMoves2(self, nums):
@@ -10,6 +11,7 @@ class Solution(object):
         :type nums: List[int]
         :rtype: int
         """
+
         def kthElement(nums, k):
             def PartitionAroundPivot(left, right, pivot_idx, nums):
                 pivot_value = nums[pivot_idx]
@@ -34,7 +36,7 @@ class Solution(object):
                 else:  # new_pivot_idx < k - 1.
                     left = new_pivot_idx + 1
 
-        median = kthElement(nums, len(nums)/2 + 1)
+        median = kthElement(nums, len(nums) / 2 + 1)
         return sum(abs(num - median) for num in nums)
 
     def minMoves22(self, nums):

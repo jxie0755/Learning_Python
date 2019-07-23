@@ -28,7 +28,6 @@ class Solution(object):
         v1 = [int(i) for i in version1.split(".")]
         v2 = [int(i) for i in version2.split(".")]
 
-
         def helper(lst1, lst2):
             """recursive helper to compare the list values"""
             if lst1 and lst2:
@@ -56,6 +55,7 @@ class Solution(object):
                         return 0
             else:
                 return 0
+
         return helper(v1, v2)
 
 
@@ -67,5 +67,3 @@ if __name__ == "__main__":
     assert Solution().compareVersion("1.0", "1.0.0") == 0, "Example 5"
 
     print("all passed")
-
-

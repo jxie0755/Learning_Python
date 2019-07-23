@@ -11,14 +11,14 @@ class Solution(object):
         for i in reversed(range(len(s))):
             if s[i].isdigit():
                 operand += s[i]
-                if i == 0 or not s[i-1].isdigit():
+                if i == 0 or not s[i - 1].isdigit():
                     operands.append(int(operand[::-1]))
                     operand = ""
             elif s[i] == ")" or s[i] == "*" or s[i] == "/":
                 operators.append(s[i])
             elif s[i] == "+" or s[i] == "-":
                 while operators and \
-                      (operators[-1] == "*" or operators[-1] == "/"):
+                        (operators[-1] == "*" or operators[-1] == "/"):
                     self.compute(operands, operators)
                 operators.append(s[i])
             elif s[i] == "(":

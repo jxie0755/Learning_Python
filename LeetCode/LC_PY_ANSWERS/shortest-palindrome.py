@@ -7,13 +7,14 @@ class Solution(object):
         :type s: str
         :rtype: str
         """
+
         def getPrefix(pattern):
             prefix = [-1] * len(pattern)
             j = -1
             for i in xrange(1, len(pattern)):
-                while j > -1 and pattern[j+1] != pattern[i]:
+                while j > -1 and pattern[j + 1] != pattern[i]:
                     j = prefix[j]
-                if pattern[j+1] == pattern[i]:
+                if pattern[j + 1] == pattern[i]:
                     j += 1
                 prefix[i] = j
             return prefix
@@ -26,7 +27,7 @@ class Solution(object):
         i = prefix[-1]
         while i >= len(s):
             i = prefix[i]
-        return s[i+1:][::-1] + s
+        return s[i + 1:][::-1] + s
 
 
 # Time:  O(n)
@@ -38,12 +39,13 @@ class Solution2(object):
         :type s: str
         :rtype: str
         """
+
         def preProcess(s):
             if not s:
                 return ["^", "$"]
             string = ["^"]
             for c in s:
-                string +=  ["#", c]
+                string += ["#", c]
             string += ["#", "$"]
             return string
 
@@ -67,4 +69,4 @@ class Solution2(object):
         for i in xrange(1, len(string) - 1):
             if i - palindrome[i] == 1:
                 max_len = palindrome[i]
-        return s[len(s)-1:max_len-1:-1] + s
+        return s[len(s) - 1:max_len - 1:-1] + s

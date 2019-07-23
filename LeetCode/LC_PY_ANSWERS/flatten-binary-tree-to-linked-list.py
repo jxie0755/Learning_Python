@@ -7,6 +7,7 @@ class TreeNode(object):
         self.left = None
         self.right = None
 
+
 class Solution(object):
     # @param root, a tree node
     # @return nothing, do it in place
@@ -23,8 +24,10 @@ class Solution(object):
         else:
             return list_head
 
+
 class Solution2(object):
     list_head = None
+
     # @param root, a tree node
     # @return nothing, do it in place
     def flatten(self, root):

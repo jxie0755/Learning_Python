@@ -2,12 +2,12 @@
 # Easy
 
 
-
 # Given an array of integers and an integer k,
 # find out whether there are two distinct indices i and j in the array
 # such that nums[i] = nums[j] and the absolute difference between i and j is at most k.
 
 from typing import *
+
 
 class Solution:
 
@@ -23,7 +23,7 @@ class Solution:
         while z <= k:
             i = 0
             while i != len(nums) - z:
-                if nums[i] == nums[i+z]:
+                if nums[i] == nums[i + z]:
                     return True
                 i += 1
             z += 1
@@ -38,7 +38,7 @@ class Solution:
                 hashtable[nums[i]] = i
             else:
                 if i - hashtable[nums[i]] <= k:
-                    return True             # 每次出现重复就检查距离是否小于k
+                    return True  # 每次出现重复就检查距离是否小于k
                 else:
                     hashtable[nums[i]] = i  # 更新index
             i += 1
@@ -49,11 +49,11 @@ if __name__ == "__main__":
     assert Solution().containsNearbyDuplicate([], 0) == False, "Edge 1"
     assert Solution().containsNearbyDuplicate([1], 1) == False, "Edge 2"
 
-    assert Solution().containsNearbyDuplicate([1,2,3,1], 3) == True, "Example 1"
-    assert Solution().containsNearbyDuplicate([1,0,1,1], 1) == True, "Example 2"
-    assert Solution().containsNearbyDuplicate([1,2,3,1,2,3], 2) == False, "Example 3"
-    assert Solution().containsNearbyDuplicate([2,2], 3) == True, "Example 4"
+    assert Solution().containsNearbyDuplicate([1, 2, 3, 1], 3) == True, "Example 1"
+    assert Solution().containsNearbyDuplicate([1, 0, 1, 1], 1) == True, "Example 2"
+    assert Solution().containsNearbyDuplicate([1, 2, 3, 1, 2, 3], 2) == False, "Example 3"
+    assert Solution().containsNearbyDuplicate([2, 2], 3) == True, "Example 4"
 
-    assert Solution().containsNearbyDuplicate([0,1,2,3,2,5], 3) == True, "Additional 1"
+    assert Solution().containsNearbyDuplicate([0, 1, 2, 3, 2, 5], 3) == True, "Additional 1"
 
     print("all passed")

@@ -22,8 +22,8 @@ class Solution(object):
                 for i in xrange(4):
                     n = int(node[i])
                     for d in (-1, 1):
-                        nn = (n+d) % 10
-                        neighbor = node[:i] + str(nn) + node[i+1:]
+                        nn = (n + d) % 10
+                        neighbor = node[:i] + str(nn) + node[i + 1:]
                         if neighbor not in lookup:
                             lookup.add(neighbor)
                             next_q.append(neighbor)

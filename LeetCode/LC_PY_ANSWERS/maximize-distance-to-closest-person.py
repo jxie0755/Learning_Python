@@ -14,6 +14,6 @@ class Solution(object):
                 if prev < 0:
                     result = i
                 else:
-                    result = max(result, (i-prev)//2)
+                    result = max(result, (i - prev) // 2)
                 prev = i
-        return max(result, len(seats)-1-prev)
+        return max(result, len(seats) - 1 - prev)

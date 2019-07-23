@@ -2,7 +2,6 @@
 # Easy
 
 
-
 # Given a binary tree, find its minimum depth.
 # The minimum depth is the number of nodes along the shortest path from the root node down to the nearest leaf node.
 
@@ -54,7 +53,6 @@ class Solution(object):
             return max(self.minDepth(root.left), self.minDepth(root.right)) + 1
 
 
-
 if __name__ == "__main__":
     A = None
     assert Solution().minDepth(A) == 0, "Edge 0"
@@ -62,7 +60,7 @@ if __name__ == "__main__":
     A = TreeNode(1)
     assert Solution().minDepth(A) == 1, "Edge 1"
 
-    A = genTree([3,9,20,None, None, 15, 7])
+    A = genTree([3, 9, 20, None, None, 15, 7])
     assert Solution().minDepth(A) == 2, "Example 1"
 
     A = genTree([
@@ -72,5 +70,3 @@ if __name__ == "__main__":
     assert Solution().minDepth(A) == 2, "Additional 1"
 
     print("All passed")
-
-

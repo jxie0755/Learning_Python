@@ -6,7 +6,6 @@
 
 
 class Solution:
-
     OPEN_BRACKETS = {"(": 1, "{": 2, "[": 3}
     CLOSE_BRACKETS = {")": 1, "}": 2, "]": 3}  # setup data as class attributes
 
@@ -27,9 +26,7 @@ class Solution:
         return len(result) == 0
 
 
-
 if __name__ == "__main__":
-
     assert Solution().isValid("((5+3)*2+1)"), "Simple"
     assert Solution().isValid("{[(3+1)+2]+}"), "Different types"
     assert not Solution().isValid("(3+{1-1)}"), ") is alone inside {}"

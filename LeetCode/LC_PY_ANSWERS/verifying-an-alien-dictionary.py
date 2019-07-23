@@ -9,9 +9,9 @@ class Solution(object):
         :rtype: bool
         """
         lookup = {c: i for i, c in enumerate(order)}
-        for i in xrange(len(words)-1):
+        for i in xrange(len(words) - 1):
             word1 = words[i]
-            word2 = words[i+1]
+            word2 = words[i + 1]
             for k in xrange(min(len(word1), len(word2))):
                 if word1[k] != word2[k]:
                     if lookup[word1[k]] > lookup[word2[k]]:

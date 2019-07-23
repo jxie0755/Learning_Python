@@ -10,6 +10,7 @@ class Solution(object):
         :type root: TreeNode
         :rtype: List[TreeNode]
         """
+
         def getid(root, lookup, trees):
             if root:
                 node_id = lookup[root.val, \
@@ -17,6 +18,7 @@ class Solution(object):
                                  getid(root.right, lookup, trees)]
                 trees[node_id].append(root)
                 return node_id
+
         trees = collections.defaultdict(list)
         lookup = collections.defaultdict()
         lookup.default_factory = lookup.__len__
@@ -32,6 +34,7 @@ class Solution2(object):
         :type root: TreeNode
         :rtype: List[TreeNode]
         """
+
         def postOrderTraversal(node, lookup, result):
             if not node:
                 return ""

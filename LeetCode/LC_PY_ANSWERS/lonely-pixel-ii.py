@@ -11,7 +11,7 @@ class Solution(object):
         :type N: int
         :rtype: int
         """
-        rows, cols = [0] * len(picture),  [0] * len(picture[0])
+        rows, cols = [0] * len(picture), [0] * len(picture[0])
         lookup = collections.defaultdict(int)
         for i in xrange(len(picture)):
             for j in xrange(len(picture[0])):
@@ -24,7 +24,7 @@ class Solution(object):
         for i in xrange(len(picture)):
             if rows[i] == N and lookup[tuple(picture[i])] == N:
                 for j in xrange(len(picture[0])):
-                     result += picture[i][j] == "B" and cols[j] == N
+                    result += picture[i][j] == "B" and cols[j] == N
         return result
 
 

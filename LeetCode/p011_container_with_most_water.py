@@ -10,6 +10,7 @@
 
 from typing import *
 
+
 class Solution:
 
     # Version A, # Brutal force will be O(N^2), Time Limit Exceeded
@@ -17,7 +18,7 @@ class Solution:
 
         i = 0
         result = []
-        while i != len(height) -1:
+        while i != len(height) - 1:
             first = height[i]
             j = i + 1
             while j != len(height):
@@ -41,7 +42,7 @@ class Solution:
         def obtain_top(hstble):
             """得到hashtable中最大值的index"""
             i = max(hstble, key=hstble.get)
-            tops[i] = hstble[i] # 转移到tops字典, 也就是记录最大值的字典
+            tops[i] = hstble[i]  # 转移到tops字典, 也就是记录最大值的字典
             del hstble[i]  # 记住要删掉这个最大值
 
         def remove_between(hstble):
@@ -68,7 +69,6 @@ class Solution:
 
         return max(result)
 
-
     # Version C
     # Start from both end, move the shorter side closer, to compare the possibe volume
     # O(N) locked, best answer
@@ -84,15 +84,14 @@ class Solution:
         return max_area
 
 
-
 if __name__ == "__main__":
     assert Solution().maxArea([0, 0]) == 0, "Edge 1"
     assert Solution().maxArea([0, 0, 0]) == 0, "Edge 2"
 
-    assert Solution().maxArea([1,8,6,2,5,4,8,3,7]) == 49, "Example 1"
-    assert Solution().maxArea([2,3,0,0,3,0,0,0,0,2]) == 18, "Example 2"
-    assert Solution().maxArea([2,3,4,5,6,7,8,9,100,100]) == 100, "Example 3"
-    assert Solution().maxArea([1,1,1,1,1,10,10,1,1,1,1,1]) == 11, "Example 4"
-    assert Solution().maxArea([1,1,4,1,5,5,4,1,1,1]) == 16, "Example 5"
+    assert Solution().maxArea([1, 8, 6, 2, 5, 4, 8, 3, 7]) == 49, "Example 1"
+    assert Solution().maxArea([2, 3, 0, 0, 3, 0, 0, 0, 0, 2]) == 18, "Example 2"
+    assert Solution().maxArea([2, 3, 4, 5, 6, 7, 8, 9, 100, 100]) == 100, "Example 3"
+    assert Solution().maxArea([1, 1, 1, 1, 1, 10, 10, 1, 1, 1, 1, 1]) == 11, "Example 4"
+    assert Solution().maxArea([1, 1, 4, 1, 5, 5, 4, 1, 1, 1]) == 16, "Example 5"
 
     print("All passed")

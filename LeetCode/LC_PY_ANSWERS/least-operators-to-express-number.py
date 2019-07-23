@@ -12,9 +12,9 @@ class Solution(object):
         while target:
             target, r = divmod(target, x)
             if k:
-                pos, neg = min(r*k + pos, (r+1)*k + neg), \
-                           min((x-r)*k + pos, (x-r-1)*k + neg)
+                pos, neg = min(r * k + pos, (r + 1) * k + neg), \
+                           min((x - r) * k + pos, (x - r - 1) * k + neg)
             else:
-                pos, neg = r*2, (x-r)*2
+                pos, neg = r * 2, (x - r) * 2
             k += 1
-        return min(pos, k+neg) - 1
+        return min(pos, k + neg) - 1

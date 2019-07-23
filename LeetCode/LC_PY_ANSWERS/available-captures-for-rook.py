@@ -20,11 +20,11 @@ class Solution(object):
 
         result = 0
         for d in directions:
-            nr, nc = r+d[0], c+d[1]
+            nr, nc = r + d[0], c + d[1]
             while 0 <= nr < 8 and 0 <= nc < 8:
                 if board[nr][nc] == "p":
                     result += 1
                 if board[nr][nc] != ".":
                     break
-                nr, nc= nr+d[0], nc+d[1]
+                nr, nc = nr + d[0], nc + d[1]
         return result

@@ -47,6 +47,6 @@ class Solution2(object):
         :rtype: int
         """
         for i in xrange(len(haystack) - len(needle) + 1):
-            if haystack[i : i + len(needle)] == needle:
+            if haystack[i: i + len(needle)] == needle:
                 return i
         return -1

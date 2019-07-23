@@ -19,7 +19,7 @@ class Vector2D(object):
         """
         length, iterator = self.stack.popleft()
         if length > 1:
-            self.stack.appendleft((length-1, iterator))
+            self.stack.appendleft((length - 1, iterator))
         return next(iterator)
 
     def hasNext(self):

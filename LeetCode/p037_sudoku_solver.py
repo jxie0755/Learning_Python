@@ -18,6 +18,7 @@
 
 import copy
 
+
 class Solution:
 
     def __init__(self, puzzle=[
@@ -42,7 +43,6 @@ class Solution:
         self.board = puzzle
         # Also create a permanent puzzle copy for future use
         self.puzzle = self.board_mem()
-
 
     # Build up class attributes to for future to check up the rows, columns and grids.
     def row(self, n):
@@ -145,7 +145,8 @@ class Solution:
         return True if no conflicts were found
         return False if conflicts were found
         """
-        all_subs = [self.row(n) for n in range(1, 10)] + [self.row(n) for n in range(1, 10)] + [self.grid(n) for n in range(1, 10)]
+        all_subs = [self.row(n) for n in range(1, 10)] + [self.row(n) for n in range(1, 10)] + [self.grid(n) for n in
+                                                                                                range(1, 10)]
         for sub in all_subs:
             check_list = []
             for i in sub:
@@ -177,7 +178,7 @@ class Solution:
                     all_subs = self.get_row_col_sub(coordinate)
                     cant_be = [i for i in sum(all_subs, []) if i != "."]
                     all_nums = ["1", "2", "3",
-                                "4", "5","6",
+                                "4", "5", "6",
                                 "7", "8", "9"]
                     can_be = [i for i in all_nums if i not in cant_be]
                     result[coordinate] = can_be
@@ -267,15 +268,12 @@ class Solution:
 
         return self.board[:]
 
-
     # For Leetcode P037
     def solveSudoku(self, board):
         ans = Solution(board).solve()
         for i in range(9):
             for j in range(9):
                 board[i][j] = ans[i][j]
-
-
 
 
 class Solution(object):
@@ -286,16 +284,16 @@ class Solution(object):
     """
 
     def __init__(self, puzzle=[
-            [".", ".", ".", ".", ".", ".", ".", ".", "."],
-            [".", ".", ".", ".", ".", ".", ".", ".", "."],
-            [".", ".", ".", ".", ".", ".", ".", ".", "."],
-            [".", ".", ".", ".", ".", ".", ".", ".", "."],
-            [".", ".", ".", ".", ".", ".", ".", ".", "."],
-            [".", ".", ".", ".", ".", ".", ".", ".", "."],
-            [".", ".", ".", ".", ".", ".", ".", ".", "."],
-            [".", ".", ".", ".", ".", ".", ".", ".", "."],
-            [".", ".", ".", ".", ".", ".", ".", ".", "."],
-        ]):
+        [".", ".", ".", ".", ".", ".", ".", ".", "."],
+        [".", ".", ".", ".", ".", ".", ".", ".", "."],
+        [".", ".", ".", ".", ".", ".", ".", ".", "."],
+        [".", ".", ".", ".", ".", ".", ".", ".", "."],
+        [".", ".", ".", ".", ".", ".", ".", ".", "."],
+        [".", ".", ".", ".", ".", ".", ".", ".", "."],
+        [".", ".", ".", ".", ".", ".", ".", ".", "."],
+        [".", ".", ".", ".", ".", ".", ".", ".", "."],
+        [".", ".", ".", ".", ".", ".", ".", ".", "."],
+    ]):
         """
         只支持str的raw data, 空白处用"."来表示 (符合Leetcode p037)
 
@@ -308,7 +306,7 @@ class Solution(object):
         """
 
         self.blank = "."
-        self.valid = ["1", "2", "3", "4", "5","6", "7", "8", "9"]
+        self.valid = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
 
         # 保留原puzzle, 用于print
         self.board = puzzle
@@ -323,11 +321,9 @@ class Solution(object):
 
         self.load_quiz()  # 装载题目
 
-
         # 初始化一个历史记录, 备分操作过程, 使用list
         self.guess_history = []
         self.deduct_history = []
-
 
     # # 用于格式化的打印题目和题解
     # def __str__(self):
@@ -361,12 +357,11 @@ class Solution(object):
     #     to_print += separ + "\n" + x_num
     #     return to_print
 
-
     # 读题
     def load_quiz(self):
         for coor, value in self.hash_board.items():
             x, y = coor[0], coor[1]
-            given = self.board[9-y][x-1]
+            given = self.board[9 - y][x - 1]
             if given in self.valid:
                 value["cur"] = given
 
@@ -412,7 +407,7 @@ class Solution(object):
         g8 = [self.hash_board[(x, y)]["cur"] for y in range(1, 4) for x in range(4, 7)]
         g9 = [self.hash_board[(x, y)]["cur"] for y in range(1, 4) for x in range(7, 10)]
         grids = [g1, g2, g3, g4, g5, g6, g7, g8, g9]
-        return grids[n-1]
+        return grids[n - 1]
 
     def get_row_col_sub(self, coor):
         """return a list of 3 list, that contains the related row, column and sub grid of that coor
@@ -420,33 +415,32 @@ class Solution(object):
         row_at = self.row(coor[1])
         col_at = self.col(coor[0])
 
-        if coor[0] in [1,2,3]:
-            if coor[1] in [1,2,3]:
+        if coor[0] in [1, 2, 3]:
+            if coor[1] in [1, 2, 3]:
                 n = 7
-            elif coor[1] in [4,5,6]:
+            elif coor[1] in [4, 5, 6]:
                 n = 4
-            elif coor[1] in [7,8,9]:
+            elif coor[1] in [7, 8, 9]:
                 n = 1
 
-        elif coor[0] in [4,5,6]:
-            if coor[1] in [1,2,3]:
+        elif coor[0] in [4, 5, 6]:
+            if coor[1] in [1, 2, 3]:
                 n = 8
-            elif coor[1] in [4,5,6]:
+            elif coor[1] in [4, 5, 6]:
                 n = 5
-            elif coor[1] in [7,8,9]:
+            elif coor[1] in [7, 8, 9]:
                 n = 2
 
-        elif coor[0] in [7,8,9]:
-            if coor[1] in [1,2,3]:
+        elif coor[0] in [7, 8, 9]:
+            if coor[1] in [1, 2, 3]:
                 n = 9
-            elif coor[1] in [4,5,6]:
+            elif coor[1] in [4, 5, 6]:
                 n = 6
-            elif coor[1] in [7,8,9]:
+            elif coor[1] in [7, 8, 9]:
                 n = 3
 
         grid_at = self.grid(n)
         return row_at, col_at, grid_at
-
 
     def no_conflict(self):
         """return if there is a conflict in the board, where 2 same number (!=self.blank) showed up:
@@ -455,9 +449,9 @@ class Solution(object):
         return True if no conflicts were found
         return False if conflicts were found
         """
-        all_subs = [self.row(n) for n in range(1,10)] + \
-                   [self.row(n) for n in range(1,10)] + \
-                   [self.grid(n) for n in range(1,10)]
+        all_subs = [self.row(n) for n in range(1, 10)] + \
+                   [self.row(n) for n in range(1, 10)] + \
+                   [self.grid(n) for n in range(1, 10)]
 
         for sub in all_subs:
             check_list = []
@@ -487,10 +481,9 @@ class Solution(object):
         """
         for coor, value in self.hash_board.items():
             if value["cur"] == self.blank:
-                cant_be = set(sum(self.get_row_col_sub(coor),[]))
+                cant_be = set(sum(self.get_row_col_sub(coor), []))
                 can_be = [i for i in self.valid if i not in cant_be]
                 value["possible"] = can_be
-
 
     def feasible(self):
         """return True if all vacant spot can still fill in a possible number"""
@@ -511,7 +504,7 @@ class Solution(object):
             self.analysis()
             coor_operated = []
             for coor, value in self.hash_board.items():
-                if len(value["possible"]) == 1 and value["cur"]==self.blank:
+                if len(value["possible"]) == 1 and value["cur"] == self.blank:
                     self.insert(coor, value["possible"][0])
                     coor_operated.append(coor)
             if not coor_operated:
@@ -540,7 +533,6 @@ class Solution(object):
         value = self.hash_board[coor]["possible"].pop()
         self.insert(coor, value)
 
-
     def undo(self):
         """according to self.history, undo all the moves in the last step
         this will undo all the direct deducted and the previous guess.
@@ -552,11 +544,9 @@ class Solution(object):
 
         self.hash_board[guess_deducted]["cur"] = self.blank
 
-
     def last_guess_availble(self):
         """check if last guess still have possible values"""
         return len(self.hash_board[self.guess_history[-1]]["possible"]) > 0
-
 
     # Final solution
     def solve(self):
@@ -590,7 +580,6 @@ class Solution(object):
         for coor, value in q.hash_board.items():
             x, y = coor[0], coor[1]
             board[9 - y][x - 1] = value["cur"]
-
 
 
 if __name__ == "__main__":
@@ -642,7 +631,5 @@ if __name__ == "__main__":
         ["8", "3", "2", "4", "9", "1", "7", "5", "6"],
         ["6", "4", "1", "2", "7", "5", "9", "8", "3"]
     ]
-
-
 
     print("all passed")

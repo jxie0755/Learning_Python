@@ -3,6 +3,7 @@
 
 from collections import deque
 
+
 class MovingAverage(object):
 
     def __init__(self, size):

@@ -30,7 +30,6 @@ class Solution:
             tail = tail.next
         return result
 
-
     def deleteDuplicates(self, head):
         cur = head
         prev = None
@@ -47,12 +46,11 @@ class Solution:
 
 
 if __name__ == "__main__":
-
-    a = genNode([1,1,2,3,3])
+    a = genNode([1, 1, 2, 3, 3])
     check = Solution().deleteDuplicates(a)
     assert repr(check) == "1->2->3"
 
-    b = genNode([1,1,2])
+    b = genNode([1, 1, 2])
     check = Solution().deleteDuplicates(b)
     assert repr(check) == "1->2"
 

@@ -15,6 +15,7 @@ class Solution(object):
         :type root: TreeNode
         :rtype: str
         """
+
         def dfs(node, candidate, result):
             if not node:
                 return

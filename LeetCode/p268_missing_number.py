@@ -10,6 +10,7 @@
 
 from typing import *
 
+
 class Solution:
 
     # 利用等差数列? 过一遍找出首项和末项 (min和max)
@@ -26,10 +27,10 @@ class Solution:
 
         if min_v != 0:  # 最左边缺0
             return 0
-        elif max_v == length -1:  # 最右边缺最后一个数
+        elif max_v == length - 1:  # 最右边缺最后一个数
             return max_v + 1
-        else:   # 在中间, 利用等差数列求差
-            return (0 + max_v) * (length+1) // 2 - sum_all
+        else:  # 在中间, 利用等差数列求差
+            return (0 + max_v) * (length + 1) // 2 - sum_all
 
 
 class Solution:
@@ -37,8 +38,8 @@ class Solution:
     # XOR method, O(N)
     def missingNumber(self, nums: List[int]) -> int:
         checker = 0
-        for n in (nums + list(range(len(nums)+1))):
-                # 也就是 nums 与真正应该的nums 一起
+        for n in (nums + list(range(len(nums) + 1))):
+            # 也就是 nums 与真正应该的nums 一起
             checker ^= n  # iteration完毕就能得到缺失的数字,不论顺序
         return checker
 
@@ -53,13 +54,12 @@ class Solution:
 # So for this code, the order of the numbers does not matter at all.
 
 
-
 if __name__ == "__main__":
     assert Solution().missingNumber([0]) == 1, "Edge 1"
     assert Solution().missingNumber([1]) == 0, "Edge 2"
     assert Solution().missingNumber([0, 1]) == 2, "Edge 3"
     assert Solution().missingNumber([1, 2, 3]) == 0, "Edge 4"
 
-    assert Solution().missingNumber([3,0,1]) == 2, "Example 1"
-    assert Solution().missingNumber([9,6,4,2,3,5,7,0,1]) == 8, "Example 2"
+    assert Solution().missingNumber([3, 0, 1]) == 2, "Example 1"
+    assert Solution().missingNumber([9, 6, 4, 2, 3, 5, 7, 0, 1]) == 8, "Example 2"
     print("all passed")

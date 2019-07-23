@@ -7,6 +7,7 @@ class Solution(object):
         :type nestedList: List[NestedInteger]
         :rtype: int
         """
+
         def depthSumHelper(nestedList, depth):
             res = 0
             for l in nestedList:
@@ -15,4 +16,5 @@ class Solution(object):
                 else:
                     res += depthSumHelper(l.getList(), depth + 1)
             return res
+
         return depthSumHelper(nestedList, 1)

@@ -7,6 +7,7 @@ class Solution(object):
         :type matrix: List[List[str]]
         :rtype: int
         """
+
         def largestRectangleArea(heights):
             increasing, area, i = [], 0, 0
             while i <= len(heights):
@@ -18,7 +19,7 @@ class Solution(object):
                     if not increasing:
                         area = max(area, heights[last] * i)
                     else:
-                        area = max(area, heights[last] * (i - increasing[-1] - 1 ))
+                        area = max(area, heights[last] * (i - increasing[-1] - 1))
             return area
 
         if not matrix:

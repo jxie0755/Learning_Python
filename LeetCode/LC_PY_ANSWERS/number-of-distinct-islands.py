@@ -7,8 +7,8 @@ class Solution(object):
         :type grid: List[List[int]]
         :rtype: int
         """
-        directions = {"l":[-1,  0], "r":[ 1,  0], \
-                      "u":[ 0,  1], "d":[ 0, -1]}
+        directions = {"l": [-1, 0], "r": [1, 0], \
+                      "u": [0, 1], "d": [0, -1]}
 
         def dfs(i, j, grid, island):
             if not (0 <= i < len(grid) and \
@@ -18,7 +18,7 @@ class Solution(object):
             grid[i][j] *= -1
             for k, v in directions.iteritems():
                 island.append(k)
-                dfs(i+v[0], j+v[1], grid, island)
+                dfs(i + v[0], j + v[1], grid, island)
             return True
 
         islands = set()

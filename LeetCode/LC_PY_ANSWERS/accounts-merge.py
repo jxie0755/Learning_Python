@@ -11,7 +11,7 @@ class UnionFind(object):
 
     def get_id(self):
         self.set.append(len(self.set))
-        return len(self.set)-1
+        return len(self.set) - 1
 
     def find_set(self, x):
         if self.set[x] != x:

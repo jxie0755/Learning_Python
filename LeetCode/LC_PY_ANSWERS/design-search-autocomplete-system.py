@@ -12,7 +12,6 @@ class TrieNode(object):
         self.infos = []
         self.leaves = {}
 
-
     def insert(self, s, times):
         cur = self
         cur.add_info(s, times)
@@ -21,7 +20,6 @@ class TrieNode(object):
                 cur.leaves[c] = TrieNode()
             cur = cur.leaves[c]
             cur.add_info(s, times)
-
 
     def add_info(self, s, times):
         for p in self.infos:
@@ -49,7 +47,6 @@ class AutocompleteSystem(object):
         for sentence, count in zip(sentences, times):
             self.__sentence_to_count[sentence] = count
             self.__trie.insert(sentence, count)
-
 
     def input(self, c):
         """

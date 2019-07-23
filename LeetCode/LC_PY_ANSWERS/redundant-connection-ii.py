@@ -33,7 +33,7 @@ class Solution(object):
                 cand1 = [parent[edge[1]], edge[1]]
                 cand2 = edge
 
-        union_find = UnionFind(len(edges)+1)
+        union_find = UnionFind(len(edges) + 1)
         for edge in edges:
             if edge == cand2:
                 continue

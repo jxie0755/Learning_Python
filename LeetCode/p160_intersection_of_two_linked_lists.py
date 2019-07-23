@@ -23,7 +23,6 @@ def genNode(*nodes, end=None):
     return n if nodes else None
 
 
-
 class Solution(object):
 
     # Version A
@@ -68,6 +67,7 @@ class Solution(object):
 
         return None
 
+
 class Solution(object):
 
     # Version C,
@@ -98,8 +98,8 @@ class Solution(object):
     # Version D, final version
     # O(N) time, and O(1) memory
     # No break, check length of each linked list
-        # same length: move to next togethter
-        # different length: move the longer linkedlist until same length, then move togeterh
+    # same length: move to next togethter
+    # different length: move the longer linkedlist until same length, then move togeterh
 
     def linkedlength(self, node):
         length = 0
@@ -120,7 +120,6 @@ class Solution(object):
             headB = headB.next
         return None
 
-
     def getIntersectionNode(self, headA, headB):
         """
         :type head1, head1: ListNode
@@ -132,34 +131,33 @@ class Solution(object):
         if A == B:
             return self.findinter(headA, headB)
         elif A > B:
-            for i in range(A-B):
+            for i in range(A - B):
                 headA = headA.next
             return self.findinter(headA, headB)
         elif A < B:
-            for i in range(B-A):
+            for i in range(B - A):
                 headB = headB.next
             return self.findinter(headA, headB)
 
 
 if __name__ == "__main__":
-    A = genNode([4,1])
-    B = genNode([5,0,1])
-    C = genNode([8,4,5])
+    A = genNode([4, 1])
+    B = genNode([5, 0, 1])
+    C = genNode([8, 4, 5])
     A.next.next = C
     B.next.next.next = C
 
     assert Solution().getIntersectionNode(A, B) == C, "Example 1"
 
-    A = genNode([0,9,1])
+    A = genNode([0, 9, 1])
     B = genNode([3])
-    C = genNode([2,4])
+    C = genNode([2, 4])
     A.next.next.next = C
     B.next = C
     assert Solution().getIntersectionNode(A, B) == C, "Example 2"
 
-    A = genNode([2,6,4])
-    B = genNode([1,5])
+    A = genNode([2, 6, 4])
+    B = genNode([1, 5])
     assert not Solution().getIntersectionNode(A, B) == C, "Example 3, Edge"
 
     print("all passed")
-

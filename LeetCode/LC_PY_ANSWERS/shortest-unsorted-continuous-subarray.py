@@ -12,9 +12,9 @@ class Solution(object):
         min_from_right, max_from_left = nums[-1], nums[0]
         for i in xrange(1, n):
             max_from_left = max(max_from_left, nums[i])
-            min_from_right = min(min_from_right, nums[n-1-i])
+            min_from_right = min(min_from_right, nums[n - 1 - i])
             if nums[i] < max_from_left: right = i
-            if nums[n-1-i] > min_from_right: left = n-1-i
+            if nums[n - 1 - i] > min_from_right: left = n - 1 - i
 
 
 # Time:  O(nlogn)
@@ -25,8 +25,8 @@ class Solution2(object):
         :type nums: List[int]
         :rtype: int
         """
-        a = sorted(nums) #sort the list
-        left, right = 0, len(nums) -1 #define left and right pointer
+        a = sorted(nums)  # sort the list
+        left, right = 0, len(nums) - 1  # define left and right pointer
         while (nums[left] == a[left] or nums[right] == a[right]):
             if right - left <= 1:
                 return 0

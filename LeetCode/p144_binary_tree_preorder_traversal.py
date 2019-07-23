@@ -31,14 +31,13 @@ if __name__ == "__main__":
         None, 2,
         None, None, 3, None
     ])
-    assert Solution().preorderTraversal(A) == [1,2,3], "Example 1"
+    assert Solution().preorderTraversal(A) == [1, 2, 3], "Example 1"
 
     A = genTree([
         1,
-        4,3,
+        4, 3,
         2
     ])
     assert Solution().preorderTraversal(A) == [1, 4, 2, 3], "Example 2"
 
     print("all passed")
-

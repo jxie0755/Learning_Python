@@ -30,28 +30,28 @@ class Solution:
             if 0 <= A <= small and 0 <= B <= big and (A, B) not in all_possible:
                 all_possible[(A, B)] = 1
 
-                helper(small, B) # fill up small
-                helper(A, big)   # fill up big
+                helper(small, B)  # fill up small
+                helper(A, big)  # fill up big
                 helper(0, B)  # drain small
                 helper(A, 0)  # drain big
 
                 # poor from big to small
-                if (small-A) >= B:
-                    helper(A+B, 0)
+                if (small - A) >= B:
+                    helper(A + B, 0)
                 else:
-                    helper(small, B-(small-A))
+                    helper(small, B - (small - A))
 
                 # poor from small to big
-                if (big-B) >= A:
-                    helper(0, A+B)
+                if (big - B) >= A:
+                    helper(0, A + B)
                 else:
-                    helper(A-(big-B), big)
+                    helper(A - (big - B), big)
 
-        helper(0,0)
+        helper(0, 0)
         lst = []
         for i in all_possible:
             for j in i:
-               lst.append(j)
+                lst.append(j)
 
         # print(sorted(list(set(lst))))
 
@@ -79,17 +79,13 @@ class Solution:
         return z <= x + y and z % g == 0
 
 
-
-
-
-if  __name__ == "__main__":
-
+if __name__ == "__main__":
     assert Solution().canMeasureWater(0, 0, 0), "Edge 0"
     assert not Solution().canMeasureWater(0, 2, 1), "Edge 1"
     assert Solution().canMeasureWater(1, 2, 3), "Edge 2"
 
-    assert Solution().canMeasureWater(3,5,4), "Example 1, Di Hard"
-    assert not Solution().canMeasureWater(2,6,5), "Example 2"
+    assert Solution().canMeasureWater(3, 5, 4), "Example 1, Di Hard"
+    assert not Solution().canMeasureWater(2, 6, 5), "Example 2"
     assert not Solution().canMeasureWater(6, 9, 1), "Example3"
 
     assert Solution().canMeasureWater(22003, 31237, 1), "Long"

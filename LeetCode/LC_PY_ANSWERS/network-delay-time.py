@@ -5,6 +5,7 @@
 import collections
 import heapq
 
+
 # Dijkstra's algorithm
 class Solution(object):
     def networkDelayTime(self, times, N, K):
@@ -16,12 +17,12 @@ class Solution(object):
         """
         adj = [[] for _ in xrange(N)]
         for u, v, w in times:
-            adj[u-1].append((v-1, w))
+            adj[u - 1].append((v - 1, w))
 
         result = 0
         lookup = set()
         best = collections.defaultdict(lambda: float("inf"))
-        min_heap = [(0, K-1)]
+        min_heap = [(0, K - 1)]
         while min_heap and len(lookup) != N:
             result, u = heapq.heappop(min_heap)
             lookup.add(u)
@@ -29,7 +30,7 @@ class Solution(object):
                 continue
             for v, w in adj[u]:
                 if v in lookup: continue
-                if result+w < best[v]:
-                    best[v] = result+w
-                    heapq.heappush(min_heap, (result+w, v))
+                if result + w < best[v]:
+                    best[v] = result + w
+                    heapq.heappush(min_heap, (result + w, v))
         return result if len(lookup) == N else -1

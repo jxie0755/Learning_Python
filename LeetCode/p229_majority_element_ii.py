@@ -5,6 +5,8 @@
 # Note: The algorithm should run in linear time and in O(1) space. - Not True (STD ans will use hashmap as well)
 
 from typing import *
+
+
 class Solution(object):
 
     # Version A1, use hashmap to record everything
@@ -33,7 +35,6 @@ class Solution(object):
     # So, it shoud stop after two are found, no need to proceed
     # It was stil not O(1) space
 
-
     def majorityElement(self, nums: List[int]) -> List[int]:
         result = []
         N = len(nums) // 3
@@ -51,7 +52,10 @@ class Solution(object):
 
         return result
 
+
 import collections
+
+
 class Solution(object):
     # STD ans
     def majorityElement(self, nums: List[int]) -> List[int]:
@@ -60,10 +64,9 @@ class Solution(object):
 
 if __name__ == "__main__":
     assert Solution().majorityElement([]) == [], "Edge"
-    assert Solution().majorityElement([3,2,3]) == [3], "Example 1"
-    assert Solution().majorityElement([1,1,1,1,3,2,2,2,2]) == [1,2], "Example 2"
+    assert Solution().majorityElement([3, 2, 3]) == [3], "Example 1"
+    assert Solution().majorityElement([1, 1, 1, 1, 3, 2, 2, 2, 2]) == [1, 2], "Example 2"
 
-    assert Solution().majorityElement([1,3,1,3,1,3,1,3,2]) == [1,3], "Additional 1"
-
+    assert Solution().majorityElement([1, 3, 1, 3, 1, 3, 1, 3, 2]) == [1, 3], "Additional 1"
 
     print("all passed")

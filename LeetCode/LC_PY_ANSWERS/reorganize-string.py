@@ -12,7 +12,7 @@ class Solution(object):
         :rtype: str
         """
         counts = collections.Counter(S)
-        if any(v > (len(S)+1)/2 for k, v in counts.iteritems()):
+        if any(v > (len(S) + 1) / 2 for k, v in counts.iteritems()):
             return ""
 
         result = []
@@ -24,6 +24,6 @@ class Solution(object):
             count2, c2 = heapq.heappop(max_heap)
             if not result or c1 != result[-1]:
                 result.extend([c1, c2])
-                if count1+1: heapq.heappush(max_heap, (count1+1, c1))
-                if count2+1: heapq.heappush(max_heap, (count2+1, c2))
+                if count1 + 1: heapq.heappush(max_heap, (count1 + 1, c1))
+                if count2 + 1: heapq.heappush(max_heap, (count2 + 1, c2))
         return "".join(result) + (max_heap[0][1] if max_heap else "")

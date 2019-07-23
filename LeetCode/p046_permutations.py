@@ -8,6 +8,7 @@ from typing import *
 import math
 import itertools
 
+
 class Solution:
     # use python's internal method, only for testing the speed
     def permute(self, nums: List[int]):
@@ -62,7 +63,6 @@ class Solution:
         return result
 
 
-
 class Solution:
     # recursive method
     def restList(self, elm, lst):
@@ -88,7 +88,6 @@ class Solution:
         return result
 
 
-
 class Solution:
     # recursive method, single and pure recursion
     def permute(self, nums: List[int]):
@@ -104,15 +103,12 @@ class Solution:
             return result
 
 
-
-
 if __name__ == "__main__":
     assert Solution().permute([1]) == [
         [1]
     ], "Edge 1"
 
-
-    assert Solution().permute([1,2,3]) == [
+    assert Solution().permute([1, 2, 3]) == [
         [1, 2, 3],
         [1, 3, 2],
         [2, 1, 3],

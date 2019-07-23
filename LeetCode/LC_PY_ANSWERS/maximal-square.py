@@ -60,8 +60,8 @@ class Solution2(object):
                 size[i][0] = 0
             for j in xrange(1, n):
                 if matrix[i][j] == "1":
-                    size[i][j] = min(size[i][j - 1],  \
-                                     size[i - 1][j],  \
+                    size[i][j] = min(size[i][j - 1], \
+                                     size[i - 1][j], \
                                      size[i - 1][j - 1]) + 1
                     max_size = max(max_size, size[i][j])
                 else:
@@ -83,7 +83,7 @@ class Solution3(object):
         H, W = 0, 1
         # DP table stores (h, w) for each (i, j).
         table = [[[0, 0] for j in xrange(len(matrix[0]))] \
-                         for i in xrange(len(matrix))]
+                 for i in xrange(len(matrix))]
         for i in reversed(xrange(len(matrix))):
             for j in reversed(xrange(len(matrix[i]))):
                 # Find the largest h such that (i, j) to (i + h - 1, j) are feasible.
@@ -98,7 +98,7 @@ class Solution3(object):
 
         # A table stores the length of largest square for each (i, j).
         s = [[0 for j in xrange(len(matrix[0]))] \
-                for i in xrange(len(matrix))]
+             for i in xrange(len(matrix))]
         max_square_area = 0
         for i in reversed(xrange(len(matrix))):
             for j in reversed(xrange(len(matrix[i]))):

@@ -14,12 +14,12 @@ class Solution(object):
         for c in s:
             freq[c] += 1
 
-        counts = [""] * (len(s)+1)
+        counts = [""] * (len(s) + 1)
         for c in freq:
             counts[freq[c]] += c
 
         result = ""
-        for count in reversed(xrange(len(counts)-1)):
+        for count in reversed(xrange(len(counts) - 1)):
             for c in counts[count]:
                 result += c * count
 

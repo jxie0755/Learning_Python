@@ -7,6 +7,7 @@ class Solution(object):
         :type nums: List[int]
         :rtype: void Do not return anything, modify nums in-place instead.
         """
+
         def triPartition(nums, target):
             i, j, n = 0, 0, len(nums) - 1
 

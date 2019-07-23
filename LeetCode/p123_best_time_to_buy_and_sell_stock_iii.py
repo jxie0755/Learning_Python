@@ -9,6 +9,7 @@
 
 from typing import *
 
+
 class Solution:
 
     # THis is a complicate method
@@ -38,7 +39,7 @@ class Solution:
         foundprofit = False
         while i != len(prices):
             cur = prices[i]
-            prev = prices[i-1]
+            prev = prices[i - 1]
             if cur <= prev:
                 if foundprofit:
                     profits.append(prev - prices[lo])
@@ -46,13 +47,12 @@ class Solution:
                 foundprofit = False
             else:
                 foundprofit = True
-                if i == len(prices)-1:
+                if i == len(prices) - 1:
                     profits.append(cur - prices[lo])
 
             i += 1
 
         return profits
-
 
     def maxProfit(self, prices: List[int]) -> int:
         if not prices:
@@ -62,9 +62,9 @@ class Solution:
         i = 0
         while i != len(prices):
 
-            if i < len(prices) -1:
-                A = self.singleMaxProfit(prices[0:i+1]) + self.singleMaxProfit(prices[i+1:])
-                Later = sorted(self.profitBreakdown(prices[i+1:]))
+            if i < len(prices) - 1:
+                A = self.singleMaxProfit(prices[0:i + 1]) + self.singleMaxProfit(prices[i + 1:])
+                Later = sorted(self.profitBreakdown(prices[i + 1:]))
             else:
                 A = self.singleMaxProfit(prices)
                 Later = sorted(self.profitBreakdown(prices))
@@ -113,7 +113,7 @@ class Solution:
                 A = self.singleMaxProfit(prices[0:i]) + self.singleMaxProfit(prices[i:])
                 max_two_so_far = max(max_two_so_far, A)
                 foundpeak = False
-            elif i == len(prices)-1:
+            elif i == len(prices) - 1:
                 A = self.singleMaxProfit(prices)
                 max_two_so_far = max(max_two_so_far, A)
             elif cur > prev:
@@ -125,16 +125,15 @@ class Solution:
     # TODO To be reviewed
 
 
-
 if __name__ == "__main__":
     assert Solution().maxProfit([]) == 0, "Edge 0"
     assert Solution().maxProfit([1]) == 0, "Edge 1"
 
-    assert Solution().maxProfit([3,3,5,0,0,3,1,4]) == 6, "Example 1, two transaction"
-    assert Solution().maxProfit([1,2,3,4,5]) == 4, "Example 2, one transaction"
-    assert Solution().maxProfit([7,6,4,3,1]) == 0, "Example 3, zero transaction"
+    assert Solution().maxProfit([3, 3, 5, 0, 0, 3, 1, 4]) == 6, "Example 1, two transaction"
+    assert Solution().maxProfit([1, 2, 3, 4, 5]) == 4, "Example 2, one transaction"
+    assert Solution().maxProfit([7, 6, 4, 3, 1]) == 0, "Example 3, zero transaction"
 
-    assert Solution().maxProfit([1,11,1,2,3,2,3,4,3,4,5]) == 14, "Additional 1"
-    assert Solution().maxProfit([5,6,1,4,2,6]) == 7, "Additional 2"
+    assert Solution().maxProfit([1, 11, 1, 2, 3, 2, 3, 4, 3, 4, 5]) == 14, "Additional 1"
+    assert Solution().maxProfit([5, 6, 1, 4, 2, 6]) == 7, "Additional 2"
 
     print("all passed")

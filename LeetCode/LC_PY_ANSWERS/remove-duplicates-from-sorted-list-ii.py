@@ -12,6 +12,7 @@ class ListNode(object):
         else:
             return "{} -> {}".format(self.val, repr(self.next))
 
+
 class Solution(object):
     def deleteDuplicates(self, head):
         """

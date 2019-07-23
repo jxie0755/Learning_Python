@@ -7,6 +7,7 @@ class Solution(object):
         :type root: TreeNode
         :rtype: int
         """
+
         def robHelper(root):
             if not root:
                 return (0, 0)

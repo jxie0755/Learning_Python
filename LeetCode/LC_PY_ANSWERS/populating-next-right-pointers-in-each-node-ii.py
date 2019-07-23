@@ -14,6 +14,7 @@ class TreeNode(object):
         else:
             return "{} -> {}".format(self.val, repr(self.next))
 
+
 class Solution(object):
     # @param root, a tree node
     # @return nothing

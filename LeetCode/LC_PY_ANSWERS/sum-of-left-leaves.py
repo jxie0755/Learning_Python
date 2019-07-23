@@ -7,6 +7,7 @@ class Solution(object):
         :type root: TreeNode
         :rtype: int
         """
+
         def sumOfLeftLeavesHelper(root, is_left):
             if not root:
                 return 0

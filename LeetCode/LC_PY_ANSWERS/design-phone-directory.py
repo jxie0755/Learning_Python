@@ -15,7 +15,6 @@ class PhoneDirectory(object):
         self.__numbers = range(maxNumbers)
         self.__used = [False] * maxNumbers
 
-
     def get(self):
         """
         Provide a number which is not assigned to anyone.
@@ -29,7 +28,6 @@ class PhoneDirectory(object):
         self.__used[number] = True
         return number
 
-
     def check(self, number):
         """
         Check if a number is available or not.
@@ -39,7 +37,6 @@ class PhoneDirectory(object):
         return 0 <= number < len(self.__numbers) and \
                not self.__used[number]
 
-
     def release(self, number):
         """
         Recycle or release a number.
@@ -47,7 +44,7 @@ class PhoneDirectory(object):
         :rtype: void
         """
         if not 0 <= number < len(self.__numbers) or \
-           not self.__used[number]:
+                not self.__used[number]:
             return
         self.__used[number] = False
         self.__curr -= 1

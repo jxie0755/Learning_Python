@@ -14,5 +14,5 @@ class Solution(object):
             lookup = set(rows[i])
             for j in xrange(i):
                 count = sum(1 for c in rows[j] if c in lookup)
-                result += count*(count-1)/2
+                result += count * (count - 1) / 2
         return result

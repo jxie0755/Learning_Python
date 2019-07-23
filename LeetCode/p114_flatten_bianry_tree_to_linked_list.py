@@ -11,7 +11,7 @@ class Solution:
     def preorderTraversal(self, t):
         """return a flat list of the binary tree including None"""
         if not t:
-            return [] # skip none
+            return []  # skip none
         return [t.val] + self.preorderTraversal(t.left) + self.preorderTraversal(t.right)
 
     def flatten(self, root: TreeNode) -> None:
@@ -44,8 +44,8 @@ if __name__ == "__main__":
 
     A = genTree([
         1,
-        2,5,
-        3,4,None,6
+        2, 5,
+        3, 4, None, 6
     ])
     Solution().flatten(A)
     assert A == genTree([

@@ -40,12 +40,9 @@ class Solution:
         return result
 
 
-
-
 if __name__ == "__main__":
-
-    C1, C2 = Node(5, []), Node(6,[])
-    B1, B2, B3 = Node(3,[C1, C2]), Node(2, []), Node(4, [])
+    C1, C2 = Node(5, []), Node(6, [])
+    B1, B2, B3 = Node(3, [C1, C2]), Node(2, []), Node(4, [])
     A = Node(1, [B1, B2, B3])
 
     assert Solution().levelOrder(A) == [
@@ -55,4 +52,3 @@ if __name__ == "__main__":
     ], "Example"
 
     print("all passed")
-

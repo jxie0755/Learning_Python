@@ -9,5 +9,5 @@ class Solution(object):
         """
         mask = 1
         while N > mask:
-            mask = mask*2+1
-        return mask-N
+            mask = mask * 2 + 1
+        return mask - N

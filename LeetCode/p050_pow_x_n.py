@@ -8,6 +8,8 @@
 # n is a 32-bit signed integer, within the range [−231, 231 − 1]
 
 import math
+
+
 class Solution:
     def myPow(self, x: float, n: int) -> float:
         # this will fail on large case, exceeding max time limit
@@ -28,12 +30,11 @@ class Solution:
         elif n < 0:
             return 1 / self.myPow(x, -n)
         else:
-            v = self.myPow(x, n // 2)   # 这里利用变量只算一次,避免树形递归
+            v = self.myPow(x, n // 2)  # 这里利用变量只算一次,避免树形递归
             if n % 2 == 0:
                 return v * v
             else:
                 return v * v * x
-
 
 
 if __name__ == "__main__":
@@ -42,9 +43,3 @@ if __name__ == "__main__":
     assert Solution().myPow(2.00000, -2) == math.pow(2.00000, -2), "Example 3"
     assert Solution().myPow(0.00001, 2147483647) == math.pow(0.00001, 2147483647), "Large"
     print("all passed")
-
-
-
-
-
-

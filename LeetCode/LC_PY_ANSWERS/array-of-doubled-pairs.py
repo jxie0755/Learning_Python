@@ -12,7 +12,7 @@ class Solution(object):
         """
         count = collections.Counter(A)
         for x in sorted(count, key=abs):
-            if count[x] > count[2*x]:
+            if count[x] > count[2 * x]:
                 return False
-            count[2*x] -= count[x]
+            count[2 * x] -= count[x]
         return True

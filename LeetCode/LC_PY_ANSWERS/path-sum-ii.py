@@ -7,13 +7,13 @@ class TreeNode(object):
         self.left = None
         self.right = None
 
+
 class Solution(object):
     # @param root, a tree node
     # @param sum, an integer
     # @return a list of lists of integers
     def pathSum(self, root, sum):
         return self.pathSumRecu([], [], root, sum)
-
 
     def pathSumRecu(self, result, cur, root, sum):
         if root is None:
@@ -25,6 +25,6 @@ class Solution(object):
 
         cur.append(root.val)
         self.pathSumRecu(result, cur, root.left, sum - root.val)
-        self.pathSumRecu(result, cur,root.right, sum - root.val)
+        self.pathSumRecu(result, cur, root.right, sum - root.val)
         cur.pop()
         return result

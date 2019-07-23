@@ -16,6 +16,7 @@ class Solution(object):
 
         return DP[0]
 
+
 # Time:  O(m * n logk), where k is the possible maximum sum of loses
 # Space: O(m + n)
 class Solution2(object):

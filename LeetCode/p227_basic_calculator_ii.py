@@ -54,6 +54,7 @@ class Solution(object):
 
         return number[0]
 
+
 class Solution(object):
 
     # Version B
@@ -136,14 +137,14 @@ class Solution(object):
             elem = s[i]
             if elem.isdigit():
                 operand += elem
-                if i == 0 or not s[i-1].isdigit():
+                if i == 0 or not s[i - 1].isdigit():
                     operands.append(int(operand[::-1]))
                     operand = ""
             elif elem == ")" or elem == "*" or elem == "/":
                 operators.append(s[i])
             elif elem == "+" or elem == "-":
                 while operators and \
-                      (operators[-1] == "*" or operators[-1] == "/"):
+                        (operators[-1] == "*" or operators[-1] == "/"):
                     self.compute(operands, operators)
                 operators.append(elem)
             elif elem == "(":
@@ -155,7 +156,6 @@ class Solution(object):
             self.compute(operands, operators)
 
         return operands[-1]
-
 
 
 if __name__ == "__main__":

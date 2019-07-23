@@ -19,6 +19,7 @@
 
 from typing import *
 
+
 class Solution:
 
     # Version A
@@ -37,13 +38,13 @@ class Solution:
             """check a coor"s neighbor and decide it"s next value"""
             live_neigbors = 0
             r, c = coor[0], coor[1]
-            for rr in range(r-1, r+2):
-                for cc in range(c-1, c+2):
+            for rr in range(r - 1, r + 2):
+                for cc in range(c - 1, c + 2):
                     if row > rr >= 0 and col > cc >= 0 and (rr, cc) != (r, c):
                         live_neigbors += board[rr][cc]
             if live_neigbors < 2:
                 return 0
-            elif live_neigbors ==2:
+            elif live_neigbors == 2:
                 return board[r][c]
             elif live_neigbors == 3:
                 return 1
@@ -60,8 +61,6 @@ class Solution:
         for r in range(0, row):
             for c in range(0, col):
                 board[r][c] = check_list.pop(0)
-
-
 
     # Version B, change value in-place
     # Same idea as Version 1, but use -1 represent new value, and -2 for new 0
@@ -112,8 +111,6 @@ class Solution:
                     board[r][c] = 1
                 else:
                     board[r][c] = 0
-
-
 
 
 if __name__ == "__main__":

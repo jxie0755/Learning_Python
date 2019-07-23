@@ -7,12 +7,14 @@ class TreeNode(object):
         self.left = None
         self.right = None
 
+
 class Solution(object):
     def str2tree(self, s):
         """
         :type s: str
         :rtype: TreeNode
         """
+
         def str2treeHelper(s, i):
             start = i
             if s[i] == "-": i += 1

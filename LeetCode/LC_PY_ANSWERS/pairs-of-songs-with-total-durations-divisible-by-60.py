@@ -13,6 +13,6 @@ class Solution(object):
         result = 0
         count = collections.Counter()
         for t in time:
-            result += count[-t%60]
-            count[t%60] += 1
+            result += count[-t % 60]
+            count[t % 60] += 1
         return result

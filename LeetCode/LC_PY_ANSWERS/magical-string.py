@@ -10,6 +10,7 @@ class Solution(object):
         :type n: int
         :rtype: int
         """
+
         def gen():  # see figure 1 on page 3 of http://www.emis.ams.org/journals/JIS/VOL15/Nilsson/nilsson5.pdf
             for c in 1, 2, 2:
                 yield c

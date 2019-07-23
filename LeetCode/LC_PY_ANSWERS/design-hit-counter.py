@@ -3,6 +3,7 @@
 
 from collections import deque
 
+
 class HitCounter(object):
 
     def __init__(self):

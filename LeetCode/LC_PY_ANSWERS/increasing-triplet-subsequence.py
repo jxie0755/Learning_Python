@@ -20,6 +20,7 @@ class Solution(object):
                 return True
         return False
 
+
 # Time:  O(n * logk)
 # Space: O(k)
 # Generalization of k-uplet.
@@ -29,6 +30,7 @@ class Solution_Generalization(object):
         :type nums: List[int]
         :rtype: bool
         """
+
         def increasingKUplet(nums, k):
             inc = [float("inf")] * (k - 1)
             for num in nums:

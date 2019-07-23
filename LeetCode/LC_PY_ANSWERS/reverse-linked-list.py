@@ -10,6 +10,7 @@ class ListNode(object):
         if self:
             return "{} -> {}".format(self.val, repr(self.next))
 
+
 # Iterative solution.
 class Solution(object):
     # @param {ListNode} head
@@ -19,6 +20,7 @@ class Solution(object):
         while head:
             dummy.next, head.next, head = head, dummy.next, head.next
         return dummy.next
+
 
 # Time:  O(n)
 # Space: O(n)

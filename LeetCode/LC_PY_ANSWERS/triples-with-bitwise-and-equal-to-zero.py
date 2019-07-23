@@ -12,13 +12,14 @@ class Solution(object):
         :type A: List[int]
         :rtype: int
         """
+
         def FWT(A, v):
             B = A[:]
             d = 1
             while d < len(B):
                 for i in xrange(0, len(B), d << 1):
                     for j in xrange(d):
-                        B[i+j] += B[i+j+d] * v
+                        B[i + j] += B[i + j + d] * v
                 d <<= 1
             return B
 
@@ -28,7 +29,7 @@ class Solution(object):
             n *= 2
         count = collections.Counter(A)
         B = [count[i] for i in xrange(n)]
-        C = FWT(map(lambda x : x**k, FWT(B, 1)), -1)
+        C = FWT(map(lambda x: x ** k, FWT(B, 1)), -1)
         return C[0]
 
 
@@ -46,10 +47,10 @@ class Solution2(object):
         count = collections.defaultdict(int)
         for i in xrange(len(A)):
             for j in xrange(len(A)):
-                count[A[i]&A[j]] += 1
+                count[A[i] & A[j]] += 1
         result = 0
         for k in xrange(len(A)):
             for v in count:
-                if A[k]&v == 0:
+                if A[k] & v == 0:
                     result += count[v]
         return result

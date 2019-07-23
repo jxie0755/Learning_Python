@@ -7,6 +7,7 @@ class Solution(object):
         :type root: TreeNode
         :rtype: List[List[str]]
         """
+
         def getWidth(root):
             if not root:
                 return 0
@@ -20,12 +21,12 @@ class Solution(object):
         def preorderTraversal(root, level, left, right, result):
             if not root:
                 return
-            mid = left + (right-left)/2
+            mid = left + (right - left) / 2
             result[level][mid] = str(root.val)
-            preorderTraversal(root.left, level+1, left, mid-1, result)
-            preorderTraversal(root.right, level+1, mid+1, right, result)
+            preorderTraversal(root.left, level + 1, left, mid - 1, result)
+            preorderTraversal(root.right, level + 1, mid + 1, right, result)
 
         h, w = getHeight(root), getWidth(root)
         result = [[""] * w for _ in xrange(h)]
-        preorderTraversal(root, 0, 0, w-1, result)
+        preorderTraversal(root, 0, 0, w - 1, result)
         return result

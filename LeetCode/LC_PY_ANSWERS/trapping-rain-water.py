@@ -25,6 +25,7 @@ class Solution(object):
 
         return result
 
+
 # Time:  O(n)
 # Space: O(n)
 class Solution2(object):

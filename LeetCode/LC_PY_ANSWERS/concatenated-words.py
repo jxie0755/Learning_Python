@@ -10,13 +10,13 @@ class Solution(object):
         lookup = set(words)
         result = []
         for word in words:
-            dp = [False] * (len(word)+1)
+            dp = [False] * (len(word) + 1)
             dp[0] = True
             for i in xrange(len(word)):
                 if not dp[i]:
                     continue
 
-                for j in xrange(i+1, len(word)+1):
+                for j in xrange(i + 1, len(word) + 1):
                     if j - i < len(word) and word[i:j] in lookup:
                         dp[j] = True
 

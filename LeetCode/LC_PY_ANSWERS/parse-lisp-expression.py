@@ -7,16 +7,17 @@ class Solution(object):
         :type expression: str
         :rtype: int
         """
+
         def getval(lookup, x):
             return lookup.get(x, x)
 
         def evaluate(tokens, lookup):
             if tokens[0] in ("add", "mult"):
                 a, b = map(int, map(lambda x: getval(lookup, x), tokens[1:]))
-                return str(a+b if tokens[0] == "add" else a*b)
-            for i in xrange(1, len(tokens)-1, 2):
-                if tokens[i+1]:
-                    lookup[tokens[i]] = getval(lookup, tokens[i+1])
+                return str(a + b if tokens[0] == "add" else a * b)
+            for i in xrange(1, len(tokens) - 1, 2):
+                if tokens[i + 1]:
+                    lookup[tokens[i]] = getval(lookup, tokens[i + 1])
             return getval(lookup, tokens[-1])
 
         tokens, lookup, stk = [""], {}, []
@@ -25,7 +26,7 @@ class Solution(object):
                 if tokens[0] == "let":
                     evaluate(tokens, lookup)
                 stk.append((tokens, dict(lookup)))
-                tokens =  [""]
+                tokens = [""]
             elif c == " ":
                 tokens.append("")
             elif c == ")":

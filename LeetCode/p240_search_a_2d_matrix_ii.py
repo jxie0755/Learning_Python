@@ -13,19 +13,18 @@ from typing import *
 class Solution:
 
     # Version A, straight foward binary search on lines that include the value
-    def binarySearch(self, line:List[int], target:int)-> bool:
-        lo, hi = 0, len(line)-1
+    def binarySearch(self, line: List[int], target: int) -> bool:
+        lo, hi = 0, len(line) - 1
         while lo <= hi:
             mid = (lo + hi) // 2
             mid_val = line[mid]
             if target == mid_val:
                 return True
             elif target < mid_val:
-                hi = mid -1
+                hi = mid - 1
             else:
                 lo = mid + 1
         return False
-
 
     def searchMatrix(self, matrix: List[List[int]], target: int) -> bool:
 
@@ -36,8 +35,6 @@ class Solution:
             if line[0] <= target <= line[-1] and self.binarySearch(line, target):
                 return True
         return False
-
-
 
 
 class Solution(object):
@@ -66,7 +63,6 @@ class Solution(object):
                 i += 1
 
         return False
-
 
 
 if __name__ == "__main__":

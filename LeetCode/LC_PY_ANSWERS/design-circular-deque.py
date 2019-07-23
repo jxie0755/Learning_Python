@@ -20,7 +20,7 @@ class MyCircularDeque(object):
         """
         if self.isFull():
             return False
-        self.__start = (self.__start-1) % len(self.__buffer)
+        self.__start = (self.__start - 1) % len(self.__buffer)
         self.__buffer[self.__start] = value
         self.__size += 1
         return True
@@ -33,7 +33,7 @@ class MyCircularDeque(object):
         """
         if self.isFull():
             return False
-        self.__buffer[(self.__start+self.__size) % len(self.__buffer)] = value
+        self.__buffer[(self.__start + self.__size) % len(self.__buffer)] = value
         self.__size += 1
         return True
 
@@ -44,7 +44,7 @@ class MyCircularDeque(object):
         """
         if self.isEmpty():
             return False
-        self.__start = (self.__start+1) % len(self.__buffer)
+        self.__start = (self.__start + 1) % len(self.__buffer)
         self.__size -= 1
         return True
 
@@ -70,7 +70,7 @@ class MyCircularDeque(object):
         Get the last item from the deque.
         :rtype: int
         """
-        return -1 if self.isEmpty() else self.__buffer[(self.__start+self.__size-1) % len(self.__buffer)]
+        return -1 if self.isEmpty() else self.__buffer[(self.__start + self.__size - 1) % len(self.__buffer)]
 
     def isEmpty(self):
         """

@@ -34,6 +34,7 @@ class Solution(object):
 
         return False
 
+
 class Solution(object):
     def hasCycle(self, head):
         # Time O(N), Space O(N), use hashtable to search faster
@@ -50,10 +51,11 @@ class Solution(object):
             if cur not in hashtable:
                 hashtable[cur] = 1
             else:
-                return True   # cyling will force to return
+                return True  # cyling will force to return
             cur = cur.next
 
         return False  # if no cycle, while loop will end
+
 
 class Solution_X(object):
     def hasCycle(self, head):
@@ -68,12 +70,13 @@ class Solution_X(object):
         while head.next:
             if head.next == checkednode:
                 return True
-            checked = head    # mark previous head
+            checked = head  # mark previous head
             head = head.next  # move to next head
             checked.next = checkednode  # break down the previous head link to next head, force previous head all to link to the same checknode
             # if any node cycle back to a previous node, then it will be caught as the next of that previous node is a checknode
 
         return False
+
 
 class Solution_Y(object):
     def hasCycle(self, head):
@@ -85,12 +88,14 @@ class Solution_Y(object):
         if not head:
             return False
         while head.next:
-            if head.next.val == "X": # assume "X" will not be in any of the original linked list node value
+            if head.next.val == "X":  # assume "X" will not be in any of the original linked list node value
                 return True
             checked = head
             head = head.next
-            checked.next = ListNode("X")  # break down the previous head link to next head, force previous head all to link to a ListNode
+            checked.next = ListNode(
+                "X")  # break down the previous head link to next head, force previous head all to link to a ListNode
         return False
+
 
 # The Solution X is better as it only create one additional checknode for every previous node to point to
 # The Solution Y forces every node pointed to a different node but has the same value. You can not guarantee that the value is not in orignal linked list. And it also uses much more space.
@@ -118,7 +123,6 @@ if __name__ == "__main__":
     b.next = a
 
     # assert Solution().hasCycle(a) is True, "Example 2"
-
 
     # Example 3
     a = ListNode(1)

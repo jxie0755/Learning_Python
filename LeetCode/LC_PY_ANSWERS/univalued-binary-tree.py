@@ -25,7 +25,7 @@ class Solution(object):
             s.append(node.left)
             s.append(node.right)
         return True
-    
+
 
 # Time:  O(n)
 # Space: O(h)

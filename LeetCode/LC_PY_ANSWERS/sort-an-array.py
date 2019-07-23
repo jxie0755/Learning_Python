@@ -8,12 +8,13 @@ class Solution(object):
         :type nums: List[int]
         :rtype: List[int]
         """
+
         def mergeSort(start, end, nums):
             if end - start <= 1:
                 return
             mid = start + (end - start) / 2
             mergeSort(start, mid, nums)
-            mergeSort(mid, end,  nums)
+            mergeSort(mid, end, nums)
             right = mid
             tmp = []
             for left in xrange(start, mid):
@@ -21,7 +22,7 @@ class Solution(object):
                     tmp.append(nums[right])
                     right += 1
                 tmp.append(nums[left])
-            nums[start:start+len(tmp)] = tmp
+            nums[start:start + len(tmp)] = tmp
 
         mergeSort(0, len(nums), nums)
         return nums
@@ -30,6 +31,8 @@ class Solution(object):
 # Time:  O(nlogn), on average
 # Space: O(logn)
 import random
+
+
 # quick sort solution
 class Solution2(object):
     def sortArray(self, nums):
@@ -37,6 +40,7 @@ class Solution2(object):
         :type nums: List[int]
         :rtype: List[int]
         """
+
         def kthElement(nums, left, mid, right, compare):
             def PartitionAroundPivot(left, right, pivot_idx, nums, compare):
                 new_pivot_idx = left
@@ -59,7 +63,7 @@ class Solution2(object):
                     right = new_pivot_idx - 1
                 else:  # new_pivot_idx < mid - 1.
                     left = new_pivot_idx + 1
-                    
+
         def quickSort(start, end, nums):
             if end - start <= 1:
                 return

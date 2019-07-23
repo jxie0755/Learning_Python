@@ -24,6 +24,7 @@ class Queue(object):
     def empty(self):
         return len(self.data) == 0
 
+
 # Definition for a binary tree node.
 # class TreeNode:
 #     def __init__(self, x):
@@ -48,6 +49,7 @@ class Solution(object):
 
         return root
 
+
 # Time:  O(n)
 # Space: O(h)
 # Stack solution.
@@ -67,6 +69,7 @@ class Solution2(object):
                     nodes.append(node.right)
 
         return root
+
 
 # Time:  O(n)
 # Space: O(h)

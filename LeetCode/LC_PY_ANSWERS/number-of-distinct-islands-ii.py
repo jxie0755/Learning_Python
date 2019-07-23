@@ -17,14 +17,14 @@ class Solution(object):
             grid[i][j] *= -1
             island.append((i, j))
             for d in directions:
-                dfs(i+d[0], j+d[1], grid, island)
+                dfs(i + d[0], j + d[1], grid, island)
             return True
 
         def normalize(island):
             shapes = [[] for _ in xrange(8)]
             for x, y in island:
-                rotations_and_reflections = [[ x,  y], [ x, -y], [-x, y], [-x, -y],
-                                             [ y,  x], [ y, -x], [-y, x], [-y, -x]]
+                rotations_and_reflections = [[x, y], [x, -y], [-x, y], [-x, -y],
+                                             [y, x], [y, -x], [-y, x], [-y, -x]]
                 for i in xrange(len(rotations_and_reflections)):
                     shapes[i].append(rotations_and_reflections[i])
             for shape in shapes:

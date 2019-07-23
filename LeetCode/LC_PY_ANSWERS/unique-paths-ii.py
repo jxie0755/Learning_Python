@@ -11,7 +11,7 @@ class Solution(object):
         """
         m, n = len(obstacleGrid), len(obstacleGrid[0])
 
-        ways = [0]*n
+        ways = [0] * n
         ways[0] = 1
         for i in xrange(m):
             if obstacleGrid[i][0] == 1:
@@ -19,6 +19,6 @@ class Solution(object):
             for j in xrange(n):
                 if obstacleGrid[i][j] == 1:
                     ways[j] = 0
-                elif j>0:
-                    ways[j] += ways[j-1]
+                elif j > 0:
+                    ways[j] += ways[j - 1]
         return ways[-1]

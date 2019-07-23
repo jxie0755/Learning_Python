@@ -14,5 +14,5 @@ class Solution(object):
             while K < 0:
                 K += int(A[i] == 0)
                 i += 1
-            result = max(result, j-i+1)
+            result = max(result, j - i + 1)
         return result

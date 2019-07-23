@@ -25,9 +25,11 @@ class Solution(object):
 
         return letters == 0
 
+
 # Time:  O(n)
 # Space: O(1)
 import collections
+
 
 class Solution2(object):
     def canConstruct(self, ransomNote, magazine):

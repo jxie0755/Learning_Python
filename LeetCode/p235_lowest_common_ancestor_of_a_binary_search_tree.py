@@ -30,14 +30,15 @@ class Solution(object):
             maxx = maxx.right
 
         result = []
+
         def helper(root, A, B):
             rv = root.val
             if A <= pv <= qv <= B:
                 result.append(root)
                 if root.left:
-                    helper(root.left, A, rv-1)
+                    helper(root.left, A, rv - 1)
                 if root.right:
-                    helper(root.right, rv+1, B)
+                    helper(root.right, rv + 1, B)
 
         helper(root, minn.val, maxx.val)
         return result[-1]
@@ -55,12 +56,13 @@ class Solution(object):
 
         while minv <= pv <= qv <= maxv:
             rv = root.val
-            if minv <= pv <= qv <= rv-1:
+            if minv <= pv <= qv <= rv - 1:
                 root = root.left
-            elif rv+1 <= pv <= qv <= maxv:
+            elif rv + 1 <= pv <= qv <= maxv:
                 root = root.right
             else:
                 return root
+
 
 class Solution(object):
     # STD ans
@@ -76,13 +78,13 @@ class Solution(object):
         # s <= root.val <= b.
         return root
 
-if __name__ == "__main__":
 
+if __name__ == "__main__":
     A = genTree([
         6,
-        2,8,
-        0,4,7,9,
-        None,None,3,5
+        2, 8,
+        0, 4, 7, 9,
+        None, None, 3, 5
     ])
     assert Solution().lowestCommonAncestor(A, A.left, A.right) == A, "Example 1"
 

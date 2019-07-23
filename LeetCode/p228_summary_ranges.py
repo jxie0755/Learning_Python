@@ -6,6 +6,7 @@
 
 from typing import *
 
+
 class Solution(object):
 
     # Version A, O(N)
@@ -20,8 +21,8 @@ class Solution(object):
         rangefound = False
         temp = ""
         i = 0
-        while i != len(nums)-1:
-            cur, nex = nums[i], nums[i+1]
+        while i != len(nums) - 1:
+            cur, nex = nums[i], nums[i + 1]
             if nex != cur + 1:
                 if not rangefound:
                     result.append(str(cur))
@@ -42,7 +43,7 @@ class Solution(object):
 if __name__ == "__main__":
     assert Solution().summaryRanges([]) == [], "Edge"
 
-    assert Solution().summaryRanges([0,1,2,4,5,7]) == ["0->2","4->5","7"], "Example 1"
-    assert Solution().summaryRanges([0,2,3,4,6,8,9]) == ["0","2->4","6","8->9"], "Example 2"
+    assert Solution().summaryRanges([0, 1, 2, 4, 5, 7]) == ["0->2", "4->5", "7"], "Example 1"
+    assert Solution().summaryRanges([0, 2, 3, 4, 6, 8, 9]) == ["0", "2->4", "6", "8->9"], "Example 2"
 
     print("all passed")

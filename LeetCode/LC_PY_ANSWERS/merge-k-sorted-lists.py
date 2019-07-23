@@ -18,6 +18,7 @@ class Solution(object):
         :type lists: List[ListNode]
         :rtype: ListNode
         """
+
         def mergeTwoLists(l1, l2):
             curr = dummy = ListNode(0)
             while l1 and l2:
@@ -43,7 +44,6 @@ class Solution(object):
                 right -= 1
         return lists[0]
 
-
         # [l1, l2, l3, l4, l5]
         #  L0              R4
 
@@ -65,7 +65,6 @@ class Solution(object):
         # [l1+l5+l3+l2+l4, l2+l4, l3, l4, l5]  # Merge 4
         #     L0
         #     R0
-
 
 
 # Time:  O(nlogk)
@@ -103,6 +102,8 @@ class Solution2(object):
 # Space: O(k)
 # Heap solution.
 import heapq
+
+
 class Solution3(object):
     # @param a list of ListNode
     # @return a ListNode

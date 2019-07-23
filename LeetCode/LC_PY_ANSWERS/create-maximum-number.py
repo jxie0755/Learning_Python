@@ -9,6 +9,7 @@ class Solution(object):
         :type k: int
         :rtype: List[int]
         """
+
         def get_max_digits(nums, start, end, max_digits):
             max_digits[end] = max_digit(nums, end)
             for i in reversed(xrange(start, end)):
@@ -28,12 +29,12 @@ class Solution(object):
             res = list(nums)
             for i in xrange(len(res)):
                 if i == len(res) - 1 or res[i] < res[i + 1]:
-                    res = res[:i] + res[i+1:]
+                    res = res[:i] + res[i + 1:]
                     break
             return res
 
         def merge(a, b):
-            return [max(a, b).pop(0) for _ in xrange(len(a)+len(b))]
+            return [max(a, b).pop(0) for _ in xrange(len(a) + len(b))]
 
         m, n = len(nums1), len(nums2)
 
@@ -41,5 +42,5 @@ class Solution(object):
         get_max_digits(nums1, max(0, k - n), min(k, m), max_digits1)
         get_max_digits(nums2, max(0, k - m), min(k, n), max_digits2)
 
-        return max(merge(max_digits1[i], max_digits2[k-i]) \
+        return max(merge(max_digits1[i], max_digits2[k - i]) \
                    for i in xrange(max(0, k - n), min(k, m) + 1))

@@ -48,7 +48,6 @@ class Solution:
         return value
 
 
-
 if __name__ == "__main__":
     assert Solution().titleToNumber("A") == 1, "Example 1"
     assert Solution().titleToNumber("AA") == 27, "Example 2"

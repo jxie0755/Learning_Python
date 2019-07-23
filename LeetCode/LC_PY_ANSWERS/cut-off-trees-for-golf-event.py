@@ -11,11 +11,12 @@ class Solution(object):
         :type forest: List[List[int]]
         :rtype: int
         """
+
         def dot(p1, p2):
-            return p1[0]*p2[0]+p1[1]*p2[1]
+            return p1[0] * p2[0] + p1[1] * p2[1]
 
         def minStep(p1, p2):
-            min_steps = abs(p1[0]-p2[0])+abs(p1[1]-p2[1])
+            min_steps = abs(p1[0] - p2[0]) + abs(p1[1] - p2[1])
             closer, detour = [p1], []
             lookup = set()
             while True:
@@ -30,9 +31,9 @@ class Solution(object):
                     return min_steps
                 if (i, j) not in lookup:
                     lookup.add((i, j))
-                    for I, J in (i+1, j), (i-1, j), (i, j+1), (i, j-1):
+                    for I, J in (i + 1, j), (i - 1, j), (i, j + 1), (i, j - 1):
                         if 0 <= I < m and 0 <= J < n and forest[I][J] and (I, J) not in lookup:
-                            is_closer = dot((I-i, J-j), (p2[0]-i, p2[1]-j)) > 0
+                            is_closer = dot((I - i, J - j), (p2[0] - i, p2[1] - j)) > 0
                             (closer if is_closer else detour).append((I, J))
             return min_steps
 
@@ -63,6 +64,7 @@ class Solution_TLE(object):
         :type forest: List[List[int]]
         :rtype: int
         """
+
         def minStep(p1, p2):
             min_steps = 0
             lookup = {p1}
@@ -73,7 +75,7 @@ class Solution_TLE(object):
                     (i, j) = q.popleft()
                     if (i, j) == p2:
                         return min_steps
-                    for i, j in (i+1, j), (i-1, j), (i, j+1), (i, j-1):
+                    for i, j in (i + 1, j), (i - 1, j), (i, j + 1), (i, j - 1):
                         if not (0 <= i < m and 0 <= j < n and forest[i][j] and (i, j) not in lookup):
                             continue
                         q.append((i, j))

@@ -14,8 +14,8 @@ class Solution(object):
         S = list(S)
         bucket = [None] * len(S)
         for i in xrange(len(indexes)):
-            if all(indexes[i]+k < len(S) and
-                   S[indexes[i]+k] == sources[i][k]
+            if all(indexes[i] + k < len(S) and
+                   S[indexes[i] + k] == sources[i][k]
                    for k in xrange(len(sources[i]))):
                 bucket[indexes[i]] = (len(sources[i]), list(targets[i]))
         result = []

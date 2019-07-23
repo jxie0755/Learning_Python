@@ -9,6 +9,7 @@ from typing import *
 from a0_TreeNode import *
 from a0_ListNode import *
 
+
 class Solution:
 
     # Version A
@@ -29,12 +30,12 @@ class Solution:
             # swap in list
             for i in range(0, len(node_list), 2):
                 if node_list[i].next:
-                    node_list[i], node_list[i+1] = node_list[i+1], node_list[i]
+                    node_list[i], node_list[i + 1] = node_list[i + 1], node_list[i]
 
             # re-link
             i = 0
-            while i != len(node_list)-1:
-                node_list[i].next = node_list[i+1]
+            while i != len(node_list) - 1:
+                node_list[i].next = node_list[i + 1]
                 i += 1
             node_list[i].next = None
 
@@ -52,12 +53,11 @@ class Solution:
 
 
 if __name__ == "__main__":
-
     assert Solution().swapPairs(None) is None, "Empty"
     assert Solution().swapPairs(genNode([1])) == genNode([1]), "Single"
 
-    assert Solution().swapPairs(genNode([1,2])) == genNode([2, 1]), "1 pair"
-    assert Solution().swapPairs(genNode([1,2,3,4])) == genNode([2,1,4,3]), "Even Pairs"
-    assert Solution().swapPairs(genNode([1,2,3,4,5])) == genNode([2,1,4,3,5]), "with Odd"
+    assert Solution().swapPairs(genNode([1, 2])) == genNode([2, 1]), "1 pair"
+    assert Solution().swapPairs(genNode([1, 2, 3, 4])) == genNode([2, 1, 4, 3]), "Even Pairs"
+    assert Solution().swapPairs(genNode([1, 2, 3, 4, 5])) == genNode([2, 1, 4, 3, 5]), "with Odd"
 
     print("all passed")

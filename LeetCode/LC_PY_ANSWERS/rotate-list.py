@@ -10,6 +10,7 @@ class ListNode(object):
         if self:
             return "{} -> {}".format(self.val, repr(self.next))
 
+
 class Solution(object):
     def rotateRight(self, head, k):
         """

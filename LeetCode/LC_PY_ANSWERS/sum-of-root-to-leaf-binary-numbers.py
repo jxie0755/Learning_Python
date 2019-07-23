@@ -15,14 +15,15 @@ class Solution(object):
         :type root: TreeNode
         :rtype: int
         """
-        M = 10**9 + 7
+        M = 10 ** 9 + 7
+
         def sumRootToLeafHelper(root, val):
             if not root:
                 return 0
-            val = (val*2 + root.val) % M
+            val = (val * 2 + root.val) % M
             if not root.left and not root.right:
                 return val
             return (sumRootToLeafHelper(root.left, val) +
                     sumRootToLeafHelper(root.right, val)) % M
-        
+
         return sumRootToLeafHelper(root, 0)

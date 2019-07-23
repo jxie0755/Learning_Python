@@ -8,6 +8,7 @@ class Solution(object):
         :type desiredTotal: int
         :rtype: bool
         """
+
         def canIWinHelper(maxChoosableInteger, desiredTotal, visited, lookup):
             if visited in lookup:
                 return lookup[visited]
@@ -16,7 +17,7 @@ class Solution(object):
             for i in xrange(maxChoosableInteger):
                 if visited & mask == 0:
                     if i + 1 >= desiredTotal or \
-                       not canIWinHelper(maxChoosableInteger, desiredTotal - (i + 1), visited | mask, lookup):
+                            not canIWinHelper(maxChoosableInteger, desiredTotal - (i + 1), visited | mask, lookup):
                         lookup[visited] = True
                         return True
                 mask <<= 1

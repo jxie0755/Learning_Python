@@ -30,7 +30,7 @@ class Solution:
 
 
 if __name__ == "__main__":
-    assert Solution().optimalDivision([1000,100,10,2]) == "1000/(100/10/2)"
+    assert Solution().optimalDivision([1000, 100, 10, 2]) == "1000/(100/10/2)"
     assert Solution().optimalDivision([2]) == "2"
-    assert Solution().optimalDivision([2,3]) == "2/3"
+    assert Solution().optimalDivision([2, 3]) == "2/3"
     print("all passed")

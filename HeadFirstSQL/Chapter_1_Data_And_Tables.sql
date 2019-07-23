@@ -89,5 +89,5 @@ VALUES ('Baanderson', 'GGillian', 'ggill_baanderson@breakneckpizza.com', 'F', '1
 
 # 选择性省略一部分列
 INSERT INTO my_contacts
-    (last_name, first_name, email, gender, birthday)
-VALUES ('John', 'Dough', 'jd@jd.com', 'M', '1985-01-27');
+    (first_name, email, profession, location)
+VALUES ('Pat', 'patpost@breakingpizza.com', 'Postal Worker', 'Princeton, NJ');

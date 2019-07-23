@@ -9,6 +9,7 @@ class Solution(object):
         :type quiet: List[int]
         :rtype: List[int]
         """
+
         def dfs(graph, quiet, node, result):
             if result[node] is None:
                 result[node] = node
@@ -21,5 +22,5 @@ class Solution(object):
         graph = [[] for _ in xrange(len(quiet))]
         for u, v in richer:
             graph[v].append(u)
-        result = [None]*len(quiet)
+        result = [None] * len(quiet)
         return map(lambda x: dfs(graph, quiet, x, result), xrange(len(quiet)))

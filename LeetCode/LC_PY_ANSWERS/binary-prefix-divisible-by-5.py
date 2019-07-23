@@ -8,5 +8,5 @@ class Solution(object):
         :rtype: List[bool]
         """
         for i in xrange(1, len(A)):
-            A[i] += A[i-1] * 2 % 5
+            A[i] += A[i - 1] * 2 % 5
         return [x % 5 == 0 for x in A]

@@ -12,7 +12,7 @@ class Solution(object):
         :rtype: bool
         """
         if len(nums) == 1:
-            return abs(nums[0]-24) < 1e-6
+            return abs(nums[0] - 24) < 1e-6
         ops = [add, sub, mul, truediv]
         for i in xrange(len(nums)):
             for j in xrange(len(nums)):
@@ -21,7 +21,7 @@ class Solution(object):
                 next_nums = [nums[k] for k in xrange(len(nums)) if i != k != j]
                 for op in ops:
                     if ((op is add or op is mul) and j > i) or \
-                       (op == truediv and nums[j] == 0):
+                            (op == truediv and nums[j] == 0):
                         continue
                     next_nums.append(op(nums[i], nums[j]))
                     if self.judgePoint24(next_nums):
@@ -38,6 +38,7 @@ class Solution2(object):
         :type nums: List[int]
         :rtype: bool
         """
+
         def dfs(nums):
             if len(nums) == 1:
                 return nums[0] == 24
@@ -50,7 +51,7 @@ class Solution2(object):
                                  if i != k != j]
                     for op in ops:
                         if ((op is add or op is mul) and j > i) or \
-                           (op == truediv and nums[j] == 0):
+                                (op == truediv and nums[j] == 0):
                             continue
                         next_nums.append(op(nums[i], nums[j]))
                         if dfs(next_nums):

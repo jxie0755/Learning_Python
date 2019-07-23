@@ -6,7 +6,7 @@
 # Note:
 # A word is defined as a sequence of non-space characters.
 # Input string may contain leading or trailing spaces.
-    # However, your reversed string should not contain leading or trailing spaces.
+# However, your reversed string should not contain leading or trailing spaces.
 # You need to reduce multiple spaces between two words to a single space in the reversed string.
 
 
@@ -62,12 +62,14 @@ class Solution(object):
             result = word + " " + result
         return result[:-1]
 
+
 class Solution(object):
     # STD ans
     # @param s, a string
     # @return a string
     def reverseWords(self, s):
         return " ".join(reversed(s.split()))
+
 
 if __name__ == "__main__":
     assert Solution().reverseWords("    ") == "", "Edge 0"

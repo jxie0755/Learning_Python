@@ -20,6 +20,7 @@ class Solution:
     # Version B, string method
     def intToRoman2(self, num: int) -> str:
         num = str(num).rjust(4, "0")  # 拆解data成为单独的数字字符,并补足数位
+
         def rom(n, x, y, z):  # 写一个函数来表明转换逻辑
             nd = int(num[n])
             if nd == 0:
@@ -52,6 +53,7 @@ class Solution:
         # 但是如果运行与python低版本,dict没有order,会出现算法bug
         # 在这里LeetCode就出现了这个bug,所以把dict拆分成list来做算法解决
         # 也可以使用collections.OrderedDrict
+
 
 if __name__ == "__main__":
     assert Solution().intToRoman(3888) == "MMMDCCCLXXXVIII", "one check is good"

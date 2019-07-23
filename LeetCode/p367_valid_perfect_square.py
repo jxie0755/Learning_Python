@@ -9,13 +9,12 @@ class Solution:
 
     # Iteration of sqrt, O(Sqrt(N))
     def isPerfectSquare(self, num: int) -> bool:
-        for i in range(num+1):
+        for i in range(num + 1):
             if i * i == num:
                 return True
             elif i * i > num:
                 break
         return False
-
 
 
 class Solution(object):
@@ -35,9 +34,7 @@ class Solution(object):
         return left == num // left and num % left == 0
 
 
-
 if __name__ == "__main__":
-
     assert Solution().isPerfectSquare(1), "Edge 1"
     assert Solution().isPerfectSquare(16), "Example 1"
     assert not Solution().isPerfectSquare(14), "Example 2"

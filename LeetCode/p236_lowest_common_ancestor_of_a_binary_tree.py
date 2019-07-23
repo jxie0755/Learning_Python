@@ -44,11 +44,10 @@ class Solution(object):
         result = [None] + result
         return result
 
-
     def lowestCommonAncestor(self, root: "TreeNode", p: "TreeNode", q: "TreeNode") -> "TreeNode":
         binaryheap = self.showPerfectNodeLayers(root)
 
-        i,pi,qi = 0,0,0
+        i, pi, qi = 0, 0, 0
         while i != len(binaryheap):
             node = binaryheap[i]
             if node is p:
@@ -57,14 +56,13 @@ class Solution(object):
                 qi = i
             i += 1
 
-        parent_p, parent_q = [],[]
+        parent_p, parent_q = [], []
         while pi != 0:
             parent_p.append(pi)
             pi = pi // 2
         while qi != 0:
             parent_q.append(qi)
             qi = qi // 2
-
 
         while parent_p and parent_q:
             A, B = parent_p.pop(), parent_q.pop()
@@ -111,13 +109,12 @@ class Solution(object):
         # 否则的话, 就会出现一侧为空, 另一个包含两个, 这样就可以往包含两个的那一侧递归
 
 
-
 if __name__ == "__main__":
     A = genTree([
         3,
-        5,1,
-        6,2,0,8,
-        None,None,7,4,
+        5, 1,
+        6, 2, 0, 8,
+        None, None, 7, 4,
     ])
     assert Solution().lowestCommonAncestor(A, A.left, A.right) == A, "Example 1"
 

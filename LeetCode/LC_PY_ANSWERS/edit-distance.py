@@ -23,6 +23,7 @@ class Solution(object):
 
         return distance[-1]
 
+
 # Time:  O(n * m)
 # Space: O(n * m)
 class Solution2(object):

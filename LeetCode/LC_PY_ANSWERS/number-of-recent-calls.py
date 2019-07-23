@@ -15,6 +15,6 @@ class RecentCounter(object):
         :rtype: int
         """
         self.__q.append(t)
-        while self.__q[0] < t-3000:
+        while self.__q[0] < t - 3000:
             self.__q.popleft()
         return len(self.__q)

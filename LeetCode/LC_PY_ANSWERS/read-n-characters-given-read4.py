@@ -14,6 +14,7 @@ def read4(buf):
         file_content = ""
     return i
 
+
 class Solution(object):
     def read(self, buf, n):
         """
@@ -26,8 +27,8 @@ class Solution(object):
         for i in xrange(n / 4 + 1):
             size = read4(buffer)
             if size:
-                size = min(size, n-read_bytes)
-                buf[read_bytes:read_bytes+size] = buffer[:size]
+                size = min(size, n - read_bytes)
+                buf[read_bytes:read_bytes + size] = buffer[:size]
                 read_bytes += size
             else:
                 break

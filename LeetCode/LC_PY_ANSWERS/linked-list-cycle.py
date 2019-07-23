@@ -6,6 +6,7 @@ class ListNode(object):
         self.val = x
         self.next = None
 
+
 class Solution(object):
     # @param head, a ListNode
     # @return a boolean

@@ -23,8 +23,6 @@ class Solution:
         return list(hmp.values())
 
 
-
-
 if __name__ == "__main__":
     edge_1 = []
     assert Solution().groupAnagrams(edge_1) == [

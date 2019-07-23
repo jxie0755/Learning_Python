@@ -31,12 +31,13 @@ class Solution2(object):
         :type root: Node
         :rtype: List[int]
         """
+
         def dfs(root, result):
             result.append(root.val)
             for child in root.children:
                 if child:
                     dfs(child, result)
-        
+
         result = []
         if root:
             dfs(root, result)

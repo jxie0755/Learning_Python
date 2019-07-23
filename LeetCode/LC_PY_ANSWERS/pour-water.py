@@ -13,9 +13,9 @@ class Solution(object):
             best = K
             for d in (-1, 1):
                 i = K
-                while 0 <= i+d < len(heights) and \
-                      heights[i+d] <= heights[i]:
-                    if heights[i+d] < heights[i]: best = i+d
+                while 0 <= i + d < len(heights) and \
+                        heights[i + d] <= heights[i]:
+                    if heights[i + d] < heights[i]: best = i + d
                     i += d
                 if best != K:
                     break

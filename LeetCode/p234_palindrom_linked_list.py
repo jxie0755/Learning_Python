@@ -26,6 +26,7 @@ class Solution(object):
 
         return result == result[::-1]
 
+
 class Solution(object):
 
     # Version B1, O(N^2) time and O(1) space as requireed
@@ -98,6 +99,7 @@ class Solution(object):
             head = head.next
         return True
 
+
 class Solution(object):
     # STD ans
     # @param {ListNode} head
@@ -127,14 +129,12 @@ class Solution(object):
         return is_palindrome
 
 
-
 if __name__ == "__main__":
     assert Solution().isPalindrome(None), "Edge"
     assert Solution().isPalindrome(genNode([1])), "Edge 1"
-    assert not Solution().isPalindrome(genNode([1,2])), "Example 1"
-    assert Solution().isPalindrome(genNode([1,2,2,1])), "Example 2"
-    assert Solution().isPalindrome(genNode([1,2,1])), "Example 3"
-    assert Solution().isPalindrome(genNode([1,2,3,2,1])), "Example 4"
+    assert not Solution().isPalindrome(genNode([1, 2])), "Example 1"
+    assert Solution().isPalindrome(genNode([1, 2, 2, 1])), "Example 2"
+    assert Solution().isPalindrome(genNode([1, 2, 1])), "Example 3"
+    assert Solution().isPalindrome(genNode([1, 2, 3, 2, 1])), "Example 4"
 
     print("all passed")
-

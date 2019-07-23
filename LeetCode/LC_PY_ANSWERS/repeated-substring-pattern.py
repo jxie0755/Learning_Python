@@ -7,6 +7,7 @@ class Solution(object):
         :type str: str
         :rtype: bool
         """
+
         def getPrefix(pattern):
             prefix = [-1] * len(pattern)
             j = -1

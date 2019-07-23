@@ -14,14 +14,12 @@ class Solution(object):
         """
         self.__nums = nums
 
-
     def reset(self):
         """
         Resets the array to its original configuration and return it.
         :rtype: List[int]
         """
         return self.__nums
-
 
     def shuffle(self):
         """
@@ -30,6 +28,6 @@ class Solution(object):
         """
         nums = list(self.__nums)
         for i in xrange(len(nums)):
-            j = random.randint(i, len(nums)-1)
+            j = random.randint(i, len(nums) - 1)
             nums[i], nums[j] = nums[j], nums[i]
         return nums

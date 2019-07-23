@@ -10,12 +10,12 @@ class Solution(object):
         """
         left, right = 0, 19999
         while left <= right:
-            mid = left + (right-left)//2
+            mid = left + (right - left) // 2
             response = reader.get(mid)
             if response > target:
-                right = mid-1
+                right = mid - 1
             elif response < target:
-                left = mid+1
+                left = mid + 1
             else:
                 return mid
         return -1

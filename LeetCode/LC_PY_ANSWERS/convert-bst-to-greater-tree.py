@@ -7,6 +7,7 @@ class Solution(object):
         :type root: TreeNode
         :rtype: TreeNode
         """
+
         def convertBSTHelper(root, cur_sum):
             if not root:
                 return cur_sum

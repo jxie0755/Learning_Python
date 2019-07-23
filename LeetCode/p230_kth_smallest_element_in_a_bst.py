@@ -21,14 +21,11 @@ class Solution(object):
             return []
         return self.inorderTraversal(root.left) + [root.val] + self.inorderTraversal(root.right)
 
-
     def kthSmallest(self, root: TreeNode, k: int) -> int:
-        return self.inorderTraversal(root)[k-1]
-
+        return self.inorderTraversal(root)[k - 1]
 
 
 class Solution(object):
-
     # Internal class of BST iterator from Leetcode P173
     class BSTIterator(object):
 
@@ -101,18 +98,19 @@ class Solution(object):
 
         return float("-inf")
 
+
 if __name__ == "__main__":
     A = genTree([
         3,
-        1,4,
+        1, 4,
         None, 2
     ])
     assert Solution().kthSmallest(A, 1) == 1, "Example 1"
 
     A = genTree([
         5,
-        3,6,
-        2,4,None,None,
+        3, 6,
+        2, 4, None, None,
         1,
     ])
     assert Solution().kthSmallest(A, 3) == 3, "Example 2"

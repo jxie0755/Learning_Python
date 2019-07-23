@@ -32,7 +32,7 @@ class Solution(object):
         return True
 
     def isAnagram2(self, s, t):
-        return all([s.count(c)==t.count(c) for c in string.ascii_lowercase])
+        return all([s.count(c) == t.count(c) for c in string.ascii_lowercase])
 
     def isAnagram3(self, s, t):
         if len(s) != len(t):
@@ -45,6 +45,7 @@ class Solution(object):
             if count[c] < 0:
                 return False
         return True
+
 
 # Time:  O(nlogn)
 # Space: O(n)

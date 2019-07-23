@@ -11,6 +11,6 @@ class Solution(object):
         """
         cash, hold = 0, -prices[0]
         for i in xrange(1, len(prices)):
-            cash = max(cash, hold+prices[i]-fee)
-            hold = max(hold, cash-prices[i])
+            cash = max(cash, hold + prices[i] - fee)
+            hold = max(hold, cash - prices[i])
         return cash

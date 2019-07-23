@@ -40,6 +40,7 @@ class Solution(object):
 
         dummy.next = None  # avoid cycling
 
+
 class Solution(object):
 
     # STD ans
@@ -48,7 +49,6 @@ class Solution(object):
     def reorderList(self, head):
         if head == None or head.next == None:
             return head
-
 
         # Find the middle point by moving fast by 2 step and slow by 1 step.
         # when fast gets to the end, slow is at half point as the begining of second half
@@ -85,15 +85,13 @@ class Solution(object):
         # 1-5-2-4-3 (4 naturally linked to 3)
 
 
-
 if __name__ == "__main__":
-    A = genNode([1,2,3,4])
+    A = genNode([1, 2, 3, 4])
     Solution().reorderList(A)
-    assert A == genNode([1,4,2,3]), "Example 1"
+    assert A == genNode([1, 4, 2, 3]), "Example 1"
 
-    A = genNode([1,2,3,4,5])
+    A = genNode([1, 2, 3, 4, 5])
     Solution().reorderList(A)
-    assert A == genNode([1,5,2,4,3]), "Example 2"
+    assert A == genNode([1, 5, 2, 4, 3]), "Example 2"
 
     print("all passed")
-

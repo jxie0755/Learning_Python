@@ -24,9 +24,9 @@ class Solution(object):
                     while s:
                         node = s.pop()
                         for d in directions:
-                            nei = node[0]+d[0], node[1]+d[1]
+                            nei = node[0] + d[0], node[1] + d[1]
                             if not (0 <= nei[0] < len(A) and 0 <= nei[1] < len(A[0])) or \
-                               nei in lookup or A[nei[0]][nei[1]] == 0:
+                                    nei in lookup or A[nei[0]][nei[1]] == 0:
                                 continue
                             s.append(nei)
                             lookup.add(nei)
@@ -41,11 +41,11 @@ class Solution(object):
         while q:
             node, dis = q.popleft()
             if node in target:
-                return dis-1
+                return dis - 1
             for d in directions:
-                nei = node[0]+d[0], node[1]+d[1]
+                nei = node[0] + d[0], node[1] + d[1]
                 if not (0 <= nei[0] < len(A) and 0 <= nei[1] < len(A[0])) or \
-                   nei in lookup:
+                        nei in lookup:
                     continue
-                q.append((nei, dis+1))
+                q.append((nei, dis + 1))
                 lookup.add(nei)

@@ -8,9 +8,9 @@ class Solution:
         val = 1
         matrix = [[0 for _ in range(n)] for _ in range(n)]
 
-        top, bot, left, right = 0, n-1, 0, n-1
+        top, bot, left, right = 0, n - 1, 0, n - 1
         while top <= bot and left <= right:
-            for a in range(left, right+1):
+            for a in range(left, right + 1):
                 matrix[top][a] = val
                 val += 1
             top += 1
@@ -18,17 +18,16 @@ class Solution:
                 matrix[b][right] = val
                 val += 1
             right -= 1
-            for c in range(right, left-1, -1):
+            for c in range(right, left - 1, -1):
                 matrix[bot][c] = val
                 val += 1
             bot -= 1
-            for d in range(bot, top-1, -1):
+            for d in range(bot, top - 1, -1):
                 matrix[d][left] = val
                 val += 1
             left += 1
 
         return matrix
-
 
 
 if __name__ == "__main__":

@@ -24,11 +24,11 @@ class Solution(object):
             robot.clean()
             for _ in directions:
                 if robot.move():
-                    dfs((pos[0]+directions[d][0],
-                         pos[1]+directions[d][1]),
+                    dfs((pos[0] + directions[d][0],
+                         pos[1] + directions[d][1]),
                         robot, d, lookup)
                     goBack(robot)
                 robot.turnRight()
-                d = (d+1) % len(directions)
-        
+                d = (d + 1) % len(directions)
+
         dfs((0, 0), robot, 0, set())

@@ -11,6 +11,7 @@ from typing import *
 from a0_TreeNode import *
 from a0_ListNode import *
 
+
 class Solution:
     def sameTree(self, s, t):
         if s is t is None:
@@ -28,6 +29,7 @@ class Solution:
         else:
             return False
 
+
 class Solution:
 
     def preorderTraversal(self, t):
@@ -41,14 +43,12 @@ class Solution:
         list_s, list_t = self.preorderTraversal(s), self.preorderTraversal(t)
         len_s, len_t = len(list_s), len(list_t)
         for i in range(0, len_s - len_t + 1):
-            if list_s[i:i+len_t] == list_t:
+            if list_s[i:i + len_t] == list_t:
                 return True
         return False
 
 
-
 if __name__ == "__main__":
-
     E1 = genTree([
         3,
         4, 5,
@@ -64,29 +64,29 @@ if __name__ == "__main__":
 
     E1 = genTree([
         3,
-        4,5,
-        1,2,None, None,
+        4, 5,
+        1, 2, None, None,
         None, None, 0, None, None, None, None, None
     ])
 
     E2 = genTree([
         4,
-        1,2
+        1, 2
     ])
 
     assert not Solution().isSubtree(E1, E2), "Example 2"
 
     E3 = genTree([
         3,
-        None,9,
-        None,None,4,None,None,
-        None,None,None,1,2,None,None,
-        None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,
+        None, 9,
+        None, None, 4, None, None,
+        None, None, None, 1, 2, None, None,
+        None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None,
     ])
 
     E4 = genTree([
         4,
-        1,2
+        1, 2
     ])
 
     assert Solution().isSubtree(E3, E4), "Addtional 1"

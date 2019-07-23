@@ -15,7 +15,6 @@ from a0_TreeNode import *
 from a0_ListNode import *
 
 
-
 class Solution:
     def maxDepth(self, root: TreeNode) -> int:
         if not root:
@@ -31,7 +30,7 @@ if __name__ == "__main__":
     A = TreeNode([1])
     assert Solution().maxDepth(A) == 1, "Edge 1"
 
-    A = genTree([3,9,20,None, None, 15, 7])
+    A = genTree([3, 9, 20, None, None, 15, 7])
     assert Solution().maxDepth(A) == 3, "Example"
 
     print("All passed")

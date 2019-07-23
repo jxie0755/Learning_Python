@@ -9,7 +9,6 @@ from a0_TreeNode import *
 from a0_ListNode import *
 
 
-
 class Solution:
     def rotateRight(self, head: ListNode, k: int) -> ListNode:
         if not head:
@@ -24,7 +23,7 @@ class Solution:
         if k % length == 0:
             return head
         elif k > length:
-            return self.rotateRight(head, k%length)
+            return self.rotateRight(head, k % length)
 
         cur = head
         new_head = head.next
@@ -40,9 +39,6 @@ class Solution:
         cur.next = head
         new_tail.next = None
         return new_head
-
-
-
 
 
 if __name__ == "__main__":
@@ -62,6 +58,3 @@ if __name__ == "__main__":
     assert repr(Solution().rotateRight(S2, 4)) == "2->0->1", "Example 2"
 
     print("all passed")
-
-
-

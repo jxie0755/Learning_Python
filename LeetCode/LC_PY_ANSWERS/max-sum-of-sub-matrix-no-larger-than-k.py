@@ -3,6 +3,7 @@
 
 from bisect import bisect_left, insort
 
+
 class Solution(object):
     def maxSumSubmatrix(self, matrix, k):
         """
@@ -44,6 +45,7 @@ class Solution_TLE(object):
         :type k: int
         :rtype: int
         """
+
         class BST(object):  # not avl, rbtree
             def __init__(self, val):
                 self.val = val
@@ -74,7 +76,6 @@ class Solution_TLE(object):
                     else:
                         curr = curr.right
                 return result
-
 
         if not matrix:
             return 0

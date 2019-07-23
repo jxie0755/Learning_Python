@@ -14,7 +14,7 @@ class NumArray(object):
         self.__nums = nums
         self.__bit = [0] * (len(self.__nums) + 1)
         for i in xrange(1, len(self.__bit)):
-            self.__bit[i] = nums[i-1] + self.__bit[i-1]
+            self.__bit[i] = nums[i - 1] + self.__bit[i - 1]
 
         for i in reversed(xrange(1, len(self.__bit))):
             last_i = i - (i & -i)
@@ -37,7 +37,7 @@ class NumArray(object):
         :type j: int
         :rtype: int
         """
-        return self.__sum(j) - self.__sum(i-1)
+        return self.__sum(j) - self.__sum(i - 1)
 
     def __sum(self, i):
         i += 1
@@ -67,6 +67,7 @@ class NumArray2(object):
         """
         # Build segment tree.
         self.__nums = nums
+
         def buildHelper(nums, start, end):
             if start > end:
                 return None
@@ -98,6 +99,7 @@ class NumArray2(object):
         :type val: int
         :rtype: int
         """
+
         def updateHelper(root, i, val):
             # Out of range.
             if not root or root.start > i or root.end < i:
@@ -112,8 +114,9 @@ class NumArray2(object):
             updateHelper(root.right, i, val)
 
             # Update sum.
-            root.sum =  (root.left.sum if root.left else 0) + \
-                        (root.right.sum if root.right else 0)
+            root.sum = (root.left.sum if root.left else 0) + \
+                       (root.right.sum if root.right else 0)
+
         if self.__nums[i] != val:
             self.__nums[i] = val
             updateHelper(self.__root, i, val)
@@ -125,6 +128,7 @@ class NumArray2(object):
         :type j: int
         :rtype: int
         """
+
         def sumRangeHelper(root, start, end):
             # Out of range.
             if not root or root.start > end or root.end < start:

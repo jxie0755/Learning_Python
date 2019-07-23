@@ -4,6 +4,7 @@
 import operator
 from functools import reduce
 
+
 class Solution(object):
     # @param ratings, a list of integer
     # @return an integer

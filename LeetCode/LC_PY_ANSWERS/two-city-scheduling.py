@@ -11,6 +11,7 @@ class Solution(object):
         :type costs: List[List[int]]
         :rtype: int
         """
+
         def kthElement(nums, k, compare):
             def PartitionAroundPivot(left, right, pivot_idx, nums, compare):
                 new_pivot_idx = left
@@ -33,9 +34,9 @@ class Solution(object):
                     right = new_pivot_idx - 1
                 else:  # new_pivot_idx < k - 1.
                     left = new_pivot_idx + 1
-                    
-        kthElement(costs, len(costs)//2, lambda a, b: a[0]-a[1] < b[0]-b[1])
+
+        kthElement(costs, len(costs) // 2, lambda a, b: a[0] - a[1] < b[0] - b[1])
         result = 0
         for i in xrange(len(costs)):
-            result += costs[i][0] if i < len(costs)//2 else costs[i][1]
+            result += costs[i][0] if i < len(costs) // 2 else costs[i][1]
         return result

@@ -2,7 +2,6 @@
 # Medium
 
 
-
 # Given a m x n grid filled with non-negative numbers, find a path from top left to bottom right which minimizes the sum of all numbers along its path.
 
 # Note: You can only move either down or right at any point in time.
@@ -23,13 +22,14 @@ class Solution:
                 if nn == 0 and mm == 0:
                     min_to[nn][mm] = grid[nn][mm]
                 elif nn == 0:
-                    min_to[nn][mm] = grid[nn][mm] + min_to[nn][mm-1]
+                    min_to[nn][mm] = grid[nn][mm] + min_to[nn][mm - 1]
                 elif mm == 0:
-                    min_to[nn][mm] = grid[nn][mm] + min_to[nn-1][mm]
+                    min_to[nn][mm] = grid[nn][mm] + min_to[nn - 1][mm]
                 else:
-                    min_to[nn][mm] = grid[nn][mm] + min(min_to[nn][mm-1], min_to[nn-1][mm])
+                    min_to[nn][mm] = grid[nn][mm] + min(min_to[nn][mm - 1], min_to[nn - 1][mm])
 
-        return min_to[n-1][m-1]
+        return min_to[n - 1][m - 1]
+
 
 class Solution:
     # 直接在原表上改动, 破坏原表, 但是速度更快
@@ -52,7 +52,6 @@ class Solution:
         return grid[n - 1][m - 1]
 
 
-
 if __name__ == "__main__":
     E1 = [[]]
     assert Solution().minPathSum(E1) == 0, "Edge 1"
@@ -63,7 +62,7 @@ if __name__ == "__main__":
     E3 = [[1, 1]]
     assert Solution().minPathSum(E3) == 2, "Edge 3"
 
-    E4 = [[1],[1]]
+    E4 = [[1], [1]]
     assert Solution().minPathSum(E4) == 2, "Edge 4"
 
     S1 = [
@@ -74,9 +73,3 @@ if __name__ == "__main__":
 
     assert Solution().minPathSum(S1) == 7, "Example 1"
     print("all passed")
-
-
-
-
-
-

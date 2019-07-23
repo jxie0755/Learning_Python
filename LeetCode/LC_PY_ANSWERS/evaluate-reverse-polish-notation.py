@@ -3,6 +3,7 @@
 
 import operator
 
+
 class Solution(object):
     # @param tokens, a list of string
     # @return an integer

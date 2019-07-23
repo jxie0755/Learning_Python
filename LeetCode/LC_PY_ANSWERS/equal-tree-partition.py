@@ -10,6 +10,7 @@ class Solution(object):
         :type root: TreeNode
         :rtype: bool
         """
+
         def getSumHelper(node, lookup):
             if not node:
                 return 0
@@ -23,4 +24,4 @@ class Solution(object):
         total = getSumHelper(root, lookup)
         if total == 0:
             return lookup[total] > 1
-        return total%2 == 0 and (total/2) in lookup
+        return total % 2 == 0 and (total / 2) in lookup

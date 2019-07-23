@@ -79,18 +79,18 @@ class MyLinkedList(object):
         node.next = preNode.next
         node.prev.next = node.next.prev = node
         self.__size += 1
-        
+
     def __remove(self, node):
         node.prev.next = node.next
         node.next.prev = node.prev
         self.__size -= 1
-        
+
     def __forward(self, start, end, curr):
         while start != end:
             start += 1
             curr = curr.next
         return curr
-    
+
     def __backward(self, start, end, curr):
         while start != end:
             start -= 1

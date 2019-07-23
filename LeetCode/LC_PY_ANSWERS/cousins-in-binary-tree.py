@@ -17,6 +17,7 @@ class Solution(object):
         :type y: int
         :rtype: bool
         """
+
         def dfs(root, x, depth, parent):
             if not root:
                 return False
@@ -32,12 +33,10 @@ class Solution(object):
             parent[0] = prev_parent
             depth[0] -= 1
             return False
-        
+
         depth_x, depth_y = [0], [0]
         parent_x, parent_y = [None], [None]
         return dfs(root, x, depth_x, parent_x) and \
                dfs(root, y, depth_y, parent_y) and \
                depth_x[0] == depth_y[0] and \
                parent_x[0] != parent_y[0]
-                
-        

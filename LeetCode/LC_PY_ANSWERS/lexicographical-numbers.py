@@ -8,8 +8,8 @@ class Solution(object):
         i = 1
         while len(result) < n:
             k = 0
-            while i * 10**k <= n:
-                result.append(i * 10**k)
+            while i * 10 ** k <= n:
+                result.append(i * 10 ** k)
                 k += 1
 
             num = result[-1] + 1
@@ -25,6 +25,6 @@ class Solution(object):
             while num % 10 == 9:
                 num /= 10
 
-            i = num+1
+            i = num + 1
 
         return result

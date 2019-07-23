@@ -8,13 +8,14 @@ class TreeNode(object):
         self.left = None
         self.right = None
 
-        
+
 class Solution(object):
     def distributeCoins(self, root):
         """
         :type root: TreeNode
         :rtype: int
         """
+
         def dfs(root, result):
             if not root:
                 return 0

@@ -10,7 +10,7 @@ class LC200UnionFind(object):
     # Weighted and not path compressed
     def __init__(self, size):
         self.id = list(range(size))
-        self.sz = [1] * size           # track the size of each tree (only on the root)
+        self.sz = [1] * size  # track the size of each tree (only on the root)
 
     def root(self, p):
         while self.id[p] != p:
@@ -30,7 +30,7 @@ class LC200UnionFind(object):
 
         if rt_p != rt_q:
             if self.sz[q] <= self.sz[p]:
-                self.id[rt_q] = rt_p       # assign the new root to the bigger tree
+                self.id[rt_q] = rt_p  # assign the new root to the bigger tree
                 self.sz[rt_p] += self.sz[rt_q]  # update the size of the new root
             else:
                 self.id[rt_p] = rt_q
@@ -60,12 +60,11 @@ class Solution:
         def neighbor(coor):
             """return the UF id's index at up, down, left, right"""
             x, y = coor[0], coor[1]
-            down = (x+1,y)
-            right = (x, y+1)
+            down = (x + 1, y)
+            right = (x, y + 1)
             candidates = list(filter(isValid, [down, right]))  # 由于按顺序遍历coor, 只需要和右边和下面的link就行, 同样能覆盖全局
             candidates = [translate(i) for i in candidates if grid[i[0]][i[1]] == "1"]
             return candidates
-
 
         row = len(grid)
         col = len(grid[0])
@@ -84,7 +83,6 @@ class Solution:
         return UF.groupCount()
 
 
-
 class Solution:
 
     def numIslands(self, grid) -> int:
@@ -95,15 +93,15 @@ class Solution:
             """return the UF id's index at up, down, left, right"""
             r, c = coor[0], coor[1]
             right = (r, c + 1)
-            down = (r+1,c)
+            down = (r + 1, c)
 
-            candidates = [right, down]# 由于按顺序遍历coor, 只需要和右边和下面的link就行, 同样能覆盖全局
-            if r == row-1:
+            candidates = [right, down]  # 由于按顺序遍历coor, 只需要和右边和下面的link就行, 同样能覆盖全局
+            if r == row - 1:
                 candidates.pop()
-            if c == col-1:
+            if c == col - 1:
                 candidates.pop(0)
             return [i[0] * col + i[1] for i in candidates if grid[i[0]][i[1]] == "1"]
-                   # translate coor on the run
+            # translate coor on the run
 
         row = len(grid)
         col = len(grid[0])
@@ -114,7 +112,7 @@ class Solution:
             for c in range(col):
                 coor = (r, c)
                 coorval = grid[r][c]
-                p = r * col + c      # translate the coor on the run
+                p = r * col + c  # translate the coor on the run
                 if coorval == "1":
                     for q in neighbor(coor):
                         UF.union(p, q)

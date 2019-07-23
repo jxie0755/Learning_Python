@@ -9,11 +9,13 @@ class Solution(object):
         :type upper: int
         :rtype: List[str]
         """
+
         def getRange(lower, upper):
             if lower == upper:
                 return "{}".format(lower)
             else:
                 return "{}->{}".format(lower, upper)
+
         ranges = []
         pre = lower - 1
 

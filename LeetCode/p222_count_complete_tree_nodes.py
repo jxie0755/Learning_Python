@@ -44,6 +44,7 @@ class Solution(object):
             return 0
 
         count = []
+
         def helper(root):
             if self.isComplete(root):
                 count.append(1)
@@ -78,6 +79,7 @@ class Solution(object):
             return 0
 
         count = []
+
         def helper(root):
             if self.isComplete(root):
                 count.append(1)
@@ -101,6 +103,7 @@ class Solution(object):
 
     def countNodes(self, root: TreeNode) -> int:
         hmp = {}
+
         def helper(root):
 
             # memorization from hmp
@@ -119,7 +122,7 @@ class Solution(object):
             elif root.left and root.right:
                 A = helper(root.left)
                 B = helper(root.right)
-                if A and B: # avoid shortcircuit, must check A and B ahead
+                if A and B:  # avoid shortcircuit, must check A and B ahead
                     hmp[root] = root.val
                     return True
                 else:
@@ -144,23 +147,21 @@ class Solution(object):
         return len(hmp)
 
 
-
-
 if __name__ == "__main__":
     assert Solution().countNodes(None) == 0, "Edge"
 
     A = genTree([
         1,
-        2,3,
-        4,5,6,None
+        2, 3,
+        4, 5, 6, None
     ])
 
     assert Solution().countNodes(A) == 6, "Example 1, (1,2,3,4,5,6)"
 
     A = genTree([
         1,
-        2,None,
-        4,5,None,None
+        2, None,
+        4, 5, None, None
     ])
 
     assert Solution().countNodes(A) == 3, "Additional 1, (2,4,5)"
@@ -176,7 +177,7 @@ if __name__ == "__main__":
     A = genTree([
         1,
         2, 3,
-        None, 4,5,6
+        None, 4, 5, 6
     ])
     assert Solution().countNodes(A) == 4, "Additional 3, (3,4,5,6)"
 

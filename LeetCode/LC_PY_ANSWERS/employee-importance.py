@@ -3,7 +3,6 @@
 
 import collections
 
-
 """
 # Employee info
 class Employee(object):
@@ -16,6 +15,8 @@ class Employee(object):
         # the id of direct subordinates
         self.subordinates = subordinates
 """
+
+
 class Solution(object):
     def getImportance(self, employees, id):
         """
@@ -23,10 +24,10 @@ class Solution(object):
         :type id: int
         :rtype: int
         """
-        if employees[id-1] is None:
+        if employees[id - 1] is None:
             return 0
-        result = employees[id-1].importance
-        for id in employees[id-1].subordinates:
+        result = employees[id - 1].importance
+        for id in employees[id - 1].subordinates:
             result += self.getImportance(employees, id)
         return result
 
@@ -43,7 +44,7 @@ class Solution2(object):
         result, q = 0, collections.deque([id])
         while q:
             curr = q.popleft()
-            employee = employees[curr-1]
+            employee = employees[curr - 1]
             result += employee.importance
             for id in employee.subordinates:
                 q.append(id)

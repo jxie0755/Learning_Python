@@ -10,6 +10,7 @@
 
 from typing import *
 
+
 class Solution(object):
 
     # Use the combination method from Leetcode P077 and verify each one
@@ -22,23 +23,19 @@ class Solution(object):
             result = []
             next_list = nums[:]
             head = next_list.pop(0)
-            result += [[head] + com for com in self.combinationSolo(next_list, k - 1)] + self.combinationSolo(nums[1:], k)
+            result += [[head] + com for com in self.combinationSolo(next_list, k - 1)] + self.combinationSolo(nums[1:],
+                                                                                                              k)
             return result
 
-    def combinationSum3(self, k: int, n: int) ->  List[List[int]]:
+    def combinationSum3(self, k: int, n: int) -> List[List[int]]:
         result = []
-        for i in self.combinationSolo([1,2,3,4,5,6,7,8,9], k):
+        for i in self.combinationSolo([1, 2, 3, 4, 5, 6, 7, 8, 9], k):
             if sum(i) == n:
                 result.append(i)
         return result
 
 
-
 if __name__ == "__main__":
-
-
-
-    assert Solution().combinationSum3(3, 7) == [[1,2,4]], "Example 1"
-    assert Solution().combinationSum3(3, 9) == [[1,2,6], [1,3,5], [2,3,4]], "Example 2"
+    assert Solution().combinationSum3(3, 7) == [[1, 2, 4]], "Example 1"
+    assert Solution().combinationSum3(3, 9) == [[1, 2, 6], [1, 3, 5], [2, 3, 4]], "Example 2"
     print("all passed")
-

@@ -38,9 +38,8 @@ class Solution(object):
 
 
 if __name__ == "__main__":
-
-    l1 = genNode([1,2,4])
-    l2 = genNode([1,3,4])
+    l1 = genNode([1, 2, 4])
+    l2 = genNode([1, 3, 4])
 
     check = Solution().mergeTwoLists(l1, l2)
     assert repr(check) == "1->1->2->3->4->4", "Example 1"

@@ -26,8 +26,8 @@ class Solution:
             copy //= 10
         return reverse == x
 
-if __name__ == "__main__":
 
+if __name__ == "__main__":
     assert Solution().isPalindrome(21477412) == True, "Is palindrome (even)"
     assert Solution().isPalindrome(12321) == True, "Is palindrome (odd)"
     assert not Solution().isPalindrome(1477412), "Not palindrome"

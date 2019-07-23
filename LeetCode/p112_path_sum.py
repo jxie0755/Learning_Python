@@ -35,7 +35,6 @@ class Solution:
         helper(root)
         return result
 
-
     def hasPathSum(self, root: TreeNode, target: int) -> bool:
 
         # Borrow the idea of allPath
@@ -54,8 +53,6 @@ class Solution:
                 return helper(root.left, left_cur) or helper(root.right, right_cur)
 
         return helper(root)
-
-
 
 
 if __name__ == "__main__":

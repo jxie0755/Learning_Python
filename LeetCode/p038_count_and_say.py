@@ -25,7 +25,7 @@ class Solution:
             num = str(num) + " "
             lenth = 1
             result = ""
-            for i in range(len(num)-1):
+            for i in range(len(num) - 1):
                 if num[i] == num[i + 1]:
                     lenth += 1
                 elif num[i] != num[i + 1]:
@@ -53,6 +53,7 @@ class Solution:
                     lenth = 1
             number = int(result)
         return str(number)
+
 
 if __name__ == "__main__":
     assert Solution().countAndSay(1) == "1", "first"

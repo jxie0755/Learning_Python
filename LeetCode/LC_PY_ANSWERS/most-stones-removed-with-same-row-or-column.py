@@ -25,7 +25,7 @@ class Solution(object):
         :rtype: int
         """
         MAX_ROW = 10000
-        union_find = UnionFind(2*MAX_ROW)
+        union_find = UnionFind(2 * MAX_ROW)
         for r, c in stones:
-            union_find.union_set(r, c+MAX_ROW)
+            union_find.union_set(r, c + MAX_ROW)
         return len(stones) - len({union_find.find_set(r) for r, _ in stones})

@@ -7,7 +7,7 @@ class Solution(object):
         :type arrays: List[List[int]]
         :rtype: int
         """
-        result, min_val, max_val = 0,  arrays[0][0], arrays[0][-1]
+        result, min_val, max_val = 0, arrays[0][0], arrays[0][-1]
         for i in xrange(1, len(arrays)):
             result = max(result, \
                          max(max_val - arrays[i][0], \

@@ -11,10 +11,11 @@ class Codec(object):
 
     def serialize(self, root):
         """Encodes a tree to a single string.
-        
+
         :type root: Node
         :rtype: str
         """
+
         def dfs(node, vals):
             if not node:
                 return
@@ -22,18 +23,18 @@ class Codec(object):
             for child in node.children:
                 dfs(child, vals)
             vals.append("#")
-        
+
         vals = []
         dfs(root, vals)
         return " ".join(vals)
 
-
     def deserialize(self, data):
         """Decodes your encoded data to tree.
-        
+
         :type data: str
         :rtype: Node
         """
+
         def isplit(source, sep):
             sepsize = len(sep)
             start = 0
@@ -44,7 +45,7 @@ class Codec(object):
                     return
                 yield source[start:idx]
                 start = idx + sepsize
-                
+
         def dfs(vals):
             val = next(vals)
             if val == "#":
@@ -58,6 +59,5 @@ class Codec(object):
 
         if not data:
             return None
-    
+
         return dfs(iter(isplit(data, " ")))
-        

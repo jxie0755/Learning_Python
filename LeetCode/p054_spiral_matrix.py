@@ -13,13 +13,13 @@ class Solution:
         def next_coor(coor, direction):
             x, y = coor[0], coor[1]
             if direction == "right":
-                return [x, y+1]
+                return [x, y + 1]
             elif direction == "down":
-                return [x+1, y]
+                return [x + 1, y]
             elif direction == "left":
-                return [x, y-1]
+                return [x, y - 1]
             elif direction == "up":
-                return [x-1, y]
+                return [x - 1, y]
 
         def gen_direction():
             directions = ["right", "down", "left", "up"]
@@ -92,10 +92,9 @@ class Solution(object):
                     result.append(matrix[bot][c])
             bot -= 1
             for d in range(bot, top - 1, -1):
-                if left < right:                   # 同上
+                if left < right:  # 同上
                     result.append(matrix[d][left])
             left += 1
-
 
         return result
 
@@ -107,7 +106,7 @@ if __name__ == "__main__":
     edge_2 = [[1]]
     assert Solution().spiralOrder(edge_2) == [1], "Edge 2"
 
-    edge_3 = [[1],[2]]
+    edge_3 = [[1], [2]]
     assert Solution().spiralOrder(edge_3) == [1, 2], "Edge 3"
 
     edge_4 = [[1, 2]]
@@ -118,13 +117,13 @@ if __name__ == "__main__":
         [4, 5, 6],
         [7, 8, 9]
     ]
-    assert Solution().spiralOrder(sample_1) == [1,2,3,6,9,8,7,4,5], "Example 1"
+    assert Solution().spiralOrder(sample_1) == [1, 2, 3, 6, 9, 8, 7, 4, 5], "Example 1"
 
     sample_2 = [
         [1, 2, 3, 4],
         [5, 6, 7, 8],
         [9, 10, 11, 12]
     ]
-    assert Solution().spiralOrder(sample_2) == [1,2,3,4,8,12,11,10,9,5,6,7],  "Example 2"
+    assert Solution().spiralOrder(sample_2) == [1, 2, 3, 4, 8, 12, 11, 10, 9, 5, 6, 7], "Example 2"
 
     print("all passed")

@@ -9,19 +9,21 @@ class Solution(object):
 
         result[0][0] = True
         for i in xrange(2, len(p) + 1):
-            if p[i-1] == "*":
-                result[0][i] = result[0][i-2]
+            if p[i - 1] == "*":
+                result[0][i] = result[0][i - 2]
 
-        for i in xrange(1,len(s) + 1):
+        for i in xrange(1, len(s) + 1):
             if i > 1:
                 result[0][0] = False
             for j in xrange(1, len(p) + 1):
-                if p[j-1] != "*":
-                    result[i % k][j] = result[(i-1) % k][j-1] and (s[i-1] == p[j-1] or p[j-1] == ".")
+                if p[j - 1] != "*":
+                    result[i % k][j] = result[(i - 1) % k][j - 1] and (s[i - 1] == p[j - 1] or p[j - 1] == ".")
                 else:
-                    result[i % k][j] = result[i % k][j-2] or (result[(i-1) % k][j] and (s[i-1] == p[j-2] or p[j-2] == "."))
+                    result[i % k][j] = result[i % k][j - 2] or (
+                                result[(i - 1) % k][j] and (s[i - 1] == p[j - 2] or p[j - 2] == "."))
 
         return result[len(s) % k][len(p)]
+
 
 # dp
 # Time:  O(m * n)
@@ -33,17 +35,18 @@ class Solution2(object):
 
         result[0][0] = True
         for i in xrange(2, len(p) + 1):
-            if p[i-1] == "*":
-                result[0][i] = result[0][i-2]
+            if p[i - 1] == "*":
+                result[0][i] = result[0][i - 2]
 
-        for i in xrange(1,len(s) + 1):
+        for i in xrange(1, len(s) + 1):
             for j in xrange(1, len(p) + 1):
-                if p[j-1] != "*":
-                    result[i][j] = result[i-1][j-1] and (s[i-1] == p[j-1] or p[j-1] == ".")
+                if p[j - 1] != "*":
+                    result[i][j] = result[i - 1][j - 1] and (s[i - 1] == p[j - 1] or p[j - 1] == ".")
                 else:
-                    result[i][j] = result[i][j-2] or (result[i-1][j] and (s[i-1] == p[j-2] or p[j-2] == "."))
+                    result[i][j] = result[i][j - 2] or (result[i - 1][j] and (s[i - 1] == p[j - 2] or p[j - 2] == "."))
 
         return result[len(s)][len(p)]
+
 
 # iteration
 class Solution3(object):
@@ -53,13 +56,13 @@ class Solution3(object):
         last_ptr = []
         while s_ptr < len(s):
             if p_ptr < len(p) and (p_ptr == len(p) - 1 or p[p_ptr + 1] != "*") and \
-            (s_ptr < len(s) and (p[p_ptr] == s[s_ptr] or p[p_ptr] == ".")):
-                    s_ptr += 1
-                    p_ptr += 1
+                    (s_ptr < len(s) and (p[p_ptr] == s[s_ptr] or p[p_ptr] == ".")):
+                s_ptr += 1
+                p_ptr += 1
             elif p_ptr < len(p) - 1 and (p_ptr != len(p) - 1 and p[p_ptr + 1] == "*"):
                 p_ptr += 2
                 last_ptr.append([s_ptr, p_ptr])
-            elif  last_ptr:
+            elif last_ptr:
                 [last_s_ptr, last_p_ptr] = last_ptr.pop()
                 while last_ptr and p[last_p_ptr - 2] != s[last_s_ptr] and p[last_p_ptr - 2] != ".":
                     [last_s_ptr, last_p_ptr] = last_ptr.pop()
@@ -78,6 +81,7 @@ class Solution3(object):
             p_ptr += 2
 
         return p_ptr == len(p)
+
 
 # recursive
 class Solution4(object):

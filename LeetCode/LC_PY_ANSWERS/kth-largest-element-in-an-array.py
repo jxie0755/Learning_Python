@@ -3,6 +3,7 @@
 
 from random import randint
 
+
 class Solution(object):
     # @param {integer[]} nums
     # @param {integer} k

@@ -11,6 +11,7 @@ class Solution(object):
         :type points: List[Point]
         :rtype: List[Point]
         """
+
         def orientation(p, q, r):
             return (q.y - p.y) * (r.x - q.x) - \
                    (q.x - p.x) * (r.y - q.y)
@@ -21,7 +22,7 @@ class Solution(object):
         for i in itertools.chain(xrange(len(points)), \
                                  reversed(xrange(len(points)))):
             while len(hull) >= 2 and \
-                  orientation(hull[-2], hull[-1],  points[i]) > 0:
+                    orientation(hull[-2], hull[-1], points[i]) > 0:
                 hull.pop()
             hull.append(points[i])
 

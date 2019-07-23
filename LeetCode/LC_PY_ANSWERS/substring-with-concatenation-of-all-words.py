@@ -12,38 +12,38 @@ class Solution(object):
         :rtype: List[int]
         """
         result, m, n, k = [], len(s), len(words), len(words[0])
-        if m < n*k:
+        if m < n * k:
             return result
 
         lookup = collections.defaultdict(int)
         for i in words:
-            lookup[i] += 1                # Space: O(n * k)
+            lookup[i] += 1  # Space: O(n * k)
 
-        for i in xrange(k):               # Time:  O(k)
+        for i in xrange(k):  # Time:  O(k)
             left, count = i, 0
             tmp = collections.defaultdict(int)
-            for j in xrange(i, m-k+1, k): # Time:  O(m / k)
-                s1 = s[j:j+k]             # Time:  O(k)
+            for j in xrange(i, m - k + 1, k):  # Time:  O(m / k)
+                s1 = s[j:j + k]  # Time:  O(k)
                 if s1 in lookup:
                     tmp[s1] += 1
                     if tmp[s1] <= lookup[s1]:
                         count += 1
                     else:
                         while tmp[s1] > lookup[s1]:
-                            s2 = s[left:left+k]
+                            s2 = s[left:left + k]
                             tmp[s2] -= 1
                             if tmp[s2] < lookup[s2]:
                                 count -= 1
                             left += k
                     if count == n:
                         result.append(left)
-                        tmp[s[left:left+k]] -= 1
+                        tmp[s[left:left + k]] -= 1
                         count -= 1
                         left += k
                 else:
                     tmp = collections.defaultdict(int)
                     count = 0
-                    left = j+k
+                    left = j + k
         return result
 
 
@@ -57,17 +57,17 @@ class Solution2(object):
         :rtype: List[int]
         """
         result, m, n, k = [], len(s), len(words), len(words[0])
-        if m < n*k:
+        if m < n * k:
             return result
 
         lookup = collections.defaultdict(int)
         for i in words:
-            lookup[i] += 1                            # Space: O(n * k)
+            lookup[i] += 1  # Space: O(n * k)
 
-        for i in xrange(m+1-k*n):                     # Time: O(m)
+        for i in xrange(m + 1 - k * n):  # Time: O(m)
             cur, j = collections.defaultdict(int), 0
-            while j < n:                              # Time: O(n)
-                word = s[i+j*k:i+j*k+k]               # Time: O(k)
+            while j < n:  # Time: O(n)
+                word = s[i + j * k:i + j * k + k]  # Time: O(k)
                 if word not in lookup:
                     break
                 cur[word] += 1

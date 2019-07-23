@@ -8,7 +8,7 @@ class Solution(object):
         :type d: List[str]
         :rtype: str
         """
-        d.sort(key = lambda x: (-len(x), x))
+        d.sort(key=lambda x: (-len(x), x))
         for word in d:
             i = 0
             for c in s:

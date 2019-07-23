@@ -24,14 +24,13 @@ class Solution:
             new = result[-1][:]
             add_on = [1]
             for i in range(len(new) - 1):
-                add_on.append(new[i] + new[i+1])
+                add_on.append(new[i] + new[i + 1])
             add_on.append(1)
 
             result.append(add_on)
             current += 1
 
         return result
-
 
     def generate2(self, numRows):
         # a recursion version
@@ -47,17 +46,15 @@ class Solution:
         elif numRows == 2:
             return self.generate2(1) + [[1, 1]]
         else:
-            previous = self.generate2(numRows-1)[-1]
+            previous = self.generate2(numRows - 1)[-1]
             new = [1]
             for i in range(len(previous) - 1):
                 new.append(previous[i] + previous[i + 1])
-            return self.generate2(numRows-1) + [new + [1]]
-
+            return self.generate2(numRows - 1) + [new + [1]]
 
 
 if __name__ == "__main__":
-
-    assert Solution().generate(5) ==[
+    assert Solution().generate(5) == [
         [1],
         [1, 1],
         [1, 2, 1],

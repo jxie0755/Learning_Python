@@ -31,4 +31,5 @@ class Solution3(object):
         :rtype: bool
         """
         num = bin(num)
-        return True if num[2:].startswith("1") and len(num[2:]) == num.count("0") and num.count("0") % 2 and "-" not in num else False
+        return True if num[2:].startswith("1") and len(num[2:]) == num.count("0") and num.count(
+            "0") % 2 and "-" not in num else False

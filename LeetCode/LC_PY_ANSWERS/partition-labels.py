@@ -13,6 +13,6 @@ class Solution(object):
         for i, c in enumerate(S):
             last = max(last, lookup[c])
             if i == last:
-                result.append(i-first+1)
-                first = i+1
+                result.append(i - first + 1)
+                first = i + 1
         return result

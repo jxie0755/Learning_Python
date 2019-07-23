@@ -19,5 +19,5 @@ class Solution(object):
                 last, j = last - 1, j - 1
 
         while j >= 0:
-                A[last] = B[j]
-                last, j = last - 1, j - 1
+            A[last] = B[j]
+            last, j = last - 1, j - 1

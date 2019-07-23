@@ -3,9 +3,10 @@
 
 from collections import defaultdict, deque
 
+
 class SnakeGame(object):
 
-    def __init__(self, width,height,food):
+    def __init__(self, width, height, food):
         """
         Initialize your data structure here.
         @param width - screen width
@@ -34,10 +35,12 @@ class SnakeGame(object):
         :type direction: str
         :rtype: int
         """
+
         def valid(x, y):
             return 0 <= x < self.__height and \
                    0 <= y < self.__width and \
                    (x, y) not in self.__lookup
+
         d = self.__direction[direction]
         x, y = self.__snake[-1][0] + d[0], self.__snake[-1][1] + d[1]
 

@@ -18,8 +18,8 @@ class Solution(object):
             for i in xrange(len(s1) - n + 1):
                 for j in xrange(len(s2) - n + 1):
                     for k in xrange(1, n):
-                        if result[k][i][j] and result[n - k][i + k][j + k] or\
-                           result[k][i][j + n - k] and result[n - k][i + k][j]:
+                        if result[k][i][j] and result[n - k][i + k][j + k] or \
+                                result[k][i][j + n - k] and result[n - k][i + k][j]:
                             result[n][i][j] = True
                             break
 

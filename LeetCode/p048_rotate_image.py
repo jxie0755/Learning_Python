@@ -10,7 +10,6 @@
 # You have to rotate the image in-place, which means you have to modify the input 2D matrix directly. DO NOT allocate another 2D matrix and do the rotation.f
 
 
-
 class Solution:
     def rotate(self, matrix) -> None:
         """
@@ -21,7 +20,7 @@ class Solution:
             hmp = {}
             for row in range(n):
                 for col in range(n):
-                    x, y = col, n-1-row
+                    x, y = col, n - 1 - row
                     hmp[(x, y)] = matrix[row][col]
             for row in range(n):
                 for col in range(n):

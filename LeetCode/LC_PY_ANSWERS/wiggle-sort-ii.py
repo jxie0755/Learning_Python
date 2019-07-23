@@ -11,16 +11,20 @@ class Solution(object):
         med = (len(nums) - 1) / 2
         nums[::2], nums[1::2] = nums[med::-1], nums[:med:-1]
 
+
 # Time:  O(n) ~ O(n^2)
 # Space: O(1)
 # Tri Partition (aka Dutch National Flag Problem) with virtual index solution. (TLE)
 from random import randint
+
+
 class Solution2(object):
     def wiggleSort(self, nums):
         """
         :type nums: List[int]
         :rtype: void Do not return anything, modify nums in-place instead.
         """
+
         def findKthLargest(nums, k):
             left, right = 0, len(nums) - 1
             while left <= right:

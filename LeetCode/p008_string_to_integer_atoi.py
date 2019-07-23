@@ -16,6 +16,7 @@
 
 import re
 
+
 class Solution:
 
     # Version A, string method
@@ -27,8 +28,8 @@ class Solution:
                   "8", "9"]
         prefix = ["+", "-"]
 
-        low = -2**31
-        high = 2**31 - 1
+        low = -2 ** 31
+        high = 2 ** 31 - 1
 
         # Get the numeric first (before decimal point)
         found = False
@@ -82,11 +83,11 @@ class Solution:
         for i in mo.group(2)[::-1]:
             result += int(i) * base
             base *= 10
-        result = -1* result if mo.group(1) == "-" else result
-        if result < -2**31:
-            return -2**31
-        elif result > 2**31 - 1:
-            return 2**31 - 1
+        result = -1 * result if mo.group(1) == "-" else result
+        if result < -2 ** 31:
+            return -2 ** 31
+        elif result > 2 ** 31 - 1:
+            return 2 ** 31 - 1
         return result
 
 
@@ -108,8 +109,3 @@ if __name__ == "__main__":
     assert Solution().myAtoi("9223372036854775808") == 2147483647, "Extra 6"
 
     print("all passed")
-
-
-
-
-

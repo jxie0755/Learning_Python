@@ -7,6 +7,7 @@ class Solution(object):
         :type M: List[List[int]]
         :rtype: List[List[int]]
         """
+
         def getGray(M, i, j):
             total, count = 0, 0.0
             for r in xrange(-1, 2):

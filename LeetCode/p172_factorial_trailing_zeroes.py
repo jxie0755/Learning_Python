@@ -19,7 +19,7 @@ class Solution(object):
 
         result = 1
         tz = 0
-        for i in range(1, n+1):
+        for i in range(1, n + 1):
             result *= i
             while True:
                 a, b = divmod(result, 10)
@@ -52,7 +52,7 @@ class Solution(object):
     # 但是这样还是慢这样为N(logN)
     def trailingZeroes(self, n):
         result = 0
-        for x in range(1, n+1):
+        for x in range(1, n + 1):
             while True:
                 a, b = divmod(x, 5)
                 if b == 0:
@@ -62,6 +62,7 @@ class Solution(object):
                     break
         return result
 
+
 # 简单理解版本B
 class Solution(object):
     # Version C
@@ -69,10 +70,11 @@ class Solution(object):
     def trailingZeroes(self, n):
         result = 0
         factor = 1
-        while n // (5**factor) != 0:
+        while n // (5 ** factor) != 0:
             result += n // (5 ** factor)
             factor += 1
         return result
+
 
 if __name__ == "__main__":
     assert Solution().trailingZeroes(0) == 0, "Edge 0"
@@ -83,4 +85,3 @@ if __name__ == "__main__":
     assert Solution().trailingZeroes(3743) == 932, "Additional 2"
     print(Solution().trailingZeroes(1808548329))
     print("all passed")
-

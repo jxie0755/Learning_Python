@@ -16,8 +16,8 @@ class NumMatrix(object):
                       for _ in xrange(len(self.__matrix) + 1)]
         for i in xrange(1, len(self.__bit)):
             for j in xrange(1, len(self.__bit[0])):
-                self.__bit[i][j] = matrix[i-1][j-1] + self.__bit[i-1][j] + \
-                                   self.__bit[i][j-1] - self.__bit[i-1][j-1]
+                self.__bit[i][j] = matrix[i - 1][j - 1] + self.__bit[i - 1][j] + \
+                                   self.__bit[i][j - 1] - self.__bit[i - 1][j - 1]
         for i in reversed(xrange(1, len(self.__bit))):
             for j in reversed(xrange(1, len(self.__bit[0]))):
                 last_i, last_j = i - (i & -i), j - (j & -j)

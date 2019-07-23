@@ -32,6 +32,7 @@ class TreeNode(object):
         else:
             return None
 
+
 class Solution(object):
     # @return a list of tree node
     def generateTrees(self, n):

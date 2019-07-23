@@ -20,12 +20,13 @@ class Solution(object):
                 prefix = words[i][j:]
                 suffix = words[i][:j]
                 if prefix == prefix[::-1] and \
-                   suffix[::-1] in lookup and lookup[suffix[::-1]] != i:
+                        suffix[::-1] in lookup and lookup[suffix[::-1]] != i:
                     res.append([i, lookup[suffix[::-1]]])
                 if j > 0 and suffix == suffix[::-1] and \
-                   prefix[::-1] in lookup and lookup[prefix[::-1]] != i:
+                        prefix[::-1] in lookup and lookup[prefix[::-1]] != i:
                     res.append([lookup[prefix[::-1]], i])
         return res
+
 
 # Time:  O(n * k^2), n is the number of the words, k is the max length of the words.
 # Space: O(n * k^2)
@@ -36,13 +37,14 @@ class Solution_TLE(object):
         :type words: List[str]
         :rtype: List[List[int]]
         """
+
         def manacher(s, P):
             def preProcess(s):
                 if not s:
                     return ["^", "$"]
                 T = ["^"]
                 for c in s:
-                    T +=  ["#", c]
+                    T += ["#", c]
                 T += ["#", "$"]
                 return T
 
@@ -101,7 +103,7 @@ class TrieNode(object):
             if s[i] in cur.leaves:
                 cur = cur.leaves[s[i]]
                 if cur.word_idx not in (-1, idx) and \
-                   self.is_palindrome(s, i - 1):
+                        self.is_palindrome(s, i - 1):
                     res.append([cur.word_idx, idx])
             else:
                 break
@@ -114,6 +116,7 @@ class TrieNode(object):
             i += 1
             j -= 1
         return True
+
 
 class Solution_MLE(object):
     def palindromePairs(self, words):

@@ -69,8 +69,8 @@ class Solution:
             """extend the lst into all possible subset"""
             # print("cur", lst)
 
-            if start <= len(nums)-1:
-                for i in range(start+1, len(nums)):
+            if start <= len(nums) - 1:
+                for i in range(start + 1, len(nums)):
                     temp = nums[i]
                     if temp % lst[-1] == 0:
                         new_lst = lst + [temp]
@@ -114,10 +114,6 @@ class Solution(object):
         return result[::-1]
 
 
-
-
-
-
 if __name__ == "__main__":
     assert Solution().largestDivisibleSubset([]) == [], "Edge 0"
     assert Solution().largestDivisibleSubset([1, 2, 3]) == [1, 2] or [1, 3], "Example 1"
@@ -127,7 +123,7 @@ if __name__ == "__main__":
     assert A == [2, 4, 28] or A == [7, 14, 28], "Example 3"
 
     assert Solution().largestDivisibleSubset([1, 3, 9, 18, 54, 90, 108, 180, 360, 540, 720]) == \
-           [1,3,9,18,90,180,360,720], \
+           [1, 3, 9, 18, 90, 180, 360, 720], \
         "Additional 1"
 
     print("all passed")

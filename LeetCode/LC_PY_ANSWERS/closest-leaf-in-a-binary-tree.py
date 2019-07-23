@@ -11,6 +11,7 @@ class Solution(object):
         :type k: int
         :rtype: int
         """
+
         def traverse(node, neighbors, leaves):
             if not node:
                 return

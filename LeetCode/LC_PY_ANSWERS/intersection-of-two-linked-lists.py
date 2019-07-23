@@ -6,6 +6,7 @@ class ListNode(object):
         self.val = x
         self.next = None
 
+
 class Solution(object):
     # @param two ListNodes
     # @return the intersected ListNode

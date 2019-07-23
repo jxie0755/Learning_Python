@@ -5,6 +5,7 @@
 # Given a positive integer n, find the least number of perfect square numbers (for example, 1, 4, 9, 16, ...) which sum to n.
 from typing import *
 
+
 class Solution(object):
 
     # Version A
@@ -14,13 +15,12 @@ class Solution(object):
     def SQlist(self, n):
         """find all possible square number up to n"""
         result = []
-        for i in range(1, n+1):
-            if i**2 <= n:
+        for i in range(1, n + 1):
+            if i ** 2 <= n:
                 result.append(i ** 2)
             else:
                 break
         return result
-
 
     def numSquares(self, n):
         """
@@ -73,6 +73,7 @@ class Solution(object):
             i += 1
         return ans
 
+
 class Solution:
     def numSquares(self, n: int) -> int:
         result = []
@@ -81,6 +82,7 @@ class Solution:
         sqlist = self.SQlist(n)
         multlist = [0] * len(sqlist)
         N = len(sqlist)
+
         def helper(n, ml):
             current_sum = self.summ(sqlist, ml)
             if current_sum == n:
@@ -96,16 +98,14 @@ class Solution:
         return min(result)
 
 
-
-
 class Solution(object):
 
     # Version C, Similar to Version A but with optimiazation (trimming)
     def SQlist(self, n):
         """find all possible square number up to n"""
         result = []
-        for i in range(int(n**0.5), 0, -1):
-                result.append(i ** 2)
+        for i in range(int(n ** 0.5), 0, -1):
+            result.append(i ** 2)
         return result
 
     def numSquares(self, n: int) -> int or float:
@@ -118,7 +118,7 @@ class Solution(object):
                 result.append(length_so_far)
 
             # Only proceed tree recursive if current bl beats smallest length so far
-            elif sum_so_far < n and length_so_far < min(4, result[-1]): # 利用4平方和原理, 最大不超过4
+            elif sum_so_far < n and length_so_far < min(4, result[-1]):  # 利用4平方和原理, 最大不超过4
                 for i in sqlist:
                     new_sum = sum_so_far + i
                     new_length = length_so_far + 1
@@ -141,10 +141,11 @@ class Solution(object):
         while len(num) <= n:
             temp = []
             for i in range(1, int(len(num) ** 0.5 + 1)):
-                temp.append(num[-i*i])
+                temp.append(num[-i * i])
             num.append(min(temp) + 1)
 
         return num[n]
+
 
 class Solution(object):
 
@@ -153,8 +154,8 @@ class Solution(object):
     def SQlist(self, n):
         """find all possible square number up to n"""
         result = []
-        for i in range(1, int(n**0.5)+1):
-                result.append(i ** 2)
+        for i in range(1, int(n ** 0.5) + 1):
+            result.append(i ** 2)
         return result
 
     def numSquares(self, n: int) -> int or float:
@@ -164,21 +165,22 @@ class Solution(object):
 
         def helper(n):
 
-            if n == 0: # base case
+            if n == 0:  # base case
                 return 0
 
-            elif n in hashmap: # 如果之前算过, 就直接从字典调用
+            elif n in hashmap:  # 如果之前算过, 就直接从字典调用
                 return hashmap[n]
 
             else:
                 temp = []
                 for i in sqlist:
                     if i <= n:
-                        temp.append(helper(n-i))
+                        temp.append(helper(n - i))
                 hashmap[n] = min(temp) + 1  # 返回之前记录结果
                 return min(temp) + 1
 
         return helper(n)
+
 
 class Solution(object):
 
@@ -187,8 +189,8 @@ class Solution(object):
     def SQlist(self, n):
         """find all possible square number up to n"""
         result = []
-        for i in range(1, int(n**0.5)+1):
-                result.append(i ** 2)
+        for i in range(1, int(n ** 0.5) + 1):
+            result.append(i ** 2)
         return result
 
     def numSquares(self, n: int) -> int or float:
@@ -197,10 +199,10 @@ class Solution(object):
         hashmap = {}  # memorization
 
         def helper(n, depth=0):
-            if n == 0: # base case
+            if n == 0:  # base case
                 return 0
 
-            elif n in hashmap and depth < 4: # 如果之前算过, 就直接从字典调用
+            elif n in hashmap and depth < 4:  # 如果之前算过, 就直接从字典调用
                 return hashmap[n]
 
             elif depth < 4:
@@ -208,7 +210,7 @@ class Solution(object):
                 for i in sqlist:
                     if i <= n:
                         new_depth = depth + 1
-                        temp.append(helper(n-i, new_depth))
+                        temp.append(helper(n - i, new_depth))
 
                 temp_n = min(temp) + 1
                 if temp_n != float("inf"):  # 字典只记录真实值
@@ -241,6 +243,3 @@ if __name__ == "__main__":
     # start_time = time.time()
     # print(Solution().numSquares(7168))
     # print(f"--- {time.time() - start_time}s seconds ---\n")
-
-
-

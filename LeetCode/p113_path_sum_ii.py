@@ -34,7 +34,6 @@ class Solution:
         helper(root)
         return result
 
-
     def pathSum(self, root: TreeNode, target: int):
         result = []
         for i in self.allPath(root):

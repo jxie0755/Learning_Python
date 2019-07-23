@@ -46,6 +46,7 @@ class Solution2(object):
         :type head: ListNode
         :rtype: ListNode
         """
+
         def reverseList(head):
             dummy = ListNode(0)
             curr = head

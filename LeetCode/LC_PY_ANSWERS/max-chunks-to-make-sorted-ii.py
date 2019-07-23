@@ -7,8 +7,9 @@ class Solution(object):
         :type arr: List[int]
         :rtype: int
         """
+
         def compare(i1, i2):
-            return arr[i1]-arr[i2] if arr[i1] != arr[i2] else i1-i2
+            return arr[i1] - arr[i2] if arr[i1] != arr[i2] else i1 - i2
 
         idxs = [i for i in xrange(len(arr))]
         result, max_i = 0, 0

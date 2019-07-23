@@ -5,7 +5,6 @@
 # Super ugly numbers are positive numbers whose all prime factors are in the given prime list primes of size k.
 
 
-
 # Note:
 # 1 is a super ugly number for any given primes.
 # The given numbers in primes are in ascending order.
@@ -13,6 +12,7 @@
 # The nth super ugly number is guaranteed to fit in a 32-bit signed integer.
 
 from typing import *
+
 
 class Solution:
 
@@ -80,6 +80,8 @@ class Solution(object):
 
 
 import heapq
+
+
 class Solution(object):
 
     # Heap solution. (620ms)
@@ -92,8 +94,7 @@ class Solution(object):
         uglies[0] = 1
 
         idx = [0] * len(primes)
-        ugly_by_last_prime =[0] * n
-
+        ugly_by_last_prime = [0] * n
 
         for k, p in enumerate(primes):
             heapq.heappush(heap, (p, k))
@@ -109,9 +110,11 @@ class Solution(object):
         return uglies[-1]
 
 
-
 if __name__ == "__main__":
-    assert Solution().nthSuperUglyNumber(12, [2,7,13,19]) == 32, "Example 1"
-    assert Solution().nthSuperUglyNumber(800, [37,43,59,61,67,71,79,83,89,97,101,103,113,127,131,157,163,167,173,179,191,193,197,199,211,229,233,239,251,257]) == 411811, "Long"
+    assert Solution().nthSuperUglyNumber(12, [2, 7, 13, 19]) == 32, "Example 1"
+    assert Solution().nthSuperUglyNumber(800,
+                                         [37, 43, 59, 61, 67, 71, 79, 83, 89, 97, 101, 103, 113, 127, 131, 157, 163,
+                                          167, 173, 179, 191, 193, 197, 199, 211, 229, 233, 239, 251,
+                                          257]) == 411811, "Long"
 
     print("all passed")

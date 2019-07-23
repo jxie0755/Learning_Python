@@ -15,5 +15,5 @@ class Solution(object):
             while prod >= k:
                 prod /= nums[start]
                 start += 1
-            result += i-start+1
+            result += i - start + 1
         return result

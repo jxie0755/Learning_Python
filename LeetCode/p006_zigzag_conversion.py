@@ -25,10 +25,9 @@ class Solution:
 
     # Version A1, Time O(N), space O(N)
     def convert(self, s: str, numRows: int) -> str:
-
-        z = list(range(0, numRows)) + list(range(numRows-2, 0, -1))  # cyling pather of 1 Z move (idx)
+        z = list(range(0, numRows)) + list(range(numRows - 2, 0, -1))  # cyling pather of 1 Z move (idx)
         cycle = len(z)
-        mapping = [[]for _ in range(numRows)]
+        mapping = [[] for _ in range(numRows)]
 
         i = 0
         while i != len(s):
@@ -42,8 +41,7 @@ class Solution:
 
     # Version A2, Time O(N), space O(N)
     def convert(self, s: str, numRows: int) -> str:
-
-        z= list(range(0, numRows)) + list(range(numRows-2, 0, -1))
+        z = list(range(0, numRows)) + list(range(numRows - 2, 0, -1))
         z *= (len(s) // len(z) + 1)  # 直接扩展z, 不要用cycle的方式
         mapping = [[] for _ in range(numRows)]
 
@@ -67,16 +65,13 @@ class Solution(object):
         for i in range(numRows):
             for j in range(i, len(s), step):  # 使用step法直接原地找到index值
                 zigzag += s[j]
-                additional = j + (numRows-1-i) * 2
+                additional = j + (numRows - 1 - i) * 2
                 if 0 < i < numRows - 1 and additional < len(s):  # 重叠空间要管一下
                     zigzag += s[additional]
         return zigzag
 
 
-
-
 if __name__ == "__main__":
-
     assert Solution().convert("", 3) == "", "Edge 1"
     assert Solution().convert("A", 1) == "A", "Edge 2"
     assert Solution().convert("AB", 1) == "AB", "Edge 3"

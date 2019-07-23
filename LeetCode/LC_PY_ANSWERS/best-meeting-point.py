@@ -15,9 +15,9 @@ class Solution(object):
         mid_x = self.findKthLargest(x, len(x) / 2 + 1)
         mid_y = self.findKthLargest(y, len(y) / 2 + 1)
 
-        return sum([abs(mid_x-i) + abs(mid_y-j)
-                   for i, row in enumerate(grid)
-                   for j, v in enumerate(row) if v == 1])
+        return sum([abs(mid_x - i) + abs(mid_y - j)
+                    for i, row in enumerate(grid)
+                    for j, v in enumerate(row) if v == 1])
 
     def findKthLargest(self, nums, k):
         left, right = 0, len(nums) - 1

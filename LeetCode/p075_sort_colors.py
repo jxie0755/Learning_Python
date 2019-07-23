@@ -26,12 +26,11 @@ class Solution:
                 nums.pop(i)
                 nums.insert(0, 0)
                 i += 1
-            elif nums[i] == 2 and i != L-1 and nums[i:] != [2] * (L-i):
+            elif nums[i] == 2 and i != L - 1 and nums[i:] != [2] * (L - i):
                 nums.pop(i)
                 nums.append(2)
             else:
                 i += 1
-
 
     def sortColors(self, nums) -> None:
         """
@@ -39,7 +38,7 @@ class Solution:
         """
         L = len(nums)
         i = 0
-        head, tail = 0, L-1
+        head, tail = 0, L - 1
         while i != L:
             if nums[i] == 0 and i > head:
                 nums[head], nums[i] = nums[i], nums[head]
@@ -51,22 +50,20 @@ class Solution:
                 i += 1
 
 
-
-
 if __name__ == "__main__":
     e1 = []
     Solution().sortColors(e1)
     assert e1 == [], "Edge 1"
 
-    e2 = [0,0]
+    e2 = [0, 0]
     Solution().sortColors(e2)
-    assert e2 == [0,0], "Edge 2"
+    assert e2 == [0, 0], "Edge 2"
 
-    s1 = [2,0,2,1,1,0]
+    s1 = [2, 0, 2, 1, 1, 0]
     Solution().sortColors(s1)
-    assert s1 == [0,0,1,1,2,2], "Example 1"
+    assert s1 == [0, 0, 1, 1, 2, 2], "Example 1"
 
-    s2= [0,2,1,2,0,1,2,1]
+    s2 = [0, 2, 1, 2, 0, 1, 2, 1]
     Solution().sortColors(s2)
     assert s2 == [0, 0, 1, 1, 1, 2, 2, 2], "Case 1"
     print("all passed")

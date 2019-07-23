@@ -6,12 +6,14 @@
 
 from typing import *
 
+
 class Solution:
     def restoreIpAddresses(self, s: str) -> List[str]:
         if len(s) > 12 or len(s) < 4:
             return []
 
         addresses = []
+
         def helper(ss, result, nodes):
             if nodes < 0:
                 pass
@@ -30,11 +32,10 @@ class Solution:
                         break
                     elif head and int(head) <= 255:
                         new_result = result + head + "."
-                        helper(tail, new_result, nodes-1)
+                        helper(tail, new_result, nodes - 1)
 
         helper(s, "", 4)
         return addresses
-
 
 
 if __name__ == "__main__":
@@ -44,5 +45,3 @@ if __name__ == "__main__":
     assert Solution().restoreIpAddresses("25525511135") == ["255.255.11.135", "255.255.111.35"], "Example 1"
 
     print("All passed")
-
-

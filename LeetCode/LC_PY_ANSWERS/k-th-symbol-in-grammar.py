@@ -8,6 +8,7 @@ class Solution(object):
         :type K: int
         :rtype: int
         """
+
         def bitCount(n):
             result = 0
             while n:
@@ -15,4 +16,4 @@ class Solution(object):
                 result += 1
             return result
 
-        return bitCount(K-1) % 2
+        return bitCount(K - 1) % 2

@@ -7,6 +7,7 @@ class Solution(object):
         :type preorder: str
         :rtype: bool
         """
+
         def split_iter(s, tok):
             start = 0
             for i in xrange(len(s)):

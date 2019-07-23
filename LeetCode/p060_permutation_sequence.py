@@ -19,6 +19,8 @@
 
 import timeit
 import math
+
+
 class Solution:
     def nextPermutation(self, nums):
         # O(N), directly find next different permutations
@@ -72,12 +74,12 @@ class Solution:
     # Direct implementation will fail because exceeded max time limit
     # Optimization method is used to minimize the number of iteration on nextPermuete
     p_dict = {
-        i: math.factorial(i) for i in range(1,10)
+        i: math.factorial(i) for i in range(1, 10)
     }
 
     def getPermutation_0(self, n, k):
         lst = list(range(1, n + 1))
-        for i in range(k-1):
+        for i in range(k - 1):
             lst = self.nextPermutation(lst)
         return "".join([str(i) for i in lst])
 
@@ -88,20 +90,19 @@ class Solution:
             lst = list(range(1, n + 1))
             return "".join([str(i) for i in lst])
         elif k > total_p:  # 避免k太大                    # question noted that k will not be > n!
-            return self.getPermutation(n, k % total_p)   # 取余数
+            return self.getPermutation(n, k % total_p)  # 取余数
 
         for i in range(n, 0, -1):
             p = self.p_dict[i]
-            if k >= p:           # 检查是否k大于x级的排列数, 如果是, 则直接把后x部分直接逆序
-                                 # 例如n=4有24种排列方式,而n=3只有6中,所以如果k=10的话:
-                                 # 直接就从1432开始往后找10-6个next permuate就完成了
-                lst = list(range(1, n - i + 1)) + list(range(n-i+1, n + 1))[::-1]
+            if k >= p:  # 检查是否k大于x级的排列数, 如果是, 则直接把后x部分直接逆序
+                # 例如n=4有24种排列方式,而n=3只有6中,所以如果k=10的话:
+                # 直接就从1432开始往后找10-6个next permuate就完成了
+                lst = list(range(1, n - i + 1)) + list(range(n - i + 1, n + 1))[::-1]
                 if k > p:
                     new_k = k - p
                     for i in range(new_k):
                         lst = self.nextPermutation(lst)
                 return "".join([str(i) for i in lst])
-
 
     def getPermutation(self, n, k):
         # Induce prevPermute to optimize
@@ -118,7 +119,7 @@ class Solution:
                     lst = self.prevPermutation(lst)
             else:
                 lst = list(range(1, n + 1))
-                for i in range(k-1):
+                for i in range(k - 1):
                     lst = self.nextPermutation(lst)
             return "".join([str(i) for i in lst])
 
@@ -144,7 +145,7 @@ class Solution:
         if k == 1 or n == 1:
             return "".join([str(i) for i in lst])
         else:
-            return "".join(str(i) for i in self.permute(lst)[k-1])
+            return "".join(str(i) for i in self.permute(lst)[k - 1])
 
 
 class Solution(object):
@@ -167,7 +168,6 @@ class Solution(object):
         return seq
 
 
-
 class Solution(object):
     # recursive method
     def getPermutation(self, n, k):
@@ -183,15 +183,15 @@ class Solution(object):
                 return str(digit) + helper(nums, k % fact)
 
         fact_dict = {i: math.factorial(i) for i in range(n)}
-        lst = list(range(1, n+1))
-        return helper(lst, k-1)  # k - 1原理同上
+        lst = list(range(1, n + 1))
+        return helper(lst, k - 1)  # k - 1原理同上
 
 
 if __name__ == "__main__":
-    assert Solution().getPermutation(4,1) == "1234", "Edge 1"
-    assert Solution().getPermutation(3,3) == "213", "Example 1"
-    assert Solution().getPermutation(4,9) == "2314", "Example 2"
-    print(Solution().getPermutation(8, 29805)) # >>>  68327415
+    assert Solution().getPermutation(4, 1) == "1234", "Edge 1"
+    assert Solution().getPermutation(3, 3) == "213", "Example 1"
+    assert Solution().getPermutation(4, 9) == "2314", "Example 2"
+    print(Solution().getPermutation(8, 29805))  # >>>  68327415
     print(Solution().getPermutation(9, 62716))  # >>>  265183794
     print("all passed")
 

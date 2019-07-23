@@ -22,7 +22,6 @@ class TimeMap(object):
         :rtype: None
         """
         self.lookup[key].append((timestamp, value))
-        
 
     def get(self, key, timestamp):
         """
@@ -33,9 +32,8 @@ class TimeMap(object):
         A = self.lookup.get(key, None)
         if A is None:
             return ""
-        i = bisect.bisect_right(A, (timestamp+1, 0))
-        return A[i-1][1] if i else ""
-
+        i = bisect.bisect_right(A, (timestamp + 1, 0))
+        return A[i - 1][1] if i else ""
 
 # Your TimeMap object will be instantiated and called as such:
 # obj = TimeMap()

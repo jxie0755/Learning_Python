@@ -7,6 +7,7 @@ class Solution(object):
         :type root: TreeNode
         :rtype: List[List[int]]
         """
+
         def findLeavesHelper(node, result):
             if not node:
                 return -1

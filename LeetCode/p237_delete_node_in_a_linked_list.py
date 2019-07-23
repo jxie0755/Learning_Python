@@ -24,7 +24,6 @@ class Solution(object):
     # Revise on chain, change the value to next value all the way to the end then cut the end link
     # need to create a dummy to record the previous node of this node
     def deleteNode(self, node: ListNode) -> None:
-
         pre = ListNode("X")
         pre.next = node
         while node.next:
@@ -42,14 +41,13 @@ class Solution(object):
 
 
 if __name__ == "__main__":
-    A = genNode([4,5,1,9])
+    A = genNode([4, 5, 1, 9])
     Solution().deleteNode(A.next)
-    assert A == genNode([4,1,9]), "Example 1"
+    assert A == genNode([4, 1, 9]), "Example 1"
 
     A = genNode([4, 5, 1, 9])
     Solution().deleteNode(A.next.next)
     assert A == genNode([4, 5, 9]), "Example 2"
-
 
     A = genNode([4, 5, 1, 9])
     Solution().deleteNode(A)

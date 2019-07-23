@@ -15,9 +15,9 @@ class Solution(object):
         [left, count] = self.isUnivalSubtrees(root.left, count)
         [right, count] = self.isUnivalSubtrees(root.right, count)
         if self.isSame(root, root.left, left) and \
-           self.isSame(root, root.right, right):
-                count += 1
-                return [True, count]
+                self.isSame(root, root.right, right):
+            count += 1
+            return [True, count]
 
         return [False, count]
 

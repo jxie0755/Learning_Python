@@ -15,7 +15,7 @@ class Solution(object):
             lookup.add((r, c))
             regions[-1].add((r, c))
             for d in directions:
-                nr, nc = r+d[0], c+d[1]
+                nr, nc = r + d[0], c + d[1]
                 if not (0 <= nr < len(grid) and \
                         0 <= nc < len(grid[r])):
                     continue
@@ -38,7 +38,7 @@ class Solution(object):
 
             if not regions: break
 
-            triage_idx = frontiers.index(max(frontiers, key = len))
+            triage_idx = frontiers.index(max(frontiers, key=len))
             for i, region in enumerate(regions):
                 if i == triage_idx:
                     result += perimeters[i]
@@ -47,7 +47,7 @@ class Solution(object):
                     continue
                 for r, c in region:
                     for d in directions:
-                        nr, nc = r+d[0], c+d[1]
+                        nr, nc = r + d[0], c + d[1]
                         if not (0 <= nr < len(grid) and \
                                 0 <= nc < len(grid[r])):
                             continue

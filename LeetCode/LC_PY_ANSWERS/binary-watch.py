@@ -8,10 +8,11 @@ class Solution(object):
         :type num: int
         :rtype: List[str]
         """
+
         def bit_count(bits):
             count = 0
             while bits:
-                bits &= bits-1
+                bits &= bits - 1
                 count += 1
             return count
 

@@ -7,14 +7,14 @@ class Solution(object):
         :type S: str
         :rtype: int
         """
-        dp = [1]*(len(S)+1)
+        dp = [1] * (len(S) + 1)
         for c in S:
             if c == "I":
                 dp = dp[:-1]
                 for i in xrange(1, len(dp)):
-                    dp[i] += dp[i-1]
+                    dp[i] += dp[i - 1]
             else:
                 dp = dp[1:]
-                for i in reversed(xrange(len(dp)-1)):
-                    dp[i] += dp[i+1]
-        return dp[0] % (10**9+7)
+                for i in reversed(xrange(len(dp) - 1)):
+                    dp[i] += dp[i + 1]
+        return dp[0] % (10 ** 9 + 7)

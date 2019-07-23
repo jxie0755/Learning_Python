@@ -11,6 +11,7 @@
 
 from typing import *
 
+
 class Solution(object):
 
     # Version A, Brutal force, check every subarray from short to long
@@ -18,9 +19,9 @@ class Solution(object):
     # Time limit exceeded
     def minSubArrayLen(self, s: int, nums: List[int]) -> int:
         N = len(nums)
-        for i in range(1, N+1):
-            for start in range(0, N-i+1):
-                sub = nums[start:start+i]
+        for i in range(1, N + 1):
+            for start in range(0, N - i + 1):
+                sub = nums[start:start + i]
                 if sum(sub) >= s:
                     return len(sub)
         return 0
@@ -64,23 +65,23 @@ class Solution(object):
         head, tail = 0, 0
 
         while head != len(nums):
-            sub = nums[head:tail+1]
+            sub = nums[head:tail + 1]
             sub_l = len(sub)
             sub_sum = sum(sub)
 
             if sub_sum >= s:
-                if sub_l < L: # track minium length
+                if sub_l < L:  # track minium length
                     L = sub_l
 
                 # if sub_sum exceed, then move head to shorten, unless head hit tail
                 if head < tail:
                     head += 1
-                else: # if head hit tail, the length is 1, no need to proceed
+                else:  # if head hit tail, the length is 1, no need to proceed
                     break
             else:
                 if tail < len(nums) - 1:  # move tail, so the sub gets longer, unless tail hit the end
                     tail += 1
-                else: # if tail hit the end, move head towards the end to end the while loop
+                else:  # if tail hit the end, move head towards the end to end the while loop
                     break
         return L
 
@@ -103,7 +104,7 @@ class Solution(object):
 
             if sub_sum >= s:
                 sub_l = tail - head + 1
-                if sub_l < L: # track minium length
+                if sub_l < L:  # track minium length
                     L = sub_l
 
                 # if sub_sum exceed, then move head to shorten, unless head hit tail
@@ -111,13 +112,13 @@ class Solution(object):
                     sub_sum -= nums[head]
                     head += 1
 
-                else: # if head hit tail, the length is 1, no need to proceed
+                else:  # if head hit tail, the length is 1, no need to proceed
                     break
             else:
                 if tail < len(nums) - 1:  # move tail, so the sub gets longer, unless tail hit the end
                     tail += 1
                     sub_sum += nums[tail]
-                else: # if tail hit the end, move head towards the end to end the while loop
+                else:  # if tail hit the end, move head towards the end to end the while loop
                     break
         return L
 
@@ -138,16 +139,16 @@ if __name__ == "__main__":
     A = [2, 16, 14, 15]
     assert Solution().minSubArrayLen(20, A) == 2, "Additional 2"
 
-    A = [12,28,83,4,25,26,25,2,25,25,25,12]
+    A = [12, 28, 83, 4, 25, 26, 25, 2, 25, 25, 25, 12]
     assert Solution().minSubArrayLen(213, A) == 8, "Additional 3"
 
-    A = [1,4,4]
+    A = [1, 4, 4]
     assert Solution().minSubArrayLen(3, A) == 1, "Additional 4"
 
-    A = [4,1,1,1,4,3]
+    A = [4, 1, 1, 1, 4, 3]
     assert Solution().minSubArrayLen(7, A) == 2, "Additional 5"
 
-    A = [4,4,1,1,1,5,1,1]
+    A = [4, 4, 1, 1, 1, 5, 1, 1]
     assert Solution().minSubArrayLen(8, A) == 2, "Additional 6"
 
     print("all passed")

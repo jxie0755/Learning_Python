@@ -15,4 +15,4 @@ class Solution(object):
             stk.append(num)
         while stk:
             lookup[stk.pop()] = -1
-        return map(lambda x : lookup[x], findNums)
+        return map(lambda x: lookup[x], findNums)

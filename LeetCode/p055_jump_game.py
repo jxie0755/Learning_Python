@@ -7,6 +7,8 @@
 # Determine if you are able to reach the last index.
 
 from typing import *
+
+
 class Solution:
     def canJump(self, nums: List[int]) -> bool:
 
@@ -48,14 +50,13 @@ class Solution(object):
         return True
 
 
-
 if __name__ == "__main__":
-    assert Solution().canJump([0]) , "Edge 1"
-    assert not Solution().canJump([0,0]) , "Edge 2"
-    assert Solution().canJump([1,0]) , "Edge 3"
-    assert Solution().canJump([2,0]), "Edge 4"
+    assert Solution().canJump([0]), "Edge 1"
+    assert not Solution().canJump([0, 0]), "Edge 2"
+    assert Solution().canJump([1, 0]), "Edge 3"
+    assert Solution().canJump([2, 0]), "Edge 4"
 
-    assert Solution().canJump([2,3,1,1,4]), "Example 1"
-    assert not Solution().canJump([3,2,1,0,4]), "Example 2"
+    assert Solution().canJump([2, 3, 1, 1, 4]), "Example 1"
+    assert not Solution().canJump([3, 2, 1, 0, 4]), "Example 2"
 
     print("all passed")

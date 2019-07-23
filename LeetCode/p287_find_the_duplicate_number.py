@@ -54,11 +54,6 @@ class Solution:
                 return mid
 
 
-
-
-
-
-
 class Solution(object):
 
     # STD ans 循环链表判断法
@@ -75,7 +70,6 @@ class Solution(object):
         # 出现重复值也就是意味着重复值会指回到同一个index上, 这就变成了一个死循环
         slow = nums[0]
         fast = nums[nums[0]]
-
 
         # 第一个循环, slow走一步,fast走两步
         # 假设循环之前有A步, 循环内有C步
@@ -131,7 +125,6 @@ class Solution(object):
         return left
 
 
-
 class Solution(object):
 
     # STD ans
@@ -177,6 +170,7 @@ if __name__ == "__main__":
     assert Solution().findDuplicate([1, 2, 2, 3, 4, 5, 6, 7, 8, 9]) == 2, "Additional 3"
     assert Solution().findDuplicate([1, 2, 3, 4, 5, 6, 6, 6, 6, 9]) == 6, "Additional 4"
 
-    assert Solution().findDuplicate([18,13,14,17,9,19,7,17,4,6,17,5,11,10,2,15,8,12,16,17]) == 17, "Additional 5"
+    assert Solution().findDuplicate(
+        [18, 13, 14, 17, 9, 19, 7, 17, 4, 6, 17, 5, 11, 10, 2, 15, 8, 12, 16, 17]) == 17, "Additional 5"
 
     print("all passed")

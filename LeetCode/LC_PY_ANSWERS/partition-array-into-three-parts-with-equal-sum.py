@@ -13,7 +13,7 @@ class Solution(object):
         parts, curr = 0, 0
         for x in A:
             curr += x
-            if curr == total//3:
+            if curr == total // 3:
                 parts += 1
                 curr = 0
         return parts >= 3

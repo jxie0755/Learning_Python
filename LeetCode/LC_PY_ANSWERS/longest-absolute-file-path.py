@@ -7,6 +7,7 @@ class Solution(object):
         :type input: str
         :rtype: int
         """
+
         def split_iter(s, tok):
             start = 0
             for i in xrange(len(s)):
@@ -14,7 +15,6 @@ class Solution(object):
                     yield s[start:i]
                     start = i + 1
             yield s[start:]
-
 
         max_len = 0
         path_len = {0: 0}

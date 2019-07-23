@@ -6,6 +6,7 @@ from typing import *
 
 from collections import deque  # 利用deque的maxlen特性
 
+
 class Solution:
 
     # Version A, Use set
@@ -37,8 +38,8 @@ class Solution:
                 break
         return result
 
-if __name__ == "__main__":
 
+if __name__ == "__main__":
     lst = ["Denis Xie", "Dennis X", "Dendi Den", "Denn"]
     assert Solution().longestCommonPrefix(lst) == "Den", "regular test"
 

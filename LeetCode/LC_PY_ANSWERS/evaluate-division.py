@@ -12,6 +12,7 @@ class Solution(object):
         :type query: List[List[str]]
         :rtype: List[float]
         """
+
         def check(up, down, lookup, visited):
             if up in lookup and down in lookup[up]:
                 return (True, lookup[up][down])

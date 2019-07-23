@@ -56,15 +56,15 @@ class Solution:
         if len(prices) == 0 or len(prices) == 1:
             return 0
 
-        turn_points = [prices[0]] # keep the head
+        turn_points = [prices[0]]  # keep the head
         i = 0
         while i != len(prices) - 2:
-            current, next, further = prices[i], prices[i+1], prices[i+2]
+            current, next, further = prices[i], prices[i + 1], prices[i + 2]
             if next == max(current, next, further) or next == min(current, next, further):
                 turn_points.append(next)
             i += 1
 
-        turn_points += [prices[-1]] # keep the tail
+        turn_points += [prices[-1]]  # keep the tail
 
         # 结合折断法, 以list中最小值做切割
         profits = [0]
@@ -81,7 +81,7 @@ class Solution:
         # STD ans
         # Best method evaluate on the run
         max_profit, min_price = 0, float("inf")
-                                    # 无穷大
+        # 无穷大
         for price in prices:
             min_price = min(min_price, price)
             max_profit = max(max_profit, price - min_price)
@@ -105,10 +105,10 @@ class Solution:
 
 
 if __name__ == "__main__":
-    assert Solution().maxProfit([7,1,5,3,6,4]) == 5, "Smart trader"
+    assert Solution().maxProfit([7, 1, 5, 3, 6, 4]) == 5, "Smart trader"
     # Buy on day 2 (price = 1) and sell on day 5 (price = 6), profit = 6-1 = 5
 
-    assert Solution().maxProfit([7,6,4,3,1]) == 0, "No Transaction"
+    assert Solution().maxProfit([7, 6, 4, 3, 1]) == 0, "No Transaction"
     # In this case, no transaction is done, i.e. max profit = 0
 
     assert Solution().maxProfit([100, 5, 25, 1, 20]) == 20, "Tricky"

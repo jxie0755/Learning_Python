@@ -10,5 +10,6 @@ class Solution(object):
     :type nums: List[int]
     :rtype: int
     """
+
     def singleNumber(self, A):
         return reduce(operator.xor, A)

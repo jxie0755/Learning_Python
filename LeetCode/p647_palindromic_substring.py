@@ -18,8 +18,8 @@ class Solution:
         # create a generator for all substrings, to save memory
         def substrings(x):
             for i in range(len(x)):
-                for e in range(1, len(x)-i+1):
-                    yield x[i:i+e]
+                for e in range(1, len(x) - i + 1):
+                    yield x[i:i + e]
 
         count = 0
         for i in substrings(s):
@@ -32,9 +32,9 @@ class Solution:
 
         count = 0
         for i in range(len(s)):
-                for e in range(1, len(s)-i+1):
-                    if s[i:i+e] == s[i:i+e][::-1]:
-                        count += 1
+            for e in range(1, len(s) - i + 1):
+                if s[i:i + e] == s[i:i + e][::-1]:
+                    count += 1
         return count
 
     def countSubstrings(self, s):
@@ -42,7 +42,7 @@ class Solution:
 
         N = len(s)
         ans = 0
-        for center in range(2*N - 1):
+        for center in range(2 * N - 1):
             left = center // 2
             right = left + center % 2
 
@@ -65,7 +65,7 @@ class Solution:
         ans = 0
         for i in range(len(s)):
             for j in range(2):
-                left =i
+                left = i
                 right = left + j  # right will be lastly assigned as right = len(s), which is unnecessary
                 # but the while loop has limited right < len(s), so it won't be executed
 
@@ -74,6 +74,7 @@ class Solution:
                     left -= 1
                     right += 1
         return ans
+
 
 if __name__ == '__main__':
     assert Solution().countSubstrings("abc") == 3, "regular"

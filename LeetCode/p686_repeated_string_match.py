@@ -23,7 +23,7 @@ class Solution:
         else:
             count = 1
             add_on = A
-            while len(A) <= 3* len(B):  # not the best limit
+            while len(A) <= 3 * len(B):  # not the best limit
                 # if B longer than A, A needs to be maximumly repeated untill 3 times of B's length
                 if B in A:
                     return count
@@ -34,7 +34,7 @@ class Solution:
 
     def repeatedStringMatch(self, A, B):
         # one loop to combine two conditions
-        limit = 2 * len(A) + len(B)   # best limit, this is lowest bound and unifies for both conditions
+        limit = 2 * len(A) + len(B)  # best limit, this is lowest bound and unifies for both conditions
         count = 1
         add = A
         while len(A) <= limit:

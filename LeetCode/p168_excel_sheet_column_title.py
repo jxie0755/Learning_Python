@@ -19,7 +19,7 @@ class Solution(object):
         """
 
         translate = "ZABCDEFGHIJKLMNOPQRSTUVWXYZ"  # can be replaced by dict
-        n -=1
+        n -= 1
         body, tail = divmod(n, 26)
         tail_val = translate[tail]
 
@@ -27,9 +27,9 @@ class Solution(object):
             if body == 0:
                 return ""
             elif 0 < body <= 26:
-                return translate[body-1]
+                return translate[body - 1]
             else:
-                return process(body//26) + translate[body%26-1]
+                return process(body // 26) + translate[body % 26 - 1]
 
         body_val = process(body)
 
@@ -49,11 +49,11 @@ class Solution(object):
         body_val = ""
         while body != 0:
             if 1 < body <= 26:
-                body_val = translate[body-1] + body_val
+                body_val = translate[body - 1] + body_val
                 if body == 26:
                     body -= 1
             else:
-                body_val = translate[body%26-1] + body_val
+                body_val = translate[body % 26 - 1] + body_val
             body = body // 26
 
         return body_val + tail_val
@@ -65,10 +65,10 @@ class Solution(object):
     def convertToTitle(self, n):
         translate = "ZABCDEFGHIJKLMNOPQRSTUVWXYZ"
         result = ""
-        while n!= 0:
+        while n != 0:
             n, end = divmod(n, 26)
             if end == 0:
-                n -= 1 # 减1位
+                n -= 1  # 减1位
             result = translate[end] + result
 
         return result

@@ -9,9 +9,9 @@ class Solution(object):
         :rtype: int
         """
         A.sort()
-        result = A[-1]-A[0]
-        for i in xrange(len(A)-1):
+        result = A[-1] - A[0]
+        for i in xrange(len(A) - 1):
             result = min(result,
-                         max(A[-1]-K, A[i]+K) -
-                         min(A[0]+K, A[i+1]-K))
+                         max(A[-1] - K, A[i] + K) -
+                         min(A[0] + K, A[i + 1] - K))
         return result

@@ -20,6 +20,7 @@ class SummaryRanges(object):
         :type val: int
         :rtype: void
         """
+
         def upper_bound(nums, target):
             left, right = 0, len(nums) - 1
             while left <= right:
@@ -32,10 +33,10 @@ class SummaryRanges(object):
 
         i = upper_bound(self.__intervals, val)
         start, end = val, val
-        if i != 0 and self.__intervals[i-1].end + 1 >= val:
+        if i != 0 and self.__intervals[i - 1].end + 1 >= val:
             i -= 1
         while i != len(self.__intervals) and \
-              end + 1 >= self.__intervals[i].start:
+                end + 1 >= self.__intervals[i].start:
             start = min(start, self.__intervals[i].start)
             end = max(end, self.__intervals[i].end)
             del self.__intervals[i]

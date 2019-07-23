@@ -13,6 +13,7 @@ from typing import *
 from a0_TreeNode import *
 from a0_ListNode import *
 
+
 # Your BSTIterator object will be instantiated and called as such:
 # obj = BSTIterator(root)
 # param_1 = obj.next()
@@ -50,7 +51,6 @@ class BSTIterator(object):
         return bool(self.flat)
 
 
-
 class BSTIterator(object):
 
     # Version B, O(h) memory.
@@ -67,7 +67,7 @@ class BSTIterator(object):
             self.updateQue()
 
     # Add from Leetcode P230
-    def kthSmallest(self,k):
+    def kthSmallest(self, k):
         s = []
         rank = 0
         cur = self.root
@@ -98,7 +98,7 @@ class BSTIterator(object):
 
         if self.que:
             last = self.que[-1]
-            next_val = last.val # first get return vanl as a temp
+            next_val = last.val  # first get return vanl as a temp
 
             # if there is a right branch, then replace the last node with right branch
             if last.right:
@@ -128,7 +128,7 @@ if __name__ == "__main__":
 
     b1 = genTree([
         7,
-        3,15,
+        3, 15,
         None, None, 9, 20
     ])
     iterator = BSTIterator(b1)

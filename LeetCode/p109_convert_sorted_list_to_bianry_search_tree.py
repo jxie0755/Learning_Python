@@ -14,8 +14,6 @@ from a0_ListNode import *
 class Solution:
     # Convert linked list to an arrayList then solve the problem like Leetcode P108
 
-
-
     def sortedListToBST(self, head: ListNode) -> TreeNode:
 
         if not head:
@@ -26,7 +24,6 @@ class Solution:
             nums.append(head.val)
             head = head.next
 
-
         mid_idx = len(nums) // 2
         mid = nums[mid_idx]
         ans = TreeNode(mid)
@@ -36,7 +33,7 @@ class Solution:
                 left_mid_idx = len(left_list) // 2
                 left_val = left_list[left_mid_idx]
                 root.left = TreeNode(left_val)
-                LL, LR = left_list[:left_mid_idx], left_list[left_mid_idx+1:]
+                LL, LR = left_list[:left_mid_idx], left_list[left_mid_idx + 1:]
                 helper(root.left, LL, LR)
 
             if right_list:
@@ -46,7 +43,7 @@ class Solution:
                 RL, RR = right_list[:right_mid_idx], right_list[right_mid_idx + 1:]
                 helper(root.right, RL, RR)
 
-        helper(ans, nums[:mid_idx], nums[mid_idx+1:])
+        helper(ans, nums[:mid_idx], nums[mid_idx + 1:])
         return ans
 
 

@@ -29,6 +29,7 @@ class Solution:
             first, second = heights[:lowest_idx], heights[lowest_idx + 1:]
             return max(area, self.largestRectangleArea(first), self.largestRectangleArea(second))
 
+
 class Solution(object):
     # @param height, a list of integer
     # @return an integer
@@ -48,6 +49,7 @@ class Solution(object):
                     area = max(area, height[last] * (i - increasing[-1] - 1))
 
         return area
+
 
 additional = list(range(0, 999))
 print(Solution().largestRectangleArea(additional))

@@ -7,6 +7,7 @@ class Solution(object):
         :type strs: List[str]
         :rtype: int
         """
+
         def isSubsequence(a, b):
             i = 0
             for j in xrange(len(b)):

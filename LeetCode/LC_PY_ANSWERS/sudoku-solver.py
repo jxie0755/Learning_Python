@@ -26,7 +26,7 @@ class Solution(object):
         def solver(board):
             for i in xrange(len(board)):
                 for j in xrange(len(board[0])):
-                    if(board[i][j] == "."):
+                    if (board[i][j] == "."):
                         for k in xrange(9):
                             board[i][j] = chr(ord("1") + k)
                             if isValid(board, i, j) and solver(board):

@@ -15,10 +15,11 @@ class Solution(object):
         :type preorder: List[int]
         :rtype: TreeNode
         """
+
         def bstFromPreorderHelper(preorder, left, right, index):
             if index[0] == len(preorder) or \
-               preorder[index[0]] < left or \
-               preorder[index[0]] > right:
+                    preorder[index[0]] < left or \
+                    preorder[index[0]] > right:
                 return None
 
             root = TreeNode(preorder[index[0]])
@@ -26,5 +27,5 @@ class Solution(object):
             root.left = bstFromPreorderHelper(preorder, left, root.val, index)
             root.right = bstFromPreorderHelper(preorder, root.val, right, index)
             return root
-        
+
         return bstFromPreorderHelper(preorder, float("-inf"), float("inf"), [0])

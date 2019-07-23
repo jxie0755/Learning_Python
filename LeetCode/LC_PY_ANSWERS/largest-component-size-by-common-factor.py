@@ -7,7 +7,7 @@ import collections
 class UnionFind(object):
     def __init__(self, n):
         self.set = range(n)
-        self.size = [1]*n
+        self.size = [1] * n
 
     def find_set(self, x):
         if self.set[x] != x:
@@ -29,24 +29,25 @@ class Solution(object):
         :type A: List[int]
         :rtype: int
         """
+
         def primeFactors(i):  # prime factor decomposition
             result = []
             d = 2
-            if i%d == 0:
-                while i%d == 0:
+            if i % d == 0:
+                while i % d == 0:
                     i //= d
                 result.append(d)
             d = 3
-            while d*d <= i:
-                if i%d == 0:
-                    while i%d == 0:
+            while d * d <= i:
+                if i % d == 0:
+                    while i % d == 0:
                         i //= d
                     result.append(d)
                 d += 2
             if i > 2:
                 result.append(i)
             return result
-        
+
         union_find = UnionFind(len(A))
         nodesWithCommonFactor = collections.defaultdict(int)
         for i in xrange(len(A)):

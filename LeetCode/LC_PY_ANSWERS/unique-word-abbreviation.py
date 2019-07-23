@@ -16,7 +16,6 @@ class ValidWordAbbr(object):
             abbr = self.abbreviation(word)
             self.lookup_[abbr].add(word)
 
-
     def isUnique(self, word):
         """
         check if a word is unique.
@@ -26,8 +25,7 @@ class ValidWordAbbr(object):
         abbr = self.abbreviation(word)
         return self.lookup_[abbr] <= {word}
 
-
     def abbreviation(self, word):
         if len(word) <= 2:
             return word
-        return word[0] + str(len(word)-2) + word[-1]
+        return word[0] + str(len(word) - 2) + word[-1]

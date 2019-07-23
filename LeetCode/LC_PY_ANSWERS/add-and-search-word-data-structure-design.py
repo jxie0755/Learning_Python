@@ -34,10 +34,10 @@ class WordDictionary(object):
         if start == len(word):
             return curr.is_string
         if word[start] in curr.leaves:
-            return self.searchHelper(word, start+1, curr.leaves[word[start]])
+            return self.searchHelper(word, start + 1, curr.leaves[word[start]])
         elif word[start] == ".":
             for c in curr.leaves:
-                if self.searchHelper(word, start+1, curr.leaves[c]):
+                if self.searchHelper(word, start + 1, curr.leaves[c]):
                     return True
 
         return False

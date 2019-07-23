@@ -13,12 +13,13 @@ class Solution(object):
         :type B: str
         :rtype: int
         """
+
         def neighbors(s, B):
             for i, c in enumerate(s):
                 if c != B[i]:
                     break
             t = list(s)
-            for j in xrange(i+1, len(s)):
+            for j in xrange(i + 1, len(s)):
                 if t[j] == B[i]:
                     t[i], t[j] = t[j], t[i]
                     yield "".join(t)

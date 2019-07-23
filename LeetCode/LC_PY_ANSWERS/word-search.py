@@ -23,9 +23,9 @@ class Solution(object):
             return False
 
         visited[i][j] = True
-        result = self.existRecu(board, word, cur + 1, i + 1, j, visited) or\
-                 self.existRecu(board, word, cur + 1, i - 1, j, visited) or\
-                 self.existRecu(board, word, cur + 1, i, j + 1, visited) or\
+        result = self.existRecu(board, word, cur + 1, i + 1, j, visited) or \
+                 self.existRecu(board, word, cur + 1, i - 1, j, visited) or \
+                 self.existRecu(board, word, cur + 1, i, j + 1, visited) or \
                  self.existRecu(board, word, cur + 1, i, j - 1, visited)
         visited[i][j] = False
 

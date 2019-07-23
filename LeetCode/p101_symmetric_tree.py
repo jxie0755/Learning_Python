@@ -7,6 +7,7 @@ from typing import *
 from a0_TreeNode import *
 from a0_ListNode import *
 
+
 class Solution:
 
     def showLayers(self, root):  # Omit None
@@ -37,6 +38,7 @@ class Solution:
             if i != i[::-1]:
                 return False
         return True
+
 
 class Solution:
     def isSymmetric(self, root: TreeNode) -> bool:
@@ -117,6 +119,7 @@ class Solution(object):
 
         return True
 
+
 # Recursive solution
 class Solution2(object):
     # STD ans
@@ -134,7 +137,6 @@ class Solution2(object):
         if left is None or right is None or left.val != right.val:
             return False
         return self.isSymmetricRecu(left.left, right.right) and self.isSymmetricRecu(left.right, right.left)
-
 
 
 if __name__ == "__main__":
@@ -160,7 +162,7 @@ if __name__ == "__main__":
 
     A3 = genTree([
         1,
-        0,None
+        0, None
     ])
     assert not Solution().isSymmetric(A3)
 

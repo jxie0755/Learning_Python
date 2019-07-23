@@ -18,6 +18,7 @@ class Solution(object):
 
         return min_size if min_size != float("inf") else 0
 
+
 # Time:  O(nlogn)
 # Space: O(n)
 # Binary search solution.

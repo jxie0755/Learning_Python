@@ -10,7 +10,7 @@ class Solution(object):
         :type graph: List[List[int]]
         :rtype: int
         """
-        dp = [[float("inf")]*(len(graph))
+        dp = [[float("inf")] * (len(graph))
               for _ in xrange(1 << len(graph))]
         q = collections.deque()
         for i in xrange(len(graph)):
@@ -22,6 +22,6 @@ class Solution(object):
             for nei in graph[node]:
                 new_state = state | (1 << nei)
                 if dp[new_state][nei] == float("inf"):
-                    dp[new_state][nei] = steps+1
+                    dp[new_state][nei] = steps + 1
                     q.append((new_state, nei))
         return min(dp[-1])

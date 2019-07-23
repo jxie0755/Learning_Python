@@ -19,6 +19,5 @@ class Solution(object):
                 if count[tree[i]] == 0:
                     del count[tree[i]]
                 i += 1
-            result = max(result, j-i+1)
+            result = max(result, j - i + 1)
         return result
- 

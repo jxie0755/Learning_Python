@@ -13,6 +13,7 @@ class Solution(object):
         :type kill: int
         :rtype: List[int]
         """
+
         def killAll(pid, children, killed):
             killed.append(pid)
             for child in children[pid]:
@@ -37,6 +38,7 @@ class Solution2(object):
         :type kill: int
         :rtype: List[int]
         """
+
         def killAll(pid, children, killed):
             killed.append(pid)
             for child in children[pid]:

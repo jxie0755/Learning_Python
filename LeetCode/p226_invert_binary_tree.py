@@ -25,9 +25,6 @@ class Solution(object):
         return root
 
 
-
-
-
 if __name__ == "__main__":
     assert Solution().invertTree(None) is None, "Edge 0"
 
@@ -36,14 +33,14 @@ if __name__ == "__main__":
 
     A = genTree([
         4,
-        2,7,
-        1,3,6,9
+        2, 7,
+        1, 3, 6, 9
     ])
 
     B = genTree([
         4,
-        7,2,
-        9,6,3,1
+        7, 2,
+        9, 6, 3, 1
     ])
     assert Solution().invertTree(A) == B, "Example 1"
 

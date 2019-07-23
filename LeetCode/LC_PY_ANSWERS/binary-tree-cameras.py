@@ -16,6 +16,7 @@ class Solution(object):
         :rtype: int
         """
         UNCOVERED, COVERED, CAMERA = range(3)
+
         def dfs(root, result):
             left = dfs(root.left, result) if root.left else COVERED
             right = dfs(root.right, result) if root.right else COVERED
@@ -25,7 +26,7 @@ class Solution(object):
             if left == CAMERA or right == CAMERA:
                 return COVERED
             return UNCOVERED
-        
+
         result = [0]
         if dfs(root, result) == UNCOVERED:
             result[0] += 1

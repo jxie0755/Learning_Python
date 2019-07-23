@@ -7,6 +7,7 @@ class TreeNode(object):
         self.left = None
         self.right = None
 
+
 # Morris Traversal Solution
 class Solution(object):
     # @param root, a tree node
@@ -50,5 +51,5 @@ class Solution2(object):
             return True
 
         return low < root.val and root.val < high \
-            and self.isValidBSTRecu(root.left, low, root.val) \
-            and self.isValidBSTRecu(root.right, root.val, high)
+               and self.isValidBSTRecu(root.left, low, root.val) \
+               and self.isValidBSTRecu(root.right, root.val, high)

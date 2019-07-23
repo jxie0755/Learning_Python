@@ -15,7 +15,6 @@ class Solution:
     # TODO
 
 
-
 if __name__ == "__main__":
     sample = [
         ["1"]

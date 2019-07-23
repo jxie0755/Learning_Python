@@ -19,9 +19,9 @@ class Solution(object):
         one_change_cnt, two_change_cnt, three_change_cnt = 0, 0, 0
         i = 2
         while i < len(s):
-            if s[i] == s[i-1] == s[i-2]:
+            if s[i] == s[i - 1] == s[i - 2]:
                 length = 2
-                while i < len(s) and s[i] == s[i-1]:
+                while i < len(s) and s[i] == s[i - 1]:
                     length += 1
                     i += 1
 

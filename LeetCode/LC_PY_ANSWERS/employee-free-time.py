@@ -25,6 +25,6 @@ class Solution(object):
             if 0 <= last_end < t:
                 result.append(Interval(last_end, t))
             last_end = max(last_end, schedule[eid][i].end)
-            if i+1 < len(schedule[eid]):
-                heapq.heappush(min_heap, (schedule[eid][i+1].start, eid, i+1))
+            if i + 1 < len(schedule[eid]):
+                heapq.heappush(min_heap, (schedule[eid][i + 1].start, eid, i + 1))
         return result

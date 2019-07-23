@@ -10,7 +10,7 @@ class Solution(object):
         dp = [0] * 32
         dp[0], dp[1] = 1, 2
         for i in xrange(2, len(dp)):
-            dp[i] = dp[i-1] + dp[i-2]
+            dp[i] = dp[i - 1] + dp[i - 2]
         result, prev_bit = 0, 0
         for i in reversed(xrange(31)):
             if (num & (1 << i)) != 0:

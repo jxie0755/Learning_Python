@@ -13,6 +13,7 @@ from typing import *
 from a0_TreeNode import *
 from a0_ListNode import *
 
+
 class Solution(object):
 
     # Version A, Time:  O(n), Space: O(1)
@@ -71,7 +72,6 @@ class Solution:
 
 
 if __name__ == "__main__":
-
     a1 = genNode([0])
     b1 = genNode([0, 1])
 
@@ -84,25 +84,23 @@ if __name__ == "__main__":
     c = Solution().addTwoNumbers(a1, b1)
     assert repr(c) == "8->1"
 
-
     # Example 1
     # Input: (2 -> 4 -> 3) + (5 -> 6 -> 4)
     # Output: 7 -> 0 -> 8
     # Explanation: 342 + 465 = 807.
 
-    a1 = genNode([2,4,3])
-    b1 = genNode([5,6,4])
+    a1 = genNode([2, 4, 3])
+    b1 = genNode([5, 6, 4])
     c = Solution().addTwoNumbers(a1, b1)
     assert repr(c) == "7->0->8"
-
 
     # Example 2
     # Input: (2 -> 4 -> 3) + (8 -> 9)
     # Output: 0 -> 4 -> 4
     # Explanation: 342 + 98 = 440.
 
-    a1 = genNode([2,4,3])
-    b1 = genNode([8,9])
+    a1 = genNode([2, 4, 3])
+    b1 = genNode([8, 9])
 
     c = Solution().addTwoNumbers(a1, b1)
     assert repr(c) == "0->4->4"

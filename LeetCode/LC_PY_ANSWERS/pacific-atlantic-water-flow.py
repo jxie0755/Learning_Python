@@ -11,9 +11,9 @@ class Solution(object):
 
         def pacificAtlanticHelper(matrix, x, y, prev_height, prev_val, visited, res):
             if (not 0 <= x < len(matrix)) or \
-               (not 0 <= y < len(matrix[0])) or \
-               matrix[x][y] < prev_height or \
-               (visited[x][y] | prev_val) == visited[x][y]:
+                    (not 0 <= y < len(matrix[0])) or \
+                    matrix[x][y] < prev_height or \
+                    (visited[x][y] | prev_val) == visited[x][y]:
                 return
 
             visited[x][y] |= prev_val
@@ -27,7 +27,7 @@ class Solution(object):
             return []
 
         res = []
-        m, n = len(matrix),len(matrix[0])
+        m, n = len(matrix), len(matrix[0])
         visited = [[0 for _ in xrange(n)] for _ in xrange(m)]
 
         for i in xrange(m):

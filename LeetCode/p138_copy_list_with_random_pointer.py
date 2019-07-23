@@ -11,6 +11,7 @@
 
 from typing import *
 
+
 # Definition for a Node.
 class Node:
     def __init__(self, val, next, random):
@@ -42,7 +43,7 @@ class Solution:
 if __name__ == "__main__":
     B = Node(2, None, None)
     B.random = B
-    A = Node(1,B, B)
+    A = Node(1, B, B)
 
     AA = Solution().copyRandomList(A)
     assert AA.val == 1, "Val"

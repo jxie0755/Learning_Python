@@ -20,6 +20,7 @@ class Solution:
         :type n: int
         :rtype: bool
         """
+
         def process(n):
             result = 0
             while n != 0:
@@ -33,6 +34,7 @@ class Solution:
             n = process(n)
 
         return n == 1
+
 
 if __name__ == "__main__":
     assert Solution().isHappy(19) is True, "Example 1"

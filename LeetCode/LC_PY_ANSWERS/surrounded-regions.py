@@ -27,7 +27,7 @@ class Solution(object):
                 board[i][j] = "V"
                 for x, y in [(i + 1, j), (i - 1, j), (i, j + 1), (i, j - 1)]:
                     if 0 <= x < len(board) and 0 <= y < len(board[0]) and \
-                       board[x][y] == "O":
+                            board[x][y] == "O":
                         board[x][y] = "V"
                         q.append((x, y))
 

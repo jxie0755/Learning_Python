@@ -28,7 +28,7 @@ class Solution:
         # still O(n) but use slice with step, simpler codes use for loop
         result = ""
         for i in range(0, len(s), 2 * k):
-            result += s[i:i+k][::-1] + s[i+k:i+2*k]
+            result += s[i:i + k][::-1] + s[i + k:i + 2 * k]
         return result
 
     def reverseStr(self, s, k):
@@ -36,10 +36,11 @@ class Solution:
         return s[:k][::-1] + s[k:2 * k] + self.reverseStr(s[2 * k:], k) if s else ""
         # Don't forget the last part to prevent infinite recursion on empty string
 
+
 if __name__ == "__main__":
     assert Solution().reverseStr("abcdefg", 2) == "bacdfeg", "regular"
     assert Solution().reverseStr("abcdefg", 1) == "abcdefg", "k=1, do nothing"
-    assert Solution().reverseStr("abcdefghi", 2) == "bacdfeghi",  "one extra"
+    assert Solution().reverseStr("abcdefghi", 2) == "bacdfeghi", "one extra"
     assert Solution().reverseStr("abcdefgh", 3) == "cbadefhg", "partial reverse"
     assert Solution().reverseStr("abcdefgh", 2) == "bacdfegh", "double length"
     assert Solution().reverseStr("abcdefg", 10) == "gfedcba", "k > len(s), complete reverse"

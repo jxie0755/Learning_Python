@@ -10,6 +10,7 @@ class Solution(object):
         :type root: TreeNode
         :rtype: int
         """
+
         def findSecondMinimumValueHelper(root, max_heap, lookup):
             if not root:
                 return

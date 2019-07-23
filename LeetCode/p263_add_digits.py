@@ -22,6 +22,7 @@ class Solution:
 
         return num
 
+
 class Solution(object):
     def addDigits(self, num: int) -> int:
         # Time O(1)
@@ -30,7 +31,7 @@ class Solution(object):
         # t = num % 9
         # return t if t else 9
 
-        return 0 if not num else (num-1)%9+1
+        return 0 if not num else (num - 1) % 9 + 1
 
     # Explain:
     # 123 = 100 + 20 + 3

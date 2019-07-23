@@ -12,11 +12,12 @@ class Solution(object):
         :type tickets: List[List[str]]
         :rtype: List[str]
         """
+
         def route_helper(origin, ticket_cnt, graph, ans):
             if ticket_cnt == 0:
                 return True
 
-            for i, (dest, valid)  in enumerate(graph[origin]):
+            for i, (dest, valid) in enumerate(graph[origin]):
                 if valid:
                     graph[origin][i][1] = False
                     ans.append(dest)

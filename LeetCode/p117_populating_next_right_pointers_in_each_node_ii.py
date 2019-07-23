@@ -8,10 +8,12 @@ class Node:
         self.left = left
         self.right = right
         self.next = next
+
     def __eq__(self, other):
         if self and other:
             return self.val == other.val and self.left == other.left and self.right == other.right and self.next == other.next
         return False
+
 
 # Populate each next pointer to point to its next right node. If there is no next right node, the next pointer should be set to NULL.
 
@@ -42,7 +44,7 @@ class Solution:
         if len(node_lst) > 1:
             i = 1
             while i != len(node_lst):
-                prev = node_lst[i-1]
+                prev = node_lst[i - 1]
                 cur = node_lst[i]
                 prev.next = cur
                 i += 1
@@ -52,7 +54,6 @@ class Solution:
         for nodes in all_layer:
             self.pointTo(nodes)
         return root
-
 
 
 if __name__ == "__main__":

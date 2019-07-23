@@ -25,13 +25,11 @@ class NestedInteger:
         self.lst = []
         self.val = value
 
-
     def __repr__(self):
         if self.isInteger():
             return "[" + str(self.val) + "]"
         else:
             return "[" + str(self.val) + "," + str(self.getList()[0]) + "]"
-
 
     def isInteger(self):
         """
@@ -79,7 +77,6 @@ class NestedInteger:
 
 
 if __name__ == "__main__":
-
     A = NestedInteger(1)
     assert repr(A) == "[1]", "Eaxmple 1"
     assert A.getInteger() == 1, "get integer"
@@ -96,7 +93,6 @@ if __name__ == "__main__":
     assert repr(A) == "[5]", "set Integer"
 
     print("all passed")
-
 
 
 class Solution(object):
@@ -116,15 +112,14 @@ class Solution(object):
         for j in range(len(s)):
             if s[j] == "[":
                 stk += NestedInteger(),
-                i = j+1
+                i = j + 1
             elif s[j] in ",]":
-                if s[j-1].isdigit():
+                if s[j - 1].isdigit():
                     stk[-1].add(NestedInteger(int(s[i:j])))
                 if s[j] == "]" and len(stk) > 1:
                     cur = stk[-1]
                     stk.pop()
                     stk[-1].add(cur)
-                i = j+1
+                i = j + 1
 
         return stk[-1]
-

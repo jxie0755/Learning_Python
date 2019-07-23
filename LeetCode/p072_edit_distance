@@ -37,8 +37,8 @@ class Solution:
                 result.append(iterable[i:i + lenth])
         return result
 
-# TODO
 
+# TODO
 
 
 Solution().minDistance('horse', 'ros')

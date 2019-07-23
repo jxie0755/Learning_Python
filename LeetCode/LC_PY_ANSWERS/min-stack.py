@@ -35,11 +35,13 @@ class MinStack(object):
     def getMin(self):
         return self.min
 
+
 # Time:  O(n)
 # Space: O(n)
 class MinStack2(object):
     def __init__(self):
         self.stack, self.minStack = [], []
+
     # @param x, an integer
     # @return an integer
     def push(self, x):

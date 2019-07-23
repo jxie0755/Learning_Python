@@ -23,8 +23,8 @@ class Solution(object):
         if depth > len(result):
             result.append(node.val)
 
-        self.rightSideViewDFS(node.right, depth+1, result)
-        self.rightSideViewDFS(node.left, depth+1, result)
+        self.rightSideViewDFS(node.right, depth + 1, result)
+        self.rightSideViewDFS(node.left, depth + 1, result)
 
 
 # BFS solution
@@ -44,7 +44,7 @@ class Solution2(object):
                 if node.left:
                     next_level.append(node.left)
                 if node.right:
-                    next_level.append(node.right)                
+                    next_level.append(node.right)
             result.append(node.val)
             current = next_level
 

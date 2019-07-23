@@ -7,10 +7,10 @@ class Solution(object):
         :type row: List[int]
         :rtype: int
         """
-        N = len(row)//2
+        N = len(row) // 2
         couples = [[] for _ in xrange(N)]
         for seat, num in enumerate(row):
-            couples[num//2].append(seat//2)
+            couples[num // 2].append(seat // 2)
         adj = [[] for _ in xrange(N)]
         for couch1, couch2 in couples:
             adj[couch1].append(couch2)

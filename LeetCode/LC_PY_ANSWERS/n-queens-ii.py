@@ -1,4 +1,6 @@
 from functools import reduce
+
+
 # Time:  O(n!)
 # Space: O(n)
 
@@ -21,6 +23,7 @@ class Solution(object):
                 self.cols[i] = self.main_diag[row + i] = self.anti_diag[row - i + n] = False
         return result
 
+
 # slower solution
 class Solution2(object):
     # @return an integer
@@ -32,6 +35,7 @@ class Solution2(object):
             return 1
         result = 0
         for i in xrange(n):
-            if i not in solution and reduce(lambda acc, j: abs(row - j) != abs(i - solution[j]) and acc, xrange(len(solution)), True):
+            if i not in solution and reduce(lambda acc, j: abs(row - j) != abs(i - solution[j]) and acc,
+                                            xrange(len(solution)), True):
                 result += self.totalNQueensRecu(solution + [i], row + 1, n)
         return result

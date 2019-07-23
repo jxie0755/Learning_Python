@@ -30,7 +30,6 @@ class Solution:
                 result += i
         return result
 
-
     def reverseVowels(self, s):
         # two pointer method
         vowels = {"a", "e", "i", "o", "u", "A", "E", "I", "O", "U"}
@@ -46,6 +45,7 @@ class Solution:
             i += 1
             j -= 1
         return "".join(L)
+
 
 if __name__ == "__main__":
     assert Solution().reverseVowels("hello") == "holle", "test 1"

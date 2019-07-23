@@ -10,16 +10,16 @@ class Solution(object):
         :type n2: int
         :rtype: int
         """
-        repeat_count = [0] * (len(s2)+1)
+        repeat_count = [0] * (len(s2) + 1)
         lookup = {}
         j, count = 0, 0
-        for k in xrange(1, n1+1):
+        for k in xrange(1, n1 + 1):
             for i in xrange(len(s1)):
                 if s1[i] == s2[j]:
                     j = (j + 1) % len(s2)
                     count += (j == 0)
 
-            if j in lookup:   # cyclic
+            if j in lookup:  # cyclic
                 i = lookup[j]
                 prefix_count = repeat_count[i]
                 pattern_count = (count - repeat_count[i]) * ((n1 - i) // (k - i))

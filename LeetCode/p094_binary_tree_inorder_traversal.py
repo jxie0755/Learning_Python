@@ -11,6 +11,7 @@ from typing import *
 from a0_TreeNode import *
 from a0_ListNode import *
 
+
 class Solution:
     # Recursive method
     def inorderTraversal(self, root: TreeNode) -> List[int]:
@@ -41,6 +42,7 @@ class Solution(object):
                 stack.append((root, True))
                 stack.append((root.left, False))
         return result
+
 
 # Morris Traversal Solution
 class Solution(object):
@@ -78,12 +80,8 @@ if __name__ == "__main__":
 
     t1 = genTree([
         1,
-        None,2,
-        None,None,3,None])
-    assert Solution().inorderTraversal(t1) == [1,3,2]
+        None, 2,
+        None, None, 3, None])
+    assert Solution().inorderTraversal(t1) == [1, 3, 2]
 
     print("all passed")
-
-
-
-

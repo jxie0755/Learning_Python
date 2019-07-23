@@ -14,5 +14,5 @@ class Solution(object):
                 s.append(i)
         for j in reversed(xrange(len(A))):
             while s and A[s[-1]] <= A[j]:
-                result = max(result, j-s.pop())
+                result = max(result, j - s.pop())
         return result

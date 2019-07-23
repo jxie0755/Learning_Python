@@ -60,14 +60,18 @@ class Solution2(object):
         :type k: int
         :rtype: List[str]
         """
+
         class MinHeapObj(object):
-            def __init__(self,val):
+            def __init__(self, val):
                 self.val = val
-            def __lt__(self,other):
+
+            def __lt__(self, other):
                 return self.val[1] > other.val[1] if self.val[0] == other.val[0] else \
-                       self.val < other.val
-            def __eq__(self,other):
+                    self.val < other.val
+
+            def __eq__(self, other):
                 return self.val == other.val
+
             def __str__(self):
                 return str(self.val)
 
@@ -75,7 +79,7 @@ class Solution2(object):
         min_heap = []
         for word, count in counts.iteritems():
             heapq.heappush(min_heap, MinHeapObj((count, word)))
-            if len(min_heap) == k+1:
+            if len(min_heap) == k + 1:
                 heapq.heappop(min_heap)
         result = []
         while min_heap:
@@ -94,7 +98,7 @@ class Solution3(object):
         :rtype: List[str]
         """
         counts = collections.Counter(words)
-        buckets = [[] for _ in xrange(len(words)+1)]
+        buckets = [[] for _ in xrange(len(words) + 1)]
         for word, count in counts.iteritems():
             buckets[count].append(word)
         pairs = []

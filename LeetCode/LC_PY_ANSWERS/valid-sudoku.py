@@ -9,12 +9,12 @@ class Solution(object):
         """
         for i in xrange(9):
             if not self.isValidList([board[i][j] for j in xrange(9)]) or \
-               not self.isValidList([board[j][i] for j in xrange(9)]):
+                    not self.isValidList([board[j][i] for j in xrange(9)]):
                 return False
         for i in xrange(3):
             for j in xrange(3):
                 if not self.isValidList([board[m][n] for n in xrange(3 * j, 3 * j + 3) \
-                                                     for m in xrange(3 * i, 3 * i + 3)]):
+                                         for m in xrange(3 * i, 3 * i + 3)]):
                     return False
         return True
 

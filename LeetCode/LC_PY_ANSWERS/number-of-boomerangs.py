@@ -17,12 +17,12 @@ class Solution(object):
             for j in xrange(len(points)):
                 if j == i:
                     continue
-                dx, dy =  points[i][0] - points[j][0], points[i][1] - points[j][1]
-                group[dx**2 + dy**2] += 1
+                dx, dy = points[i][0] - points[j][0], points[i][1] - points[j][1]
+                group[dx ** 2 + dy ** 2] += 1
 
             for _, v in group.iteritems():
                 if v > 1:
-                    result += v * (v-1)
+                    result += v * (v - 1)
 
         return result
 

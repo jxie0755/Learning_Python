@@ -7,7 +7,7 @@ class Solution(object):
         :type grid: List[List[int]]
         :rtype: int
         """
-        directions = [[-1,  0], [ 1,  0], [ 0,  1], [ 0, -1]]
+        directions = [[-1, 0], [1, 0], [0, 1], [0, -1]]
 
         def dfs(i, j, grid, area):
             if not (0 <= i < len(grid) and \
@@ -17,7 +17,7 @@ class Solution(object):
             grid[i][j] *= -1
             area[0] += 1
             for d in directions:
-                dfs(i+d[0], j+d[1], grid, area)
+                dfs(i + d[0], j + d[1], grid, area)
             return True
 
         result = 0

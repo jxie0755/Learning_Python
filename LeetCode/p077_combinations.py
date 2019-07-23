@@ -6,9 +6,10 @@
 
 import itertools
 
+
 class Solution:
     def combine(self, n: int, k: int):
-        sample = list(range(1, n+1))
+        sample = list(range(1, n + 1))
 
         # this can individually work as a combination of list of elements
         def helper(nums, k):
@@ -22,7 +23,7 @@ class Solution:
                 result = []
                 next_list = nums[:]
                 head = next_list.pop(0)
-                result += [[head] + com for com in helper(next_list, k-1)] + helper(nums[1:], k)
+                result += [[head] + com for com in helper(next_list, k - 1)] + helper(nums[1:], k)
                 return result
 
         return helper(sample, k)
@@ -37,7 +38,8 @@ class Solution:
             result = []
             next_list = nums[:]
             head = next_list.pop(0)
-            result += [[head] + com for com in self.combinationSolo(next_list, k - 1)] + self.combinationSolo(nums[1:], k)
+            result += [[head] + com for com in self.combinationSolo(next_list, k - 1)] + self.combinationSolo(nums[1:],
+                                                                                                              k)
             return result
 
 
@@ -53,7 +55,6 @@ def combinationSolo(nums, k):
         head = next_list.pop(0)
         result += [[head] + com for com in combinationSolo(next_list, k - 1)] + combinationSolo(nums[1:], k)
         return result
-
 
 
 if __name__ == "__main__":
@@ -72,11 +73,9 @@ if __name__ == "__main__":
         [1, 2, 3, 4]
     ], "Edge 2"
 
-    assert Solution().combine(5, 3) == [list(i) for i in itertools.combinations([1,2,3,4,5], 3)]
+    assert Solution().combine(5, 3) == [list(i) for i in itertools.combinations([1, 2, 3, 4, 5], 3)]
 
     for i in Solution().combine(4, 2):
         print(i)
-
-
 
     print("all passed")

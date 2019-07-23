@@ -10,16 +10,17 @@ class Solution(object):
         :type nums: List[int]
         :rtype: int
         """
+
         class Node(object):
             def __init__(self, num):
-                self.level = num/100 - 1
-                self.i = (num%100)/10 - 1
-                self.val = num%10
+                self.level = num / 100 - 1
+                self.i = (num % 100) / 10 - 1
+                self.val = num % 10
                 self.leaf = True
 
             def isParent(self, other):
-                return self.level == other.level-1 and \
-                       self.i == other.i/2
+                return self.level == other.level - 1 and \
+                       self.i == other.i / 2
 
         if not nums:
             return 0

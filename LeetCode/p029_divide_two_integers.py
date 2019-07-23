@@ -37,7 +37,6 @@ class Solution:
             temp_result, mom = manual_divide(mom, son)
             result += temp_result
 
-
         if (dividend < 0 and divisor > 0) or (dividend > 0 and divisor < 0):
             result -= result + result
 

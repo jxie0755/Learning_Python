@@ -9,7 +9,7 @@ class Solution(object):
         """
         result = int(len(s) and s[-1] != " ")
         for i in xrange(1, len(s)):
-            if s[i] == " " and s[i-1] != " ":
+            if s[i] == " " and s[i - 1] != " ":
                 result += 1
         return result
 

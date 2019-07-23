@@ -32,23 +32,20 @@ class Solution(object):
                 return cur  # cyling will force to return
             cur = cur.next
 
-        return None # if no cycle, while loop will end
-
+        return None  # if no cycle, while loop will end
 
 
 if __name__ == "__main__":
-
     # Use is instead of == to avoid max recursion when comparing cycling linked list
 
-    A = genNode([3,2,0,4])
+    A = genNode([3, 2, 0, 4])
     A.next.next.next.next = A.next
     assert Solution().detectCycle(A) is A.next, "Example 1"
 
-    A = genNode([1,2])
-    A.next.next= A
+    A = genNode([1, 2])
+    A.next.next = A
     assert Solution().detectCycle(A) is A, "Example 2"
 
     A = genNode([1])
     assert not Solution().detectCycle(A), "Edge 1, no cycle"
     print("all passed")
-

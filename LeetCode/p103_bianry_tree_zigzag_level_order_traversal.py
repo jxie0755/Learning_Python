@@ -46,7 +46,6 @@ class Solution:
         return self.showLayers_zigzag(root)
 
 
-
 if __name__ == "__main__":
     A = None
     assert Solution().zigzagLevelOrder(A) == [], "Edge 0"

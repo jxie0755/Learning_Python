@@ -11,10 +11,11 @@ class Solution(object):
         :type hand: str
         :rtype: int
         """
+
         def shrink(s):  # Time: O(n), Space: O(n)
             stack = []
             start = 0
-            for i in xrange(len(s)+1):
+            for i in xrange(len(s) + 1):
                 if i == len(s) or s[i] != s[start]:
                     if stack and stack[-1][0] == s[start]:
                         stack[-1][1] += i - start
@@ -47,16 +48,16 @@ class Solution(object):
                     if k == -1:
                         break
 
-                    if k < len(board) - 1 and board[k] == board[k+1]:
-                        next_board = shrink(board[0:k] + board[k+2:])
-                        next_hand = hand[0:i] + hand[i+1:]
+                    if k < len(board) - 1 and board[k] == board[k + 1]:
+                        next_board = shrink(board[0:k] + board[k + 2:])
+                        next_hand = hand[0:i] + hand[i + 1:]
                         result = min(result, findMinStepHelper(next_board, next_hand, lookup) + 1)
                         k += 1
-                    elif i > 0 and hand[i] == hand[i-1]:
-                        next_board = shrink(board[0:k] + board[k+1:])
-                        next_hand = hand[0:i-1] + hand[i+1:]
+                    elif i > 0 and hand[i] == hand[i - 1]:
+                        next_board = shrink(board[0:k] + board[k + 1:])
+                        next_hand = hand[0:i - 1] + hand[i + 1:]
                         result = min(result, findMinStepHelper(next_board, next_hand, lookup) + 2)
-                    j = k+1
+                    j = k + 1
 
             lookup[tuple(board)][tuple(hand)] = result
             return result

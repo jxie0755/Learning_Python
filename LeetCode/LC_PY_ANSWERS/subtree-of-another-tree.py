@@ -8,6 +8,7 @@ class Solution(object):
         :type t: TreeNode
         :rtype: bool
         """
+
         def isSame(x, y):
             if not x and not y:
                 return True

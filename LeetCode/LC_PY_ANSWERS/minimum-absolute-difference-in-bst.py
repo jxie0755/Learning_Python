@@ -7,6 +7,7 @@ class Solution(object):
         :type root: TreeNode
         :rtype: int
         """
+
         def inorderTraversal(root, prev, result):
             if not root:
                 return (result, prev)

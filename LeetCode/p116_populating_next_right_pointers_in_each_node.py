@@ -9,6 +9,7 @@ class Node:
         self.left = left
         self.right = right
         self.next = next
+
     def __eq__(self, other):
         if self and other:
             return self.val == other.val and self.left == other.left and self.right == other.right and self.next == other.next
@@ -17,6 +18,7 @@ class Node:
 
 # Populate each next pointer to point to its next right node. If there is no next right node, the next pointer should be set to NULL.
 from typing import *
+
 
 class Solution:
     def showLayers(self, root):
@@ -38,7 +40,7 @@ class Solution:
         if len(node_lst) > 1:
             i = 1
             while i != len(node_lst):
-                prev = node_lst[i-1]
+                prev = node_lst[i - 1]
                 cur = node_lst[i]
                 prev.next = cur
                 i += 1
@@ -51,7 +53,6 @@ class Solution:
 
 
 if __name__ == "__main__":
-
     A = Node(1,
              Node(2,
                   Node(4, None, None, None),
@@ -62,7 +63,6 @@ if __name__ == "__main__":
                   Node(7, None, None, None),
                   None),
              None)
-
 
     B = Node(1,
              Node(2,

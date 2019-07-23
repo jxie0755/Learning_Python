@@ -8,8 +8,9 @@ class Solution(object):
         :type graph: List[List[int]]
         :rtype: List[List[int]]
         """
+
         def dfs(graph, curr, path, result):
-            if curr == len(graph)-1:
+            if curr == len(graph) - 1:
                 result.append(path[:])
                 return
             for node in graph[curr]:

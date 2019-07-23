@@ -13,10 +13,10 @@ class Solution(object):
         :type profit: List[int]
         :rtype: int
         """
-        dp = [[0 for _ in xrange(G+1)] for _ in xrange(P+1)]
+        dp = [[0 for _ in xrange(G + 1)] for _ in xrange(P + 1)]
         dp[0][0] = 1
         for p, g in itertools.izip(profit, group):
-            for i in reversed(xrange(P+1)):
-                for j in reversed(xrange(G-g+1)):
-                    dp[min(i+p, P)][j+g] += dp[i][j]
-        return sum(dp[P]) % (10**9 + 7)
+            for i in reversed(xrange(P + 1)):
+                for j in reversed(xrange(G - g + 1)):
+                    dp[min(i + p, P)][j + g] += dp[i][j]
+        return sum(dp[P]) % (10 ** 9 + 7)

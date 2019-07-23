@@ -7,9 +7,9 @@ class Solution(object):
         :type words: List[str]
         :rtype: List[str]
         """
-        rows = [set(["q", "w", "e", "r", "t", "y","u", "i", "o", "p"]),
+        rows = [set(["q", "w", "e", "r", "t", "y", "u", "i", "o", "p"]),
                 set(["a", "s", "d", "f", "g", "h", "j", "k", "l"]),
-                set(["z", "x", "c", "v", "b" ,"n", "m"])]
+                set(["z", "x", "c", "v", "b", "n", "m"])]
 
         result = []
         for word in words:

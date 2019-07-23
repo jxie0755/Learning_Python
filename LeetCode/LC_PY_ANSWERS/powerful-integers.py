@@ -13,8 +13,8 @@ class Solution(object):
         :rtype: List[int]
         """
         result = set()
-        log_x = int(math.floor(math.log(bound) / math.log(x)))+1 if x != 1 else 1
-        log_y = int(math.floor(math.log(bound) / math.log(y)))+1 if y != 1 else 1
+        log_x = int(math.floor(math.log(bound) / math.log(x))) + 1 if x != 1 else 1
+        log_y = int(math.floor(math.log(bound) / math.log(y))) + 1 if y != 1 else 1
         pow_x = 1
         for i in xrange(log_x):
             pow_y = 1

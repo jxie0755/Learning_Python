@@ -11,10 +11,11 @@ class Solution(object):
         :type ages: List[int]
         :rtype: int
         """
+
         def request(a, b):
-            return 0.5*a+7 < b <= a
+            return 0.5 * a + 7 < b <= a
 
         c = collections.Counter(ages)
-        return sum(int(request(a, b)) * c[a]*(c[b]-int(a == b))
+        return sum(int(request(a, b)) * c[a] * (c[b] - int(a == b))
                    for a in c
                    for b in c)

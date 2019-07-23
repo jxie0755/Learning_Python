@@ -6,6 +6,7 @@
 
 from typing import *
 
+
 # General functional functions
 def calculate(A, B, op):
     """
@@ -39,9 +40,10 @@ def read(input):
             temp = ""
             op.append(i)
 
-    nums.append(int(temp)) # last number
+    nums.append(int(temp))  # last number
 
     return nums, op
+
 
 class Solution:
 
@@ -59,6 +61,7 @@ class Solution:
             return [nums[0]]
 
         result = []
+
         def helper(nums, op):
             """
             nums is a list of integers
@@ -73,11 +76,11 @@ class Solution:
                 for i in range(len(op)):
                     new_nums = nums[:]
                     new_op = op[:]
-                    new_nums[i] = calculate(new_nums[i], new_nums.pop(i+1), new_op.pop(i))
+                    new_nums[i] = calculate(new_nums[i], new_nums.pop(i + 1), new_op.pop(i))
                     helper(new_nums, new_op)
+
         helper(nums, op)
         return sorted(result)
-
 
 
 class Solution:
@@ -103,18 +106,18 @@ class Solution:
         if not op:
             return [nums[0]]
 
-        all_op = [] # All possible ways to add parenthesis
-        max_idx = len(op) # record the number of parenthesis to be added
+        all_op = []  # All possible ways to add parenthesis
+        max_idx = len(op)  # record the number of parenthesis to be added
 
         def helper(op, idx, used, rest, count):
 
             if count == max_idx:  # 这里也就是到最后一个运算符, 不过剩多少, 都全加到末尾, 然后输出
-                op += [")"]*rest
+                op += [")"] * rest
                 all_op.append(op)
             else:
-                for i in range(0, count+1-used): # 注意range范围, 从0开始, 最多只能用当前位置减去此前用过的数量个')"
+                for i in range(0, count + 1 - used):  # 注意range范围, 从0开始, 最多只能用当前位置减去此前用过的数量个')"
                     new_op = op[:idx] + [")"] * i + op[idx:]
-                    helper(new_op, idx+i+1, used+i, rest-i, count+1)  # 递归的时候, 推进下一个idx注意位移插入了i个")"
+                    helper(new_op, idx + i + 1, used + i, rest - i, count + 1)  # 递归的时候, 推进下一个idx注意位移插入了i个")"
 
         helper(op, 1, 0, max_idx, 1)
 
@@ -125,9 +128,9 @@ class Solution:
                 cur = op_p[i]
                 if cur == ")":
                     op_p.pop(i)
-                    operator = op_p.pop(i-1)
-                    nums[i-1] = calculate(nums[i-1], nums.pop(i), operator)
-                    i -= 1 # 注意这里不但pop了")", 也pop了上一个运算符, 所以后退了两位, 天然只能前进一位,所以还需要退一位来补下一个元素的idx
+                    operator = op_p.pop(i - 1)
+                    nums[i - 1] = calculate(nums[i - 1], nums.pop(i), operator)
+                    i -= 1  # 注意这里不但pop了")", 也pop了上一个运算符, 所以后退了两位, 天然只能前进一位,所以还需要退一位来补下一个元素的idx
                 else:
                     i += 1
 
@@ -138,7 +141,6 @@ class Solution:
             result.append(calc(nums[:], op_p))
 
         return sorted(result)
-
 
 
 if __name__ == "__main__":

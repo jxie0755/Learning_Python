@@ -8,7 +8,7 @@ class Solution(object):
         :type A: List[int]
         :rtype: int
         """
-        M = 10**9 + 7
+        M = 10 ** 9 + 7
         A.sort()
         dp = {}
         for i in xrange(len(A)):

@@ -16,6 +16,7 @@ class Codec(object):
         :type root: TreeNode
         :rtype: str
         """
+
         def serializeHelper(node):
             if not node:
                 vals.append("#")
@@ -23,10 +24,10 @@ class Codec(object):
             vals.append(str(node.val))
             serializeHelper(node.left)
             serializeHelper(node.right)
+
         vals = []
         serializeHelper(root)
         return " ".join(vals)
-
 
     def deserialize(self, data):
         """Decodes your encoded data to tree.
@@ -34,6 +35,7 @@ class Codec(object):
         :type data: str
         :rtype: TreeNode
         """
+
         def deserializeHelper():
             val = next(vals)
             if val == "#":
@@ -42,6 +44,7 @@ class Codec(object):
             node.left = deserializeHelper()
             node.right = deserializeHelper()
             return node
+
         def isplit(source, sep):
             sepsize = len(sep)
             start = 0
@@ -52,5 +55,6 @@ class Codec(object):
                     return
                 yield source[start:idx]
                 start = idx + sepsize
+
         vals = iter(isplit(data, " "))
         return deserializeHelper()

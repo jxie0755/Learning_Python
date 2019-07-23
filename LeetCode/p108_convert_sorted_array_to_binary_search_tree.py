@@ -2,7 +2,6 @@
 # Easy
 
 
-
 # Given an array where elements are sorted in ascending order, convert it to a height balanced BST.
 
 # For this problem, a height-balanced binary tree is defined as a binary tree in which the depth of the two subtrees of every node never differ by more than 1.
@@ -27,7 +26,7 @@ class Solution:
                 left_mid_idx = len(left_list) // 2
                 left_val = left_list[left_mid_idx]
                 root.left = TreeNode(left_val)
-                LL, LR = left_list[:left_mid_idx], left_list[left_mid_idx+1:]
+                LL, LR = left_list[:left_mid_idx], left_list[left_mid_idx + 1:]
                 helper(root.left, LL, LR)
 
             if right_list:
@@ -37,9 +36,8 @@ class Solution:
                 RL, RR = right_list[:right_mid_idx], right_list[right_mid_idx + 1:]
                 helper(root.right, RL, RR)
 
-        helper(ans, nums[:mid_idx], nums[mid_idx+1:])
+        helper(ans, nums[:mid_idx], nums[mid_idx + 1:])
         return ans
-
 
 
 if __name__ == "__main__":

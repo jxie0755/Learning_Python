@@ -19,7 +19,7 @@ class Solution(object):
 
         def bfs(grid, source, locations):
             r, c = locations[source]
-            lookup = [[False]*(len(grid[0])) for _ in xrange(len(grid))]
+            lookup = [[False] * (len(grid[0])) for _ in xrange(len(grid))]
             lookup[r][c] = True
             q = collections.deque([(r, c, 0)])
             dist = {}
@@ -29,13 +29,13 @@ class Solution(object):
                     dist[grid[r][c]] = d
                     continue
                 for direction in directions:
-                    cr, cc = r+direction[0], c+direction[1]
+                    cr, cc = r + direction[0], c + direction[1]
                     if not ((0 <= cr < len(grid)) and
                             (0 <= cc < len(grid[cr]))):
                         continue
                     if grid[cr][cc] != "#" and not lookup[cr][cc]:
                         lookup[cr][cc] = True
-                        q.append((cr, cc, d+1))
+                        q.append((cr, cc, d + 1))
             return dist
 
         locations = {place: (r, c)
@@ -47,9 +47,9 @@ class Solution(object):
         # Dijkstra's algorithm
         min_heap = [(0, "@", 0)]
         best = collections.defaultdict(lambda: collections.defaultdict(
-                                                   lambda: float("inf")))
+            lambda: float("inf")))
         best["@"][0] = 0
-        target_state = 2**sum(place.islower() for place in locations)-1
+        target_state = 2 ** sum(place.islower() for place in locations) - 1
         while min_heap:
             cur_d, place, state = heapq.heappop(min_heap)
             if best[place][state] < cur_d:
@@ -59,11 +59,11 @@ class Solution(object):
             for dest, d in dists[place].iteritems():
                 next_state = state
                 if dest.islower():
-                    next_state |= (1 << (ord(dest)-ord("a")))
+                    next_state |= (1 << (ord(dest) - ord("a")))
                 elif dest.isupper():
-                    if not (state & (1 << (ord(dest)-ord("A")))):
+                    if not (state & (1 << (ord(dest) - ord("A")))):
                         continue
-                if cur_d+d < best[dest][next_state]:
-                    best[dest][next_state] = cur_d+d
-                    heapq.heappush(min_heap, (cur_d+d, dest, next_state))
+                if cur_d + d < best[dest][next_state]:
+                    best[dest][next_state] = cur_d + d
+                    heapq.heappush(min_heap, (cur_d + d, dest, next_state))
         return -1

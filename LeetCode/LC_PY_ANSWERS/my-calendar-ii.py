@@ -7,7 +7,6 @@ class MyCalendarTwo(object):
         self.__overlaps = []
         self.__calendar = []
 
-
     def book(self, start, end):
         """
         :type start: int

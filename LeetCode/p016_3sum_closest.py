@@ -9,6 +9,7 @@
 
 from typing import *
 
+
 class Solution:
 
     # Version A
@@ -31,7 +32,7 @@ class Solution:
 
                 while j < k:
                     three_sum = nums[i] + nums[j] + nums[k]
-                    check = abs(three_sum-target)
+                    check = abs(three_sum - target)
                     if check < diff:
                         diff = check
                         result = three_sum
@@ -46,8 +47,6 @@ class Solution:
                         return target
             i += 1
         return result
-
-
 
 
 if __name__ == "__main__":

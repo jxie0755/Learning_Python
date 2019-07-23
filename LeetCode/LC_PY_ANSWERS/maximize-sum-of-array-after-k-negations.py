@@ -12,6 +12,7 @@ class Solution(object):
         :type K: int
         :rtype: int
         """
+
         def kthElement(nums, k, compare):
             def PartitionAroundPivot(left, right, pivot_idx, nums, compare):
                 new_pivot_idx = left
@@ -34,14 +35,14 @@ class Solution(object):
                     right = new_pivot_idx - 1
                 else:  # new_pivot_idx < k - 1.
                     left = new_pivot_idx + 1
-                    
+
         kthElement(A, K, lambda a, b: a < b)
         remain = K
         for i in xrange(K):
             if A[i] < 0:
                 A[i] = -A[i]
                 remain -= 1
-        return sum(A) - ((remain)%2)*min(A)*2
+        return sum(A) - ((remain) % 2) * min(A) * 2
 
 
 # Time:  O(nlogn)
@@ -60,4 +61,4 @@ class Solution2(object):
                 break
             A[i] = -A[i]
             remain -= 1
-        return sum(A) - (remain%2)*min(A)*2
+        return sum(A) - (remain % 2) * min(A) * 2

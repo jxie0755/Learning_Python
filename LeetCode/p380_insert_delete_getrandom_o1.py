@@ -10,6 +10,7 @@
 
 from random import randint
 
+
 class RandomizedSet(object):
 
     def __init__(self):
@@ -20,21 +21,19 @@ class RandomizedSet(object):
         self.set = []
         self.used = {}
 
-
     def insert(self, val):
         """
         Inserts a value to the set. Returns true if the set did not already contain the specified element.
         :type val: int
         :rtype: bool
         """
-        if val in self.used: # check in by hashtable O(1)
+        if val in self.used:  # check in by hashtable O(1)
             return False
 
-        self.set.append(val)              # add to the end
-        self.used[val] = len(self.set)-1  # record the value: last idx, last index by length of array O(1)
+        self.set.append(val)  # add to the end
+        self.used[val] = len(self.set) - 1  # record the value: last idx, last index by length of array O(1)
 
         return True
-
 
     def remove(self, val):
         """
@@ -42,7 +41,7 @@ class RandomizedSet(object):
         :type val: int
         :rtype: bool
         """
-        if val not in self.used: # check in by hashtable O(1)
+        if val not in self.used:  # check in by hashtable O(1)
             return False
 
         # switch val and last val in array and hashtable
@@ -63,8 +62,7 @@ class RandomizedSet(object):
         Get a random element from the set.
         :rtype: int
         """
-        return self.set[randint(0, len(self.set)-1)]
-
+        return self.set[randint(0, len(self.set) - 1)]
 
 
 if __name__ == "__main__":

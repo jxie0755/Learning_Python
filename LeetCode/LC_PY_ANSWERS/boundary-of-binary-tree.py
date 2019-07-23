@@ -7,6 +7,7 @@ class Solution(object):
         :type root: TreeNode
         :rtype: List[int]
         """
+
         def leftBoundary(root, nodes):
             if not root or (not root.left and not root.right):
                 return

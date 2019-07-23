@@ -8,6 +8,7 @@ class Solution(object):
         :type maxWidth: int
         :rtype: List[str]
         """
+
         def addSpaces(i, spaceCnt, maxWidth, is_last):
             if i < spaceCnt:
                 # For the last line of text, it should be left justified,

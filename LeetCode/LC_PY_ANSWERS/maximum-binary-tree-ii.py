@@ -23,7 +23,7 @@ class Solution(object):
             node = TreeNode(val)
             node.left = root
             return node
-        
+
         curr = root
         while curr.right and curr.right.val > val:
             curr = curr.right

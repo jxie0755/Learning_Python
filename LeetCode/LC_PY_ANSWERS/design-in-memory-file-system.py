@@ -11,11 +11,11 @@ class TrieNode(object):
         self.children = {}
         self.content = ""
 
+
 class FileSystem(object):
 
     def __init__(self):
         self.__root = TrieNode()
-
 
     def ls(self, path):
         """
@@ -29,7 +29,6 @@ class FileSystem(object):
 
         return sorted(curr.children.keys())
 
-
     def mkdir(self, path):
         """
         :type path: str
@@ -37,7 +36,6 @@ class FileSystem(object):
         """
         curr = self.__putNode(path)
         curr.is_file = False
-
 
     def addContentToFile(self, filePath, content):
         """
@@ -49,7 +47,6 @@ class FileSystem(object):
         curr.is_file = True
         curr.content += content
 
-
     def readContentFromFile(self, filePath):
         """
         :type filePath: str
@@ -57,13 +54,11 @@ class FileSystem(object):
         """
         return self.__getNode(filePath).content
 
-
     def __getNode(self, path):
         curr = self.__root
         for s in self.__split(path, "/"):
             curr = curr.children[s]
         return curr
-
 
     def __putNode(self, path):
         curr = self.__root
@@ -72,7 +67,6 @@ class FileSystem(object):
                 curr.children[s] = TrieNode()
             curr = curr.children[s]
         return curr
-
 
     def __split(self, path, delim):
         if path == "/":

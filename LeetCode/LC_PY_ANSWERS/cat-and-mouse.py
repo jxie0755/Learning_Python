@@ -19,14 +19,14 @@ class Solution(object):
             if is_mouse_turn:
                 skip, target, win, lose = other_i, HOLE, MOUSE, CAT
             else:
-                skip, target, win, lose = HOLE, other_i, CAT, MOUSE                
+                skip, target, win, lose = HOLE, other_i, CAT, MOUSE
             for nei in graph[i]:
                 if nei == target:
                     result = win
                     break
             else:
                 result = lose
-                for nei in graph[i]:                
+                for nei in graph[i]:
                     if nei == skip:
                         continue
                     tmp = move(graph, lookup, other_i, nei, not is_mouse_turn)

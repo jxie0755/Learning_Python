@@ -15,5 +15,5 @@ class Solution(object):
                 if not increasing:
                     area = max(area, height[last] * i)
                 else:
-                    area = max(area, height[last] * (i - increasing[-1] - 1 ))
+                    area = max(area, height[last] * (i - increasing[-1] - 1))
         return area

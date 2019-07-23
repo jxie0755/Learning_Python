@@ -20,18 +20,20 @@ class Solution:
             return n
         # first round
         bulbs = [0] + [1] * n
-            # idx fix
+        # idx fix
 
         # start from second round to n round
         i = 2
         while i <= n:
-            for k in range(i, n+1, i):
+            for k in range(i, n + 1, i):
                 bulbs[k] = 0 if bulbs[k] == 1 else 1
             i += 1
         return sum(bulbs)
 
 
 import math
+
+
 class Solution(object):
 
     # STD ans, O(1)
@@ -62,10 +64,10 @@ if __name__ == "__main__":
     assert Solution().bulbSwitch(1) == 1, "Edge 1"
     assert Solution().bulbSwitch(2) == 1, "Edge 2"
 
-    assert Solution().bulbSwitch(3) == 1,"Example 1"
-    assert Solution().bulbSwitch(4) == 2,"Example 2"
-    assert Solution().bulbSwitch(5) == 2,"Example 3"
-    assert Solution().bulbSwitch(6) == 2,"Example 4"
+    assert Solution().bulbSwitch(3) == 1, "Example 1"
+    assert Solution().bulbSwitch(4) == 2, "Example 2"
+    assert Solution().bulbSwitch(5) == 2, "Example 3"
+    assert Solution().bulbSwitch(6) == 2, "Example 4"
 
     assert Solution().bulbSwitch(9999999) == 3162, "Long"
 
