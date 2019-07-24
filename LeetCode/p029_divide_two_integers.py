@@ -1,23 +1,21 @@
 # P029 Divide Two Integers
 # Medium
 
-
 # Given two integers dividend and divisor, divide two integers without using multiplication, division and mod operator.
 
 # Return the quotient after dividing dividend by divisor.
 
 # The integer division should truncate toward zero.
 
-
 # Note:
-#
 # Both dividend and divisor will be 32-bit signed integers.
 # The divisor will never be 0.
 # Assume we are dealing with an environment which could only store integers within the 32-bit signed integer range: [−2^31,  2^31 − 1]. For the purpose of this problem, assume that your function returns 231 − 1 when the division result overflows.
 
 class Solution:
-    # Time:  O(logn) = O(1)
-    # Space: O(1)
+
+    # Version A, Integer method
+    # Time:  O(logn) = O(1), Space: O(1)
     def divide(self, dividend: "int", divisor: "int") -> "int":
 
         def manual_divide(mom, son):
@@ -49,34 +47,15 @@ class Solution:
 
 
 class Solution(object):
-    # Same idea but use bit calculation << and >>
-    def divide(self, dividend, divisor):
-        """
-        :type dividend: int
-        :type divisor: int
-        :rtype: int
-        """
-        result, dvd, dvs = 0, abs(dividend), abs(divisor)
-        while dvd >= dvs:
-            inc = dvs
-            i = 0
-            while dvd >= inc:
-                dvd -= inc
-                result += 1 << i
-                inc <<= 1
-                i += 1
-        if dividend > 0 and divisor < 0 or dividend < 0 and divisor > 0:
-            return -result
-        else:
-            return result
 
-    def divide2(self, dividend, divisor):
-        """
-        :type dividend: int
-        :type divisor: int
-        :rtype: int
-        """
-        positive = (dividend < 0) is (divisor < 0)
+    # Version B
+    # Same idea but use bit calculation << and >>
+    def divide(self, dividend: 'int', divisor: 'int') -> 'int':
+
+        if divisor == 0:
+            return None
+
+        positive = (dividend < 0) is (divisor < 0)  # great way to align two integer on the same side
         dividend, divisor = abs(dividend), abs(divisor)
         res = 0
         while dividend >= divisor:
