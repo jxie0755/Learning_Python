@@ -24,7 +24,8 @@ class Solution:
             while son - mom > mom:
                 mom += mom
                 result += result
-            return result, son - mom
+            new_son = son - mom
+            return result, new_son
 
         result = 0
         son, mom = abs(dividend), abs(divisor)
