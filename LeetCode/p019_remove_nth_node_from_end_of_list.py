@@ -6,8 +6,6 @@
 # Note:
 # Given n will always be valid.
 
-from typing import *
-from a0_TreeNode import *
 from a0_ListNode import *
 
 
