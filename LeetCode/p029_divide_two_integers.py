@@ -18,22 +18,22 @@ class Solution:
     # Time:  O(logn) = O(1), Space: O(1)
     def divide(self, dividend: "int", divisor: "int") -> "int":
 
-        def manual_divide(mom, son):
+        def manual_divide(son, mom):
             """Mom and Son are both non-negative integers"""
             result = 1
-            while mom - son > son:
-                son += son
+            while son - mom > mom:
+                mom += mom
                 result += result
-            return result, mom - son
+            return result, son - mom
 
         result = 0
-        mom, son = abs(dividend), abs(divisor)
-        while mom != 0 and mom >= son:
-            temp_result, mom = manual_divide(mom, son)
+        son, mom = abs(dividend), abs(divisor)
+        while son != 0 and son >= mom:
+            temp_result, son = manual_divide(son, mom)
             result += temp_result
 
         if (dividend < 0 and divisor > 0) or (dividend > 0 and divisor < 0):
-            result -= result + result
+            result -= 2 * result
 
         if result >= 2147483648:
             return 2147483647
