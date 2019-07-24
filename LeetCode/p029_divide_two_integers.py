@@ -37,7 +37,7 @@ class Solution:
             result += temp_result
 
         if (dividend < 0 and divisor > 0) or (dividend > 0 and divisor < 0):
-            result -= 2 * result
+            result *= -1
 
         if result >= 2147483648:
             return 2147483647
