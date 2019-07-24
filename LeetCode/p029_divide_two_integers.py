@@ -10,7 +10,7 @@
 # Note:
 # Both dividend and divisor will be 32-bit signed integers.
 # The divisor will never be 0.
-# Assume we are dealing with an environment which could only store integers within the 32-bit signed integer range: [−2^31,  2^31 − 1]. For the purpose of this problem, assume that your function returns 231 − 1 when the division result overflows.
+# Assume we are dealing with an environment which could only store integers within the 32-bit signed integer range: [−2^31,  2^31 − 1]. For the purpose of this problem, assume that your function returns 2^31 − 1 when the division result overflows.
 
 class Solution:
 
@@ -25,9 +25,6 @@ class Solution:
                 son += son
                 result += result
             return result, mom - son
-
-        if divisor == 0:
-            return None
 
         result = 0
         mom, son = abs(dividend), abs(divisor)
@@ -52,10 +49,7 @@ class Solution(object):
     # Same idea but use bit calculation << and >>
     def divide(self, dividend: 'int', divisor: 'int') -> 'int':
 
-        if divisor == 0:
-            return None
-
-        positive = (dividend < 0) is (divisor < 0)  # great way to align two integer on the same side
+        positive = (dividend < 0) is (divisor < 0)  # great way to align two integer on the same sideK
         dividend, divisor = abs(dividend), abs(divisor)
         res = 0
         while dividend >= divisor:
@@ -71,15 +65,13 @@ class Solution(object):
 
 
 if __name__ == "__main__":
-    assert Solution().divide(10, 0) == None, "Edge1"
-    assert Solution().divide(1, 3) == 0, "Edge 2"
+    assert Solution().divide(1, 3) == 0, "Edge 1"
 
     assert Solution().divide(10, 3) == 3, "Example 1"
     assert Solution().divide(7, -3) == -2, "Example 2"
     assert Solution().divide(1, 1) == 1, "Example 3"
 
-    assert Solution().divide(-2147483648, -1) == 2147483647, "Edge 3"
-    assert Solution().divide(2147483648, -1) == -2147483648, "Edge 3"
-    assert Solution().divide(2147483649, -1) == -2147483648, "Edge 3"
+    assert Solution().divide(-2147483648, -1) == 2147483647, "Edge 2"
+    assert Solution().divide(2147483647, -1) == -2147483647, "Edge 3"
 
     print("all passed")
