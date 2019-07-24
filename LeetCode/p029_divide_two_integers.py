@@ -71,7 +71,7 @@ if __name__ == "__main__":
     assert Solution().divide(7, -3) == -2, "Example 2"
     assert Solution().divide(1, 1) == 1, "Example 3"
 
-    assert Solution().divide(-2147483648, -1) == 2147483647, "Edge 2"
-    assert Solution().divide(2147483647, -1) == -2147483647, "Edge 3"
+    assert Solution().divide(-2147483648, 1) == -2147483648, "Edge 2"
+    assert Solution().divide(-2147483648, -1) == 2147483647, "Edge 3"
 
     print("all passed")
