@@ -19,7 +19,10 @@ class Solution:
     def divide(self, dividend: "int", divisor: "int") -> "int":
 
         def manual_divide(son, mom):
-            """Mom and Son are both non-negative integers"""
+            """
+            Helper function to achive log(n) division by doubling mom, before son > mom
+            Mom and Son are both non-negative integers
+            """
             result = 1
             while son - mom > mom:
                 mom += mom
