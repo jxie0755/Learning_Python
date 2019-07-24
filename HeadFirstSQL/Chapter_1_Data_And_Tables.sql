@@ -45,13 +45,17 @@ CREATE TABLE doughtnut_list
 CREATE TABLE my_contacts
 (
     last_name  VARCHAR(30),
-    first_name VARCHAR(20),
+    first_name VARCHAR(20) NOT NULL,
+    # null表示空, 就像未打开的盒子, 可能装有任何事物, 所以null之间无法比较
+    # 在数据类型之后标记 NOT NULL 表示不可为空
+    # 如果设置了, 此后INSERT时必须包含这个列的值, 不然报错
     email      VARCHAR(50),
     gender     CHAR(1),
     birthday   DATE,
     profession VARCHAR(50),
     location   VARCHAR(50),
-    status     VARCHAR(20),
+    status     VARCHAR(20) DEFAULT 'Single',
+    # 可以设定默认值, 如果缺省的话
     interest   VARCHAR(100),
     seeking    VARCHAR(100)
 );
@@ -61,7 +65,7 @@ CREATE TABLE my_contacts
 
 # 查看表 Describe
 DESC my_contacts;
-
+# 注意这里只提供列表的列名和数据类型, 并不会显示列表的数据内容
 
 
 # 删除表 (删除表和表内的所有数据, 务必小心, 这里无法挽回)
@@ -93,3 +97,8 @@ VALUES ('Baanderson', 'GGillian', 'ggill_baanderson@breakneckpizza.com', 'F', '1
 INSERT INTO my_contacts
     (first_name, email, profession, location)
 VALUES ('Pat', 'patpost@breakingpizza.com', 'Postal Worker', 'Princeton, NJ');
+
+
+# Select语句可以窥探表
+SELECT * # 与python相同, *表示所有内容
+FROM my_contacts;
