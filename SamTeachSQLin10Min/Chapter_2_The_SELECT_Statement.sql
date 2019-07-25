@@ -1,62 +1,21 @@
 # Sams Teach yourself SQL in 10 Mins
-
-# Chapter 2
-# The SELECT Stament: Gifted data retrieval
+# Chapter 2 Search Data
 
 
-# Select语句可以窥探表
+USE sams_teach_sql;
+
+# The SELECT Stament
+
+# 为了使用 SELECT 检索表数据，必须至少给出两条信息
+# 想选择什么，
+# 以及从什么地方选择
+
+# 检索全部内容
 SELECT * # 与python相同, *表示所有内容
-FROM my_contacts;
-
-# 只呈现名字是Anne的语句
-SELECT *
-FROM my_contacts
-WHERE first_name = 'Anne'; # 加上一个where语句, 注意不要用==
+FROM customers;
 
 
-# Fruit table example
-CREATE TABLE easy_drinks
-(
-    drink_name VARCHAR(20),
-    main       VARCHAR(20),
-    amount1    DECIMAL(4, 2),
-    second     VARCHAR(20),
-    amount2    DECIMAL(4, 2),
-    directions VARCHAR(250)
-);
-
-# 另一种批量插入的形式
-INSERT INTO easy_drinks
-VALUES ('Blackthorn', 'tonic water', 1.5, 'pineapple juice', 1,
-        'stir with ice, strain into cocktail glass with lemon twist'), # 这里接着用逗号分隔
-       ('Blue Moon', 'soda', 1.5, 'blueberry juice', .75,
-        'stir with ice, strain into cocktail glass with lemon twist'),
-       ('Oh My Gosh', 'peach nectar', 1, 'pineapple juice', 1,
-        'stir with ice, strain into shot glass'),
-       ('Lime Fizz', 'Sprite', 1.5, 'lime juice', .75,
-        'stir with ice, strain into cocktail glass'),
-       ('Kiss on the Lips', 'cherrry juice', 2, 'apricot nectar', 7,
-        'serve over ice with straw'),
-       ('Hot Gold', 'peach nectar', 3, 'orange juice', 6,
-        'pour hot orange juice in mug and add peach nectar'),
-       ('Lone Tree', 'soda', 1.5, 'cherry juice', 0.75,
-        'stir with ice, strain into cocktail glass'),
-       ('Greyhound', 'soda', 1.5, 'grapefruit juice', 5, 'serve over ice, stir well'),
-       ('Indian Summer', 'apple juice', 2, 'hot tea', 6, 'add juice to mug and top off with hot tea'),
-       ('Bull Frog', 'iced tea', 1.5, 'lemonade', 5, 'serve over ice with lime\'s slice');
-# 最后才用分号 # 记住数据中用引号要用\转义
-
-
-# 两个例子
-SELECT *
-FROM easy_drinks
-WHERE main = 'peach nectar';
-
-SELECT *
-FROM easy_drinks
-WHERE amount1 <= 2
-  AND main = 'soda'; # 可以使用AND加入多重条件
-
-
-
+# 检索单个列
+SELECT prod_name
+FROM products;
 
