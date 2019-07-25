@@ -98,3 +98,14 @@ INSERT INTO my_contacts
     (first_name, email, profession, location)
 VALUES ('Pat', 'patpost@breakingpizza.com', 'Postal Worker', 'Princeton, NJ');
 
+
+# 主键
+# 表中每一行都应该有一列（或几列）可以唯一标识自己
+# 主键用来表示一个特定的行。
+# 没有主键，更新或删除表中特定行就极为困难，因为你不能保证操作只涉及相关的行
+
+# 表中的任何列都可以作为主键, 只要它满足以下条件:
+# 任意两行都不具有相同的主键值；
+# 每一行都必须具有一个主键值（主键列不允许 NULL 值）；
+# 主键列中的值不允许修改或更新；
+# 主键值不能重用（如果某行从表中删除，它的主键不能赋给以后的新行）

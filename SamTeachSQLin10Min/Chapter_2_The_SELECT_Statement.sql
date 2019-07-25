@@ -1,4 +1,4 @@
-# Head First SQL
+# Sams Teach yourself SQL in 10 Mins
 
 # Chapter 2
 # The SELECT Stament: Gifted data retrieval
@@ -43,7 +43,19 @@ VALUES ('Blackthorn', 'tonic water', 1.5, 'pineapple juice', 1,
         'stir with ice, strain into cocktail glass'),
        ('Greyhound', 'soda', 1.5, 'grapefruit juice', 5, 'serve over ice, stir well'),
        ('Indian Summer', 'apple juice', 2, 'hot tea', 6, 'add juice to mug and top off with hot tea'),
-       ('Bull Frog', 'iced tea', 1.5, 'lemonade', 5, 'serve over ice with lime slice'); # 最后才用分号
+       ('Bull Frog', 'iced tea', 1.5, 'lemonade', 5, 'serve over ice with lime\'s slice');
+# 最后才用分号 # 记住数据中用引号要用\转义
+
+
+# 两个例子
+SELECT *
+FROM easy_drinks
+WHERE main = 'peach nectar';
+
+SELECT *
+FROM easy_drinks
+WHERE amount1 <= 2
+  AND main = 'soda'; # 可以使用AND加入多重条件
 
 
 
