@@ -15,7 +15,7 @@ SELECT * # 与python相同, *表示所有内容
 FROM customers;
 
 
-# 检索单个列
+# 检索单个列 (未必排序了)
 SELECT prod_name
 FROM products;
 

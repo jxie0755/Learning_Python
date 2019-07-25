@@ -142,3 +142,19 @@ VALUES ('Blackthorn', 'tonic water', 1.5, 'pineapple juice', 1,
 # 每一行都必须具有一个主键值（主键列不允许 NULL 值）；
 # 主键列中的值不允许修改或更新；
 # 主键值不能重用（如果某行从表中删除，它的主键不能赋给以后的新行）
+CREATE TABLE `customers`
+(
+    `cust_id`      CHAR(10) NOT NULL,
+    `cust_name`    CHAR(50) NOT NULL,
+    `cust_address` CHAR(50)  DEFAULT NULL,
+    `cust_city`    CHAR(50)  DEFAULT NULL,
+    `cust_state`   CHAR(5)   DEFAULT NULL,
+    `cust_zip`     CHAR(10)  DEFAULT NULL,
+    `cust_country` CHAR(50)  DEFAULT NULL,
+    `cust_contact` CHAR(50)  DEFAULT NULL,
+    `cust_email`   CHAR(255) DEFAULT NULL,
+    PRIMARY KEY (`cust_id`) # 设置主键
+);
+
+# 注意反引号是mysql特色, 用于标注列名, 表名, 库名, 可以省略
+# 但是如果这些命名与mysql保留字段冲突则用反引号可以避免矛盾
