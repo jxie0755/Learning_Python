@@ -22,7 +22,7 @@ CREATE TABLE easy_drinks
     amount1    DECIMAL(4, 2),
     second     VARCHAR(20),
     amount2    DECIMAL(4, 2),
-    directions VARCHAR(100)
+    directions VARCHAR(250)
 );
 
 # 另一种批量插入的形式
