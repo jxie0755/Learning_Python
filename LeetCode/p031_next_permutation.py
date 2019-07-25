@@ -84,12 +84,12 @@ class Solution:
             for rev_i in range(-1, cur_i, -1):
                 if nums[rev_i] > nums[cur_i]:
                     nums[cur_i], nums[rev_i] = nums[rev_i], nums[cur_i]  # switch
-                    nums[cur_i + 1:] = nums[cur_i + 1:][::-1]
+                    nums[cur_i + 1:] = nums[cur_i + 1:][::-1]  # reverse the tail back to sorted
                     break
 
     # Addtional: prevPermute, which is the reverse process
-    # O(N), directly find next different permutations
-    def prevPermutation(self, nums):
+    # O(N), directly find previous different permutations
+    def prevPermutation(self, nums: List[int]) -> None:
 
         length = len(nums)
         cur_i = None
@@ -107,7 +107,6 @@ class Solution:
                     nums[cur_i], nums[rev_i] = nums[rev_i], nums[cur_i]  # switch
                     nums[cur_i + 1:] = nums[cur_i + 1:][::-1]
                     break
-        return nums
 
 
 if __name__ == "__main__":
