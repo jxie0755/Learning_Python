@@ -92,14 +92,14 @@ class Solution:
     def prevPermutation(self, nums: List[int]) -> None:
 
         length = len(nums)
-        cur_i = None
+        cur_i = -1
 
         for i in range(-2, -length - 1, -1):
             if nums[i] > nums[i + 1]:
                 cur_i = i
                 break
 
-        if not cur_i:
+        if cur_i == -1:
             nums[:] = nums[::-1]  # 直接结束,因为本身是倒着排序的,返回正排序即可
         else:
             for rev_i in range(-1, cur_i, -1):
