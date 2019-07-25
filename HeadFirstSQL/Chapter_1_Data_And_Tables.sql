@@ -97,8 +97,3 @@ VALUES ('Baanderson', 'GGillian', 'ggill_baanderson@breakneckpizza.com', 'F', '1
 INSERT INTO my_contacts
     (first_name, email, profession, location)
 VALUES ('Pat', 'patpost@breakingpizza.com', 'Postal Worker', 'Princeton, NJ');
-
-
-# Select语句可以窥探表
-SELECT * # 与python相同, *表示所有内容
-FROM my_contacts;
