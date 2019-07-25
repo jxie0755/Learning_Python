@@ -12,44 +12,43 @@
 # Correct sequence (sorted):
 # 1 2 3 - 1 3 2 - 2 1 3 - 2 3 1 - 3 1 2 - 3 2 1
 
-# [(1, 2, 3, 4),
-#  (1, 2, 4, 3),
-#  (1, 3, 2, 4),
-#  (1, 3, 4, 2),
-#  (1, 4, 2, 3),
-#  (1, 4, 3, 2),
-#  (2, 1, 3, 4),
-#  (2, 1, 4, 3),
-#  (2, 3, 1, 4),
-#  (2, 3, 4, 1),
-#  (2, 4, 1, 3),
-#  (2, 4, 3, 1),
-#  (3, 1, 2, 4),
-#  (3, 1, 4, 2),
-#  (3, 2, 1, 4),
-#  (3, 2, 4, 1),
-#  (3, 4, 1, 2),
-#  (3, 4, 2, 1),
-#  (4, 1, 2, 3),
-#  (4, 1, 3, 2),
-#  (4, 2, 1, 3),
-#  (4, 2, 3, 1),
-#  (4, 3, 1, 2),
-#  (4, 3, 2, 1)]
+#  (1, 2, 3, 4)
+#  (1, 2, 4, 3)
+#  (1, 3, 2, 4)
+#  (1, 3, 4, 2)
+#  (1, 4, 2, 3)
+#  (1, 4, 3, 2)
+#  (2, 1, 3, 4)
+#  (2, 1, 4, 3)
+#  (2, 3, 1, 4)
+#  (2, 3, 4, 1)
+#  (2, 4, 1, 3)
+#  (2, 4, 3, 1)
+#  (3, 1, 2, 4)
+#  (3, 1, 4, 2)
+#  (3, 2, 1, 4)
+#  (3, 2, 4, 1)
+#  (3, 4, 1, 2)
+#  (3, 4, 2, 1)
+#  (4, 1, 2, 3)
+#  (4, 1, 3, 2)
+#  (4, 2, 1, 3)
+#  (4, 2, 3, 1)
+#  (4, 3, 1, 2)
+#  (4, 3, 2, 1)
 
 from itertools import permutations
-import math
+from typing import *
 
 
 class Solution:
-    def nextPermutation(self, nums):
-        # Use itertool.permutations itearate the permutation sequence from small to large,
-        # and stop at the nums, then return the next one
-        # Exceeded max time limit
-        """
-        :type nums: List[int]
-        :rtype: void Do not return anything, modify nums in-place instead.
-        """
+
+    # Version A
+    # Use itertool.permutations itearate the permutation sequence from small to large,
+    # and stop at the nums, then return the next one
+    # Exceeded max time limit
+    def nextPermutation(self, nums: List[int]) -> None:
+
         first_sample = False
         length = len(nums)
 
@@ -68,12 +67,11 @@ class Solution:
 
 
 class Solution:
-    def nextPermutation(self, nums):
-        # O(N), directly find next different permutations
-        """
-        :type nums: List[int]
-        :rtype: void Do not return anything, modify nums in-place instead.
-        """
+
+    # Version B
+    # O(N), directly find next different permutations
+    def nextPermutation(self, nums: List[int]) -> None:
+
         length = len(nums)
         cur_i = None
 
@@ -92,12 +90,9 @@ class Solution:
                     break
 
     # Addtional: prevPermute, which is the reverse process
+    # O(N), directly find next different permutations
     def prevPermutation(self, nums):
-        # O(N), directly find next different permutations
-        """
-        :type nums: List[int]
-        :rtype: void Do not return anything, modify nums in-place instead.
-        """
+
         length = len(nums)
         cur_i = None
 
