@@ -10,12 +10,20 @@ USE sams_teach_sql;
 # 想选择什么，
 # 以及从什么地方选择
 
-# 检索全部内容
-SELECT * # 与python相同, *表示所有内容
-FROM customers;
-
 
 # 检索单个列 (未必排序了)
 SELECT prod_name
 FROM products;
+
+# 检索多个列
+SELECT prod_id, prod_name, prod_price
+FROM products;
+
+# 检索所有列
+# 与python相同, *表示所有内容
+SELECT *
+FROM customers;
+# 一般而言，除非你确实需要表中的每一列，否则最好别使用*通配
+# 建议慎用, 会降低性能, 只找需要的内容
+
 
