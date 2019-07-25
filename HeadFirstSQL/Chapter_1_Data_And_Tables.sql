@@ -102,4 +102,3 @@ VALUES ('Pat', 'patpost@breakingpizza.com', 'Postal Worker', 'Princeton, NJ');
 # Select语句可以窥探表
 SELECT * # 与python相同, *表示所有内容
 FROM my_contacts;
-
