@@ -149,6 +149,6 @@ if __name__ == "__main__":
 
     a = [2, 3, 1]
     Solution().nextPermutation(a)
-    assert a == [3, 1, 2]
+    assert a == [3, 1, 2], "Exatra 4"
 
     print("all passed")
