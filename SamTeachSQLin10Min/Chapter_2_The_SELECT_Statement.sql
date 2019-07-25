@@ -15,9 +15,11 @@ USE sams_teach_sql;
 SELECT prod_name
 FROM products;
 
+
 # 检索多个列
 SELECT prod_id, prod_name, prod_price
 FROM products;
+
 
 # 检索所有列
 # 与python相同, *表示所有内容
@@ -26,4 +28,12 @@ FROM customers;
 # 一般而言，除非你确实需要表中的每一列，否则最好别使用*通配
 # 建议慎用, 会降低性能, 只找需要的内容
 
+
+# 检索不同的值 (去重)
+SELECT DISTINCT vend_id
+FROM products;
+# DISTINCT 关键字作用于所有的列，不仅仅是跟在其后的那一列
+SELECT DISTINCT vend_id,
+                prod_price # 这里只要价格不同就会列出, 可能导致vent_id出现重复
+FROM products;
 
