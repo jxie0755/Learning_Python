@@ -29,6 +29,7 @@ FROM customers;
 # 建议慎用, 会降低性能, 只找需要的内容
 
 
+
 # 检索不同的值 (去重)
 SELECT DISTINCT vend_id
 FROM products;
@@ -36,4 +37,29 @@ FROM products;
 SELECT DISTINCT vend_id,
                 prod_price # 这里只要价格不同就会列出, 可能导致vent_id出现重复
 FROM products;
+
+
+# 限制结果
+SELECT prod_name
+FROM products
+LIMIT 5; # 前5行
+
+SELECT prod_name
+FROM products
+LIMIT 5 OFFSET 5;
+# 从第五行开始的前5行, 因为一共就9中产品, 所以只返回4行, 不会溢出
+# 注意, 行数是从0开始算的
+
+SELECT prod_name
+FROM products
+LIMIT 5, 5;
+# MySql和MariaDB 的简化语法
+# 以上全是按照prod_id排序执行的挑选
+
+# 注释风格
+# #号
+-- --号
+/* 多行
+   注释
+ */
 
