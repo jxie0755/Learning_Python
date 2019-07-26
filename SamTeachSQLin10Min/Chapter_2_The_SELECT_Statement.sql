@@ -47,7 +47,7 @@ LIMIT 5; # 前5行
 SELECT prod_name
 FROM products
 LIMIT 5 OFFSET 5;
-# 从第五行开始的前5行, 因为一共就9中产品, 所以只返回4行, 不会溢出
+# 从第五行开始的前5行, 因为一共就9种产品, 所以只返回4行, 不会溢出
 # 注意, 行数是从0开始算的
 
 SELECT prod_name
