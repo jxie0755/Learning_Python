@@ -10,15 +10,49 @@
 
 from typing import *
 
-
 class Solution:
-    def search(self, nums, target):
-        # Regular while loop, binary search O(logN)
-        """
-        :type nums: List[int]
-        :type target: int
-        :rtype: int
-        """
+
+    # Version A, Recursion method, complicated binary search O(logN)
+    # Unecessary at all, method abandoned
+    def search(self, nums: List[int], target: int) -> int:
+
+        L, H = 0, len(nums) - 1
+
+        def helper(L, H):
+            M = (L + H) // 2
+            low, mid, high = nums[L], nums[M], nums[H]
+
+            # 直接查两端, 如果满足就结束
+            if nums[L] == target:
+                return L
+            elif nums[H] == target:
+                return H
+
+            # 如果缩到最后,长度只有2了,还是没有发现target只能return -1
+            elif H - L <= 1 and nums[L] != target and nums[H] != target:
+                return -1
+
+            # 把list从中间切开,其中一半必为排序,另一半不确定是否排序
+            # 如果target在排序的那一段其中,那么就接着二分法
+            elif low < mid and low <= target <= mid:
+                return helper(L, M)
+            elif mid < high and mid <= target <= high:
+                return helper(M, H)
+
+
+            # 如果没有出现以上情况,那target必在没有排序的一段中 (而且只可能有一段不是排序的)
+            # 而且就算不是排序的, 二分法同样可以继续
+            elif low > mid:
+                return helper(L, M)
+            elif mid > low:
+                return helper(M, H)
+
+        # 避免nums为空
+        return -1 if not nums else helper(L, H)
+
+    # Version B
+    # Regular while loop, binary search O(logN) * c
+    def search(self, nums: List[int], target: int) -> int:
 
         if not nums:
             return -1
@@ -43,46 +77,6 @@ class Solution:
             elif mid >= low:
                 L = M + 1
 
-    # def search(self, nums, target):
-    #     # Recursion method, binary search O(logN)
-    #     """
-    #     :type nums: List[int]
-    #     :type target: int
-    #     :rtype: int
-    #     """
-    #     L, H = 0, len(nums) - 1
-    #
-    #     def helper(L, H):
-    #         M = (L + H) // 2
-    #         low, mid, high= nums[L], nums[M], nums[H]
-    #
-    #         # 直接查两端, 如果满足就结束
-    #         if nums[L] == target:
-    #             return L
-    #         elif nums[H] == target:
-    #             return H
-    #
-    #         # 如果缩到最后,长度只有2了,还是没有发现target只能return -1
-    #         elif H - L <= 1 and nums[L] != target and nums[H] != target:
-    #             return -1
-    #
-    #         # 把list从中间切开,其中一半必为排序,另一半不确定是否排序
-    #         # 如果target在排序的那一段其中,那么就接着二分法
-    #         elif low < mid and low <= target <= mid:
-    #             return helper(L, M)
-    #         elif mid < high and mid <= target <= high:
-    #             return helper(M, H)
-    #
-    #
-    #         # 如果没有出现以上情况,那target必在没有排序的一段中 (而且只可能有一段不是排序的)
-    #         # 而且就算不是排序的, 二分法同样可以继续
-    #         elif low > mid:
-    #             return helper(L, M)
-    #         elif mid > low:
-    #             return helper(M, H)
-    #
-    #     # 避免nums为空
-    #     return -1 if not nums else helper(L, H)
 
 
 if __name__ == "__main__":
