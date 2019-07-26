@@ -61,13 +61,13 @@ class Solution:
         while L <= H:
             M = (L + H) // 2
             low, mid, high = nums[L], nums[M], nums[H]
-            if L == H:
-                return L if low == target else -1
             if mid == target:
                 return M
-            if low < mid and low <= target <= mid:
+            if L == H:
+                return L if low == target else -1
+            if low <= target <= mid:
                 H = M - 1
-            elif mid < high and mid <= target <= high:
+            elif mid <= target <= high:
                 L = M + 1
 
             # if target not in sorted sub-array, then it must be in the unsorted sub-array
