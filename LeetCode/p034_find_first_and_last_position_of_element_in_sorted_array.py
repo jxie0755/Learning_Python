@@ -1,21 +1,22 @@
 # P033 Find First and Last Positions of Element in Sorted Array
 # Medium
 
-
 # Given an array of integers nums sorted in ascending order,
 # find the starting and ending position of a given target value.
 
 # Your algorithm's runtime complexity must be in the order of O(log n).
 # If the target is not found in the array, return [-1, -1]
 
+from typing import *
 
 class Solution:
+
+    # Version A
     # 3 binary search, find catch mid value, and Low/High of the section,
     # Then according to mid value and Low/High to find head and tail by 2 additional binary search
-    # O(LogN)
-    # Space O(1)
+    # O(LogN), Space O(1)
 
-    def searchRange(self, nums, target):
+    def searchRange(self, nums: List[int], target: int) -> List[int]:
 
         if not nums:  # 处理空list
             return [-1, -1]
@@ -69,13 +70,15 @@ class Solution:
 
 
 class Solution:
+
+    # Version B
     # improved binary search
     # 3 binary search, find catch mid value, and Low/High of the section,
     # Then according to mid value and Low/High to find head and tail by 2 additional binary search
-    # O(LogN)
-    # Space O(1)
+    # O(LogN), Space O(1)
 
-    def searchRange(self, nums, target):
+    def searchRange(self, nums: List[int], target: int) -> List[int]:
+
         if not nums:  # 处理空list
             return [-1, -1]
         if len(nums) == 1:  # 处理单元素list
@@ -128,7 +131,7 @@ class Solution:
 
 
 if __name__ == "__main__":
-    assert Solution().searchRange([], 8) == [-1, -1], "Edge 1"
+    assert Solution().searchRange([], 0) == [-1, -1], "Edge 1"
     assert Solution().searchRange([8], 8) == [0, 0], "Edge 2"
     assert Solution().searchRange([0], 8) == [-1, -1], "Edge 3"
 
