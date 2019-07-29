@@ -12,7 +12,7 @@ class Solution:
     def searchInsert(self, nums: List[int], target: int) -> int:
         new_nums = sorted(nums + [target])
         index = 0
-        while index <= len(new_nums):
+        while index < len(new_nums):
             if new_nums[index] == target:
                 return index
             index += 1
