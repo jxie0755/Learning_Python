@@ -6,9 +6,10 @@
 # If not, return the index where it would be if it were inserted in order.
 # You may assume no duplicates in the array
 
+from typing import *
 
 class Solution:
-    def searchInsert(self, nums, target):
+    def searchInsert(self, nums: List[int], target: int) -> int:
         new_nums = sorted(nums + [target])
         index = 0
         while index <= len(new_nums):
