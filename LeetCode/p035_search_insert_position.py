@@ -19,6 +19,7 @@ class Solution:
 
 
 if __name__ == "__main__":
+    assert Solution().searchInsert([], 5) == 0, "Empty"
     assert Solution().searchInsert([1, 3, 5, 6], 5) == 2, "In the list"
     assert Solution().searchInsert([1, 3, 5, 6], 2) == 1, "Not in the list"
     assert Solution().searchInsert([1, 3, 5, 6], 7) == 4, "At the end"
