@@ -9,6 +9,8 @@
 from typing import *
 
 class Solution:
+
+    # Version A, sort first
     def searchInsert(self, nums: List[int], target: int) -> int:
         new_nums = sorted(nums + [target])
         index = 0
