@@ -1,3 +1,4 @@
+# https://leetcode.com/problems/search-insert-position/
 # p035 Search Insert Position
 # Easy
 
@@ -5,11 +6,6 @@
 # If not, return the index where it would be if it were inserted in order.
 # You may assume no duplicates in the array
 
-# """
-# :type nums: List[int]
-# :type target: int
-# :rtype: int
-# """
 
 class Solution:
     def searchInsert(self, nums, target):

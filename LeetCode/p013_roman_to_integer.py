@@ -1,10 +1,9 @@
+# https://leetcode.com/problems/roman-to-integer/
 # p013 Roman to Integer
 # Easy
 
 # Given a roman numeral, convert it to an integer.
 # Input is guaranteed to be within the range from 1 to 3999.
-
-from typing import *
 
 
 class Solution:

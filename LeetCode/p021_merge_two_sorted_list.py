@@ -1,11 +1,10 @@
+# https://leetcode.com/problems/merge-two-sorted-lists/
 # p021 Merge two sorted list
 # Easy
 
 # Merge two sorted linked lists and return it as a new list.
 # The new list should be made by splicing together the nodes of the first two lists.
 
-from typing import *
-from a0_TreeNode import *
 from a0_ListNode import *
 
 

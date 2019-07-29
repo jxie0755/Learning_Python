@@ -1,9 +1,8 @@
+# https://leetcode.com/problems/longest-substring-without-repeating-characters/
 # P003 Longest Substring Without Repeating Characters
 # Medium
 
 # Given a string, find the length of the longest substring without repeating characters.
-
-from typing import *
 
 
 class Solution:

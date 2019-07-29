@@ -1,10 +1,9 @@
+# https://leetcode.com/problems/merge-k-sorted-lists/
 # P023 Merge k Sorted Lists
 # Hard
 
 # Merge k sorted linked lists and return it as one sorted list. Analyze and describe its complexity.
 
-from typing import *
-from a0_TreeNode import *
 from a0_ListNode import *
 
 

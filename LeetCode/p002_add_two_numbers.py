@@ -1,3 +1,4 @@
+# https://leetcode.com/problems/add-two-numbers/
 # P002 Add Two Numbers
 # Medium
 
@@ -9,8 +10,6 @@
 # You may assume the two numbers do not contain any leading zero, except the number 0 itself.
 
 
-from typing import *
-from a0_TreeNode import *
 from a0_ListNode import *
 
 

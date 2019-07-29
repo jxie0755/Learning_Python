@@ -1,10 +1,10 @@
+# https://leetcode.com/problems/longest-common-prefix/
 # p014 Longest Common Prefix
 # Easy
 
+from collections import deque  # 利用deque的maxlen特性
 # Write a function to find the longest common prefix string amongst an array of strings.
 from typing import *
-
-from collections import deque  # 利用deque的maxlen特性
 
 
 class Solution:
