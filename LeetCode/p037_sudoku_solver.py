@@ -1,7 +1,6 @@
 # P037 Sudoku Solver
 # Hard
 
-
 # Write a program to solve a Sudoku puzzle by filling the empty cells.
 
 # A sudoku solution must satisfy all of the following rules:
@@ -10,13 +9,10 @@
 # Each of the the digits 1-9 must occur exactly once in each of the 9 3x3 sub-boxes of the grid.
 # Empty cells are indicated by the character "."
 
-
 # Note:
 # The given board contain only digits 1-9 and the character ".".
 # You may assume that the given Sudoku puzzle will have a single unique solution.
 # The given board size is always 9x9.
-
-import copy
 
 
 class Solution:
@@ -605,7 +601,7 @@ if __name__ == "__main__":
         ["9", "6", "1", "5", "3", "7", "2", "8", "4"],
         ["2", "8", "7", "4", "1", "9", "6", "3", "5"],
         ["3", "4", "5", "2", "8", "6", "1", "7", "9"],
-    ]
+    ], "question 1"
 
     question_2 = [
         [".", ".", "9", "7", "4", "8", ".", ".", "."],
@@ -630,6 +626,6 @@ if __name__ == "__main__":
         ["9", "7", "5", "8", "6", "3", "1", "2", "4"],
         ["8", "3", "2", "4", "9", "1", "7", "5", "6"],
         ["6", "4", "1", "2", "7", "5", "9", "8", "3"]
-    ]
+    ], "question 2"
 
     print("all passed")
