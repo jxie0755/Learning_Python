@@ -22,5 +22,3 @@ SELECT prod_id, prod_price, prod_name
 FROM products
 ORDER BY prod_price, prod_name;
 # 也就是先按价格排序, 然后相同价格的内容再按名称排子顺序
-
-
