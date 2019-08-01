@@ -1,6 +1,6 @@
+# https://leetcode.com/problems/combination-sum/
 # P039 Cobination Sum
 # Medium
-
 
 # Given a set of candidate numbers (candidates) (without duplicates) and a target number (target),
 # find all unique combinations in candidates where the candidate numbers sums to target.
@@ -11,15 +11,14 @@
 # All numbers (including target) will be positive integers.
 # The solution set must not contain duplicate combinations.
 
+from typing import *
 
 class Solution:
-    def combinationSum(self, candidates, target):
-        # Brutal Force O(N^2), very slow but passed
-        """
-        :type candidates: List[int]
-        :type target: int
-        :rtype: List[List[int]]
-        """
+
+    # Version A
+    # Brutal Force O(N^2), very slow but passed
+    def combinationSum(self, candidates: List[int], target: int) -> List[List[int]]:
+
         if not candidates:
             return []
 
@@ -50,12 +49,11 @@ class Solution:
 
 
 class Solution(object):
-    # @param candidates, a list of integers
-    # @param target, integer
-    # @return a list of lists of integers
+
+    # Version B
+    # Add a recursive process method to update result
     def combinationSum(self, candidates, target):
 
-        # Add a recursive process method to update result
         def process(candidates, start, intermediate, target):
             """
             Args:
@@ -90,9 +88,7 @@ from itertools import combinations_with_replacement
 
 
 class Solution(object):
-    # @param candidates, a list of integers
-    # @param target, integer
-    # @return a list of lists of integers
+
     def combinationSum(self, candidates, target):
         if not candidates:
             return []
