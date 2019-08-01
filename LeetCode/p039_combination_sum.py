@@ -59,18 +59,19 @@ class Solution(object):
             Args:
                 candidates:    ingredient numbers (sorted)
                 start:         from 0, full candidates, to a shorter candidate list
-                intermediate:  temp list to record current status
+                intermediate:  temp list to record current status List[int]]
                 target:        tartget to compose
 
             Returns: None, Imperfect function, just update the result
             """
             if target == 0:
                 result.append(list(intermediate))  # 终止case, target降到0就完成
+                # 这里使用list其实就是复制一个itermediate, 可以用interme[:]取代
 
             while start < len(candidates) and candidates[start] <= target:  # while loop 走完全部candidates
                 intermediate.append(candidates[start])
                 process(candidates, start, intermediate, target - candidates[start])
-                intermediate.pop()
+                intermediate.pop()  # 这里退回相当于,即使满足条件, 也可以跳过
                 start += 1
 
         result = []
@@ -84,22 +85,22 @@ class Solution(object):
 # 上解就是通过自己构建组合,并融合target条件所以直接得出答案.
 # 这里利用python自带组合函数同样可以实现
 
-from itertools import combinations_with_replacement
-
-
-class Solution(object):
-
-    def combinationSum(self, candidates, target):
-        if not candidates:
-            return []
-        max_n = target // min(candidates)
-        result = []
-        for i in range(max_n, 0, -1):
-            all_comb = combinations_with_replacement(candidates, i)
-            for j in all_comb:
-                if sum(j) == target:
-                    result.append(list(j))
-        return result
+# from itertools import combinations_with_replacement
+#
+#
+# class Solution(object):
+#
+#     def combinationSum(self, candidates, target):
+#         if not candidates:
+#             return []
+#         max_n = target // min(candidates)
+#         result = []
+#         for i in range(max_n, 0, -1):
+#             all_comb = combinations_with_replacement(candidates, i)
+#             for j in all_comb:
+#                 if sum(j) == target:
+#                     result.append(list(j))
+#         return result
 
 
 if __name__ == "__main__":
