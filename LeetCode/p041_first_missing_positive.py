@@ -1,6 +1,6 @@
+# https://leetcode.com/problems/first-missing-positive/
 # P041 First Missing Positive
 # Hard
-
 
 # Given an unsorted integer array, find the smallest missing positive integer.
 
@@ -11,6 +11,8 @@ from typing import *
 
 
 class Solution:
+
+    # Version A
     # O(N), space O(N)
     def firstMissingPositive(self, nums: List[int]) -> int:
         if not nums:
@@ -20,18 +22,16 @@ class Solution:
         for i in nums:
             try:
                 all_int.remove(i)
-            except:
+            except ValueError:
                 pass
         if not all_int:
             return max_i + 1
         else:
             return all_int[0]
 
-
-class Solution(object):
-    # @param A, a list of integers
-    # @return an integer
-    def firstMissingPositive(self, nums):
+    # STD ans
+    # Avoid use try except block
+    def firstMissingPositive(self, nums: List[int]) -> int:
         nums.append(0)
         n = len(nums)
         for i in range(len(nums)):  # delete those useless elements
