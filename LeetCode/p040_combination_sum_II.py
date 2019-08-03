@@ -13,6 +13,7 @@
 
 
 from itertools import combinations
+from typing import *
 
 class Solution:
 
@@ -51,9 +52,9 @@ class Solution(object):
     # Version B
     # Same idea with Leetcode P039 Combination Sum, but cannot repeat same elements
     # Add a recursive process method to update result
-    def combinationSum2(self, candidates, target):
+    def combinationSum2(self, candidates: List[int], target: int) -> List[List[int]]:
 
-        def combinationSum2(self, candidates: List[int], target: int) -> List[List[int]]:
+        def process(candidates, start, intermediate, target):
             """
             Args:
                 candidates:    ingredient numbers (sorted)
