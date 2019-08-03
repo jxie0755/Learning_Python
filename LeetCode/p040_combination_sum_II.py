@@ -72,7 +72,8 @@ class Solution(object):
 
                 intermediate.append(candidates[start])
                 process(candidates, start + 1, intermediate, target - candidates[start])
-                intermediate.pop()  # 这里退回相当于,即使满足条件, 也可以跳过
+                # 这里与p039不同,需要跳过, 因为不得重复使用同一个元素
+                intermediate.pop()
                 start += 1
 
         result = []
