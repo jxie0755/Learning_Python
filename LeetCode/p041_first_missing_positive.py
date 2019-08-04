@@ -29,17 +29,19 @@ class Solution:
             return all_int[0]
 
     # STD ans
-    # Avoid use try except block1
+    # Avoid use try except block
     def firstMissingPositive(self, nums: List[int]) -> int:
         nums.append(0)
         n = len(nums)
-        for i in range(len(nums)):  # delete those useless elements
+
+        for i in range(n):  # delete those useless elements
             if nums[i] < 0 or nums[i] >= n:
                 nums[i] = 0
 
         for i in range(len(nums)):  # use the index as the hash to record the frequency of each number
             nums[nums[i] % n] += n  # 在每个数上加n, 则不会改变这个数%n的余数
-        for i in range(1, len(nums)):
+
+        for i in range(0, len(nums)):
             if nums[i] / n == 0:
                 return i
         return n
