@@ -1,6 +1,6 @@
+# https://leetcode.com/problems/trapping-rain-water/
 # P042 Trapping Rain Water
 # Hard
-
 
 # Given n non-negative integers representing an elevation map where the width of each bar is 1,
 # compute how much water it is able to trap after raining.
@@ -9,8 +9,11 @@ from typing import *
 
 
 class Solution:
+
+    # Version A
+    # accoridng to the peak and find the volume
     def trap(self, height: List[int]) -> int:
-        """accoridng to the peak and find the volume"""
+
         peak_list = self.findPeaks(height)
 
         if len(peak_list) <= 1:  # If there is only 1 peak, then no water will be hold
@@ -50,24 +53,29 @@ class Solution:
         """To find the index of peaks, and sort reversely accoridng to the height value at the index"""
         hmp = {}
         temp = [0] + height + [0]
-        for i in range(0, len(temp) - 2):
+        for i in range(0, len(height)):
             prev, mid, aft = temp[i], temp[i + 1], temp[i + 2]
             if prev <= mid >= aft:
                 hmp[i] = mid
+
+        print(hmp)
         lst = sorted(hmp, key=lambda k: hmp[k])[::-1]
         return lst
 
 
 if __name__ == "__main__":
-    assert Solution().trap([]) == 0, "Edge 1"
-    assert Solution().trap([0]) == 0, "Edge 2"
-    assert Solution().trap([1]) == 0, "Edge 3"
-    assert Solution().trap([1, 1]) == 0, "Edge 4"
-    assert Solution().trap([2, 2, 2]) == 0, "Edge 5"
-    assert Solution().trap([2, 0, 2]) == 2, "Edge 6"
+    # assert Solution().trap([]) == 0, "Edge 1"
+    # assert Solution().trap([0]) == 0, "Edge 2"
+    # assert Solution().trap([1]) == 0, "Edge 3"
+    # assert Solution().trap([1, 1]) == 0, "Edge 4"
+    # assert Solution().trap([2, 2, 2]) == 0, "Edge 5"
+    # assert Solution().trap([2, 0, 2]) == 2, "Edge 6"
+    #
+    # assert Solution().trap([0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1]) == 6, "Example 1"
+    # assert Solution().trap([10, 1, 2, 1, 2, 1, 10]) == 43, "Example 2"
+    # assert Solution().trap([5, 5, 1, 7, 1, 1, 5, 2, 7, 6]) == 23, "Example 3"
 
-    assert Solution().trap([0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1]) == 6, "Example 1"
-    assert Solution().trap([10, 1, 2, 1, 2, 1, 10]) == 43, "Example 2"
-    assert Solution().trap([5, 5, 1, 7, 1, 1, 5, 2, 7, 6]) == 23, "Example 3"
+    print(Solution().findPeaks([10, 1, 2, 1, 2, 1, 10]))
+
 
     print("all passed")
