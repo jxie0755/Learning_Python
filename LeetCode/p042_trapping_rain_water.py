@@ -11,7 +11,7 @@ from typing import *
 class Solution:
 
     # Version A
-    # accoridng to the peak and find the volume
+    # according to the peak and find the volume
     def trap(self, height: List[int]) -> int:
 
         peak_list = self.findPeaks(height)
@@ -40,11 +40,11 @@ class Solution:
 
             return volume
 
-    def vol(self, lst):
-        """Calculate the volume between two peak"""
-        sec_peak = min(lst[0], lst[-1])
+    def vol(self, height):
+        """Calculate the volume between two peaks"""
+        sec_peak = min(height[0], height[-1])
         volume = 0
-        for i in lst:
+        for i in height:
             if i < sec_peak:
                 volume += sec_peak - i
         return volume
@@ -53,12 +53,13 @@ class Solution:
         """To find the index of peaks, and sort reversely accoridng to the height value at the index"""
         hmp = {}
         temp = [0] + height + [0]
+        rst = []
         for i in range(0, len(height)):
             prev, mid, aft = temp[i], temp[i + 1], temp[i + 2]
             if prev <= mid >= aft:
                 hmp[i] = mid
+                rst.append(i)
 
-        print(hmp)
         lst = sorted(hmp, key=lambda k: hmp[k])[::-1]
         return lst
 
@@ -76,6 +77,7 @@ if __name__ == "__main__":
     # assert Solution().trap([5, 5, 1, 7, 1, 1, 5, 2, 7, 6]) == 23, "Example 3"
 
     print(Solution().findPeaks([10, 1, 2, 1, 2, 1, 10]))
+
 
 
     print("all passed")
