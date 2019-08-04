@@ -13,7 +13,7 @@ from typing import *
 class Solution:
 
     # Version A
-    # O(N), space O(N)
+    # O(N), space O(N) (not constant space)
     def firstMissingPositive(self, nums: List[int]) -> int:
         if not nums:
             return 1
