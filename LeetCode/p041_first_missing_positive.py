@@ -1,4 +1,11 @@
 # https://leetcode.com/problems/first-missing-positive/
+# P041 First Missing Positive
+# Hard
+
+# Given an unsorted integer array, find the smallest missing positive integer.
+
+# Note:
+# Your algorithm should run in O(n) time and uses constant extra space.
 
 from typing import *
 
