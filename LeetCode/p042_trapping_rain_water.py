@@ -75,4 +75,5 @@ if __name__ == "__main__":
     assert Solution().trap([0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1]) == 6, "Example 1"
     assert Solution().trap([10, 1, 2, 1, 2, 1, 10]) == 43, "Example 2"
     assert Solution().trap([5, 5, 1, 7, 1, 1, 5, 2, 7, 6]) == 23, "Example 3"
+    assert Solution().trap([0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1])==6, "Extra 1"
     print("all passed")
