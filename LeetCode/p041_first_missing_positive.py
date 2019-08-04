@@ -1,11 +1,4 @@
 # https://leetcode.com/problems/first-missing-positive/
-# P041 First Missing Positive
-# Hard
-
-# Given an unsorted integer array, find the smallest missing positive integer.
-
-# Note:
-# Your algorithm should run in O(n) time and uses constant extra space.
 
 from typing import *
 
@@ -18,19 +11,18 @@ class Solution:
         if not nums:
             return 1
         all_int = list(range(1, len(nums) + 1))
-        max_i = all_int[-1]
         for i in nums:
             try:
                 all_int.remove(i)
             except ValueError:
                 pass
         if not all_int:
-            return max_i + 1
+            return len(nums) + 1
         else:
             return all_int[0]
 
     # STD ans
-    # Avoid use try except block
+    # Avoid use try except block1
     def firstMissingPositive(self, nums: List[int]) -> int:
         nums.append(0)
         n = len(nums)
