@@ -19,7 +19,7 @@ class Solution:
     def multiply(self, num1: str, num2: str) -> str:
         return str(int(num1) * int(num2))
 
-    def num2str(self, num):
+    def int2str(self, num):
         """Convert a int to a string through algorithm"""
         hmp_n2s = {
             0: "0", 1: "1", 2: "2", 3: "3", 4: "4",
@@ -58,7 +58,7 @@ class Solution:
                 j += 1
             i += 1
 
-        return self.num2str(result)
+        return self.int2str(result)
 
 
 if __name__ == "__main__":
