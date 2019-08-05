@@ -1,3 +1,4 @@
+# https://leetcode.com/problems/multiply-strings/
 # P043 Multiply Strings
 # Medium
 
@@ -12,8 +13,15 @@
 
 
 class Solution:
+
+    # Version A
+    # Python builtin direct convert
+    def multiply(self, num1: str, num2: str) -> str:
+        return str(int(num1) * int(num2))
+
     def num2str(self, num):
-        hmp = {
+        """Convert a int to a string through algorithm"""
+        hmp_n2s = {
             0: "0", 1: "1", 2: "2", 3: "3", 4: "4",
             5: "5", 6: "6", 7: "7", 8: "8", 9: "9"
         }
@@ -22,15 +30,15 @@ class Solution:
 
         result = ""
         while num:
-            result = hmp[num % 10] + result
+            result = hmp_n2s[num % 10] + result
             num //= 10
         return result
 
-    def multiply(self, num1, num2):
-        return str(int(num1) * int(num2))
-
+    # Version B
+    # HashMap method
+    # Calulate string by hand calculation method, can avoid overflow of integer/long numbers
     def multiply(self, num1: str, num2: str) -> str:
-        hmp = {
+        hmp_s2n = {
             "0": 0, "1": 1, "2": 2, "3": 3, "4": 4,
             "5": 5, "6": 6, "7": 7, "8": 8, "9": 9
         }
@@ -46,7 +54,7 @@ class Solution:
             j = 0
             while j != len_n2:
                 j_factor = 10 ** j
-                result += hmp[n2[j]] * hmp[n1[i]] * i_factor * j_factor
+                result += hmp_s2n[n2[j]] * hmp_s2n[n1[i]] * i_factor * j_factor
                 j += 1
             i += 1
 
