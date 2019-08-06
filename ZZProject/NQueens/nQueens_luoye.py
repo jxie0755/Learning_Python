@@ -1,4 +1,4 @@
-# From Yeluo to solve N-Queens
+"""From Yeluo to solve N-Queens"""
 
 def diagonal(column):
     n = len(column)

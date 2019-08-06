@@ -1,8 +1,11 @@
-# This is to create a general modification to recursively iterate over all the files under
-# If the file type fits need, it will apply a function to the file, otherwise just skip
+"""
+This is to create a general modification to recursively iterate over all the files under
+If the file type fits need, it will apply a function to the file, otherwise just skip
+"""
 
-import re
 import os
+import re
+
 
 def general_modify(directory, fn):
     """Single directory, non-recursive"""

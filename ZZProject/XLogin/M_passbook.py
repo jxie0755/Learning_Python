@@ -1,8 +1,10 @@
-# 密码本V1 - 两个文件: 一个储存用户名,一个储存密码
-# 将此法引用到 Project - User login
-# M_passbook.py
+"""
+密码本V1 - 两个文件: 一个储存用户名,一个储存密码
+将此法引用到 Project - User login
+M_passbook.py
 
-# 更新密码本 函数化
+更新密码本 函数化
+"""
 
 def update_passbook():
     with open("USER.txt", "a") as f_obj:

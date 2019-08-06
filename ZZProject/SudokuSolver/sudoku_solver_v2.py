@@ -1,8 +1,10 @@
-# This is to build a solver for any valid sudoku quiz
-# This should be setup as a OOP method.
+"""
+This is to build a solver for any valid sudoku quiz
+This should be setup as a OOP method.
 
-# question from https://www.websudoku.com/
-# It also allows to verify answer
+question from https://www.websudoku.com/
+It also allows to verify answer
+"""
 
 
 

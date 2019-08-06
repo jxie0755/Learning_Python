@@ -1,11 +1,13 @@
-# From MIT 6.00.1X week 2
+"""
+From MIT 6.00.1X week 2
 
-# Move a pile of disks from A to B
-# bigger disk must under smaller disk
+Move a pile of disks from A to B
+bigger disk must under smaller disk
 
-# Recursive thinking:
-# if move a stack of n disks, what is the solution for small stack?
-# move a slightly smaller stack to the spare, move the bottom to target place, then move the stack to the target
+Recursive thinking:
+if move a stack of n disks, what is the solution for small stack?
+move a slightly smaller stack to the spare, move the bottom to target place, then move the stack to the target
+"""
 
 
 def printMove(A="A", B="B"):

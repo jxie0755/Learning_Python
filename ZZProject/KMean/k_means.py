@@ -1,9 +1,11 @@
-# This is from CS61a project maps
-# k-means is used to calculate the centroids of a group of coordinates
-# reference: http://tech.nitoyon.com/en/blog/2013/11/07/k-means/
+"""
+This is from CS61a project maps
+k-means is used to calculate the centroids of a group of coordinates
+reference: http://tech.nitoyon.com/en/blog/2013/11/07/k-means/
 
+If given a list of coordinates, and k number of centroids, how to find out the coordinates of the centorids?
+"""
 
-# If given a list of coordinates, and k number of centroids, how to find out the coordinates of the centorids?
 import random
 from math import sqrt
 

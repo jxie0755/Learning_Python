@@ -1,5 +1,7 @@
-# This is to solve the Eight Queens problem in Chess
-# TO security set 8 queens in a chess checkerboard where no queen can directly attack the other queens.
+"""
+This is to solve the Eight Queens problem in Chess
+TO security set 8 queens in a chess checkerboard where no queen can directly attack the other queens.
+"""
 
 from copy import deepcopy
 

@@ -1,5 +1,7 @@
-# Based on V2:
-# Target: Create error message if type wrong
+"""
+Based on V2:
+Target: Create error message if type wrong
+"""
 
 # Menu list
 base_list = {"thin": 7.99, "regular": 8.99, "pan": 9.99, "stuffed": 10.99}
@@ -24,7 +26,7 @@ for base, baseprice in base_list.items():
 while True:
     base_input = str(input("please choose a base for your pizza:"))
     if base_input not in base_list.keys():
-        print("Sorry, we don\"t have that')
+        print("Sorry, we don't have that")
         continue
     else:
         base_order.append(base_input)
@@ -38,7 +40,7 @@ for cheese, cheeseprice in cheese_list.items():
 while True:
     cheese_input = str(input("please choose the cheese for your pizza:"))
     if cheese_input not in cheese_list.keys():
-        print("Sorry, we don\"t have that')
+        print("Sorry, we don't have that")
         continue
     else:
         cheese_order.append(cheese_input)
@@ -60,7 +62,7 @@ while len(meat_order) < max_length_list:
     if meat_choice == "done":
         break
     elif meat_choice not in meat_list.keys():
-        print("Sorry, we don\"t have that')
+        print("Sorry, we don't have that")
         continue
     else:
         meat_order.append(meat_choice)
@@ -83,7 +85,7 @@ while len(vegi_order) < max_length_list:
     if vegi_choice == "done":
         break
     elif vegi_choice not in vegi_list.keys():
-        print("Sorry, we don\"t have that')
+        print("Sorry, we don't have that")
         continue
     else:
         vegi_order.append(vegi_choice)

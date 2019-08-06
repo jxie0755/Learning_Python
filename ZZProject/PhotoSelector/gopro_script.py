@@ -1,12 +1,14 @@
-# This is a script to quickly process the time-lapse photo taken by go pro Hero 7 Black
-# The maximum time between two shots is every 60s.
-# Therefore, everyday it will take 24*60 = 1440 photos
-# If the project goes on for more than 1 week, it will generate a lot of photos
-# Maybe too many for a < 1 min / 30 sec / 10 sec short video.
+"""
+This is a script to quickly process the time-lapse photo taken by go pro Hero 7 Black
+The maximum time between two shots is every 60s.
+Therefore, everyday it will take 24*60 = 1440 photos
+If the project goes on for more than 1 week, it will generate a lot of photos
+Maybe too many for a < 1 min / 30 sec / 10 sec short video.
 
-# This scripts helps to evenly copy the photo by every X photos from source folder to destination
-    # X will be determined by the total number of photo N and target video time T (sec):
-    # Therefore X = N // (T * 24 frame/s)
+This scripts helps to evenly copy the photo by every X photos from source folder to destination
+    X will be determined by the total number of photo N and target video time T (sec):
+    Therefore X = N // (T * 24 frame/s)
+"""
 
 
 import os

@@ -1,5 +1,8 @@
-# 此代码为a byte of python 中增强版，附加1-100提示(使用continue)，和22，24错误导致break引用
-# Guess a number
+"""
+此代码为a byte of python 中增强版，附加1-100提示(使用continue)，和22，24错误导致break引用
+Guess a number
+"""
+
 number = 23
 running = True
 
@@ -13,10 +16,10 @@ while running:
         print("Please pick a number between 1-100")
         continue
     if guess == 24:
-        print("Boom!! It\"s very close, but your chance is over!')
+        print("Boom!! It's very close, but your chance is over!")
         break
     if guess == 22:
-        print("Boom!! It\"s very close, but your chance is over!')
+        print("Boom!! It's very close, but your chance is over!")
         break
     if guess > 23:
         print("It is lower than that")

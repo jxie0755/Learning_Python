@@ -1,7 +1,9 @@
-# This is to write to logic for the game flow
+"""This is to write to logic for the game flow"""
+
+import itertools
 
 from connect_n_logic import *
-import itertools
+
 
 # python3 -i connect_n_game.py
 

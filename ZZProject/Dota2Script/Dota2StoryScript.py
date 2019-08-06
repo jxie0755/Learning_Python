@@ -20,19 +20,19 @@ class Hero:
         print("{} was the last one standing.".format(self.name))
 
     def start_fight(self):
-        print("{}: "战局为我主导。胜利已在囊中！一切十拿九稳！"".format(self.name) )
+        print("{}: '战局为我主导。胜利已在囊中！一切十拿九稳！'".format(self.name) )
 
     def kill(self):
-        print("{}: "呵呵,这连友谊赛都算不上."".format(self.name))
+        print("{}: '呵呵,这连友谊赛都算不上.'".format(self.name))
 
     def death_claim_TA(self):
-        print("{}: "My life for Aiur!!"".format(self.name))
+        print("{}: 'My life for Aiur!!'".format(self.name))
 
     def death_claim_Axe(self):
-        print("{}: "斧,斧,斧,斧王不能再斩杀了吗....."".format(self.name))
+        print("{}: '斧,斧,斧,斧王不能再斩杀了吗.....'".format(self.name))
 
     def death_claim_Legion(self):
-        print("{}: "我...绝不投降......"".format(self.name))
+        print("{}: '我...绝不投降......'".format(self.name))
 
     @classmethod
     def how_many(cls):

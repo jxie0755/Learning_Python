@@ -1,4 +1,4 @@
-### Classical Union find data structure
+"""Classical Union find data structure"""
 
 class UnionFind(object):
 

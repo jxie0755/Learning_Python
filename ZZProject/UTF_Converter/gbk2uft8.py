@@ -1,6 +1,9 @@
-import os
-import chardet
+"""This is to conver all script in GBK coding to UTF-8"""
+
 import codecs
+import os
+
+import chardet
 
 
 def WriteFile(filePath, u, encoding=e):

@@ -1,6 +1,5 @@
-# 创立一个用户登录系统,按照用户名创立文件,并记录登录时间
+"""创立一个用户登录系统,按照用户名创立文件,并记录登录时间"""
 
-import json
 import time
 # 创立一个记录时间的变量
 log_in_time = time.strftime("%Y%m%d_%H:%M:%S")

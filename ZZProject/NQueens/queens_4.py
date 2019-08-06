@@ -1,7 +1,9 @@
-# This is a size down from eight queens just to check the algorithym with lower calculation amount
+"""
+This is a size down from eight queens just to check the algorithym with lower calculation amount
 
-# This is to solve the Eight Queens problem in Chess
-# TO security set 8 queens in a chess checkerboard where no queen can directly attack the other queens.
+This is to solve the Eight Queens problem in Chess
+TO security set 8 queens in a chess checkerboard where no queen can directly attack the other queens.
+"""
 
 
 class Chessboard(object):

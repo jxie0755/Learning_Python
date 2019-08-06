@@ -1,8 +1,9 @@
-# This is to solve the Eight Queens problem in Chess
-# TO security set 8 queens in a chess checkerboard where no queen can directly attack the other queens.
-# The previous version did not solve the n queen when n >= 7, as the imperfect recursion reaches to maximum recursion depth
-# This method is basically the same as the v2, except the queen_solve() is modified to a normal iteration method.
-
+"""
+This is to solve the Eight Queens problem in Chess
+TO security set 8 queens in a chess checkerboard where no queen can directly attack the other queens.
+The previous version did not solve the n queen when n >= 7, as the imperfect recursion reaches to maximum recursion depth
+This method is basically the same as the v2, except the queen_solve() is modified to a normal iteration method.
+"""
 from copy import deepcopy
 
 class Chessboard(object):

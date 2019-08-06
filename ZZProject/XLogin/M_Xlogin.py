@@ -1,11 +1,18 @@
-# 创立一个用户登录系统,按照用户名创立文件,并记录登录时间
-# 改进部分: 增加一个密码的输入和核对程序
-# 密码本改进!!!! 独立用户名和密码本 方法见: password book idea
-# 保存为M_Xlogin.py
+"""
+创立一个用户登录系统,按照用户名创立文件,并记录登录时间
+改进部分: 增加一个密码的输入和核对程序
+密码本改进!!!! 独立用户名和密码本 方法见: password book idea
+保存为M_Xlogin.py
 
-# 创建login 函数化
+创建login 函数化
+"""
+
+
 import time
+
 import M_passbook
+
+
 def Xlogin():
 
     log_in_time = time.strftime("%Y%m%d_%H:%M:%S")

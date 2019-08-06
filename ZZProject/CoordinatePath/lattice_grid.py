@@ -1,6 +1,8 @@
-# This is code snippet developed from ProjectEuler P015
-# https://projecteuler.net/problem=15
-# See details in ProjectEuler/p015_lattice_paths.py
+"""
+This is code snippet developed from ProjectEuler P015
+https://projecteuler.net/problem=15
+See details in ProjectEuler/p015_lattice_paths.py
+"""
 
 
 from itertools import permutations

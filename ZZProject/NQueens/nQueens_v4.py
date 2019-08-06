@@ -1,5 +1,7 @@
-# This is to solve the Eight Queens problem in Chess
-# Update from V3, simplify the col_coor and cross_coor_1 and cross_coor_2 for moving one direction.
+"""
+This is to solve the Eight Queens problem in Chess
+Update from V3, simplify the col_coor and cross_coor_1 and cross_coor_2 for moving one direction.
+"""
 
 
 from copy import deepcopy

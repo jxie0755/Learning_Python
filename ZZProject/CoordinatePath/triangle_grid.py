@@ -1,20 +1,22 @@
-# This is code snippet developed from ProjectEuler P015
-# https://projecteuler.net/problem=18
-# See details in ProjectEuler/p015_lattice_paths.py
+"""
+This is code snippet developed from ProjectEuler P015
+https://projecteuler.net/problem=18
+See details in ProjectEuler/p015_lattice_paths.py
 
-# A typical triangluler grid
-#    1
-#   1 2
-#  1 2 3
-# 1 2 3 4
+A typical triangluler grid
+   1
+  1 2
+ 1 2 3
+1 2 3 4
 
-# in the data structure:
-# grid = [
-#     [1],
-#     [1,2]
-#     [1,2,3]
-#     [1,2,3,4]
-# ]
+in the data structure:
+grid = [
+    [1],
+    [1,2]
+    [1,2,3]
+    [1,2,3,4]
+]
+"""
 
 
 # Brutal force

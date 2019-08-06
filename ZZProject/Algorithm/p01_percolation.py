@@ -1,5 +1,7 @@
-# Give a matrix of values @ m * n, in two status, pass or block (1 and 0)
-# Determine if there is a open path that could go from the top to bottom
+"""
+Give a matrix of values @ m * n, in two status, pass or block (1 and 0)
+Determine if there is a open path that could go from the top to bottom
+"""
 
 class Percolation:
 

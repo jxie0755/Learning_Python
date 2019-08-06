@@ -1,5 +1,7 @@
-# Based on V1
-# Target: calculate the final price
+"""
+Based on V1
+Target: calculate the final price
+"""
 
 # Menu list
 base_list = {"thin": 7.99, "regular": 8.99, "pan": 9.99, "stuffed": 10.99}
