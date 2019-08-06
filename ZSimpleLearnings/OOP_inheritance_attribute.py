@@ -1,4 +1,4 @@
-# Investigation on default parameter in OOP
+"""Investigation on default parameter in OOP"""
 
 # two types of default parameter:
 # 显性: D, 可以在创建实例时被更改

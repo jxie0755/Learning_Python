@@ -1,4 +1,4 @@
-# In learn_mod.py we define a variable and a functin to call this variable
+"""In learn_mod.py we define a variable and a functin to call this variable"""
 
 # var1 = 5
 # def fun1():

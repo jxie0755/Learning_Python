@@ -1,5 +1,7 @@
-# 用于优化代码重用
-# https://www.zhihu.com/question/26930016/answer/99243411
+"""
+用于优化代码重用
+https://www.zhihu.com/question/26930016/answer/99243411
+"""
 
 def sq(x):
     print(x**2)

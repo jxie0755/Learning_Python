@@ -1,4 +1,6 @@
-# http://www.cnblogs.com/Jerry-Chou/archive/2012/05/23/python-decorator-explain.html
+"""
+http://www.cnblogs.com/Jerry-Chou/archive/2012/05/23/python-decorator-explain.html
+"""
 
 
 # 问题起源
@@ -153,8 +155,8 @@ login()
 # enter the login
 # in login:
 # exit the login
-    
-    
+
+
 @printdebug    #switch decorator order
 @others
 def logout():

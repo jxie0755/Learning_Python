@@ -1,4 +1,4 @@
-# This is to learn the difference and relationship between class attributes and instance attributes
+"""This is to learn the difference and relationship between class attributes and instance attributes"""
 
 class foo(object):
     c = "class attribute"

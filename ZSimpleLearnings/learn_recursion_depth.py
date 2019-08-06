@@ -1,4 +1,4 @@
-# This is to learn the difference between a true recursion and a fake recursion
+"""This is to learn the difference between a true recursion and a fake recursion"""
 
 
 # Fake recursion

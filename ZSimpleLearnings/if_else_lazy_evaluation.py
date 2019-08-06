@@ -1,4 +1,4 @@
-# This is to learn the lazy evaluation effect of if/else condition in python
+"""This is to learn the lazy evaluation effect of if/else condition in python"""
 
 def lucky(n):
     if n < 7:      # if the condition is False, won't evaluate the rest prt

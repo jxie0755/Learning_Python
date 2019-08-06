@@ -1,5 +1,7 @@
-# This is to show the default value can be impacted if it is a mutable type (list, dict, etc)
-# STOF https://stackoverflow.com/q/48014503/8435726
+"""
+This is to show the default value can be impacted if it is a mutable type (list, dict, etc)
+STOF https://stackoverflow.com/q/48014503/8435726
+"""
 
 def f(x=[]):
     return x

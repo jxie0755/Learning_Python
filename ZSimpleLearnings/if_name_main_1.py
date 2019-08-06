@@ -1,6 +1,8 @@
-# when file_1 is imported by another file, all codes in file_1 will be run
-# so we make sure file_1 only contains definitions of class and functions, etc.
-# BUT sometimes, we write test codes or other codes in file_1, and we don't want them to run after imported to file_2.
+"""
+when file_1 is imported by another file, all codes in file_1 will be run
+so we make sure file_1 only contains definitions of class and functions, etc.
+BUT sometimes, we write test codes or other codes in file_1, and we don't want them to run after imported to file_2.
+"""
 
 def f(x):
     return x**2

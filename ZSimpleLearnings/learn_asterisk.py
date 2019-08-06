@@ -1,6 +1,8 @@
-# Asterisk is used different in def statement and actual code application.
-# in def statement, it allows function to carry multiple arguments
-# in code application, it force to unpack the iterable variables
+"""
+Asterisk is used different in def statement and actual code application.
+in def statement, it allows function to carry multiple arguments
+in code application, it force to unpack the iterable variables
+"""
 
 def asterisk(*args): # this allows carry multiple arguments
     print(*args)  # this does not pack args into a single items

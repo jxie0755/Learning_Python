@@ -1,4 +1,5 @@
-# http://liuchunming033.github.io/posts/2016/06/13/python-doctest.html
+"""http://liuchunming033.github.io/posts/2016/06/13/python-doctest.html"""
+
 
 # Python has a great way to quickly write tests for your code. These are called doctests, and look like this:
 

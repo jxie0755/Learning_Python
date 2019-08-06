@@ -1,5 +1,7 @@
-# List comprehension vs Straightforward for loop
-# STOF https://stackoverflow.com/q/27905965/8435726
+"""
+List comprehension vs Straightforward for loop
+STOF https://stackoverflow.com/q/27905965/8435726
+"""
 
 def lcm(X):
     n = 0

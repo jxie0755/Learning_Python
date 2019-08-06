@@ -1,4 +1,4 @@
-# this is to learn how import command will work differently
+"""this is to learn how import command will work differently"""
 
 print("this is global, will be seen even if selective import")
 

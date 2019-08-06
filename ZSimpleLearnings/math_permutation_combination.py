@@ -1,4 +1,4 @@
-# This is just to math calculate the P(X,Y) and C(X, Y) instead of showing all the possible arrangment
+"""This is just to math calculate the P(X,Y) and C(X, Y) instead of showing all the possible arrangment"""
 
 # P(X, Y) = X! / X-Y!
 # C(X, Y) = X! / Y!

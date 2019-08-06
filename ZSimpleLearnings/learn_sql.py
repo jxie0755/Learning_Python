@@ -1,6 +1,7 @@
-# 简略学习SQL知识, 基于廖雪峰SQL简单教程
-# https://www.liaoxuefeng.com/wiki/1177760294764384
-
+"""
+简略学习SQL知识, 基于廖雪峰SQL简单教程
+https://www.liaoxuefeng.com/wiki/1177760294764384
+"""
 
 
 # 么是SQL？
