@@ -1,4 +1,4 @@
-# Learn Binary search
+"""Learn Binary search"""
 
 
 # 二分法的错误方式 (移动中值)

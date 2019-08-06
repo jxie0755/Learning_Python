@@ -1,9 +1,11 @@
-# This is an extension of learning from CS61A, tree recursion
-# tree_recursion_tree.py summarized all the tree functions.
-# This is to convert functional setup in tree_recursion_tree.py into a full Tree class which contains all the methods within.
+"""
+This is an extension of learning from CS61A, tree recursion
+tree_recursion_tree.py summarized all the tree functions.
+This is to convert functional setup in tree_recursion_tree.py into a full Tree class which contains all the methods within.
 
-# Use by:
-# from ZCodeSnippets.tree_class import Tree
+Use by:
+from ZCodeSnippets.tree_class import Tree
+"""
 
 from class_link import Link
 
