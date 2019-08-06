@@ -1,5 +1,7 @@
-# From ProjectEuler P001
-# https://projecteuler.net/problem=11
+"""
+From ProjectEuler P001
+https://projecteuler.net/problem=11
+"""
 
 
 def gen_diagonal_search_topleft_bottomright(n, grid):

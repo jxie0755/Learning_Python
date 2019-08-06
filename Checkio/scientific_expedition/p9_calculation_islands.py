@@ -1,5 +1,7 @@
-# Input: A map as a list of lists with 1 or 0.
-# Output: The sizes of island as a list of integers.
+"""
+Input: A map as a list of lists with 1 or 0.
+Output: The sizes of island as a list of integers.
+"""
 
 def checkio(land_map):
     return [1]

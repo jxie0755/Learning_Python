@@ -1,5 +1,7 @@
-# Calculation of pi
-# http://composingprograms.com/pages/16-higher-order-functions.html
+"""
+Calculation of pi
+http://composingprograms.com/pages/16-higher-order-functions.html
+"""
 
 # accumulating 8/(1*3) + 8/(5*7) + 8/(9*11).......
 # which converges to pi very slowly.

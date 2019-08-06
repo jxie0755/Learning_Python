@@ -1,9 +1,11 @@
-# https://py.checkio.org/mission/rotate-hole/solve/
+"""
+https://py.checkio.org/mission/rotate-hole/solve/
 
-# Input: Two arguments.
-# A initial state as a list with 1 and/or 0
-# Pipe numbers for cannonballs as a list of integers
-# Output: The rotating variants as a list of integers or an empty list.
+Input: Two arguments.
+A initial state as a list with 1 and/or 0
+Pipe numbers for cannonballs as a list of integers
+Output: The rotating variants as a list of integers or an empty list.
+"""
 
 def rotate(state, pipe_numbers):
     result = []

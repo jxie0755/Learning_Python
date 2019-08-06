@@ -1,6 +1,7 @@
-# CS61A Lecture 27 Interpreters
-# https://www.youtube.com/watch?v=1hGO8KOELQk&list=PL6BsET-8jgYWkNhlFFR3S-110mYMrIBsM&vq=hd1080
-
+"""
+CS61A Lecture 27 Interpreters
+https://www.youtube.com/watch?v=1hGO8KOELQk&list=PL6BsET-8jgYWkNhlFFR3S-110mYMrIBsM&vq=hd1080
+"""
 
 # Structure of the interpreter
 # Use eval()

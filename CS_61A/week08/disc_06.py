@@ -1,4 +1,4 @@
-# CS61A Discussion 06: Order of Growth and Linked list
+"""CS61A Discussion 06: Order of Growth and Linked list"""
 
 from lecture_19_composition import Link
 

@@ -1,4 +1,4 @@
-# CS61A Lecture 18 Growth
+"""CS61A Lecture 18 Growth"""
 
 
 def fib(n):

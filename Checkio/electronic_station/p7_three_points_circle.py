@@ -1,13 +1,14 @@
-# Through any three points that do not exist on the same line, there lies a unique circle. The points of this circle are represented in a string with the coordinates like so: "(x1,y1),(x2,y2),(x3,y3)"
+"""
+Through any three points that do not exist on the same line, there lies a unique circle. The points of this circle are represented in a string with the coordinates like so: "(x1,y1),(x2,y2),(x3,y3)"
 
-# You should find the circle for three given points, such that the circle lies through these point and return the result as a string with the equation of the circle.
+You should find the circle for three given points, such that the circle lies through these point and return the result as a string with the equation of the circle.
 
-# the circle with central coordinates of (x0,y0) and radius of r can be described with the following equation:
-# "(x-x0)^2+(y-y0)^2=r^2"
+the circle with central coordinates of (x0,y0) and radius of r can be described with the following equation:
+"(x-x0)^2+(y-y0)^2=r^2"
 
-# Input: Coordinates as a string..
-# Output: The equation of the circle as a string.
-
+Input: Coordinates as a string..
+Output: The equation of the circle as a string.
+"""
 
 import math
 def checkio(data):

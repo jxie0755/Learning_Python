@@ -1,16 +1,18 @@
-# P021 Amicable numbers
+"""
+P021 Amicable numbers
 
 
-# Let d(n) be defined as the sum of proper divisors of n (numbers less than n which divide evenly into n).
-# If d(a) = b and d(b) = a, where a â‰  b, then a and b are an amicable pair and each of a and b are called amicable numbers.
+Let d(n) be defined as the sum of proper divisors of n (numbers less than n which divide evenly into n).
+If d(a) = b and d(b) = a, where a â‰  b, then a and b are an amicable pair and each of a and b are called amicable numbers.
 
-# For example, the proper divisors of 220 are 1, 2, 4, 5, 10, 11, 20, 22, 44, 55 and 110; therefore d(220) = 284. The proper divisors of 284 are 1, 2, 4, 71 and 142; so d(284) = 220.
+For example, the proper divisors of 220 are 1, 2, 4, 5, 10, 11, 20, 22, 44, 55 and 110; therefore d(220) = 284. The proper divisors of 284 are 1, 2, 4, 71 and 142; so d(284) = 220.
 
-# Evaluate the sum of all the amicable numbers under 10000.
+Evaluate the sum of all the amicable numbers under 10000.
+"""
 
 def sum_amicable(limit):
     """return the sum of amicable numbers under a limit"""
-    
+
     def find_amicable_pair(n):
         check_n= 0
         potential_half = 0
@@ -23,16 +25,16 @@ def sum_amicable(limit):
         if check_n == n and n != potential_half:  # exclude self amicable
             result.append(n)
             result.append(potential_half)
-    
+
     result = []
     for num in range(1, limit):
         if num not in result:
             find_amicable_pair(num)
     return sum(result)
-    
+
 if __name__ == "__main__":
     print(sum_amicable(10000))
     # >>> 31626
     # passed
-    
-        
+
+

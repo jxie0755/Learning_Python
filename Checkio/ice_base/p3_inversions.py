@@ -1,9 +1,10 @@
-# Check out this example sequence: (1, 2, 5, 3, 4, 7, 6)
-# we can see here three inversions: (5,3),(5,4),(7,6)
+"""
+Check out this example sequence: (1, 2, 5, 3, 4, 7, 6)
+we can see here three inversions: (5,3),(5,4),(7,6)
 
-# Input: A sequence as a tuple of integers.
-# Output: The inversion number as an integer.
-
+Input: A sequence as a tuple of integers.
+Output: The inversion number as an integer.
+"""
 
 import itertools
 def count_inversion(sequence):

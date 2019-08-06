@@ -1,9 +1,11 @@
-# Sequoia's notes - Variable practice
+"""
+Sequoia's notes - Variable practice
 
-# Cross out the values below that cause an error when you type them into the Python interpreter.
-# For values that don't cause an error:
-# 1. Write what it evaluates to.
-# 2. Label it an int, float, str, or bool.
+Cross out the values below that cause an error when you type them into the Python interpreter.
+For values that don't cause an error:
+1. Write what it evaluates to.
+2. Label it an int, float, str, or bool.
+"""
 
 print(.1)
 print("one")
@@ -19,9 +21,9 @@ print(2*"hi")
 print("C"+"S")
 print(2**6)
 print(9%7)
-print("Say "Hi!"")
-print("Say "Bye!"")
-print("The letter "H"")
+print("Say 'Hi!'")
+print("Say 'Bye!'")
+print("The letter 'H'")
 # print("The letter "H"")
 
 
@@ -61,7 +63,7 @@ print(shape)   # >>> 7.14
 
 print()
 c = "C"
-"c = "twelve""
+"c = 'twelve'"
 s = "S"
 c, c = s, s = c + s, s + str(True)
 print(c)  # >>> "STrue"

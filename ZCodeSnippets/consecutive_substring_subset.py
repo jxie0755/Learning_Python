@@ -1,6 +1,8 @@
-# a series of fucntions to obtain consecutive substring or subset, work on both types (iterable)
-# different ways to get substrings from a long string
-# all brutal force methods: O(n^2), more specifically: O(1/2*n^2 + 1/2*n)
+"""
+a series of fucntions to obtain consecutive substring or subset, work on both types (iterable)
+different ways to get substrings from a long string
+all brutal force methods: O(n^2), more specifically: O(1/2*n^2 + 1/2*n)
+"""
 
 
 # from short to long

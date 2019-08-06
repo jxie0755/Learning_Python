@@ -1,9 +1,11 @@
-# The array (a tuple) has various numbers.
-# You should sort it,
-# but sort it by absolute value in ascending order.
+"""
+The array (a tuple) has various numbers.
+You should sort it,
+but sort it by absolute value in ascending order.
 
-# Input: An array of numbers , a tuple..
-# Output: The list or tuple (but not a generator) sorted by absolute values in ascending order.
+Input: An array of numbers , a tuple..
+Output: The list or tuple (but not a generator) sorted by absolute values in ascending order.
+"""
 
 def checkio(numbers_array):
     return sorted(numbers_array, key=abs)
@@ -17,4 +19,4 @@ if __name__ == "__main__":
     assert check_it(checkio((-20, -5, 10, 15))) == [-5, 10, 15, -20], "Example"  # or (-5, 10, 15, -20)
     assert check_it(checkio((1, 2, 3, 0))) == [0, 1, 2, 3], "Positive numbers"
     assert check_it(checkio((-1, -2, -3, 0))) == [0, -1, -2, -3], "Negative numbers"
-    print("Coding complete? Click "Check" to review your tests and earn cool rewards!")
+    print("Coding complete? Click 'Check' to review your tests and earn cool rewards!")

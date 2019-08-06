@@ -1,5 +1,7 @@
-# remove repeating items in a list
-# 去除list中的重复元素
+"""
+remove repeating items in a list
+去除list中的重复元素
+"""
 
 # sorted()函数,使用key,维持原来的顺序,a.index
 def remove_repeating(L):

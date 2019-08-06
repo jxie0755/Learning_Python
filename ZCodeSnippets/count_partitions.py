@@ -1,4 +1,4 @@
-# http://composingprograms.com/pages/17-recursive-functions.html#example-partitions
+"""http://composingprograms.com/pages/17-recursive-functions.html#example-partitions"""
 
 # 递归法
 def count_partitions(n, m):
@@ -35,4 +35,3 @@ def count_partitions_modified(n, m):
         return 0
     else:
         return count_partitions_modified(n-m, m) + count_partitions_modified(n, m//2)
-        

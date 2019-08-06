@@ -1,4 +1,4 @@
-# CS61A Lecture 03: Control
+"""CS61A Lecture 03: Control"""
 
 
 # Print

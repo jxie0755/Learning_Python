@@ -1,4 +1,4 @@
-# CS61A Lecture 25 Exceptions
+"""CS61A Lecture 25 Exceptions"""
 
 
 
@@ -37,7 +37,7 @@ def invert_safe(x):
     except ZeroDivisionError as e:
         return str(e)
 
-from operator import add, mul, truediv
+from operator import mul, truediv
 def reduce(f, s, initial):
     """Combine elements of s pairwise using f, starting with initial.
 

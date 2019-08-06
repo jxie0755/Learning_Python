@@ -1,5 +1,4 @@
-# CS61A Lecture 20 Ordered Set
-
+"""CS61A Lecture 20 Ordered Set"""
 
 # Linked lists
 

@@ -1,4 +1,4 @@
-# CS61A Lecture 17 Representation
+"""CS61A Lecture 17 Representation"""
 
 
 def str_repr_demos():

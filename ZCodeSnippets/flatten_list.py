@@ -1,5 +1,7 @@
-# This is a useful function from Checkio/mine/p5_flatten_a_list.py
-# Function is to flatten a list that contains list, and nested to unlimited levels.
+"""
+This is a useful function from Checkio/mine/p5_flatten_a_list.py
+Function is to flatten a list that contains list, and nested to unlimited levels.
+"""
 
 def flat_list(nested_list):
     flattened_list = []

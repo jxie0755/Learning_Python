@@ -1,5 +1,8 @@
-# rotate the data array
-# can also solve by using collection.deque, by using the .rotate() method
+"""
+rotate the data array
+can also solve by using collection.deque, by using the .rotate() method
+"""
+
 def array_rotate_EH(lst, n):
     """rotate the list elements, from End to Head"""
     for i in range(n):
@@ -36,7 +39,7 @@ if __name__ == "__main__":
     # [3, 0, 1, 2]
     # [0, 1, 2, 3]
     print()
-    
+
 
 
 # The best method that gives flexibility by using slice
@@ -49,7 +52,7 @@ def array_rotate(lst, n):
         for i in range(abs(n)):
             lst = lst[1:] + lst[0:1]
     return lst
-    
+
 
 if __name__ == "__main__":
     print(array_rotate([0,1,2,3], 1))

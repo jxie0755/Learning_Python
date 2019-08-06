@@ -1,5 +1,7 @@
-# This is to modify the print function of Tree class so that veritcal tree is printed.
-# Beautiful vertical tree
+"""
+This is to modify the print function of Tree class so that veritcal tree is printed.
+Beautiful vertical tree
+"""
 
 from io import StringIO
 

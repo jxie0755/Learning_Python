@@ -1,5 +1,7 @@
-# Write list/tuple and write back (as List).
-# 函数化
+"""
+Write list/tuple and write back (as List).
+函数化
+"""
 
 # 写入list/tupple到txt文件
 def write_data_txt(filename, raw_data):

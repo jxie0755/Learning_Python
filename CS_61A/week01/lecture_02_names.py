@@ -1,4 +1,4 @@
-# CS61A Lecture 02: Names
+"""CS61A Lecture 02: Names"""
 
 
 # Imports

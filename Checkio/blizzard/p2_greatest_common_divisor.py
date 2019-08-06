@@ -1,7 +1,9 @@
-# You are given an arbitrary number of positive integers.
-# You should find the greatest common divisor for these numbers.
-# Input: An arbitrary number of positive integers.
-# Output: The greatest common divisor as an integer.
+"""
+You are given an arbitrary number of positive integers.
+You should find the greatest common divisor for these numbers.
+Input: An arbitrary number of positive integers.
+Output: The greatest common divisor as an integer.
+"""
 
 
 # The iteration algorithm (reverse the check sequence to stop after find the first one)

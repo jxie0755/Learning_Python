@@ -1,4 +1,4 @@
-# CS61A Lecture 04: Higher-Order Functions
+"""CS61A Lecture 04: Higher-Order Functions"""
 
 # DRY principle (Don't repeat yourself)
 

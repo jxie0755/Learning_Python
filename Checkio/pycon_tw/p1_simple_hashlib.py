@@ -1,5 +1,7 @@
-# Input: Two arguments. A string to be hashed and a hash algorithm as a string (unicode utf8).
-# Output: Hexadecimal hash for for input string using given algorithm as a string.
+"""
+Input: Two arguments. A string to be hashed and a hash algorithm as a string (unicode utf8).
+Output: Hexadecimal hash for for input string using given algorithm as a string.
+"""
 
 import hashlib
 

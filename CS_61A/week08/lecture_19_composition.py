@@ -1,4 +1,4 @@
-# CS61A Lecture 19 Composition
+"""CS61A Lecture 19 Composition"""
 
 
 # Linked list

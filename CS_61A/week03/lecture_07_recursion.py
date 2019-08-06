@@ -1,4 +1,4 @@
-# CS61A Lecture 07 Recursion
+"""CS61A Lecture 07 Recursion"""
 
 import sys
 from math import sqrt

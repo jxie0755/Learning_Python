@@ -1,4 +1,4 @@
-# this is to learn different ways of creating fibonacci number/list
+"""this is to learn different ways of creating fibonacci number/list"""
 
 # if only need to get one number
 # recursive way (recursion)

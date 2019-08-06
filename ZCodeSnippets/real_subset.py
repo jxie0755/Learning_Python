@@ -1,5 +1,7 @@
-# Exponential complexity, most expensive type, O(2^n)
-# A function that could be exponential (Tower of Hanoi) is typically a function that more than one recursive call.
+"""
+Exponential complexity, most expensive type, O(2^n)
+A function that could be exponential (Tower of Hanoi) is typically a function that more than one recursive call.
+"""
 
 def genSubset(L):
     """L as a list"""

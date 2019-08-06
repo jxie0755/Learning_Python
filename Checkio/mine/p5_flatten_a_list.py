@@ -1,6 +1,8 @@
-# your code should be shorter than 140 characters (with whitespaces).
-# Input data: A nested list with integers.
-# Output data: The one-dimensional list with integers.
+"""
+your code should be shorter than 140 characters (with whitespaces).
+Input data: A nested list with integers.
+Output data: The one-dimensional list with integers.
+"""
 
 def flat_list(a):
     t = []

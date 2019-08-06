@@ -1,4 +1,4 @@
-# CS61A Lecture 14 Mutable Functions
+"""CS61A Lecture 14 Mutable Functions"""
 
 def make_withdraw(balance):
     """Return a withdraw function with a starting balance."""

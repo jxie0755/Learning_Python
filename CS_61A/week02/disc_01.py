@@ -1,4 +1,4 @@
-# CS61A Discussion 01: Control & Environments
+"""CS61A Discussion 01: Control & Environments"""
 
 
 def wears_jacket(temp, raining):

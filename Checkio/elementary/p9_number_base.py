@@ -1,11 +1,13 @@
-# You are given a positive number as a string along with the radix for it.
-# Your function should convert it into decimal form.
-# The radix is less than 37 and greater than 1.
-# The task uses digits and the letters A-Z for the strings.
-# 将其它进制转换为十进制
+"""
+You are given a positive number as a string along with the radix for it.
+Your function should convert it into decimal form.
+The radix is less than 37 and greater than 1.
+The task uses digits and the letters A-Z for the strings.
+将其它进制转换为十进制
 
-# Input: Two arguments. A number as string and a radix as an integer.
-# Output: The converted number as an integer.
+Input: Two arguments. A number as string and a radix as an integer.
+Output: The converted number as an integer.
+"""
 
 def checkio(str_number, radix):
     import string
@@ -26,7 +28,7 @@ if __name__ == "__main__":
     assert checkio("101", 5) == 26, "5 base"
     assert checkio("Z", 36) == 35, "Z base"
     assert checkio("AB", 10) == -1, "B > A = 10"
-    print("Coding complete? Click "Check" to review your tests and earn cool rewards!")
+    print("Coding complete? Click 'Check' to review your tests and earn cool rewards!")
 
 # Other solutions
 def checkio(str_number, radix):

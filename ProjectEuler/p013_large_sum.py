@@ -1,7 +1,9 @@
-# PE013 Large sum
+"""
+PE013 Large sum
 
+Work out the first ten digits of the sum of the following one-hundred 50-digit numbers in pe0013_data.txt
+"""
 
-# Work out the first ten digits of the sum of the following one-hundred 50-digit numbers in pe0013_data.txt
 
 def first_ten_digits(data):
     """returns the first ten digits of the sum of big numbers

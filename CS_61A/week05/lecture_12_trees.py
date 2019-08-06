@@ -1,4 +1,4 @@
-# CS61A Lecture 12 Trees
+"""CS61A Lecture 12 Trees"""
 
 # Slicing
 odds = [3, 5, 7, 9, 11]

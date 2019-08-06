@@ -1,7 +1,9 @@
-# Let's continue examining words. You are given two string with words separated by commas. Try to find what is common between these strings. The words are not repeated in the same string.
+"""
+Let's continue examining words. You are given two string with words separated by commas. Try to find what is common between these strings. The words are not repeated in the same string.
 
-# Input: Two arguments as strings.
-# Output: The common words as a string.
+Input: Two arguments as strings.
+Output: The common words as a string.
+"""
 
 def checkio(first, second):
     F = first.split(",")

@@ -1,5 +1,8 @@
-# Computer date and time format consists only of numbers, for example: 21.05.2018 16:30
-# Humans prefer to see something like this: 21 May 2018 year, 16 hours 30 minutes
+"""
+Computer date and time format consists only of numbers, for example: 21.05.2018 16:30
+Humans prefer to see something like this: 21 May 2018 year, 16 hours 30 minutes
+"""
+
 import datetime
 
 # NB: words "hour" and "minute" are used only when time is 01:mm (1 hour) or hh:01 (1 minute).
@@ -31,4 +34,4 @@ if __name__ == "__main__":
     assert date_time("01.01.2000 00:00") == "1 January 2000 year 0 hours 0 minutes", "Millenium"
     assert date_time("09.05.1945 06:30") == "9 May 1945 year 6 hours 30 minutes", "Victory"
     assert date_time("20.11.1990 03:55") == "20 November 1990 year 3 hours 55 minutes", "Somebody was born"
-    print("Coding complete? Click "Check" to earn cool rewards!")
+    print("Coding complete? Click 'Check' to earn cool rewards!")

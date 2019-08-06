@@ -1,5 +1,7 @@
-# Input: Start and end date as datetime.date.
-# Output: The quantity of the rest days as an integer.
+"""
+Input: Start and end date as datetime.date.
+Output: The quantity of the rest days as an integer.
+"""
 
 from datetime import date, timedelta
 

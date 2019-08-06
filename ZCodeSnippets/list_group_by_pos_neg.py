@@ -1,4 +1,6 @@
-# process a list to group contiguous positive and negative numbers in sums
+"""
+process a list to group contiguous positive and negative numbers in sums
+"""
 
 def group_pos_neg_list(nums):
     """

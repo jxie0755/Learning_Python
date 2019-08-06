@@ -1,7 +1,8 @@
-# You are given a roman number as a string and your job is to convert this number into its decimal representation.
-# Input: A roman number as a string.
-# Output: The decimal representation of the roman number as an int.
-
+"""
+You are given a roman number as a string and your job is to convert this number into its decimal representation.
+Input: A roman number as a string.
+Output: The decimal representation of the roman number as an int.
+"""
 
 # 注意这里面dictionary的order问题!!!
 

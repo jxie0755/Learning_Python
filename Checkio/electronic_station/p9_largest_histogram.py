@@ -1,7 +1,9 @@
-# You have a histogram. Try to find size of the biggest rectangle you can build out of the histogram bars.
+"""
+You have a histogram. Try to find size of the biggest rectangle you can build out of the histogram bars.
 
-# Input: List of all rectangles heights in histogram
-# Output: Area of the biggest rectangle
+Input: List of all rectangles heights in histogram
+Output: Area of the biggest rectangle
+"""
 
 
 def largest_histogram(histogram):

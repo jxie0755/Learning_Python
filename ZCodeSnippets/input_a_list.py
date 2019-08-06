@@ -1,4 +1,4 @@
-# Input a list
+"""Input a list"""
 
 # MAP creates iterator that will be consumed by a list() command.
 # Without the list() to save it, the iterator can only be used once.

@@ -1,9 +1,11 @@
-# The bird converts words by two rules:
-# - after each consonant letter the bird appends a random vowel letter (l ⇒ la or le);
-# - after each vowel letter the bird appends two of the same letter (a ⇒ aaa);
+"""
+The bird converts words by two rules:
+- after each consonant letter the bird appends a random vowel letter (l ⇒ la or le);
+- after each vowel letter the bird appends two of the same letter (a ⇒ aaa);
 
-# Input: A bird phrase as a string.
-# Output: The translation as a string.
+Input: A bird phrase as a string.
+Output: The translation as a string.
+"""
 
 VOWELS = "aeiouy"
 CONSONANTS = "bcdfghjklmnpqrstvwxz"

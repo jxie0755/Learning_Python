@@ -1,5 +1,7 @@
-# This is from ProjectEuler P026 (ProjectEuler.p026_reciprocal_cycles.py)
-# Optimized algorithm by using divide calculation, to obtain the repeating pattern.
+"""
+This is from ProjectEuler P026 (ProjectEuler.p026_reciprocal_cycles.py)
+Optimized algorithm by using divide calculation, to obtain the repeating pattern.
+"""
 
 def find_reciprocal(numerator, denominator):
     """find out the pattern of the reciprocal part when numerator / denominator

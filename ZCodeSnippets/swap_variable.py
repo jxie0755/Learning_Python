@@ -1,4 +1,5 @@
-# this is the code for switching the value of two variables without creating another variable
+"""this is the code for switching the value of two variables without creating another variable"""
+
 a = 5
 b = 7
 

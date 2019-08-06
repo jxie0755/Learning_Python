@@ -1,6 +1,8 @@
-# you should find a repeating sequence inside the substring
-# Input: String.
-# Output: String.
+"""
+you should find a repeating sequence inside the substring
+Input: String.
+Output: String.
+"""
 
 def repeat_inside(line):
     # write a function to tell whether the string is a repeating string
@@ -33,4 +35,4 @@ if __name__ == "__main__":
     assert repeat_inside("aababcc") == "abab", "Third"
     assert repeat_inside("abc") == "", "Forth"
     assert repeat_inside("abcabcabab") == "abcabc", "Fifth"
-    print(""Run" is good. How is "Check"?")
+    print(""Run" is good. How is 'Check'?")

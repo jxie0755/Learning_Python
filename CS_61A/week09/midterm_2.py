@@ -1,4 +1,4 @@
-# CS61A spring 2018 midterm exam 2
+"""CS61A spring 2018 midterm exam 2"""
 
 # Q1 Buggy Quidditch
 

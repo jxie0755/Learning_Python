@@ -1,11 +1,11 @@
-# https://py.checkio.org/mission/box-probability/
-# You are given a start set of pearls as a string that contains "b" (black) and "w" (white) and the number of the step (N).
-# The order of the pearls does not matter.
+"""
+https://py.checkio.org/mission/box-probability/
+You are given a start set of pearls as a string that contains "b" (black) and "w" (white) and the number of the step (N).
+The order of the pearls does not matter.
 
-# Input: The start sequence of the pearls as a string and the step number as an integer.
-# Output: The probability for a white pearl as a float.
-
-import itertools
+Input: The start sequence of the pearls as a string and the step number as an integer.
+Output: The probability for a white pearl as a float.
+"""
 
 
 def checkio(marbles, step):

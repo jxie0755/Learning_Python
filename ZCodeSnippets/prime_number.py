@@ -1,4 +1,4 @@
-# Different way to get prime numbers
+"""Different way to get prime numbers"""
 
 # Version 1
 def prime_list_original(n1, n2):

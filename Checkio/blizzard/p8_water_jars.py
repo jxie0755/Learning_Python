@@ -1,17 +1,19 @@
-# https://py.checkio.org/mission/water-jars/
+"""
+https://py.checkio.org/mission/water-jars/
 
-# Each action is described as a string of two symbols: from and to. The jars are marked as 1 and 2, the lake is marked 0. If you want to take water from the lake and fill first jar, then it's "01". To pour water from second jar into the first would be "21". Dump water out of the first jar and back into the lake would be "10". When you fill a jar from the lake, that jars volume will be full. When you pour water out a jar and into the lake, that jars volume will be empty. If you pour water from one jar to another, you can only pour as much as will fill the full volume of the receiving jar.
+Each action is described as a string of two symbols: from and to. The jars are marked as 1 and 2, the lake is marked 0. If you want to take water from the lake and fill first jar, then it's "01". To pour water from second jar into the first would be "21". Dump water out of the first jar and back into the lake would be "10". When you fill a jar from the lake, that jars volume will be full. When you pour water out a jar and into the lake, that jars volume will be empty. If you pour water from one jar to another, you can only pour as much as will fill the full volume of the receiving jar.
 
 
-# The function has three arguments: The volume of first jar, the volume of second jar and the goal. All arguments are positive integers (number > 0). You should return a list with action's sequence.
+The function has three arguments: The volume of first jar, the volume of second jar and the goal. All arguments are positive integers (number > 0). You should return a list with action's sequence.
 
-# The solution must contain the minimum possible number of steps
-# Input: The volume of first jar, the volume of second jar and the goal as integers.
+The solution must contain the minimum possible number of steps
+Input: The volume of first jar, the volume of second jar and the goal as integers.
 
-# 新思路:
-# 一个pair代表两个瓶子的水量,只要target in pair即可终止
-# 灌水倒水一共只有六种动作
-# 终结条件,重复出现两瓶子的水量
+新思路:
+一个pair代表两个瓶子的水量,只要target in pair即可终止
+灌水倒水一共只有六种动作
+终结条件,重复出现两瓶子的水量
+"""
 
 from copy import deepcopy
 

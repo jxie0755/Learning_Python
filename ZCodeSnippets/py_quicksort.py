@@ -1,4 +1,4 @@
-# This is to learn Quicksort in python from Algorithm Part 1 Lecture 06
+"""This is to learn Quicksort in python from Algorithm Part 1 Lecture 06"""
 
 
 import random

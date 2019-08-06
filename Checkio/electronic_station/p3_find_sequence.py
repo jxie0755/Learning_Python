@@ -1,11 +1,13 @@
-# You are given a matrix of NxN (4≤N≤10). You should check if there is a sequence of 4 or more matching digits. The sequence may be positioned horizontally, vertically or diagonally (NW-SE or NE-SW diagonals).
+"""
+You are given a matrix of NxN (4≤N≤10). You should check if there is a sequence of 4 or more matching digits. The sequence may be positioned horizontally, vertically or diagonally (NW-SE or NE-SW diagonals).
 
-# Input: A matrix as a list of lists with integers.
-# Output: Whether or not a sequence exists as a boolean.
+Input: A matrix as a list of lists with integers.
+Output: Whether or not a sequence exists as a boolean.
+"""
 
 def checkio(matrix):
     index = len(matrix)
-    
+
     # obtain veritical result in a list
     ver_result = []
     for i in range(index-3):
@@ -14,7 +16,7 @@ def checkio(matrix):
             for k in range(4):
                 temp.append(matrix[i+k][j])
             ver_result.append(temp)
-    
+
     # obtain horizontal result in a list
     hor_result = []
     for i in range(index):
@@ -23,7 +25,7 @@ def checkio(matrix):
             for k in range(4):
                 temp.append(matrix[i][j+k])
             hor_result.append(temp)
-    
+
     # obtain axis start from NE corner
     NE_axis = []
     for i in range(index - 3):
@@ -32,7 +34,7 @@ def checkio(matrix):
             for k in range(4):
                 temp.append(matrix[i+k][j-k])
             NE_axis.append(temp)
-    
+
     # obtain axis start from NW corner
     NW_axis = []
     for i in range(index - 3):
@@ -41,10 +43,10 @@ def checkio(matrix):
             for k in range(4):
                 temp.append(matrix[i+k][j+k])
             NW_axis.append(temp)
-    
+
     def verify(matrix):
         return any(xlist.count(xlist[0]) == len(xlist) for xlist in matrix)
-        
+
     return verify(hor_result) or verify(ver_result) \
         or verify(NW_axis) or verify(NE_axis)
 

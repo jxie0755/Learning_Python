@@ -1,4 +1,4 @@
-# CS61A Lecture 10 Data Abstraction
+"""CS61A Lecture 10 Data Abstraction"""
 
 # Rational arithmetic
 

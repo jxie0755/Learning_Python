@@ -1,4 +1,4 @@
-# CS61A Discusion 02: Environment DIagrams & Recursion
+"""CS61A Discusion 02: Environment DIagrams & Recursion"""
 
 from operator import add
 six = 1

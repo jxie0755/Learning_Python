@@ -1,5 +1,7 @@
-# Input: Nothing.
-# Output: The string "I love Python!".
+"""
+Input: Nothing.
+Output: The string "I love Python!".
+"""
 
 def i_love_python():
     """

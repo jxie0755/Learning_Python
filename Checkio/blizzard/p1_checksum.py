@@ -1,9 +1,12 @@
-# p1_checksum
+"""
+p1_checksum
 
-# detail introduction: https://py.checkio.org/mission/check-digit/
+detail introduction: https://py.checkio.org/mission/check-digit/
 
-# Input: Unsanitized numeric or alphanumeric due to formatting purpose
-# Output: List of its final character and sum of digits
+Input: Unsanitized numeric or alphanumeric due to formatting purpose
+Output: List of its final character and sum of digits
+"""
+
 
 import string
 

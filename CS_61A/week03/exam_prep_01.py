@@ -1,4 +1,5 @@
-# CS61A Exam Prep 01: Higher-Order Functions & Environment
+"""CS61A Exam Prep 01: Higher-Order Functions & Environment"""
+
 # Q1
 # Implement the longest_increasing_suffix function, which returns the longest
 # suffix (end) of a positive integer that consists of strictly increasing digits.

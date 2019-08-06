@@ -1,4 +1,4 @@
-# CS61A CSM02: Lists and Trees
+"""CS61A CSM02: Lists and Trees"""
 
 
 # Write a function that takes in a list nums and returns a new list with only the primes from nums.

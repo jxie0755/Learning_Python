@@ -1,8 +1,10 @@
-# You have a sequence of strings
-# youâ€™d like to determine the most frequently occurring string in the sequence.
+"""
+You have a sequence of strings
+youâ€™d like to determine the most frequently occurring string in the sequence.
 
-# Input: a list of strings.
-# Output: a string.
+Input: a list of strings.
+Output: a string.
+"""
 
 def most_frequent(data):
     return max(data, key=data.count)

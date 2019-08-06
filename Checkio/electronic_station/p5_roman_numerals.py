@@ -1,4 +1,5 @@
-# p5_roman_numerals
+"""p5_roman_numerals"""
+
 
 # The first ten Roman numerals are: I, II, III, IV, V, VI, VII, VIII, IX, and X.
 Roman_Nu = {"I" : 1, "V": 5, "X": 10, "L": 50, "C": 100, "D": 500, "M": 1000}
@@ -15,7 +16,7 @@ def checkio(data):
          10:"X", 20:"XX", 30:"XXX", 40:"XL", 50:"L", 60:"LX", 70:"LXX", 80:"LXXX", 90:"XC",
          100:"C", 200:"CC", 300:"CCC", 400:"CD", 500:"D", 600:"DC", 700:"DCC", 800:"DCCC", 900:"CM",
          1000:"M", 2000:"MM", 3000:"MMM"}
-    
+
     data = str(data).rjust(4, "0")   # 利用rjust补足数字成为4位数
     dlst = list(map(lambda x,y: int(x)*y, data, (1000, 100, 10, 1)))  # 分解各数位
     return  "".join(list(map(lambda x: R[x], dlst))) # 将各数位代换成罗马数字,然后拼接
@@ -36,7 +37,7 @@ def checkio2(data):
             return y + (nd-5) * x
         elif nd == 9:
             return x + z
-    
+
     # 使用map对data中每个数位进行转换,然后合并
     return "".join(list(map(rom, range(4), ["M","C","X","I"], ["","D","L","V"], ["","M","C","X"])))
 

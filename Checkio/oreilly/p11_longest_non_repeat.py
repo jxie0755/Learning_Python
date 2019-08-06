@@ -1,7 +1,9 @@
-# A very similar to the first is the second mission of the series with only one distinction is that you should look in a completely different way. You need to find the first longest substring with all unique letters. For example, in substring "abca" we have two substrings with unique letters "abc" and "bca", but we should take the first one, so the answer is "abc".
+"""
+A very similar to the first is the second mission of the series with only one distinction is that you should look in a completely different way. You need to find the first longest substring with all unique letters. For example, in substring "abca" we have two substrings with unique letters "abc" and "bca", but we should take the first one, so the answer is "abc".
 
-# Input: String.
-# Output: String.
+Input: String.
+Output: String.
+"""
 
 def non_repeat(line):
     """
@@ -39,4 +41,4 @@ if __name__ == "__main__":
     assert non_repeat("abcabcffab") == "abcf", "Third"
     assert non_repeat("fghfrtyfgh") ==  "ghfrty", "extra check"
     assert non_repeat("") == "", "empty string"
-    print(""Run" is good. How is "Check"?")
+    print(""Run" is good. How is 'Check'?")

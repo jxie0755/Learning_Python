@@ -1,4 +1,4 @@
-# CS61A Exam Prep 02: Recursion & Lamda Functions
+"""CS61A Exam Prep 02: Recursion & Lamda Functions"""
 
 # Express yourself
 def kbonacci(n, k):

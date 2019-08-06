@@ -1,8 +1,10 @@
-# Compare two most identical list.
-# One of them missed one element
-# Use bit ^ calculation to find out the missing element
+"""
+Compare two most identical list.
+One of them missed one element
+Use bit ^ calculation to find out the missing element
 
-# Developed from Leetcode P268 Missing numbers
+Developed from Leetcode P268 Missing numbers
+"""
 
 def find_miss(lst1, lst2):
     check = 0

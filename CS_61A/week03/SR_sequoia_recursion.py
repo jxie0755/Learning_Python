@@ -1,5 +1,7 @@
-# Sequoia's notes on recursion
-# https://sequoia-tree.github.io/textbook/Recursion.pdf
+"""
+Sequoia's notes on recursion
+https://sequoia-tree.github.io/textbook/Recursion.pdf
+"""
 
 # Self access
 def f():

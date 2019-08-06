@@ -1,4 +1,4 @@
-# CS61A CSM00 Mideterm 1 Review
+"""CS61A CSM00 Mideterm 1 Review"""
 
 # Q1
 apple = 4

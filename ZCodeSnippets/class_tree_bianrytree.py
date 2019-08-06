@@ -1,9 +1,11 @@
+"""
+Binary trees
+
+A sub class of regular Tree, that defines the binary tree:
+A tree has exactly two branch, left and right
+"""
+
 from class_tree import Tree
-
-# Binary trees
-
-# A sub class of regular Tree, that defines the binary tree:
-# A tree has exactly two branch, left and right
 
 class BTree(Tree):
     """A tree with exactly two branches, which may be empty."""

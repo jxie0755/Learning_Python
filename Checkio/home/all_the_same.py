@@ -1,7 +1,9 @@
-# In this mission you should check if all elements in the given list are equal.
+"""
+In this mission you should check if all elements in the given list are equal.
 
-# Input: List.
-# Output: Bool.
+Input: List.
+Output: Bool.
+"""
 
 from typing import List, Any
 
@@ -21,4 +23,4 @@ if __name__ == "__main__":
     assert all_the_same(["a", "a", "a"]) == True
     assert all_the_same([]) == True
     assert all_the_same([1]) == True
-    print("Coding complete? Click "Check" to earn cool rewards!")
+    print("Coding complete? Click 'Check' to earn cool rewards!")

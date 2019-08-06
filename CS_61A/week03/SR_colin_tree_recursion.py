@@ -1,4 +1,4 @@
-# Colin's notes on recursion
+"""Colin's notes on recursion"""
 
 def stairs(n):
     """Give the number of ways to take n steps, given that at each step, you can choose to take 1, 2

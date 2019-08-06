@@ -1,4 +1,4 @@
-# This is to generate a linear regression function for a bunch of coordinates
+"""This is to generate a linear regression function for a bunch of coordinates"""
 
 def mean(sequence):
     return sum(sequence) / len(sequence)

@@ -1,6 +1,8 @@
-# You are given two words or phrase. Try to verify are they anagrams or not.
-# Input: Two arguments as strings.
-# Output: Are they anagrams or not as boolean (True or False)
+"""
+You are given two words or phrase. Try to verify are they anagrams or not.
+Input: Two arguments as strings.
+Output: Are they anagrams or not as boolean (True or False)
+"""
 
 def verify_anagrams(first_word, second_word):
     def word_breakdown(word):

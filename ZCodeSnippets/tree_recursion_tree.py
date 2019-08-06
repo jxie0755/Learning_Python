@@ -1,5 +1,7 @@
-# From CS61a
-# http://composingprograms.com/pages/23-sequences.html
+"""
+From CS61a
+http://composingprograms.com/pages/23-sequences.html
+"""
 
 
 # Trees

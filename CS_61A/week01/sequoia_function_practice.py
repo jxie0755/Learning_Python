@@ -1,6 +1,8 @@
-# Sequoia's notes - Function practice
+"""
+Sequoia's notes - Function practice
 
-# Plot environmental diagram
+Plot environmental diagram
+"""
 
 # 1. Stories
 def quest(sword, robot):

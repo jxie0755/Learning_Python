@@ -1,6 +1,6 @@
-# CS61A week09 Exam Prep 06 Orders of Growth and Linked List
+"""CS61A week09 Exam Prep 06 Orders of Growth and Linked List"""
 
-from CS_61A.week09.csm_05 import Link, Tree
+from CS_61A.week09.csm_05 import Link
 
 
 # Order of Growth

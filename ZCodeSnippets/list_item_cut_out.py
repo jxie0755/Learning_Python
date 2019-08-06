@@ -1,5 +1,7 @@
-# Cut out a value from a list and merge the rest
-# this is to show all of them
+"""
+Cut out a value from a list and merge the rest
+this is to show all of them
+"""
 
 
 # Version 1

@@ -1,4 +1,4 @@
-# Lecture 1: Function
+"""Lecture 1: Function"""
 
 
 # Numeric expressions

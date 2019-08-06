@@ -1,4 +1,4 @@
-# This is to show how to find median idx regardless of edd or even number in an array
+"""This is to show how to find median idx regardless of edd or even number in an array"""
 
 length = 7
 # 0 1 2 3 4 5 6  (len=7, mid_idx = 3)

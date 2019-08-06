@@ -1,14 +1,12 @@
-# For each test, assume all the dice are the same and are numbered from 1 to the number of sides, inclusive.
-# So a 4-sided die (D4) would have an equal chance of rolling a 1, 2, 3 or 4. A 20-sided die (D20) would have an equal chance of rolling any number from 1 to 20.
-# Tips: Be careful if you want to use a brute-force solution -- you could have a very, very long wait for edge cases.
+"""
+For each test, assume all the dice are the same and are numbered from 1 to the number of sides, inclusive.
+So a 4-sided die (D4) would have an equal chance of rolling a 1, 2, 3 or 4. A 20-sided die (D20) would have an equal chance of rolling any number from 1 to 20.
+Tips: Be careful if you want to use a brute-force solution -- you could have a very, very long wait for edge cases.
 
-# Input: Three arguments. The number of dice, the number of sides per die and the target number as integers.
-# Output: The probability of getting exactly target number on a single roll of the given dice as a float.
+Input: Three arguments. The number of dice, the number of sides per die and the target number as integers.
+Output: The probability of getting exactly target number on a single roll of the given dice as a float.
+"""
 
-
-import itertools
-import math
-import functools
 
 def probability(dice_number, sides, target):
     sidenumber = list(range(1,sides+1))
@@ -16,9 +14,9 @@ def probability(dice_number, sides, target):
     return result.count(target) / len(result)
 
 
+import functools
 import itertools
 import math
-import functools
 
 
 def probability(dice_number, sides, target):

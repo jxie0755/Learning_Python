@@ -1,9 +1,9 @@
-# CS61A spring 2018 midterm exam 1
+"""CS61A spring 2018 midterm exam 1"""
 
 # --------------------------------------------------------------------
 # Q1 Frame of Thrones
 # --------------------------------------------------------------------
-from operator import add, sub
+from operator import sub
 def winterfell(a, b):
     a
     b

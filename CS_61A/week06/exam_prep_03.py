@@ -1,4 +1,4 @@
-# CS61A Exam Prep 03: List, Trees, & Tree Recursion
+"""CS61A Exam Prep 03: List, Trees, & Tree Recursion"""
 
 
 def tree(label, branches=[]):

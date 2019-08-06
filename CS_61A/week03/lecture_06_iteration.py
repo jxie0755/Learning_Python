@@ -1,4 +1,4 @@
-# CS61A Lecture 06 Iteration
+"""CS61A Lecture 06 Iteration"""
 
 
 # A fibonacci Sequence using while loop
@@ -88,9 +88,9 @@ if __name__ == "__main__":
 
 # Example: Sound
 
-from wave import open
-from struct import Struct
 from math import floor
+from struct import Struct
+from wave import open
 
 frame_rate = 11025
 

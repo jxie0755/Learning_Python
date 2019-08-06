@@ -1,6 +1,10 @@
-# You need to find a substring that repeats more than once in a given string. This reiteration shouldn't have overlaps.
-# Input: String.
-# Output: Int.
+"""
+You need to find a substring that repeats more than once in a given string. This reiteration shouldn't have overlaps.
+Input: String.
+Output: Int.
+"""
+
+
 import re
 def double_substring(line):
     temp = []
@@ -29,7 +33,7 @@ if __name__ == "__main__":
     assert double_substring("aaaa") == 2, "First"
     assert double_substring("abc") == 0, "Second"
     assert double_substring("aghtfghkofgh") == 3, "Third"
-    print(""Run" is good. How is "Check"?")
+    print(""Run" is good. How is 'Check'?")
 
 # 另解
 def double_substring2(line):

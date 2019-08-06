@@ -1,10 +1,12 @@
-# You are given a list of points on a coordinate plane. We need you find the convex hull formed by these points.
-# The convex hull may be visualized as the shape formed by a rubber band stretched around X. If a point lies on edge, it's included.
+"""
+You are given a list of points on a coordinate plane. We need you find the convex hull formed by these points.
+The convex hull may be visualized as the shape formed by a rubber band stretched around X. If a point lies on edge, it's included.
 
-# Input: A list of coordinates. Each coordinate is a list of two integers.
-# Output: The list of indexes of coordinates from the given list.
-# The sequence starts from the bottom leftmost point.
-# points lie on the convex hull in clockwise order (see the picture)
+Input: A list of coordinates. Each coordinate is a list of two integers.
+Output: The list of indexes of coordinates from the given list.
+The sequence starts from the bottom leftmost point.
+points lie on the convex hull in clockwise order (see the picture)
+"""
 
 
 import math

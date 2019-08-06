@@ -1,8 +1,11 @@
-# All the words in the string must be separated by exactly one space character. Be careful with spaces -- it's hard to see if you place two spaces instead one.
+"""
+All the words in the string must be separated by exactly one space character. Be careful with spaces -- it's hard to see if you place two spaces instead one.
 
-# Input: A number as an integer.
-# Output: The string representation of the number as a string.
-# Precondition: 0 < number < 1000
+Input: A number as an integer.
+Output: The string representation of the number as a string.
+Precondition: 0 < number < 1000
+"""
+
 
 FIRST_TEN = ["one", "two", "three", "four", "five", "six", "seven",
              "eight", "nine"]
