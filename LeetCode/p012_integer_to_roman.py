@@ -50,7 +50,7 @@ class Solution:
             repeat, num = divmod(num, arabic)
             result += repeat * roman
         return result
-        # 这个地方triky在于,要注意字典的order问题,在python3.6,字典是有order
+        # 这个地方tricky在于,要注意字典的order问题,在python3.6,字典是有order
         # 但是如果运行与python低版本,dict没有order,会出现算法bug
         # 在这里LeetCode就出现了这个bug,所以把dict拆分成list来做算法解决
         # 也可以使用collections.OrderedDrict
