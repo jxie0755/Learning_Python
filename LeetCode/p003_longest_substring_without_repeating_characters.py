@@ -12,6 +12,7 @@ class Solution:
     # Fail as Maximum Time limit exceeded
     def lengthOfLongestSubstring(self, s: str) -> int:
 
+        # Helper
         def is_no_repeat(s):
             hastable = {}
             for i in s:
@@ -115,12 +116,8 @@ if __name__ == "__main__":
     assert Solution().lengthOfLongestSubstring("aab") == 2, "Edge 4"
     assert Solution().lengthOfLongestSubstring("dvdf") == 3, "Edge 5"
 
-    assert Solution().lengthOfLongestSubstring("abcabcbb") == 3, "Example 1, "
-    abc
-    ""
+    assert Solution().lengthOfLongestSubstring("abcabcbb") == 3, "Example 1, abc"
     assert Solution().lengthOfLongestSubstring("bbbbb") == 1, "Example 2, "b""
-    assert Solution().lengthOfLongestSubstring("pwwkew") == 3, "Example 3, "
-    wke
-    ""
+    assert Solution().lengthOfLongestSubstring("pwwkew") == 3, "Example 3, wke"
     assert Solution().lengthOfLongestSubstring("tmmzuxt") == 5, "Example 4, mzuxt"
     print("all passed")

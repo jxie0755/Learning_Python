@@ -26,6 +26,7 @@ class Solution:
     # To create the say logic, then loop the say() to get nth number
     def countAndSay(self, n):
 
+        # Helper
         def say(num):
             num = str(num) + " "
             lenth = 1

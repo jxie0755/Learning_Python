@@ -12,20 +12,6 @@ from typing import *
 
 class Solution:
 
-    def twoSum_for_3sum(self, numbers, target, jump):
-
-        result = []
-        hashtable = {}
-        for idx in range(0, len(numbers)):
-            if idx == jump:
-                pass  # jump over current check in 3sum, to avoid repeat use
-            elif numbers[idx] not in hashtable.keys():
-                hashtable[target - numbers[idx]] = idx
-            else:
-                result.append([numbers[hashtable[numbers[idx]]], numbers[idx]])
-                # do not return, but get every possible group of target two sum
-        return result
-
     # Version A, hastable method from P001
     # Use modified method of two_sum (Above)
     # with every number, check the rest of array for two_sum of (0-number)
@@ -46,6 +32,20 @@ class Solution:
 
         return result
 
+    # Helper - version A
+    def twoSum_for_3sum(self, numbers, target, jump):
+
+        result = []
+        hashtable = {}
+        for idx in range(0, len(numbers)):
+            if idx == jump:
+                pass  # jump over current check in 3sum, to avoid repeat use
+            elif numbers[idx] not in hashtable.keys():
+                hashtable[target - numbers[idx]] = idx
+            else:
+                result.append([numbers[hashtable[numbers[idx]]], numbers[idx]])
+                # do not return, but get every possible group of target two sum
+        return result
 
 class Solution:
 
@@ -103,6 +103,7 @@ class Solution:
         neg = nums[:break_point]
         pos = nums[break_point:]
 
+        # Helper
         def two_one(lst1, lst2):
             length = len(lst1)
             if length >= 2:

@@ -19,7 +19,8 @@ class Solution:
 
         L, H = 0, len(nums) - 1
 
-        def helper(L, H):
+        # Helper
+        def search_helper(L, H):
             M = (L + H) // 2
             low, mid, high = nums[L], nums[M], nums[H]
 
@@ -36,20 +37,20 @@ class Solution:
             # 把list从中间切开,其中一半必为排序,另一半不确定是否排序
             # 如果target在排序的那一段其中,那么就接着二分法
             elif low < mid and low <= target <= mid:
-                return helper(L, M)
+                return search_helper(L, M)
             elif mid < high and mid <= target <= high:
-                return helper(M, H)
+                return search_helper(M, H)
 
 
             # 如果没有出现以上情况,那target必在没有排序的一段中 (而且只可能有一段不是排序的)
             # 而且就算不是排序的, 二分法同样可以继续
             elif low > mid:
-                return helper(L, M)
+                return search_helper(L, M)
             elif mid > low:
-                return helper(M, H)
+                return search_helper(M, H)
 
         # 避免nums为空
-        return -1 if not nums else helper(L, H)
+        return -1 if not nums else search_helper(L, H)
 
     # Version B
     # Regular while loop, binary search O(logN) * c

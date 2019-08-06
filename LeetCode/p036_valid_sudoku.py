@@ -16,6 +16,36 @@
 # See reference in ZZProject/SudokuSolver
 
 class Solution:
+
+    # Version A
+    def isValidSudoku(self, board: "List[List[str]]") -> "bool":
+        return self.all_rows(board) and self.all_cols(board) and self.all_blocks(board)
+
+    # Helper 1 - version A
+    def all_rows(self, board):
+        for row in board:
+            if not self.correct_line(row):
+                return False
+        return True
+
+    # Helper 2 - version A
+    def all_cols(self, board):
+        for i in range(0, 9):
+            col = [board[j][i] for j in range(0, 9)]
+            if not self.correct_line(col):
+                return False
+        return True
+
+    # Helper 3 - version A
+    def all_blocks(self, board):
+        for add_on_row in range(0, 9, 3):
+            for add_on_col in range(0, 9, 3):
+                block = sum([board[i + add_on_col][0 + add_on_row:3 + add_on_row] for i in range(3)], [])
+                if not self.correct_line(block):
+                    return False
+        return True
+
+    # Helper - hlper 1,2,3
     def correct_line(self, row):
         written = []
         for i in row:
@@ -26,30 +56,6 @@ class Solution:
             else:
                 return False
         return True
-
-    def all_rows(self, board):
-        for row in board:
-            if not self.correct_line(row):
-                return False
-        return True
-
-    def all_cols(self, board):
-        for i in range(0, 9):
-            col = [board[j][i] for j in range(0, 9)]
-            if not self.correct_line(col):
-                return False
-        return True
-
-    def all_blocks(self, board):
-        for add_on_row in range(0, 9, 3):
-            for add_on_col in range(0, 9, 3):
-                block = sum([board[i + add_on_col][0 + add_on_row:3 + add_on_row] for i in range(3)], [])
-                if not self.correct_line(block):
-                    return False
-        return True
-
-    def isValidSudoku(self, board: "List[List[str]]") -> "bool":
-        return self.all_rows(board) and self.all_cols(board) and self.all_blocks(board)
 
 
 if __name__ == "__main__":

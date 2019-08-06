@@ -41,6 +41,8 @@ class Solution:
     # Time:  O(4^n / n^(3/2)) ~= Catalan numbers
     # Space: O(n)
     def generateParenthesis(self, n: int) -> List[str]:
+
+        # Helper
         def generate(p, left, right, parens=[]):
             if left:
                 generate(p + "(", left - 1, right)
@@ -60,6 +62,7 @@ class Solution:
     def generateParenthesis(self, n: int) -> List[str]:
         parens = []
 
+        # Helper
         def generate(p, left, right):
             if left:
                 generate(p + "(", left - 1, right)

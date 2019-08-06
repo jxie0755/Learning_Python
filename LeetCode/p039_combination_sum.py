@@ -22,6 +22,7 @@ class Solution:
         if not candidates:
             return []
 
+        # Helper
         def process(temp):
             new_temp = []
             i = 0
@@ -54,6 +55,7 @@ class Solution(object):
     # Add a recursive process method to update result
     def combinationSum(self, candidates, target):
 
+        # Helper
         def process(candidates, start, intermediate, target):
             """
             Args:

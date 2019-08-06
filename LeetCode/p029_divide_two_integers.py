@@ -19,6 +19,7 @@ class Solution:
     # Time:  O(logn) = O(1), Space: O(1)
     def divide(self, dividend: "int", divisor: "int") -> "int":
 
+        # Helper
         def manual_divide(son, mom):
             """
             Helper function to achive log(n) division by doubling mom, before son > mom

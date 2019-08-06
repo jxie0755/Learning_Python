@@ -40,6 +40,7 @@ class Solution:
 
             return volume
 
+    # Helper - version A
     def vol(self, height):
         """Calculate the volume between two peaks"""
         sec_peak = min(height[0], height[-1])
@@ -49,6 +50,7 @@ class Solution:
                 volume += sec_peak - i
         return volume
 
+    # Helper - version A
     def findPeaks(self, height):
         """To find the index of peaks, and sort reversely accoridng to the height value at the index"""
         hmp = {}
