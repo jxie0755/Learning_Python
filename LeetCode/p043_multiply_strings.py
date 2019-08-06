@@ -34,29 +34,58 @@ class Solution:
             num //= 10
         return result
 
-    # Version B
+    # Version B2
     # HashMap method
     # Calulate string by hand calculation method, can avoid overflow of integer/long numbers
+    # Avoid using integer calculation, direct return the String value
     def multiply(self, num1: str, num2: str) -> str:
         hmp_s2n = {
             "0": 0, "1": 1, "2": 2, "3": 3, "4": 4,
             "5": 5, "6": 6, "7": 7, "8": 8, "9": 9
         }
 
-        n1, n2 = num1[::-1], num2[::-1]
-        len_n1, len_n2 = len(n1), len(n2)
-        i = 0
+        len_n1, len_n2 = len(num1), len(num2)
+        i = len_n1 -1
 
         result = 0
 
-        while i != len_n1:
-            i_factor = 10 ** i
-            j = 0
-            while j != len_n2:
-                j_factor = 10 ** j
-                result += hmp_s2n[n2[j]] * hmp_s2n[n1[i]] * i_factor * j_factor
-                j += 1
-            i += 1
+        while i >= 0:
+            i_factor = 10 ** ((len_n1 -1) - i)
+            j = len_n2-1
+            while j >= 0:
+                j_factor = 10 ** ((len_n2 - 1) - j)
+                result += hmp_s2n[num2[j]] * hmp_s2n[num1[i]] * i_factor * j_factor
+                j -= 1
+            i -= 1
+
+        return self.int2str(result)
+
+    # Version C
+    # Break down to add with manual method
+    # This can completely avoid overflow of integer/long numbers
+    def str_add(self, num1, num2):
+        """add two integer in string form together"""
+
+
+    def multiply(self, num1: str, num2: str) -> str:
+        hmp_s2n = {
+            "0": 0, "1": 1, "2": 2, "3": 3, "4": 4,
+            "5": 5, "6": 6, "7": 7, "8": 8, "9": 9
+        }
+
+        len_n1, len_n2 = len(num1), len(num2)
+        i = len_n1 - 1
+
+        result = 0
+
+        while i >= 0:
+            i_factor = 10 ** ((len_n1 - 1) - i)
+            j = len_n2 - 1
+            while j >= 0:
+                j_factor = 10 ** ((len_n2 - 1) - j)
+                result += hmp_s2n[num2[j]] * hmp_s2n[num1[i]] * i_factor * j_factor
+                j -= 1
+            i -= 1
 
         return self.int2str(result)
 
