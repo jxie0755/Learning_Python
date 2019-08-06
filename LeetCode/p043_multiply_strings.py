@@ -19,20 +19,6 @@ class Solution:
     def multiply(self, num1: str, num2: str) -> str:
         return str(int(num1) * int(num2))
 
-    def int2str(self, num):
-        """Convert a int to a string through algorithm"""
-        hmp_n2s = {
-            0: "0", 1: "1", 2: "2", 3: "3", 4: "4",
-            5: "5", 6: "6", 7: "7", 8: "8", 9: "9"
-        }
-        if num == 0:
-            return "0"
-
-        result = ""
-        while num:
-            result = hmp_n2s[num % 10] + result
-            num //= 10
-        return result
 
     # Version B
     # HashMap method
@@ -60,34 +46,70 @@ class Solution:
 
         return self.int2str(result)
 
+    # Helper - Version B
+    def int2str(self, num):
+        """Convert a int to a string through algorithm"""
+        hmp_n2s = {
+            0: "0", 1: "1", 2: "2", 3: "3", 4: "4",
+            5: "5", 6: "6", 7: "7", 8: "8", 9: "9"
+        }
+        if num == 0:
+            return "0"
+
+        result = ""
+        while num:
+            result = hmp_n2s[num % 10] + result
+            num //= 10
+        return result
+
     # Version C
     # Break down to add with manual method
     # This can completely avoid overflow of integer/long numbers
+    def multiply(self, num1: str, num2: str) -> str:
+
+        if num1 == "0":
+            return "0"
+
+        result = "0"
+        factor = 0
+        idx2 = len(num2) - 1
+        while (idx2 >= 0):
+            to_add = "0"
+
+            for i in range(int(num2[idx2])):
+                to_add = self.str_add(to_add, num1)
+            to_add += "0" * factor
+
+            result = self.str_add(result, to_add)
+
+            factor += 1
+            idx2 -= 1
+
+        return result
+
+    # Helper - Version C
     def str_add(self, num1, num2):
         """add two integer in string form together"""
+        result = ""
+        add_on = 0
+        idx1, idx2 = len(num1) - 1, len(num2) - 1
+        while (idx1 >= 0 or idx2 >= 0):
 
+            d1, d2 = 0, 0
+            if idx1 >= 0:
+                d1 = int(num1[idx1])
+            if idx2 >= 0:
+                d2 = int(num2[idx2])
 
-    def multiply(self, num1: str, num2: str) -> str:
-        hmp_s2n = {
-            "0": 0, "1": 1, "2": 2, "3": 3, "4": 4,
-            "5": 5, "6": 6, "7": 7, "8": 8, "9": 9
-        }
+            add_on, d_result = divmod(d1 + d2 + add_on, 10)
+            result = str(d_result) + result
+            idx1 -= 1
+            idx2 -= 1
 
-        len_n1, len_n2 = len(num1), len(num2)
-        i = len_n1 - 1
+        if add_on:
+            result = str(add_on) + result
 
-        result = 0
-
-        while i >= 0:
-            i_factor = 10 ** ((len_n1 - 1) - i)
-            j = len_n2 - 1
-            while j >= 0:
-                j_factor = 10 ** ((len_n2 - 1) - j)
-                result += hmp_s2n[num2[j]] * hmp_s2n[num1[i]] * i_factor * j_factor
-                j -= 1
-            i -= 1
-
-        return self.int2str(result)
+        return result
 
 
 if __name__ == "__main__":
