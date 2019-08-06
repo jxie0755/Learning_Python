@@ -34,7 +34,7 @@ class Solution:
             num //= 10
         return result
 
-    # Version B2
+    # Version B
     # HashMap method
     # Calulate string by hand calculation method, can avoid overflow of integer/long numbers
     # Avoid using integer calculation, direct return the String value
