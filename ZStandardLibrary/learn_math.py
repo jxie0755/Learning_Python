@@ -1,5 +1,7 @@
-# math module
-# https://docs.python.org/3/library/math.html#module-math
+"""
+math module
+https://docs.python.org/3/library/math.html#module-math
+"""
 
 
 import math

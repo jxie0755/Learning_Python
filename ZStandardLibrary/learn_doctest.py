@@ -1,5 +1,7 @@
-# doctest module
-# https://docs.python.org/3/library/doctest.html
+"""
+doctest module
+https://docs.python.org/3/library/doctest.html
+"""
 
 # Quick Example 1
 

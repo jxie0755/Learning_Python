@@ -1,5 +1,7 @@
-# list operation
-# https://docs.python.org/3/library/stdtypes.html#sequence-types-list-tuple-range
+"""
+list operation
+https://docs.python.org/3/library/stdtypes.html#sequence-types-list-tuple-range
+"""
 
 
 print("class list([iterable])")

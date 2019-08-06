@@ -1,5 +1,7 @@
-# itertool module
-# https://docs.python.org/3/library/itertools.html#module-itertools
+"""
+itertool module
+https://docs.python.org/3/library/itertools.html#module-itertools
+"""
 
 
 print()

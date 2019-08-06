@@ -1,6 +1,7 @@
-# operator module
-# https://docs.python.org/3/library/operator.html#module-operator
-
+"""
+operator module
+https://docs.python.org/3/library/operator.html#module-operator
+"""
 import operator
 
 

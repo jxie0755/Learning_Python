@@ -1,10 +1,9 @@
-# time module
-# https://docs.python.org/3/library/time.html#module-time
+"""
+time module
+https://docs.python.org/3/library/time.html#module-time
 
-# Check the time length the python execution
-
-
-import time
+Check the time length the python execution
+"""
 
 # For direct use
 if __name__ == "__main__":

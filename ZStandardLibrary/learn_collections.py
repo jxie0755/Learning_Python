@@ -1,6 +1,7 @@
-# collections module
-# https://docs.python.org/3/library/collections.html#module-collections
-
+"""
+collections module
+https://docs.python.org/3/library/collections.html#module-collections
+"""
 import collections
 
 print()

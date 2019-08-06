@@ -1,4 +1,7 @@
-# Learn some simple principle of immutable data, tuple
+"""
+Learn some simple principle of immutable data, tuple
+https://docs.python.org/3/library/stdtypes.html?highlight=tuple#tuple
+"""
 
 t = (1,2,3)  # immutable
 # no slice

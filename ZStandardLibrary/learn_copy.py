@@ -1,6 +1,7 @@
-# Learn shallow copy and deepcopy
-# https://docs.python.org/3/library/copy.html
-
+"""
+Learn shallow copy and deepcopy
+https://docs.python.org/3/library/copy.html
+"""
 
 import copy
 

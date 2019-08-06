@@ -1,14 +1,16 @@
-# timeit module
-# https://docs.python.org/3/library/timeit.html#module-timeit
-# 本模块提供一个简单的方法来测量小的Python代码的时间
+"""
+timeit module
+https://docs.python.org/3/library/timeit.html#module-timeit
+本模块提供一个简单的方法来测量小的Python代码的时间
 
-# 它同时具有Command-Line Interface以及python interface
+它同时具有Command-Line Interface以及python interface
+"""
 
 import timeit
 
 # 该模块定义了三个便利的函数和用一个公共类
 print()
-print("timeit.timeit(stmt="pass", setup="pass", timer=<default timer>, number=1000000, globals=None)")
+print("timeit.timeit(stmt='pass', setup='pass', timer=<default timer>, number=1000000, globals=None)")
 # Create a Timer instance with the given statement
 # setup code and timer function and run its timeit() method with number executions
 print(timeit.timeit("list(range(0, 999))", number=10000))
@@ -16,9 +18,9 @@ print(timeit.timeit("list(range(0, 999))", number=10000))
 print(type(timeit.timeit("list(range(0, 999))", number=10000)))
 # >>> <class "float">  输出的是一个浮点数的时间,单位为秒
 
-print(timeit.timeit("char in text", setup="text ="sample string"; char = "g"", number=10000000))
+print(timeit.timeit("char in text", setup="text = 'sample string'; char = 'g'", number=10000000))
 # >>> 0.2998773199997231
-print(timeit.timeit("text.find(char)", setup="text = "sample string"; char = "g""))
+print(timeit.timeit("text.find(char)", setup="text = 'sample string'; char = 'g'"))
 # >>> 0.14675580299990543
 
 # Setup是用于设定环境,若运行python builtin函数则不必import其他都需要
@@ -35,7 +37,7 @@ print(timeit.timeit("fib_gen_r(30)", setup="from fibonacci import fib_gen_r", nu
 
 
 print()
-print("timeit.repeat(stmt="pass", setup="pass", timer=<default timer>, repeat=3, number=1000000, globals=None)")
+print("timeit.repeat(stmt='pass', setup='pass', timer=<default timer>, repeat=3, number=1000000, globals=None)")
 
 # 好处就是可以做repeat,得到一组运行时间的list,方便求平均值
 print(timeit.repeat("list(range(0, 999))", repeat=3, number=10000))
@@ -47,7 +49,7 @@ print(timeit.repeat("fib_gen_r(30)", setup="from fibonacci import fib_gen_r", re
 
 
 print()
-print("class timeit.Timer(stmt="pass", setup="pass", timer=<timer function>, globals=None)")
+print("class timeit.Timer(stmt='pass', setup='pass', timer=<timer function>, globals=None)")
 # 为一个类,接用timeit和repeat方法
 
 # timeit(number=1000000)  方法

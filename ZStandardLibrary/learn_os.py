@@ -1,7 +1,9 @@
-# 学习如何使用python基本的I/O函数, 操作文件
+"""
+学习如何使用python基本的I/O函数, 操作文件
+https://docs.python.org/3/library/os.html?highlight=os#module-os
+"""
 
 import os
-import sys
 import shutil
 
 # 使用os模块

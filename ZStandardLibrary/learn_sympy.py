@@ -1,3 +1,8 @@
+"""
+Learn sympy
+https://www.sympy.org/en/index.html
+"""
+
 from sympy import Symbol, solve
 
 x=Symbol("x")

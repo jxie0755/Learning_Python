@@ -1,4 +1,7 @@
-# https://www.jianshu.com/p/14b8ebf93b73
+"""
+Learn __new__
+https://www.jianshu.com/p/14b8ebf93b73
+"""
 
 
 # __new__方法

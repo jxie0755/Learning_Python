@@ -1,5 +1,7 @@
-# functool module
-# https://docs.python.org/3/library/functools.html#module-functools
+"""
+functool module
+https://docs.python.org/3/library/functools.html#module-functools
+"""
 
 
 import functools

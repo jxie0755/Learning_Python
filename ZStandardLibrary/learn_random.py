@@ -1,18 +1,19 @@
-# random module
-# https://docs.python.org/3/library/random.html#module-random
+"""
+random module
+https://docs.python.org/3/library/random.html#module-random
 
+Python的这个库在底层使用通用的算法，经过长久的考验，可靠性没得说，但该模块的伪随机生成器不应该用于安全目的!
 
-# Python的这个库在底层使用通用的算法，经过长久的考验，可靠性没得说，但该模块的伪随机生成器不应该用于安全目的!
+几乎所有模块函数都依赖于基本函数random()，其在半开放范围[0.0,1.0)(包括0但是不包括1)中均匀地生成随机浮点数
+  * 对于整数，有一个范围的均匀选择
+  * 对于序列，存在随机元素的均匀选择，产生就地列表的随机置换的函数，以及用于无替换的随机采样的函数
 
-# 几乎所有模块函数都依赖于基本函数random()，其在半开放范围[0.0,1.0)(包括0但是不包括1)中均匀地生成随机浮点数
-#   * 对于整数，有一个范围的均匀选择
-#   * 对于序列，存在随机元素的均匀选择，产生就地列表的随机置换的函数，以及用于无替换的随机采样的函数
+该模块提供的函数实际上是random.Random类的隐藏实例的约束方法. 您可以实例化您自己的Random实例，以获得不共享状态的生成器
 
-# 该模块提供的函数实际上是random.Random类的隐藏实例的约束方法. 您可以实例化您自己的Random实例，以获得不共享状态的生成器
-
-#   * 如果你想使用你自己设计的不同的基本生成器，类Random也可以是子类：在这种情况下，覆盖random()，seed()，getstate()和setstate()方法。
-#   * 可选地，新的生成器可以提供getrandbits()方法 - 这允许randrange()在任意大的范围上产生选择
-#   * random模块还提供SystemRandom类，它使用系统函数os.urandom()从操作系统提供的源生成随机数
+  * 如果你想使用你自己设计的不同的基本生成器，类Random也可以是子类：在这种情况下，覆盖random()，seed()，getstate()和setstate()方法。
+  * 可选地，新的生成器可以提供getrandbits()方法 - 这允许randrange()在任意大的范围上产生选择
+  * random模块还提供SystemRandom类，它使用系统函数os.urandom()从操作系统提供的源生成随机数
+"""
 
 import random
 

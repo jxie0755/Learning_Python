@@ -1,10 +1,12 @@
-# Learn turtle
+"""
+Learn turtle
+https://docs.python.org/3/library/turtle.html?highlight=turtle#module-turtle
 
-
-# 在1966年，Seymour Papert和Wally Feurzig发明了一种专门给儿童学习编程的语言——LOGO语言，
-    # 它的特色就是通过编程指挥一个小海龟（turtle）在屏幕上绘图。
-# 海龟绘图（Turtle Graphics）后来被移植到各种高级语言中，
-    # Python内置了turtle库，基本上100%复制了原始的Turtle Graphics的所有功能
+在1966年，Seymour Papert和Wally Feurzig发明了一种专门给儿童学习编程的语言——LOGO语言，
+    它的特色就是通过编程指挥一个小海龟（turtle）在屏幕上绘图。
+海龟绘图（Turtle Graphics）后来被移植到各种高级语言中，
+    Python内置了turtle库，基本上100%复制了原始的Turtle Graphics的所有功能
+"""
 
 from turtle import *
 

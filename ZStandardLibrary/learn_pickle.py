@@ -1,4 +1,7 @@
-# 序列化
+"""
+Learn pickle
+https://docs.python.org/3/library/pickle.html?highlight=pickle#module-pickle
+"""
 
 import pickle
 

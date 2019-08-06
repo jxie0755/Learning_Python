@@ -1,6 +1,7 @@
-# datetime module
-# https://docs.python.org/3/library/datetime.html#module-datetime
-
+"""
+datetime module
+https://docs.python.org/3/library/datetime.html#module-datetime
+"""
 
 # 模块常量
 # datetime.MINYEAR
@@ -403,7 +404,8 @@ print("class datetime.tzinfo")
 # 当从中调用时，dt.tzinfo为self，并且dt的日期和时间数据被视为表示UTC时间
 
 # 举例说明
-from datetime import tzinfo, timedelta, datetime
+from datetime import tzinfo, timedelta
+
 ZERO = timedelta(0)
 HOUR = timedelta(hours=1)
 

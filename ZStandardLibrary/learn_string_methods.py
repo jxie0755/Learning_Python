@@ -1,8 +1,9 @@
-# string methods
-# https://docs.python.org/3/library/stdtypes.html#string-methods
+"""
+string methods
+https://docs.python.org/3/library/stdtypes.html#string-methods
 
-# No need to import string!!
-
+No need to import string!!
+"""
 
 print()
 print("str.capitalize()")

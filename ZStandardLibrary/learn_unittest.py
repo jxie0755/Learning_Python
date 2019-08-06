@@ -1,17 +1,19 @@
-# learned from <Python crash course>
-# https://docs.python.org/3/library/unittest.html
+"""
+learned from <Python crash course>
+https://docs.python.org/3/library/unittest.html
+"""
 
 import unittest
 
 # 一般来说testing写在一个独立的文件里,然后import要测试的单元进来. 这里放在一起,方便显示
-# 注意一次只能运行一个test case,这里整合在一起只是方便浏览 
+# 注意一次只能运行一个test case,这里整合在一起只是方便浏览
 
 
 # Testing functions
 
 # Example 1, 测试一个简单函数 (显示名字)
 # 先做一个函数以供测试
-# 
+#
 
 def get_formatted_name(first, middle, last):
     """Generate a neatly formatted full name"""
@@ -66,7 +68,7 @@ class NamesTestCase(unittest.TestCase):
         # 函数的结果应该等于过程(假设一组实参)
         formatted_name = get_formatted_name("Denis", "Xie")
         self.assertEqual(formatted_name, "Denis Xie")
-    
+
     def test_first_middle_last_name(self):
         formatted_name = get_formatted_name("Adrienne", "Xie", "Yijun")
         self.assertEqual(formatted_name, "Adrienne Yijun Xie")
@@ -100,7 +102,7 @@ def isPrime(n):
 
 
 class PNumTest(unittest.TestCase):
-    def test_is_prime_number(self):  
+    def test_is_prime_number(self):
         # 使用遍历的方法测试同一个类型的多个参数
         plist = [2, 3, 5, 7, 11, 13, 17, 19]
         for i in plist:
@@ -113,9 +115,9 @@ class PNumTest(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
-    
 
-    
+
+
 # Testing Class
 
 # Example 4, create a simple class for dogs
@@ -128,7 +130,7 @@ class dog(object):
             self.age = age
         else:
             print("you can't roll back on ages")
-        
+
 
 dog1 = dog("dog one")
 print(dog1.age)  # >> 0
@@ -151,7 +153,7 @@ class TestDog(unittest.TestCase):
 
 # if __name__ == "__main__":
 #     unittest.main()
-    
+
 # Use setUp() for convenience
 # setUp中的这一个实例,既能够充当测试中的属性,又成为源代码的一个实例, 这样可以多次引用源代码中的方法和属性
 # 可以有效简化代码,避免重复创造实例和结果.

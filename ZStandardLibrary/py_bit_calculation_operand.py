@@ -1,4 +1,6 @@
-# Learn python bit calculations
+"""
+Learn python bit calculations
+"""
 
 # Python位运算符
 # 按位运算符是把数字看作二进制来进行计算的。Python中的按位运算法则如下：
