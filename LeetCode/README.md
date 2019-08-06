@@ -2,6 +2,7 @@
 
 at: [LeetCode](https://leetcode.com/)
 
+note: Starting from 2019/08/06 all functions must use type hint following PEP484.
 
 The detailed information below is obtained from https://github.com/kamyu104/LeetCode-Solutions
 
