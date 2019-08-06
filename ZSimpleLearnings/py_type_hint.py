@@ -1,15 +1,17 @@
-# Learn Python Type Hint
-# PEP 484 - https://www.python.org/dev/peps/pep-0484/
-# PEP 526 - https://www.python.org/dev/peps/pep-0526/
+"""
+Learn Python Type Hint
+PEP 484 - https://www.python.org/dev/peps/pep-0484/
+PEP 526 - https://www.python.org/dev/peps/pep-0526/
 
-# 全面理解Python中的类型提示（Type Hints）
-# https://sikasjc.github.io/2018/07/14/type-hint-in-python/
+全面理解Python中的类型提示（Type Hints）
+https://sikasjc.github.io/2018/07/14/type-hint-in-python/
 
 
-# 众所周知，Python 是动态类型语言，运行时不需要指定变量类型
-# 而在2014年9月，Guido van Rossum (Python BDFL) 创建了一个Python增强提议(PEP-484)，为Python添加类型提示（Type Hints）
-# 并在一年后，于2015年9月作为Python3.5.0的一部分发布了.
-# 于是对于存在了二十五年的Python，有了一种标准方法向代码中添加类型信息
+众所周知，Python 是动态类型语言，运行时不需要指定变量类型
+而在2014年9月，Guido van Rossum (Python BDFL) 创建了一个Python增强提议(PEP-484)，为Python添加类型提示（Type Hints）
+并在一年后，于2015年9月作为Python3.5.0的一部分发布了.
+于是对于存在了二十五年的Python，有了一种标准方法向代码中添加类型信息
+"""
 
 
 def send_request(request_data : Any,
@@ -21,7 +23,7 @@ def send_request(request_data : Any,
 
 
 
-def test2(self, a: typing.List[str],
+def test2(a: typing.List[str],
                     b: typing.List[str],
                     c: typing.Dict[int, str]) -> typing.Dict[str, str]:
     return {a[1]: "a1", b[2]: "b2", c[3]: "c3"}

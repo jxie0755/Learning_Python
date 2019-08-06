@@ -1,4 +1,4 @@
-# Learning leading zero
+"""Learning leading zero"""
 
 a = "1"  # must convert a number first
 print("%03d" % int(a))

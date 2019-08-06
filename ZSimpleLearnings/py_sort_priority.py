@@ -1,4 +1,4 @@
-# why python __lt__ has higher priority than __gt__?
+"""why python __lt__ has higher priority than __gt__?"""
 
 class Person(object):
     id = 0

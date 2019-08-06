@@ -1,6 +1,8 @@
-# This is to learn simplified tuple expression in python
-# Question was bond into a leetcode question:
-# STOF: https://stackoverflow.com/q/54577667/8435726
+"""
+This is to learn simplified tuple expression in python
+Question was bond into a leetcode question:
+STOF: https://stackoverflow.com/q/54577667/8435726
+"""
 
 
 

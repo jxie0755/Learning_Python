@@ -1,4 +1,4 @@
-# To repalce the internal functions in python, we can create another name for the function first before create a new version
+"""To repalce the internal functions in python, we can create another name for the function first before create a new version"""
 
 _list = list  # change the original list() to _list()
 

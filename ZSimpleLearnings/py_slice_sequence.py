@@ -1,4 +1,5 @@
-# Example of slice and copy
+"""Example of slice and copy"""
+
 s = "abcd"
 length = len(s)
 print(s[:] == s[0:] == s[0:length] == s)  # full length of string

@@ -1,6 +1,7 @@
-# STOF: https://stackoverflow.com/q/47722712/8435726
-
-# map() returns a map object that is iterable
+"""
+STOF: https://stackoverflow.com/q/47722712/8435726
+map() returns a map object that is iterable
+"""
 
 # This won't work if the function is used for side-effect (other than return a value)
 result = []

@@ -1,4 +1,5 @@
-# 体会圆括号的作用
+"""体会圆括号的作用"""
+
 import re
 
 msg = "BbEDCbbGJLSbbbbVNbUYREWbEbbObbP"

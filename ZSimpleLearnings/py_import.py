@@ -1,10 +1,7 @@
-# Direct import a module built-in or in python
-import itertools
-import functools
+"""Direct import a module built-in or in python"""
 
 # import a sub-directory
 # directory find the subdirectory because current folder in in sys.path
-from ToImport.to_be_imported import foo_to_be_imported
 
 # import a different directory in another folder
 

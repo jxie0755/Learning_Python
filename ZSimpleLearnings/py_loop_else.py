@@ -1,4 +1,4 @@
-# This is to learn python looping + condition
+"""This is to learn python looping + condition"""
 
 # while...else...
 i = 0

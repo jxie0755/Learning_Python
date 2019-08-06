@@ -1,4 +1,5 @@
-# nonlocal的用法
+"""nonlocal的用法"""
+
 # 嵌套函数对于其外层作用域中的变量是有访问权限的
 def outside():
     msg = "Outside!"

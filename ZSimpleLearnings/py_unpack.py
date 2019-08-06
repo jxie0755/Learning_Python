@@ -1,4 +1,4 @@
-# Unpack can be used to assign multiple value to multiple variables in one line.
+"""Unpack can be used to assign multiple value to multiple variables in one line."""
 
 # number of variables must equal to number of generated values!!
 a, b = 2, 3

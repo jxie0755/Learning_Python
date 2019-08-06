@@ -1,4 +1,4 @@
-# investigation of isdigit(), isdecimal(), isnumeric
+"""investigation of isdigit(), isdecimal(), isnumeric"""
 
 print()
 num = "1"  # unicode

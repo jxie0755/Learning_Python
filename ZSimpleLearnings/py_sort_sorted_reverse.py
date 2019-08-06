@@ -1,4 +1,5 @@
-# sort vs sorted, reverse an order
+"""sort vs sorted, reverse an order"""
+
 l = [2, 3, 1, "b", "c", "a"]
 # l1.sort()  # can not sort a mixed list.
 

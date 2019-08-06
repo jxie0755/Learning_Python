@@ -1,3 +1,5 @@
+"""Learn max and min functions"""
+
 a = [1, 2, 3, 2, 3, 4, 2, 3, 1]
 # max() will return max value in an iterable object
 print("max value is", max(a))  # >>> 4

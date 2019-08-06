@@ -1,4 +1,5 @@
-# STOF https://stackoverflow.com/a/9980752/8435726
+"""STOF https://stackoverflow.com/a/9980752/8435726"""
+
 print()
 
 # Using the Python for...else construct you have

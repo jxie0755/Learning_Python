@@ -1,15 +1,16 @@
+"""
+Showed by designing a number of function to calculate the square root of a number
+http://composingprograms.com/pages/16-higher-order-functions.html
 
-# Showed by designing a number of function to calculate the square root of a number
-# http://composingprograms.com/pages/16-higher-order-functions.html
-
-# This is a high-order function that can be used to keep updating a value until it meets the requirement
-# this method uses the update x by calling average(x, a/x), different than binary search method.
+This is a high-order function that can be used to keep updating a value until it meets the requirement
+this method uses the update x by calling average(x, a/x), different than binary search method.
+"""
 
 def improve(update, close, guess=1):
     while not close(guess):     # keep trying until close returns True
         guess = update(guess)   # a method to update the value so that it can be tested by close again
     return guess                # when it is done, the final guess is the answer
-    
+
 def average(x, y):                         # define averaging method as a pre-processing method for update
     return (x + y)/2
 
@@ -27,7 +28,7 @@ print(sqrt(5))
 
 
 
-# Simplified version by putting approx_eq inside of sqrt_close and average inside of sqrt_update 
+# Simplified version by putting approx_eq inside of sqrt_close and average inside of sqrt_update
 
 def improve(update, close, guess=1):
     while not close(guess):
@@ -46,15 +47,15 @@ print(sqrt(5))
 
 # Compose two functions
 
-def compose1(f, g): 
-    def h(x): 
-        return f(g(x)) 
+def compose1(f, g):
+    def h(x):
+        return f(g(x))
     return h
 
 # This leads to idea of lambda function, we don't need to have a name for each function when use inside of another function
 # compose function will be then:
 
-def compose1(f, g): 
+def compose1(f, g):
     return lambda x: f(g(x))
 
 s = lambda x: x * x

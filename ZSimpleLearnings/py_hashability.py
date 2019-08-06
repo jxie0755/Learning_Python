@@ -1,8 +1,8 @@
-# This is to find out why a data structure's hasbility can be impacted by some internal methods
-# https://stackoverflow.com/q/56298727/8435726
+"""
+This is to find out why a data structure's hasbility can be impacted by some internal methods
+https://stackoverflow.com/q/56298727/8435726
+"""
 
-
-from hashlib import md5
 
 class ListNode:
     def __init__(self, x):
@@ -48,7 +48,6 @@ print(hash(A))
 
 
 ### This is also True with leetcode's binary tree data structure
-from math import log
 
 class TreeNode:
     def __init__(self, x):

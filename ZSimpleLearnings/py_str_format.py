@@ -1,8 +1,11 @@
-# 学习format()
-# https://docs.python.org/3/library/string.html#format-string-syntax
-# python 2.5之后,format通过{}和:来代替%。
+"""
+学习format()
+https://docs.python.org/3/library/string.html#format-string-syntax
+python 2.5之后,format通过{}和:来代替%。
 
-# python 3.5新加入f-string,使用更方便,阅读更明确, 主要用于代用之前设定的变量
+python 3.5新加入f-string,使用更方便,阅读更明确, 主要用于代用之前设定的变量
+"""
+
 a = "foo"
 b = "bar"
 print(f"{a} and {b}")  # >>> foo and bar
