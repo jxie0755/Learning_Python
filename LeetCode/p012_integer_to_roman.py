@@ -1,9 +1,12 @@
-# https://leetcode.com/problems/integer-to-roman/
-# p012 Integer to Roman
-# Medium
+"""
+https://leetcode.com/problems/integer-to-roman/
+p012 Integer to Roman
+Medium
 
-# Given an integer, convert it to a roman numeral.
-# Input is guaranteed to be within the range from 1 to 3999.
+Given an integer, convert it to a roman numeral.
+Input is guaranteed to be within the range from 1 to 3999.
+"""
+
 
 class Solution:
 
@@ -23,7 +26,7 @@ class Solution:
         num = str(num).rjust(4, "0")  # 拆解data成为单独的数字字符,并补足数位
 
         # Helper
-        def rom(n, x, y, z):  # 写一个函数来表明转换逻辑
+        def rom(n: int, x: str, y: str, z: str) -> str:  # 写一个函数来表明转换逻辑
             nd = int(num[n])
             if nd == 0:
                 return ""

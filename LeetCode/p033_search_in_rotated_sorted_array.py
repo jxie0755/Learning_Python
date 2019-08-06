@@ -1,13 +1,15 @@
-# https://leetcode.com/problems/search-in-rotated-sorted-array/
-# P033 Search in Rotated Sorted Array
-# Medium
+"""
+https://leetcode.com/problems/search-in-rotated-sorted-array/
+P033 Search in Rotated Sorted Array
+Medium
 
-# Suppose an array sorted in ascending order is rotated at some pivot unknown to you beforehand.
-# (i.e., [0,1,2,4,5,6,7] might become [4,5,6,7,0,1,2]).
+Suppose an array sorted in ascending order is rotated at some pivot unknown to you beforehand.
+(i.e., [0,1,2,4,5,6,7] might become [4,5,6,7,0,1,2]).
 
-# You are given a target value to search. If found in the array return its index, otherwise return -1.
-# You may assume no duplicate exists in the array.
-# Your algorithm's runtime complexity must be in the order of O(log n).
+You are given a target value to search. If found in the array return its index, otherwise return -1.
+You may assume no duplicate exists in the array.
+Your algorithm's runtime complexity must be in the order of O(log n).
+"""
 
 from typing import *
 
@@ -20,7 +22,7 @@ class Solution:
         L, H = 0, len(nums) - 1
 
         # Helper
-        def search_helper(L, H):
+        def search_helper(L: int, H: int) -> int:
             M = (L + H) // 2
             low, mid, high = nums[L], nums[M], nums[H]
 

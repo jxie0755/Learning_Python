@@ -1,13 +1,14 @@
-# https://leetcode.com/problems/container-with-most-water/
-# P011 Container with Most Water
-# Medium
+"""
+https://leetcode.com/problems/container-with-most-water/
+P011 Container with Most Water
+Medium
 
-# Given n non-negative integers a1, a2, ..., an , where each represents a point at coordinate (i, ai).
-# n vertical lines are drawn such that the two endpoints of line i is at (i, ai) and (i, 0)
-# Find two lines, which together with x-axis forms a container, such that the container contains the most water.
+Given n non-negative integers a1, a2, ..., an , where each represents a point at coordinate (i, ai).
+n vertical lines are drawn such that the two endpoints of line i is at (i, ai) and (i, 0)
+Find two lines, which together with x-axis forms a container, such that the container contains the most water.
 
-
-# Note: You may not slant the container and n is at least 2.
+Note: You may not slant the container and n is at least 2.
+"""
 
 from typing import *
 
@@ -41,14 +42,14 @@ class Solution:
         tops = {}
 
         # Helper
-        def obtain_top(hstble):
+        def obtain_top(hstble: Dict[int, int]) -> None:
             """得到hashtable中最大值的index"""
             i = max(hstble, key=hstble.get)
             tops[i] = hstble[i]  # 转移到tops字典, 也就是记录最大值的字典
             del hstble[i]  # 记住要删掉这个最大值
 
         # Helper
-        def remove_between(hstble):
+        def remove_between(hstble: Dict[int, int]) -> None:
             """删除最高值之间的所有数据"""
 
             # 先得到tops中,两个距离最远的柱子的index

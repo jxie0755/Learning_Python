@@ -37,7 +37,7 @@ class TreeNode:
         return hash(id(self))
 
 
-def genTree(lst, i=1):
+def genTree(lst: List[int], i: int = 1) -> TreeNode:
     """
     To generate a perfect binary tree according to a non-empty list of values
     The lst must be all filled, even the branch is empty, then use None to suggest the empty treeNode

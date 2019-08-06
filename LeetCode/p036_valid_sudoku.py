@@ -1,35 +1,39 @@
-# https://leetcode.com/problems/valid-sudoku/
-# P036 Valid Sudoku
-# Medium
+"""
+https://leetcode.com/problems/valid-sudoku/
+P036 Valid Sudoku
+Medium
 
-# Determine if a 9x9 Sudoku board is valid. Only the filled cells need to be validated according to the following rules:
-# Each row must contain the digits 1-9 without repetition.
-# Each column must contain the digits 1-9 without repetition.
-# Each of the 9 3x3 sub-boxes of the grid must contain the digits 1-9 without repetition.
+Determine if a 9x9 Sudoku board is valid. Only the filled cells need to be validated according to the following rules:
+Each row must contain the digits 1-9 without repetition.
+Each column must contain the digits 1-9 without repetition.
+Each of the 9 3x3 sub-boxes of the grid must contain the digits 1-9 without repetition.
 
-# Note:
-# A Sudoku board (partially filled) could be valid but is not necessarily solvable.
-# Only the filled cells need to be validated according to the mentioned rules.
-# The given board contain only digits 1-9 and the character '.'.
-# The given board size is always 9x9.
+Note:
+A Sudoku board (partially filled) could be valid but is not necessarily solvable.
+Only the filled cells need to be validated according to the mentioned rules.
+The given board contain only digits 1-9 and the character '.'.
+The given board size is always 9x9.
 
-# See reference in ZZProject/SudokuSolver
+See reference in ZZProject/SudokuSolver
+"""
+
+from typing import *
 
 class Solution:
 
     # Version A
-    def isValidSudoku(self, board: "List[List[str]]") -> "bool":
+    def isValidSudoku(self, board: List[List[str]]) -> bool:
         return self.all_rows(board) and self.all_cols(board) and self.all_blocks(board)
 
     # Helper 1 - version A
-    def all_rows(self, board):
+    def all_rows(self, board: List[List[str]]) -> bool:
         for row in board:
             if not self.correct_line(row):
                 return False
         return True
 
     # Helper 2 - version A
-    def all_cols(self, board):
+    def all_cols(self, board: List[List[str]]) -> bool:
         for i in range(0, 9):
             col = [board[j][i] for j in range(0, 9)]
             if not self.correct_line(col):
@@ -37,7 +41,7 @@ class Solution:
         return True
 
     # Helper 3 - version A
-    def all_blocks(self, board):
+    def all_blocks(self, board: List[List[str]]) -> bool:
         for add_on_row in range(0, 9, 3):
             for add_on_col in range(0, 9, 3):
                 block = sum([board[i + add_on_col][0 + add_on_row:3 + add_on_row] for i in range(3)], [])
@@ -46,7 +50,7 @@ class Solution:
         return True
 
     # Helper - hlper 1,2,3
-    def correct_line(self, row):
+    def correct_line(self, row: List[str]) -> bool:
         written = []
         for i in row:
             if i == ".":

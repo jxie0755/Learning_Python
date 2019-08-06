@@ -1,15 +1,17 @@
-# https://leetcode.com/problems/combination-sum-ii/
-# P040 Combination Sum II
-# Medium
+"""
+https://leetcode.com/problems/combination-sum-ii/
+P040 Combination Sum II
+Medium
 
-# Given a collection of candidate numbers (candidates) and a target number (target),
-# find all unique combinations in candidates where the candidate numbers sums to target.
-# Each number in candidates may only be used once in the combination.
+Given a collection of candidate numbers (candidates) and a target number (target),
+find all unique combinations in candidates where the candidate numbers sums to target.
+Each number in candidates may only be used once in the combination.
 
-# Note:
-# All numbers (including target) will be positive integers.
-# The difference between the P039 and P040 is that the candidates can be duplicated in P040 but not in P039
-# The solution set must not contain duplicate combinations.
+Note:
+All numbers (including target) will be positive integers.
+The difference between the P039 and P040 is that the candidates can be duplicated in P040 but not in P039
+The solution set must not contain duplicate combinations.
+"""
 
 
 from itertools import combinations
@@ -55,7 +57,7 @@ class Solution(object):
     def combinationSum2(self, candidates: List[int], target: int) -> List[List[int]]:
 
         # Helper
-        def process(candidates, start, intermediate, target):
+        def process(candidates: List[int], start: int, intermediate: List[int], target: int) -> None:
             """
             Args:
                 candidates:    ingredient numbers (sorted)

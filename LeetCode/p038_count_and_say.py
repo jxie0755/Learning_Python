@@ -1,22 +1,24 @@
-# https://leetcode.com/problems/count-and-say/
-# p038 Count and Say
-# Easy
+"""
+https://leetcode.com/problems/count-and-say/
+p038 Count and Say
+Easy
 
-# The count-and-say sequence is the sequence of integers with the first five terms as following:
-# 1. 1
-# 2. 11
-# 3. 21
-# 4. 1211
-#    1 is 11
-#      2 is 12
-#       11 is 21, so next number is: 11 - 12 - 21
-# 5. 111221
+The count-and-say sequence is the sequence of integers with the first five terms as following:
+1. 1
+2. 11
+3. 21
+4. 1211
+   1 is 11
+     2 is 12
+      11 is 21, so next number is: 11 - 12 - 21
+5. 111221
 
-# each number is a read of previous number
-# 1 is read off as "one 1" or 11.
-# 11 is read off as "two 1s" or 21.
-# 21 is read off as "one 2, then one 1" or 1211.
-# Given an integer n, generate the nth term of the count-and-say sequence.
+each number is a read of previous number
+1 is read off as "one 1" or 11.
+11 is read off as "two 1s" or 21.
+21 is read off as "one 2, then one 1" or 1211.
+Given an integer n, generate the nth term of the count-and-say sequence.
+"""
 
 
 # Basically we need a generator here
@@ -24,7 +26,7 @@ class Solution:
 
     # Version A
     # To create the say logic, then loop the say() to get nth number
-    def countAndSay(self, n):
+    def countAndSay(self, n: int) -> str:
 
         # Helper
         def say(num):
@@ -46,7 +48,7 @@ class Solution:
 
     # Version B
     # Combine the say() and loop together
-    def countAndSay(self, n):
+    def countAndSay(self, n: int) -> str:
 
         number = 1
         for i in range(1, n):
@@ -64,7 +66,7 @@ class Solution:
 
     # Version C
     # Avoid type convert between int and String
-    def countAndSay(self, n):
+    def countAndSay(self, n: int) -> str:
 
         number = "1"
         for i in range(1, n):

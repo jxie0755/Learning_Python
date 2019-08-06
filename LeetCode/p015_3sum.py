@@ -1,14 +1,15 @@
-# https://leetcode.com/problems/3sum/
-# P015 3Sum
-# Medium
+"""
+https://leetcode.com/problems/3sum/
+P015 3Sum
+Medium
 
-# Given an array nums of n integers, are there elements a, b, c in nums such that a + b + c = 0?
-# Find all unique triplets in the array which gives the sum of zero.
+Given an array nums of n integers, are there elements a, b, c in nums such that a + b + c = 0?
+Find all unique triplets in the array which gives the sum of zero.
 
-# Note: The solution set must not contain duplicate triplets.
+Note: The solution set must not contain duplicate triplets.
+"""
 
 from typing import *
-
 
 class Solution:
 
@@ -33,7 +34,7 @@ class Solution:
         return result
 
     # Helper - version A
-    def twoSum_for_3sum(self, numbers, target, jump):
+    def twoSum_for_3sum(self, numbers: List[int], target: int, jump: int) -> List[List[int]]:
 
         result = []
         hashtable = {}
@@ -104,7 +105,7 @@ class Solution:
         pos = nums[break_point:]
 
         # Helper
-        def two_one(lst1, lst2):
+        def two_one(lst1: List[int], lst2: List[int]) -> None:
             length = len(lst1)
             if length >= 2:
                 i, j = 0, 1
@@ -160,7 +161,7 @@ class Solution:
 
 
 class Solution:
-    def twoSum(self, numbers, target, jump):
+    def twoSum(self, numbers: List[int], target: int, jump: int) -> List[List[int]]:
         # 提取p167 two sum II 中的头尾缩进法 O(N)
 
         result = []

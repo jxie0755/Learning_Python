@@ -1,13 +1,13 @@
-# https://leetcode.com/problems/swap-nodes-in-pairs/
-# P024 Swap Nodes in Pairs
-# Medium
+"""
+https://leetcode.com/problems/swap-nodes-in-pairs/
+P024 Swap Nodes in Pairs
+Medium
 
-
-# Given a linked list, swap every two adjacent nodes and return its head.
-# You may not modify the values in the list's nodes, only nodes itself may be changed.
+Given a linked list, swap every two adjacent nodes and return its head.
+You may not modify the values in the list's nodes, only nodes itself may be changed.
+"""
 
 from a0_ListNode import *
-
 
 class Solution:
 

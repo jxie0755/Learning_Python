@@ -1,12 +1,13 @@
-# https://leetcode.com/problems/merge-two-sorted-lists/
-# p021 Merge two sorted list
-# Easy
+"""
+https://leetcode.com/problems/merge-two-sorted-lists/
+p021 Merge two sorted list
+Easy
 
-# Merge two sorted linked lists and return it as a new list.
-# The new list should be made by splicing together the nodes of the first two lists.
+Merge two sorted linked lists and return it as a new list.
+The new list should be made by splicing together the nodes of the first two lists.
+"""
 
 from a0_ListNode import *
-
 
 class Solution(object):
 
@@ -20,7 +21,6 @@ class Solution(object):
             if l1.val < l2.val:
                 current.next = l1
                 l1 = l1.next
-
             else:
                 current.next = l2
                 l2 = l2.next
@@ -29,7 +29,6 @@ class Solution(object):
 
         if l1:
             current.next = l1
-
         if l2:
             current.next = l2
 

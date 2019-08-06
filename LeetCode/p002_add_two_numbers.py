@@ -1,16 +1,16 @@
-# https://leetcode.com/problems/add-two-numbers/
-# P002 Add Two Numbers
-# Medium
+"""
+https://leetcode.com/problems/add-two-numbers/
+P002 Add Two Numbers
+Medium
 
-# You are given two non-empty linked lists representing two non-negative integers.
-# The digits are stored in reverse order and each of their nodes contain a single digit.
-# Add the two numbers and return it as a linked list.
+You are given two non-empty linked lists representing two non-negative integers.
+The digits are stored in reverse order and each of their nodes contain a single digit.
+Add the two numbers and return it as a linked list.
 
-# You may assume the two numbers do not contain any leading zero, except the number 0 itself.
-
+You may assume the two numbers do not contain any leading zero, except the number 0 itself.
+"""
 
 from a0_ListNode import *
-
 
 class Solution(object):
 

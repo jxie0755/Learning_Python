@@ -1,17 +1,20 @@
-# https://leetcode.com/problems/divide-two-integers/
-# P029 Divide Two Integers
-# Medium
+"""
+https://leetcode.com/problems/divide-two-integers/
+P029 Divide Two Integers
+Medium
 
-# Given two integers dividend and divisor, divide two integers without using multiplication, division and mod operator.
+Given two integers dividend and divisor, divide two integers without using multiplication, division and mod operator.
 
-# Return the quotient after dividing dividend by divisor.
+Return the quotient after dividing dividend by divisor.
 
-# The integer division should truncate toward zero.
+The integer division should truncate toward zero.
 
-# Note:
-# Both dividend and divisor will be 32-bit signed integers.
-# The divisor will never be 0.
-# Assume we are dealing with an environment which could only store integers within the 32-bit signed integer range: [−2^31,  2^31 − 1]. For the purpose of this problem, assume that your function returns 2^31 − 1 when the division result overflows.
+Note:
+Both dividend and divisor will be 32-bit signed integers.
+The divisor will never be 0.
+Assume we are dealing with an environment which could only store integers within the 32-bit signed integer range: [−2^31,  2^31 − 1]. For the purpose of this problem, assume that your function returns 2^31 − 1 when the division result overflows.
+"""
+from typing import *
 
 class Solution:
 
@@ -20,9 +23,9 @@ class Solution:
     def divide(self, dividend: "int", divisor: "int") -> "int":
 
         # Helper
-        def manual_divide(son, mom):
+        def manual_divide(son: int, mom: int) -> Tuple[int, int]:
             """
-            Helper function to achive log(n) division by doubling mom, before son > mom
+            Achive log(n) division by doubling mom, before son > mom
             Mom and Son are both non-negative integers
             """
             result = 1

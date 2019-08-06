@@ -1,12 +1,12 @@
-# https://leetcode.com/problems/median-of-two-sorted-arrays/
-# P004 Median of Two Sorted Array
-# Hard
+"""
+https://leetcode.com/problems/median-of-two-sorted-arrays/
+P004 Median of Two Sorted Array
+Hard
 
-# There are two sorted arrays nums1 and nums2 of size m and n respectively.
-
-# Find the median of the two sorted arrays. The overall run time complexity should be O(log (m+n)).
-
-# You may assume nums1 and nums2 cannot be both empty.
+There are two sorted arrays nums1 and nums2 of size m and n respectively.
+Find the median of the two sorted arrays. The overall run time complexity should be O(log (m+n)).
+You may assume nums1 and nums2 cannot be both empty.
+"""
 
 from typing import *
 
@@ -19,7 +19,7 @@ class Solution:
     def findMedianSortedArrays(self, nums1: List[int], nums2: List[int]) -> float:
 
         # Helper
-        def median(array):
+        def median(array: List[int]) -> float:
             length = len(array)
             half = length // 2
             if length == 0:

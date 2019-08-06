@@ -1,15 +1,17 @@
-# https://leetcode.com/problems/combination-sum/
-# P039 Cobination Sum
-# Medium
+"""
+https://leetcode.com/problems/combination-sum/
+P039 Cobination Sum
+Medium
 
-# Given a set of candidate numbers (candidates) (without duplicates) and a target number (target),
-# find all unique combinations in candidates where the candidate numbers sums to target.
+Given a set of candidate numbers (candidates) (without duplicates) and a target number (target),
+find all unique combinations in candidates where the candidate numbers sums to target.
 
-# The same repeated number may be chosen from candidates unlimited number of times.
+The same repeated number may be chosen from candidates unlimited number of times.
 
-# Note:
-# All numbers (including target) will be positive integers.
-# The solution set must not contain duplicate combinations.
+Note:
+All numbers (including target) will be positive integers.
+The solution set must not contain duplicate combinations.
+"""
 
 from typing import *
 
@@ -23,7 +25,7 @@ class Solution:
             return []
 
         # Helper
-        def process(temp):
+        def process(temp: List[List[int]]) -> List[List[int]]:
             new_temp = []
             i = 0
             while i < len(temp):
@@ -53,10 +55,10 @@ class Solution(object):
 
     # Version B
     # Add a recursive process method to update result
-    def combinationSum(self, candidates, target):
+    def combinationSum(self, candidates: List[int], target: int) -> List[List[int]]:
 
         # Helper
-        def process(candidates, start, intermediate, target):
+        def process(candidates: List[int], start: int, intermediate: List[int], target: int) -> None:
             """
             Args:
                 candidates:    ingredient numbers (sorted)
@@ -92,7 +94,7 @@ class Solution(object):
 #
 # class Solution(object):
 #
-#     def combinationSum(self, candidates, target):
+#     def combinationSum(self, candidates: List[int], target: int) -> List[List[int]]:
 #         if not candidates:
 #             return []
 #         max_n = target // min(candidates)

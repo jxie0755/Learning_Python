@@ -1,9 +1,10 @@
-# https://leetcode.com/problems/longest-substring-without-repeating-characters/
-# P003 Longest Substring Without Repeating Characters
-# Medium
+"""
+https://leetcode.com/problems/longest-substring-without-repeating-characters/
+P003 Longest Substring Without Repeating Characters
+Medium
 
-# Given a string, find the length of the longest substring without repeating characters.
-
+Given a string, find the length of the longest substring without repeating characters.
+"""
 
 class Solution:
 
@@ -13,7 +14,7 @@ class Solution:
     def lengthOfLongestSubstring(self, s: str) -> int:
 
         # Helper
-        def is_no_repeat(s):
+        def is_no_repeat(s: str) -> bool:
             hastable = {}
             for i in s:
                 if i not in hastable:
@@ -95,7 +96,7 @@ class Solution(object):
     # STD ans
     # Time O(N), Space O(1)
     # 借字符表运算
-    def lengthOfLongestSubstring(self, s):
+    def lengthOfLongestSubstring(self, s: str) -> int:
         longest, start, visited = 0, 0, [False for _ in range(256)]
         for i, char in enumerate(s):
             if visited[ord(char)]:

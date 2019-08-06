@@ -1,11 +1,12 @@
-# https://leetcode.com/problems/merge-k-sorted-lists/
-# P023 Merge k Sorted Lists
-# Hard
+"""
+https://leetcode.com/problems/merge-k-sorted-lists/
+P023 Merge k Sorted Lists
+Hard
 
-# Merge k sorted linked lists and return it as one sorted list. Analyze and describe its complexity.
+Merge k sorted linked lists and return it as one sorted list. Analyze and describe its complexity.
+"""
 
 from a0_ListNode import *
-
 
 class Solution:
 
@@ -49,7 +50,18 @@ class Solution:
 
 class Solution:
 
-    def merge_two(self, l1, l2):
+    # Version C1
+    # use merge two list, then use it multiple times
+    # 但是这个合并的方法偏慢, 相当于要流经的重复节点太多次了
+    def mergeKLists_X(self, lst) -> ListNode:
+        dummy = ListNode(float("-inf"))
+        for i in lst:
+            dummy = self.merge_two(dummy, i)
+
+        return dummy.next
+
+    # Helper - version C2
+    def merge_two(self, l1: ListNode, l2: ListNode) -> ListNode:
         """merge two sorted linked list"""
         curr = dummy = ListNode("X")
         while l1 and l2:
@@ -59,16 +71,6 @@ class Solution:
                 curr.next, l2 = l2, l2.next
             curr = curr.next
         curr.next = l1 or l2
-        return dummy.next
-
-    # Version C1
-    # use merge two list, then use it multiple times
-    # 但是这个合并的方法偏慢, 相当于要流经的重复节点太多次了
-    def mergeKLists_X(self, lst) -> ListNode:
-        dummy = ListNode(float("-inf"))
-        for i in lst:
-            dummy = self.merge_two(dummy, i)
-
         return dummy.next
 
     # Version C2, improved

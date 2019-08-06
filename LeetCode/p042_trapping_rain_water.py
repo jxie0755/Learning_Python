@@ -1,9 +1,11 @@
-# https://leetcode.com/problems/trapping-rain-water/
-# P042 Trapping Rain Water
-# Hard
+"""
+https://leetcode.com/problems/trapping-rain-water/
+P042 Trapping Rain Water
+Hard
 
-# Given n non-negative integers representing an elevation map where the width of each bar is 1,
-# compute how much water it is able to trap after raining.
+Given n non-negative integers representing an elevation map where the width of each bar is 1,
+compute how much water it is able to trap after raining.
+"""
 
 from typing import *
 
@@ -41,7 +43,7 @@ class Solution:
             return volume
 
     # Helper - version A
-    def vol(self, height):
+    def vol(self, height: List[int]) -> int:
         """Calculate the volume between two peaks"""
         sec_peak = min(height[0], height[-1])
         volume = 0
@@ -51,7 +53,7 @@ class Solution:
         return volume
 
     # Helper - version A
-    def findPeaks(self, height):
+    def findPeaks(self, height: List[int]) -> List[int]:
         """To find the index of peaks, and sort reversely accoridng to the height value at the index"""
         hmp = {}
         temp = [0] + height + [0]

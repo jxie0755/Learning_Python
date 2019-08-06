@@ -1,9 +1,11 @@
-# https://leetcode.com/problems/longest-palindromic-substring/
-# P005 Longest Palindromic String
-# Medium
+"""
+https://leetcode.com/problems/longest-palindromic-substring/
+P005 Longest Palindromic String
+Medium
 
-# Given a string s, find the longest palindromic substring in s.
-# You may assume that the maximum length of s is 1000.
+Given a string s, find the longest palindromic substring in s.
+You may assume that the maximum length of s is 1000.
+"""
 
 
 class Solution:
@@ -15,7 +17,7 @@ class Solution:
     def longestPalindrome(self, s: str) -> str:
 
         # Helper
-        def is_palindrome(s):
+        def is_palindrome(s: str) -> bool:
             return s == s[::-1]
 
         if not s:

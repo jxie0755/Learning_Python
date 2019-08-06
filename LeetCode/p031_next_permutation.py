@@ -1,40 +1,42 @@
-# https://leetcode.com/problems/next-permutation/
-# P031 Next Permutation
-# Medium
+"""
+https://leetcode.com/problems/next-permutation/
+P031 Next Permutation
+Medium
 
-# Implement next permutation, which rearranges numbers into the lexicographically next greater permutation of numbers.
+Implement next permutation, which rearranges numbers into the lexicographically next greater permutation of numbers.
 
-# If such arrangement is not possible, it must rearrange it as the lowest possible order (ie, sorted in ascending order).
-# Do not return anything, modify nums in-place instead!
+If such arrangement is not possible, it must rearrange it as the lowest possible order (ie, sorted in ascending order).
+Do not return anything, modify nums in-place instead!
 
-# The replacement must be in-place and use only constant extra memory.
-# Means you cannot list out all permutation and sort it, then find the next one.
+The replacement must be in-place and use only constant extra memory.
+Means you cannot list out all permutation and sort it, then find the next one.
 
-# Correct sequence (sorted):
-#  (1, 2, 3, 4)
-#  (1, 2, 4, 3)
-#  (1, 3, 2, 4)
-#  (1, 3, 4, 2)
-#  (1, 4, 2, 3)
-#  (1, 4, 3, 2)
-#  (2, 1, 3, 4)
-#  (2, 1, 4, 3)
-#  (2, 3, 1, 4)
-#  (2, 3, 4, 1)
-#  (2, 4, 1, 3)
-#  (2, 4, 3, 1)
-#  (3, 1, 2, 4)
-#  (3, 1, 4, 2)
-#  (3, 2, 1, 4)
-#  (3, 2, 4, 1)
-#  (3, 4, 1, 2)
-#  (3, 4, 2, 1)
-#  (4, 1, 2, 3)
-#  (4, 1, 3, 2)
-#  (4, 2, 1, 3)
-#  (4, 2, 3, 1)
-#  (4, 3, 1, 2)
-#  (4, 3, 2, 1)
+Correct sequence (sorted):
+ (1, 2, 3, 4)
+ (1, 2, 4, 3)
+ (1, 3, 2, 4)
+ (1, 3, 4, 2)
+ (1, 4, 2, 3)
+ (1, 4, 3, 2)
+ (2, 1, 3, 4)
+ (2, 1, 4, 3)
+ (2, 3, 1, 4)
+ (2, 3, 4, 1)
+ (2, 4, 1, 3)
+ (2, 4, 3, 1)
+ (3, 1, 2, 4)
+ (3, 1, 4, 2)
+ (3, 2, 1, 4)
+ (3, 2, 4, 1)
+ (3, 4, 1, 2)
+ (3, 4, 2, 1)
+ (4, 1, 2, 3)
+ (4, 1, 3, 2)
+ (4, 2, 1, 3)
+ (4, 2, 3, 1)
+ (4, 3, 1, 2)
+ (4, 3, 2, 1)
+ """
 
 from itertools import permutations
 from typing import *
