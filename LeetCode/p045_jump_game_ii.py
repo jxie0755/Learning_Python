@@ -141,7 +141,6 @@ class Solution:
         if cur_idx + cur_value >= len(nums) - 1:
             return count + 1
         else:
-            cur_value = nums[cur_idx]
             next_idx, next_value = 0, 0
             for idx in range(cur_idx + 1, cur_idx + cur_value + 1):
                 idx_value = nums[idx]
@@ -157,6 +156,6 @@ if __name__ == "__main__":
     assert Solution().jump(
         [5, 6, 5, 3, 9, 8, 3, 1, 2, 8, 2, 4, 8, 3, 9, 1, 0, 9, 4, 6, 5, 9, 8, 7, 4, 2, 1, 0, 2]) == 5, "Long 2"
     assert Solution().jump(
-        [5, 6, 4, 4, 6, 9, 4, 4, 7, 4, 4, 8, 2, 6, 8, 1, 5, 9, 6, 5, 2, 7, 9, 7, 9, 6, 9, 4, 1, 6, 8, 8, 4, 4, 2, 0, 3,
-         8, 5]) == 5, "Long 3"
+        [5, 6, 4, 4, 6, 9, 4, 4, 7, 4, 4, 8, 2, 6, 8, 1, 5, 9, 6, 5, 2, 7, 9, 7,
+         9, 6, 9, 4, 1, 6, 8, 8, 4, 4, 2, 0, 3, 8, 5]) == 5, "Long 3"
     print("all passed")
