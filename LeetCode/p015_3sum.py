@@ -35,7 +35,7 @@ class Solution:
 
         return result
 
-    """Helper - version A"""
+    """Helper A"""
     def twoSum_for_3sum(self, numbers: List[int], target: int, jump: int) -> List[List[int]]:
 
         result = []
@@ -49,6 +49,7 @@ class Solution:
                 result.append([numbers[hashtable[numbers[idx]]], numbers[idx]])
                 # do not return, but get every possible group of target two sum
         return result
+
 
 class Solution:
 
@@ -85,10 +86,12 @@ class Solution:
 
 class Solution:
 
-    # Version C, optimized O(N^2)
-    # Split the list to negative numbers and postive numbers
-    # handle [-i, 0, i] and [-i, -j, k] and [-i, j, k] individually
-    # Same O(N^2) max time limit exceeded
+    """
+    Version C, optimized O(N^2)
+    Split the list to negative numbers and postive numbers
+    handle [-i, 0, i] and [-i, -j, k] and [-i, j, k] individually
+    Same O(N^2) max time limit exceeded
+    """
     def threeSum_x(self, nums: List[int]) -> List[List[int]]:
 
         if len(nums) < 3:
@@ -108,7 +111,7 @@ class Solution:
         neg = nums[:break_point]
         pos = nums[break_point:]
 
-        """Internal Helper"""
+        """Helper"""
         def two_one(lst1: List[int], lst2: List[int]) -> None:
             length = len(lst1)
             if length >= 2:
@@ -134,10 +137,12 @@ class Solution:
 
 class Solution:
 
-    # Version D
-    # Since we only need to return numbers, it does not need to be indexed
-    # Break down the nums with a sort first, then move head and tail towards center
-    # Max Limit Exceeded
+    """
+    Version D
+    Since we only need to return numbers, it does not need to be indexed
+    Break down the nums with a sort first, then move head and tail towards center
+    Max Limit Exceeded
+    """
     def threeSum(self, nums: List[int]) -> List[List[int]]:
 
         nums, length = sorted(nums), len(nums)
@@ -165,27 +170,13 @@ class Solution:
 
 
 class Solution:
-    def twoSum(self, numbers: List[int], target: int, jump: int) -> List[List[int]]:
-        # 提取p167 two sum II 中的头尾缩进法 O(N)
 
-        result = []
-        head, tail = 0, len(numbers) - 1
-        while head < tail:
-            first, second = numbers[head], numbers[tail]
-            if first + second > target or tail == jump:
-                tail -= 1
-            elif first + second < target or head == jump:
-                head += 1
-            else:
-                result.append([first, second])
-                tail -= 1
-
-        return result
-
-    # Version E
-    # Use modified method of two_sum
-    # with every number, check the rest of array for two_sum of (0-number)
-    # O(N^2), max time limit exceeded
+    """
+    Version E
+    Use modified method of two_sum
+    with every number, check the rest of array for two_sum of (0-number)
+    O(N^2), max time limit exceeded
+    """
     def threeSum(self, nums: List[int]) -> List[List[int]]:
 
         nums = sorted(nums)
@@ -205,11 +196,32 @@ class Solution:
 
         return result
 
+    """
+    Helper E
+    # 提取p167 two sum II 中的头尾缩进法 O(N)
+    """
+    def twoSum(self, numbers: List[int], target: int, jump: int) -> List[List[int]]:
+
+        result = []
+        head, tail = 0, len(numbers) - 1
+        while head < tail:
+            first, second = numbers[head], numbers[tail]
+            if first + second > target or tail == jump:
+                tail -= 1
+            elif first + second < target or head == jump:
+                head += 1
+            else:
+                result.append([first, second])
+                tail -= 1
+
+        return result
 
 class Solution(object):
 
-    # STD ans
-    # Time:  O(n^2)
+    """
+    STD ans
+    Time:  O(n^2)
+    """
     def threeSum(self, nums: List[int]) -> List[List[int]]:
 
         nums, result, i = sorted(nums), [], 0

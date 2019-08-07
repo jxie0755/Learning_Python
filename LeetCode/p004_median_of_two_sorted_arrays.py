@@ -20,7 +20,7 @@ class Solution:
     """
     def findMedianSortedArrays(self, nums1: List[int], nums2: List[int]) -> float:
 
-        """Internal Helper"""
+        """Helper"""
         def median(array: List[int]) -> float:
             length = len(array)
             half = length // 2

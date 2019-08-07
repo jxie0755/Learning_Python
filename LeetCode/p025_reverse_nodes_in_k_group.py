@@ -45,7 +45,7 @@ class Solution:
         return new_cur
 
     """
-    Internal Helper
+    Helper
     参见Leetcode P206, reverse the whole linked-list
     """
     def reverseNodes(self, head: ListNode) -> ListNode:

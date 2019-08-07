@@ -24,6 +24,7 @@ class Solution:
         return str(int(num1) * int(num2))
 
 
+class Solution:
     """
     Version B
     HashMap method
@@ -52,7 +53,7 @@ class Solution:
 
         return self.int2str(result)
 
-    """Helper - Version B"""
+    """Helper B"""
     def int2str(self, num):
         """Convert a int to a string through algorithm"""
         hmp_n2s = {
@@ -68,6 +69,8 @@ class Solution:
             num //= 10
         return result
 
+
+class Solution:
     """
     Version C
     Break down to add with manual method
@@ -96,7 +99,7 @@ class Solution:
         return result
 
     """
-    Helper - Version C
+    Helper C
     add two integer in string form together
     """
     def str_add(self, num1, num2):

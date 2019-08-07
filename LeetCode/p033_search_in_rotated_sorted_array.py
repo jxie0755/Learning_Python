@@ -23,7 +23,7 @@ class Solution:
 
         L, H = 0, len(nums) - 1
 
-        """Internal Helper"""
+        """Helper"""
         def search_helper(L: int, H: int) -> int:
             M = (L + H) // 2
             low, mid, high = nums[L], nums[M], nums[H]

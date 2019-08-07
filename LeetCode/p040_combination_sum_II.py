@@ -61,7 +61,7 @@ class Solution(object):
     def combinationSum2(self, candidates: List[int], target: int) -> List[List[int]]:
 
         """
-        Internal Helper
+        Helper
 
         Args:
             candidates:    ingredient numbers (sorted)

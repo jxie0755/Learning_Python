@@ -25,7 +25,7 @@ class Solution:
     def divide(self, dividend: "int", divisor: "int") -> "int":
 
         """
-        Internal Helper
+        Helper
         Achive log(n) division by doubling mom, before son > mom
         Mom and Son are both non-negative integers
         """

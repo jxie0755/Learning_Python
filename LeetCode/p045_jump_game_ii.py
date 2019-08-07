@@ -22,7 +22,7 @@ class Solution:
     """
     def jump(self, nums: List[int]) -> int:
 
-        """Internal Helper"""
+        """Helper"""
         def jumpHelperA(cur_idx: int, cur_step: int = 0) -> None:
 
             if cur_idx >= last_idx:
@@ -77,7 +77,7 @@ class Solution:
     def jump(self, nums: List[int]) -> int:
 
         """
-        Internal Helper
+        Helper
         由于一定能走完, 下一个index就是能走的最远的(包括这次跳跃的步数和它能带来的下一个步数)
         """
         def findNextIdx(cur_idx: int) -> int:

@@ -25,7 +25,7 @@ class Solution:
     def intToRoman2(self, num: int) -> str:
         num = str(num).rjust(4, "0")  # 拆解data成为单独的数字字符,并补足数位
 
-        """Internal Helper"""
+        """Helper"""
         def rom(n: int, x: str, y: str, z: str) -> str:  # 写一个函数来表明转换逻辑
             nd = int(num[n])
             if nd == 0:

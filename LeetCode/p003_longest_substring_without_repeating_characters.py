@@ -15,7 +15,7 @@ class Solution:
     """
     def lengthOfLongestSubstring(self, s: str) -> int:
 
-        """Internal Helper"""
+        """Helper"""
         def is_no_repeat(s: str) -> bool:
             hastable = {}
             for i in s:

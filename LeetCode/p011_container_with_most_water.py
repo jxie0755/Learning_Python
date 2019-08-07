@@ -46,14 +46,14 @@ class Solution:
         hashtable = dict(enumerate(height))
         tops = {}
 
-        """Internal Helper"""
+        """Helper"""
         def obtain_top(hstble: Dict[int, int]) -> None:
             """得到hashtable中最大值的index"""
             i = max(hstble, key=hstble.get)
             tops[i] = hstble[i]  # 转移到tops字典, 也就是记录最大值的字典
             del hstble[i]  # 记住要删掉这个最大值
 
-        """Internal Helper"""
+        """Helper"""
         def remove_between(hstble: Dict[int, int]) -> None:
             """删除最高值之间的所有数据"""
 

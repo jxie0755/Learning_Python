@@ -25,14 +25,14 @@ class Solution:
     def isValidSudoku(self, board: List[List[str]]) -> bool:
         return self.all_rows(board) and self.all_cols(board) and self.all_blocks(board)
 
-    """Helper 1 - version A"""
+    """Helper Aa"""
     def all_rows(self, board: List[List[str]]) -> bool:
         for row in board:
             if not self.correct_line(row):
                 return False
         return True
 
-    """Helper 2 - version A"""
+    """Helper Ab"""
     def all_cols(self, board: List[List[str]]) -> bool:
         for i in range(0, 9):
             col = [board[j][i] for j in range(0, 9)]
@@ -40,7 +40,7 @@ class Solution:
                 return False
         return True
 
-    """Helper 3 - version A"""
+    """Helper Ac"""
     def all_blocks(self, board: List[List[str]]) -> bool:
         for add_on_row in range(0, 9, 3):
             for add_on_col in range(0, 9, 3):
@@ -49,7 +49,7 @@ class Solution:
                     return False
         return True
 
-    """Helper - hlper 1,2,3"""
+    """Helper Aabc"""
     def correct_line(self, row: List[str]) -> bool:
         written = []
         for i in row:

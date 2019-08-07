@@ -26,7 +26,7 @@ class Solution:
         if not candidates:
             return []
 
-        """Internal Helper"""
+        """Helper"""
         def process(temp: List[List[int]]) -> List[List[int]]:
             new_temp = []
             i = 0
@@ -62,7 +62,7 @@ class Solution(object):
     def combinationSum(self, candidates: List[int], target: int) -> List[List[int]]:
 
         """
-        Internal Helper
+        Helper
 
         Args:
             candidates:    ingredient numbers (sorted)

@@ -30,7 +30,7 @@ class Solution:
     """
     def countAndSay(self, n: int) -> str:
 
-        """Internal Helper"""
+        """Helper"""
         def say(num):
             num = str(num) + " "
             lenth = 1

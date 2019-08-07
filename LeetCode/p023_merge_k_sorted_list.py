@@ -66,7 +66,7 @@ class Solution:
 
         return dummy.next
 
-    """Helper - version C2"""
+    """Helper C1"""
     def merge_two(self, l1: ListNode, l2: ListNode) -> ListNode:
         """merge two sorted linked list"""
         curr = dummy = ListNode("X")
@@ -78,6 +78,9 @@ class Solution:
             curr = curr.next
         curr.next = l1 or l2
         return dummy.next
+
+
+class Solution:
 
     """
     Version C2, improved

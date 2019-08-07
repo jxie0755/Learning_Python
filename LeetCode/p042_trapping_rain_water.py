@@ -44,7 +44,7 @@ class Solution:
 
             return volume
 
-    """Helper - version A"""
+    """Helper Aa"""
     def vol(self, height: List[int]) -> int:
         """Calculate the volume between two peaks"""
         sec_peak = min(height[0], height[-1])
@@ -54,7 +54,7 @@ class Solution:
                 volume += sec_peak - i
         return volume
 
-    """Helper - version A"""
+    """Helper Ab"""
     def findPeaks(self, height: List[int]) -> List[int]:
         """To find the index of peaks, and sort reversely accoridng to the height value at the index"""
         hmp = {}
