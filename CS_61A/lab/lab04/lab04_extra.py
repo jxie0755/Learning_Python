@@ -393,7 +393,7 @@ def other(player):
 def play(board, max_rows, max_cols, num_connect):
     max_turns = max_rows * max_cols
     playing = True
-    print("Player "X" starts")
+    print("Player 'X' starts")
     who = "X"
     turns = 0
 
