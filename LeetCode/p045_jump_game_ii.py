@@ -112,6 +112,8 @@ class Solution:
     by using max function, this will pass, but still slow.
     """
     def jump(self, nums: List[int]) -> int:
+        if nums[0] == 0:
+            return 0
         return self.jumpHelpterC1(nums, 0)
 
     """Helper"""
@@ -133,6 +135,8 @@ class Solution:
     it is now very similar to non-recursive method, but still slower.
     """
     def jump(self, nums: List[int]) -> int:
+        if nums[0] == 0:
+            return 0
         return self.jumphelpterC2(nums, 0)
 
     """Helper"""
@@ -149,6 +153,7 @@ class Solution:
             return self.jumphelpterC2(nums, next_idx, count + 1)
 
 if __name__ == "__main__":
+    assert Solution().jump([0]) == 0, "Edge 0"
     assert Solution().jump([2, 1]) == 1, "Edge 1"
     assert Solution().jump([2, 3, 1, 1, 4]) == 2, "Example 1"
     assert Solution().jump(
