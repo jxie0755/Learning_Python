@@ -11,7 +11,10 @@ The 32-bit int data type can hold integer values in the range of âˆ’2,147,48
 
 class Solution:
 
-    # Version A, use string method, time O(logN), takes extra space O(logn)
+    """
+    Version A
+    use string method, time O(logN), takes extra space O(logn)
+    """
     def reverse(self, x: int) -> int:
         if x >= 0:
             result = int(str(x)[::-1])
@@ -20,7 +23,10 @@ class Solution:
             result = int("-" + str(x)[-1:0:-1])
             return result if result >= -2147483648 else 0
 
-    # Version B, use math method
+    """
+    Version B
+    use math method
+    """
     def reverse(self, x: int) -> int:
         # no extra space used, by using divmod method
         absX = abs(x)

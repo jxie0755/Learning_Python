@@ -9,7 +9,7 @@ Input is guaranteed to be within the range from 1 to 3999.
 
 class Solution:
 
-    # Version A, hashmap method
+    """Version A, hashmap method"""
     def romanToInt(self, s: str) -> int:
         result = 0
         # remove the possibility of 4 and 9

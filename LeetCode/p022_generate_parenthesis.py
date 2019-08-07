@@ -11,9 +11,11 @@ from typing import *
 
 class Solution:
 
-    # Version A, recursive
-    # Time  O(N^2)
-    # Space O(N^2)
+    """
+    Version A, recursive
+    Time  O(N^2)
+    Space O(N^2)
+    """
     def generateParenthesis(self, n: int) -> List[str]:
         if n == 1:
             return ["()"]
@@ -24,7 +26,7 @@ class Solution:
                 result += self.gen_par(par)
             return list(set(result))  # 需要用set来去重复 (注意顺序可能变化,不能match test case)
 
-    # Helper - version A
+    """Helper - version A"""
     def gen_par(self, par: str) -> List[str]:
         index_list = []  # 找到所有右括号")"的位置
         for i in range(0, len(par)):
@@ -39,12 +41,14 @@ class Solution:
 
 class Solution:
 
-    # STD ANS, recursive
-    # Time:  O(4^n / n^(3/2)) ~= Catalan numbers
-    # Space: O(n)
+    """
+    STD ANS, recursive
+    Time:  O(4^n / n^(3/2)) ~= Catalan numbers
+    Space: O(n)
+    """
     def generateParenthesis(self, n: int) -> List[str]:
 
-        # Internal Helper
+        """Internal Helper"""
         def generate(p: str, left: int, right: int, parens: List[str] = []) -> List[str]:
             if left:
                 generate(p + "(", left - 1, right)
@@ -60,11 +64,14 @@ class Solution:
 
 class Solution:
 
-    # Version B, An easier way to understand STD ans
+    """
+    Version B
+    An easier way to understand STD ans
+    """
     def generateParenthesis(self, n: int) -> List[str]:
         parens = []
 
-        # Internal Helper
+        """Internal Helper"""
         def generate(p: str, left: int, right: int) -> None:
             if left:
                 generate(p + "(", left - 1, right)

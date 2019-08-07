@@ -12,8 +12,10 @@ from typing import *
 
 class Solution(object):
 
-    # Version A
-    # Wrong, change of the Array length should be avoided
+    """
+    Version A
+    Imperfect, Change of the Array length should be avoided
+    """
     def removeElement(self, nums: List[int], val: int) -> int:
         n = 0
         while n < len(nums):
@@ -26,15 +28,19 @@ class Solution(object):
                 n += 1  # if no pop(), then move n to next index
         return len(nums)
 
-    # Version B
-    # This slower by checking val in nums everytime O(N)
+    """
+    Version B
+    This slower by checking val in nums everytime O(N)
+    """
     def removeElement(self, nums: List[int], val: int) -> int:
         while val in nums:
             nums.remove(val)
         return len(nums)
 
-    # Version C
-    # No pop, re-arrange with two flags
+    """
+    Version C
+    No pop, re-arrange with two flags
+    """
     def removeElement(self, nums: List[int], val: int) -> int:
         i = n = 0
         L = len(nums)

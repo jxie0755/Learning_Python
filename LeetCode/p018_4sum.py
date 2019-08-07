@@ -14,8 +14,10 @@ from typing import *
 
 class Solution:
 
-    # Version A
-    # Same idea from 3Sum O(N*3^N)
+    """
+    Version A
+    Same idea from 3Sum O(N*3^N)
+    """
     def fourSum(self, nums: List[int], target: int) -> List[List[int]]:
 
         length = len(nums)

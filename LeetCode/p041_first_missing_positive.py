@@ -14,8 +14,10 @@ from typing import *
 
 class Solution:
 
-    # Version A
-    # O(N), space O(N) (not constant space)
+    """
+    Version A
+    O(N), space O(N) (not constant space)
+    """
     def firstMissingPositive(self, nums: List[int]) -> int:
         if not nums:
             return 1
@@ -30,8 +32,10 @@ class Solution:
         else:
             return all_int[0]
 
-    # STD ans
-    # Avoid use try except block
+    """
+    STD ans
+    Avoid use try except block
+    """
     def firstMissingPositive(self, nums: List[int]) -> int:
         nums.append(0)
         n = len(nums)

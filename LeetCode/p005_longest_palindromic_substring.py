@@ -10,13 +10,15 @@ You may assume that the maximum length of s is 1000.
 
 class Solution:
 
-    # Version A
-    # Time: O(N^2) + O(1/2N) = O(N^2)
-    # Space: O(N)
-    # Maximum time limit exceeded
+    """
+    Version A
+    Time: O(N^2) + O(1/2N) = O(N^2)
+    Space: O(N)
+    Maximum time limit exceeded
+    """
     def longestPalindrome(self, s: str) -> str:
 
-        # Internal Helper
+        """Internal Helper"""
         def is_palindrome(s: str) -> bool:
             return s == s[::-1]
 
@@ -35,10 +37,12 @@ class Solution:
 
 class Solution:
 
-    # Version B
-    # Time: O(N^2)
-    # Space: O(1)
-    # 从中心向两侧扩展法, 遍历中心点
+    """
+    Version B
+    Time: O(N^2)
+    Space: O(1)
+    从中心向两侧扩展法, 遍历中心点
+    """
     def longestPalindrome(self, s: str) -> str:
 
         length = len(s)

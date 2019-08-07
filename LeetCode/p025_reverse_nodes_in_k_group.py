@@ -17,8 +17,10 @@ from a0_ListNode import *
 
 class Solution:
 
-    # Version A, use reverse whole linked list
-    # Recursive
+    """
+    Version A, use reverse whole linked list
+    Recursive
+    """
     def reverseKGroup(self, head: ListNode, k: int) -> ListNode:
         if k == 1 or not head:
             return head
@@ -42,8 +44,10 @@ class Solution:
         head.next = self.reverseKGroup(next_cur, k)
         return new_cur
 
-    # Internal Helper
-    # 参见Leetcode P206, reverse the whole linked-list
+    """
+    Internal Helper
+    参见Leetcode P206, reverse the whole linked-list
+    """
     def reverseNodes(self, head: ListNode) -> ListNode:
         dummy = ListNode(float("-inf"))
         while head:
@@ -54,8 +58,10 @@ class Solution:
             head = rest
         return dummy.next
 
-    # Version B, Non-recursive, using counter cycling
-    # Slower than recursive
+    """
+    Version B, Non-recursive, using counter cycling
+    Slower than recursive
+    """
     def reverseKGroup(self, head: ListNode, k: int) -> ListNode:
 
         if k == 1 or not head:

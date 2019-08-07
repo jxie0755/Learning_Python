@@ -21,19 +21,24 @@ from typing import *
 
 class Solution:
 
-    # Version A
+    """
+    Version A
+    """
     def solveSudoku(self, board: List[List[str]]) -> None:
         ans = Solution.PySudokuSolver_A(board).solve()
         for i in range(9):
             for j in range(9):
                 board[i][j] = ans[i][j]
 
-    # 来自ZZZProject/SudokuSolver/sudoku_solver_v1
-    # 改动:
-    # 使用String作为board元素类型而不是Integer
-    # 把空位从"0"改成"."以符合本体要求
-    # 删去__str__, 对解本题没有帮助
+    """
+    来自ZZZProject/SudokuSolver/sudoku_solver_v1
+    改动:
+    使用String作为board元素类型而不是Integer
+    把空位从"0"改成"."以符合本体要求
+    删去__str__, 对解本题没有帮助
+    """
     class PySudokuSolver_A:
+
         def __init__(self, puzzle=[
             [".", ".", ".", ".", ".", ".", ".", ".", "."],
             [".", ".", ".", ".", ".", ".", ".", ".", "."],
@@ -285,7 +290,7 @@ class Solution:
 
 class Solution:
 
-    # Version B
+    """Version B"""
     def solveSudoku(self, board: List[List[str]]) -> None:
         ans = Solution.PySudokuSolver_B(board)
         ans.solve()
@@ -293,10 +298,12 @@ class Solution:
             x, y = coor[0], coor[1]
             board[9 - y][x - 1] = value["cur"]
 
-    # 来自ZZZProject/SudokuSolver/sudoku_solver_v1
-    # 改动:
-    # 把空位从"0"改成"."以符合本体要求
-    # 删去__str__, 对解本题没有帮助
+    """
+    来自ZZZProject/SudokuSolver/sudoku_solver_v1
+    改动:
+    把空位从"0"改成"."以符合本体要求
+    删去__str__, 对解本题没有帮助
+    """
     class PySudokuSolver_B:
         """each instance should be a single plate that can be filled in with numbers
         there will be check method to ensure no conflict in going on.

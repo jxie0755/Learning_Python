@@ -8,7 +8,7 @@ Return the index of the first occurrence of needle in haystack, or -1 if needle 
 
 class Solution:
 
-    # Version A
+    """Version A"""
     def strStr(self, haystack: str, needle: str) -> int:
         length = len(needle)
         index = 0

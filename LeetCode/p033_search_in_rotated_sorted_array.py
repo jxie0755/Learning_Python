@@ -15,13 +15,15 @@ from typing import *
 
 class Solution:
 
-    # Version A, Recursion method, complicated binary search O(logN)
-    # Unecessary at all, method abandoned
+    """
+    Version A, Recursion method, complicated binary search O(logN)
+    Unecessary at all, method abandoned
+    """
     def search(self, nums: List[int], target: int) -> int:
 
         L, H = 0, len(nums) - 1
 
-        # Internal Helper
+        """Internal Helper"""
         def search_helper(L: int, H: int) -> int:
             M = (L + H) // 2
             low, mid, high = nums[L], nums[M], nums[H]
@@ -54,8 +56,10 @@ class Solution:
         # 避免nums为空
         return -1 if not nums else search_helper(L, H)
 
-    # Version B
-    # Regular while loop, binary search O(logN) * c
+    """
+    Version B
+    Regular while loop, binary search O(logN) * c
+    """
     def search(self, nums: List[int], target: int) -> int:
 
         if not nums:

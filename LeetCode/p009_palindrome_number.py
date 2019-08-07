@@ -9,7 +9,7 @@ Negative integer will not be a palindrome
 
 class Solution:
 
-    # Version A,  string method, takes extra space
+    """Version A,  string method, takes extra space"""
     def isPalindrome(self, x: int) -> bool:
         #
         if x < 0:
@@ -17,7 +17,7 @@ class Solution:
         else:
             return str(x) == str(x)[::-1]
 
-    # Version B, divmod method
+    """Version B, divmod method"""
     def isPalindrome(self, x: int) -> bool:
 
         if x < 0:

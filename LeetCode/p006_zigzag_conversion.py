@@ -24,7 +24,7 @@ string convert(string s, int numRows);
 
 class Solution:
 
-    # Version A1, Time O(N), space O(N)
+    """ Version A1, Time O(N), space O(N)"""
     def convert(self, s: str, numRows: int) -> str:
         z = list(range(0, numRows)) + list(range(numRows - 2, 0, -1))  # cyling pather of 1 Z move (idx)
         cycle = len(z)
@@ -40,7 +40,7 @@ class Solution:
 
 class Solution:
 
-    # Version A2, Time O(N), space O(N)
+    """Version A2, Time O(N), space O(N)"""
     def convert(self, s: str, numRows: int) -> str:
         z = list(range(0, numRows)) + list(range(numRows - 2, 0, -1))
         z *= (len(s) // len(z) + 1)  # 直接扩展z, 不要用cycle的方式
@@ -56,7 +56,7 @@ class Solution:
 
 class Solution(object):
 
-    # Version B, Time O(N), Space O(1) better in space
+    """Version B, Time O(N), Space O(1) better in space"""
     def convert(self, s: str, numRows: int) -> str:
 
         if numRows == 1:

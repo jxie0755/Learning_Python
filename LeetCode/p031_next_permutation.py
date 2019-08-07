@@ -44,10 +44,12 @@ from typing import *
 
 class Solution:
 
-    # Version A
-    # Use itertool.permutations itearate the permutation sequence from small to large,
-    # and stop at the nums, then return the next one
-    # Exceeded max time limit
+    """
+    Version A
+    Use itertool.permutations itearate the permutation sequence from small to large,
+    and stop at the nums, then return the next one
+    Exceeded max time limit
+    """
     def nextPermutation(self, nums: List[int]) -> None:
 
         first_sample = False
@@ -69,8 +71,10 @@ class Solution:
 
 class Solution:
 
-    # Version B
-    # O(N), directly find next different permutations
+    """
+    Version B
+    O(N), directly find next different permutations
+    """
     def nextPermutation(self, nums: List[int]) -> None:
 
         length = len(nums)
@@ -90,8 +94,10 @@ class Solution:
                     nums[cur_i + 1:] = nums[cur_i + 1:][::-1]  # reverse the tail back to sorted
                     break
 
-    # Addtional: prevPermute, which is the reverse process
-    # O(N), directly find previous different permutations
+    """
+    Addtional: prevPermute, which is the reverse process
+    O(N), directly find previous different permutations
+    """
     def prevPermutation(self, nums: List[int]) -> None:
 
         length = len(nums)

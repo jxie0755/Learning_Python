@@ -15,7 +15,10 @@ from typing import *
 
 class Solution:
 
-    # Version A, # Brutal force will be O(N^2), Time Limit Exceeded
+    """
+    Version A
+    Brutal force will be O(N^2), Time Limit Exceeded
+    """
     def maxArea(self, height: List[int]) -> int:
 
         i = 0
@@ -31,24 +34,26 @@ class Solution:
             i += 1
         return max(result)
 
-    # Version B
-    # find the heighest two, and check volume, then find the next highest two
-    # O(N^2) in worst case, but sometimes O(log n * N)
-    # Still exceeded max time limit on a case of ascending numbers.
+    """
+    Version B
+    find the heighest two, and check volume, then find the next highest two
+    O(N^2) in worst case, but sometimes O(log n * N)
+    Still exceeded max time limit on a case of ascending numbers.
+    """
     def maxArea(self, height: List[int]) -> int:
 
         result = []
         hashtable = dict(enumerate(height))
         tops = {}
 
-        # Internal Helper
+        """Internal Helper"""
         def obtain_top(hstble: Dict[int, int]) -> None:
             """得到hashtable中最大值的index"""
             i = max(hstble, key=hstble.get)
             tops[i] = hstble[i]  # 转移到tops字典, 也就是记录最大值的字典
             del hstble[i]  # 记住要删掉这个最大值
 
-        # Internal Helper
+        """Internal Helper"""
         def remove_between(hstble: Dict[int, int]) -> None:
             """删除最高值之间的所有数据"""
 
@@ -73,9 +78,11 @@ class Solution:
 
         return max(result)
 
-    # Version C
-    # Start from both end, move the shorter side closer, to compare the possibe volume
-    # O(N) locked, best answer
+    """
+    Version C
+    Start from both end, move the shorter side closer, to compare the possibe volume
+    O(N) locked, best answer
+    """
     def maxArea(self, height: List[int]) -> int:
 
         max_area, i, j = 0, 0, len(height) - 1

@@ -13,10 +13,12 @@ from typing import *
 
 class Solution:
 
-    # Version A, hastable method from P001
-    # Use modified method of two_sum (Above)
-    # with every number, check the rest of array for two_sum of (0-number)
-    # O(N^2), max time limit exceeded
+    """
+    Version A, hastable method from P001
+    Use modified method of two_sum (Above)
+    with every number, check the rest of array for two_sum of (0-number)
+    O(N^2), max time limit exceeded
+    """
     def threeSum(self, nums: List[int]) -> List[List[int]]:
 
         result = []
@@ -33,7 +35,7 @@ class Solution:
 
         return result
 
-    # Helper - version A
+    """Helper - version A"""
     def twoSum_for_3sum(self, numbers: List[int], target: int, jump: int) -> List[List[int]]:
 
         result = []
@@ -50,8 +52,10 @@ class Solution:
 
 class Solution:
 
-    # Version B
-    # Pure brutal force, O(N^3), max time limit exceeded
+    """
+    Version B
+    Pure brutal force, O(N^3), max time limit exceeded
+    """
     def threeSum(self, nums: List[int]) -> List[List[int]]:
 
         length = len(nums)
@@ -104,7 +108,7 @@ class Solution:
         neg = nums[:break_point]
         pos = nums[break_point:]
 
-        # Internal Helper
+        """Internal Helper"""
         def two_one(lst1: List[int], lst2: List[int]) -> None:
             length = len(lst1)
             if length >= 2:

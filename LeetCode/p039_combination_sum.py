@@ -17,14 +17,16 @@ from typing import *
 
 class Solution:
 
-    # Version A
-    # Brutal Force O(N^2), very slow but passed
+    """
+    Version A
+    Brutal Force O(N^2), very slow but passed
+    """
     def combinationSum(self, candidates: List[int], target: int) -> List[List[int]]:
 
         if not candidates:
             return []
 
-        # Internal Helper
+        """Internal Helper"""
         def process(temp: List[List[int]]) -> List[List[int]]:
             new_temp = []
             i = 0
@@ -53,21 +55,26 @@ class Solution:
 
 class Solution(object):
 
-    # Version B
-    # Add a recursive process method to update result
+    """
+    Version B
+    Add a recursive process method to update result
+    """
     def combinationSum(self, candidates: List[int], target: int) -> List[List[int]]:
 
-        # Internal Helper
-        def process(candidates: List[int], start: int, intermediate: List[int], target: int) -> None:
-            """
-            Args:
-                candidates:    ingredient numbers (sorted)
-                start:         from 0, full candidates, to a shorter candidate list
-                intermediate:  temp list to record current status List[int]]
-                target:        tartget to compose
+        """
+        Internal Helper
 
-            Returns: None, Imperfect function, just update the result
-            """
+        Args:
+            candidates:    ingredient numbers (sorted)
+            start:         from 0, full candidates, to a shorter candidate list
+            intermediate:  temp list to record current status List[int]]
+            target:        tartget to compose
+
+        Returns:
+            None, Imperfect function, just update the result
+        """
+        def process(candidates: List[int], start: int, intermediate: List[int], target: int) -> None:
+
             if target == 0:
                 result.append(list(intermediate))  # 终止case, target降到0就完成
                 # 这里使用list其实就是复制一个itermediate, 可以用interme[:]取代

@@ -14,8 +14,10 @@ from a0_ListNode import *
 
 class Solution:
 
-    # Version A
-    # 笨办法,先判断链表长度, 再正向解决
+    """
+    Version A
+    笨办法,先判断链表长度, 再正向解决
+    """
     def removeNthFromEnd(self, head: ListNode, n: int) -> ListNode:
         cur, length = head, 0
         while cur:
@@ -37,8 +39,21 @@ class Solution:
 
 class Solution(object):
 
-    # STD Ans
-    # Two flags slow and fast
+    """
+    STD Ans
+    Two flags slow and fast
+
+    解读:
+    D-1-2-3-4-5-N
+    s   f          // 先定位s和f
+
+    D-1-2-3-4-5-N
+          s   f  // 一起移动s和f直到f.next碰到末尾
+
+    为什么要设置dummy?
+    D-1-2-3-4-5-N
+    s         f     // # 不设置dummy的话无法应对跳过head的情况
+    """
     def removeNthFromEnd(self, head: ListNode, n: int) -> ListNode:
 
         dummy = ListNode(-1)
@@ -55,15 +70,7 @@ class Solution(object):
 
         return dummy.next
 
-    # D-1-2-3-4-5-N
-    # s   f          // 先定位s和f
 
-    # D-1-2-3-4-5-N
-    #       s   f  // 一起移动s和f直到f.next碰到末尾
-
-    # 为什么要设置dummy?
-    # D-1-2-3-4-5-N
-    # s         f     // # 不设置dummy的话无法应对跳过head的情况
 
 
 if __name__ == "__main__":

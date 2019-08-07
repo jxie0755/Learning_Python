@@ -14,9 +14,11 @@ from a0_ListNode import *
 
 class Solution(object):
 
-    # Version A, Time:  O(n), Space: O(1)
-    # Non-recursion  method
-    # This will protect l1 and l2 from changing
+    """
+    Version A, Time:  O(n), Space: O(1)
+    Non-recursion  method
+    This will protect l1 and l2 from changing
+    """
     def addTwoNumbers(self, l1: ListNode, l2: ListNode) -> ListNode:
 
         dummy = ListNode(0)
@@ -42,10 +44,12 @@ class Solution(object):
 
 class Solution:
 
-    # Version B, Time:  O(n), Space: O(1)
-    # Recursion method
-    # This will break down l1 and l2
-    # 加一个parameter就可以避免改变l1和l2
+    """
+    Version B, Time:  O(n), Space: O(1)
+    Recursion method
+    This will break down l1 and l2
+    加一个parameter就可以避免改变l1和l2
+    """
     def addTwoNumbers(self, l1: ListNode, l2: ListNode) -> ListNode:
 
         a = l1.val if l1 else 0

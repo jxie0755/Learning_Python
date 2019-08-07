@@ -13,12 +13,14 @@ from typing import *
 
 class Solution:
 
-    # Version A, O(N)
-    # Merge two sorted list then find the median
-    # Not very efficient, as we go all the way, and used a lot of space
+    """
+    Version A, O(N)
+    Merge two sorted list then find the median
+    Not very efficient, as we go all the way, and used a lot of space
+    """
     def findMedianSortedArrays(self, nums1: List[int], nums2: List[int]) -> float:
 
-        # Internal Helper
+        """Internal Helper"""
         def median(array: List[int]) -> float:
             length = len(array)
             half = length // 2
@@ -48,8 +50,10 @@ class Solution:
 
         return median(merge)
 
-    # Version B, O(1/2N)
-    # Modified merge sort to only merge half way
+    """
+    Version B, O(1/2N)
+    Modified merge sort to only merge half way
+    """
     def findMedianSortedArrays(self, nums1: List[int], nums2: List[int]) -> float:
 
         l1, l2 = len(nums1), len(nums2)
@@ -81,8 +85,11 @@ class Solution:
         else:
             return merge[-1]
 
-    # Version C1, Time O(N), space O(1/2N)
-    # Same half way method with different index
+
+    """
+    Version C1, Time O(N), space O(1/2N)
+    Same half way method with different index
+    """
     def findMedianSortedArrays(self, nums1: List[int], nums2: List[int]) -> float:
 
         cur1, cur2 = 0, 0
@@ -112,8 +119,10 @@ class Solution:
 
         return (lst[m1] + lst[m2]) / 2
 
-    # Version C2, Time O(N), space O(1)
-    # Same half way method with different index, but only keep track last two
+    """
+    Version C2, Time O(N), space O(1)
+    Same half way method with different index, but only keep track last two
+    """
     def findMedianSortedArrays(self, nums1: List[int], nums2: List[int]) -> float:
 
         total_length = len(nums1) + len(nums2)

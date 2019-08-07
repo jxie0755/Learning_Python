@@ -13,9 +13,11 @@ from typing import *
 
 class Solution:
 
-    # Version A
-    # Similar structure as 3Sum.
-    # Revise by checking the 3Sum with Target, and update the 3sum of lowest diff
+    """
+    Version A
+    Similar structure as 3Sum.
+    Revise by checking the 3Sum with Target, and update the 3sum of lowest diff
+    """
     def threeSumClosest(self, nums: List[int], target: int) -> int:
 
         nums = sorted(nums)

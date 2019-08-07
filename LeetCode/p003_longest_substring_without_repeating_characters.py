@@ -8,12 +8,14 @@ Given a string, find the length of the longest substring without repeating chara
 
 class Solution:
 
-    # Version A, Brutal Force Time O(N^3)
-    # Get all substrings from long to short, then check each on repeating characters
-    # Fail as Maximum Time limit exceeded
+    """
+    Version A, Brutal Force Time O(N^3)
+    Get all substrings from long to short, then check each on repeating characters
+    Fail as Maximum Time limit exceeded
+    """
     def lengthOfLongestSubstring(self, s: str) -> int:
 
-        # Internal Helper
+        """Internal Helper"""
         def is_no_repeat(s: str) -> bool:
             hastable = {}
             for i in s:
@@ -33,11 +35,21 @@ class Solution:
                     return len(sample)
 
 
+
+
 class Solution:
 
-    # Versiom B1, Time O(N^2), Space O(N)
-    # Find repeating element and start again after the first repeating element
-    # This wil pass, but may reach maximum recursion depth in long cases
+    """
+    Versiom B1, Time O(N^2), Space O(N)
+    Find repeating element and start again after the first repeating element
+    This wil pass, but may reach maximum recursion depth in long cases
+
+    解读:
+    abcdefghXijklmXoMqrstMuvwxyz
+    abcdefghXijklmX.....            Find X occured twice, then stop and recalculate after the first X
+             ijklmXoMqrstM...       Find M occured twice, then stop and recalculate after the first M
+                     qrstMuvwxyz    until it ends, and compare each secion
+    """
     def lengthOfLongestSubstring(self, s: str) -> int:
 
         if not s:
@@ -56,17 +68,15 @@ class Solution:
                 return len(s)
 
 
-# Idea is like:
-# abcdefghXijklmXoMqrstMuvwxyz
-# abcdefghXijklmX.....            Find X occured twice, then stop and recalculate after the first X
-#          ijklmXoMqrstM...       Find M occured twice, then stop and recalculate after the first M
-#                  qrstMuvwxyz    until it ends, and compare each secion
+
 
 
 class Solution:
 
-    # Version B2, Time O(N^2), Space O(N)
-    # Non-recursive way to previous method
+    """
+    Version B2, Time O(N^2), Space O(N)
+    Non-recursive way to previous method
+    """
     def lengthOfLongestSubstring(self, s: str) -> int:
 
         result = []
@@ -93,9 +103,12 @@ class Solution:
 
 
 class Solution(object):
-    # STD ans
-    # Time O(N), Space O(1)
-    # 借字符表运算
+
+    """
+    STD ans
+    Time O(N), Space O(1)
+    借字符表运算
+    """
     def lengthOfLongestSubstring(self, s: str) -> int:
         longest, start, visited = 0, 0, [False for _ in range(256)]
         for i, char in enumerate(s):

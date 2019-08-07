@@ -16,16 +16,20 @@ You must not use any built-in BigInteger library or convert the inputs to intege
 
 class Solution:
 
-    # Version A
-    # Python builtin direct convert
+    """
+    Version A
+    Python builtin direct convert
+    """
     def multiply(self, num1: str, num2: str) -> str:
         return str(int(num1) * int(num2))
 
 
-    # Version B
-    # HashMap method
-    # Calulate string by hand calculation method, can avoid overflow of integer/long numbers
-    # Avoid using integer calculation, direct return the String value
+    """
+    Version B
+    HashMap method
+    Calulate string by hand calculation method, can avoid overflow of integer/long numbers
+    Avoid using integer calculation, direct return the String value
+    """
     def multiply(self, num1: str, num2: str) -> str:
         hmp_s2n = {
             "0": 0, "1": 1, "2": 2, "3": 3, "4": 4,
@@ -48,7 +52,7 @@ class Solution:
 
         return self.int2str(result)
 
-    # Helper - Version B
+    """Helper - Version B"""
     def int2str(self, num):
         """Convert a int to a string through algorithm"""
         hmp_n2s = {
@@ -64,9 +68,11 @@ class Solution:
             num //= 10
         return result
 
-    # Version C
-    # Break down to add with manual method
-    # This can completely avoid overflow of integer/long numbers
+    """
+    Version C
+    Break down to add with manual method
+    This can completely avoid overflow of integer/long numbers
+    """
     def multiply(self, num1: str, num2: str) -> str:
 
         if num1 == "0":
@@ -89,9 +95,12 @@ class Solution:
 
         return result
 
-    # Helper - Version C
+    """
+    Helper - Version C
+    add two integer in string form together
+    """
     def str_add(self, num1, num2):
-        """add two integer in string form together"""
+
         result = ""
         add_on = 0
         idx1, idx2 = len(num1) - 1, len(num2) - 1

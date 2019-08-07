@@ -13,7 +13,7 @@ from typing import *
 
 class Solution(object):
 
-    # Version A
+    """Version A"""
     def removeDuplicates(self, nums: List[int]) -> int:
         if not nums:
             return 0

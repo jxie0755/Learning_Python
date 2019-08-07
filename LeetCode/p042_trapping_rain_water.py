@@ -12,8 +12,10 @@ from typing import *
 
 class Solution:
 
-    # Version A
-    # according to the peak and find the volume
+    """
+    Version A
+    according to the peak and find the volume
+    """
     def trap(self, height: List[int]) -> int:
 
         peak_list = self.findPeaks(height)
@@ -42,7 +44,7 @@ class Solution:
 
             return volume
 
-    # Helper - version A
+    """Helper - version A"""
     def vol(self, height: List[int]) -> int:
         """Calculate the volume between two peaks"""
         sec_peak = min(height[0], height[-1])
@@ -52,7 +54,7 @@ class Solution:
                 volume += sec_peak - i
         return volume
 
-    # Helper - version A
+    """Helper - version A"""
     def findPeaks(self, height: List[int]) -> List[int]:
         """To find the index of peaks, and sort reversely accoridng to the height value at the index"""
         hmp = {}
