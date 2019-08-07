@@ -16,7 +16,7 @@ while len(input_list) < max_length_list:
         if "done" in input_item:                # 使用多重if循环解决问题!
             break
         else:
-            print("we don\"t have this')
+            print("we don't have this")
             continue
 
 input_list.remove("done")

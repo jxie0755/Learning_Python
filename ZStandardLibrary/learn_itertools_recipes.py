@@ -184,7 +184,7 @@ print([str(x) + str(y) + str(z) for x,y,z in grouper("ABCDEFG", 3, "x")])
 print()
 print("roundrobin(*iterables)")
 def roundrobin(*iterables):
-    "roundrobin("ABC", "D", "EF") --> A D E B F C"
+    "roundrobin('ABC', 'D', 'EF') --> A D E B F C"
     pending = len(iterables)
     nexts = cycle(iter(it).__next__ for it in iterables)
     while pending:

@@ -132,7 +132,7 @@ class ExclusionChecker(NodeVisitor):
     def _report(self, node, msg=None):
         node_name = _NAMES.get(type(node).__name__, type(node).__name__)
         if msg is None:
-            msg = "should not contain "{}"".format(node_name)
+            msg = "should not contain '{}'".format(node_name)
         print("{} {}".format(self._checked_name, msg))
         self._errs += 1
 

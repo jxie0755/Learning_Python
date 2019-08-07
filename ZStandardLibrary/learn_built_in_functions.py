@@ -94,7 +94,7 @@ print(chr(127))  # >>> 
 
 print("\n", 11)
 print("classmethod(function)")
-print(classmethod(abs(5)))
+print(classmethod(abs))
 # 将函数包装成类方法
 # oop环境
 
@@ -451,7 +451,7 @@ print(pow(2, 3, 7))  # >>> 1 (8//7=1, 余1)
 
 
 print("\n", 50)
-print("print(*objects, sep=" ", end="\n", file=sys.stdout, flush=False)")
+print("print(*objects, sep=" ", end='\n', file=sys.stdout, flush=False)")
 print("hello world")
 
 print("\n", 51)
@@ -539,7 +539,7 @@ print("@ staticmethod(function)")
 
 print("\n", 61)
 print("class str(object="")")
-print("class str(object=b"", encoding=")utf-8", errors='strict")
+print("class str(object=b'', encoding='utf-8', errors='strict'")
 # turn object into a string version
 
 

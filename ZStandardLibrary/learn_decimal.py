@@ -41,7 +41,7 @@ print(repr(num2))  # >>> Decimal("0.142857142857")
 
 
 print()
-print("class decimal.Decimal(value="0", context=None)")
+print("class decimal.Decimal(value='0', context=None)")
 
 # value可以是整数，字符串，元组，float或另一个Decimal对象。如果未给出值，则返回Decimal("0")
 # 推荐使用字符串

@@ -35,4 +35,4 @@ if __name__ == "__main__":
     assert repeat_inside("aababcc") == "abab", "Third"
     assert repeat_inside("abc") == "", "Forth"
     assert repeat_inside("abcabcabab") == "abcabc", "Fifth"
-    print(""Run" is good. How is 'Check'?")
+    print("'Run' is good. How is 'Check'?")

@@ -45,7 +45,7 @@ print(f"{p[0]}, {p[1]}")  # >>> foo,bar  # f-string
 print("{:>8}".format("189"))   # >>> "     189"
 print("{:0>8}".format("189"))  # >>> "00000189"
 print("{:a^8}".format("189"))  # >>> "aa189aaa"  # 优先补右边
-print(f"{"189":x^9}")          # >>> xxx189xxx   # f-string
+print(f"{'189':x^9}")          # >>> xxx189xxx   # f-string
 
 # 精度与类型f, 精度常跟类型f一起使用
 # The default precision is 6

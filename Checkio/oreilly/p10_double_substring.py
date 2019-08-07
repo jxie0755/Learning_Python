@@ -33,7 +33,7 @@ if __name__ == "__main__":
     assert double_substring("aaaa") == 2, "First"
     assert double_substring("abc") == 0, "Second"
     assert double_substring("aghtfghkofgh") == 3, "Third"
-    print(""Run" is good. How is 'Check'?")
+    print("'Run' is good. How is 'Check'?")
 
 # 另解
 def double_substring2(line):
