@@ -16,7 +16,7 @@ class Solution:
     # Maximum time limit exceeded
     def longestPalindrome(self, s: str) -> str:
 
-        # Helper
+        # Internal Helper
         def is_palindrome(s: str) -> bool:
             return s == s[::-1]
 

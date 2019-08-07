@@ -44,7 +44,7 @@ class Solution:
     # Space: O(n)
     def generateParenthesis(self, n: int) -> List[str]:
 
-        # Helper
+        # Internal Helper
         def generate(p: str, left: int, right: int, parens: List[str] = []) -> List[str]:
             if left:
                 generate(p + "(", left - 1, right)
@@ -64,7 +64,7 @@ class Solution:
     def generateParenthesis(self, n: int) -> List[str]:
         parens = []
 
-        # Helper
+        # Internal Helper
         def generate(p: str, left: int, right: int) -> None:
             if left:
                 generate(p + "(", left - 1, right)

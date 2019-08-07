@@ -104,7 +104,7 @@ class Solution:
         neg = nums[:break_point]
         pos = nums[break_point:]
 
-        # Helper
+        # Internal Helper
         def two_one(lst1: List[int], lst2: List[int]) -> None:
             length = len(lst1)
             if length >= 2:

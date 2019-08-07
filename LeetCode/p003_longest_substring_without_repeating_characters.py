@@ -13,7 +13,7 @@ class Solution:
     # Fail as Maximum Time limit exceeded
     def lengthOfLongestSubstring(self, s: str) -> int:
 
-        # Helper
+        # Internal Helper
         def is_no_repeat(s: str) -> bool:
             hastable = {}
             for i in s:

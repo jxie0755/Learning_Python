@@ -18,7 +18,7 @@ class Solution:
     # Not very efficient, as we go all the way, and used a lot of space
     def findMedianSortedArrays(self, nums1: List[int], nums2: List[int]) -> float:
 
-        # Helper
+        # Internal Helper
         def median(array: List[int]) -> float:
             length = len(array)
             half = length // 2

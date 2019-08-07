@@ -22,7 +22,7 @@ class Solution:
     # Time:  O(logn) = O(1), Space: O(1)
     def divide(self, dividend: "int", divisor: "int") -> "int":
 
-        # Helper
+        # Internal Helper
         def manual_divide(son: int, mom: int) -> Tuple[int, int]:
             """
             Achive log(n) division by doubling mom, before son > mom

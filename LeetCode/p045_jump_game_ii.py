@@ -1,32 +1,35 @@
-# P045 Jump Game II
-# Hard
+"""
+https://leetcode.com/problems/jump-game-ii/
+P045 Jump Game II
+Hard
 
+Given an array of non-negative integers, you are initially positioned at the first index of the array.
+Each element in the array represents your maximum jump length at that position.
+Your goal is to reach the last index in the minimum number of jumps.
 
-# Given an array of non-negative integers, you are initially positioned at the first index of the array.
-# Each element in the array represents your maximum jump length at that position.
-# Your goal is to reach the last index in the minimum number of jumps.
+Note:
+You can assume that you can always reach the last index.
+"""
 
-# Note:
-# You can assume that you can always reach the last index.
 from typing import *
-
 
 class Solution:
     # Simple Recursion method that worked but exceed max time limit
     def jump(self, nums: List[int]) -> int:
 
-        def helper(cur_idx, cur_step=0):
+        # Internal Helper
+        def jumphelper(cur_idx: int, cur_step:int =0) -> None:
 
             if cur_idx >= last_idx:
                 all_ways.append(cur_step)
             else:
                 cur_value = nums[cur_idx]
                 for i in range(1, cur_value + 1):
-                    helper(cur_idx + i, cur_step + 1)
+                    jumphelper(cur_idx + i, cur_step + 1)
 
         last_idx = len(nums) - 1
         all_ways = []
-        helper(0)
+        jumphelper(0)
         return min(all_ways)
 
 

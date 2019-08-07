@@ -42,7 +42,7 @@ class Solution:
         head.next = self.reverseKGroup(next_cur, k)
         return new_cur
 
-    # Helper
+    # Internal Helper
     # 参见Leetcode P206, reverse the whole linked-list
     def reverseNodes(self, head: ListNode) -> ListNode:
         dummy = ListNode(float("-inf"))

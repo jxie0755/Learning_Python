@@ -24,7 +24,7 @@ class Solution:
         if not candidates:
             return []
 
-        # Helper
+        # Internal Helper
         def process(temp: List[List[int]]) -> List[List[int]]:
             new_temp = []
             i = 0
@@ -57,7 +57,7 @@ class Solution(object):
     # Add a recursive process method to update result
     def combinationSum(self, candidates: List[int], target: int) -> List[List[int]]:
 
-        # Helper
+        # Internal Helper
         def process(candidates: List[int], start: int, intermediate: List[int], target: int) -> None:
             """
             Args:
