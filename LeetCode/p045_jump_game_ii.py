@@ -49,7 +49,9 @@ class Solution:
 
         def jumpHelperB(cur_idx: int, cur_step: int = 0) -> None:
             cur_value = nums[cur_idx]
-            if cur_value + cur_idx >= last_idx:  # further optimize by checking if currently direct jump the the end is possible
+
+            # If currently direct jump the the end is possible
+            if cur_value + cur_idx >= last_idx:
                 all_ways.append(cur_step + 1)
 
             elif cur_step < hmp[cur_idx]:
