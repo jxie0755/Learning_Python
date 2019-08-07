@@ -13,55 +13,66 @@ You can assume that you can always reach the last index.
 
 from typing import *
 
+
 class Solution:
+
+    # Version A1
     # Simple Recursion method that worked but exceed max time limit
     def jump(self, nums: List[int]) -> int:
 
         # Internal Helper
-        def jumphelper(cur_idx: int, cur_step:int =0) -> None:
+        def jumpHelperA(cur_idx: int, cur_step: int = 0) -> None:
 
             if cur_idx >= last_idx:
                 all_ways.append(cur_step)
             else:
                 cur_value = nums[cur_idx]
                 for i in range(1, cur_value + 1):
-                    jumphelper(cur_idx + i, cur_step + 1)
+                    jumpHelperA(cur_idx + i, cur_step + 1)
 
         last_idx = len(nums) - 1
         all_ways = []
-        jumphelper(0)
+        jumpHelperA(0)
         return min(all_ways)
 
 
 class Solution:
-    # A modified method with hashmap search to reduce repeating calculation
+
+    # Version A2
+    # A modified A1 with hashmap search to reduce repeating calculation
     # Use memorization method
     def jump(self, nums: List[int]) -> int:
 
-        def helper(cur_idx, cur_step=0):
+        def jumpHelperB(cur_idx: int, cur_step: int = 0) -> None:
             cur_value = nums[cur_idx]
-            if cur_value >= last_idx - cur_idx:  # further optimize by checking if currently direct jump the the end is possible
+            if cur_value + cur_idx >= last_idx:  # further optimize by checking if currently direct jump the the end is possible
                 all_ways.append(cur_step + 1)
 
             elif cur_step < hmp[cur_idx]:
                 hmp[cur_idx] = cur_step
                 for i in range(1, cur_value + 1):
-                    helper(cur_idx + i, cur_step + 1)
+                    jumpHelperB(cur_idx + i, cur_step + 1)
+
+            # skip if there is already a better way to get to cur_idx
 
         hmp = {i: float("inf") for i in range(len(nums))}
         last_idx = len(nums) - 1
         all_ways = []
         if len(nums) == 1:
             return 0
-        helper(0)
+        jumpHelperB(0)
         return min(all_ways)
 
 
 class Solution:
-    # Give up on recursion, new method
+
+    # Version B
+    # Non-recursive
+    # Helper: 由于一定能走完, 下一个index就是能走的最远的(包括这次跳跃的步数和它能带来的下一个步数).
     def jump(self, nums: List[int]) -> int:
 
-        def find_next_idx(cur_idx):
+        # Internal Helper
+        def findNextIdx(cur_idx: int) -> int:
             cur_value = nums[cur_idx]
             next_idx, next_value = 0, 0
             for idx in range(cur_idx + 1, cur_idx + cur_value + 1):
@@ -77,8 +88,8 @@ class Solution:
         cur_idx = 0
         cur_value = nums[cur_idx]
         count = 0
-        while cur_value < last_idx - cur_idx:
-            cur_idx = find_next_idx(cur_idx)
+        while cur_value + cur_idx < last_idx :
+            cur_idx = findNextIdx(cur_idx)
             cur_value = nums[cur_idx]
             count += 1
 
@@ -86,34 +97,38 @@ class Solution:
 
 
 class Solution:
-    # Improved Recursion method
-    # Based on last non-recursive method
+
+    # Version C1
+    # Based on Version B, but through recursion
     # by using max function, this will pass, but still slow.
     def jump(self, nums: List[int]) -> int:
 
-        def find_next_idx(cur_idx, count=0):
+        def jumpHelpterC1(cur_idx: int, count: int = 0) -> int:
             if nums[cur_idx] >= len(nums) - 1 - cur_idx:
                 return count + 1
             else:
                 cur_value = nums[cur_idx]
                 candidates = nums[cur_idx + 1: cur_idx + cur_value + 1]
                 next_idx = max(enumerate(candidates, cur_idx + 1), key=lambda x: x[0] + x[1])[0]
-                return find_next_idx(next_idx, count + 1)
+                return jumpHelpterC1(next_idx, count + 1)
 
         if len(nums) == 1:
             return 0
-        return find_next_idx(0)
+        return jumpHelpterC1(0)
 
 
 class Solution:
-    # Improved Recursion method
-    # Based on last recursive method but removed max() and enumerate
-    # it is now very similar to non-recursive method, but still slower.
 
+    # Version C2
+    # Improved Recursion method
+    # Based on Version C but removed max() and enumerate
+    # it is now very similar to non-recursive method, but still slower.
     def jump(self, nums: List[int]) -> int:
 
-        def find_next_idx(cur_idx, count=0):
-            if nums[cur_idx] >= len(nums) - 1 - cur_idx:
+        # Internal Helper
+        def jumphelpterC2(cur_idx: int, count: int = 0) -> int:
+            cur_value = nums[cur_idx]
+            if cur_idx + cur_value >= len(nums) - 1:
                 return count + 1
             else:
                 cur_value = nums[cur_idx]
@@ -122,11 +137,9 @@ class Solution:
                     idx_value = nums[idx]
                     if idx + idx_value >= next_idx + next_value:
                         next_idx, next_value = idx, idx_value
-                return find_next_idx(next_idx, count + 1)
+                return jumphelpterC2(next_idx, count + 1)
 
-        if len(nums) == 1:
-            return 0
-        return find_next_idx(0)
+        return jumphelpterC2(0)
 
 
 if __name__ == "__main__":
