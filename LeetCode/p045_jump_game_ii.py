@@ -152,6 +152,7 @@ class Solution:
                     next_idx, next_value = idx, idx_value
             return self.jumphelpterC2(nums, next_idx, count + 1)
 
+
 if __name__ == "__main__":
     assert Solution().jump([0]) == 0, "Edge 0"
     assert Solution().jump([2, 1]) == 1, "Edge 1"
