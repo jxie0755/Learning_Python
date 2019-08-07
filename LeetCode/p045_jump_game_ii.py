@@ -112,20 +112,17 @@ class Solution:
     by using max function, this will pass, but still slow.
     """
     def jump(self, nums: List[int]) -> int:
+        return self.jumpHelpterC1(nums, 0)
 
-        def jumpHelpterC1(cur_idx: int, count: int = 0) -> int:
-            if nums[cur_idx] >= len(nums) - 1 - cur_idx:
-                return count + 1
-            else:
-                cur_value = nums[cur_idx]
-                candidates = nums[cur_idx + 1: cur_idx + cur_value + 1]
-                next_idx = max(enumerate(candidates, cur_idx + 1), key=lambda x: x[0] + x[1])[0]
-                return jumpHelpterC1(next_idx, count + 1)
-
-        if len(nums) == 1:
-            return 0
-        return jumpHelpterC1(0)
-
+    """Helper"""
+    def jumpHelpterC1(self, nums: List[int], cur_idx: int, count: int = 0) -> int:
+        cur_value = nums[cur_idx]
+        if cur_idx + cur_value >= len(nums) - 1:
+            return count + 1
+        else:
+            candidates = nums[cur_idx + 1: cur_idx + cur_value + 1]
+            next_idx = max(enumerate(candidates, cur_idx + 1), key=lambda x: x[0] + x[1])[0]
+            return self.jumpHelpterC1(nums, next_idx, count + 1)
 
 class Solution:
 
@@ -136,23 +133,21 @@ class Solution:
     it is now very similar to non-recursive method, but still slower.
     """
     def jump(self, nums: List[int]) -> int:
+        return self.jumphelpterC2(nums, 0)
 
-        """Internal Helper"""
-        def jumphelpterC2(cur_idx: int, count: int = 0) -> int:
+    """Helper"""
+    def jumphelpterC2(self, nums: List[int], cur_idx: int, count: int = 0) -> int:
+        cur_value = nums[cur_idx]
+        if cur_idx + cur_value >= len(nums) - 1:
+            return count + 1
+        else:
             cur_value = nums[cur_idx]
-            if cur_idx + cur_value >= len(nums) - 1:
-                return count + 1
-            else:
-                cur_value = nums[cur_idx]
-                next_idx, next_value = 0, 0
-                for idx in range(cur_idx + 1, cur_idx + cur_value + 1):
-                    idx_value = nums[idx]
-                    if idx + idx_value >= next_idx + next_value:
-                        next_idx, next_value = idx, idx_value
-                return jumphelpterC2(next_idx, count + 1)
-
-        return jumphelpterC2(0)
-
+            next_idx, next_value = 0, 0
+            for idx in range(cur_idx + 1, cur_idx + cur_value + 1):
+                idx_value = nums[idx]
+                if idx + idx_value >= next_idx + next_value:
+                    next_idx, next_value = idx, idx_value
+            return self.jumphelpterC2(nums, next_idx, count + 1)
 
 if __name__ == "__main__":
     assert Solution().jump([2, 1]) == 1, "Edge 1"
