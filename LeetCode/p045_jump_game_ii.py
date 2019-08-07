@@ -16,8 +16,10 @@ from typing import *
 
 class Solution:
 
-    # Version A1
-    # Simple Recursion method that worked but exceed max time limit
+    """
+    Version A1
+    Simple Recursion method that worked but exceed max time limit
+    """
     def jump(self, nums: List[int]) -> int:
 
         # Internal Helper
@@ -38,9 +40,11 @@ class Solution:
 
 class Solution:
 
-    # Version A2
-    # A modified A1 with hashmap search to reduce repeating calculation
-    # Use memorization method
+    """
+    Version A2
+    A modified A1 with hashmap search to reduce repeating calculation
+    Use memorization method
+    """
     def jump(self, nums: List[int]) -> int:
 
         def jumpHelperB(cur_idx: int, cur_step: int = 0) -> None:
@@ -66,9 +70,11 @@ class Solution:
 
 class Solution:
 
-    # Version B
-    # Non-recursive
-    # Helper: 由于一定能走完, 下一个index就是能走的最远的(包括这次跳跃的步数和它能带来的下一个步数).
+    """
+    Version B
+    Non-recursive
+    Helper: 由于一定能走完, 下一个index就是能走的最远的(包括这次跳跃的步数和它能带来的下一个步数).
+    """
     def jump(self, nums: List[int]) -> int:
 
         # Internal Helper
@@ -98,9 +104,11 @@ class Solution:
 
 class Solution:
 
-    # Version C1
-    # Based on Version B, but through recursion
-    # by using max function, this will pass, but still slow.
+    """
+    Version C1
+    Based on Version B, but through recursion
+    by using max function, this will pass, but still slow.
+    """
     def jump(self, nums: List[int]) -> int:
 
         def jumpHelpterC1(cur_idx: int, count: int = 0) -> int:
@@ -119,10 +127,12 @@ class Solution:
 
 class Solution:
 
-    # Version C2
-    # Improved Recursion method
-    # Based on Version C but removed max() and enumerate
-    # it is now very similar to non-recursive method, but still slower.
+    """
+    Version C2
+    Improved Recursion method
+    Based on Version C but removed max() and enumerate
+    it is now very similar to non-recursive method, but still slower.
+    """
     def jump(self, nums: List[int]) -> int:
 
         # Internal Helper
