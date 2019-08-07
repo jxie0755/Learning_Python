@@ -112,7 +112,7 @@ class Solution:
     by using max function, this will pass, but still slow.
     """
     def jump(self, nums: List[int]) -> int:
-        if nums[0] == 0:
+        if len(nums) == 1:
             return 0
         return self.jumpHelpterC1(nums, 0)
 
@@ -135,7 +135,7 @@ class Solution:
     it is now very similar to non-recursive method, but still slower.
     """
     def jump(self, nums: List[int]) -> int:
-        if nums[0] == 0:
+        if len(nums) == 1:
             return 0
         return self.jumphelpterC2(nums, 0)
 
