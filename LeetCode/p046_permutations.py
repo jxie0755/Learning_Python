@@ -1,17 +1,23 @@
-# P046 Permutations
-# Medium
+"""
+https://leetcode.com/problems/permutations/
+P046 Permutations
+Medium
 
+Given a collection of distinct (数字不会重复) integers, return all possible permutations.
+"""
 
-# Given a collection of distinct (数字不会重复) integers, return all possible permutations.
-
-from typing import *
-import math
 import itertools
+import math
+from typing import *
 
 
 class Solution:
-    # use python's internal method, only for testing the speed
-    def permute(self, nums: List[int]):
+
+    """
+    Version A
+    use python's internal method, only for testing the speed
+    """
+    def permute(self, nums: List[int]) -> List[List[int]]:
         result = []
         for i in itertools.permutations(nums):
             result.append(list(i))
@@ -19,10 +25,44 @@ class Solution:
 
 
 class Solution:
-    def next_permute(self, indexes):
-        # Use next permutation method from leetcode p031
-        """calculate the next permuatation, with integers 0 to N-1 (for N elements)
-        this will both modify idx_list and return the updated idx_list"""
+
+    """
+        Version B1
+        Convert to permutation of indexes, then replace with nums[idx]
+        """
+
+    def permute(self, nums: List[int]) -> List[List[int]]:
+
+        total_n = math.factorial(len(nums))
+        result = []
+        perm_idxs = list(range(len(nums)))
+        for i in range(total_n):
+            result.append([nums[i] for i in perm_idxs])
+            perm_idxs = self.next_permute(perm_idxs)
+        return result
+
+    """
+    Version B2
+    Recursive method, but direct handle elements in nums
+    This only works for when sample is a collection of distinct numbers
+    """
+
+    def permute(self, nums: List[int]) -> List[List[int]]:
+        total_n = math.factorial(len(nums))
+        result = []
+        for i in range(total_n):
+            result.append(nums[:])
+            self.next_permute(nums)
+        return result
+
+    """
+    Herlper for B1, B2
+    From Leetcode p032: next permutation
+    calculate the next permuatation, with integers 0 to N-1 (for N elements)
+    this will both modify idx_list and return the updated idx_list
+    """
+    def next_permute(self, indexes: List[int]) -> List[int]:
+
         length = len(indexes)
         cur_i = None
 
@@ -43,57 +83,39 @@ class Solution:
                     break
             return indexes
 
-    def permute(self, nums: List[int]):
-        # First handle index, then convert to nuns[index]
-        total_n = math.factorial(len(nums))
-        result = []
-        idxs = list(range(len(nums)))[::-1]
-        for i in range(total_n):
-            idxs = self.next_permute(idxs)
-            result.append([nums[i] for i in idxs])
-        return result
-
-    def permute2(self, nums: List[int]):
-        # recursive method, but direct handle elements in nums
-        total_n = math.factorial(len(nums))
-        result = []
-        for i in range(total_n):
-            result.append(nums[:])
-            self.next_permute(nums)
-        return result
-
 
 class Solution:
-    # recursive method
-    def restList(self, elm, lst):
-        """return a list with target element removed"""
-        nextList = lst[:]
-        nextList.remove(elm)
-        return nextList
 
-    def permute(self, nums: List[int]):
-        length = len(nums)
-        result = []
+    """
+    Version C
+    Direct Recursive method, no need for next permute
+    """
+    def permute(self, nums: List[int]) -> List[List[int]]:
 
-        def helper(lst, permute_list=[]):
+        """Helper"""
+        def helper(lst: List[int], permute_list: List[int] = []) -> None:
             if len(permute_list) == length:
                 result.append(permute_list)
             else:
                 for i in lst:
-                    next_list = self.restList(i, lst)
+                    next_list = lst[:]
+                    next_list.remove(i) # Copy lst then remove i 1 by 1
                     updated_permute_list = permute_list + [i]
                     helper(next_list, updated_permute_list)
 
+        length = len(nums)
+        result = []
         helper(nums)
         return result
 
 
 class Solution:
-    # recursive method, single and pure recursion
-    def permute(self, nums: List[int]):
+
+    """Version D, Pure recursive method"""
+    def permute(self, nums: List[int]) -> List[List[int]]:
         length = len(nums)
         if length == 1:
-            return [[nums[0]]]
+            return [nums]
         else:
             result = []
             for i in nums:
