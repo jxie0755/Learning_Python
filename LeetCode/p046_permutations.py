@@ -113,8 +113,7 @@ class Solution:
 
     """Version D, Pure recursive method"""
     def permute(self, nums: List[int]) -> List[List[int]]:
-        length = len(nums)
-        if length == 1:
+        if len(nums) == 1:
             return [nums]
         else:
             result = []
