@@ -23,7 +23,7 @@ class Solution:
     Version A
     brutal force, max limit time exceeded
     """
-    def combinationSum2(self, candidates, target):
+    def combinationSum2(self, candidates: List[int], target: int) -> List[List[int]]:
 
         result = []
 

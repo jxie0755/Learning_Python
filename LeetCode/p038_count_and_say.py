@@ -31,7 +31,7 @@ class Solution:
     def countAndSay(self, n: int) -> str:
 
         """Helper"""
-        def say(num):
+        def say(num: str) -> int:
             num = str(num) + " "
             lenth = 1
             result = ""

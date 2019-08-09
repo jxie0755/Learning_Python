@@ -54,7 +54,7 @@ class Solution:
         return self.int2str(result)
 
     """Helper B"""
-    def int2str(self, num):
+    def int2str(self, num: int) -> str:
         """Convert a int to a string through algorithm"""
         hmp_n2s = {
             0: "0", 1: "1", 2: "2", 3: "3", 4: "4",
@@ -102,7 +102,7 @@ class Solution:
     Helper C
     add two integer in string form together
     """
-    def str_add(self, num1, num2):
+    def str_add(self, num1: str, num2: str) -> str:
 
         result = ""
         add_on = 0

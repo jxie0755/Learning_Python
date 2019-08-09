@@ -22,7 +22,7 @@ class Solution:
     Version A, Integer method
     Time:  O(logn) = O(1), Space: O(1)
     """
-    def divide(self, dividend: "int", divisor: "int") -> "int":
+    def divide(self, dividend: int, divisor: int) -> int:
 
         """
         Helper
@@ -60,7 +60,7 @@ class Solution(object):
     Version B
     Same idea but use bit calculation << and >>
     """
-    def divide(self, dividend: 'int', divisor: 'int') -> 'int':
+    def divide(self, dividend: int, divisor: int) -> int:
 
         positive = (dividend < 0) is (divisor < 0)  # great way to align two integer on the same sideK
         dividend, divisor = abs(dividend), abs(divisor)
