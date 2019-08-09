@@ -110,8 +110,8 @@ class Solution:
 
     """
     Version D
-    recursive method, single and pure recursion from leetcode P046
-    revised the recursion rule by bypassing the repeated next_list
+    Pure recursive method, single and pure recursion from leetcode P046
+    Revised the recursion rule by bypassing the repeated next_list
     """
     def permuteUnique(self, nums: List[int]):
         length = len(nums)
@@ -119,12 +119,12 @@ class Solution:
             return [[nums[0]]]
         else:
             result = []
-            sublist_list = []  # add an intermediate step to prevent repeats
+            sublist_checklist = []  # add an intermediate step to prevent repeats
             for i in nums:
                 subist = nums[:]
                 subist.remove(i)
-                if subist not in sublist_list:  # check repeats
-                    sublist_list.append(subist)
+                if subist not in sublist_checklist:  # check repeats
+                    sublist_checklist.append(subist)
                     result += [[i] + per for per in self.permuteUnique(subist)]
             return result
 
