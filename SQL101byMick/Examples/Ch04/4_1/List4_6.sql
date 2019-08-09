@@ -1,4 +1,4 @@
-INSERT INTO ProductIns (product_id, product_name, product_type, sale_price, purchase_price, regist_date) VALUES ('0007', '²Á²Ë°å', '³ø·¿ÓÃ¾ß', DEFAULT, 790, '2009-04-28');
+INSERT INTO ProductIns (product_id, product_name, product_type, sale_price, purchase_price, regist_date) VALUES ('0007', 'æ“¦èœæ¿', 'å¨æˆ¿ç”¨å…·', DEFAULT, 790, '2009-04-28');
 
--- È·ÈÏ²åÈëĞĞ
+-- ç¡®è®¤æ’å…¥è¡Œ
 SELECT * FROM ProductIns WHERE product_id = '0007';

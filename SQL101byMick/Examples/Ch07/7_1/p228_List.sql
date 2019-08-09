@@ -1,13 +1,13 @@
-/* ×¢ÒâÊÂÏî1 */
---ÁÐÊý²»Ò»ÖÂÊ±»á·¢Éú´íÎó
+/* æ³¨æ„äº‹é¡¹1 */
+--åˆ—æ•°ä¸ä¸€è‡´æ—¶ä¼šå‘ç”Ÿé”™è¯¯
 SELECT product_id, product_name
   FROM Product
 UNION
 SELECT product_id, product_name, sale_price
   FROM Product2;
 
-/* ×¢ÒâÊÂÏî2 */
---Êý¾ÝÀàÐÍ²»Ò»ÖÂÊ±»á·¢Éú´íÎó
+/* æ³¨æ„äº‹é¡¹2 */
+--æ•°æ®ç±»åž‹ä¸ä¸€è‡´æ—¶ä¼šå‘ç”Ÿé”™è¯¯
 SELECT product_id, sale_price
   FROM Product
 UNION

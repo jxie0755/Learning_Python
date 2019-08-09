@@ -1,4 +1,4 @@
-﻿-- DDL：创建表
+-- DDL：创建表
 CREATE TABLE SampleStr
 (str1  VARCHAR(40),
  str2  VARCHAR(40),

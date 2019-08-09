@@ -1,9 +1,9 @@
 --Oracle, SQL Server, DB2
 SELECT CASE WHEN GROUPING(product_type) = 1 
-            THEN '商品种类 合计'
+            THEN '鍟嗗搧绉嶇被 鍚堣'
             ELSE product_type END AS product_type,
        CASE WHEN GROUPING(regist_date) = 1 
-            THEN '登记日期 合计'
+            THEN '鐧昏鏃ユ湡 鍚堣'
             ELSE CAST(regist_date AS VARCHAR(16)) END AS regist_date,
        SUM(sale_price) AS sum_price
   FROM Product

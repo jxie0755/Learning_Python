@@ -1,7 +1,7 @@
-INSERT INTO ProductIns (product_id, product_name, product_type, sale_price, purchase_price, regist_date) VALUES ('0001', 'T–Ù' ,'“¬∑˛', 1000, 500, '2009-09-20');
+INSERT INTO ProductIns (product_id, product_name, product_type, sale_price, purchase_price, regist_date) VALUES ('0001', 'TÊÅ§' ,'Ë°£Êúç', 1000, 500, '2009-09-20');
 
 
 /*
--- VALUES«Âµ•÷–»±…Ÿ1¡–
-INSERT INTO ProductIns (product_id, product_name, product_type, sale_price, purchase_price, regist_date) VALUES ('0001', 'T–Ù' ,'“¬∑˛', 1000, 500);
+-- VALUESÊ∏ÖÂçï‰∏≠Áº∫Â∞ë1Âàó
+INSERT INTO ProductIns (product_id, product_name, product_type, sale_price, purchase_price, regist_date) VALUES ('0001', 'TÊÅ§' ,'Ë°£Êúç', 1000, 500);
 */

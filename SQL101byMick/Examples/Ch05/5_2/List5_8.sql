@@ -1,13 +1,13 @@
---╦Ы╬щилф╥╥жюЮмЁ╪филф╥йЩа©╣дйсм╪
+--Ф═╧Ф█╝Е∙├Е⌠│Е┬├Г╠╩Г╩÷Х╝║Е∙├Е⌠│Ф∙╟И┤▐Г └Х╖├Е⌡╬
 CREATE VIEW ProductSum (product_type, cnt_product)
 AS
 SELECT product_type, COUNT(*)
   FROM Product
  GROUP BY product_type;
 
---х╥хо╢╢╫╗╨С╣дйсм╪
+--Г║╝Х╝╓Е┬⌡Е╩╨Е░▌Г └Х╖├Е⌡╬
 SELECT product_type, cnt_product
   FROM ProductSum;
 
---и╬ЁЩProductSum
+--Е┬═И≥╓ProductSum
 DROP VIEW ProductSum;

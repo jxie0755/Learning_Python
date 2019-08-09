@@ -1,8 +1,8 @@
--- 使用逗号对列进行分隔排列
+-- 浣跨敤閫楀彿瀵瑰垪杩涜鍒嗛殧鎺掑垪
 UPDATE Product
    SET sale_price = sale_price * 10,
        purchase_price = purchase_price / 2
- WHERE product_type = '厨房用具';
+ WHERE product_type = '鍘ㄦ埧鐢ㄥ叿';
 
--- 确认更新结果
+-- 纭鏇存柊缁撴灉
 SELECT * FROM Product ORDER BY product_id;

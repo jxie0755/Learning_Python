@@ -1,5 +1,5 @@
-¡ª-Oracle
---ÔÚFROM×Ó¾äÖÐÖ±½ÓÊéÐ´¶¨ÒåÊÓÍ¼µÄSELECTÓï¾ä
+â€•-Oracle
+--åœ¨FROMå­å¥ä¸­ç›´æŽ¥ä¹¦å†™å®šä¹‰è§†å›¾çš„SELECTè¯­å¥
 SELECT product_type, cnt_product
   FROM (SELECT product_type, COUNT(*) AS cnt_product
           FROM Product

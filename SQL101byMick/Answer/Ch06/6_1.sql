@@ -1,12 +1,12 @@
 /*
-  ÏÂÃæÊÇÎÊÌâÖĞµÄSELECTÓï¾ä
+  ä¸‹é¢æ˜¯é—®é¢˜ä¸­çš„SELECTè¯­å¥
 */
--- ¢Ù
+-- â‘ 
 SELECT product_name, purchase_price
   FROM Product
  WHERE purchase_price NOT IN (500, 2800, 5000);
 
--- ¢Ú
+-- â‘¡
 SELECT product_name, purchase_price
   FROM Product
  WHERE purchase_price NOT IN (500, 2800, 5000, NULL);

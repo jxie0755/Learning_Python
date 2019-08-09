@@ -1,4 +1,4 @@
--- 商品种类汇总表
+-- 鍟嗗搧绉嶇被姹囨�昏〃
 CREATE TABLE ProductType
 (product_type        VARCHAR(32)  NOT NULL,
  sum_sale_price      INTEGER      ,

@@ -2,4 +2,4 @@ CREATE VIEW ProductJim (product_id, product_name, product_type, sale_price, purc
 AS 
 SELECT *
   FROM Product
- WHERE product_type = '办公用品';
+ WHERE product_type = '鍔炲叕鐢ㄥ搧';

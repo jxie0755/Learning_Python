@@ -2,6 +2,6 @@ DROP VIEW ProductSum;
 
 
 
-/* PostgreSQL中删除作为多重视图数据源的视图的情况
+/* PostgreSQL涓垹闄や綔涓哄閲嶈鍥炬暟鎹簮鐨勮鍥剧殑鎯呭喌
 DROP VIEW ProductSum CASCADE;
 */

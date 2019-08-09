@@ -1,14 +1,14 @@
 /*
-  ÏÂÃæÊÇÎÊÌâÖÐµÄSELECTÓï¾ä
+  ä¸‹é¢æ˜¯é—®é¢˜ä¸­çš„SELECTè¯­å¥
 */
--- È·ÈÏÊÓÍ¼ÄÚÈÝ
+-- ç¡®è®¤è§†å›¾å†…å®¹
 SELECT * FROM ViewPractice5_1;
 
 
 /*
-  ÏÂÃæÊÇ½â´ðÊ¾Àý
+  ä¸‹é¢æ˜¯è§£ç­”ç¤ºä¾‹
 */
--- ´´½¨ÊÓÍ¼µÄÓï¾ä
+-- åˆ›å»ºè§†å›¾çš„è¯­å¥
 CREATE VIEW ViewPractice5_1 AS
 SELECT product_name, sale_price, regist_date
   FROM Product

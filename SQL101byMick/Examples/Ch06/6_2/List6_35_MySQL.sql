@@ -1,18 +1,18 @@
 --MySQL
 START TRANSACTION;
 
-INSERT INTO ShopProduct (shop_id, shop_name, product_id, quantity) VALUES ('000A',	'∂´æ©',		'0001',	30);
-INSERT INTO ShopProduct (shop_id, shop_name, product_id, quantity) VALUES ('000A',	'∂´æ©',		'0002',	50);
-INSERT INTO ShopProduct (shop_id, shop_name, product_id, quantity) VALUES ('000A',	'∂´æ©',		'0003',	15);
-INSERT INTO ShopProduct (shop_id, shop_name, product_id, quantity) VALUES ('000B',	'√˚π≈Œ›',	'0002',	30);
-INSERT INTO ShopProduct (shop_id, shop_name, product_id, quantity) VALUES ('000B',	'√˚π≈Œ›',	'0003',	120);
-INSERT INTO ShopProduct (shop_id, shop_name, product_id, quantity) VALUES ('000B',	'√˚π≈Œ›',	'0004',	20);
-INSERT INTO ShopProduct (shop_id, shop_name, product_id, quantity) VALUES ('000B',	'√˚π≈Œ›',	'0006',	10);
-INSERT INTO ShopProduct (shop_id, shop_name, product_id, quantity) VALUES ('000B',	'√˚π≈Œ›',	'0007',	40);
-INSERT INTO ShopProduct (shop_id, shop_name, product_id, quantity) VALUES ('000C',	'¥Û⁄Ê',		'0003',	20);
-INSERT INTO ShopProduct (shop_id, shop_name, product_id, quantity) VALUES ('000C',	'¥Û⁄Ê',		'0004',	50);
-INSERT INTO ShopProduct (shop_id, shop_name, product_id, quantity) VALUES ('000C',	'¥Û⁄Ê',		'0006',	90);
-INSERT INTO ShopProduct (shop_id, shop_name, product_id, quantity) VALUES ('000C',	'¥Û⁄Ê',		'0007',	70);
-INSERT INTO ShopProduct (shop_id, shop_name, product_id, quantity) VALUES ('000D',	'∏£∏‘',		'0001',	100);
+INSERT INTO ShopProduct (shop_id, shop_name, product_id, quantity) VALUES ('000A',	'‰∏ú‰∫¨',		'0001',	30);
+INSERT INTO ShopProduct (shop_id, shop_name, product_id, quantity) VALUES ('000A',	'‰∏ú‰∫¨',		'0002',	50);
+INSERT INTO ShopProduct (shop_id, shop_name, product_id, quantity) VALUES ('000A',	'‰∏ú‰∫¨',		'0003',	15);
+INSERT INTO ShopProduct (shop_id, shop_name, product_id, quantity) VALUES ('000B',	'ÂêçÂè§Â±ã',	'0002',	30);
+INSERT INTO ShopProduct (shop_id, shop_name, product_id, quantity) VALUES ('000B',	'ÂêçÂè§Â±ã',	'0003',	120);
+INSERT INTO ShopProduct (shop_id, shop_name, product_id, quantity) VALUES ('000B',	'ÂêçÂè§Â±ã',	'0004',	20);
+INSERT INTO ShopProduct (shop_id, shop_name, product_id, quantity) VALUES ('000B',	'ÂêçÂè§Â±ã',	'0006',	10);
+INSERT INTO ShopProduct (shop_id, shop_name, product_id, quantity) VALUES ('000B',	'ÂêçÂè§Â±ã',	'0007',	40);
+INSERT INTO ShopProduct (shop_id, shop_name, product_id, quantity) VALUES ('000C',	'Â§ßÈò™',		'0003',	20);
+INSERT INTO ShopProduct (shop_id, shop_name, product_id, quantity) VALUES ('000C',	'Â§ßÈò™',		'0004',	50);
+INSERT INTO ShopProduct (shop_id, shop_name, product_id, quantity) VALUES ('000C',	'Â§ßÈò™',		'0006',	90);
+INSERT INTO ShopProduct (shop_id, shop_name, product_id, quantity) VALUES ('000C',	'Â§ßÈò™',		'0007',	70);
+INSERT INTO ShopProduct (shop_id, shop_name, product_id, quantity) VALUES ('000D',	'Á¶èÂÜà',		'0001',	100);
 
 COMMIT;

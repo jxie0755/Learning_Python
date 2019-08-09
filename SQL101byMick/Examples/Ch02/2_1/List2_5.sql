@@ -1,4 +1,4 @@
-SELECT product_id     AS "商品编号",
-       product_name   AS "商品名称",
-       purchase_price AS "进货单价"
+SELECT product_id     AS "鍟嗗搧缂栧彿",
+       product_name   AS "鍟嗗搧鍚嶇О",
+       purchase_price AS "杩涜揣鍗曚环"
   FROM Product;

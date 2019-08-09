@@ -1,5 +1,5 @@
 DELETE FROM Product
  WHERE sale_price >= 4000;
 
--- 确认删除后的结果
+-- 纭鍒犻櫎鍚庣殑缁撴灉
 SELECT * FROM Product;

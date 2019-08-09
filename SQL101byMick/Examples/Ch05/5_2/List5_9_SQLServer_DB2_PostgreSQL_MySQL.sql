@@ -1,5 +1,5 @@
 --SQL Server, DB2, PostgreSQL, MySQL
---在FROM子句中直接书写定义视图的SELECT语句
+--鍦‵ROM瀛愬彞涓洿鎺ヤ功鍐欏畾涔夎鍥剧殑SELECT璇彞
 SELECT product_type, cnt_product
   FROM (SELECT product_type, COUNT(*) AS cnt_product
           FROM Product

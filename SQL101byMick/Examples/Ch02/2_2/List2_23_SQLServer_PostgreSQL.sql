@@ -1,10 +1,10 @@
--- DDL£º´´½¨±í
+-- DDLï¼šåˆ›å»ºè¡¨
 CREATE TABLE Chars
 (chr CHAR(3) NOT NULL,
 PRIMARY KEY (chr));
 
 --SQL Server PostgreSQL
--- DML£º²åÈëÊý¾Ý
+-- DMLï¼šæ’å…¥æ•°æ®
 BEGIN TRANSACTION;
 INSERT INTO Chars VALUES ('1');
 INSERT INTO Chars VALUES ('2');

@@ -1,4 +1,4 @@
---È¡µÃÔÚ´óÚæµêÏúÊÛµÄÉÌÆ·µÄÏúÊÛµ¥¼Û
+--å–å¾—åœ¨å¤§é˜ªåº—é”€å”®çš„å•†å“çš„é”€å”®å•ä»·
 SELECT product_name, sale_price
   FROM Product
  WHERE product_id IN (SELECT product_id 

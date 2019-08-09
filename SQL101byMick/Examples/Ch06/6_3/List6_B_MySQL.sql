@@ -1,11 +1,11 @@
 --MySQL
--- MySQLÖĞÊ¹ÓÃIF´úÌæCASE±í´ïÊ½
+-- MySQLä¸­ä½¿ç”¨IFä»£æ›¿CASEè¡¨è¾¾å¼
 SELECT  product_name,
-        IF( IF( IF(product_type = 'ÒÂ·ş',  CONCAT('A£º', product_type), NULL)
-            	    IS NULL AND product_type = '°ì¹«ÓÃÆ·', CONCAT('B£º', product_type), 
-            	IF(product_type = 'ÒÂ·ş',  CONCAT('A£º', product_type), NULL))
-                    IS NULL AND product_type = '³ø·¿ÓÃ¾ß', CONCAT('C£º', product_type), 
-                    IF( IF(product_type = 'ÒÂ·ş',  CONCAT('A£º', product_type), NULL)
-            	    IS NULL AND product_type = '°ì¹«ÓÃÆ·', CONCAT('B£º', product_type), 
-            	IF(product_type = 'ÒÂ·ş',  CONCAT('A£º', product_type), NULL))) AS abc_product_type
+        IF( IF( IF(product_type = 'è¡£æœ',  CONCAT('Aï¼š', product_type), NULL)
+            	    IS NULL AND product_type = 'åŠå…¬ç”¨å“', CONCAT('Bï¼š', product_type), 
+            	IF(product_type = 'è¡£æœ',  CONCAT('Aï¼š', product_type), NULL))
+                    IS NULL AND product_type = 'å¨æˆ¿ç”¨å…·', CONCAT('Cï¼š', product_type), 
+                    IF( IF(product_type = 'è¡£æœ',  CONCAT('Aï¼š', product_type), NULL)
+            	    IS NULL AND product_type = 'åŠå…¬ç”¨å“', CONCAT('Bï¼š', product_type), 
+            	IF(product_type = 'è¡£æœ',  CONCAT('Aï¼š', product_type), NULL))) AS abc_product_type
   FROM Product;

@@ -1,8 +1,8 @@
--- Ê¹ÓÃDISTINCTµÄÇé¿ö
+-- ä½¿ç”¨DISTINCTçš„æƒ…å†µ
 SELECT DISTINCT product_type
   FROM Product;
 
--- Ê¹ÓÃGROUP BYµÄÇé¿ö
+-- ä½¿ç”¨GROUP BYçš„æƒ…å†µ
 SELECT product_type
   FROM Product
  GROUP BY product_type;

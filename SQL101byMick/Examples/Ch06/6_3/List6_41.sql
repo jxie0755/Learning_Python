@@ -1,7 +1,7 @@
 SELECT product_name,
-       CASE WHEN product_type = 'ÒÂ·ş'    THEN 'A£º' || product_type
-            WHEN product_type = '°ì¹«ÓÃÆ·' THEN 'B£º' || product_type
-            WHEN product_type = '³ø·¿ÓÃ¾ß' THEN 'C£º' || product_type
+       CASE WHEN product_type = 'è¡£æœ'    THEN 'Aï¼š' || product_type
+            WHEN product_type = 'åŠå…¬ç”¨å“' THEN 'Bï¼š' || product_type
+            WHEN product_type = 'å¨æˆ¿ç”¨å…·' THEN 'Cï¼š' || product_type
             ELSE NULL
        END AS abc_product_type i
   FROM Product;

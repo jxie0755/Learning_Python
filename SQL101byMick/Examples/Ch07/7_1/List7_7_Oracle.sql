@@ -1,4 +1,4 @@
---Oracle中不使用EXCEPT而使用MINUS
+--Oracle涓笉浣跨敤EXCEPT鑰屼娇鐢∕INUS
 SELECT product_id, product_name
   FROM Product
 MINUS

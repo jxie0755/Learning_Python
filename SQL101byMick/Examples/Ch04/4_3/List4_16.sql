@@ -1,6 +1,6 @@
 UPDATE Product
    SET sale_price = sale_price * 10
- WHERE product_type = '厨房用具';
+ WHERE product_type = '鍘ㄦ埧鐢ㄥ叿';
 
--- 确认更新内容
+-- 纭鏇存柊鍐呭
 SELECT * FROM Product ORDER BY product_id;

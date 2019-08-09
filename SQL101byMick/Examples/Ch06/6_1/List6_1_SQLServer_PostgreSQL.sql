@@ -1,11 +1,11 @@
 --SQL Server, DB2
---DDL£º´´½¨±í
+--DDLï¼šåˆ›å»ºè¡¨
 CREATE TABLE SampleMath
 (m  NUMERIC (10,3),
  n  INTEGER,
  p  INTEGER);
 
---DML£º²åÈëÊý¾Ý
+--DMLï¼šæ’å…¥æ•°æ®
 BEGIN TRANSACTION;
 
 INSERT INTO SampleMath(m, n, p) VALUES (500,  0,    NULL);
@@ -23,5 +23,5 @@ INSERT INTO SampleMath(m, n, p) VALUES (8.76, NULL, NULL);
 COMMIT;
 
 
---È·ÈÏ±íÖÐµÄÄÚÈÝ
+--ç¡®è®¤è¡¨ä¸­çš„å†…å®¹
 SELECT * FROM SampleMath;

@@ -1,29 +1,29 @@
 /*
- É¾³ýProduct±íÖÐÊý¾ÝµÄDELETEÓï¾ä
- £¨»Ö¸´µ½Ê¹ÓÃCREATE TABLE´´½¨Ê±Êý¾ÝÎª¿ÕµÄ×´Ì¬£©
+ åˆ é™¤Productè¡¨ä¸­æ•°æ®çš„DELETEè¯­å¥
+ ï¼ˆæ¢å¤åˆ°ä½¿ç”¨CREATE TABLEåˆ›å»ºæ—¶æ•°æ®ä¸ºç©ºçš„çŠ¶æ€ï¼‰
 */
 DELETE FROM Product;
 
 
 /*
-  ÏÂÃæÊÇÎÊÌâµÄSELECTÓï¾ä
+  ä¸‹é¢æ˜¯é—®é¢˜çš„SELECTè¯­å¥
 */
--- AÏÈÉúÖ´ÐÐ£¨SQL Server¡¢PostgreSQLµÄÇé¿ö£©
+-- Aå…ˆç”Ÿæ‰§è¡Œï¼ˆSQL Serverã€PostgreSQLçš„æƒ…å†µï¼‰
 BEGIN TRANSACTION;
-    INSERT INTO Product VALUES ('0001', 'TÐô', 'ÒÂ·þ', 1000, 500, '2009-09-20');
-    INSERT INTO Product VALUES ('0002', '´ò¿×Æ÷', '°ì¹«ÓÃÆ·', 500, 320, '2009-09-11');
-    INSERT INTO Product VALUES ('0003', 'ÔË¶¯TÐô', 'ÒÂ·þ', 4000, 2800, NULL);
+    INSERT INTO Product VALUES ('0001', 'Tæ¤', 'è¡£æœ', 1000, 500, '2009-09-20');
+    INSERT INTO Product VALUES ('0002', 'æ‰“å­”å™¨', 'åŠžå…¬ç”¨å“', 500, 320, '2009-09-11');
+    INSERT INTO Product VALUES ('0003', 'è¿åŠ¨Tæ¤', 'è¡£æœ', 4000, 2800, NULL);
 
--- AÏÈÉúÖ´ÐÐ£¨MySQLµÄÇé¿ö£©
+-- Aå…ˆç”Ÿæ‰§è¡Œï¼ˆMySQLçš„æƒ…å†µï¼‰
 START TRANSACTION;
-    INSERT INTO Product VALUES ('0001', 'TÐô', 'ÒÂ·þ', 1000, 500, '2009-09-20');
-    INSERT INTO Product VALUES ('0002', '´ò¿×Æ÷', '°ì¹«ÓÃÆ·', 500, 320, '2009-09-11');
-    INSERT INTO Product VALUES ('0003', 'ÔË¶¯TÐô', 'ÒÂ·þ', 4000, 2800, NULL);
+    INSERT INTO Product VALUES ('0001', 'Tæ¤', 'è¡£æœ', 1000, 500, '2009-09-20');
+    INSERT INTO Product VALUES ('0002', 'æ‰“å­”å™¨', 'åŠžå…¬ç”¨å“', 500, 320, '2009-09-11');
+    INSERT INTO Product VALUES ('0003', 'è¿åŠ¨Tæ¤', 'è¡£æœ', 4000, 2800, NULL);
 
--- AÏÈÉúÖ´ÐÐ£¨Oracle¡¢DB2µÄÇé¿ö£©
-INSERT INTO Product VALUES ('0001', 'TÐô', 'ÒÂ·þ', 1000, 500, '2009-09-20');
-INSERT INTO Product VALUES ('0002', '´ò¿×Æ÷', '°ì¹«ÓÃÆ·', 500, 320, '2009-09-11');
-INSERT INTO Product VALUES ('0003', 'ÔË¶¯TÐô', 'ÒÂ·þ', 4000, 2800, NULL);
+-- Aå…ˆç”Ÿæ‰§è¡Œï¼ˆOracleã€DB2çš„æƒ…å†µï¼‰
+INSERT INTO Product VALUES ('0001', 'Tæ¤', 'è¡£æœ', 1000, 500, '2009-09-20');
+INSERT INTO Product VALUES ('0002', 'æ‰“å­”å™¨', 'åŠžå…¬ç”¨å“', 500, 320, '2009-09-11');
+INSERT INTO Product VALUES ('0003', 'è¿åŠ¨Tæ¤', 'è¡£æœ', 4000, 2800, NULL);
 
--- BÏÈÉúÖ´ÐÐ
+-- Bå…ˆç”Ÿæ‰§è¡Œ
 SELECT * FROM Product;

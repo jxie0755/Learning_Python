@@ -1,7 +1,7 @@
 /*
-  ÏÂÃæÊÇÎÊÌâÖÐµÄSELECTÓï¾ä
+  ä¸‹é¢æ˜¯é—®é¢˜ä¸­çš„SELECTè¯­å¥
 */
--- Ê¹ÓÃ±¾ÎÄÖÐÊ¹ÓÃµÄProduct±í
+-- ä½¿ç”¨æœ¬æ–‡ä¸­ä½¿ç”¨çš„Productè¡¨
 SELECT *
   FROM Product
 UNION

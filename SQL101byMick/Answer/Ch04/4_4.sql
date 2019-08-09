@@ -1,12 +1,12 @@
--- 1.ÏÂµ÷ÏúÊÛµ¥¼Û
+-- 1.ä¸‹è°ƒé”€å”®å•ä»·
 UPDATE ProductMargin
    SET sale_price = 3000
  WHERE product_id = '0003';
 
--- 2.ÀûÈóÔÙ¼ÆËã
+-- 2.åˆ©æ¶¦å†è®¡ç®—
 UPDATE ProductMargin
    SET margin = sale_price - purchase_price
  WHERE product_id = '0003';
 
--- È·ÈÏÊı¾İ¸üĞÂ
+-- ç¡®è®¤æ•°æ®æ›´æ–°
 SELECT * FROM ProductMargin;

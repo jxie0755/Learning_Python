@@ -5,7 +5,7 @@ HAVING AVG(sale_price) > (SELECT AVG(sale_price)
                               FROM Product);
 
 
-/* �����䲻�Ǳ����Ӳ�ѯ�����Բ���д��SELECT�Ӿ�֮�У��ᷢ������*/
+/* 由于其不是标量子查询，所以不能写在SELECT子句之中（会发生错误）*/
 SELECT product_id, 
        product_name, 
        sale_price,

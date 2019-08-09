@@ -2,8 +2,8 @@ CREATE VIEW ProductSumJim (product_type, cnt_product)
 AS
 SELECT product_type, cnt_product
   FROM ProductSum
- WHERE product_type = '办公用品';
+ WHERE product_type = '鍔炲叕鐢ㄥ搧';
 
--- 确认创建好的视图
+-- 纭鍒涘缓濂界殑瑙嗗浘
 SELECT product_type, cnt_product
   FROM ProductSumJim;

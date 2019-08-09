@@ -1,5 +1,5 @@
 --SQL Server, DB2, PostgreSQL
---´ÓProduct2µÄ¼ÇÂ¼ÖÐÉ¾³ýProductµÄ¼ÇÂ¼
+--ä»ŽProduct2çš„è®°å½•ä¸­åˆ é™¤Productçš„è®°å½•
 SELECT product_id, product_name
   FROM Product2
 EXCEPT

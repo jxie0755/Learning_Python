@@ -1,7 +1,7 @@
--- 将列用小括号括起来的列表形式
+-- 灏嗗垪鐢ㄥ皬鎷彿鎷捣鏉ョ殑鍒楄〃褰㈠紡
 UPDATE Product
    SET (sale_price, purchase_price) = (sale_price * 10, purchase_price / 2)
- WHERE product_type = '厨房用具';
+ WHERE product_type = '鍘ㄦ埧鐢ㄥ叿';
 
--- 确认更新内容
+-- 纭鏇存柊鍐呭
 SELECT * FROM Product ORDER BY product_id;

@@ -1,7 +1,7 @@
--- ½«ÉÌÆ·±íÖĞµÄÊı¾İ¸´ÖÆµ½¸´ÖÆÉÌÆ·±íÖĞ
+-- å°†å•†å“è¡¨ä¸­çš„æ•°æ®å¤åˆ¶åˆ°å¤åˆ¶å•†å“è¡¨ä¸­
 INSERT INTO ProductCopy (product_id, product_name, product_type, sale_price, purchase_price, regist_date)
 SELECT product_id, product_name, product_type, sale_price, purchase_price, regist_date
   FROM Product;
 
--- È·ÈÏ¸´ÖÆĞĞ
+-- ç¡®è®¤å¤åˆ¶è¡Œ
 SELECT * FROM ProductCopy;

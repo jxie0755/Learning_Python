@@ -1,1 +1,1 @@
-INSERT INTO ProductIns (product_id, product_name, product_type, purchase_price, regist_date) VALUES ('0007', '擦菜板', '厨房用具', 790, '2009-04-28');
+INSERT INTO ProductIns (product_id, product_name, product_type, purchase_price, regist_date) VALUES ('0007', '虏脕虏脣掳氓', '鲁酶路驴脫脙戮脽', 790, '2009-04-28');

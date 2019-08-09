@@ -1,8 +1,8 @@
 /*
-  ÒÔÏÂÊÇÎÊÌâµÄSELECTÓï¾ä
+  ä»¥ä¸‹æ˜¯é—®é¢˜çš„SELECTè¯­å¥
 */
 SELECT product_id, SUM(product_name)
--- ±¾SELECTÓï¾äÓÐ´íÎó
+-- æœ¬SELECTè¯­å¥æœ‰é”™è¯¯
   FROM Product
  GROUP BY product_type
  WHERE regist_date > '2009-09-01';

@@ -1,4 +1,4 @@
--- DDL£º´´½¨±í
+-- DDLï¼šåˆ›å»ºè¡¨
 CREATE TABLE Product2
 (product_id      CHAR(4)      NOT NULL,
  product_name    VARCHAR(100) NOT NULL,
@@ -8,12 +8,12 @@ CREATE TABLE Product2
  regist_date     DATE         ,
  PRIMARY KEY (product_id));
 
--- DML£º²åÈëÊý¾Ý
+-- DMLï¼šæ’å…¥æ•°æ®
 
-INSERT INTO Product2 VALUES ('0001', 'TÐô' ,'ÒÂ·þ', 1000, 500, '2009-09-20');
-INSERT INTO Product2 VALUES ('0002', '´ò¿×Æ÷', '°ì¹«ÓÃÆ·', 500, 320, '2009-09-11');
-INSERT INTO Product2 VALUES ('0003', 'ÔË¶¯TÐô', 'ÒÂ·þ', 4000, 2800, NULL);
-INSERT INTO Product2 VALUES ('0009', 'ÊÖÌ×', 'ÒÂ·þ', 800, 500, NULL);
-INSERT INTO Product2 VALUES ('0010', 'Ë®ºø', '³ø·¿ÓÃ¾ß', 2000, 1700, '2009-09-20');
+INSERT INTO Product2 VALUES ('0001', 'Tæ¤' ,'è¡£æœ', 1000, 500, '2009-09-20');
+INSERT INTO Product2 VALUES ('0002', 'æ‰“å­”å™¨', 'åŠžå…¬ç”¨å“', 500, 320, '2009-09-11');
+INSERT INTO Product2 VALUES ('0003', 'è¿åŠ¨Tæ¤', 'è¡£æœ', 4000, 2800, NULL);
+INSERT INTO Product2 VALUES ('0009', 'æ‰‹å¥—', 'è¡£æœ', 800, 500, NULL);
+INSERT INTO Product2 VALUES ('0010', 'æ°´å£¶', 'åŽ¨æˆ¿ç”¨å…·', 2000, 1700, '2009-09-20');
 
 COMMIT;

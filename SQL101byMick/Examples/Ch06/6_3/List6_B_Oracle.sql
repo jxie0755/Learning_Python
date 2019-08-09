@@ -1,8 +1,8 @@
 --Oracle
---OracleÖÐÊ¹ÓÃDECODE´úÌæCASE±í´ïÊ½
+--Oracleä¸­ä½¿ç”¨DECODEä»£æ›¿CASEè¡¨è¾¾å¼
 SELECT  product_name,
-        DECODE(product_type, 'ÒÂ·þ',     'A£º' || product_type,
-                              '°ì¹«ÓÃÆ·', 'B£º' || product_type,
-                              '³ø·¿ÓÃ¾ß', 'C£º' || product_type,
+        DECODE(product_type, 'è¡£æœ',     'Aï¼š' || product_type,
+                              'åŠžå…¬ç”¨å“', 'Bï¼š' || product_type,
+                              'åŽ¨æˆ¿ç”¨å…·', 'Cï¼š' || product_type,
                NULL) AS abc_product_type
   FROM Product;

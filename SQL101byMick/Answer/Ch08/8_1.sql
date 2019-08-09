@@ -1,5 +1,5 @@
 /*
-  下面是问题中的SELECT语句
+  涓嬮潰鏄棶棰樹腑鐨凷ELECT璇彞
 */
 SELECT product_id, product_name, sale_price,
        MAX (sale_price) OVER (ORDER BY product_id) AS current_max_price

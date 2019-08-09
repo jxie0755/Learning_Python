@@ -2,5 +2,5 @@ UPDATE Product
    SET regist_date = NULL
  WHERE product_id = '0008';
 
--- 确认更新内容
+-- 纭鏇存柊鍐呭
 SELECT * FROM Product ORDER BY product_id;

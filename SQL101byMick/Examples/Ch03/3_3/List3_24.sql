@@ -1,4 +1,4 @@
 SELECT product_type, COUNT(*)
   FROM Product
  GROUP BY product_type
-HAVING product_name = 'Բ���';
+HAVING product_name = 'Ô²Öé±Ê';

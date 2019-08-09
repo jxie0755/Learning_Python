@@ -1,7 +1,7 @@
 /*
-  ÏÂÃæÊÇÎÊÌâÖĞµÄSELECTÓï¾ä
+  ä¸‹é¢æ˜¯é—®é¢˜ä¸­çš„SELECTè¯­å¥
 */
--- ÉÌÆ·ÀûÈó±í
+-- å•†å“åˆ©æ¶¦è¡¨
 CREATE TABLE ProductMargin
 (product_id     CHAR(4)       NOT NULL,
  product_name   VARCHAR(100)  NOT NULL,
@@ -12,12 +12,12 @@ CREATE TABLE ProductMargin
 
 
 /*
-  ÏÂÃæÊÇ½â´ğÊ¾Àı
+  ä¸‹é¢æ˜¯è§£ç­”ç¤ºä¾‹
 */
--- ½«Product±íÖĞµÄÊı¾İ²åÈëµ½ProductMargin±íÖĞ
+-- å°†Productè¡¨ä¸­çš„æ•°æ®æ’å…¥åˆ°ProductMarginè¡¨ä¸­
 INSERT INTO ProductMargin (product_id, product_name, sale_price, purchase_price, margin)
 SELECT product_id, product_name, sale_price, purchase_price, sale_price - purchase_price
   FROM Product;
 
--- È·ÈÏ²åÈëÊı¾İ
+-- ç¡®è®¤æ’å…¥æ•°æ®
 SELECT * FROM ProductMargin;

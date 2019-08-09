@@ -1,4 +1,4 @@
--- ²åÈëÊý¾ÝÓÃµÄÉÌÆ·¸´ÖÆ±í
+-- æ’å…¥æ•°æ®ç”¨çš„å•†å“å¤åˆ¶è¡¨
 CREATE TABLE ProductCopy
 (product_id      CHAR(4)      NOT NULL,
  product_name    VARCHAR(100) NOT NULL,

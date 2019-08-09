@@ -1,10 +1,10 @@
 --MySQL
---DDL£º´´½¨±í
+--DDLï¼šåˆ›å»ºè¡¨
 CREATE TABLE SampleLike
 ( strcol VARCHAR(6) NOT NULL,
   PRIMARY KEY (strcol));
 
---DML£º²åÈëÊý¾Ý
+--DMLï¼šæ’å…¥æ•°æ®
 START TRANSACTION;
 
 INSERT INTO SampleLike (strcol) VALUES ('abcddd');

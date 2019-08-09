@@ -1,14 +1,14 @@
 --SQL Server, PostgreSQL
 BEGIN TRANSACTION;
 
-    -- тк╤╞TпТ╣доЗйш╣╔╪шоб╣В1000хут╙
+    -- Х©░Е┼╗TФ│╓Г └И■─Е■╝Е█∙Д╩╥Д╦▀Х╟┐1000Ф≈╔Е┘┐
     UPDATE Product
        SET sale_price = sale_price - 1000
-     WHERE product_name = 'тк╤╞TпТ';
+     WHERE product_name = 'Х©░Е┼╗TФ│╓';
 
-    -- TпТ╣доЗйш╣╔╪шио╦║1000хут╙
+    -- TФ│╓Г └И■─Е■╝Е█∙Д╩╥Д╦┼Ф╣╝1000Ф≈╔Е┘┐
     UPDATE Product
        SET sale_price = sale_price + 1000
-     WHERE product_name = 'TпТ';
+     WHERE product_name = 'TФ│╓';
 
 ROLLBACK;

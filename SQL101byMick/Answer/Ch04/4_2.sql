@@ -1,36 +1,36 @@
 /*
-  É¾³ýProduct±íÖÐÊý¾ÝµÄDELETEÓï¾ä
- £¨»Ö¸´µ½Ê¹ÓÃCREATE TABLE´´½¨Ê±Êý¾ÝÎª¿ÕµÄ×´Ì¬£©
+  åˆ é™¤Productè¡¨ä¸­æ•°æ®çš„DELETEè¯­å¥
+ ï¼ˆæ¢å¤åˆ°ä½¿ç”¨CREATE TABLEåˆ›å»ºæ—¶æ•°æ®ä¸ºç©ºçš„çŠ¶æ€ï¼‰
 */
 DELETE FROM Product;
 
 
 /*
-  ÒÔÏÂÊÇÎÊÌâÖÐÌí¼Ó3ÐÐ¼ÇÂ¼µÄINSERTÓï¾ä
+  ä»¥ä¸‹æ˜¯é—®é¢˜ä¸­æ·»åŠ 3è¡Œè®°å½•çš„INSERTè¯­å¥
 */
--- Ìí¼Ó3ÐÐ¼ÇÂ¼£¨SQL Server¡¢PostgreSQLµÄÇé¿ö£©
+-- æ·»åŠ 3è¡Œè®°å½•ï¼ˆSQL Serverã€PostgreSQLçš„æƒ…å†µï¼‰
 BEGIN TRANSACTION;
-    INSERT INTO Product VALUES ('0001', 'TÐô', 'ÒÂ·þ', 1000, 500, '2009-09-20');
-    INSERT INTO Product VALUES ('0002', '´ò¿×Æ÷', '°ì¹«ÓÃÆ·', 500, 320, '2009-09-11');
-    INSERT INTO Product VALUES ('0003', 'ÔË¶¯TÐô', 'ÒÂ·þ', 4000, 2800, NULL);
+    INSERT INTO Product VALUES ('0001', 'Tæ¤', 'è¡£æœ', 1000, 500, '2009-09-20');
+    INSERT INTO Product VALUES ('0002', 'æ‰“å­”å™¨', 'åŠžå…¬ç”¨å“', 500, 320, '2009-09-11');
+    INSERT INTO Product VALUES ('0003', 'è¿åŠ¨Tæ¤', 'è¡£æœ', 4000, 2800, NULL);
 COMMIT;
 
--- Ìí¼Ó3ÐÐ¼ÇÂ¼£¨MySQLµÄÇé¿ö£©
+-- æ·»åŠ 3è¡Œè®°å½•ï¼ˆMySQLçš„æƒ…å†µï¼‰
 START TRANSACTION;
-    INSERT INTO Product VALUES ('0001', 'TÐô', 'ÒÂ·þ', 1000, 500, '2009-09-20');
-    INSERT INTO Product VALUES ('0002', '´ò¿×Æ÷', '°ì¹«ÓÃÆ·', 500, 320, '2009-09-11');
-    INSERT INTO Product VALUES ('0003', 'ÔË¶¯TÐô', 'ÒÂ·þ', 4000, 2800, NULL);
+    INSERT INTO Product VALUES ('0001', 'Tæ¤', 'è¡£æœ', 1000, 500, '2009-09-20');
+    INSERT INTO Product VALUES ('0002', 'æ‰“å­”å™¨', 'åŠžå…¬ç”¨å“', 500, 320, '2009-09-11');
+    INSERT INTO Product VALUES ('0003', 'è¿åŠ¨Tæ¤', 'è¡£æœ', 4000, 2800, NULL);
 COMMIT;
 
--- Ìí¼Ó3ÐÐ¼ÇÂ¼£¨Oracle¡¢DB2µÄÇé¿ö£©
-INSERT INTO Product VALUES ('0001', 'TÐô', 'ÒÂ·þ', 1000, 500, '2009-09-20');
-INSERT INTO Product VALUES ('0002', '´ò¿×Æ÷', '°ì¹«ÓÃÆ·', 500, 320, '2009-09-11');
-INSERT INTO Product VALUES ('0003', 'ÔË¶¯TÐô', 'ÒÂ·þ', 4000, 2800, NULL);
+-- æ·»åŠ 3è¡Œè®°å½•ï¼ˆOracleã€DB2çš„æƒ…å†µï¼‰
+INSERT INTO Product VALUES ('0001', 'Tæ¤', 'è¡£æœ', 1000, 500, '2009-09-20');
+INSERT INTO Product VALUES ('0002', 'æ‰“å­”å™¨', 'åŠžå…¬ç”¨å“', 500, 320, '2009-09-11');
+INSERT INTO Product VALUES ('0003', 'è¿åŠ¨Tæ¤', 'è¡£æœ', 4000, 2800, NULL);
 COMMIT;
 
 
 /*
-  ÏÂÃæÊÇÎÊÌâÖÐµÄINSERTÓï¾ä
-  ÏòProduct±íÖÐ²åÈëProduct±í£¨·¢Éú´íÎó£©
+  ä¸‹é¢æ˜¯é—®é¢˜ä¸­çš„INSERTè¯­å¥
+  å‘Productè¡¨ä¸­æ’å…¥Productè¡¨ï¼ˆå‘ç”Ÿé”™è¯¯ï¼‰
 */
 INSERT INTO Product SELECT * FROM Product;

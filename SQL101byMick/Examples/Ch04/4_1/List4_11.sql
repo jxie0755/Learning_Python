@@ -1,4 +1,4 @@
--- ¸ù¾ÝÉÌÆ·ÖÖÀà½øÐÐ»ã×ÜÓÃ±í
+-- æ ¹æ®å•†å“ç§ç±»è¿›è¡Œæ±‡æ€»ç”¨è¡¨
 CREATE TABLE ProductType
 (product_type        VARCHAR(32)  NOT NULL,
  sum_sale_price      INTEGER      ,

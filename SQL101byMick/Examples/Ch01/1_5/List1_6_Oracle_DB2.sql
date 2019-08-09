@@ -1,11 +1,11 @@
 --Oracle DB2
--- DML:²åÈëÊý¾Ý
-INSERT INTO Product VALUES ('0001', 'TÐô' ,'ÒÂ·þ', 1000, 500, '2009-09-20');
-INSERT INTO Product VALUES ('0002', '´ò¿×Æ÷', '°ì¹«ÓÃÆ·', 500, 320, '2009-09-11');
-INSERT INTO Product VALUES ('0003', 'ÔË¶¯TÐô', 'ÒÂ·þ', 4000, 2800, NULL);
-INSERT INTO Product VALUES ('0004', '²Ëµ¶', '³ø·¿ÓÃ¾ß', 3000, 2800, '2009-09-20');
-INSERT INTO Product VALUES ('0005', '¸ßÑ¹¹ø', '³ø·¿ÓÃ¾ß', 6800, 5000, '2009-01-15');
-INSERT INTO Product VALUES ('0006', '²æ×Ó', '³ø·¿ÓÃ¾ß', 500, NULL, '2009-09-20');
-INSERT INTO Product VALUES ('0007', '²Á²Ë°å', '³ø·¿ÓÃ¾ß', 880, 790, '2008-04-28');
-INSERT INTO Product VALUES ('0008', 'Ô²Öé±Ê', '°ì¹«ÓÃÆ·', 100, NULL, '2009-11-11');
+-- DML:æ’å…¥æ•°æ®
+INSERT INTO Product VALUES ('0001', 'Tæ¤' ,'è¡£æœ', 1000, 500, '2009-09-20');
+INSERT INTO Product VALUES ('0002', 'æ‰“å­”å™¨', 'åŠžå…¬ç”¨å“', 500, 320, '2009-09-11');
+INSERT INTO Product VALUES ('0003', 'è¿åŠ¨Tæ¤', 'è¡£æœ', 4000, 2800, NULL);
+INSERT INTO Product VALUES ('0004', 'èœåˆ€', 'åŽ¨æˆ¿ç”¨å…·', 3000, 2800, '2009-09-20');
+INSERT INTO Product VALUES ('0005', 'é«˜åŽ‹é”…', 'åŽ¨æˆ¿ç”¨å…·', 6800, 5000, '2009-01-15');
+INSERT INTO Product VALUES ('0006', 'å‰å­', 'åŽ¨æˆ¿ç”¨å…·', 500, NULL, '2009-09-20');
+INSERT INTO Product VALUES ('0007', 'æ“¦èœæ¿', 'åŽ¨æˆ¿ç”¨å…·', 880, 790, '2008-04-28');
+INSERT INTO Product VALUES ('0008', 'åœ†ç ç¬”', 'åŠžå…¬ç”¨å“', 100, NULL, '2009-11-11');
 COMMIT;

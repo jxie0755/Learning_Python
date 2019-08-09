@@ -1,9 +1,9 @@
--- ¢Ùregist_dateÎªNULLÊ±£¬ÏÔÊ¾¡°1Äê1ÔÂ1ÈÕ¡±¡£
+-- â‘ regist_dateä¸ºNULLæ—¶ï¼Œæ˜¾ç¤ºâ€œ1å¹´1æœˆ1æ—¥â€ã€‚
 SELECT regist_date, product_name, sale_price,
        SUM (sale_price) OVER (ORDER BY COALESCE(regist_date, CAST('0001-01-01' AS DATE))) AS current_sum_price
   FROM Product;
 
--- ¢Úregist_dateÎªNULLÊ±£¬½«¸Ã¼ÇÂ¼·ÅÔÚ×îÇ°ÏÔÊ¾¡£
+-- â‘¡regist_dateä¸ºNULLæ—¶ï¼Œå°†è¯¥è®°å½•æ”¾åœ¨æœ€å‰æ˜¾ç¤ºã€‚
 SELECT regist_date, product_name, sale_price,
        SUM (sale_price) OVER (ORDER BY regist_date NULLS FIRST) AS current_sum_price
   FROM Product;

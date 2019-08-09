@@ -1,4 +1,4 @@
--- ╢╢╫╗йсм╪╣дсО╬Д
+-- Е┬⌡Е╩╨Х╖├Е⌡╬Г └Х╞╜Е▐╔
 CREATE VIEW AvgPriceByType AS
 SELECT product_id,
        product_name,
@@ -10,5 +10,5 @@ SELECT product_id,
          GROUP BY P1.product_type) AS avg_sale_price
  FROM Product P1;
 
--- х╥хойсм╪дзхщ
+-- Г║╝Х╝╓Х╖├Е⌡╬Е├┘Е╝╧
 SELECT * FROM AvgPriceByType;

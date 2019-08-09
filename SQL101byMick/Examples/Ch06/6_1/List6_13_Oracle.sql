@@ -1,4 +1,4 @@
 --Oracle
---Ö¸¶¨ÁÙÊ±±í£¨DUAL£©
+--æŒ‡å®šä¸´æ—¶è¡¨ï¼ˆDUALï¼‰
 SELECT CURRENT_DATE
   FROM DUAL;
