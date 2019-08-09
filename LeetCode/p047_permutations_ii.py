@@ -1,17 +1,61 @@
-# P047 Permutations II
-# Medium
+"""
+https://leetcode.com/problems/permutations-ii/
+P047 Permutations II
+Medium
 
+Given a collection of numbers that might contain duplicates, return all possible unique permutations.
+"""
 
-# Given a collection of numbers that might contain duplicates, return all possible unique permutations.
+from itertools import permutations
+from math import factorial
 from typing import *
-import math
 
 
 class Solution:
-    def next_permute(self, indexes):
-        # Use next permutation method from leetcode p031
-        """calculate the next permuatation, with integers 0 to N-1 (for N elements)
-        this will both modify idx_list and return the updated idx_list"""
+
+    """
+    Version A
+    use python's internal method, only for testing the speed
+    """
+    def permuteUnique(self, nums: List[int]) -> List[List[int]]:
+        result = []
+        for idxs in permutations(list(range(len(nums)))):
+            next_perm = [nums[i] for i in idxs]
+            if next_perm not in result:
+                result.append(next_perm)
+        return result
+
+
+class Solution:
+
+    """
+    Version B, use next permuteUnique
+    First handle index, then convert to nuns[index], if not repeating then append.
+    This will pass but way too slow
+    revised to use set(tuples) to removed repeats, then sort, it is faster, but still slow
+    """
+    def permuteUnique(self, nums: List[int]) -> List[List[int]]:
+
+        total_n = factorial(len(nums))
+        result = []
+        idxs = list(range(len(nums)))
+        for i in range(total_n):
+            next_perm = [nums[i] for i in idxs]
+            result.append(tuple(next_perm))
+            idxs = self.next_permute(idxs)
+        return sorted([list(i) for i in set(result)])
+
+
+    # You must not use Leetcode P046 Version B2, because it asks for distinct collection of numbers
+
+    """
+    Helper B
+    Use next permutation method from leetcode p031
+    calculate the next permuatation, with integers 0 to N-1 (for N elements)
+    this will both modify idx_list and return the updated idx_list
+    """
+    def next_permute(self, indexes: List[int]) -> List[int]:
+
         length = len(indexes)
         cur_i = None
 
@@ -32,62 +76,54 @@ class Solution:
                     break
             return indexes
 
-    def permuteUnique(self, nums):
-        # First handle index, then convert to nuns[index], if not repeating then append.
-        # This will pass but way too slow
-        # revised to use set(tuples) to removed repeats, it is faster, but still slow
-        total_n = math.factorial(len(nums))
-        result = []
-        idxs = list(range(len(nums)))[::-1]
-        for i in range(total_n):
-            idxs = self.next_permute(idxs)
-            result.append(tuple([nums[i] for i in idxs]))
-        return [list(i) for i in set(result)]
-
 
 class Solution:
-    # recursive method from leetcode P046
-    # revised the recursion rule by bypassing the repeated next_list
-    def restList(self, elm, lst):
-        """return a list with target element removed"""
-        nextList = lst[:]
-        nextList.remove(elm)
-        return nextList
 
-    def permuteUnique(self, nums: List[int]):
-        length = len(nums)
-        result = []
+    """
+    Version C
+    recursive method from leetcode P046
+    revised the recursion rule by bypassing the repeated next_list
+    """
+    def permuteUnique(self, nums: List[int]) -> List[List[int]]:
 
-        def helper(lst, permute_list=[]):
+        """Helper"""
+        def permuteUniHelper(lst: List[int], permute_list: List[int] =[]) -> None:
             if len(permute_list) == length:
                 result.append(permute_list)
             else:
                 next_list_list = []
                 for i in lst:
-                    next_list = self.restList(i, lst)
+                    next_list = lst[:]
+                    next_list.remove(i)
                     if next_list not in next_list_list:  # 在这里去重, 只要剩下的list完全相同就不要递归了
                         next_list_list.append(next_list)
                         updated_permute_list = permute_list + [i]
-                        helper(next_list, updated_permute_list)
+                        permuteUniHelper(next_list, updated_permute_list)
 
-        helper(nums)
+        length = len(nums)
+        result = []
+        permuteUniHelper(nums)
         return result
 
 
 class Solution:
-    # recursive method, single and pure recursion from leetcode P046
-    # revised the recursion rule by bypassing the repeated next_list
+
+    """
+    Version D
+    recursive method, single and pure recursion from leetcode P046
+    revised the recursion rule by bypassing the repeated next_list
+    """
     def permuteUnique(self, nums: List[int]):
         length = len(nums)
         if length == 1:
             return [[nums[0]]]
         else:
             result = []
-            sublist_list = []
+            sublist_list = []  # add an intermediate step to prevent repeats
             for i in nums:
                 subist = nums[:]
                 subist.remove(i)
-                if subist not in sublist_list:
+                if subist not in sublist_list:  # check repeats
                     sublist_list.append(subist)
                     result += [[i] + per for per in self.permuteUnique(subist)]
             return result

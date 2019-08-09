@@ -6,8 +6,8 @@ Medium
 Given a collection of distinct (数字不会重复) integers, return all possible permutations.
 """
 
-import itertools
-import math
+from itertools import permutations
+from math import factorial
 from typing import *
 
 
@@ -19,7 +19,7 @@ class Solution:
     """
     def permute(self, nums: List[int]) -> List[List[int]]:
         result = []
-        for i in itertools.permutations(nums):
+        for i in permutations(nums):
             result.append(list(i))
         return result
 
@@ -27,17 +27,17 @@ class Solution:
 class Solution:
 
     """
-        Version B1
-        Convert to permutation of indexes, then replace with nums[idx]
-        """
-
+    Version B1
+    Convert to permutation of indexes, then replace with nums[idx]
+    """
     def permute(self, nums: List[int]) -> List[List[int]]:
 
-        total_n = math.factorial(len(nums))
+        total_n = factorial(len(nums))
         result = []
         perm_idxs = list(range(len(nums)))
         for i in range(total_n):
-            result.append([nums[i] for i in perm_idxs])
+            next_perm = [nums[i] for i in perm_idxs]
+            result.append(next_perm)
             perm_idxs = self.next_permute(perm_idxs)
         return result
 
@@ -46,9 +46,8 @@ class Solution:
     Recursive method, but direct handle elements in nums
     This only works for when sample is a collection of distinct numbers
     """
-
     def permute(self, nums: List[int]) -> List[List[int]]:
-        total_n = math.factorial(len(nums))
+        total_n = factorial(len(nums))
         result = []
         for i in range(total_n):
             result.append(nums[:])
@@ -88,12 +87,12 @@ class Solution:
 
     """
     Version C
-    Direct Recursive method, no need for next permute
+    Direct Recursive method, no need for next permuteUnique
     """
     def permute(self, nums: List[int]) -> List[List[int]]:
 
         """Helper"""
-        def helper(lst: List[int], permute_list: List[int] = []) -> None:
+        def permuteHelper(lst: List[int], permute_list: List[int] = []) -> None:
             if len(permute_list) == length:
                 result.append(permute_list)
             else:
@@ -101,11 +100,11 @@ class Solution:
                     next_list = lst[:]
                     next_list.remove(i) # Copy lst then remove i 1 by 1
                     updated_permute_list = permute_list + [i]
-                    helper(next_list, updated_permute_list)
+                    permuteHelper(next_list, updated_permute_list)
 
         length = len(nums)
         result = []
-        helper(nums)
+        permuteHelper(nums)
         return result
 
 
