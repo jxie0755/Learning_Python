@@ -129,6 +129,7 @@ class Solution:
             return result
 
 
+
 if __name__ == "__main__":
     assert Solution().permuteUnique([1]) == [
         [1]
