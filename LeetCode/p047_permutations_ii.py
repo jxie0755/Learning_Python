@@ -29,7 +29,8 @@ class Solution:
 class Solution:
 
     """
-    Version B, use next permuteUnique
+    Version B
+    Use next permuteUnique
     First handle index, then convert to nuns[index], if not repeating then append.
     This will pass but way too slow
     revised to use set(tuples) to removed repeats, then sort, it is faster, but still slow
