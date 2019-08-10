@@ -1,6 +1,10 @@
--- SQL 101 by Mick
--- Chapter 1 数据库和SQL
+# SQL 101 by Mick #
+## Chapter 1 数据库和SQL ##
 
+
+### 数据库 ###
+- 将大量数据保存起来，通过计算机加工而成的可以进行高效访数据的数据集合称为数据库（Database， DB0
+    - 用来管理数据库的计算机系统称为数据库管理系统 (Database Management System， DBMS)
 
 -- 将大量数据保存起来，通过计算机加工而成的可以进行高效访数据的数据集合称为数据库（Database， DB）
     -- 用来管理数据库的计算机系统称为数据库管理系统 (Database Management System， DBMS)
