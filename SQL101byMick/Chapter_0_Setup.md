@@ -12,21 +12,29 @@
 
 连接到数据库后, 第一件事就是确认是否连接,使用命令:
     
-    SELECT 1;
+```sql
+SELECT 1;
+```
     
 - 若成功便会显示出column 1
 - 注意不要忘记 ; 符号, 它指示本条命令结束
 
 创见学习用的数据库:
 
-    CREATE DATABASE shop;
+```sql
+CREATE DATABASE shop;
+```
 
 结束psql, 命令为:
 
-    \q
+```
+\q
+```
 
 命令行连接数据库, 使用 -d 命令, 这样就进入了shop数据库:
 
-    psql.exe -U postgres -d shop (windows CMD)
+```
+psql.exe -U postgres -d shop (windows CMD)
+```   
 
 
