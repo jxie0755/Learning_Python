@@ -138,3 +138,5 @@ Temporary Items
 .vscode/tasks.json
 .vscode/settings.json
 .vscode/.ropeproject/config.py
+
+*.pyc
