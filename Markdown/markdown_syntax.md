@@ -1,4 +1,4 @@
-![Markdown Logo](markdown_icon.png  "Optional Title")
+![Markdown Logo](pics/markdown_icon.png  "Optional Title")
 
 
 Copied From [Markdown Syntax.md](https://github.com/fletcher/MultiMarkdown/blob/master/Documentation/Markdown%20Syntax.md)
