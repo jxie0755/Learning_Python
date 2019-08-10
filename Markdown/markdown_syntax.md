@@ -1,3 +1,6 @@
+![Markdown Logo](markdown_icon.png  "Optional Title")
+
+
 Copied From [Markdown Syntax.md](https://github.com/fletcher/MultiMarkdown/blob/master/Documentation/Markdown%20Syntax.md)
 
 ## Phrase Emphasis ##
@@ -184,6 +187,13 @@ Computer | $1600
 Phone    | $12
 Pipe     | $1
 
+
+First Header | Second Header | Third Header
+:----------- | :-----------: | -----------:
+Left         | Center        | Right
+Left         | Center        | Right
+
+
 无序列表：使用 - 加一个空格（）
 
 - 无需列表1
@@ -203,14 +213,47 @@ Pipe     | $1
     这里先换行，然后缩进4个空格，之后的内容便可以原样显示了，适合用于显示代码内容。直到文本结束或最后一个存在缩进的行为止。
 
 块引用
->给引用的文本开始位置都加一个 '>'，
->便可组成一个块引用。在块引用中，可以结合
->其他markdown元素一块使用，比如列表。
->**强调**
+> 给引用的文本开始位置都加一个 '>'，
+> 便可组成一个块引用。在块引用中，可以结合
+> 其他markdown元素一块使用，比如列表。
+> **强调**
 也可以只在第一行加大于号，其他位置不加。
 
 >- 块引用里使用列表，需要和上面的内容隔开一个空行
 >- 记得加空格哦。
 
 强制换行<br>换行成功
+
+
+To-do
+- [ ] what
+- [X] when
+
+
+```python
+print("hello world")
+```
+
+
+在 HTML 文件中，有两个字符需要特殊处理： < 和 & 。 < 符号用于起始标签，& 符号则用于标记 HTML 实体，如果你只是想要显示这些字符的原型，你必须要使用实体的形式，像是 &lt; 和 &amp;。
+
+& 字符尤其让网络文档编写者受折磨，如果你要打「AT&T」 ，你必须要写成「AT&amp;T」。而网址中的 & 字符也要转换。比如你要链接到：
+&copy
+
+
+类 Setext 形式是用底线的形式，利用 = （最高阶标题）和 - （第二阶标题）
+
+Title 1
+===
+
+Title 2
+---
+
+
+```python
+def foo(n):
+    return 5
+```
+
+
 
