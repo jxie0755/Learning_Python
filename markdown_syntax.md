@@ -152,7 +152,7 @@ End a line with two or more spaces:
 [here][3]
 
 然后在别的地方定义 3 这个详细链接信息，
-[3]: http://www.izhangbo.cn "聚牛团队"
+[3]: http://www.izhangbo.cn, "聚牛团队"
 
 直接展示链接的写法：<http://www.izhangbo.cn>
 
@@ -212,5 +212,5 @@ Pipe     | $1
 >- 块引用里使用列表，需要和上面的内容隔开一个空行
 >- 记得加空格哦。
 
-强制换行<br>
-换行成功
+强制换行<br>换行成功
+
