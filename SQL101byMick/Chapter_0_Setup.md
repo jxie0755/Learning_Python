@@ -19,22 +19,22 @@ SELECT 1;
 - 若成功便会显示出column 1
 - 注意不要忘记 ; 符号, 它指示本条命令结束
 
-创见学习用的数据库:
+### 创见学习用的数据库 ###
 
 ```sql
 CREATE DATABASE shop;
 ```
 
-结束psql, 命令为:
+### 结束psql ###
+命令为:
 
 ```
 \q
 ```
 
-命令行连接数据库, 使用 -d 命令, 这样就进入了shop数据库:
+### 命令行连接数据库 ###
+使用 -d 命令, 这样就进入了shop数据库:
 
 ```
 psql.exe -U postgres -d shop (windows CMD)
 ```   
-
-
