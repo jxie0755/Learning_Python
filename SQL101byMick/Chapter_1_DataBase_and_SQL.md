@@ -117,6 +117,33 @@ set search_path = "public" -- 默认设为public
 
 
 ### 表的创建 ###
+```sql
+CREATE TABLE < 表名 > (
+<列名 1> <数据类型> <该列所需约束>，
+<列名 2> <数据类型> <该列所需约束>，
+<列名 3> <数据类型> <该列所需约束>，
+<列名 4> <数据类型> <该列所需约束>，
+    .
+    .
+    .
+<该表的约束 1>，<该表的约束 2>，...）；
+```
+
+**约束可以在定义列的时 候进行设置，也可以在语句的末尾进行设置**
+
+实际样本:
+```sql
+CREATE TABLE Product
+(product_id      CHAR(4)      NOT NULL,
+ product_name    VARCHAR(100) NOT NULL,
+ product_type    VARCHAR(32)  NOT NULL,
+ sale_price      INTEGER ,
+ purchase_price  INTEGER ,
+ regist_date     DATE ,
+ PRIMARY KEY (product_id));
+```
+
+
 
 
 
