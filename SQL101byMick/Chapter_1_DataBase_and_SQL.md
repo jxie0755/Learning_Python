@@ -98,13 +98,25 @@ CREATE DATABASE shop;
 ```
 
 **注意不同RDBMS中对于DATABASE和SCHEMA的区别对待方式**
-[STOF](https://stackoverflow.com/a/19257781/8435726 "STOF explanation")
+[STOF explanation](https://stackoverflow.com/a/19257781/8435726 "STOF")
 > Depends on the database server. 
 
 > MySQL doesn't care, its basically the same thing.
 
 > Oracle, DB2, and other enterprise level database solutions make a distinction. Usually a schema is a collection of tables and a Database is a collection of schemas.
 
+
+**注意: postsql没有USE命令,不能在sql中切换databse**
+[STOF explanation](https://stackoverflow.com/a/3909992/8435726 "STOF")
+> PostgreSQL doesn't have the USE command. You would most likely use psql with the --dbname option to accomplish this, --dbname takes the database name as a parameter.
+
+**注意: 设定DATABASE中的schemas**
+```sql
+set search_path = "public" -- 默认设为public
+```
+
+
 ### 表的创建 ###
+
 
 
