@@ -97,6 +97,14 @@
 CREATE DATABASE shop;
 ```
 
+**注意不同RDBMS中对于DATABASE和SCHEMA的区别对待方式**
+[STOF](https://stackoverflow.com/a/19257781/8435726 "STOF explanation")
+> Depends on the database server. 
+
+> MySQL doesn't care, its basically the same thing.
+
+> Oracle, DB2, and other enterprise level database solutions make a distinction. Usually a schema is a collection of tables and a Database is a collection of schemas.
+
 ### 表的创建 ###
 
 
