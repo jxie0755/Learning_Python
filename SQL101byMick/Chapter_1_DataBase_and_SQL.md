@@ -90,6 +90,12 @@
     - 数字, 直接书写
 - 单词需要使用空格分隔
 
+### 数据库的创建 ###
+
+```sql
+-- CREATE DATABASE <数据库名称>;
+CREATE DATABASE shop;
+```
 
 ### 表的创建 ###
 
