@@ -13,7 +13,7 @@
         - 实现读写自动化需要编程能力
         - 实现读写自动化需要编程能力
 
-### DBMS的种类 ###
+#### DBMS的种类 ####
 
 - 层次数据库（Hierarchical Database， HDB）
     - 把数据通过层次结构（树形结构）的方式表现出来
@@ -38,22 +38,25 @@
     - 被应用到 Google 等需要对大量数据进行超高速查询的 Web 服务当中
 
 
-### RDBMS 常见结构 ###
+### 数据库的结构 ###
+
+#### RDBMS 常见结构 ####
 - 客户端 - 服务器 - 数据库 结构
     - 客户端发送SQL语句给服务器
     - 服务器处理语句，写入或读取数据
     - 返回给客户端
         - 根据SQL语句的内容返回的数据同样必须是二维表的形式
 
-### 表的结构 ###
+#### 表的结构 ####
 - 垂直方向称为 列 / 字段， 列有列名
 - 水平方向称为 行 / 记录， 一行则是一条数据
     - 关系数据库必须以行为单位进行数据读写
 - 行与列的交叉叫单元格, 一个单元格只能输入一个数据
 
 
+### SQL ###
 
-### SQL 语句和类型 ###
+#### SQL 语句和类型 ####
 - DDL (Data Defnition Language, 数据定义语言)
     - 用于创建或者删除储存数据用的数据库或者表
         - `CREATE`  创建
@@ -77,7 +80,7 @@
 
 
 
-### SQL 基本书写规则 ###
+#### SQL 基本书写规则 ####
 
 - 语句以分号(;)结尾
 - 语句不区分大小写, 但是建议
@@ -97,23 +100,48 @@
 CREATE DATABASE shop;
 ```
 
-**注意不同RDBMS中对于DATABASE和SCHEMA的区别对待方式**
-[STOF explanation](https://stackoverflow.com/a/19257781/8435726 "STOF")
+
+**注意不同RDBMS中对于DATABASE和SCHEMA的区别对待方式:**
+    
+    MySQL和PostgresSQL数据库结构略有不同:
+    - MySQL/Schemas/Table
+    - Postgresql/Database/Schemas/Table
+    
+    其中psql的database相当于Mysql的Schemas
+    所以psql会自动生成一组Schemas
+    其中Schemas中的public为默认
+    
+[Difference Between Schema / Database in MySQL](https://stackoverflow.com/a/19257781/8435726)
 > Depends on the database server. 
 
 > MySQL doesn't care, its basically the same thing.
 
 > Oracle, DB2, and other enterprise level database solutions make a distinction. Usually a schema is a collection of tables and a Database is a collection of schemas.
 
+>In MySQL, physically, a schema is synonymous with a database. You can substitute the keyword  SCHEMA instead of DATABASE in MySQL SQL syntax, for example using CREATE SCHEMA instead of  CREATE DATABASE
+
+
 
 **注意: postsql没有USE命令,不能在sql中切换databse**
-[STOF explanation](https://stackoverflow.com/a/3909992/8435726 "STOF")
+
+[How to indicate in postgreSQL command in which database to execute a script? (simmilar to SQL Server “use” command)](https://stackoverflow.com/a/3909992/8435726)
 > PostgreSQL doesn't have the USE command. You would most likely use psql with the --dbname option to accomplish this, --dbname takes the database name as a parameter.
+
+[How to switch databases in postgres?](https://stackoverflow.com/a/43670984/8435726)
+> Technically PostgreSQL can't switch databases. You must disconnect and reconnect to the new DB.
+
 
 **注意: 设定DATABASE中的schemas**
 ```sql
 set search_path = "public" -- 默认设为public
 ```
+
+[How to select a schema in postgres when using psql?](https://stackoverflow.com/a/34098414/8435726)
+> And to put the new schema in the path, you could use:
+> SET search_path TO myschema;
+> Or if you want multiple schemas:
+> SET search_path TO myschema, public;
+
 
 
 ### 表的创建 ###
@@ -144,6 +172,120 @@ CREATE TABLE Product
 ```
 
 
+#### 命名规则 ####
+使用:
+- 半角英文
+- 半角数字
+- 下划线 _
+
+另外:
+- 名称必须以半角英文字母开头
+- 一个database/schemas之内名称不能重复
+
+#### 数据类型 
+
+INTEGER
+- 整数
+
+CHAR
+- 字符串
+- 指定最大长度(两种情况)
+    - 字符个数
+    - 字节长度
+    - 达不到最大长度时用半角空格补足
+- 区分大小写
+
+VARCHAR
+- 可变字符
+    - 不到最大长度不会使用半角空格补足
+
+DATE
+- 储存日期
+    - 年月日
+
+#### 约束的设置 ####
+对列中储存的数据进行限制或者追加条件
+- NOT NULL
+    - Null空白
+    - 这里规定不能空白也就是输入数据时必填
+- PRIMARY KEY
+    - 主键约束
+    - 通过主键提取一行数据
+    - 主键不得重复
 
 
+### 表的更新和删除 ###
+
+**删除Table用DROP**
+```sql
+DROP TABLE <表名>;
+```
+- 一旦删除则无法恢复
+- 执行前务必确认!
+    
+
+**表定义的更新使用ALTER**
+
+添加Column:
+```sql
+ALTER TABLE <表名> ADD COLUMN <列的定义>
+```
+
+例如
+```sql
+ALTER TABLE product ADD COLUMN product_name_pinyin VARCHAR(100) NOT NULL;
+```
+
+删除Column:
+```sql
+ALTER TABLE <表名> DROP COLUMN <列名>;
+```
+
+例如
+```sql
+ALTER TABLE product DROP COLUMN product_name_pinyin;
+```
+
+改Table名:
+```sql
+ALTER TABLE <表名>
+  RENAME TO <新表明>;
+```
+
+改Column名:
+```sql
+ALTER TABLE <表名>
+  RENAME COLUMN <列名> TO <新列名>;
+```
+
+#### 向表中插入数据 ####
+
+题头使用
+```sql
+BEGIN TRANSACTION ;
+```
+
+随后使用
+```sql
+INSERT INTO <表名> VALUES (<列1数据>, <列2数据>, <列3数据>, ...)
+```
+
+最后使用
+```sql
+COMMIT;
+```
+
+实例
+```sql
+BEGIN TRANSACTION ;
+NSERT INTO Product VALUES ('0001', 'T恤' ,'衣服', 1000, 500, '2009-09-20');
+INSERT INTO Product VALUES ('0002', '打孔器', '办公用品', 500, 320, '2009-09-11');
+INSERT INTO Product VALUES ('0003', '运动T恤', '衣服', 4000, 2800, NULL);
+INSERT INTO Product VALUES ('0004', '菜刀', '厨房用具', 3000, 2800, '2009-09-20');
+INSERT INTO Product VALUES ('0005', '高压锅', '厨房用具', 6800, 5000, '2009-01-15');
+INSERT INTO Product VALUES ('0006', '叉子', '厨房用具', 500, NULL, '2009-09-20');
+INSERT INTO Product VALUES ('0007', '擦菜板', '厨房用具', 880, 790, '2008-04-28');
+INSERT INTO Product VALUES ('0008', '圆珠笔', '办公用品', 100, NULL, '2009-11-11');
+COMMIT ;
+```
 
