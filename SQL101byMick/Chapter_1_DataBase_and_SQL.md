@@ -258,22 +258,29 @@ ALTER TABLE <表名>
   RENAME COLUMN <列名> TO <新列名>;
 ```
 
+
+
 #### 向表中插入数据 ####
 
 题头使用
 ```sql
-BEGIN TRANSACTION ;
+BEGIN TRANSACTION;
 ```
+**注意: 如果不写,则每条都是单独的BEGIN TRANSACTION**
+- 如果中间有一条数据出错, 那之前的都被写进去了
+- 如果使用BEGIN TRANSACTION, 则只要有一个地方出错, 整块都不会被输入
+    - 这样就便于管理和避免混乱
 
 随后使用
 ```sql
 INSERT INTO <表名> VALUES (<列1数据>, <列2数据>, <列3数据>, ...)
 ```
 
-最后使用
+最后使用Commit, 目的是提交, 使得其他用户能看到变化
 ```sql
-COMMIT;
+COMMIT;  
 ```
+**注意: 不Commit本用户能看到变化, 但是其他用户看不到**
 
 实例
 ```sql
