@@ -21,7 +21,7 @@ SELECT 1;
 
 ### 创见学习用的数据库 ###
 
-```sql
+```
 CREATE DATABASE shop;
 ```
 
