@@ -82,13 +82,13 @@
 
 #### SQL 基本书写规则 ####
 
-- 语句以分号(;)结尾
+- 语句以分号`;`结尾
 - 语句不区分大小写, 但是建议
     - 关键字大写
     - 表名首字母大写
     - 其他列名等,全用小写
 - 常数的书写方式较为固定
-    - 字符串, 使用单引号'str'
+    - 字符串, 使用单引号`'str'`
     - 日期, 也使用单引号', 格式可多种多样
     - 数字, 直接书写
 - 单词需要使用空格分隔
@@ -102,7 +102,7 @@ CREATE DATABASE shop;
 ```
 
 
-**注意不同RDBMS中对于DATABASE和SCHEMA的区别对待方式:**
+**注意不同RDBMS中对于`DATABASE`和`SCHEMA`的区别对待方式:**
     
     MySQL和PostgresSQL数据库结构略有不同:
     - MySQL/Schemas/Table
@@ -123,7 +123,7 @@ CREATE DATABASE shop;
 
 
 
-**注意: postsql没有USE命令,不能在sql中切换databse**
+**注意: postsql没有`USE`命令,不能在sql中切换databse**
 
 [How to indicate in postgreSQL command in which database to execute a script? (simmilar to SQL Server “use” command)](https://stackoverflow.com/a/3909992/8435726)
 > PostgreSQL doesn't have the USE command. You would most likely use psql with the --dbname option to accomplish this, --dbname takes the database name as a parameter.
@@ -132,7 +132,7 @@ CREATE DATABASE shop;
 > Technically PostgreSQL can't switch databases. You must disconnect and reconnect to the new DB.
 
 
-**注意: 设定DATABASE中的schemas**
+**注意: 设定`DATABASE`中的schemas**
 ```sql
 set search_path = "public" -- 默认设为public
 ```
@@ -185,10 +185,10 @@ CREATE TABLE Product
 
 #### 数据类型 ####
 
-- INTEGER
+- `INTEGER`
     - 整数
 
--CHAR
+-`CHAR`
     - 字符串
     - 指定最大长度(两种情况)
         - 字符个数
@@ -196,20 +196,20 @@ CREATE TABLE Product
         - 达不到最大长度时用半角空格补足
     - 区分大小写
 
-- VARCHAR
+- `VARCHAR`
     - 可变字符
         - 不到最大长度不会使用半角空格补足
 
-- DATE
+- `DATE`
     - 储存日期
         - 年月日
 
 #### 约束的设置 ####
 对列中储存的数据进行限制或者追加条件
-- NOT NULL
+- `NOT NULL`
     - Null空白
     - 这里规定不能空白也就是输入数据时必填
-- PRIMARY KEY
+- `PRIMARY KEY`
     - 主键约束
     - 通过主键提取一行数据
     - 主键不得重复
@@ -217,7 +217,7 @@ CREATE TABLE Product
 ---
 ### 表的更新和删除 ###
 
-**删除Table用DROP**
+**删除Table用`DROP`**
 ```sql
 DROP TABLE <表名>;
 ```
@@ -225,7 +225,7 @@ DROP TABLE <表名>;
 - 执行前务必确认!
     
 
-**表定义的更新使用ALTER**
+**表定义的更新使用`ALTER`**
 
 添加Column:
 ```sql
@@ -267,9 +267,9 @@ ALTER TABLE <表名>
 ```sql
 BEGIN TRANSACTION;
 ```
-**注意: 如果不写,则每条都是单独的BEGIN TRANSACTION**
+**注意: 如果不写,则每条都是单独的`BEGIN TRANSACTION`**
 - 如果中间有一条数据出错, 那之前的都被写进去了
-- 如果使用BEGIN TRANSACTION, 则只要有一个地方出错, 整块都不会被输入
+- 如果使用`BEGIN TRANSACTION`, 则只要有一个地方出错, 整块都不会被输入
     - 这样就便于管理和避免混乱
 
 随后使用
@@ -277,11 +277,11 @@ BEGIN TRANSACTION;
 INSERT INTO <表名> VALUES (<列1数据>, <列2数据>, <列3数据>, ...)
 ```
 
-最后使用Commit, 目的是提交, 使得其他用户能看到变化
+最后使用`COMMIT`, 目的是提交, 使得其他用户能看到变化
 ```sql
 COMMIT;  
 ```
-**注意: 不Commit本用户能看到变化, 但是其他用户看不到**
+**注意: 不`COMMIT`本用户能看到变化, 但是其他用户看不到**
 
 实例
 ```sql
