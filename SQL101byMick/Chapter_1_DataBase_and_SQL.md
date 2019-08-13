@@ -147,7 +147,7 @@ set search_path = "public" -- 默认设为public
 ---
 ### 表的创建 ###
 ```sql
-CREATE TABLE < 表名 > (
+CREATE TABLE  <表名> (
 <列名 1> <数据类型> <该列所需约束>，
 <列名 2> <数据类型> <该列所需约束>，
 <列名 3> <数据类型> <该列所需约束>，
@@ -286,7 +286,7 @@ COMMIT;
 实例
 ```sql
 BEGIN TRANSACTION ;
-NSERT INTO Product VALUES ('0001', 'T恤' ,'衣服', 1000, 500, '2009-09-20');
+INSERT INTO Product VALUES ('0001', 'T恤' ,'衣服', 1000, 500, '2009-09-20');
 INSERT INTO Product VALUES ('0002', '打孔器', '办公用品', 500, 320, '2009-09-11');
 INSERT INTO Product VALUES ('0003', '运动T恤', '衣服', 4000, 2800, NULL);
 INSERT INTO Product VALUES ('0004', '菜刀', '厨房用具', 3000, 2800, '2009-09-20');
