@@ -11,8 +11,8 @@
 
 `SELECT`基本用法:
 ```sql
-SELECT <列名>, ....CHARACTER
-    FROM <表名>;
+SELECT <列名>, ...
+FROM <表名>;
 ```
 - 两个子句(clause)
     - `SLECT` 列举列的名称
@@ -31,7 +31,7 @@ SELECT product_id, product_name, purchase_price
 
 ```sql
 SELECT *
-    FROM <表名>
+FROM <表名>
 ```
 - `*`号代表所有
 - 使用`*`就没没法设定顺序? 此时按照`CREATE TABLE`语句排序
@@ -78,14 +78,40 @@ SELECT DISTINCT product_type, regist_date
 FROM product;
 ```
 - `DISTINCT` 必须用在第一个列名之前
-- 这里`product_type`出现重复, 因为他们`regist_date`不同个
+- 这里`product_type`出现重g复, 因为他们`regist_date`不同个
     - 所以`DISTINCT`多个类, 只要有一列不同, 就算不同
     - 也就是只有两行中所有列的数据都相同才会被合并
 
 
+#### WHERE 语句 ####
+通过使用`WHERE`添加选择条件
+```sql
+SELECT <列名>, ...
+FROM <表名>
+WHERE <条件表达式>;
+```
 
+实例: 选取品类为`衣服`的记录
+```sql
+SELECT product_name, product_type
+FROM Product
+WHERE product_type = '衣服';
+```
 
+```sql
+SELECT product_name
+FROM Product
+WHERE product_type = '衣服';
+```
 
+实例2: 选取价格<=1000的商品
+```sql
+SELECT product_name, product_type, sale_price,
+FROM Product
+WHERE sale_price <= 1000;
+```
+- 未必筛选的信息需要被`SELECT`
+- `WHERE`必须在`FROM`之后
 
 
 ### 算数运算符和比较运算符 ###
