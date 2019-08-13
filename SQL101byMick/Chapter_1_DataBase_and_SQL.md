@@ -97,7 +97,11 @@
 ### 数据库的创建 ###
 
 ```sql
--- CREATE DATABASE <数据库名称>;
+CREATE DATABASE <数据库名称>;
+```
+
+例如:
+```
 CREATE DATABASE shop;
 ```
 
@@ -161,7 +165,7 @@ CREATE TABLE  <表名> (
 **约束可以在定义列的时 候进行设置，也可以在语句的末尾进行设置**
 
 实际样本:
-```sql
+```
 CREATE TABLE Product
 (product_id      CHAR(4)      NOT NULL,
  product_name    VARCHAR(100) NOT NULL,
@@ -233,7 +237,7 @@ ALTER TABLE <表名> ADD COLUMN <列的定义>
 ```
 
 例如
-```sql
+```
 ALTER TABLE product ADD COLUMN product_name_pinyin VARCHAR(100) NOT NULL;
 ```
 
@@ -243,14 +247,14 @@ ALTER TABLE <表名> DROP COLUMN <列名>;
 ```
 
 例如
-```sql
+```
 ALTER TABLE product DROP COLUMN product_name_pinyin;
 ```
 
 改Table名:
 ```sql
 ALTER TABLE <表名>
-  RENAME TO <新表明>;
+  RENAME TO <新表名>;
 ```
 
 改Column名:
@@ -284,7 +288,7 @@ COMMIT;
 **注意: 不`COMMIT`本用户能看到变化, 但是其他用户看不到**
 
 实例
-```sql
+```
 BEGIN TRANSACTION ;
 INSERT INTO Product VALUES ('0001', 'T恤' ,'衣服', 1000, 500, '2009-09-20');
 INSERT INTO Product VALUES ('0002', '打孔器', '办公用品', 500, 320, '2009-09-11');
