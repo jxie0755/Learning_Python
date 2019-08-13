@@ -19,7 +19,7 @@ FROM <表名>;
     - `FROM`  指定表的名称
 
 实例:
-```sql
+```
 SELECT product_id, product_name, purchase_price
     FROM Product;
 ```
@@ -42,7 +42,7 @@ FROM <表名>
 - 但是不要插入空行
 
 #### 为列设定别名 ####
-```sql
+```
 SELECT product_id     AS id,
        product_name   AS name,
        purchase_price AS "进货价格"
@@ -55,7 +55,7 @@ FROM Product;
 
 #### 常数的查询 ####
 
-```sql
+```
 SELECT '商品' AS string, 38 AS number, '2009-02-24' AS date,
         product_id, product_name
 FROM Product;
@@ -65,7 +65,7 @@ FROM Product;
 
 
 #### 删除重复行 ####
-```sql
+```
 SELECT DISTINCT purchase_price
 FROM Product;
 ```
@@ -73,7 +73,7 @@ FROM Product;
 - `NULL`也会被视为一类数据
 
 如果出现多个列
-```sql
+```
 SELECT DISTINCT product_type, regist_date
 FROM product;
 ```
@@ -92,20 +92,20 @@ WHERE <条件表达式>;
 ```
 
 实例: 选取品类为`衣服`的记录
-```sql
+```
 SELECT product_name, product_type
 FROM Product
 WHERE product_type = '衣服';
 ```
 
-```sql
+```
 SELECT product_name
 FROM Product
 WHERE product_type = '衣服';
 ```
 
 实例2: 选取价格<=1000的商品
-```sql
+```
 SELECT product_name, product_type, sale_price,
 FROM Product
 WHERE sale_price <= 1000;
