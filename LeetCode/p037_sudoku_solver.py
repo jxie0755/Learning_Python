@@ -21,23 +21,24 @@ from typing import *
 
 class Solution:
 
-    """
-    Version A
-    """
     def solveSudoku(self, board: List[List[str]]) -> None:
+        """
+        Version A
+        """
+
         ans = Solution.PySudokuSolver_A(board).solve()
         for i in range(9):
             for j in range(9):
                 board[i][j] = ans[i][j]
 
-    """
-    来自ZZZProject/SudokuSolver/sudoku_solver_v1
-    改动:
-    使用String作为board元素类型而不是Integer
-    把空位从"0"改成"."以符合本体要求
-    删去__str__, 对解本题没有帮助
-    """
     class PySudokuSolver_A:
+        """
+        来自ZZZProject/SudokuSolver/sudoku_solver_v1
+        改动:
+        使用String作为board元素类型而不是Integer
+        把空位从"0"改成"."以符合本体要求
+        删去__str__, 对解本题没有帮助
+        """
 
         def __init__(self, puzzle=[
             [".", ".", ".", ".", ".", ".", ".", ".", "."],
@@ -290,22 +291,23 @@ class Solution:
 
 class Solution:
 
-    """Version B"""
     def solveSudoku(self, board: List[List[str]]) -> None:
+        """Version B"""
+
         ans = Solution.PySudokuSolver_B(board)
         ans.solve()
         for coor, value in ans.hash_board.items():
             x, y = coor[0], coor[1]
             board[9 - y][x - 1] = value["cur"]
 
-    """
-    来自ZZZProject/SudokuSolver/sudoku_solver_v1
-    改动:
-    把空位从"0"改成"."以符合本体要求
-    删去__str__, 对解本题没有帮助
-    """
     class PySudokuSolver_B:
-        """each instance should be a single plate that can be filled in with numbers
+        """
+        来自ZZZProject/SudokuSolver/sudoku_solver_v1
+        改动:
+        把空位从"0"改成"."以符合本体要求
+        删去__str__, 对解本题没有帮助
+
+        each instance should be a single plate that can be filled in with numbers
         there will be check method to ensure no conflict in going on.
         there will also be an final examination method to ensure when every empty slot is filled.
         the key is in the solve function, where the algorithm is in, to find the answer

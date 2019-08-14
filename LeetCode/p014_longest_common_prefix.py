@@ -12,8 +12,9 @@ from typing import *
 
 class Solution:
 
-    """Version A, Use set"""
     def longestCommonPrefix(self, strs: List[str]) -> str:
+        """Version A, Use set"""
+
         result = ""
         if len(strs) == 0:
             return result
@@ -28,8 +29,9 @@ class Solution:
                 break
         return result
 
-    """ Version B, Use Deque"""
     def longestCommonPrefix(self, strs: List[str]) -> str:
+        """ Version B, Use Deque"""
+
         result = ""
         if len(strs) == 0:
             return result

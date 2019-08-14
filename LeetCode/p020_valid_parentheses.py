@@ -13,13 +13,14 @@ class Solution:
     OPEN_BRACKETS = {"(": 1, "{": 2, "[": 3}
     CLOSE_BRACKETS = {")": 1, "}": 2, "]": 3}  # setup data as class attributes
 
-    """
-    Version A
-    idea from checkio/electionic station/p1_brackets and improved
-    不再使用index,因为太不直观,直接使用mapping把左括号和右括号对应值(其实不需要是num,任何三个键值都能成立)
-    仍然是用pop()来对应括号位置关系
-    """
     def isValid(self, s: str) -> bool:
+        """
+        Version A
+        idea from checkio/electionic station/p1_brackets and improved
+        不再使用index,因为太不直观,直接使用mapping把左括号和右括号对应值(其实不需要是num,任何三个键值都能成立)
+        仍然是用pop()来对应括号位置关系
+        """
+
         result = []
         for i in s:
             if i in Solution.OPEN_BRACKETS:

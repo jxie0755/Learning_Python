@@ -16,22 +16,24 @@ You must not use any built-in BigInteger library or convert the inputs to intege
 
 class Solution:
 
-    """
-    Version A
-    Python builtin direct convert
-    """
     def multiply(self, num1: str, num2: str) -> str:
+        """
+        Version A
+        Python builtin direct convert
+        """
+
         return str(int(num1) * int(num2))
 
 
 class Solution:
-    """
-    Version B
-    HashMap method
-    Calulate string by hand calculation method, can avoid overflow of integer/long numbers
-    Avoid using integer calculation, direct return the String value
-    """
     def multiply(self, num1: str, num2: str) -> str:
+        """
+        Version B
+        HashMap method
+        Calulate string by hand calculation method, can avoid overflow of integer/long numbers
+        Avoid using integer calculation, direct return the String value
+        """
+
         hmp_s2n = {
             "0": 0, "1": 1, "2": 2, "3": 3, "4": 4,
             "5": 5, "6": 6, "7": 7, "8": 8, "9": 9
@@ -53,9 +55,12 @@ class Solution:
 
         return self.int2str(result)
 
-    """Helper B"""
     def int2str(self, num: int) -> str:
-        """Convert a int to a string through algorithm"""
+        """
+        Helper B
+        Convert a int to a string through algorithm
+        """
+
         hmp_n2s = {
             0: "0", 1: "1", 2: "2", 3: "3", 4: "4",
             5: "5", 6: "6", 7: "7", 8: "8", 9: "9"
@@ -71,12 +76,12 @@ class Solution:
 
 
 class Solution:
-    """
-    Version C
-    Break down to add with manual method
-    This can completely avoid overflow of integer/long numbers
-    """
     def multiply(self, num1: str, num2: str) -> str:
+        """
+        Version C
+        Break down to add with manual method
+        This can completely avoid overflow of integer/long numbers
+        """
 
         if num1 == "0":
             return "0"
@@ -98,11 +103,11 @@ class Solution:
 
         return result
 
-    """
-    Helper C
-    add two integer in string form together
-    """
     def str_add(self, num1: str, num2: str) -> str:
+        """
+        Helper C
+        add two integer in string form together
+        """
 
         result = ""
         add_on = 0

@@ -21,8 +21,8 @@ from re import search
 
 class Solution:
 
-    """Version A, string method"""
     def myAtoi(self, str: str) -> int:
+        """Version A, string method"""
 
         # Two hashmap to convert char to digit
         digits = ["0", "1", "2", "3",
@@ -74,8 +74,11 @@ class Solution:
                 return high
             return result
 
-    """Version B, use regex method"""
+class Solution:
+
     def myAtoi(self, str: str) -> int:
+        """Version B, use regex method"""
+
         mo = search(r"^[\s]*([+\-]?)(\d+)", str)
 
         if not mo:

@@ -24,8 +24,9 @@ string convert(string s, int numRows);
 
 class Solution:
 
-    """ Version A1, Time O(N), space O(N)"""
     def convert(self, s: str, numRows: int) -> str:
+        """ Version A1, Time O(N), space O(N)"""
+
         z = list(range(0, numRows)) + list(range(numRows - 2, 0, -1))  # cyling pather of 1 Z move (idx)
         cycle = len(z)
         mapping = [[] for _ in range(numRows)]
@@ -40,8 +41,9 @@ class Solution:
 
 class Solution:
 
-    """Version A2, Time O(N), space O(N)"""
     def convert(self, s: str, numRows: int) -> str:
+        """Version A2, Time O(N), space O(N)"""
+
         z = list(range(0, numRows)) + list(range(numRows - 2, 0, -1))
         z *= (len(s) // len(z) + 1)  # 直接扩展z, 不要用cycle的方式
         mapping = [[] for _ in range(numRows)]

@@ -14,13 +14,13 @@ from typing import *
 
 class Solution:
 
-    """
-    Version A
-    3 binary search, find catch mid value, and Low/High of the section,
-    Then according to mid value and Low/High to find head and tail by 2 additional binary search
-    O(LogN), Space O(1)
-    """
     def searchRange(self, nums: List[int], target: int) -> List[int]:
+        """
+        Version A
+        3 binary search, find catch mid value, and Low/High of the section,
+        Then according to mid value and Low/High to find head and tail by 2 additional binary search
+        O(LogN), Space O(1)
+        """
 
         if not nums:  # 处理空list
             return [-1, -1]
@@ -75,13 +75,14 @@ class Solution:
 
 class Solution:
 
-    # Version B
-    # improved binary search
-    # 3 binary search, find catch mid value, and Low/High of the section,
-    # Then according to mid value and Low/High to find head and tail by 2 additional binary search
-    # O(LogN), Space O(1)
-
     def searchRange(self, nums: List[int], target: int) -> List[int]:
+        """
+        Version B
+        improved binary search
+        3 binary search, find catch mid value, and Low/High of the section,
+        Then according to mid value and Low/High to find head and tail by 2 additional binary search
+        O(LogN), Space O(1)
+        """
 
         if not nums:  # 处理空list
             return [-1, -1]

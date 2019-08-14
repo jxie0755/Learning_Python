@@ -13,11 +13,12 @@ from typing import *
 
 class Solution:
 
-    """
-    Version A
-    use python's internal method, only for testing the speed
-    """
     def permuteUnique(self, nums: List[int]) -> List[List[int]]:
+        """
+        Version A
+        use python's internal method, only for testing the speed
+        """
+
         result = []
         for idxs in permutations(list(range(len(nums)))):
             next_perm = [nums[i] for i in idxs]
@@ -28,14 +29,14 @@ class Solution:
 
 class Solution:
 
-    """
-    Version B
-    Use next permuteUnique
-    First handle index, then convert to nuns[index], if not repeating then append.
-    This will pass but way too slow
-    revised to use set(tuples) to removed repeats, then sort, it is faster, but still slow
-    """
     def permuteUnique(self, nums: List[int]) -> List[List[int]]:
+        """
+        Version B
+        Use next permuteUnique
+        First handle index, then convert to nuns[index], if not repeating then append.
+        This will pass but way too slow
+        revised to use set(tuples) to removed repeats, then sort, it is faster, but still slow
+        """
 
         total_n = factorial(len(nums))
         result = []
@@ -49,13 +50,13 @@ class Solution:
 
     # You must not use Leetcode P046 Version B2, because it asks for distinct collection of numbers
 
-    """
-    Helper B
-    Use next permutation method from leetcode p031
-    calculate the next permuatation, with integers 0 to N-1 (for N elements)
-    this will both modify idx_list and return the updated idx_list
-    """
     def next_permute(self, indexes: List[int]) -> List[int]:
+        """
+        Helper B
+        Use next permutation method from leetcode p031
+        calculate the next permuatation, with integers 0 to N-1 (for N elements)
+        this will both modify idx_list and return the updated idx_list
+        """
 
         length = len(indexes)
         cur_i = None
@@ -80,15 +81,16 @@ class Solution:
 
 class Solution:
 
-    """
-    Version C
-    recursive method from leetcode P046
-    revised the recursion rule by bypassing the repeated next_list
-    """
     def permuteUnique(self, nums: List[int]) -> List[List[int]]:
+        """
+        Version C
+        recursive method from leetcode P046
+        revised the recursion rule by bypassing the repeated next_list
+        """
 
-        """Helper"""
         def permuteUniHelper(lst: List[int], permute_list: List[int] =[]) -> None:
+            """Helper"""
+
             if len(permute_list) == length:
                 result.append(permute_list)
             else:
@@ -109,12 +111,13 @@ class Solution:
 
 class Solution:
 
-    """
-    Version D
-    Pure recursive method, single and pure recursion from leetcode P046
-    Revised the recursion rule by bypassing the repeated next_list
-    """
     def permuteUnique(self, nums: List[int]):
+        """
+        Version D
+        Pure recursive method, single and pure recursion from leetcode P046
+        Revised the recursion rule by bypassing the repeated next_list
+        """
+
         length = len(nums)
         if length == 1:
             return [[nums[0]]]

@@ -17,17 +17,18 @@ from typing import *
 
 class Solution:
 
-    """
-    Version A
-    Brutal Force O(N^2), very slow but passed
-    """
     def combinationSum(self, candidates: List[int], target: int) -> List[List[int]]:
+        """
+        Version A
+        Brutal Force O(N^2), very slow but passed
+        """
 
         if not candidates:
             return []
 
-        """Helper"""
         def process(temp: List[List[int]]) -> List[List[int]]:
+            """Helper"""
+
             new_temp = []
             i = 0
             while i < len(temp):
@@ -55,25 +56,25 @@ class Solution:
 
 class Solution(object):
 
-    """
-    Version B
-    Add a recursive process method to update result
-    """
     def combinationSum(self, candidates: List[int], target: int) -> List[List[int]]:
-
         """
-        Helper
-
-        Args:
-            candidates:    ingredient numbers (sorted)
-            start:         from 0, full candidates, to a shorter candidate list
-            intermediate:  temp list to record current status List[int]]
-            target:        tartget to compose
-
-        Returns:
-            None, Imperfect function, just update the result
+        Version B
+        Add a recursive process method to update result
         """
+
         def process(candidates: List[int], start: int, intermediate: List[int], target: int) -> None:
+            """
+            Helper
+
+            Args:
+                candidates:    ingredient numbers (sorted)
+                start:         from 0, full candidates, to a shorter candidate list
+                intermediate:  temp list to record current status List[int]]
+                target:        tartget to compose
+
+            Returns:
+                None, Imperfect function, just update the result
+            """
 
             if target == 0:
                 result.append(list(intermediate))  # 终止case, target降到0就完成

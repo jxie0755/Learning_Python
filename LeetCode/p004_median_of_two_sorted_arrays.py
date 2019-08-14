@@ -13,15 +13,16 @@ from typing import *
 
 class Solution:
 
-    """
-    Version A, O(N)
-    Merge two sorted list then find the median
-    Not very efficient, as we go all the way, and used a lot of space
-    """
     def findMedianSortedArrays(self, nums1: List[int], nums2: List[int]) -> float:
+        """
+        Version A, O(N)
+        Merge two sorted list then find the median
+        Not very efficient, as we go all the way, and used a lot of space
+        """
 
-        """Helper"""
         def median(array: List[int]) -> float:
+            """Helper"""
+
             length = len(array)
             half = length // 2
             if length == 0:
@@ -50,11 +51,11 @@ class Solution:
 
         return median(merge)
 
-    """
-    Version B, O(1/2N)
-    Modified merge sort to only merge half way
-    """
     def findMedianSortedArrays(self, nums1: List[int], nums2: List[int]) -> float:
+        """
+        Version B, O(1/2N)
+        Modified merge sort to only merge half way
+        """
 
         l1, l2 = len(nums1), len(nums2)
         total_l = l1 + l2
@@ -86,11 +87,12 @@ class Solution:
             return merge[-1]
 
 
-    """
-    Version C1, Time O(N), space O(1/2N)
-    Same half way method with different index
-    """
+
     def findMedianSortedArrays(self, nums1: List[int], nums2: List[int]) -> float:
+        """
+        Version C1, Time O(N), space O(1/2N)
+        Same half way method with different index
+        """
 
         cur1, cur2 = 0, 0
         ct, lst = 0, []
@@ -119,11 +121,12 @@ class Solution:
 
         return (lst[m1] + lst[m2]) / 2
 
-    """
-    Version C2, Time O(N), space O(1)
-    Same half way method with different index, but only keep track last two
-    """
+
     def findMedianSortedArrays(self, nums1: List[int], nums2: List[int]) -> float:
+        """
+        Version C2, Time O(N), space O(1)
+        Same half way method with different index, but only keep track last two
+        """
 
         total_length = len(nums1) + len(nums2)
         mid_idx = total_length // 2

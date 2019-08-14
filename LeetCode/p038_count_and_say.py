@@ -21,17 +21,18 @@ Given an integer n, generate the nth term of the count-and-say sequence.
 """
 
 
-"""Basically we need to build the concept of a generator here"""
 class Solution:
+    """Basically we need to build the concept of a generator here"""
 
-    """
-    Version A
-    To create the say logic, then loop the say() to get nth number
-    """
     def countAndSay(self, n: int) -> str:
+        """
+        Version A
+        To create the say logic, then loop the say() to get nth number
+        """
 
-        """Helper"""
         def say(num: str) -> int:
+            """Helper"""
+
             num = str(num) + " "
             lenth = 1
             result = ""
@@ -48,11 +49,11 @@ class Solution:
             number = say(str(number))
         return str(number)
 
-    """
-    Version B
-    Combine the say() and loop together
-    """
     def countAndSay(self, n: int) -> str:
+        """
+        Version B
+        Combine the say() and loop together
+        """
 
         number = 1
         for i in range(1, n):
@@ -68,11 +69,11 @@ class Solution:
             number = int(result)
         return str(number)
 
-    """
-    Version C
-    Avoid type convert between int and String
-    """
     def countAndSay(self, n: int) -> str:
+        """
+        Version C
+        Avoid type convert between int and String
+        """
 
         number = "1"
         for i in range(1, n):

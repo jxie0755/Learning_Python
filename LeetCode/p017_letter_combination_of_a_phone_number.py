@@ -16,11 +16,11 @@ from typing import *
 
 class Solution:
 
-    """
-    Version A, hashtable
-    Time:  O(n * 3^n)
-    """
     def letterCombinations(self, digits: str) -> List[str]:
+        """
+        Version A, hashtable
+        Time:  O(n * 3^n)
+        """
 
         hashtable = {"0": [" "],
                      "1": [""],

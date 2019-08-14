@@ -12,8 +12,9 @@ from typing import *
 
 class Solution:
 
-    """Version A, sort first"""
     def searchInsert(self, nums: List[int], target: int) -> int:
+        """Version A, sort first"""
+
         new_nums = sorted(nums + [target])
         index = 0
         while index < len(new_nums):

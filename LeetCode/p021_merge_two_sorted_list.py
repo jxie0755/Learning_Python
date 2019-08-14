@@ -11,8 +11,9 @@ from a0_ListNode import *
 
 class Solution(object):
 
-    """ Version A"""
     def mergeTwoLists(self, l1: ListNode, l2: ListNode) -> ListNode:
+        """ Version A"""
+
         head = ListNode(0)
         current = head
 

@@ -14,11 +14,12 @@ from typing import *
 
 class Solution:
 
-    """
-    Version A
-    O(N), space O(N) (not constant space)
-    """
     def firstMissingPositive(self, nums: List[int]) -> int:
+        """
+        Version A
+        O(N), space O(N) (not constant space)
+        """
+
         if not nums:
             return 1
         all_int = list(range(1, len(nums) + 1))
@@ -32,11 +33,12 @@ class Solution:
         else:
             return all_int[0]
 
-    """
-    STD ans
-    Avoid use try except block
-    """
     def firstMissingPositive(self, nums: List[int]) -> int:
+        """
+        STD ans
+        Avoid use try except block
+        """
+
         nums.append(0)
         n = len(nums)
 

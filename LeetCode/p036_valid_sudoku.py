@@ -21,27 +21,31 @@ from typing import *
 
 class Solution:
 
-    """Version A"""
     def isValidSudoku(self, board: List[List[str]]) -> bool:
+        """Version A"""
+
         return self.all_rows(board) and self.all_cols(board) and self.all_blocks(board)
 
-    """Helper Aa"""
     def all_rows(self, board: List[List[str]]) -> bool:
+        """Helper Aa"""
+
         for row in board:
             if not self.correct_line(row):
                 return False
         return True
 
-    """Helper Ab"""
     def all_cols(self, board: List[List[str]]) -> bool:
+        """Helper Ab"""
+
         for i in range(0, 9):
             col = [board[j][i] for j in range(0, 9)]
             if not self.correct_line(col):
                 return False
         return True
 
-    """Helper Ac"""
     def all_blocks(self, board: List[List[str]]) -> bool:
+        """Helper Ac"""
+
         for add_on_row in range(0, 9, 3):
             for add_on_col in range(0, 9, 3):
                 block = sum([board[i + add_on_col][0 + add_on_row:3 + add_on_row] for i in range(3)], [])
@@ -49,8 +53,9 @@ class Solution:
                     return False
         return True
 
-    """Helper Aabc"""
     def correct_line(self, row: List[str]) -> bool:
+        """Helper Aabc"""
+
         written = []
         for i in row:
             if i == ".":

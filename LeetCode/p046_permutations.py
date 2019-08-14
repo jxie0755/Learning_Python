@@ -13,11 +13,12 @@ from typing import *
 
 class Solution:
 
-    """
-    Version A
-    use python's internal method, only for testing the speed
-    """
     def permute(self, nums: List[int]) -> List[List[int]]:
+        """
+        Version A
+        use python's internal method, only for testing the speed
+        """
+
         result = []
         for i in permutations(nums):
             result.append(list(i))
@@ -26,11 +27,11 @@ class Solution:
 
 class Solution:
 
-    """
-    Version B1
-    Convert to permutation of indexes, then replace with nums[idx]
-    """
     def permute(self, nums: List[int]) -> List[List[int]]:
+        """
+        Version B1
+        Convert to permutation of indexes, then replace with nums[idx]
+        """
 
         total_n = factorial(len(nums))
         result = []
@@ -41,12 +42,13 @@ class Solution:
             perm_idxs = self.next_permute(perm_idxs)
         return result
 
-    """
-    Version B2
-    Recursive method, but direct handle elements in nums
-    This only works for when sample is a collection of distinct numbers
-    """
     def permute(self, nums: List[int]) -> List[List[int]]:
+        """
+        Version B2
+        Recursive method, but direct handle elements in nums
+        This only works for when sample is a collection of distinct numbers
+        """
+
         total_n = factorial(len(nums))
         result = []
         for i in range(total_n):
@@ -54,13 +56,13 @@ class Solution:
             self.next_permute(nums)
         return result
 
-    """
-    Herlper for B1, B2
-    From Leetcode p032: next permutation
-    calculate the next permuatation, with integers 0 to N-1 (for N elements)
-    this will both modify idx_list and return the updated idx_list
-    """
     def next_permute(self, indexes: List[int]) -> List[int]:
+        """
+        Herlper for B1, B2
+        From Leetcode p032: next permutation
+        calculate the next permuatation, with integers 0 to N-1 (for N elements)
+        this will both modify idx_list and return the updated idx_list
+        """
 
         length = len(indexes)
         cur_i = None
@@ -85,14 +87,15 @@ class Solution:
 
 class Solution:
 
-    """
-    Version C
-    Direct Recursive method, no need for next permuteUnique
-    """
     def permute(self, nums: List[int]) -> List[List[int]]:
+        """
+        Version C
+        Direct Recursive method, no need for next permuteUnique
+        """
 
-        """Helper"""
         def permuteHelper(lst: List[int], permute_list: List[int] = []) -> None:
+            """Helper"""
+
             if len(permute_list) == length:
                 result.append(permute_list)
             else:
@@ -110,8 +113,9 @@ class Solution:
 
 class Solution:
 
-    """Version D, Pure recursive method"""
     def permute(self, nums: List[int]) -> List[List[int]]:
+        """Version D, Pure recursive method"""
+
         if len(nums) == 1:
             return [nums]
         else:

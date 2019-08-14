@@ -15,11 +15,11 @@ from typing import *
 
 class Solution:
 
-    """
-    Version A
-    Brutal force will be O(N^2), Time Limit Exceeded
-    """
     def maxArea(self, height: List[int]) -> int:
+        """
+        Version A
+        Brutal force will be O(N^2), Time Limit Exceeded
+        """
 
         i = 0
         result = []
@@ -34,28 +34,32 @@ class Solution:
             i += 1
         return max(result)
 
-    """
-    Version B
-    find the heighest two, and check volume, then find the next highest two
-    O(N^2) in worst case, but sometimes O(log n * N)
-    Still exceeded max time limit on a case of ascending numbers.
-    """
     def maxArea(self, height: List[int]) -> int:
+        """
+        Version B
+        find the heighest two, and check volume, then find the next highest two
+        O(N^2) in worst case, but sometimes O(log n * N)
+        Still exceeded max time limit on a case of ascending numbers.
+        """
 
         result = []
         hashtable = dict(enumerate(height))
         tops = {}
 
-        """Helper"""
         def obtain_top(hstble: Dict[int, int]) -> None:
-            """得到hashtable中最大值的index"""
+            """
+            Helper
+            得到hashtable中最大值的index
+            """
             i = max(hstble, key=hstble.get)
             tops[i] = hstble[i]  # 转移到tops字典, 也就是记录最大值的字典
             del hstble[i]  # 记住要删掉这个最大值
 
-        """Helper"""
         def remove_between(hstble: Dict[int, int]) -> None:
-            """删除最高值之间的所有数据"""
+            """
+            Helper
+            删除最高值之间的所有数据
+            """
 
             # 先得到tops中,两个距离最远的柱子的index
             start, end = min(hstble), max(hstble)
@@ -78,12 +82,12 @@ class Solution:
 
         return max(result)
 
-    """
-    Version C
-    Start from both end, move the shorter side closer, to compare the possibe volume
-    O(N) locked, best answer
-    """
     def maxArea(self, height: List[int]) -> int:
+        """
+        Version C
+        Start from both end, move the shorter side closer, to compare the possibe volume
+        O(N) locked, best answer
+        """
 
         max_area, i, j = 0, 0, len(height) - 1
         while i < j:

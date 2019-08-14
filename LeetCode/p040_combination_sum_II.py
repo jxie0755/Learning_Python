@@ -19,11 +19,11 @@ from typing import *
 
 class Solution:
 
-    """
-    Version A
-    brutal force, max limit time exceeded
-    """
     def combinationSum2(self, candidates: List[int], target: int) -> List[List[int]]:
+        """
+        Version A
+        brutal force, max limit time exceeded
+        """
 
         result = []
 
@@ -53,26 +53,27 @@ class Solution:
 
 class Solution(object):
 
-    """
-    Version B
-    Same idea with Leetcode P039 Combination Sum, but cannot repeat same elements
-    Add a recursive process method to update result
-    """
     def combinationSum2(self, candidates: List[int], target: int) -> List[List[int]]:
-
         """
-        Helper
-
-        Args:
-            candidates:    ingredient numbers (sorted)
-            start:         from 0, full candidates, to a shorter candidate list
-            intermediate:  temp list to record current status List[int]]
-            target:        tartget to compose
-
-        Returns:
-            None, Imperfect function, just update the result
+        Version B
+        Same idea with Leetcode P039 Combination Sum, but cannot repeat same elements
+        Add a recursive process method to update result
         """
+
         def process(candidates: List[int], start: int, intermediate: List[int], target: int) -> None:
+            """
+            Helper
+
+            Args:
+                candidates:    ingredient numbers (sorted)
+                start:         from 0, full candidates, to a shorter candidate list
+                intermediate:  temp list to record current status List[int]]
+                target:        tartget to compose
+
+            Returns:
+                None, Imperfect function, just update the result
+            """
+
             if target == 0 and intermediate not in result:  # 相对于P039 加一个去重条件
                 result.append(list(intermediate))  # 终止case, target降到0就完成
                 # 这里使用list其实就是复制一个itermediate, 可以用interme[:]取代

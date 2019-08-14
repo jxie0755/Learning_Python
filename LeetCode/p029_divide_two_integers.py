@@ -18,18 +18,19 @@ from typing import *
 
 class Solution:
 
-    """
-    Version A, Integer method
-    Time:  O(logn) = O(1), Space: O(1)
-    """
     def divide(self, dividend: int, divisor: int) -> int:
+        """
+        Version A, Integer method
+        Time:  O(logn) = O(1), Space: O(1)
+        """
 
-        """
-        Helper
-        Achive log(n) division by doubling mom, before son > mom
-        Mom and Son are both non-negative integers
-        """
         def manual_divide(son: int, mom: int) -> Tuple[int, int]:
+            """
+            Helper
+            Achive log(n) division by doubling mom, before son > mom
+            Mom and Son are both non-negative integers
+            """
+
             result = 1
             while son - mom > mom:
                 mom += mom
@@ -56,11 +57,11 @@ class Solution:
 
 class Solution(object):
 
-    """
-    Version B
-    Same idea but use bit calculation << and >>
-    """
     def divide(self, dividend: int, divisor: int) -> int:
+        """
+        Version B
+        Same idea but use bit calculation << and >>
+        """
 
         positive = (dividend < 0) is (divisor < 0)  # great way to align two integer on the same sideK
         dividend, divisor = abs(dividend), abs(divisor)

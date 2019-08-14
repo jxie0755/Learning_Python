@@ -10,16 +10,18 @@ You may assume that the maximum length of s is 1000.
 
 class Solution:
 
-    """
-    Version A
-    Time: O(N^2) + O(1/2N) = O(N^2)
-    Space: O(N)
-    Maximum time limit exceeded
-    """
-    def longestPalindrome(self, s: str) -> str:
 
-        """Helper"""
+    def longestPalindrome(self, s: str) -> str:
+        """
+        Version A
+        Time: O(N^2) + O(1/2N) = O(N^2)
+        Space: O(N)
+        Maximum time limit exceeded
+        """
+
         def is_palindrome(s: str) -> bool:
+            """Helper"""
+
             return s == s[::-1]
 
         if not s:
@@ -37,13 +39,13 @@ class Solution:
 
 class Solution:
 
-    """
-    Version B
-    Time: O(N^2)
-    Space: O(1)
-    从中心向两侧扩展法, 遍历中心点
-    """
     def longestPalindrome(self, s: str) -> str:
+        """
+        Version B
+        Time: O(N^2)
+        Space: O(1)
+        从中心向两侧扩展法, 遍历中心点
+        """
 
         length = len(s)
         result = ""
@@ -70,8 +72,10 @@ class Solution:
 # TODO: Practice Manacher's algorithm (Dynamic Programming)
 # class Solution:
 #     def longestPalindrome(self, s: str) -> str:
-#         # Manacher's algorithm (Dynamic programming)
-#         # O(N)
+#         """
+#         Manacher's algorithm (Dynamic programming)
+#         Time: O(N)
+#         """
 #         pass
 
 Solution().longestPalindrome("abccba")

@@ -10,12 +10,12 @@ from a0_ListNode import *
 
 class Solution:
 
-    """
-    Version A
-    Merge all through iteration
-    Exceeded time limit
-    """
     def mergeKLists(self, lst) -> ListNode:
+        """
+        Version A
+        Merge all through iteration
+        Exceeded time limit
+        """
 
         cur = dummy = ListNode("X")
 
@@ -38,12 +38,13 @@ class Solution:
 
 class Solution:
 
-    """
-    Version B
-    take all val out into an ArrayList, then sort and re-link to LinkedList
-    not recommended
-    """
     def mergeKLists(self, lst) -> ListNode:
+        """
+        Version B
+        take all val out into an ArrayList, then sort and re-link to LinkedList
+        not recommended
+        """
+
         result = []
         for node in lst:
             while node:
@@ -54,21 +55,24 @@ class Solution:
 
 class Solution:
 
-    """
-    Version C1
-    use merge two list, then use it multiple times
-    但是这个合并的方法偏慢, 相当于要流经的重复节点太多次了
-    """
     def mergeKLists_X(self, lst) -> ListNode:
+        """
+        Version C1
+        use merge two list, then use it multiple times
+        但是这个合并的方法偏慢, 相当于要流经的重复节点太多次了
+        """
+
         dummy = ListNode(float("-inf"))
         for i in lst:
             dummy = self.merge_two(dummy, i)
 
         return dummy.next
 
-    """Helper C1"""
     def merge_two(self, l1: ListNode, l2: ListNode) -> ListNode:
-        """merge two sorted linked list"""
+        """
+        Helper C1
+        merge two sorted linked list
+        """
         curr = dummy = ListNode("X")
         while l1 and l2:
             if l1.val < l2.val:
@@ -82,12 +86,13 @@ class Solution:
 
 class Solution:
 
-    """
-    Version C2, improved
-    这个方法采用首尾合并, 这样能显著减少重复流经的节点
-    首尾相遇后, 重置首为0, 尾不变(因为已经都被合并到前面去了)
-    """
     def mergeKLists_O(self, lst) -> ListNode:
+        """
+        Version C2, improved
+        这个方法采用首尾合并, 这样能显著减少重复流经的节点
+        首尾相遇后, 重置首为0, 尾不变(因为已经都被合并到前面去了)
+        """
+
         if not lst:
             return None
 
