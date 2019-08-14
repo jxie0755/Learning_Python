@@ -78,7 +78,7 @@ SELECT DISTINCT product_type, regist_date
 FROM product;
 ```
 - `DISTINCT` 必须用在第一个列名之前
-- 这里`product_type`出现重g复, 因为他们`regist_date`不同个
+- 这里`product_type`出现重复, 因为他们`regist_date`不同个
     - 所以`DISTINCT`多个类, 只要有一列不同, 就算不同
     - 也就是只有两行中所有列的数据都相同才会被合并
 
