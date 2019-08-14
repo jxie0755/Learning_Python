@@ -114,6 +114,7 @@ WHERE sale_price <= 1000;
 - `WHERE`必须在`FROM`之后
 
 
+
 ### 算数运算符和比较运算符 ###
 
 
