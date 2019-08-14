@@ -17,7 +17,10 @@ from typing import *
 class Solution:
 
     def rotate(self, matrix: List[List[int]]) -> None:
-        """Version A"""
+        """
+        Version A
+        Hashmap, need additinal space to memory the matrix
+        """
 
         n = len(matrix)
         if matrix[0]:
@@ -31,7 +34,10 @@ class Solution:
                     matrix[row][col] = hmp[(row, col)]
 
     def rotate(self, matrix: List[List[int]]) -> None:
-        """Version B"""
+        """
+        Version B
+        Direct change in-place, with circiles shrinking to the center
+        """
 
         N = len(matrix)
         for i in range(N // 2):  # 层层缩小, 每次遍历一个圈
