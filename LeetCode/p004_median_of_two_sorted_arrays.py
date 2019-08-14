@@ -51,6 +51,8 @@ class Solution:
 
         return median(merge)
 
+class Solution:
+
     def findMedianSortedArrays(self, nums1: List[int], nums2: List[int]) -> float:
         """
         Version B, O(1/2N)
@@ -86,7 +88,7 @@ class Solution:
         else:
             return merge[-1]
 
-
+class Solution:
 
     def findMedianSortedArrays(self, nums1: List[int], nums2: List[int]) -> float:
         """
@@ -121,6 +123,7 @@ class Solution:
 
         return (lst[m1] + lst[m2]) / 2
 
+class Solution:
 
     def findMedianSortedArrays(self, nums1: List[int], nums2: List[int]) -> float:
         """

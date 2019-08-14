@@ -29,6 +29,8 @@ class Solution(object):
                 n += 1  # if no pop(), then move n to next index
         return len(nums)
 
+class Solution:
+
     def removeElement(self, nums: List[int], val: int) -> int:
         """
         Version B
@@ -38,6 +40,8 @@ class Solution(object):
         while val in nums:
             nums.remove(val)
         return len(nums)
+
+class Solution:
 
     def removeElement(self, nums: List[int], val: int) -> int:
         """

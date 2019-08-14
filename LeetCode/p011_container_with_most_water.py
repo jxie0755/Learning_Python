@@ -34,6 +34,8 @@ class Solution:
             i += 1
         return max(result)
 
+class Solution:
+
     def maxArea(self, height: List[int]) -> int:
         """
         Version B
@@ -81,6 +83,8 @@ class Solution:
             remove_between(tops)
 
         return max(result)
+
+class Solution:
 
     def maxArea(self, height: List[int]) -> int:
         """

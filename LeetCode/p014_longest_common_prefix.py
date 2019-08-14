@@ -29,6 +29,8 @@ class Solution:
                 break
         return result
 
+class Solution:
+
     def longestCommonPrefix(self, strs: List[str]) -> str:
         """ Version B, Use Deque"""
 

@@ -26,6 +26,7 @@ class Solution:
 
 
 class Solution:
+
     def multiply(self, num1: str, num2: str) -> str:
         """
         Version B
@@ -76,6 +77,7 @@ class Solution:
 
 
 class Solution:
+
     def multiply(self, num1: str, num2: str) -> str:
         """
         Version C

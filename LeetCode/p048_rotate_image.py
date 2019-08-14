@@ -33,6 +33,8 @@ class Solution:
                 for col in range(n):
                     matrix[row][col] = hmp[(row, col)]
 
+class Solution:
+
     def rotate(self, matrix: List[List[int]]) -> None:
         """
         Version B

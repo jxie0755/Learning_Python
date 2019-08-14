@@ -25,6 +25,8 @@ class Solution:
                     else:
                         return [index_i, nums.index(i, index_i + 1)]
 
+class Solution:
+
     def twoSum(self, nums: List[int], target: int) -> List[int]:
         """
         Version B
@@ -39,6 +41,8 @@ class Solution:
             if i != half:
                 if target - i in nums:
                     return [nums.index(i), nums.index(target - i)]
+
+class Solution:
 
     def twoSum(self, nums: List[int], target: int) -> List[int]:
         """

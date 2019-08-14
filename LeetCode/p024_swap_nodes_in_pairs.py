@@ -43,6 +43,8 @@ class Solution:
 
             return node_list[0]
 
+class Solution:
+
     def swapPairs(self, head: ListNode) -> ListNode:
         """
         Version B

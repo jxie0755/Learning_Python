@@ -36,8 +36,6 @@ class Solution:
                     return len(sample)
 
 
-
-
 class Solution:
 
     def lengthOfLongestSubstring(self, s: str) -> int:

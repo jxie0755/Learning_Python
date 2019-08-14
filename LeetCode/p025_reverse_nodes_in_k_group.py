@@ -60,6 +60,8 @@ class Solution:
             head = rest
         return dummy.next
 
+class Solution:
+
     def reverseKGroup(self, head: ListNode, k: int) -> ListNode:
         """
         Version B, Non-recursive, using counter cycling

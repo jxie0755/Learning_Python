@@ -33,6 +33,8 @@ class Solution:
         else:
             return all_int[0]
 
+class Solution:
+
     def firstMissingPositive(self, nums: List[int]) -> int:
         """
         STD ans

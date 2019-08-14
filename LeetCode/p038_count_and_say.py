@@ -49,6 +49,8 @@ class Solution:
             number = say(str(number))
         return str(number)
 
+class Solution:
+
     def countAndSay(self, n: int) -> str:
         """
         Version B
@@ -68,6 +70,8 @@ class Solution:
                     lenth = 1
             number = int(result)
         return str(number)
+
+class Solution:
 
     def countAndSay(self, n: int) -> str:
         """

@@ -57,6 +57,8 @@ class Solution:
         # 避免nums为空
         return -1 if not nums else search_helper(L, H)
 
+class Solution:
+
     def search(self, nums: List[int], target: int) -> int:
         """
         Version B

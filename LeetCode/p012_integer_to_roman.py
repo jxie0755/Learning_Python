@@ -22,7 +22,9 @@ class Solution:
         dlst = list(map(lambda x, y: int(x) * y, num, (1000, 100, 10, 1)))  # 分解各数位
         return "".join(list(map(lambda x: R[x], dlst)))  # 将各数位代换成罗马数字,然后拼接
 
-    def intToRoman2(self, num: int) -> str:
+class Solution:
+
+    def intToRoman(self, num: int) -> str:
         """Version B, string method"""
 
         num = str(num).rjust(4, "0")  # 拆解data成为单独的数字字符,并补足数位
@@ -45,7 +47,9 @@ class Solution:
         # 使用map对data中每个数位进行转换,然后合并
         return "".join(list(map(rom, range(4), ["M", "C", "X", "I"], ["", "D", "L", "V"], ["", "M", "C", "X"])))
 
-    def intToRoman3(self, num: int) -> str:
+class Solution:
+
+    def intToRoman(self, num: int) -> str:
         """Version C, hashmap alternative"""
 
         result = ""
