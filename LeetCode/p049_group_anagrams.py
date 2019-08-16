@@ -1,18 +1,26 @@
-# P049 Group Anagrams
-# Medium
+"""
+https://leetcode.com/problems/group-anagrams/
+P049 Group Anagrams
+Medium
 
+Given an array of strings, group anagrams together.
 
-# Given an array of strings, group anagrams together.
+Note:
+All inputs will be in lowercase.
+The order of your output does not matter.
+"""
 
-# Note:
-# All inputs will be in lowercase.
-# The order of your output does not matter.
+from typing import *
 
 
 class Solution:
-    def groupAnagrams(self, strs):
+
+    def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
+        """Version A, use hashmap"""
+
         if not strs:
             return [[]]
+
         hmp = {}
         for word in strs:
             k = tuple(sorted(list(word)))
