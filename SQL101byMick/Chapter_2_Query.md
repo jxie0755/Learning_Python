@@ -115,7 +115,30 @@ WHERE sale_price <= 1000;
 
 
 
-### 算数运算符和比较运算符 ###
+### 算术运算符和比较运算符 ###
+
+#### 算术运算符 ####
+
+实例: 在显示数据时,对数据进行运算处理
+```
+SELECT 
+    product_name, 
+    sale_price AS "original_sale_price",
+    sale_price * 2 AS "sale_price_x2"
+FROM Product;
+```
+
+- 主要运算符包括`+`, `-`, `*`, `/`
+- 支持使用括号作为运算优先级的法则
+- 只要数据中存在`NULL`, 任何`NULL`参与的运算结果都是`NULL`
+    - 甚至是`NULL / 0`
+
+实例, 直接使用SQL中的`SELECT`进行简单运算
+```
+SELECT (100+200)*3 AS calculation;
+```
+- 但是这个操作并不常用
+- 并不是每种数据库都允许省略`FROM`的使用
 
 
 
