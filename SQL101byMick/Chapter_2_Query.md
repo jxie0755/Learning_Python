@@ -106,9 +106,9 @@ WHERE product_type = '衣服';
 
 实例2: 选取价格<=1000的商品
 ```
-SELECT product_name, product_type, sale_price,
+SELECT product_name, product_type, sale_price
 FROM Product
-WHERE sale_price <= 1000;
+WHERE sale_price = 1000;
 ```
 - 未必筛选的信息需要被`SELECT`
 - `WHERE`必须在`FROM`之后
@@ -140,6 +140,44 @@ SELECT (100+200)*3 AS calculation;
 - 但是这个操作并不常用
 - 并不是每种数据库都允许省略`FROM`的使用
 
+
+#### 比较运算符 ####
+
+实例: 选出sale_price不等于500的记录
+```
+SELECT product_name, product_type, sale_price
+FROM Product
+WHERE sale_price <> 1000;
+```
+- `=` 等于
+- `<>` 不等于
+- `<` 小于
+- `>` 大于
+- `<=` 小于等于
+- `>=` 大于等于
+
+实例: 日期的比较
+```
+SELECT product_name, product_type, regist_date 
+FROM Product 
+WHERE regist_date < '2009-09-27';
+```
+
+连续对比不能连用
+```
+'2009-09-01' < regist_date < '2009-09-20';  -- WRONG
+regist_date < '2009-09-20' AND regist_date > '2009-09-01'; -- RIGHT
+```
+
+**注意: 对字符串使用不等号**
+```
+SELECT chr
+FROM Chars 
+WHERE chr > '2';
+-- 只显示3和222
+-- 为什么不显示3,10,11和22?
+-- 字符按字典顺序排列: 1, 10, 11, 2, 222, 3
+```
 
 
 
