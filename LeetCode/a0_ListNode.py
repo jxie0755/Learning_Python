@@ -1,5 +1,7 @@
 """Definition of a linked list node."""
 
+from typing import *
+
 class ListNode:
     def __init__(self, x):
         self.val = x
