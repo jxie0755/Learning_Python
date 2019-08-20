@@ -6,7 +6,7 @@ Medium
 Implement pow(x, n), which calculates x raised to the power n (x^n)
 Note:
 -100.0 < x < 100.0
-n is a 32-bit signed integer, within the range [−231, 231 − 1]
+n is a 32-bit signed integer, within the range [−2^31, 2^31 − 1]
 """
 
 import math
@@ -33,7 +33,7 @@ class Solution:
 
     def myPow(self, x: float, n: int) -> float:
         """
-        Version B
+        Version B, recursive
         利用n每翻倍一次, 只是原数平方一次
         """
         if n == 0:
@@ -52,5 +52,6 @@ if __name__ == "__main__":
     assert Solution().myPow(2.00000, 10) == math.pow(2.00000, 10), "Example 1"
     assert Solution().myPow(2.10000, 3) == math.pow(2.10000, 3), "Example 2"
     assert Solution().myPow(2.00000, -2) == math.pow(2.00000, -2), "Example 3"
-    assert Solution().myPow(0.00001, 2147483647) == math.pow(0.00001, 2147483647), "Large"
+    assert Solution().myPow(0.00001, 2147483647) == math.pow(0.00001, 2147483647), "Large 1"
+    print(Solution().myPow(2, -2147483648))
     print("all passed")
