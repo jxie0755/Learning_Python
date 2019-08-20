@@ -1,18 +1,24 @@
-# P050 Pow(x, n)
-# Medium
+"""
+https://leetcode.com/problems/powx-n/
+P050 Pow(x, n)
+Medium
 
-
-# Implement pow(x, n), which calculates x raised to the power n (x^n)
-# Note:
-# -100.0 < x < 100.0
-# n is a 32-bit signed integer, within the range [−231, 231 − 1]
+Implement pow(x, n), which calculates x raised to the power n (x^n)
+Note:
+-100.0 < x < 100.0
+n is a 32-bit signed integer, within the range [−231, 231 − 1]
+"""
 
 import math
 
 
 class Solution:
+
     def myPow(self, x: float, n: int) -> float:
-        # this will fail on large case, exceeding max time limit
+        """
+        Version A, iteration
+        this will fail on large case, exceeding max time limit
+        """
         if n == 0:
             return 1
         elif n < 0:
@@ -23,8 +29,13 @@ class Solution:
                 result *= x
             return result
 
-    # 利用n每翻倍一次, 只是原数平方一次
+class Solution:
+
     def myPow(self, x: float, n: int) -> float:
+        """
+        Version B
+        利用n每翻倍一次, 只是原数平方一次
+        """
         if n == 0:
             return 1
         elif n < 0:
