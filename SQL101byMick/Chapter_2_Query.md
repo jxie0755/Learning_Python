@@ -187,6 +187,23 @@ WHERE purchase_price <> 2800;
 ```
 - 由于`叉子`和`圆珠笔`的`purchase_price`是`NULL`, 所以就算不等于2800也不会被显示
 
+```
+SELECT product_name, purchase_price
+FROM Product
+WHERE purchase_price = NULL;
+```
+- 使得`purchase_price = NULL`同样无法得到`叉子`和`圆珠笔`
+
+正确的方式:
+```
+SELECT product_name, purchase_price
+FROM Product
+WHERE purchase_price IS NULL;
+```
+- 使用`IS NULL`
+- 反之, 使用`IS NOT NULL`
+
+
 
 ### 逻辑运算符 ###
 
