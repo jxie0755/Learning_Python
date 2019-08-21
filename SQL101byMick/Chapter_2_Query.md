@@ -179,6 +179,13 @@ WHERE chr > '2';
 -- 因为字符按字典顺序排列: 1, 10, 11, 2, 222, 3
 ```
 
+**注意: `NULL`不能被比较**
+```
+SELECT product_name, purchase_price
+FROM Product
+WHERE purchase_price <> 2800;
+```
+- 由于`叉子`和`圆珠笔`的`purchase_price`是`NULL`, 所以就算不等于2800也不会被显示
 
 
 ### 逻辑运算符 ###
