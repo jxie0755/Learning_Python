@@ -179,15 +179,80 @@ WHERE chr > '2';
 -- 因为字符按字典顺序排列: 1, 10, 11, 2, 222, 3
 ```
 
+**注意: `NULL`不能被比较**
+```
+SELECT product_name, purchase_price
+FROM Product
+WHERE purchase_price <> 2800;
+```
+- 由于`叉子`和`圆珠笔`的`purchase_price`是`NULL`, 所以就算不等于2800也不会被显示
+
+```
+SELECT product_name, purchase_price
+FROM Product
+WHERE purchase_price = NULL;
+```
+- 使得`purchase_price = NULL`同样无法得到`叉子`和`圆珠笔`
+
+正确的方式:
+```
+SELECT product_name, purchase_price
+FROM Product
+WHERE purchase_price IS NULL;
+```
+- 使用`IS NULL`
+- 反之, 使用`IS NOT NULL`
+
 
 
 ### 逻辑运算符 ###
 
 
+#### NOT 运算符 ####
+
+- 除了<>表示不等于
+- 还有NOT, 使用范围更广
+- 不能单独使用, 需要和其他条件组合
+- 也就是反向的`Boolean`
+
+实例: 选取价格小于1000的产品
+```
+SELECT product_name, product_type, sale_price
+FROM Product
+WHERE NOT sale_price >= 1000;
+```
+
+#### AND运算符和OR运算符 ####
+
+- 同理于`Boolean`的`and`和`or`
+- 短路?
+
+实例:
+```
+SELECT product_name, sale_price
+FROM Product
+WHERE product_type = '厨房用具' OR sale_price >= 3000;
+```
 
 
+#### 通过括号强化处理 ####
 
+实例: 通过括号改变评价顺序
+```
+SELECT product_name, product_type, regist_date
+FROM Product
+WHERE 
+product_type = '办公用品'
+AND 
+(regist_date = '2009-09-11' OR regist_date = '2009-09-20');
+```
 
+#### 逻辑运算符和真值 ####
 
+- 略
 
+#### 含有NULL时的真值 ####
 
+- `NULL`其实算UNKNOWN, 除了`TRUE`和`FALSE`以外的第三种逻辑
+- 一般编程语言都是二值逻辑, 只有SQL使用三值逻辑
+- 所以不论`TRUE`还是`NOT TRUE`都不会显示`NULL`的值
