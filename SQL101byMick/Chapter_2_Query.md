@@ -215,3 +215,4 @@ WHERE purchase_price IS NULL;
 
 
 
+
