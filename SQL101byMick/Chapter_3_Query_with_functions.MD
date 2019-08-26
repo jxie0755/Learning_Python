@@ -20,3 +20,4 @@ FROM Product;
 - `COUNT(*)`统计所有行数
 - `COUNT(purchase_price)`统计改列非空行的行数
 
+
