@@ -1,16 +1,23 @@
-# P054 Spiral Matrix
-# Medium
+"""
+https://leetcode.com/problems/spiral-matrix/
+P054 Spiral Matrix
+Medium
 
-
-# Given a matrix of m x n elements (m rows, n columns), return all elements of the matrix in spiral order.
+Given a matrix of m x n elements (m rows, n columns), return all elements of the matrix in spiral order.
+"""
 
 from typing import *
 
-
 class Solution:
-    def spiralOrder(self, matrix):
 
+    def spiralOrder(self, matrix: List[List[int]]) -> List[int]:
+        """
+        Version A
+        Use multiple helper functions to solve
+        Needs buffer area around the matrix
+        """
         def next_coor(coor, direction):
+            """Helper A1"""
             x, y = coor[0], coor[1]
             if direction == "right":
                 return [x, y + 1]
@@ -22,6 +29,7 @@ class Solution:
                 return [x - 1, y]
 
         def gen_direction():
+            """Helper A2"""
             directions = ["right", "down", "left", "up"]
             D = 0
             while True:
@@ -30,10 +38,12 @@ class Solution:
                 yield direction
 
         def get_coor(coor):
+            """Helper A3"""
             x, y = coor[0], coor[1]
             return matrix[x][y]
 
         def set_coor(coor, val):
+            """Helper A4"""
             x, y = coor[0], coor[1]
             matrix[x][y] = val
 
@@ -44,7 +54,7 @@ class Solution:
         total_steps = m * n
         result = []
 
-        # buffer
+        # create a buffer around the matrix to determine the boundary
         matrix.insert(0, ["X" for _ in range(n)])
         matrix.append(["X" for _ in range(n)])
         for i in matrix:
@@ -68,9 +78,13 @@ class Solution:
 
 
 class Solution(object):
-    # @param matrix, a list of lists of integers
-    # @return a list of integers
-    def spiralOrder(self, matrix):
+
+    def spiralOrder(self, matrix: List[List[int]]) -> List[int]:
+        """
+        Version B
+        Direct output, no buffer needed
+        """
+
         m, n = len(matrix), len(matrix[0])
 
         result = []
