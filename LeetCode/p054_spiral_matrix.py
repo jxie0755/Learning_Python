@@ -1,16 +1,23 @@
-# P054 Spiral Matrix
-# Medium
+"""
+https://leetcode.com/problems/spiral-matrix/
+P054 Spiral Matrix
+Medium
 
-
-# Given a matrix of m x n elements (m rows, n columns), return all elements of the matrix in spiral order.
+Given a matrix of m x n elements (m rows, n columns), return all elements of the matrix in spiral order.
+"""
 
 from typing import *
 
-
 class Solution:
-    def spiralOrder(self, matrix):
 
+    def spiralOrder(self, matrix: List[List[int]]) -> List[int]:
+        """
+        Version A
+        Use multiple helper functions to solve
+        Needs buffer area around the matrix
+        """
         def next_coor(coor, direction):
+            """Helper A1"""
             x, y = coor[0], coor[1]
             if direction == "right":
                 return [x, y + 1]
@@ -22,6 +29,7 @@ class Solution:
                 return [x - 1, y]
 
         def gen_direction():
+            """Helper A2"""
             directions = ["right", "down", "left", "up"]
             D = 0
             while True:
@@ -30,10 +38,12 @@ class Solution:
                 yield direction
 
         def get_coor(coor):
+            """Helper A3"""
             x, y = coor[0], coor[1]
             return matrix[x][y]
 
         def set_coor(coor, val):
+            """Helper A4"""
             x, y = coor[0], coor[1]
             matrix[x][y] = val
 
@@ -44,7 +54,7 @@ class Solution:
         total_steps = m * n
         result = []
 
-        # buffer
+        # create a buffer around the matrix to determine the boundary
         matrix.insert(0, ["X" for _ in range(n)])
         matrix.append(["X" for _ in range(n)])
         for i in matrix:
@@ -68,15 +78,19 @@ class Solution:
 
 
 class Solution(object):
-    # @param matrix, a list of lists of integers
-    # @return a list of integers
-    def spiralOrder(self, matrix):
-        m, n = len(matrix), len(matrix[0])
+
+    def spiralOrder(self, matrix: List[List[int]]) -> List[int]:
+        """
+        Version B
+        Direct output, no buffer needed
+        """
+
 
         result = []
-        if not matrix:
+        if len(matrix)==0 or len(matrix[0])==0:
             return result
 
+        m, n = len(matrix), len(matrix[0])
         top, bot, left, right = 0, m - 1, 0, n - 1
 
         while top <= bot and left <= right:
@@ -88,11 +102,11 @@ class Solution(object):
             right -= 1
             for c in range(right, left - 1, -1):
                 # 注意在这里要补一个条件,因为矩形不一定是sqaure 所以会出现只剩下横或者只剩下列的情况要规避
-                if top < bot:
+                if top <= bot: # 注意不能是<
                     result.append(matrix[bot][c])
             bot -= 1
             for d in range(bot, top - 1, -1):
-                if left < right:  # 同上
+                if left <= right:  # 同上
                     result.append(matrix[d][left])
             left += 1
 
@@ -100,6 +114,9 @@ class Solution(object):
 
 
 if __name__ == "__main__":
+    edge_0 = []
+    assert Solution().spiralOrder(edge_0) == [], "Edge 0"
+
     edge_1 = [[]]
     assert Solution().spiralOrder(edge_1) == [], "Edge 1"
 
@@ -125,5 +142,11 @@ if __name__ == "__main__":
         [9, 10, 11, 12]
     ]
     assert Solution().spiralOrder(sample_2) == [1, 2, 3, 4, 8, 12, 11, 10, 9, 5, 6, 7], "Example 2"
+
+    sample_3 = [
+        [1,2],
+        [3,4]
+    ]
+    assert Solution().spiralOrder(sample_3) == [1,2,4,3], "Example 3"
 
     print("all passed")
