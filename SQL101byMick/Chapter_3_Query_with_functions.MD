@@ -22,4 +22,3 @@ FROM Product;
 
 
 
-
