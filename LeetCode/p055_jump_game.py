@@ -1,16 +1,23 @@
-# P055 Jump Game
-# Medium
+"""
+https://leetcode.com/problems/jump-game/
+P055 Jump Game
+Medium
 
-
-# Given an array of non-negative integers, you are initially positioned at the first index of the array.
-# Each element in the array represents your maximum jump length at that position.
-# Determine if you are able to reach the last index.
+Given an array of non-negative integers, you are initially positioned at the first index of the array.
+Each element in the array represents your maximum jump length at that position.
+Determine if you are able to reach the last index.
+"""
 
 from typing import *
 
 
 class Solution:
+
     def canJump(self, nums: List[int]) -> bool:
+        """
+        Version A
+        Use a helper to find next idx based on current index, as long as it was able to move forward
+        """
 
         def findNext(cur_idx):
             cur_val = nums[cur_idx]
@@ -37,12 +44,15 @@ class Solution:
 
 
 class Solution(object):
-    # @param A, a list of integers
-    # @return a boolean
-    def canJump(self, A):
+
+    def canJump(self, nums: List[int]) -> bool:
+        """
+        STD ans
+        """
+
         max_reachable_idx = 0  # 定义一个当前能走到的最远的位置
 
-        for i, length in enumerate(A):
+        for i, length in enumerate(nums):
             if i > max_reachable_idx:
                 return False  # 如果到了一个idx, 发现之前最远idx都走不到这,就表示走不通
             max_reachable_idx = max(max_reachable_idx, i + length)  # 对每个idx检查, 保留最大值
