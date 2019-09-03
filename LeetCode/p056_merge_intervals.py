@@ -26,19 +26,22 @@ from typing import *
 class Solution:
     def merge(self, intervals: List[List[int]]) -> List[List[int]]:
         """
-        Version A
+        Version A1
         Sort first, then connect the two neighbored interval if possible
+        Needs to pop, not working for array
         """
+        if len(intervals) < 2:
+            return intervals
+
         intervals.sort()
-        if len(intervals) >= 2:
-            i = 0
-            while i != len(intervals) - 1:
-                first, second = intervals[i], intervals[i + 1]
-                if first[1] >= second[0]:
-                    first[1] = max(first[1], second[1])
-                    intervals.pop(i + 1)
-                else:
-                    i += 1
+        i = 0
+        while i != len(intervals) - 1:
+            first, second = intervals[i], intervals[i + 1]
+            if first[1] >= second[0]:
+                first[1] = max(first[1], second[1])
+                intervals.pop(i + 1)
+            else:
+                i += 1
         return intervals
 
 
@@ -48,6 +51,9 @@ if __name__ == "__main__":
 
     lst = [[1, 3], [2, 6], [8, 10], [15, 18]]
     assert Solution().merge(lst) == [[1, 6], [8, 10], [15, 18]], "Example 1"
+
+    lst = [[15, 18], [1, 3], [8, 10], [2, 6]]
+    assert Solution().merge(lst) == [[1, 6], [8, 10], [15, 18]], "Example 1 unsorted"
 
     lst = [[1, 4], [4, 5]]
     assert Solution().merge(lst) == [[1, 5]], "Example 2"
