@@ -43,27 +43,13 @@ class Solution:
 
 
 if __name__ == "__main__":
-    E0 = [0, 1]
-    lst = [E0]
-    assert Solution().merge(lst) == [E0], "Edge 1"
+    lst = [[0, 1]]
+    assert Solution().merge(lst) == [[0, 1]], "Edge 1"
 
-    A1 = [1, 3]
-    A2 = [2, 6]
-    A3 = [8, 10]
-    A4 = [15, 18]
-    lst = [A1, A2, A3, A4]
+    lst = [[1, 3], [2, 6], [8, 10], [15, 18]]
+    assert Solution().merge(lst) == [[1, 6], [8, 10], [15, 18]], "Example 1"
 
-    assert Solution().merge(lst) == [
-        [1, 6],
-        [8, 10],
-        [15, 18],
-    ], "Example 1"
-
-    B1 = [1, 4]
-    B2 = [4, 5]
-    lst = [B1, B2]
-    assert Solution().merge(lst) == [
-        [1, 5],
-    ], "Example 2"
+    lst = [[1, 4], [4, 5]]
+    assert Solution().merge(lst) == [[1, 5]], "Example 2"
 
     print("all passed")
