@@ -8,6 +8,9 @@ Given a collection of intervals, merge all overlapping intervals.
 
 from typing import *
 
+# NOTE: input types have been changed on April 15, 2019.
+# Please reset to default code definition to get new method signature.
+#
 # Helper: Definition for an interval.
 # class Interval:
 #     def __init__(self, s=0, e=0):
@@ -38,7 +41,7 @@ class Solution:
         while i != len(intervals) - 1:
             first, second = intervals[i], intervals[i + 1]
             if first[1] >= second[0]:
-                first[1] = max(first[1], second[1])
+                first[1] = max(first[1], second[1])  # necessary, because [1,4] will be sorted before [2,3]
                 intervals.pop(i + 1)
             else:
                 i += 1
