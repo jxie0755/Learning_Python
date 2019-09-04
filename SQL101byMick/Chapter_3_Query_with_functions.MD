@@ -21,4 +21,3 @@ FROM Product;
 - `COUNT(purchase_price)`统计改列非空行的行数
 
 
-
