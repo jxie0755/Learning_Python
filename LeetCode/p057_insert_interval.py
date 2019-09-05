@@ -1,76 +1,124 @@
-# P056 Insert Interval
-# Hard
+"""
 
-# Given a set of non-overlapping intervals, insert a new interval into the intervals (merge if necessary).
-# You may assume that the intervals were initially sorted according to their start times.
+P056 Insert Interval
+Hard
 
+Given a set of non-overlapping intervals, insert a new interval into the intervals (merge if necessary).
+You may assume that the intervals were initially sorted according to their start times.
 
-class Interval:
-    def __init__(self, s=0, e=0):
-        self.start = s
-        self.end = e
+"""
 
-    def __repr__(self):
-        return f"[{self.start} -> {self.end}]"
+from typing import *
 
-    def __eq__(self, other):
-        if self.start == other.start and self.end == other.end:
-            return True
-        return False
+# NOTE: input types have been changed on April 15, 2019.
+# Please reset to default code definition to get new method signature.
+#
+# class Interval:
+#     def __init__(self, s=0, e=0):
+#         self.start = s
+#         self.end = e
+#
+#     def __repr__(self):
+#         return f"[{self.start} -> {self.end}]"
+#
+#     def __eq__(self, other):
+#         if self.start == other.start and self.end == other.end:
+#             return True
+#         return False
 
 
 class Solution:
-    # From leetcode p056
-    def merge(self, intervals):
-        if not intervals:
-            return intervals
-        intervals.sort(key=lambda x: x.start)
-        result = [intervals[0]]
-        for i in range(1, len(intervals)):
-            prev, current = result[-1], intervals[i]
-            if current.start <= prev.end:
-                prev.end = max(prev.end, current.end)
-            else:
-                result.append(current)
-        return result
 
-    # Basically, insert the newInterval into intervals based on start in sorted order, then merge.
-    def insert(self, intervals, newInterval):
+
+    def insert(self, intervals: List[List[int]], newInterval: List[int]) -> List[List[int]]:
+        """
+        Version A
+        Add the new interval to the intervals at the end and let it merge
+        Merge process will automatically sort and merge
+        This could be slow as the sorting is complicated
+        """
+        return self.merge(intervals + [newInterval])
+
+    def merge(self, intervals: List[List[int]]) -> List[List[int]]:
+        """
+        Helper A from leetcode P056
+        """
+        if len(intervals) < 2:
+            return intervals
+
+        intervals.sort()
         i = 0
-        inserted = False
+        while i != len(intervals) - 1:
+            first, second = intervals[i], intervals[i + 1]
+            if first[1] >= second[0]:
+                first[1] = max(first[1], second[1])
+                intervals.pop(i + 1)
+            else:
+                i += 1
+        return intervals
+
+
+class Solution:
+
+    def insert(self, intervals: List[List[int]], newInterval: List[int]) -> List[List[int]]:
+        """
+        Version B
+        insert the new interval at the right location of already sorted intervals
+        then skip the sorting and just merge
+        """
+        i = 0
         while i != len(intervals):
-            if newInterval.start < intervals[0].start:
+            if newInterval[0] < intervals[i][0]:
                 intervals.insert(i, newInterval)
-                inserted = True
                 break
             i += 1
-        if not inserted:
+        else:
             intervals.append(newInterval)
 
         return self.merge(intervals)
 
 
-if __name__ == "__main__":
-    assert Solution().insert([], Interval(1, 2)) == [Interval(1, 2)], "Edge 1"
+    def merge(self, intervals):
+        """
+        Helper B modified from leetcode p056
+        """
+        if len(intervals) < 2:
+            return intervals
+        # intervals.sort()  No need for sorting
+        i = 0
+        while i != len(intervals) - 1:
+            first, second = intervals[i], intervals[i + 1]
+            if first[1] >= second[0]:
+                first[1] = max(first[1], second[1])
+                intervals.pop(i + 1)
+            else:
+                i += 1
+        return intervals
 
-    A1 = Interval(1, 3)
-    A2 = Interval(6, 9)
-    lst = [A1, A2]
-    assert Solution().insert(lst, Interval(2, 5)) == [
-        Interval(1, 5),
-        Interval(6, 9)
+
+
+
+if __name__ == "__main__":
+    assert Solution().insert([], [1, 2]) == [[1, 2]], "Edge 1"
+
+    lst = [[1, 3], [6, 9]]
+    assert Solution().insert(lst,[2, 5]) == [
+        [1, 5],
+        [6, 9]
     ], "Example 1"
 
-    B1 = Interval(1, 2)
-    B2 = Interval(3, 5)
-    B3 = Interval(6, 7)
-    B4 = Interval(8, 10)
-    B5 = Interval(12, 16)
-    lst = [B1, B2, B3, B4, B5]
-    assert Solution().insert(lst, Interval(4, 8)) == [
-        Interval(1, 2),
-        Interval(3, 10),
-        Interval(12, 16)
+    lst = [[1, 2], [3, 5], [6, 7], [8, 10], [12, 16]]
+    assert Solution().insert(lst, [4, 8]) == [
+        [1, 2],
+        [3, 10],
+        [12, 16]
     ], "Example 2"
+
+    lst = [[1, 2], [3, 7], [4, 6], [8, 10], [12, 16]]
+    assert Solution().insert(lst, [4, 8]) == [
+        [1, 2],
+        [3, 10],
+        [12, 16]
+    ], "Example 2 extended"
 
     print("all passed")
