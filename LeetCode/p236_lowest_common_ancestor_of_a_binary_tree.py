@@ -78,10 +78,6 @@ class Solution(object):
     # STD ans
     # Time:  O(n)
     # Space: O(h)
-    # @param {TreeNode} root
-    # @param {TreeNode} p
-    # @param {TreeNode} q
-    # @return {TreeNode}
     def lowestCommonAncestor(self, root: "TreeNode", p: "TreeNode", q: "TreeNode") -> "TreeNode":
         if root in (None, p, q):
             return root
