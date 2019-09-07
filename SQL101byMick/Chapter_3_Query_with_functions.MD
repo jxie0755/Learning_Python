@@ -18,5 +18,5 @@ SELECT COUNT(*)
 FROM Product;
 ```
 - `COUNT(*)`统计所有行数
-- `COUNT(purchase_price)`统计改列非空行的行数
+- `COUNT(<列名>)`统计该列非空行的行数
 
