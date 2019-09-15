@@ -40,7 +40,7 @@ class Solution:
 
 
 if __name__ == "__main__":
-    assert Solution().lengthOfLastWord("Hello World") == 5, "regular"
-    assert Solution().lengthOfLastWord("") == 0, "empty"
-    assert Solution().lengthOfLastWord(" ") == 0, "empty 2"
+    assert Solution().lengthOfLastWord("") == 0, "Edge 1"
+    assert Solution().lengthOfLastWord(" ") == 0, "Edge 2"
+    assert Solution().lengthOfLastWord("Hello World") == 5, "Regular"
     print("all passed")
