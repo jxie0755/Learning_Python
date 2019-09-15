@@ -8,7 +8,7 @@ Each element in the array represents your maximum jump length at that position.
 Your goal is to reach the last index in the minimum number of jumps.
 
 Note:
-You can assume that you can always reach the last index.
+    You can assume that you can always reach the last index.
 """
 
 from typing import *

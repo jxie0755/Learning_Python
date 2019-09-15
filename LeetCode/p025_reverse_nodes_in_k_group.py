@@ -9,8 +9,8 @@ k is a positive integer and is less than or equal to the length of the linked li
 If the number of nodes is not a multiple of k then left-out nodes in the end should remain as it is.
 
 Note:
-Only constant extra memory is allowed.
-You may not alter the values in the list's nodes, only nodes itself may be changed.
+    Only constant extra memory is allowed.
+    You may not alter the values in the list's nodes, only nodes itself may be changed.
 """
 
 from a0_ListNode import *

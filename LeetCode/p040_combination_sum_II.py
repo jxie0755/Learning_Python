@@ -8,9 +8,9 @@ find all unique combinations in candidates where the candidate numbers sums to t
 Each number in candidates may only be used once in the combination.
 
 Note:
-All numbers (including target) will be positive integers.
-The difference between the P039 and P040 is that the candidates can be duplicated in P040 but not in P039
-The solution set must not contain duplicate combinations.
+    All numbers (including target) will be positive integers.
+    The difference between the P039 and P040 is that the candidates can be duplicated in P040 but not in P039
+    The solution set must not contain duplicate combinations.
 """
 
 
