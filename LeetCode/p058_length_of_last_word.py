@@ -1,23 +1,33 @@
-# p058 Length of Last word
-# Easy
+"""
+p058 Length of Last word
+Easy
 
-# Given a string s consists of upper/lower-case alphabets and empty space characters " ", return the length of last word in the string.
-# If the last word does not exist, return 0
-# Note: A word is defined as a character sequence consists of non-space characters only.
+Given a string s consists of upper/lower-case alphabets and empty space characters " ", return the length of last word in the string.
+If the last word does not exist, return 0
 
-# """
-# :type s: str
-# :rtype: int
-# """
+Note:
+    A word is defined as a character sequence consists of non-space characters only.
+"""
 
 class Solution:
-    def lengthOfLastWord(self, s):
+
+    def lengthOfLastWord(self, s: str) -> int:
+        """
+        Version A
+        Use Python built-in method split
+        """
         if len(s.split()) == 0:
             return 0
         return len(s.split()[-1])
 
-    def lengthOfLastWord(self, s):
-        # without extra space for creating a list, and avoid iterate over the whole string
+class Solution:
+
+    def lengthOfLastWord(self, s: str) -> int:
+        """
+        Version B
+        Set a counter for spaces
+        No need for extra space
+        """
         cnt = 0
         for v in reversed(s):  # create reversed iterator
             if v.isspace():  # to avoid end with a " "
