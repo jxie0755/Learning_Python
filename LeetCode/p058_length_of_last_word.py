@@ -21,6 +21,7 @@ class Solution:
             return 0
         return len(s.split()[-1])
 
+
 class Solution:
 
     def lengthOfLastWord(self, s: str) -> int:
