@@ -62,7 +62,6 @@ FROM Product;
 **注意这里得先对product type去重再统计行数**
 
 
-
 ### 对表进行分组 ###
 
 
