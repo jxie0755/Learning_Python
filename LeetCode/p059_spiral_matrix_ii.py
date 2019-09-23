@@ -1,10 +1,15 @@
-# P059 Spiral Matrix II
-# Medium
+"""
+https://leetcode.com/problems/spiral-matrix-ii/
+P059 Spiral Matrix II
+Medium
 
-# Given a positive integer n, generate a square matrix filled with elements from 1 to n2 in spiral order.
+Given a positive integer n, generate a square matrix filled with elements from 1 to n2 in spiral order.
+"""
+
+from typing import *
 
 class Solution:
-    def generateMatrix(self, n):
+    def generateMatrix(self, n: int) -> List[List[int]]:
         val = 1
         matrix = [[0 for _ in range(n)] for _ in range(n)]
 
