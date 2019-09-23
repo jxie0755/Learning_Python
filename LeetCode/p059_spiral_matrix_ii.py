@@ -9,7 +9,12 @@ Given a positive integer n, generate a square matrix filled with elements from 1
 from typing import *
 
 class Solution:
+
     def generateMatrix(self, n: int) -> List[List[int]]:
+        """
+        Version A
+        Generate by keep changing the row and col in clock sequence
+        """
         val = 1
         matrix = [[0 for _ in range(n)] for _ in range(n)]
 
