@@ -61,6 +61,7 @@ FROM Product;
 ```
 **注意这里得先对product type去重再统计行数**
 
+**注意,如果这一列全是`NULL`, 那么返回的`MAX`,`MIN`,`AVG`也是`NULL`**
 
 ### 对表进行分组 ###
 
