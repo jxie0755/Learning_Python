@@ -176,13 +176,13 @@ class Solution(object):
         Direct generation, digit by digit
         这里利用的是每一位数字, 都会因为后面位数的总排列数为循环发生变化, 从小到大发展
         """
-        fact_dict = {i: math.factorial(i) for i in range(n)} # 注意这里i从0开始到n-1, 因为不算第一位, 只计算从第二位开始有多少种排列方式
         seq, k= "", k - 1  # k = k-1 因为一开始算一个,所以要去掉
         perm = list(range(1, n + 1))
 
         for i in reversed(range(n)):
-            fact = fact_dict[i]
-            curr = perm.pop(k // fact)  # 这一步很关键, 去掉已经排出来的数字, 因为此后的迭代这个数字不参与其中
+            fact = math.factorial(i)    # 这个数字后面, 剩余位数的所有排列数目
+            curr = perm.pop(k // fact)  # 这一步很关键, 找出fact被循环了几次
+                        # 用pop去掉已经排出来的数字, 因为此后的迭代这个数字不参与其中
             seq += str(curr)
             k %= fact
         return seq
@@ -205,11 +205,10 @@ class Solution(object):
             if length == 1:
                 return str(nums[0])
             else:
-                fact = fact_dict[length - 1]
+                fact = math.factorial(length-1)
                 digit = nums.pop(k // fact)
                 return str(digit) + helper(nums, k % fact)
 
-        fact_dict = {i: math.factorial(i) for i in range(n)}
         lst = list(range(1, n + 1))
         return helper(lst, k - 1)  # k - 1原理同上
 
