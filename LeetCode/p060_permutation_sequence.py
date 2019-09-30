@@ -172,7 +172,7 @@ class Solution:
 class Solution(object):
     def getPermutation(self, n: int, k: int) -> str:
         """
-        Version C
+        Version C1
         Direct generation, digit by digit
         这里利用的是每一位数字, 都会因为后面位数的总排列数为循环发生变化, 从小到大发展
         """
@@ -193,7 +193,7 @@ class Solution(object):
 
     def getPermutation(self, n: int, k: int) -> str:
         """
-        Version D
+        Version C2
         Direct generation, digit by digit
         recursive method
         """
