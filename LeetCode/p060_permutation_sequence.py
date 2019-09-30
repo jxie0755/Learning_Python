@@ -182,9 +182,10 @@ class Solution(object):
 
         for i in reversed(range(n)):
             fact = fact_dict[i]
-            curr = perm[k // fact]
+            idx = k // fact
+            curr = perm[idx]
             seq += str(curr)
-            perm.remove(curr)  # 这一步很关键, 去掉已经排出来的数字, 因为此后的迭代这个数字不参与其中
+            perm.pop(idx)  # 这一步很关键, 去掉已经排出来的数字, 因为此后的迭代这个数字不参与其中
             k %= fact
         return seq
 
@@ -207,8 +208,9 @@ class Solution(object):
                 return str(nums[0])
             else:
                 fact = fact_dict[length - 1]
-                digit = nums[k // fact]
-                nums.remove(digit)
+                idx = k // fact
+                digit = nums[idx]
+                nums.pop(idx)
                 return str(digit) + helper(nums, k % fact)
 
         fact_dict = {i: math.factorial(i) for i in range(n)}
