@@ -177,7 +177,7 @@ class Solution(object):
         这里利用的是每一位数字, 都会因为后面位数的总排列数为循环发生变化, 从小到大发展
         """
         fact_dict = {i: math.factorial(i) for i in range(n)} # 注意这里i从0开始到n-1, 因为不算第一位, 只计算从第二位开始有多少种排列方式
-        seq, k, fact = "", k - 1, math.factorial(n - 1)  # k = k-1 因为一开始算一个,所以要去掉
+        seq, k, fact = "", k - 1, fact_dict[n-1]  # k = k-1 因为一开始算一个,所以要去掉
         perm = list(range(1, n + 1))
 
         for i in reversed(range(n)):
