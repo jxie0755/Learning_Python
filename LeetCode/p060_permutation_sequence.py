@@ -189,31 +189,31 @@ class Solution(object):
         return seq
 
 
-# class Solution(object):
-#
-#     def getPermutation(self, n: int, k: int) -> str:
-#         """
-#         Version C2
-#         Direct generation, digit by digit
-#         recursive method
-#         """
-#
-#         def helper(nums: List[int], k: int) -> str:
-#             """
-#             A helper function for recursion
-#             """
-#             length = len(nums)
-#             if length == 1:
-#                 return str(nums[0])
-#             else:
-#                 fact = fact_dict[length - 1]
-#                 digit = nums[k // fact]
-#                 nums.remove(digit)
-#                 return str(digit) + helper(nums, k % fact)
-#
-#         fact_dict = {i: math.factorial(i) for i in range(n)}
-#         lst = list(range(1, n + 1))
-#         return helper(lst, k - 1)  # k - 1原理同上
+class Solution(object):
+
+    def getPermutation(self, n: int, k: int) -> str:
+        """
+        Version C2
+        Direct generation, digit by digit
+        recursive method
+        """
+
+        def helper(nums: List[int], k: int) -> str:
+            """
+            A helper function for recursion
+            """
+            length = len(nums)
+            if length == 1:
+                return str(nums[0])
+            else:
+                fact = fact_dict[length - 1]
+                digit = nums[k // fact]
+                nums.remove(digit)
+                return str(digit) + helper(nums, k % fact)
+
+        fact_dict = {i: math.factorial(i) for i in range(n)}
+        lst = list(range(1, n + 1))
+        return helper(lst, k - 1)  # k - 1原理同上
 
 
 if __name__ == "__main__":
