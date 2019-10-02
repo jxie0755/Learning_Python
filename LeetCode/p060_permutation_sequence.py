@@ -19,10 +19,8 @@ Given n will be between 1 and 9 inclusive.
 Given k will be between 1 and n! inclusive.
 """
 
-
-import timeit
-from typing import *
 import math
+from typing import *
 
 
 class Solution:
