@@ -66,10 +66,10 @@ if __name__ == "__main__":
     S1 = genNode([1, 2, 3, 4, 5])
     assert repr(Solution().rotateRight(S1, 2)) == "4->5->1->2->3", "Example 1"
 
-    S1 = genNode([1, 2, 3, 4, 5])
-    assert repr(Solution().rotateRight(S1, 0)) == "1->2->3->4->5", "Example 1b"
+    S2 = genNode([1, 2, 3, 4, 5])
+    assert repr(Solution().rotateRight(S2, 0)) == "1->2->3->4->5", "Example 2"
 
-    S2 = genNode([0, 1, 2])
-    assert repr(Solution().rotateRight(S2, 4)) == "2->0->1", "Example 2"
+    S3 = genNode([0, 1, 2])
+    assert repr(Solution().rotateRight(S3, 4)) == "2->0->1", "Example 3"
 
     print("all passed")
