@@ -34,7 +34,7 @@ class Solution:
             return self.rotateRight(head, k % length)
 
         # Common cases
-        # locate two adjacent node and move together until at the two side of the break point
+        # locate the node before break point
         find_node_before_break = head
 
         for i in range(length - k - 1):
