@@ -34,23 +34,22 @@ class Solution:
             return self.rotateRight(head, k % length)
 
         # Common cases
-        else:
-            # locate two adjacent node and move together until at the two side of the break point
-            find_node_before_break = head
-            find_node_after_break = head.next
+        # locate two adjacent node and move together until at the two side of the break point
+        find_node_before_break = head
+        find_node_after_break = head.next
 
-            for i in range(length - k - 1):
-                find_node_before_break = find_node_before_break.next
-                find_node_after_break = find_node_after_break.next
+        for i in range(length - k - 1):
+            find_node_before_break = find_node_before_break.next
+            find_node_after_break = find_node_after_break.next
 
-            # link the end to head to be a loop
-            find_end.next = head
+        # link the end to head to be a loop
+        find_end.next = head
 
-            # break link of the two node, and use the later node as the new head
-            find_node_before_break.next = None
+        # break link of the two node, and use the later node as the new head
+        find_node_before_break.next = None
 
-            # new head is the node after break point
-            return find_node_after_break
+        # new head is the node after break point
+        return find_node_after_break
 
 
 if __name__ == "__main__":
