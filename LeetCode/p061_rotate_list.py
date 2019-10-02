@@ -36,20 +36,17 @@ class Solution:
         # Common cases
         # locate two adjacent node and move together until at the two side of the break point
         find_node_before_break = head
-        find_node_after_break = head.next
 
         for i in range(length - k - 1):
             find_node_before_break = find_node_before_break.next
-            find_node_after_break = find_node_after_break.next
 
         # link the end to head to be a loop
         find_end.next = head
 
-        # break link of the two node, and use the later node as the new head
+        # locate the next node (as the new head), and break link of the two node
+        new_head = find_node_before_break.next
         find_node_before_break.next = None
-
-        # new head is the node after break point
-        return find_node_after_break
+        return new_head
 
 
 if __name__ == "__main__":
