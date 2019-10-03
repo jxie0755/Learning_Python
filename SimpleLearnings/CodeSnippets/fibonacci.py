@@ -101,12 +101,9 @@ if __name__ == "__main__":
 # use generator in fibonacci function
 def genFib():  # this created a generator for fibonacci numbers
     a, b = 0, 1
-    yield a
-    yield b
     while True:
-        next = a + b
-        yield next
-        a, b = b, next
+        yield a
+        a, b = b, a + b
 
 # print a list of any length for fibonacci numbers
 def fib_gen_nr3(x):
