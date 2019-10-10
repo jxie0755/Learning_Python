@@ -32,5 +32,5 @@ if __name__ == "__main__":
 
     assert Solution().uniquePaths(3, 2) == 3, "Example 1"
     assert Solution().uniquePaths(7, 3) == 28, "Example 2"
-
+    assert Solution().uniquePaths(10, 10) == 48620, "Example 3"
     print("all passed")
