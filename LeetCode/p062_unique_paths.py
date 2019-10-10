@@ -1,21 +1,26 @@
-# P062 Unique Paths
-# Medium
+"""
+https://leetcode.com/problems/unique-paths/
+P062 Unique Paths
+Medium
 
+A robot is located at the top-left corner of a m x n grid (marked "Start" in the diagram below).
 
-# A robot is located at the top-left corner of a m x n grid (marked "Start" in the diagram below).
+The robot can only move either down or right at any point in time. The robot is trying to reach the bottom-right corner of the grid (marked "Finish" in the diagram below).
 
-# The robot can only move either down or right at any point in time. The robot is trying to reach the bottom-right corner of the grid (marked "Finish" in the diagram below).
-
-# How many possible unique paths are there?
-
+How many possible unique paths are there?
+"""
 
 from math import factorial
 
 
-# This is the same as ProjectEuler p 015 lattice paths
-# use combination method: Combination pick r out of n : n! // r! // (n-r)!
 class Solution:
+
     def uniquePaths(self, m: int, n: int) -> int:
+        """
+        Version A, best direct math calculation
+        This is the same as ProjectEuler p015 lattice paths
+        Use combination method: Combination pick r out of n : n! // r! // (n-r)!
+        """
         total = m + n - 2
         return factorial(total) // (factorial(total - (n - 1)) * factorial(n - 1))
 
