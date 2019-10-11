@@ -25,6 +25,22 @@ class Solution:
         return factorial(total) // (factorial(total - (n - 1)) * factorial(n - 1))
 
 
+class Solution:
+
+    def uniquePaths(self, m: int, n: int) -> int:
+        """
+        Version B, use grid iteration
+        Get last grid value by adding the value of the neighbors from up and left
+        This can avoid large number factorial calculation
+        """
+        grid = [[1] * m for _ in range(n)]
+        for i in range(n):
+            for j in range(m):
+                if i != 0 and j != 0:
+                    grid[i][j] = grid[i-1][j] + grid[i][j-1]
+        return grid[n-1][m-1]
+
+
 if __name__ == "__main__":
     assert Solution().uniquePaths(1, 1) == 1, "Edge 1"
     assert Solution().uniquePaths(4, 1) == 1, "Edge 2"
@@ -32,5 +48,5 @@ if __name__ == "__main__":
 
     assert Solution().uniquePaths(3, 2) == 3, "Example 1"
     assert Solution().uniquePaths(7, 3) == 28, "Example 2"
-    assert Solution().uniquePaths(10, 10) == 48620, "Example 3, large number"
+    assert Solution().uniquePaths(23, 12) == 193536720, "Example 3, large number"
     print("all passed")
