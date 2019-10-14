@@ -142,7 +142,7 @@ def fib_gen_r_mem(n):
 
 
 
-# Use Memoization method as a decorator
+# Use Memorization method as a decorator
 # First define the memo method as a high-order function:
 def memo(f):
     cache = {}
