@@ -41,6 +41,19 @@ class Solution:
         return grid[n-1][m-1]
 
 
+    def uniquePaths(self, m: int, n: int) -> int:
+        """
+        Version C, recursive method
+        This will fail as the speed is too slow.
+        Could use memorization to accellerate but this will be skipped.
+        """
+        if m <= 1 or n <= 1:
+            return 1
+        else:
+            return self.uniquePaths(m-1, n) + self.uniquePaths(m, n-1)
+
+
+
 if __name__ == "__main__":
     assert Solution().uniquePaths(1, 1) == 1, "Edge 1"
     assert Solution().uniquePaths(4, 1) == 1, "Edge 2"
