@@ -24,12 +24,24 @@ class Solution:
         total = m + n - 2
         return factorial(total) // (factorial(total - (n - 1)) * factorial(n - 1))
 
+class Solution:
+    def uniquePaths(self, m: int, n: int) -> int:
+        """
+        Version B, recursive method
+        This will fail as the speed is too slow.
+        Could use memorization to accellerate but this will be skipped.
+        """
+        if m <= 1 or n <= 1:
+            return 1
+        else:
+            return self.uniquePaths(m-1, n) + self.uniquePaths(m, n-1)
+
 
 class Solution:
 
     def uniquePaths(self, m: int, n: int) -> int:
         """
-        Version B, use grid iteration
+        Version C, use grid iteration
         Get last grid value by adding the value of the neighbors from up and left
         This can avoid large number factorial calculation
         """
@@ -41,16 +53,7 @@ class Solution:
         return grid[n-1][m-1]
 
 
-    def uniquePaths(self, m: int, n: int) -> int:
-        """
-        Version C, recursive method
-        This will fail as the speed is too slow.
-        Could use memorization to accellerate but this will be skipped.
-        """
-        if m <= 1 or n <= 1:
-            return 1
-        else:
-            return self.uniquePaths(m-1, n) + self.uniquePaths(m, n-1)
+
 
 
 
