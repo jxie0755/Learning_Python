@@ -55,8 +55,6 @@ class Solution:
 
 
 
-
-
 if __name__ == "__main__":
     assert Solution().uniquePaths(1, 1) == 1, "Edge 1"
     assert Solution().uniquePaths(4, 1) == 1, "Edge 2"
