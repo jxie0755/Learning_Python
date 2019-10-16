@@ -24,18 +24,26 @@ class Solution:
         total = m + n - 2
         return factorial(total) // (factorial(total - (n - 1)) * factorial(n - 1))
 
+
 class Solution:
     def uniquePaths(self, m: int, n: int) -> int:
         """
-        Version B, recursive method
-        This will fail as the speed is too slow.
-        Could use memorization to accellerate but this will be skipped.
+        Version B, recursive method with hashmap memorizaton
         """
-        if m <= 1 or n <= 1:
-            return 1
-        else:
-            return self.uniquePaths(m-1, n) + self.uniquePaths(m, n-1)
+        hmp = dict()
 
+        def uniquePaths_recur_mem(m: int, n: int) -> int:
+            """recursion helper"""
+            if m <= 1 or n <= 1:
+                return 1
+            elif (m, n) in hmp:
+                return hmp[(m, n)]
+            else:
+                result = uniquePaths_recur_mem(m-1, n) + uniquePaths_recur_mem(m, n-1)
+                hmp[(m, n)] = result
+                return result
+
+        return uniquePaths_recur_mem(m, n)
 
 class Solution:
 
