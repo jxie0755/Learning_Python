@@ -30,7 +30,7 @@ class Solution:
                 if obstacleGrid[nn][mm] == 1:
                     pathgrid[nn][mm] = 0
                 elif nn == 0:
-                    pathgrid[nn][mm] = pathgrid[nn][mm - 1]
+                    pathgrid[nn][mm] = pathgrid[nn][mm - 1]  # 防止边路出现障碍, 不要直接设为1, 而是重复之前的值
                 elif mm == 0:
                     pathgrid[nn][mm] = pathgrid[nn - 1][mm]
                 else:
