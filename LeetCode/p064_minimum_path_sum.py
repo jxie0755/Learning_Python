@@ -1,16 +1,23 @@
-# P064 Minimum Path Sum
-# Medium
+"""
+https://leetcode.com/problems/minimum-path-sum/
+P064 Minimum Path Sum
+Medium
+
+Given a m x n grid filled with non-negative numbers, find a path from top left to bottom right which minimizes the sum of all numbers along its path.
+
+Note: You can only move either down or right at any point in time.
+"""
 
 
-# Given a m x n grid filled with non-negative numbers, find a path from top left to bottom right which minimizes the sum of all numbers along its path.
-
-# Note: You can only move either down or right at any point in time.
-
+from typing import *
 
 class Solution:
 
-    # 新建一个表, 不破坏原表
-    def minPathSum(self, grid):
+    def minPathSum(self, grid: List[List[int]]) -> int:
+        """
+        Version A
+        新建一个表, 不破坏原表
+        """
         if not len(grid) or not len(grid[0]):
             return 0
 
@@ -26,14 +33,19 @@ class Solution:
                 elif mm == 0:
                     min_to[nn][mm] = grid[nn][mm] + min_to[nn - 1][mm]
                 else:
+                    # Difference from Leetcode P063, select the mininmum from two path lead to this spot
                     min_to[nn][mm] = grid[nn][mm] + min(min_to[nn][mm - 1], min_to[nn - 1][mm])
 
         return min_to[n - 1][m - 1]
 
 
 class Solution:
-    # 直接在原表上改动, 破坏原表, 但是速度更快
-    def minPathSum(self, grid):
+
+    def minPathSum(self, grid: List[List[int]]) -> int:
+        """
+        Version B
+        直接在原表上改动, 破坏原表, 但是速度更快
+        """
         if not len(grid) or not len(grid[0]):
             return 0
 
