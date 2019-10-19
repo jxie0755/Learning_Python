@@ -61,28 +61,28 @@ class Solution:
         return False
 
 
-class Solution:
-
-    # Version A2
-    # math:
-    # if big and small has no gcd (==1), then only 0, gcd, gcd*2, gcd*3....big+small
-    # if big and small has gcd (==1), then only 0, gcd, gcd*2, gcd*3....big+small
-    def gcd(self, a, b):
-        while b:
-            a, b = b, a % b
-        return a
-
-    def canMeasureWater(self, x: int, y: int, z: int) -> bool:
-        if x == 0 or y == 0:
-            return z == 0 or z == x or z == y
-        g = self.gcd(x, y)
-        return z <= x + y and z % g == 0
+# class Solution:
+#
+#     # Version A2
+#     # math:
+#     # if big and small has no gcd (==1), then only 0, gcd, gcd*2, gcd*3....big+small
+#     # if big and small has gcd (==1), then only 0, gcd, gcd*2, gcd*3....big+small
+#     def gcd(self, a, b):
+#         while b:
+#             a, b = b, a % b
+#         return a
+#
+#     def canMeasureWater(self, x: int, y: int, z: int) -> bool:
+#         if x == 0 or y == 0:
+#             return z == 0 or z == x or z == y
+#         g = self.gcd(x, y)
+#         return z <= x + y and z % g == 0
 
 
 if __name__ == "__main__":
     assert Solution().canMeasureWater(0, 0, 0), "Edge 0"
     assert not Solution().canMeasureWater(0, 2, 1), "Edge 1"
-    assert Solution().canMeasureWater(1, 2, 3), "Edge 2"
+    assert not Solution().canMeasureWater(1, 2, 3), "Edge 2"
 
     assert Solution().canMeasureWater(3, 5, 4), "Example 1, Di Hard"
     assert not Solution().canMeasureWater(2, 6, 5), "Example 2"
