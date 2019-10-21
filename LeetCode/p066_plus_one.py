@@ -26,6 +26,24 @@ class Solution:
             return digits
 
 
+class Solution:
+    def plusOne(self, digits: List[int]) -> List[int]:
+        """
+        STD ans with carry number
+        """
+        carry = 1
+        for i in reversed(range(len(digits))):
+            tmp = digits[i]
+            carry, digits[i] = divmod(tmp + carry, 10)
+            if carry == 0:
+                break
+
+        if carry == 1:
+            digits.insert(0, carry)
+
+        return  digits
+
+
 if __name__ == "__main__":
     assert Solution().plusOne([0]) == [1], "Edge 0"
     assert Solution().plusOne([1, 2, 3]) == [1, 2, 4], "Example 1"
