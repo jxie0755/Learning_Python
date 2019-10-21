@@ -1,21 +1,26 @@
-# p067 Add Binary
-# Easy
+"""
+https://leetcode.com/problems/add-binary/
+p067 Add Binary
+Easy
 
-# Given two binary strings, return their sum (also a binary string)
-
-# """
-# :type a: str
-# :type b: str
-# :rtype: str
-# """
+Given two binary strings, return their sum (also a binary string)
+"""
 
 class Solution:
-    def addBinary(self, a, b):
-        # use python characteristics
+    def addBinary(self, a: str, b: str) -> str:
+        """
+        Version A
+        use python built-in conversion
+        """
         return "{:b}".format(int(a, 2) + int(b, 2))
 
-    def addBinary(self, a, b):
-        # avoid python characteristics
+class Solution:
+    def addBinary(self, a: str, b: str) -> str:
+        """
+        Version B
+        Convert binary to decimal then add, and return the binary conversion of the result
+        This will pass but very tedious
+        """
         def bi_to_deci(target):
             return sum([int(target[::-1][i]) * 2 ** i for i in range(len(target))])
 
@@ -30,8 +35,32 @@ class Solution:
 
         return deci_to_bi(bi_to_deci(a) + bi_to_deci(b))
 
+class Solution:
+    def addBinary(self, a: str, b: str) -> str:
+        """
+        Version C
+        Use the same logic of binary add calculation
+        """
+        carry = 0
+        result = ""
+
+        while a or b:
+            a_end = int(a[-1]) if a else 0
+            b_end = int(b[-1]) if b else 0
+            carry, tmp = divmod(a_end + b_end + carry, 2)
+            result = str(tmp) + result
+            a, b = a[:-1], b[:-1]
+
+        return "1" + result if carry else result
+
+
+
 
 if __name__ == "__main__":
-    assert Solution().addBinary("11", "1") == "100", "regular"
     assert Solution().addBinary("0", "0") == "0", "zero"
+    assert Solution().addBinary("11", "1") == "100", "Example 1"
+    assert Solution().addBinary("1010", "1011") == "10101", "Example 2"
+    assert Solution().addBinary("111", "1") == "1000", "extra 1"
     print("all passed")
+
+
