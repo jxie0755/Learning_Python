@@ -54,6 +54,7 @@ class Solution:
         return "1" + result if carry else result
 
 
+
 if __name__ == "__main__":
     assert Solution().addBinary("0", "0") == "0", "zero"
     assert Solution().addBinary("11", "1") == "100", "Example 1"
