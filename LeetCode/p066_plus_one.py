@@ -41,7 +41,7 @@ class Solution:
         if carry == 1:
             digits.insert(0, carry)
 
-        return  digits
+        return digits
 
 
 if __name__ == "__main__":
