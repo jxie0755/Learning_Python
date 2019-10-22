@@ -13,20 +13,20 @@ Each time you can either climb 1 or 2 steps. In how many distinct ways can you c
 # 所以结果就是 x + y, 本质上就是斐波那契数列
 """
 
-class Solution:
+class Solution_A:
     def climbStairs(self, n: int) -> int:
         """
-        Version A, typical fibonacci recursion
+        typical fibonacci recursion
         """
         if n <= 2:
             return n
         else:
             return self.climbStairs(n - 1) + self.climbStairs(n - 2)
 
-class Solution:
+class Solution_B:
     def climbStairs(self, n: int) -> int:
         """
-        Version B, typical fibonacci iteration
+        typical fibonacci iteration
         """
         a, b = 0, 1
         for x in range(n + 1):
@@ -35,7 +35,9 @@ class Solution:
 
 
 if __name__ == "__main__":
-    assert Solution().climbStairs(2) == 2
-    assert Solution().climbStairs(3) == 3
-    assert Solution().climbStairs(7) == 21
+    testMethod = Solution_B().climbStairs
+    assert testMethod(1) == 1, "Edge 1"
+    assert testMethod(2) == 2, "Example 1"
+    assert testMethod(3) == 3, "Example 2"
+    assert testMethod(7) == 21, "Long"
     print("passed")
