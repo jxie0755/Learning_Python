@@ -37,15 +37,15 @@ class Solution:
         Version A2
         A modified binary search
         """
-        left, right = 1, x
+        low, hight = 1, x
         while True:
-            middle = int((left + right) / 2)
+            middle = int((low + hight) / 2)
             if middle * middle <= x and (middle + 1) * (middle + 1) > x:
                 return middle
             elif middle * middle > x:
-                right = middle
+                hight = middle
             else:
-                left = middle
+                low = middle
 
 class Solution_Cheat:
     def mySqrt(self, x):
