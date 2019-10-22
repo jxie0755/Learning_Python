@@ -1,18 +1,19 @@
-# p069 Sqrt(x)
-# Easy
+"""
+https://leetcode.com/problems/sqrtx/
+p069 Sqrt(x)
+Easy
 
-# Implement int sqrt(int x).
-#  Compute and return the square root of x, where x is guaranteed to be a non-negative integer.
-# Since the return type is an integer, the decimal digits are truncated and only the integer part of the result is returned.
-
+Implement int sqrt(int x).
+ Compute and return the square root of x, where x is guaranteed to be a non-negative integer.
+Since the return type is an integer, the decimal digits are truncated and only the integer part of the result is returned.
+"""
 
 class Solution:
-    # DO not use the straight high-low method, because it will return float number incorrectly to be integerized.
-    # Handle the integer method from the begining
-    def mySqrt(self, x):
+    def mySqrt(self, x: int) -> int:
         """
-        :type x: int
-        :rtype: int
+        Version A1, binary search
+        DO not use the straight high-low method, because it will return float number incorrectly to be integerized.
+        Handle the integer method from the begining
         """
         high, low = x, 1
         temp_result = (high + low) / 2
@@ -30,8 +31,12 @@ class Solution:
         else:
             return temp_result + 1
 
-    def mySqrt2(self, x):
-        # A modified binary search:
+class Solution:
+    def mySqrt(self, x: int) -> int:
+        """
+        Version A2
+        A modified binary search
+        """
         left, right = 1, x
         while True:
             middle = int((left + right) / 2)
@@ -42,8 +47,9 @@ class Solution:
             else:
                 left = middle
 
-    def mySqrt3(self, x):
-        # Cheating by use python internal function
+class Solution_Cheat:
+    def mySqrt(self, x):
+        """Cheating by use python internal function"""
         return int(x ** 0.5)
 
 
