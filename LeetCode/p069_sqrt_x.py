@@ -59,5 +59,5 @@ if __name__ == "__main__":
     assert Solution().mySqrt(4) == 2
     assert Solution().mySqrt(8) == 2
     assert Solution().mySqrt(36) == 6
-    assert Solution().mySqrt(2147395600) == 46340
+    assert Solution().mySqrt(2147395601) == 46340
     print("all passed")
