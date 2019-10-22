@@ -8,10 +8,10 @@ Implement int sqrt(int x).
 Since the return type is an integer, the decimal digits are truncated and only the integer part of the result is returned.
 """
 
-class Solution:
+class Solution_A1:
     def mySqrt(self, x: int) -> int:
         """
-        Version A1, binary search
+        Binary search
         DO not use the straight high-low method, because it will return float number incorrectly to be integerized.
         Handle the integer method from the begining
         """
@@ -31,10 +31,9 @@ class Solution:
         else:
             return temp_result + 1
 
-class Solution:
+class Solution_A2:
     def mySqrt(self, x: int) -> int:
         """
-        Version A2
         A modified binary search
         """
         low, high = 1, x
@@ -54,10 +53,11 @@ class Solution_Cheat:
 
 
 if __name__ == "__main__":
-    assert Solution().mySqrt(0) == 0
-    assert Solution().mySqrt(1) == 1
-    assert Solution().mySqrt(4) == 2
-    assert Solution().mySqrt(8) == 2
-    assert Solution().mySqrt(36) == 6
-    assert Solution().mySqrt(2147395601) == 46340
+    testMethod = Solution_A2().mySqrt
+    assert testMethod(0) == 0
+    assert testMethod(1) == 1
+    assert testMethod(4) == 2
+    assert testMethod(8) == 2
+    assert testMethod(36) == 6
+    assert testMethod(2147395601) == 46340
     print("all passed")
