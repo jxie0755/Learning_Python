@@ -48,18 +48,18 @@ class Solution_A:
 
 
 if __name__ == "__main__":
-    testMethod = Solution_A().merge
+    testCase = Solution_A()
 
     lst = [[0, 1]]
-    assert testMethod(lst) == [[0, 1]], "Edge 1"
+    assert testCase.merge(lst) == [[0, 1]], "Edge 1"
 
     lst = [[1, 3], [2, 6], [8, 10], [15, 18]]
-    assert testMethod(lst) == [[1, 6], [8, 10], [15, 18]], "Example 1"
+    assert testCase.merge(lst) == [[1, 6], [8, 10], [15, 18]], "Example 1"
 
     lst = [[15, 18], [1, 3], [8, 10], [2, 6]]
-    assert testMethod(lst) == [[1, 6], [8, 10], [15, 18]], "Example 1 unsorted"
+    assert testCase.merge(lst) == [[1, 6], [8, 10], [15, 18]], "Example 1 unsorted"
 
     lst = [[1, 4], [4, 5]]
-    assert testMethod(lst) == [[1, 5]], "Example 2"
+    assert testCase.merge(lst) == [[1, 5]], "Example 2"
 
     print("all passed")

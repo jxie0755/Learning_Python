@@ -108,41 +108,41 @@ class Solution_B:
 
 
 if __name__ == "__main__":
-    testMethod = Solution_B().spiralOrder
+    testCase = Solution_B()
 
     edge_0 = []
-    assert testMethod(edge_0) == [], "Edge 0"
+    assert testCase.spiralOrder(edge_0) == [], "Edge 0"
 
     edge_1 = [[]]
-    assert testMethod(edge_1) == [], "Edge 1"
+    assert testCase.spiralOrder(edge_1) == [], "Edge 1"
 
     edge_2 = [[1]]
-    assert testMethod(edge_2) == [1], "Edge 2"
+    assert testCase.spiralOrder(edge_2) == [1], "Edge 2"
 
     edge_3 = [[1], [2]]
-    assert testMethod(edge_3) == [1, 2], "Edge 3"
+    assert testCase.spiralOrder(edge_3) == [1, 2], "Edge 3"
 
     edge_4 = [[1, 2]]
-    assert testMethod(edge_4) == [1, 2], "Edge 4"
+    assert testCase.spiralOrder(edge_4) == [1, 2], "Edge 4"
 
     sample_1 = [
         [1, 2, 3],
         [4, 5, 6],
         [7, 8, 9]
     ]
-    assert testMethod(sample_1) == [1, 2, 3, 6, 9, 8, 7, 4, 5], "Example 1"
+    assert testCase.spiralOrder(sample_1) == [1, 2, 3, 6, 9, 8, 7, 4, 5], "Example 1"
 
     sample_2 = [
         [1, 2, 3, 4],
         [5, 6, 7, 8],
         [9, 10, 11, 12]
     ]
-    assert testMethod(sample_2) == [1, 2, 3, 4, 8, 12, 11, 10, 9, 5, 6, 7], "Example 2"
+    assert testCase.spiralOrder(sample_2) == [1, 2, 3, 4, 8, 12, 11, 10, 9, 5, 6, 7], "Example 2"
 
     sample_3 = [
         [1,2],
         [3,4]
     ]
-    assert testMethod(sample_3) == [1,2,4,3], "Example 3"
+    assert testCase.spiralOrder(sample_3) == [1,2,4,3], "Example 3"
 
     print("all passed")

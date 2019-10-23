@@ -53,14 +53,14 @@ class Solution_STD:
 
 
 if __name__ == "__main__":
-    testMethod = Solution_STD().firstMissingPositive
-    assert testMethod([]) == 1, "Edge 1"
-    assert testMethod([1]) == 2, "Edge 2"
-    assert testMethod([2]) == 1, "Edge 3"
-    assert testMethod([-1]) == 1, "Edge 4"
+    testCase = Solution_STD()
+    assert testCase.firstMissingPositive([]) == 1, "Edge 1"
+    assert testCase.firstMissingPositive([1]) == 2, "Edge 2"
+    assert testCase.firstMissingPositive([2]) == 1, "Edge 3"
+    assert testCase.firstMissingPositive([-1]) == 1, "Edge 4"
 
-    assert testMethod([1, 2, 0]) == 3, "Example 1"
-    assert testMethod([3, 4, -1, 1]) == 2, "Example 2"
-    assert testMethod([7, 8, 9, 11, 12]) == 1, "Example 3"
+    assert testCase.firstMissingPositive([1, 2, 0]) == 3, "Example 1"
+    assert testCase.firstMissingPositive([3, 4, -1, 1]) == 2, "Example 2"
+    assert testCase.firstMissingPositive([7, 8, 9, 11, 12]) == 1, "Example 3"
 
     print("all passed")

@@ -54,18 +54,18 @@ class Solution_C:
 
 
 if __name__ == "__main__":
-    testMethod = Solution_A().removeElement
+    testCase = Solution_A()
 
     nums = []
-    assert testMethod(nums, 3) == 0, "Edge"
+    assert testCase.removeElement(nums, 3) == 0, "Edge"
     assert nums == [], "Edge final list"
 
     nums = [3, 2, 2, 3]
-    assert testMethod(nums, 3) == 2, "Example 1"
+    assert testCase.removeElement(nums, 3) == 2, "Example 1"
     assert nums == [2, 2, 2, 3], "Example 1 final list"
 
     nums = [0, 1, 2, 2, 3, 0, 4, 2]
-    assert testMethod(nums, 2) == 5, "Example 2"
+    assert testCase.removeElement(nums, 2) == 5, "Example 2"
     assert nums == [0, 1, 3, 0, 4, 0, 4, 2], "Example 2 final list"
 
     print('all passed')

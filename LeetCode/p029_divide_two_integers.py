@@ -76,14 +76,14 @@ class Solution_B:
 
 
 if __name__ == "__main__":
-    testMethod = Solution_B().divide
-    assert testMethod(1, 3) == 0, "Edge 1"
+    testCase = Solution_B()
+    assert testCase.divide(1, 3) == 0, "Edge 1"
 
-    assert testMethod(10, 3) == 3, "Example 1"
-    assert testMethod(7, -3) == -2, "Example 2"
-    assert testMethod(1, 1) == 1, "Example 3"
+    assert testCase.divide(10, 3) == 3, "Example 1"
+    assert testCase.divide(7, -3) == -2, "Example 2"
+    assert testCase.divide(1, 1) == 1, "Example 3"
 
-    assert testMethod(-2147483648, 1) == -2147483648, "Edge 2"
-    assert testMethod(-2147483648, -1) == 2147483647, "Edge 3"
+    assert testCase.divide(-2147483648, 1) == -2147483648, "Edge 2"
+    assert testCase.divide(-2147483648, -1) == 2147483647, "Edge 3"
 
     print("all passed")

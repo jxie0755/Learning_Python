@@ -39,10 +39,10 @@ class Solution_A:
 
 
 if __name__ == "__main__":
-    testMethod = Solution_A().generateMatrix
-    assert testMethod(1) == [[1]], "Edge 1"
+    testCase = Solution_A()
+    assert testCase.generateMatrix(1) == [[1]], "Edge 1"
 
-    assert testMethod(3) == [
+    assert testCase.generateMatrix(3) == [
         [1, 2, 3],
         [8, 9, 4],
         [7, 6, 5]

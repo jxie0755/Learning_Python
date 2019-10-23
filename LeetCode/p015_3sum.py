@@ -245,17 +245,17 @@ class Solution_STD:
 
 
 if __name__ == "__main__":
-    testMethod = Solution_STD().threeSum
-    assert testMethod([]) == [], "Edge 1"
-    assert testMethod([1]) == [], "Edge 2"
-    assert testMethod([1, 1]) == [], "Edge 3"
+    testCase = Solution_STD()
+    assert testCase.threeSum([]) == [], "Edge 1"
+    assert testCase.threeSum([1]) == [], "Edge 2"
+    assert testCase.threeSum([1, 1]) == [], "Edge 3"
 
-    assert testMethod([-1, 0, 1, 2, -1, -4]) == [[-1, -1, 2], [-1, 0, 1]], "Example 1"
-    assert testMethod([-4, -2, -2, -2, 0, 1, 2, 2, 2, 3, 3, 4, 4, 6, 6]) == [[-4, -2, 6], [-4, 0, 4],
+    assert testCase.threeSum([-1, 0, 1, 2, -1, -4]) == [[-1, -1, 2], [-1, 0, 1]], "Example 1"
+    assert testCase.threeSum([-4, -2, -2, -2, 0, 1, 2, 2, 2, 3, 3, 4, 4, 6, 6]) == [[-4, -2, 6], [-4, 0, 4],
                                                                                       [-4, 1, 3], [-4, 2, 2],
                                                                                       [-2, -2, 4],
                                                                                       [-2, 0, 2]], "Example 2"
-    assert testMethod([-4, -2, -1]) == [], "Example 3"
-    assert testMethod([0, 0, 0]) == [[0, 0, 0]], "Example 4"
+    assert testCase.threeSum([-4, -2, -1]) == [], "Example 3"
+    assert testCase.threeSum([0, 0, 0]) == [[0, 0, 0]], "Example 4"
 
     print("all passed")

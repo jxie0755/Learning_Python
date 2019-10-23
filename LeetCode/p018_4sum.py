@@ -57,13 +57,13 @@ class Solution_A:
 
 
 if __name__ == "__main__":
-    testMethod = Solution_A().fourSum
-    assert testMethod([], 0) == [], "Edge 1"
-    assert testMethod([1], 0) == [], "Edge 2"
-    assert testMethod([0, 0, 0, 0], 0) == [[0, 0, 0, 0]], "Edge 3"
+    testCase = Solution_A()
+    assert testCase.fourSum([], 0) == [], "Edge 1"
+    assert testCase.fourSum([1], 0) == [], "Edge 2"
+    assert testCase.fourSum([0, 0, 0, 0], 0) == [[0, 0, 0, 0]], "Edge 3"
 
-    assert testMethod([1, 0, -1, 0, -2, 2], 0) == [[-2, -1, 1, 2], [-2, 0, 0, 2], [-1, 0, 0, 1]], "Example 1"
-    assert testMethod([-3, -2, -1, 0, 0, 1, 2, 3], 0) == [[-3, -2, 2, 3], [-3, -1, 1, 3], [-3, 0, 0, 3],
+    assert testCase.fourSum([1, 0, -1, 0, -2, 2], 0) == [[-2, -1, 1, 2], [-2, 0, 0, 2], [-1, 0, 0, 1]], "Example 1"
+    assert testCase.fourSum([-3, -2, -1, 0, 0, 1, 2, 3], 0) == [[-3, -2, 2, 3], [-3, -1, 1, 3], [-3, 0, 0, 3],
                                                                   [-3, 0, 1, 2], [-2, -1, 0, 3], [-2, -1, 1, 2],
                                                                   [-2, 0, 0, 2], [-1, 0, 0, 1]], "Exmaple 2"
     print("all passed")

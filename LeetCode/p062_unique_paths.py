@@ -62,12 +62,12 @@ class Solution_C:
 
 
 if __name__ == "__main__":
-    testMethod = Solution_C().uniquePaths
-    assert testMethod(1, 1) == 1, "Edge 1"
-    assert testMethod(4, 1) == 1, "Edge 2"
-    assert testMethod(1, 4) == 1, "Edge 3"
+    testCase = Solution_C()
+    assert testCase.uniquePaths(1, 1) == 1, "Edge 1"
+    assert testCase.uniquePaths(4, 1) == 1, "Edge 2"
+    assert testCase.uniquePaths(1, 4) == 1, "Edge 3"
 
-    assert testMethod(3, 2) == 3, "Example 1"
-    assert testMethod(7, 3) == 28, "Example 2"
-    assert testMethod(23, 12) == 193536720, "Example 3, large number"
+    assert testCase.uniquePaths(3, 2) == 3, "Example 1"
+    assert testCase.uniquePaths(7, 3) == 28, "Example 2"
+    assert testCase.uniquePaths(23, 12) == 193536720, "Example 3, large number"
     print("all passed")

@@ -115,15 +115,15 @@ class Solution_STD:
 
 
 if __name__ == "__main__":
-    testMethod = Solution_STD().lengthOfLongestSubstring
-    assert testMethod("") == 0, "Edge 1"
-    assert testMethod(" ") == 1, "Edge 2"
-    assert testMethod("au") == 2, "Edge 3"
-    assert testMethod("aab") == 2, "Edge 4"
-    assert testMethod("dvdf") == 3, "Edge 5"
+    testCase = Solution_STD()
+    assert testCase.lengthOfLongestSubstring("") == 0, "Edge 1"
+    assert testCase.lengthOfLongestSubstring(" ") == 1, "Edge 2"
+    assert testCase.lengthOfLongestSubstring("au") == 2, "Edge 3"
+    assert testCase.lengthOfLongestSubstring("aab") == 2, "Edge 4"
+    assert testCase.lengthOfLongestSubstring("dvdf") == 3, "Edge 5"
 
-    assert testMethod("abcabcbb") == 3, "Example 1, abc"
-    assert testMethod("bbbbb") == 1, "Example 2, b"
-    assert testMethod("pwwkew") == 3, "Example 3, wke"
-    assert testMethod("tmmzuxt") == 5, "Example 4, mzuxt"
+    assert testCase.lengthOfLongestSubstring("abcabcbb") == 3, "Example 1, abc"
+    assert testCase.lengthOfLongestSubstring("bbbbb") == 1, "Example 2, b"
+    assert testCase.lengthOfLongestSubstring("pwwkew") == 3, "Example 3, wke"
+    assert testCase.lengthOfLongestSubstring("tmmzuxt") == 5, "Example 4, mzuxt"
     print("all passed")

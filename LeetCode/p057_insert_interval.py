@@ -93,28 +93,28 @@ class Solution_B:
 
 
 if __name__ == "__main__":
-    testMethod = Solution_B().insert
-    assert testMethod([], [1, 2]) == [[1, 2]], "Edge 1"
+    testCase = Solution_B()
+    assert testCase.insert([], [1, 2]) == [[1, 2]], "Edge 1"
 
-    assert testMethod([[1,5]], [1, 2]) == [[1, 5]], "Edge 2"
+    assert testCase.insert([[1,5]], [1, 2]) == [[1, 5]], "Edge 2"
 
-    assert testMethod([[1,5]], [2, 7]) == [[1, 7]], "Edge 3"
+    assert testCase.insert([[1,5]], [2, 7]) == [[1, 7]], "Edge 3"
 
     lst = [[1, 3], [6, 9]]
-    assert testMethod(lst,[2, 5]) == [
+    assert testCase.insert(lst,[2, 5]) == [
         [1, 5],
         [6, 9]
     ], "Example 1"
 
     lst = [[1, 2], [3, 5], [6, 7], [8, 10], [12, 16]]
-    assert testMethod(lst, [4, 8]) == [
+    assert testCase.insert(lst, [4, 8]) == [
         [1, 2],
         [3, 10],
         [12, 16]
     ], "Example 2"
 
     lst = [[1, 2], [3, 7], [4, 6], [8, 10], [12, 16]]
-    assert testMethod(lst, [4, 8]) == [
+    assert testCase.insert(lst, [4, 8]) == [
         [1, 2],
         [3, 10],
         [12, 16]

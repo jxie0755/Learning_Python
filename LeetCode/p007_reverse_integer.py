@@ -39,9 +39,9 @@ class Solution_B:
 
 
 if __name__ == "__main__":
-    testMethod = Solution_B().reverse
-    assert testMethod(123) == 321, "regular"
-    assert testMethod(-120) == -21, "tricky reverse"
-    assert testMethod(1534236469) == 0, "large number"
-    assert testMethod(0) == 0, "zero"
+    testCase = Solution_B()
+    assert testCase.reverse(123) == 321, "regular"
+    assert testCase.reverse(-120) == -21, "tricky reverse"
+    assert testCase.reverse(1534236469) == 0, "large number"
+    assert testCase.reverse(0) == 0, "zero"
     print("all passed")

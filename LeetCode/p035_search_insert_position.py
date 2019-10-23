@@ -22,10 +22,10 @@ class Solution_A:
 
 
 if __name__ == "__main__":
-    testMethod = Solution_A().searchInsert
-    assert testMethod([], 5) == 0, "Empty"
-    assert testMethod([1, 3, 5, 6], 5) == 2, "In the list"
-    assert testMethod([1, 3, 5, 6], 2) == 1, "Not in the list"
-    assert testMethod([1, 3, 5, 6], 7) == 4, "At the end"
-    assert testMethod([1, 3, 5, 6], 0) == 0, "At the beginning"
+    testCase = Solution_A()
+    assert testCase.searchInsert([], 5) == 0, "Empty"
+    assert testCase.searchInsert([1, 3, 5, 6], 5) == 2, "In the list"
+    assert testCase.searchInsert([1, 3, 5, 6], 2) == 1, "Not in the list"
+    assert testCase.searchInsert([1, 3, 5, 6], 7) == 4, "At the end"
+    assert testCase.searchInsert([1, 3, 5, 6], 0) == 0, "At the beginning"
     print("all passed")

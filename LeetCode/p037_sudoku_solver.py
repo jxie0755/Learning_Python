@@ -572,7 +572,7 @@ class Solution_B:
 
 
 if __name__ == "__main__":
-    testMethod = Solution_B().solveSudoku
+    testCase = Solution_B()
 
     question = [
         ["5", "3", ".", ".", "7", ".", ".", ".", "."],
@@ -585,7 +585,7 @@ if __name__ == "__main__":
         [".", ".", ".", "4", "1", "9", ".", ".", "5"],
         [".", ".", ".", ".", "8", ".", ".", "7", "9"]]
 
-    testMethod(question)
+    testCase.solveSudoku(question)
     assert question == [
         ["5", "3", "4", "6", "7", "8", "9", "1", "2"],
         ["6", "7", "2", "1", "9", "5", "3", "4", "8"],
@@ -610,7 +610,7 @@ if __name__ == "__main__":
         [".", ".", ".", "2", "7", "5", "9", ".", "."]
     ]
 
-    testMethod(question_2)
+    testCase.solveSudoku(question_2)
     assert question_2 == [
         ["5", "1", "9", "7", "4", "8", "6", "3", "2"],
         ["7", "8", "3", "6", "5", "2", "4", "1", "9"],

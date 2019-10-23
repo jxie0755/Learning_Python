@@ -123,12 +123,12 @@ class Solution_D:
 
 
 if __name__ == "__main__":
-    testMethod = Solution_D().permute
-    assert testMethod([1]) == [
+    testCase = Solution_D()
+    assert testCase.permute([1]) == [
         [1]
     ], "Edge 1"
 
-    assert testMethod([1, 2, 3]) == [
+    assert testCase.permute([1, 2, 3]) == [
         [1, 2, 3],
         [1, 3, 2],
         [2, 1, 3],

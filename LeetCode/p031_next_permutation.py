@@ -114,46 +114,46 @@ class Solution_prev:
 
 
 if __name__ == "__main__":
-    testMethod = Solution_B().nextPermutation
+    testCase = Solution_B()
 
     a = []
-    testMethod(a)
+    testCase.nextPermutation(a)
     assert a == [], "Edge 1"
 
     a = [1]
-    testMethod(a)
+    testCase.nextPermutation(a)
     assert a == [1], "Edge 2"
 
     a = [1, 2]
-    testMethod(a)
+    testCase.nextPermutation(a)
     assert a == [2, 1], "Edge 3"
 
     a = [1, 2, 3]
-    testMethod(a)
+    testCase.nextPermutation(a)
     assert a == [1, 3, 2], "Example 1"
 
     a = [3, 2, 1]
-    testMethod(a)
+    testCase.nextPermutation(a)
     assert a == [1, 2, 3], "Example 2"
 
     a = [1, 1, 5]
-    testMethod(a)
+    testCase.nextPermutation(a)
     assert a == [1, 5, 1], "Example 3"
 
     a = [5, 1, 1]
-    testMethod(a)
+    testCase.nextPermutation(a)
     assert a == [1, 1, 5], "Extra 1"
 
     a = [2, 2, 2]
-    testMethod(a)
+    testCase.nextPermutation(a)
     assert a == [2, 2, 2], "Extra 2"
 
     a = [1, 2, 2, 2]
-    testMethod(a)
+    testCase.nextPermutation(a)
     assert a == [2, 1, 2, 2], "Extra 3"
 
     a = [2, 3, 1]
-    testMethod(a)
+    testCase.nextPermutation(a)
     assert a == [3, 1, 2], "Exatra 4"
 
     print("all passed")

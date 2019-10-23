@@ -29,11 +29,11 @@ class Solution_B:
 
 
 if __name__ == "__main__":
-    testMethod = Solution_B().isPalindrome
-    assert testMethod(21477412) == True, "Is palindrome (even)"
-    assert testMethod(12321) == True, "Is palindrome (odd)"
-    assert not testMethod(1477412), "Not palindrome"
-    assert testMethod(1), "Single digit 1"
-    assert testMethod(0), "Single digit 0"
+    testCase = Solution_B()
+    assert testCase.isPalindrome(21477412) == True, "Is palindrome (even)"
+    assert testCase.isPalindrome(12321) == True, "Is palindrome (odd)"
+    assert not testCase.isPalindrome(1477412), "Not palindrome"
+    assert testCase.isPalindrome(1), "Single digit 1"
+    assert testCase.isPalindrome(0), "Single digit 0"
 
     print("all passed")

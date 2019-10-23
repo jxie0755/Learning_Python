@@ -86,25 +86,25 @@ class Solution_B:
 
 
 if __name__ == "__main__":
-    testMethod = Solution_B().search
-    assert testMethod([], 1) == -1, "Edge 1"
-    assert testMethod([1], 1) == 0, "Edge 2"
-    assert testMethod([0], 1) == -1, "Edge 3"
+    testCase = Solution_B()
+    assert testCase.search([], 1) == -1, "Edge 1"
+    assert testCase.search([1], 1) == 0, "Edge 2"
+    assert testCase.search([0], 1) == -1, "Edge 3"
 
-    assert testMethod([4, 5, 6, 7, 0, 1, 2], 0) == 4, "Example 1"
-    assert testMethod([4, 5, 6, 7, 0, 1, 2], 3) == -1, "Example 2"
+    assert testCase.search([4, 5, 6, 7, 0, 1, 2], 0) == 4, "Example 1"
+    assert testCase.search([4, 5, 6, 7, 0, 1, 2], 3) == -1, "Example 2"
 
-    assert testMethod([3, 4, 5, 6, 7, 8, 9, 10, 1, 2], 3) == 0, "Additional 1"
-    assert testMethod([3, 4, 5, 6, 7, 8, 9, 10, 1, 2], 4) == 1, "Additional 2"
-    assert testMethod([3, 4, 5, 6, 7, 8, 9, 10, 1, 2], 8) == 5, "Additional 3"
-    assert testMethod([3, 4, 5, 6, 7, 8, 9, 10, 1, 2], 10) == 7, "Additional 4"
-    assert testMethod([3, 4, 5, 6, 7, 8, 9, 10, 1, 2], 1) == 8, "Additional 5"
-    assert testMethod([3, 4, 5, 6, 7, 8, 9, 10, 1, 2], 2) == 9, "Additional 6"
+    assert testCase.search([3, 4, 5, 6, 7, 8, 9, 10, 1, 2], 3) == 0, "Additional 1"
+    assert testCase.search([3, 4, 5, 6, 7, 8, 9, 10, 1, 2], 4) == 1, "Additional 2"
+    assert testCase.search([3, 4, 5, 6, 7, 8, 9, 10, 1, 2], 8) == 5, "Additional 3"
+    assert testCase.search([3, 4, 5, 6, 7, 8, 9, 10, 1, 2], 10) == 7, "Additional 4"
+    assert testCase.search([3, 4, 5, 6, 7, 8, 9, 10, 1, 2], 1) == 8, "Additional 5"
+    assert testCase.search([3, 4, 5, 6, 7, 8, 9, 10, 1, 2], 2) == 9, "Additional 6"
 
-    assert testMethod([8, 9, 10, 1, 2, 3, 4, 5, 6, 7], 8) == 0, "Additional 7"
-    assert testMethod([8, 9, 10, 1, 2, 3, 4, 5, 6, 7], 1) == 3, "Additional 8"
-    assert testMethod([8, 9, 10, 1, 2, 3, 4, 5, 6, 7], 6) == 8, "Additional 9"
+    assert testCase.search([8, 9, 10, 1, 2, 3, 4, 5, 6, 7], 8) == 0, "Additional 7"
+    assert testCase.search([8, 9, 10, 1, 2, 3, 4, 5, 6, 7], 1) == 3, "Additional 8"
+    assert testCase.search([8, 9, 10, 1, 2, 3, 4, 5, 6, 7], 6) == 8, "Additional 9"
 
-    assert testMethod([1, 3], 2) == -1, "Extra"
+    assert testCase.search([1, 3], 2) == -1, "Extra"
 
     print("all passed")

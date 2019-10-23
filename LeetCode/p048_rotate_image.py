@@ -51,13 +51,13 @@ class Solution_B:
 
 
 if __name__ == "__main__":
-    testMethod = Solution_B().rotate
+    testCase = Solution_B()
     edge_1 = [[1]]
-    testMethod(edge_1)
+    testCase.rotate(edge_1)
     assert edge_1 == [[1]], "Edge 1"
 
     edge_2 = [[]]
-    testMethod(edge_2)
+    testCase.rotate(edge_2)
     assert edge_2 == [[]], "Edge 2"
 
     sample_1 = [
@@ -73,8 +73,8 @@ if __name__ == "__main__":
         [15, 14, 12, 16]
     ]
 
-    testMethod(sample_1)
-    testMethod(sample_2)
+    testCase.rotate(sample_1)
+    testCase.rotate(sample_2)
 
     assert sample_1 == [
         [7, 4, 1],

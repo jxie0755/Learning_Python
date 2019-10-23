@@ -49,14 +49,14 @@ class Solution_A:
 
 
 if __name__ == "__main__":
-    testMethod = Solution_A().letterCombinations
-    assert testMethod("") == [], "Edge 1"
-    assert testMethod("1") == [""], "Edge 2"
-    assert testMethod("0") == [" "], "Edge 3"
+    testCase = Solution_A()
+    assert testCase.letterCombinations("") == [], "Edge 1"
+    assert testCase.letterCombinations("1") == [""], "Edge 2"
+    assert testCase.letterCombinations("0") == [" "], "Edge 3"
 
-    assert testMethod("2") == ["a", "b", "c"], "Example 1"
-    assert testMethod("20") == ["a ", "b ", "c "], "Example 2"
-    assert testMethod("23") == ["ad", "ae", "af", "bd", "be", "bf", "cd", "ce", "cf"], "Example 3"
-    assert testMethod("213") == ["ad", "ae", "af", "bd", "be", "bf", "cd", "ce", "cf"], "Example 4"
+    assert testCase.letterCombinations("2") == ["a", "b", "c"], "Example 1"
+    assert testCase.letterCombinations("20") == ["a ", "b ", "c "], "Example 2"
+    assert testCase.letterCombinations("23") == ["ad", "ae", "af", "bd", "be", "bf", "cd", "ce", "cf"], "Example 3"
+    assert testCase.letterCombinations("213") == ["ad", "ae", "af", "bd", "be", "bf", "cd", "ce", "cf"], "Example 4"
 
     print("all passed")

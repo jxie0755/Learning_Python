@@ -48,11 +48,11 @@ class Solution_B:
 
 
 if __name__ == "__main__":
-    testMethod = Solution_B().longestCommonPrefix
+    testCase = Solution_B()
     lst = ["Denis Xie", "Dennis X", "Dendi Den", "Denn"]
-    assert testMethod(lst) == "Den", "regular test"
+    assert testCase.longestCommonPrefix(lst) == "Den", "regular test"
 
     lst2 = []
-    assert testMethod(lst2) == "", "empty list"
+    assert testCase.longestCommonPrefix(lst2) == "", "empty list"
 
     print("all passed")

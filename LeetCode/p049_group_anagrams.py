@@ -31,20 +31,20 @@ class Solution_A:
 
 
 if __name__ == "__main__":
-    testMethod = Solution_A().groupAnagrams
+    testCase = Solution_A()
 
     edge_1 = []
-    assert testMethod(edge_1) == [
+    assert testCase.groupAnagrams(edge_1) == [
         []
     ], "edge 1"
 
     edge_2 = ["a"]
-    assert testMethod(edge_2) == [
+    assert testCase.groupAnagrams(edge_2) == [
         ["a"]
     ], "edge 2"
 
     sample_1 = ["eat", "tea", "tan", "ate", "nat", "bat"]
-    assert testMethod(sample_1) == [
+    assert testCase.groupAnagrams(sample_1) == [
         ["eat", "tea", "ate"],
         ["tan", "nat"],
         ["bat"]

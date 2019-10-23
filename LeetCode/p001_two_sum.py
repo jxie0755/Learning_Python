@@ -49,10 +49,10 @@ class Solution_C:
 
 
 if __name__ == "__main__":
-    testMethod = Solution_C().twoSum
-    assert testMethod([11, 2, 7, 15], 9) == [1, 2], "regular"
-    assert testMethod([11, 7, 2, 15], 9) == [1, 2], "regular revert"
-    assert testMethod([3, 3], 6) == [0, 1], "two identical"
-    assert testMethod([-1, -2, -3, -4, -5], -8) == [2, 4], "negative int"
-    assert testMethod([3, 2, 4], 6) == [1, 2], "struggle with 1/2 target"
+    testCase = Solution_C()
+    assert testCase.twoSum([11, 2, 7, 15], 9) == [1, 2], "regular"
+    assert testCase.twoSum([11, 7, 2, 15], 9) == [1, 2], "regular revert"
+    assert testCase.twoSum([3, 3], 6) == [0, 1], "two identical"
+    assert testCase.twoSum([-1, -2, -3, -4, -5], -8) == [2, 4], "negative int"
+    assert testCase.twoSum([3, 2, 4], 6) == [1, 2], "struggle with 1/2 target"
     print("all passed")

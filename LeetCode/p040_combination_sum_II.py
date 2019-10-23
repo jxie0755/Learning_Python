@@ -79,12 +79,12 @@ class Solution_B:
 
 
 if __name__ == "__main__":
-    testMethod = Solution_B().combinationSum2
+    testCase = Solution_B()
 
     candidates = [10, 1, 2, 7, 6, 1, 5]
-    assert testMethod(candidates, 8) == [[1, 1, 6], [1, 2, 5], [1, 7], [2, 6]], "Example 1"
+    assert testCase.combinationSum2(candidates, 8) == [[1, 1, 6], [1, 2, 5], [1, 7], [2, 6]], "Example 1"
 
     candidates = [2, 5, 2, 1, 2]
-    assert testMethod(candidates, 5) == [[1, 2, 2], [5]], "Example 2"
+    assert testCase.combinationSum2(candidates, 5) == [[1, 2, 2], [5]], "Example 2"
 
     print("all passed")

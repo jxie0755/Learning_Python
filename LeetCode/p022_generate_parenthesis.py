@@ -83,12 +83,12 @@ class Solution_B:
 
 
 if __name__ == "__main__":
-    testMethod = Solution_B().generateParenthesis
-    assert testMethod(1) == ["()"], "Edge 1"
+    testCase = Solution_B()
+    assert testCase.generateParenthesis(1) == ["()"], "Edge 1"
 
-    assert testMethod(2) == ["(())", "()()"]
-    assert testMethod(3) == ["((()))", "(()())", "(())()", "()(())", "()()()"]
-    assert testMethod(4) == ["(((())))", "((()()))", "((())())", "((()))()", "(()(()))", "(()()())",
+    assert testCase.generateParenthesis(2) == ["(())", "()()"]
+    assert testCase.generateParenthesis(3) == ["((()))", "(()())", "(())()", "()(())", "()()()"]
+    assert testCase.generateParenthesis(4) == ["(((())))", "((()()))", "((())())", "((()))()", "(()(()))", "(()()())",
                                                  "(()())()", "(())(())", "(())()()", "()((()))", "()(()())", "()(())()",
                                                  "()()(())", "()()()()"]
 

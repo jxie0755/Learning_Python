@@ -31,11 +31,11 @@ class Solution_A:
 
 
 if __name__ == "__main__":
-    testMethod = Solution_A().isValid
-    assert testMethod("((5+3)*2+1)"), "Simple"
-    assert testMethod("{[(3+1)+2]+}"), "Different types"
-    assert not testMethod("(3+{1-1)}"), ") is alone inside {}"
-    assert testMethod("[1+1]+(2*2)-{3/3}"), "Different operators"
-    assert not testMethod("(({[(((1)-2)+3)-3]/3}-3)"), "One is redundant"
-    assert testMethod("2+3"), "No brackets, no problem"
+    testCase = Solution_A()
+    assert testCase.isValid("((5+3)*2+1)"), "Simple"
+    assert testCase.isValid("{[(3+1)+2]+}"), "Different types"
+    assert not testCase.isValid("(3+{1-1)}"), ") is alone inside {}"
+    assert testCase.isValid("[1+1]+(2*2)-{3/3}"), "Different operators"
+    assert not testCase.isValid("(({[(((1)-2)+3)-3]/3}-3)"), "One is redundant"
+    assert testCase.isValid("2+3"), "No brackets, no problem"
     print("all passed")

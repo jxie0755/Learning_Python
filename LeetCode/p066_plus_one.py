@@ -45,10 +45,10 @@ class Solution_STD:
 
 
 if __name__ == "__main__":
-    testMethod = Solution_STD().plusOne
-    assert testMethod([0]) == [1], "Edge 0"
-    assert testMethod([1, 2, 3]) == [1, 2, 4], "Example 1"
-    assert testMethod([4, 3, 2, 1]) == [4, 3, 2, 2], "Example 2"
-    assert testMethod([1, 9, 9]) == [2, 0, 0], "Example 3"
-    assert testMethod([9, 9, 9]) == [1, 0, 0, 0], "Example 4"
+    testCase = Solution_STD()
+    assert testCase.plusOne([0]) == [1], "Edge 0"
+    assert testCase.plusOne([1, 2, 3]) == [1, 2, 4], "Example 1"
+    assert testCase.plusOne([4, 3, 2, 1]) == [4, 3, 2, 2], "Example 2"
+    assert testCase.plusOne([1, 9, 9]) == [2, 0, 0], "Example 3"
+    assert testCase.plusOne([9, 9, 9]) == [1, 0, 0, 0], "Example 4"
     print("all passed")

@@ -36,11 +36,11 @@ class Solution_A:
 
 
 if __name__ == "__main__":
-    testMethod = Solution_A().mergeTwoLists
+    testCase = Solution_A()
     l1 = genNode([1, 2, 4])
     l2 = genNode([1, 3, 4])
 
-    check = testMethod(l1, l2)
+    check = testCase.mergeTwoLists(l1, l2)
     assert repr(check) == "1->1->2->3->4->4", "Example 1"
 
     print("all passed")

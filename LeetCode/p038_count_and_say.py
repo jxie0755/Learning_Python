@@ -88,12 +88,12 @@ class Solution_C:
 
 
 if __name__ == "__main__":
-    testMethod = Solution_C().countAndSay
-    assert testMethod(1) == "1", "first"
-    assert testMethod(2) == "11", "second"
-    assert testMethod(3) == "21", "third"
-    assert testMethod(4) == "1211", "forth"
-    assert testMethod(5) == "111221", "fifth"
-    assert testMethod(6) == "312211", "sixth"
-    assert testMethod(10) == "13211311123113112211", "Very Long"
+    testCase = Solution_C()
+    assert testCase.countAndSay(1) == "1", "first"
+    assert testCase.countAndSay(2) == "11", "second"
+    assert testCase.countAndSay(3) == "21", "third"
+    assert testCase.countAndSay(4) == "1211", "forth"
+    assert testCase.countAndSay(5) == "111221", "fifth"
+    assert testCase.countAndSay(6) == "312211", "sixth"
+    assert testCase.countAndSay(10) == "13211311123113112211", "Very Long"
     print("all passed")

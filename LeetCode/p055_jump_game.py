@@ -58,13 +58,13 @@ class Solution_STD:
 
 
 if __name__ == "__main__":
-    testMethod = Solution_STD().canJump
-    assert testMethod([0]), "Edge 1"
-    assert not testMethod([0, 0]), "Edge 2"
-    assert testMethod([1, 0]), "Edge 3"
-    assert not testMethod([1, 0, 0, 0]), "Edge 4"
+    testCase = Solution_STD()
+    assert testCase.canJump([0]), "Edge 1"
+    assert not testCase.canJump([0, 0]), "Edge 2"
+    assert testCase.canJump([1, 0]), "Edge 3"
+    assert not testCase.canJump([1, 0, 0, 0]), "Edge 4"
 
-    assert testMethod([2, 3, 1, 1, 4]), "Example 1"
-    assert not testMethod([3, 2, 1, 0, 4]), "Example 2"
+    assert testCase.canJump([2, 3, 1, 1, 4]), "Example 1"
+    assert not testCase.canJump([3, 2, 1, 0, 4]), "Example 2"
 
     print("all passed")

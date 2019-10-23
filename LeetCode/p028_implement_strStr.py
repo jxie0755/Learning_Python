@@ -23,11 +23,11 @@ class Solution_A:
 
 
 if __name__ == "__main__":
-    testMethod = Solution_A().strStr
-    assert testMethod("", "a") == -1, "Edge 0"
-    assert testMethod("", "") == 0, "Edge 1"
+    testCase = Solution_A()
+    assert testCase.strStr("", "a") == -1, "Edge 0"
+    assert testCase.strStr("", "") == 0, "Edge 1"
 
-    assert testMethod("abcdeabcde", "de") == 3, "Example 1"
-    assert testMethod("abcdeabcde", "zz") == -1, "Example 2"
+    assert testCase.strStr("abcdeabcde", "de") == 3, "Example 1"
+    assert testCase.strStr("abcdeabcde", "zz") == -1, "Example 2"
 
     print("all passed")

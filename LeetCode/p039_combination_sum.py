@@ -103,16 +103,16 @@ class Solution_C:
 
 
 if __name__ == "__main__":
-    testMethod = Solution_B().combinationSum
-    assert testMethod([], 1) == [], "Edge 1"
-    assert testMethod([1], 1) == [[1]], "Edge 2"
-    assert testMethod([1], 2) == [[1, 1]], "Edge 3"
-    assert testMethod([2], 1) == [], "Edge 4"
-    assert testMethod([2], 5) == [], "Edge 5"
+    testCase = Solution_B()
+    assert testCase.combinationSum([], 1) == [], "Edge 1"
+    assert testCase.combinationSum([1], 1) == [[1]], "Edge 2"
+    assert testCase.combinationSum([1], 2) == [[1, 1]], "Edge 3"
+    assert testCase.combinationSum([2], 1) == [], "Edge 4"
+    assert testCase.combinationSum([2], 5) == [], "Edge 5"
 
-    assert testMethod([2, 3, 6, 7], 7) == [[2, 2, 3], [7]], "Example 1"
-    assert testMethod([2, 3, 5], 8) == [[2, 2, 2, 2], [2, 3, 3], [3, 5]], "Example 2"
+    assert testCase.combinationSum([2, 3, 6, 7], 7) == [[2, 2, 3], [7]], "Example 1"
+    assert testCase.combinationSum([2, 3, 5], 8) == [[2, 2, 2, 2], [2, 3, 3], [3, 5]], "Example 2"
 
-    assert testMethod([2, 4], 10) == [[2, 2, 2, 2, 2], [2, 2, 2, 4], [2, 4, 4]], "Extra 1"
+    assert testCase.combinationSum([2, 4], 10) == [[2, 2, 2, 2, 2], [2, 2, 2, 4], [2, 4, 4]], "Extra 1"
 
     print("all passed")

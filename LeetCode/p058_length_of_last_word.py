@@ -36,8 +36,8 @@ class Solution_B:
 
 
 if __name__ == "__main__":
-    testMethod = Solution_B().lengthOfLastWord
-    assert testMethod("") == 0, "Edge 1"
-    assert testMethod(" ") == 0, "Edge 2"
-    assert testMethod("Hello World") == 5, "Regular"
+    testCase = Solution_B()
+    assert testCase.lengthOfLastWord("") == 0, "Edge 1"
+    assert testCase.lengthOfLastWord(" ") == 0, "Edge 2"
+    assert testCase.lengthOfLastWord("Hello World") == 5, "Regular"
     print("all passed")

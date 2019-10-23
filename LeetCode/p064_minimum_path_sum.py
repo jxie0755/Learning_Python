@@ -61,19 +61,19 @@ class Solution_B:
 
 
 if __name__ == "__main__":
-    testMethod = Solution_B().minPathSum
+    testCase = Solution_B()
 
     E1 = [[]]
-    assert testMethod(E1) == 0, "Edge 1"
+    assert testCase.minPathSum(E1) == 0, "Edge 1"
 
     E2 = [[1]]
-    assert testMethod(E2) == 1, "Edge 2"
+    assert testCase.minPathSum(E2) == 1, "Edge 2"
 
     E3 = [[1, 1]]
-    assert testMethod(E3) == 2, "Edge 3"
+    assert testCase.minPathSum(E3) == 2, "Edge 3"
 
     E4 = [[1], [1]]
-    assert testMethod(E4) == 2, "Edge 4"
+    assert testCase.minPathSum(E4) == 2, "Edge 4"
 
     S1 = [
         [1, 3, 1],
@@ -81,5 +81,5 @@ if __name__ == "__main__":
         [4, 2, 1]
     ]
 
-    assert testMethod(S1) == 7, "Example 1"
+    assert testCase.minPathSum(S1) == 7, "Example 1"
     print("all passed")

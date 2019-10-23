@@ -54,12 +54,12 @@ class Solution_B:
 
 
 if __name__ == "__main__":
-    testMethod = Solution_B().swapPairs
-    assert testMethod(None) is None, "Empty"
-    assert testMethod(genNode([1])) == genNode([1]), "Single"
+    testCase = Solution_B()
+    assert testCase.swapPairs(None) is None, "Empty"
+    assert testCase.swapPairs(genNode([1])) == genNode([1]), "Single"
 
-    assert testMethod(genNode([1, 2])) == genNode([2, 1]), "1 pair"
-    assert testMethod(genNode([1, 2, 3, 4])) == genNode([2, 1, 4, 3]), "Even Pairs"
-    assert testMethod(genNode([1, 2, 3, 4, 5])) == genNode([2, 1, 4, 3, 5]), "with Odd"
+    assert testCase.swapPairs(genNode([1, 2])) == genNode([2, 1]), "1 pair"
+    assert testCase.swapPairs(genNode([1, 2, 3, 4])) == genNode([2, 1, 4, 3]), "Even Pairs"
+    assert testCase.swapPairs(genNode([1, 2, 3, 4, 5])) == genNode([2, 1, 4, 3, 5]), "with Odd"
 
     print("all passed")

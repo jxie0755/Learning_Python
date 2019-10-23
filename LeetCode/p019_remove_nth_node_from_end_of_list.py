@@ -68,16 +68,16 @@ class Solution_STD:
 
 
 if __name__ == "__main__":
-    testMethod = Solution_STD().removeNthFromEnd
+    testCase = Solution_STD()
 
     # Given linked list: 1->2->3->4->5, and n = 2
     a = genNode([1, 2, 3, 4, 5])
 
-    f = testMethod(a, 2)
+    f = testCase.removeNthFromEnd(a, 2)
     assert repr(f) == "1->2->3->5"
 
     a = genNode([1])
-    f = testMethod(a, 1)
+    f = testCase.removeNthFromEnd(a, 1)
     assert repr(f) == "None"
 
     print("all passed")

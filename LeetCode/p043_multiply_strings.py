@@ -127,10 +127,10 @@ class Solution_C:
 
 
 if __name__ == "__main__":
-    testMethod = Solution_C().multiply
-    assert testMethod("0", "23") == "0", "Edge 1"
-    assert testMethod("2", "23") == "46", "Edge 2"
-    assert testMethod("2", "3") == "6", "Example 1"
-    assert testMethod("123", "456") == "56088", "Example 2"
-    assert testMethod("50", "50") == "2500", "Extra 1"
+    testCase = Solution_C()
+    assert testCase.multiply("0", "23") == "0", "Edge 1"
+    assert testCase.multiply("2", "23") == "46", "Edge 2"
+    assert testCase.multiply("2", "3") == "6", "Example 1"
+    assert testCase.multiply("123", "456") == "56088", "Example 2"
+    assert testCase.multiply("50", "50") == "2500", "Extra 1"
     print("all passed!")

@@ -51,10 +51,10 @@ class Solution_A:
 
 
 if __name__ == "__main__":
-    testMethod = Solution_A().threeSumClosest
+    testCase = Solution_A()
     # No need to test edge as gurantee to have exactly one solution
-    assert testMethod([1, 1, 1], 1000) == 3, "Edge"
-    assert testMethod([-1, 2, 1, -4], 1) == 2, "Example 1"
-    assert testMethod([-1, 2, 1, -1], 0) == 0, "Match"
+    assert testCase.threeSumClosest([1, 1, 1], 1000) == 3, "Edge"
+    assert testCase.threeSumClosest([-1, 2, 1, -4], 1) == 2, "Example 1"
+    assert testCase.threeSumClosest([-1, 2, 1, -1], 0) == 0, "Match"
 
     print("all passed")

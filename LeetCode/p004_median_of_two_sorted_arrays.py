@@ -159,14 +159,14 @@ class Solution_C2:
 
 
 if __name__ == "__main__":
-    testMethod = Solution_C2().findMedianSortedArrays
-    assert testMethod([], [1]) == 1.0, "Edge 1"
-    assert testMethod([1], [2]) == 1.5, "Edge 2"
-    assert testMethod([2], []) == 2.0, "Edge 3"
+    testCase = Solution_C2()
+    assert testCase.findMedianSortedArrays([], [1]) == 1.0, "Edge 1"
+    assert testCase.findMedianSortedArrays([1], [2]) == 1.5, "Edge 2"
+    assert testCase.findMedianSortedArrays([2], []) == 2.0, "Edge 3"
 
-    assert testMethod([1, 3], [2]) == 2.0, "Example 1"
-    assert testMethod([1, 2], [3, 4]) == 2.5, "Example 2"
-    assert testMethod([1, 2, 3, 4], [2, 3, 4, 5]) == 3.0, "Example 3"
-    assert testMethod([3], [-2, -1]) == -1.0, "Negative"
+    assert testCase.findMedianSortedArrays([1, 3], [2]) == 2.0, "Example 1"
+    assert testCase.findMedianSortedArrays([1, 2], [3, 4]) == 2.5, "Example 2"
+    assert testCase.findMedianSortedArrays([1, 2, 3, 4], [2, 3, 4, 5]) == 3.0, "Example 3"
+    assert testCase.findMedianSortedArrays([3], [-2, -1]) == -1.0, "Negative"
 
     print("all passed")

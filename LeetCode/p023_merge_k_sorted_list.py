@@ -102,18 +102,18 @@ class Solution_C2:
 
 
 if __name__ == "__main__":
-    testMethod = Solution_C2().mergeKLists_O
-    assert testMethod([]) is None, "Empty"
+    testCase = Solution_C2()
+    assert testCase.mergeKLists_O([]) is None, "Empty"
 
     single = genNode([1])
-    e = testMethod([single])
+    e = testCase.mergeKLists_O([single])
     assert repr(e) == "1", "single"
 
     a = genNode([1, 4, 5])
     b = genNode([1, 3, 4])
     c = genNode([2, 6])
     lst = [a, b, c]
-    check = testMethod(lst)
+    check = testCase.mergeKLists_O(lst)
     assert repr(check) == "1->1->2->3->4->4->5->6", "Example"
 
     print("all passed")

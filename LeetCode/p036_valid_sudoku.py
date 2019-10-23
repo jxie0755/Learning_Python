@@ -66,7 +66,7 @@ class Solution_A:
 
 
 if __name__ == "__main__":
-    testMethod = Solution_A().isValidSudoku
+    testCase = Solution_A()
 
     example_1 = [
         ["5", "3", ".", ".", "7", ".", ".", ".", "."],
@@ -80,7 +80,7 @@ if __name__ == "__main__":
         [".", ".", ".", ".", "8", ".", ".", "7", "9"]
     ]
 
-    assert testMethod(example_1) == True, "Example 1"
+    assert testCase.isValidSudoku(example_1) == True, "Example 1"
 
     example_2 = [
         ["8", "3", ".", ".", "7", ".", ".", ".", "."],
@@ -94,7 +94,7 @@ if __name__ == "__main__":
         [".", ".", ".", ".", "8", ".", ".", "7", "9"]
     ]
 
-    assert testMethod(example_2) == False, "Example 2"
+    assert testCase.isValidSudoku(example_2) == False, "Example 2"
 
     example_3 = [
         [".", ".", "4", ".", ".", ".", "6", "3", "."],
@@ -108,5 +108,5 @@ if __name__ == "__main__":
         [".", ".", ".", ".", ".", ".", ".", ".", "."]
     ]
 
-    assert testMethod(example_3) == False, "Example 3"
+    assert testCase.isValidSudoku(example_3) == False, "Example 3"
     print("all passed")

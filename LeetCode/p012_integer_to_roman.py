@@ -68,6 +68,6 @@ class Solution_C:
 
 
 if __name__ == "__main__":
-    testMethod = Solution_B().intToRoman()
-    assert testMethod(3888) == "MMMDCCCLXXXVIII", "one check is good"
+    testCase = Solution_B()()
+    assert testCase.intToRoman(3888) == "MMMDCCCLXXXVIII", "one check is good"
     print("all passed")

@@ -96,16 +96,16 @@ class Solution_B:
 
 
 if __name__ == "__main__":
-    testMethod = Solution_B().reverseKGroup
+    testCase = Solution_B()
 
-    assert testMethod(genNode([1]), 2) == genNode([1]), "Single"
+    assert testCase.reverseKGroup(genNode([1]), 2) == genNode([1]), "Single"
 
     a = genNode([1, 2, 3, 4, 5])
-    f = testMethod(a, 2)
+    f = testCase.reverseKGroup(a, 2)
     assert repr(f) == "2->1->4->3->5", "Example 1"
 
     b = genNode([1, 2, 3, 4, 5])
-    g = testMethod(b, 3)
+    g = testCase.reverseKGroup(b, 3)
     assert repr(g) == "3->2->1->4->5", "Example 2"
 
     print("all passed")

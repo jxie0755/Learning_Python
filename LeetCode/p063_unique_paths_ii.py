@@ -42,37 +42,37 @@ class Solution_A:
 
 
 if __name__ == "__main__":
-    testMethod = Solution_A().uniquePathsWithObstacles
+    testCase = Solution_A()
     e0 = [[0]]
-    assert testMethod(e0) == 1, "Edge 0"
+    assert testCase.uniquePathsWithObstacles(e0) == 1, "Edge 0"
 
     e1 = [[1]]
-    assert testMethod(e1) == 0, "Edge 1"
+    assert testCase.uniquePathsWithObstacles(e1) == 0, "Edge 1"
 
     e2 = [
         [0, 0],
         [1, 0]
     ]
-    assert testMethod(e2) == 1, "Edge 2"
+    assert testCase.uniquePathsWithObstacles(e2) == 1, "Edge 2"
 
     e3 = [[1, 1]]
-    assert testMethod(e3) == 0, "Edge 3"
+    assert testCase.uniquePathsWithObstacles(e3) == 0, "Edge 3"
 
     e4 = [[1, 0]]
-    assert testMethod(e4) == 0, "Edge 4"
+    assert testCase.uniquePathsWithObstacles(e4) == 0, "Edge 4"
 
     e5 = [
         [0, 1],
         [0, 0]
     ]
-    assert testMethod(e5) == 1, "Edge 5"
+    assert testCase.uniquePathsWithObstacles(e5) == 1, "Edge 5"
 
     s1 = [
         [0, 0, 0],
         [0, 1, 0],
         [0, 0, 0]
     ]
-    assert testMethod(s1) == 2, "Example 1"
+    assert testCase.uniquePathsWithObstacles(s1) == 2, "Example 1"
 
     s2 = [
         [0, 0, 0, 0],
@@ -81,6 +81,6 @@ if __name__ == "__main__":
         [0, 0, 1, 0],
         [0, 0, 0, 0]
     ]
-    assert testMethod(s2) == 7, "Example 2"
+    assert testCase.uniquePathsWithObstacles(s2) == 7, "Example 2"
 
     print("all passed")
