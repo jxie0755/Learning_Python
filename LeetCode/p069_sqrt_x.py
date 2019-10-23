@@ -53,11 +53,11 @@ class Solution_Cheat:
 
 
 if __name__ == "__main__":
-    testMethod = Solution_A2().mySqrt
-    assert testMethod(0) == 0
-    assert testMethod(1) == 1
-    assert testMethod(4) == 2
-    assert testMethod(8) == 2
-    assert testMethod(36) == 6
-    assert testMethod(2147395601) == 46340
+    testCase = Solution_A2()
+    assert testCase.mySqrt(0) == 0
+    assert testCase.mySqrt(1) == 1
+    assert testCase.mySqrt(4) == 2
+    assert testCase.mySqrt(8) == 2
+    assert testCase.mySqrt(36) == 6
+    assert testCase.mySqrt(2147395601) == 46340
     print("all passed")

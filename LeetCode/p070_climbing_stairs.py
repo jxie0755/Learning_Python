@@ -35,9 +35,9 @@ class Solution_B:
 
 
 if __name__ == "__main__":
-    testMethod = Solution_B().climbStairs
-    assert testMethod(1) == 1, "Edge 1"
-    assert testMethod(2) == 2, "Example 1"
-    assert testMethod(3) == 3, "Example 2"
-    assert testMethod(7) == 21, "Long"
+    testCase = Solution_B()
+    assert testCase.climbStairs(1) == 1, "Edge 1"
+    assert testCase.climbStairs(2) == 2, "Example 1"
+    assert testCase.climbStairs(3) == 3, "Example 2"
+    assert testCase.climbStairs(7) == 21, "Long"
     print("passed")
