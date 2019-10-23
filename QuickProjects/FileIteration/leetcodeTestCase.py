@@ -22,6 +22,7 @@ directory = "D:/Documents/GitHub/Learning_Python/LeetCode"
 
 def LCTM2LCTC(directory):
     # read file
+    print("Checking:", directory)
     with open(directory, "r", encoding="utf-8") as f:
         content = f.read()
 
@@ -32,20 +33,19 @@ def LCTM2LCTC(directory):
 
     # First store the functionName for future use
     functionLine = raw_functionline_founder.search(content)
-    fucntionName = functionLine.group(3)
-    print(fucntionName)
 
-    # Replace the functionLine by removing the funcName
-    new_content_case_instance_built = raw_functionline_founder.sub(r"testCase\g<2>", content)
-    # print(new_content_case_instance_built)
+    if functionLine:
+        fucntionName = functionLine.group(3)
 
-    # Replace the functionLine
-    new_content_case_built = raw_case_pattern.sub("testCase" + fucntionName, new_content_case_instance_built)
-    print(new_content_case_built)
+        # Replace the functionLine by removing the funcName
+        new_content_case_instance_built = raw_functionline_founder.sub(r"testCase\g<2>", content)
 
-    # Write content back
-    with open(directory, "w", encoding="utf-8") as f:
-        f.write(new_content_case_built)
+        # Replace the functionLine
+        new_content_case_built = raw_case_pattern.sub("testCase" + fucntionName, new_content_case_instance_built)
+
+        # Write content back
+        with open(directory, "w", encoding="utf-8") as f:
+            f.write(new_content_case_built)
 
 
 
@@ -57,4 +57,4 @@ def general_modify(directory, fn):
             fn(true_sub_dir)
 
 if __name__ == '__main__':
-    LCTM2LCTC("D:/Documents/GitHub/Learning_Python/LeetCode/p066_plus_one.py")
+    general_modify(directory, LCTM2LCTC)
