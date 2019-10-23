@@ -38,7 +38,6 @@ class Solution_C:
         """
         The same method in p167 Two Sum II can be used here
         """
-
         tmp_lst = {}
         for idx in range(0, len(nums)):
             if nums[idx] not in tmp_lst.keys():
