@@ -61,7 +61,7 @@ match_result = re.match(raw_pattern, sample)
 match_result2 = re.match(raw_pattern, "abc2def") # >>> None 尽管包含一个可匹配的"2d",但是它不是从idx=0开始
 pre_compile.match("abc2def", 3) # >>> <_sre.SRE_Match object; span=(3, 5), match="2d"> # 从idx=3开始能找到
 
-# Search和Match的区别
+# Search和Match的区别 (Search找string中第一个对应的片段, match必须是pattern和string完全对应上)
 print(re.search(r"B", "ABA")) # >>> <_sre.SRE_Match object; span=(1, 2), match="B">
 print(re.match(r"B", "ABA"))  # >>> None
 
