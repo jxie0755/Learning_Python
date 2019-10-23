@@ -44,11 +44,8 @@ print(x) # worked
 # Source dir for leetcode folder
 sourcedir = "D:/Documents/GitHub/Learning_Python/LeetCode"
 
-with_brack_pattern = re.compile(raw_with)
-without_brack_pattern = re.compile(raw_without)
-
-
 def add_brack(filedir):
+    without_brack_pattern = re.compile(raw_without)
 
     with open(filedir, "r", encoding="utf-8") as f:
         content = f.read()
@@ -60,6 +57,7 @@ def add_brack(filedir):
 
 
 def del_brack(filedir):
+    with_brack_pattern = re.compile(raw_with)
 
     with open(filedir, "r", encoding="utf-8") as f:
         content = f.read()
