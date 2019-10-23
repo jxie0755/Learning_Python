@@ -19,11 +19,9 @@ Assume we are dealing with an environment which could only store integers within
 
 from re import search
 
-class Solution:
-
+class Solution_A:
     def myAtoi(self, str: str) -> int:
-        """Version A, string method"""
-
+        """String method"""
         # Two hashmap to convert char to digit
         digits = ["0", "1", "2", "3",
                   "4", "5", "6", "7",
@@ -74,10 +72,10 @@ class Solution:
                 return high
             return result
 
-class Solution:
+class Solution_B:
 
     def myAtoi(self, str: str) -> int:
-        """Version B, use regex method"""
+        """use regex method to identify each group of elment"""
 
         mo = search(r"^[\s]*([+\-]?)(\d+)", str)
 
@@ -97,20 +95,21 @@ class Solution:
 
 
 if __name__ == "__main__":
-    assert Solution().myAtoi("ABC") == 0, "Edge 1"
+    testMethod = Solution_B().myAtoi
+    assert testMethod("ABC") == 0, "Edge 1"
 
-    assert Solution().myAtoi("42") == 42, "Example 1"
-    assert Solution().myAtoi("   -42") == -42, "Example 2"
-    assert Solution().myAtoi("4193 with words") == 4193, "Example 3"
-    assert Solution().myAtoi("words and 987") == 0, "Example 4"
-    assert Solution().myAtoi("-91283472332") == -2147483648, "Example 5, return -2^31"
+    assert testMethod("42") == 42, "Example 1"
+    assert testMethod("   -42") == -42, "Example 2"
+    assert testMethod("4193 with words") == 4193, "Example 3"
+    assert testMethod("words and 987") == 0, "Example 4"
+    assert testMethod("-91283472332") == -2147483648, "Example 5, return -2^31"
 
-    assert Solution().myAtoi("3.14159") == 3, "Extra 1"
-    assert Solution().myAtoi("+1") == 1, "Extra 2"
-    assert Solution().myAtoi("+-2") == 0, "Extra 3"
-    assert Solution().myAtoi("  -0012a42") == -12, "Extra 4"
-    assert Solution().myAtoi("   +0 123") == 0, "Extra 5"
-    assert Solution().myAtoi("-5-") == -5, "Extra 6"
-    assert Solution().myAtoi("9223372036854775808") == 2147483647, "Extra 6"
+    assert testMethod("3.14159") == 3, "Extra 1"
+    assert testMethod("+1") == 1, "Extra 2"
+    assert testMethod("+-2") == 0, "Extra 3"
+    assert testMethod("  -0012a42") == -12, "Extra 4"
+    assert testMethod("   +0 123") == 0, "Extra 5"
+    assert testMethod("-5-") == -5, "Extra 6"
+    assert testMethod("9223372036854775808") == 2147483647, "Extra 6"
 
     print("all passed")

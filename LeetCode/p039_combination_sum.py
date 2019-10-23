@@ -15,20 +15,17 @@ Note:
 
 from typing import *
 
-class Solution:
+class Solution_A:
 
     def combinationSum(self, candidates: List[int], target: int) -> List[List[int]]:
         """
-        Version A
         Brutal Force O(N^2), very slow but passed
         """
-
         if not candidates:
             return []
 
         def process(temp: List[List[int]]) -> List[List[int]]:
             """Helper"""
-
             new_temp = []
             i = 0
             while i < len(temp):
@@ -54,26 +51,15 @@ class Solution:
         return result
 
 
-class Solution(object):
-
+class Solution_B:
     def combinationSum(self, candidates: List[int], target: int) -> List[List[int]]:
         """
-        Version B
         Add a recursive process method to update result
         """
 
         def process(candidates: List[int], start: int, intermediate: List[int], target: int) -> None:
             """
             Helper
-
-            Args:
-                candidates:    ingredient numbers (sorted)
-                start:         from 0, full candidates, to a shorter candidate list
-                intermediate:  temp list to record current status List[int]]
-                target:        tartget to compose
-
-            Returns:
-                None, Imperfect function, just update the result
             """
 
             if target == 0:
@@ -93,38 +79,40 @@ class Solution(object):
         return result
 
 
-# 本质上这是一道考排列组合的题,如果能构建排列组合的话, 直接对每个组合考虑是否之和等于target就可以了
-# 上解就是通过自己构建组合,并融合target条件所以直接得出答案.
-# 这里利用python自带组合函数同样可以实现
+from itertools import combinations_with_replacement
 
-# from itertools import combinations_with_replacement
-#
-#
-# class Solution(object):
-#
-#     def combinationSum(self, candidates: List[int], target: int) -> List[List[int]]:
-#         if not candidates:
-#             return []
-#         max_n = target // min(candidates)
-#         result = []
-#         for i in range(max_n, 0, -1):
-#             all_comb = combinations_with_replacement(candidates, i)
-#             for j in all_comb:
-#                 if sum(j) == target:
-#                     result.append(list(j))
-#         return result
+class Solution_C:
+
+    def combinationSum(self, candidates: List[int], target: int) -> List[List[int]]:
+        """
+        Version C
+        # 本质上这是一道考排列组合的题,如果能构建排列组合的话, 直接对每个组合考虑是否之和等于target就可以了
+        上解就是通过自己构建组合,并融合target条件所以直接得出答案.
+        这里利用python自带组合函数同样可以实现
+        """
+        if not candidates:
+            return []
+        max_n = target // min(candidates)
+        result = []
+        for i in range(max_n, 0, -1):
+            all_comb = combinations_with_replacement(candidates, i)
+            for j in all_comb:
+                if sum(j) == target:
+                    result.append(list(j))
+        return result
 
 
 if __name__ == "__main__":
-    assert Solution().combinationSum([], 1) == [], "Edge 1"
-    assert Solution().combinationSum([1], 1) == [[1]], "Edge 2"
-    assert Solution().combinationSum([1], 2) == [[1, 1]], "Edge 3"
-    assert Solution().combinationSum([2], 1) == [], "Edge 4"
-    assert Solution().combinationSum([2], 5) == [], "Edge 5"
+    testMethod = Solution_B().combinationSum
+    assert testMethod([], 1) == [], "Edge 1"
+    assert testMethod([1], 1) == [[1]], "Edge 2"
+    assert testMethod([1], 2) == [[1, 1]], "Edge 3"
+    assert testMethod([2], 1) == [], "Edge 4"
+    assert testMethod([2], 5) == [], "Edge 5"
 
-    assert Solution().combinationSum([2, 3, 6, 7], 7) == [[2, 2, 3], [7]], "Example 1"
-    assert Solution().combinationSum([2, 3, 5], 8) == [[2, 2, 2, 2], [2, 3, 3], [3, 5]], "Example 2"
+    assert testMethod([2, 3, 6, 7], 7) == [[2, 2, 3], [7]], "Example 1"
+    assert testMethod([2, 3, 5], 8) == [[2, 2, 2, 2], [2, 3, 3], [3, 5]], "Example 2"
 
-    assert Solution().combinationSum([2, 4], 10) == [[2, 2, 2, 2, 2], [2, 2, 2, 4], [2, 4, 4]], "Extra 1"
+    assert testMethod([2, 4], 10) == [[2, 2, 2, 2, 2], [2, 2, 2, 4], [2, 4, 4]], "Extra 1"
 
     print("all passed")

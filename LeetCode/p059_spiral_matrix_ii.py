@@ -8,11 +8,9 @@ Given a positive integer n, generate a square matrix filled with elements from 1
 
 from typing import *
 
-class Solution:
-
+class Solution_A:
     def generateMatrix(self, n: int) -> List[List[int]]:
         """
-        Version A
         Generate by keep changing the row and col in clock sequence
         """
         val = 1
@@ -41,9 +39,10 @@ class Solution:
 
 
 if __name__ == "__main__":
-    assert Solution().generateMatrix(1) == [[1]], "Edge 1"
+    testMethod = Solution_A().generateMatrix
+    assert testMethod(1) == [[1]], "Edge 1"
 
-    assert Solution().generateMatrix(3) == [
+    assert testMethod(3) == [
         [1, 2, 3],
         [8, 9, 4],
         [7, 6, 5]

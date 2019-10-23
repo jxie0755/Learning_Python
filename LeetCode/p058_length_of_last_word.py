@@ -10,22 +10,18 @@ Note:
     A word is defined as a character sequence consists of non-space characters only.
 """
 
-class Solution:
-
+class Solution_A:
     def lengthOfLastWord(self, s: str) -> int:
         """
-        Version A
         Use Python built-in method split
         """
         if len(s.split()) == 0:
             return 0
         return len(s.split()[-1])
 
-class Solution:
-
+class Solution_B:
     def lengthOfLastWord(self, s: str) -> int:
         """
-        Version B
         Set a counter for spaces
         No need for extra space
         """
@@ -40,7 +36,8 @@ class Solution:
 
 
 if __name__ == "__main__":
-    assert Solution().lengthOfLastWord("") == 0, "Edge 1"
-    assert Solution().lengthOfLastWord(" ") == 0, "Edge 2"
-    assert Solution().lengthOfLastWord("Hello World") == 5, "Regular"
+    testMethod = Solution_B().lengthOfLastWord
+    assert testMethod("") == 0, "Edge 1"
+    assert testMethod(" ") == 0, "Edge 2"
+    assert testMethod("Hello World") == 5, "Regular"
     print("all passed")

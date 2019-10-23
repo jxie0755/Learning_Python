@@ -11,18 +11,16 @@ You may assume nums1 and nums2 cannot be both empty.
 from typing import *
 
 
-class Solution:
-
+class Solution_A:
     def findMedianSortedArrays(self, nums1: List[int], nums2: List[int]) -> float:
         """
-        Version A, O(N)
+        Time: O(N)
         Merge two sorted list then find the median
         Not very efficient, as we go all the way, and used a lot of space
         """
 
         def median(array: List[int]) -> float:
             """Helper"""
-
             length = len(array)
             half = length // 2
             if length == 0:
@@ -51,14 +49,12 @@ class Solution:
 
         return median(merge)
 
-class Solution:
-
+class Solution_B:
     def findMedianSortedArrays(self, nums1: List[int], nums2: List[int]) -> float:
         """
-        Version B, O(1/2N)
+        O(1/2N)
         Modified merge sort to only merge half way
         """
-
         l1, l2 = len(nums1), len(nums2)
         total_l = l1 + l2
 
@@ -88,11 +84,10 @@ class Solution:
         else:
             return merge[-1]
 
-class Solution:
-
+class Solution_C1:
     def findMedianSortedArrays(self, nums1: List[int], nums2: List[int]) -> float:
         """
-        Version C1, Time O(N), space O(1/2N)
+        Time O(N), space O(1/2N)
         Same half way method with different index
         """
 
@@ -123,14 +118,12 @@ class Solution:
 
         return (lst[m1] + lst[m2]) / 2
 
-class Solution:
-
+class Solution_C2:
     def findMedianSortedArrays(self, nums1: List[int], nums2: List[int]) -> float:
         """
-        Version C2, Time O(N), space O(1)
+        Time O(N), space O(1)
         Same half way method with different index, but only keep track last two
         """
-
         total_length = len(nums1) + len(nums2)
         mid_idx = total_length // 2
         i1, i2 = 0, 0
@@ -166,13 +159,14 @@ class Solution:
 
 
 if __name__ == "__main__":
-    assert Solution().findMedianSortedArrays([], [1]) == 1.0, "Edge 1"
-    assert Solution().findMedianSortedArrays([1], [2]) == 1.5, "Edge 2"
-    assert Solution().findMedianSortedArrays([2], []) == 2.0, "Edge 3"
+    testMethod = Solution_C2().findMedianSortedArrays
+    assert testMethod([], [1]) == 1.0, "Edge 1"
+    assert testMethod([1], [2]) == 1.5, "Edge 2"
+    assert testMethod([2], []) == 2.0, "Edge 3"
 
-    assert Solution().findMedianSortedArrays([1, 3], [2]) == 2.0, "Example 1"
-    assert Solution().findMedianSortedArrays([1, 2], [3, 4]) == 2.5, "Example 2"
-    assert Solution().findMedianSortedArrays([1, 2, 3, 4], [2, 3, 4, 5]) == 3.0, "Example 3"
-    assert Solution().findMedianSortedArrays([3], [-2, -1]) == -1.0, "Negative"
+    assert testMethod([1, 3], [2]) == 2.0, "Example 1"
+    assert testMethod([1, 2], [3, 4]) == 2.5, "Example 2"
+    assert testMethod([1, 2, 3, 4], [2, 3, 4, 5]) == 3.0, "Example 3"
+    assert testMethod([3], [-2, -1]) == -1.0, "Negative"
 
     print("all passed")

@@ -19,14 +19,13 @@ Note:
 
 from typing import *
 
-class Solution:
-
+class Solution_A:
     def solveSudoku(self, board: List[List[str]]) -> None:
         """
-        Version A
+        Classic method
         """
 
-        ans = Solution.PySudokuSolver_A(board).solve()
+        ans = Solution_A.PySudokuSolver_A(board).solve()
         for i in range(9):
             for j in range(9):
                 board[i][j] = ans[i][j]
@@ -289,12 +288,11 @@ class Solution:
             return self.board[:]
 
 
-class Solution:
+class Solution_B:
 
     def solveSudoku(self, board: List[List[str]]) -> None:
-        """Version B"""
-
-        ans = Solution.PySudokuSolver_B(board)
+        """Modified version"""
+        ans = Solution_B.PySudokuSolver_B(board)
         ans.solve()
         for coor, value in ans.hash_board.items():
             x, y = coor[0], coor[1]
@@ -574,6 +572,8 @@ class Solution:
 
 
 if __name__ == "__main__":
+    testMethod = Solution_B().solveSudoku
+
     question = [
         ["5", "3", ".", ".", "7", ".", ".", ".", "."],
         ["6", ".", ".", "1", "9", "5", ".", ".", "."],
@@ -585,7 +585,7 @@ if __name__ == "__main__":
         [".", ".", ".", "4", "1", "9", ".", ".", "5"],
         [".", ".", ".", ".", "8", ".", ".", "7", "9"]]
 
-    Solution().solveSudoku(question)
+    testMethod(question)
     assert question == [
         ["5", "3", "4", "6", "7", "8", "9", "1", "2"],
         ["6", "7", "2", "1", "9", "5", "3", "4", "8"],
@@ -610,7 +610,7 @@ if __name__ == "__main__":
         [".", ".", ".", "2", "7", "5", "9", ".", "."]
     ]
 
-    Solution().solveSudoku(question_2)
+    testMethod(question_2)
     assert question_2 == [
         ["5", "1", "9", "7", "4", "8", "6", "3", "2"],
         ["7", "8", "3", "6", "5", "2", "4", "1", "9"],

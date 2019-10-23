@@ -22,11 +22,9 @@ Write the code that will take a string and make this conversion given a number o
 string convert(string s, int numRows);
 """
 
-class Solution:
-
+class Solution_A1:
     def convert(self, s: str, numRows: int) -> str:
-        """ Version A1, Time O(N), space O(N)"""
-
+        """Time O(N), space O(N)"""
         z = list(range(0, numRows)) + list(range(numRows - 2, 0, -1))  # cyling pather of 1 Z move (idx)
         cycle = len(z)
         mapping = [[] for _ in range(numRows)]
@@ -39,11 +37,9 @@ class Solution:
         return "".join(i for i in ["".join(j) for j in mapping])
 
 
-class Solution:
-
+class Solution_A2:
     def convert(self, s: str, numRows: int) -> str:
-        """Version A2, Time O(N), space O(N)"""
-
+        """Time O(N), space O(N)"""
         z = list(range(0, numRows)) + list(range(numRows - 2, 0, -1))
         z *= (len(s) // len(z) + 1)  # 直接扩展z, 不要用cycle的方式
         mapping = [[] for _ in range(numRows)]
@@ -56,11 +52,9 @@ class Solution:
         return "".join(i for i in ["".join(j) for j in mapping])
 
 
-class Solution(object):
-
-    """Version B, Time O(N), Space O(1) better in space"""
+class Solution_B:
+    """Time O(N), Space O(1) better in space"""
     def convert(self, s: str, numRows: int) -> str:
-
         if numRows == 1:
             return s
         step, zigzag = 2 * numRows - 2, ""
@@ -75,10 +69,11 @@ class Solution(object):
 
 
 if __name__ == "__main__":
-    assert Solution().convert("", 3) == "", "Edge 1"
-    assert Solution().convert("A", 1) == "A", "Edge 2"
-    assert Solution().convert("AB", 1) == "AB", "Edge 3"
+    testMethod = Solution_B().convert
+    assert testMethod("", 3) == "", "Edge 1"
+    assert testMethod("A", 1) == "A", "Edge 2"
+    assert testMethod("AB", 1) == "AB", "Edge 3"
 
-    assert Solution().convert("PAYPALISHIRING", 3) == "PAHNAPLSIIGYIR", "Example 1"
-    assert Solution().convert("PAYPALISHIRING", 4) == "PINALSIGYAHRPI", "Example 2"
+    assert testMethod("PAYPALISHIRING", 3) == "PAHNAPLSIIGYIR", "Example 1"
+    assert testMethod("PAYPALISHIRING", 4) == "PINALSIGYAHRPI", "Example 2"
     print("all passed")

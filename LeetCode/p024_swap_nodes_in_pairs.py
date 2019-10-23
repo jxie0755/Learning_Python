@@ -9,15 +9,12 @@ You may not modify the values in the list's nodes, only nodes itself may be chan
 
 from a0_ListNode import *
 
-class Solution:
-
+class Solution_A:
     def swapPairs(self, head: ListNode) -> ListNode:
         """
-        Version A
         用list重排, 再重新连接
         O(N)
         """
-
         if not head or not head.next:
             return head
         else:
@@ -43,14 +40,11 @@ class Solution:
 
             return node_list[0]
 
-class Solution:
-
+class Solution_B:
     def swapPairs(self, head: ListNode) -> ListNode:
         """
-        Version B
         不使用list,直接原地改
         """
-
         if head and head.next:
             new_head, next_head = head.next, head.next.next
             new_head.next, head.next = head, self.swapPairs(next_head)
@@ -60,11 +54,12 @@ class Solution:
 
 
 if __name__ == "__main__":
-    assert Solution().swapPairs(None) is None, "Empty"
-    assert Solution().swapPairs(genNode([1])) == genNode([1]), "Single"
+    testMethod = Solution_B().swapPairs
+    assert testMethod(None) is None, "Empty"
+    assert testMethod(genNode([1])) == genNode([1]), "Single"
 
-    assert Solution().swapPairs(genNode([1, 2])) == genNode([2, 1]), "1 pair"
-    assert Solution().swapPairs(genNode([1, 2, 3, 4])) == genNode([2, 1, 4, 3]), "Even Pairs"
-    assert Solution().swapPairs(genNode([1, 2, 3, 4, 5])) == genNode([2, 1, 4, 3, 5]), "with Odd"
+    assert testMethod(genNode([1, 2])) == genNode([2, 1]), "1 pair"
+    assert testMethod(genNode([1, 2, 3, 4])) == genNode([2, 1, 4, 3]), "Even Pairs"
+    assert testMethod(genNode([1, 2, 3, 4, 5])) == genNode([2, 1, 4, 3, 5]), "with Odd"
 
     print("all passed")

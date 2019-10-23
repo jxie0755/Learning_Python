@@ -11,11 +11,13 @@ Do not allocate extra space for another array, you must do this by modifying the
 from typing import *
 
 
-class Solution(object):
+class Solution_A:
 
     def removeDuplicates(self, nums: List[int]) -> int:
-        """Version A"""
-
+        """
+        Simple iteration with flag
+        思路在于利用外部游标对应遍历时的瞬间赋值
+        """
         if not nums:
             return 0
 
@@ -27,21 +29,23 @@ class Solution(object):
                 index += 1
                 start = i
 
-        # 思路在于利用外部游标对应遍历时的瞬间赋值
+        #
         return index  # 注意, 这里不会减少array长度, 只是把不重复的元素位置提前了
 
 
 if __name__ == "__main__":
+    testMethod = Solution_A().removeDuplicates
+
     Empty = []
-    assert Solution().removeDuplicates(Empty) == 0, "Empty"
+    assert testMethod(Empty) == 0, "Empty"
     assert Empty == [], "Empty revised list"
 
     Q0 = [1, 1]
-    assert Solution().removeDuplicates(Q0) == 1, "Edge"
+    assert testMethod(Q0) == 1, "Edge"
     assert Q0 == [1, 1], "Edge 0 revised list"
 
     Q1 = [1, 1, 2, 2, 3]
-    assert Solution().removeDuplicates(Q1) == 3, "Example 1"
+    assert testMethod(Q1) == 3, "Example 1"
     assert Q1 == [1, 2, 3, 2, 3], "Example 1 revised list"
 
     print("all passed")

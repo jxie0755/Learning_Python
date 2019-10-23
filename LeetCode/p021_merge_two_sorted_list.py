@@ -9,11 +9,10 @@ The new list should be made by splicing together the nodes of the first two list
 
 from a0_ListNode import *
 
-class Solution(object):
+class Solution_A:
 
     def mergeTwoLists(self, l1: ListNode, l2: ListNode) -> ListNode:
-        """ Version A"""
-
+        """Quick Iteration"""
         head = ListNode(0)
         current = head
 
@@ -37,10 +36,11 @@ class Solution(object):
 
 
 if __name__ == "__main__":
+    testMethod = Solution_A().mergeTwoLists
     l1 = genNode([1, 2, 4])
     l2 = genNode([1, 3, 4])
 
-    check = Solution().mergeTwoLists(l1, l2)
+    check = testMethod(l1, l2)
     assert repr(check) == "1->1->2->3->4->4", "Example 1"
 
     print("all passed")

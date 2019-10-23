@@ -12,14 +12,11 @@ Note:
 from typing import *
 
 
-class Solution:
-
+class Solution_A:
     def firstMissingPositive(self, nums: List[int]) -> int:
         """
-        Version A
         O(N), space O(N) (not constant space)
         """
-
         if not nums:
             return 1
         all_int = list(range(1, len(nums) + 1))
@@ -33,11 +30,9 @@ class Solution:
         else:
             return all_int[0]
 
-class Solution:
-
+class Solution_STD:
     def firstMissingPositive(self, nums: List[int]) -> int:
         """
-        STD ans
         Avoid use try except block
         """
 
@@ -58,13 +53,14 @@ class Solution:
 
 
 if __name__ == "__main__":
-    assert Solution().firstMissingPositive([]) == 1, "Edge 1"
-    assert Solution().firstMissingPositive([1]) == 2, "Edge 2"
-    assert Solution().firstMissingPositive([2]) == 1, "Edge 3"
-    assert Solution().firstMissingPositive([-1]) == 1, "Edge 4"
+    testMethod = Solution_STD().firstMissingPositive
+    assert testMethod([]) == 1, "Edge 1"
+    assert testMethod([1]) == 2, "Edge 2"
+    assert testMethod([2]) == 1, "Edge 3"
+    assert testMethod([-1]) == 1, "Edge 4"
 
-    assert Solution().firstMissingPositive([1, 2, 0]) == 3, "Example 1"
-    assert Solution().firstMissingPositive([3, 4, -1, 1]) == 2, "Example 2"
-    assert Solution().firstMissingPositive([7, 8, 9, 11, 12]) == 1, "Example 3"
+    assert testMethod([1, 2, 0]) == 3, "Example 1"
+    assert testMethod([3, 4, -1, 1]) == 2, "Example 2"
+    assert testMethod([7, 8, 9, 11, 12]) == 1, "Example 3"
 
     print("all passed")

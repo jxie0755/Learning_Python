@@ -8,10 +8,9 @@ Input is guaranteed to be within the range from 1 to 3999.
 """
 
 
-class Solution:
-
+class Solution_A:
     def intToRoman(self, num: int) -> str:
-        """Version A, hashmap convert"""
+        """Hashmap convert"""
 
         R = {0: "", 1: "I", 2: "II", 3: "III", 4: "IV", 5: "V", 6: "VI", 7: "VII", 8: "VIII", 9: "IX",
              10: "X", 20: "XX", 30: "XXX", 40: "XL", 50: "L", 60: "LX", 70: "LXX", 80: "LXXX", 90: "XC",
@@ -22,10 +21,10 @@ class Solution:
         dlst = list(map(lambda x, y: int(x) * y, num, (1000, 100, 10, 1)))  # 分解各数位
         return "".join(list(map(lambda x: R[x], dlst)))  # 将各数位代换成罗马数字,然后拼接
 
-class Solution:
+class Solution_B:
 
     def intToRoman(self, num: int) -> str:
-        """Version B, string method"""
+        """String method"""
 
         num = str(num).rjust(4, "0")  # 拆解data成为单独的数字字符,并补足数位
 
@@ -47,10 +46,10 @@ class Solution:
         # 使用map对data中每个数位进行转换,然后合并
         return "".join(list(map(rom, range(4), ["M", "C", "X", "I"], ["", "D", "L", "V"], ["", "M", "C", "X"])))
 
-class Solution:
+class Solution_C:
 
     def intToRoman(self, num: int) -> str:
-        """Version C, hashmap alternative"""
+        """Hashmap alternative"""
 
         result = ""
         roman_list = [(1000, "M"), (900, "CM"), (500, "D"), (400, "CD"),
@@ -69,5 +68,6 @@ class Solution:
 
 
 if __name__ == "__main__":
-    assert Solution().intToRoman(3888) == "MMMDCCCLXXXVIII", "one check is good"
+    testMethod = Solution_B().intToRoman()
+    assert testMethod(3888) == "MMMDCCCLXXXVIII", "one check is good"
     print("all passed")

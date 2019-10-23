@@ -14,14 +14,11 @@ Note:
 from typing import *
 
 
-class Solution:
-
+class Solution_A1:
     def jump(self, nums: List[int]) -> int:
         """
-        Version A1
         Simple Recursion method that worked but exceed max time limit
         """
-
         def jumpHelperA(cur_idx: int, cur_step: int = 0) -> None:
             """Helper"""
 
@@ -38,15 +35,12 @@ class Solution:
         return min(all_ways)
 
 
-class Solution:
-
+class Solution_A2:
     def jump(self, nums: List[int]) -> int:
         """
-        Version A2
         A modified A1 with hashmap search to reduce repeating calculation
         Use memorization method
         """
-
         def jumpHelperA2(cur_idx: int, cur_step: int = 0) -> None:
             """Helper A2"""
 
@@ -72,11 +66,9 @@ class Solution:
         return min(all_ways)
 
 
-class Solution:
-
+class Solution_B:
     def jump(self, nums: List[int]) -> int:
         """
-        Version B
         Non-recursive
         """
 
@@ -109,11 +101,9 @@ class Solution:
         return count + 1
 
 
-class Solution:
-
+class Solution_C1:
     def jump(self, nums: List[int]) -> int:
         """
-        Version C1
         Based on Version B, but through recursion
         by using max function, this will pass, but still slow.
         """
@@ -133,11 +123,9 @@ class Solution:
             next_idx = max(enumerate(candidates, cur_idx + 1), key=lambda x: x[0] + x[1])[0]
             return self.jumpHelpterC1(nums, next_idx, count + 1)
 
-class Solution:
-
+class Solution_C2:
     def jump(self, nums: List[int]) -> int:
         """
-        Version C2
         Improved Recursion method
         Based on Version C but removed max() and enumerate
         it is now very similar to non-recursive method, but still slower.
@@ -163,14 +151,15 @@ class Solution:
 
 
 if __name__ == "__main__":
-    assert Solution().jump([0]) == 0, "Edge 0"
-    assert Solution().jump([2, 1]) == 1, "Edge 1"
-    assert Solution().jump([2, 3, 1, 1, 4]) == 2, "Example 1"
-    assert Solution().jump(
+    testMethod = Solution_C2().jump
+    assert testMethod([0]) == 0, "Edge 0"
+    assert testMethod([2, 1]) == 1, "Edge 1"
+    assert testMethod([2, 3, 1, 1, 4]) == 2, "Example 1"
+    assert testMethod(
         [2, 9, 6, 5, 7, 0, 7, 2, 7, 9, 3, 2, 2, 5, 7, 8, 1, 6, 6, 6, 3, 5, 2, 2, 6, 3]) == 5, "Long 1"
-    assert Solution().jump(
+    assert testMethod(
         [5, 6, 5, 3, 9, 8, 3, 1, 2, 8, 2, 4, 8, 3, 9, 1, 0, 9, 4, 6, 5, 9, 8, 7, 4, 2, 1, 0, 2]) == 5, "Long 2"
-    assert Solution().jump(
+    assert testMethod(
         [5, 6, 4, 4, 6, 9, 4, 4, 7, 4, 4, 8, 2, 6, 8, 1, 5, 9, 6, 5, 2, 7, 9, 7,
          9, 6, 9, 4, 1, 6, 8, 8, 4, 4, 2, 0, 3, 8, 5]) == 5, "Long 3"
     print("all passed")

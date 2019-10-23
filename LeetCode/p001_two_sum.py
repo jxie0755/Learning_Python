@@ -9,13 +9,9 @@ You may assume that each input would have exactly one solution, and you may not 
 
 from typing import *
 
-class Solution:
-
+class Solution_A:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
-        """
-        Version A, brutal force, slowest
-        """
-
+        """brutal force, slowest"""
         for i in nums:
             index_i = nums.index(i)
             for j in nums[index_i + 1:]:
@@ -25,14 +21,9 @@ class Solution:
                     else:
                         return [index_i, nums.index(i, index_i + 1)]
 
-class Solution:
-
+class Solution_B:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
-        """
-        Version B
-        brutal force, check half first
-        """
-
+        """brutal force, check half first"""
         half = target / 2
         if nums.count(half) == 2:
             indexHalf = nums.index(half)
@@ -42,11 +33,9 @@ class Solution:
                 if target - i in nums:
                     return [nums.index(i), nums.index(target - i)]
 
-class Solution:
-
+class Solution_C:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
         """
-        Version C
         The same method in p167 Two Sum II can be used here
         """
 
@@ -61,9 +50,10 @@ class Solution:
 
 
 if __name__ == "__main__":
-    assert Solution().twoSum([11, 2, 7, 15], 9) == [1, 2], "regular"
-    assert Solution().twoSum([11, 7, 2, 15], 9) == [1, 2], "regular revert"
-    assert Solution().twoSum([3, 3], 6) == [0, 1], "two identical"
-    assert Solution().twoSum([-1, -2, -3, -4, -5], -8) == [2, 4], "negative int"
-    assert Solution().twoSum([3, 2, 4], 6) == [1, 2], "struggle with 1/2 target"
+    testMethod = Solution_C().twoSum
+    assert testMethod([11, 2, 7, 15], 9) == [1, 2], "regular"
+    assert testMethod([11, 7, 2, 15], 9) == [1, 2], "regular revert"
+    assert testMethod([3, 3], 6) == [0, 1], "two identical"
+    assert testMethod([-1, -2, -3, -4, -5], -8) == [2, 4], "negative int"
+    assert testMethod([3, 2, 4], 6) == [1, 2], "struggle with 1/2 target"
     print("all passed")

@@ -16,11 +16,10 @@ Note:
 """
 from typing import *
 
-class Solution:
-
+class Solution_A:
     def divide(self, dividend: int, divisor: int) -> int:
         """
-        Version A, Integer method
+        Integer method
         Time:  O(logn) = O(1), Space: O(1)
         """
 
@@ -55,14 +54,12 @@ class Solution:
             return result
 
 
-class Solution(object):
+class Solution_B:
 
     def divide(self, dividend: int, divisor: int) -> int:
         """
-        Version B
         Same idea but use bit calculation << and >>
         """
-
         positive = (dividend < 0) is (divisor < 0)  # great way to align two integer on the same sideK
         dividend, divisor = abs(dividend), abs(divisor)
         res = 0
@@ -79,13 +76,14 @@ class Solution(object):
 
 
 if __name__ == "__main__":
-    assert Solution().divide(1, 3) == 0, "Edge 1"
+    testMethod = Solution_B().divide
+    assert testMethod(1, 3) == 0, "Edge 1"
 
-    assert Solution().divide(10, 3) == 3, "Example 1"
-    assert Solution().divide(7, -3) == -2, "Example 2"
-    assert Solution().divide(1, 1) == 1, "Example 3"
+    assert testMethod(10, 3) == 3, "Example 1"
+    assert testMethod(7, -3) == -2, "Example 2"
+    assert testMethod(1, 1) == 1, "Example 3"
 
-    assert Solution().divide(-2147483648, 1) == -2147483648, "Edge 2"
-    assert Solution().divide(-2147483648, -1) == 2147483647, "Edge 3"
+    assert testMethod(-2147483648, 1) == -2147483648, "Edge 2"
+    assert testMethod(-2147483648, -1) == 2147483647, "Edge 3"
 
     print("all passed")

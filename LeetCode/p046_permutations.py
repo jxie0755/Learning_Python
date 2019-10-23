@@ -11,11 +11,9 @@ from math import factorial
 from typing import *
 
 
-class Solution:
-
+class Solution_A:
     def permute(self, nums: List[int]) -> List[List[int]]:
         """
-        Version A
         use python's internal method, only for testing the speed
         """
 
@@ -25,8 +23,7 @@ class Solution:
         return result
 
 
-class Solution:
-
+class Solution_B:
     def permute(self, nums: List[int]) -> List[List[int]]:
         """
         Version B1
@@ -85,8 +82,7 @@ class Solution:
             return indexes
 
 
-class Solution:
-
+class Solution_C:
     def permute(self, nums: List[int]) -> List[List[int]]:
         """
         Version C
@@ -94,7 +90,7 @@ class Solution:
         """
 
         def permuteHelper(lst: List[int], permute_list: List[int] = []) -> None:
-            """Helper"""
+            """Helper C"""
 
             if len(permute_list) == length:
                 result.append(permute_list)
@@ -111,10 +107,9 @@ class Solution:
         return result
 
 
-class Solution:
-
+class Solution_D:
     def permute(self, nums: List[int]) -> List[List[int]]:
-        """Version D, Pure recursive method"""
+        """Pure recursive method"""
 
         if len(nums) == 1:
             return [nums]
@@ -128,11 +123,12 @@ class Solution:
 
 
 if __name__ == "__main__":
-    assert Solution().permute([1]) == [
+    testMethod = Solution_D().permute
+    assert testMethod([1]) == [
         [1]
     ], "Edge 1"
 
-    assert Solution().permute([1, 2, 3]) == [
+    assert testMethod([1, 2, 3]) == [
         [1, 2, 3],
         [1, 3, 2],
         [2, 1, 3],

@@ -6,13 +6,11 @@ Medium
 Given a linked list, rotate the list to the right by k places, where k is non-negative.
 """
 
-from a0_ListNode import ListNode
+from a0_ListNode import *
 
-class Solution:
-
+class Solution_A:
     def rotateRight(self, head: ListNode, k: int) -> ListNode:
         """
-        Version A
         Loop the linked list and break from the rotate point
         """
         if not head:
@@ -48,22 +46,24 @@ class Solution:
 
 
 if __name__ == "__main__":
+    testMethod = Solution_A().rotateRight
+
     E0 = genNode([])
-    assert repr(Solution().rotateRight(E0, 2)) == "None", "Edge 0"
+    assert repr(testMethod(E0, 2)) == "None", "Edge 0"
 
     E1 = genNode([1])
-    assert repr(Solution().rotateRight(E1, 2)) == "1", "Edge 1"
+    assert repr(testMethod(E1, 2)) == "1", "Edge 1"
 
     E2 = genNode([1,2])
-    assert repr(Solution().rotateRight(E2, 1)) == "2->1", "Edge 2"
+    assert repr(testMethod(E2, 1)) == "2->1", "Edge 2"
 
     S1 = genNode([1, 2, 3, 4, 5])
-    assert repr(Solution().rotateRight(S1, 2)) == "4->5->1->2->3", "Example 1"
+    assert repr(testMethod(S1, 2)) == "4->5->1->2->3", "Example 1"
 
     S2 = genNode([1, 2, 3, 4, 5])
-    assert repr(Solution().rotateRight(S2, 0)) == "1->2->3->4->5", "Example 2"
+    assert repr(testMethod(S2, 0)) == "1->2->3->4->5", "Example 2"
 
     S3 = genNode([0, 1, 2])
-    assert repr(Solution().rotateRight(S3, 4)) == "2->0->1", "Example 3"
+    assert repr(testMethod(S3, 4)) == "2->0->1", "Example 3"
 
     print("all passed")

@@ -9,14 +9,11 @@ For the purpose of this problem, assume that your function returns 0 when the re
 The 32-bit int data type can hold integer values in the range of âˆ’2,147,483,648 to 2,147,483,647.
 """
 
-class Solution:
-
+class Solution_A:
     def reverse(self, x: int) -> int:
         """
-        Version A
         use string method, time O(logN), takes extra space O(logn)
         """
-
         if x >= 0:
             result = int(str(x)[::-1])
             return result if result <= 2147483647 else 0
@@ -24,11 +21,9 @@ class Solution:
             result = int("-" + str(x)[-1:0:-1])
             return result if result >= -2147483648 else 0
 
-class Solution:
-
+class Solution_B:
     def reverse(self, x: int) -> int:
         """
-        Version B
         use math method
         """
 
@@ -44,8 +39,9 @@ class Solution:
 
 
 if __name__ == "__main__":
-    assert Solution().reverse(123) == 321, "regular"
-    assert Solution().reverse(-120) == -21, "tricky reverse"
-    assert Solution().reverse(1534236469) == 0, "large number"
-    assert Solution().reverse(0) == 0, "zero"
+    testMethod = Solution_B().reverse
+    assert testMethod(123) == 321, "regular"
+    assert testMethod(-120) == -21, "tricky reverse"
+    assert testMethod(1534236469) == 0, "large number"
+    assert testMethod(0) == 0, "zero"
     print("all passed")

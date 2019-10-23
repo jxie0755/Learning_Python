@@ -14,11 +14,10 @@ Note that 1 does not map to any letters.
 from typing import *
 
 
-class Solution:
-
+class Solution_A:
     def letterCombinations(self, digits: str) -> List[str]:
         """
-        Version A, hashtable
+        Hashtable
         Time:  O(n * 3^n)
         """
 
@@ -50,13 +49,14 @@ class Solution:
 
 
 if __name__ == "__main__":
-    assert Solution().letterCombinations("") == [], "Edge 1"
-    assert Solution().letterCombinations("1") == [""], "Edge 2"
-    assert Solution().letterCombinations("0") == [" "], "Edge 3"
+    testMethod = Solution_A().letterCombinations
+    assert testMethod("") == [], "Edge 1"
+    assert testMethod("1") == [""], "Edge 2"
+    assert testMethod("0") == [" "], "Edge 3"
 
-    assert Solution().letterCombinations("2") == ["a", "b", "c"], "Example 1"
-    assert Solution().letterCombinations("20") == ["a ", "b ", "c "], "Example 2"
-    assert Solution().letterCombinations("23") == ["ad", "ae", "af", "bd", "be", "bf", "cd", "ce", "cf"], "Example 3"
-    assert Solution().letterCombinations("213") == ["ad", "ae", "af", "bd", "be", "bf", "cd", "ce", "cf"], "Example 4"
+    assert testMethod("2") == ["a", "b", "c"], "Example 1"
+    assert testMethod("20") == ["a ", "b ", "c "], "Example 2"
+    assert testMethod("23") == ["ad", "ae", "af", "bd", "be", "bf", "cd", "ce", "cf"], "Example 3"
+    assert testMethod("213") == ["ad", "ae", "af", "bd", "be", "bf", "cd", "ce", "cf"], "Example 4"
 
     print("all passed")

@@ -14,11 +14,9 @@ Note:
 from typing import *
 
 
-class Solution:
-
+class Solution_A:
     def maxArea(self, height: List[int]) -> int:
         """
-        Version A
         Brutal force will be O(N^2), Time Limit Exceeded
         """
 
@@ -35,11 +33,9 @@ class Solution:
             i += 1
         return max(result)
 
-class Solution:
-
+class Solution_B:
     def maxArea(self, height: List[int]) -> int:
         """
-        Version B
         find the heighest two, and check volume, then find the next highest two
         O(N^2) in worst case, but sometimes O(log n * N)
         Still exceeded max time limit on a case of ascending numbers.
@@ -63,7 +59,6 @@ class Solution:
             Helper
             删除最高值之间的所有数据
             """
-
             # 先得到tops中,两个距离最远的柱子的index
             start, end = min(hstble), max(hstble)
 
@@ -85,11 +80,9 @@ class Solution:
 
         return max(result)
 
-class Solution:
-
+class Solution_C:
     def maxArea(self, height: List[int]) -> int:
         """
-        Version C
         Start from both end, move the shorter side closer, to compare the possibe volume
         O(N) locked, best answer
         """
@@ -105,13 +98,14 @@ class Solution:
 
 
 if __name__ == "__main__":
-    assert Solution().maxArea([0, 0]) == 0, "Edge 1"
-    assert Solution().maxArea([0, 0, 0]) == 0, "Edge 2"
+    testMethod = Solution_C().maxArea
+    assert testMethod([0, 0]) == 0, "Edge 1"
+    assert testMethod([0, 0, 0]) == 0, "Edge 2"
 
-    assert Solution().maxArea([1, 8, 6, 2, 5, 4, 8, 3, 7]) == 49, "Example 1"
-    assert Solution().maxArea([2, 3, 0, 0, 3, 0, 0, 0, 0, 2]) == 18, "Example 2"
-    assert Solution().maxArea([2, 3, 4, 5, 6, 7, 8, 9, 100, 100]) == 100, "Example 3"
-    assert Solution().maxArea([1, 1, 1, 1, 1, 10, 10, 1, 1, 1, 1, 1]) == 11, "Example 4"
-    assert Solution().maxArea([1, 1, 4, 1, 5, 5, 4, 1, 1, 1]) == 16, "Example 5"
+    assert testMethod([1, 8, 6, 2, 5, 4, 8, 3, 7]) == 49, "Example 1"
+    assert testMethod([2, 3, 0, 0, 3, 0, 0, 0, 0, 2]) == 18, "Example 2"
+    assert testMethod([2, 3, 4, 5, 6, 7, 8, 9, 100, 100]) == 100, "Example 3"
+    assert testMethod([1, 1, 1, 1, 1, 10, 10, 1, 1, 1, 1, 1]) == 11, "Example 4"
+    assert testMethod([1, 1, 4, 1, 5, 5, 4, 1, 1, 1]) == 16, "Example 5"
 
     print("All passed")

@@ -11,15 +11,13 @@ Determine if you are able to reach the last index.
 from typing import *
 
 
-class Solution:
-
+class Solution_A:
     def canJump(self, nums: List[int]) -> bool:
         """
-        Version A
         Use a helper to find next idx based on current index, as long as it was able to move forward
         """
 
-        def findNext(cur_idx):
+        def findNext(cur_idx) -> int:
             cur_val = nums[cur_idx]
             next_idx, next_val = 0, 0
             for idx in range(cur_idx + 1, cur_idx + cur_val + 1):
@@ -43,13 +41,12 @@ class Solution:
         return True
 
 
-class Solution(object):
+class Solution_STD:
 
     def canJump(self, nums: List[int]) -> bool:
         """
         STD ans
         """
-
         max_reachable_idx = 0  # 定义一个当前能走到的最远的位置
 
         for i, length in enumerate(nums):
@@ -61,12 +58,13 @@ class Solution(object):
 
 
 if __name__ == "__main__":
-    assert Solution().canJump([0]), "Edge 1"
-    assert not Solution().canJump([0, 0]), "Edge 2"
-    assert Solution().canJump([1, 0]), "Edge 3"
-    assert not Solution().canJump([1, 0, 0, 0]), "Edge 4"
+    testMethod = Solution_STD().canJump
+    assert testMethod([0]), "Edge 1"
+    assert not testMethod([0, 0]), "Edge 2"
+    assert testMethod([1, 0]), "Edge 3"
+    assert not testMethod([1, 0, 0, 0]), "Edge 4"
 
-    assert Solution().canJump([2, 3, 1, 1, 4]), "Example 1"
-    assert not Solution().canJump([3, 2, 1, 0, 4]), "Example 2"
+    assert testMethod([2, 3, 1, 1, 4]), "Example 1"
+    assert not testMethod([3, 2, 1, 0, 4]), "Example 2"
 
     print("all passed")

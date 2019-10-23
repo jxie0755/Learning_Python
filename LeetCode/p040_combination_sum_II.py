@@ -17,18 +17,15 @@ Note:
 from itertools import combinations
 from typing import *
 
-class Solution:
-
+class Solution_A:
     def combinationSum2(self, candidates: List[int], target: int) -> List[List[int]]:
         """
-        Version A
         brutal force, max limit time exceeded
+        Determine maximum number of element for combination
+        And skim list down by removing elements that is larger than target
         """
-
         result = []
 
-        # determine maximum number of element for combination
-        # and skim list down by removing elements that is larger than target
         candidates = sorted(candidates)
         temp_sum, max_n, max_length = 0, 0, 0
         for i in candidates:
@@ -51,11 +48,9 @@ class Solution:
         return result
 
 
-class Solution(object):
-
+class Solution_B:
     def combinationSum2(self, candidates: List[int], target: int) -> List[List[int]]:
         """
-        Version B
         Same idea with Leetcode P039 Combination Sum, but cannot repeat same elements
         Add a recursive process method to update result
         """
@@ -63,17 +58,7 @@ class Solution(object):
         def process(candidates: List[int], start: int, intermediate: List[int], target: int) -> None:
             """
             Helper
-
-            Args:
-                candidates:    ingredient numbers (sorted)
-                start:         from 0, full candidates, to a shorter candidate list
-                intermediate:  temp list to record current status List[int]]
-                target:        tartget to compose
-
-            Returns:
-                None, Imperfect function, just update the result
             """
-
             if target == 0 and intermediate not in result:  # 相对于P039 加一个去重条件
                 result.append(list(intermediate))  # 终止case, target降到0就完成
                 # 这里使用list其实就是复制一个itermediate, 可以用interme[:]取代
@@ -94,10 +79,12 @@ class Solution(object):
 
 
 if __name__ == "__main__":
+    testMethod = Solution_B().combinationSum2
+
     candidates = [10, 1, 2, 7, 6, 1, 5]
-    assert Solution().combinationSum2(candidates, 8) == [[1, 1, 6], [1, 2, 5], [1, 7], [2, 6]], "Example 1"
+    assert testMethod(candidates, 8) == [[1, 1, 6], [1, 2, 5], [1, 7], [2, 6]], "Example 1"
 
     candidates = [2, 5, 2, 1, 2]
-    assert Solution().combinationSum2(candidates, 5) == [[1, 2, 2], [5]], "Example 2"
+    assert testMethod(candidates, 5) == [[1, 2, 2], [5]], "Example 2"
 
     print("all passed")

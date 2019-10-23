@@ -11,14 +11,11 @@ from math import factorial
 from typing import *
 
 
-class Solution:
-
+class Solution_A:
     def permuteUnique(self, nums: List[int]) -> List[List[int]]:
         """
-        Version A
         use python's internal method, only for testing the speed
         """
-
         result = []
         for idxs in permutations(list(range(len(nums)))):
             next_perm = [nums[i] for i in idxs]
@@ -27,17 +24,14 @@ class Solution:
         return result
 
 
-class Solution:
-
+class Solution_B:
     def permuteUnique(self, nums: List[int]) -> List[List[int]]:
         """
-        Version B
         Use next permuteUnique
         First handle index, then convert to nuns[index], if not repeating then append.
         This will pass but way too slow
         revised to use set(tuples) to removed repeats, then sort, it is faster, but still slow
         """
-
         total_n = factorial(len(nums))
         result = []
         idxs = list(range(len(nums)))
@@ -46,7 +40,6 @@ class Solution:
             result.append(tuple(next_perm))
             idxs = self.next_permute(idxs)
         return sorted([list(i) for i in set(result)])
-
 
     # You must not use Leetcode P046 Version B2, because it asks for distinct collection of numbers
 
@@ -79,11 +72,9 @@ class Solution:
             return indexes
 
 
-class Solution:
-
+class Solution_C:
     def permuteUnique(self, nums: List[int]) -> List[List[int]]:
         """
-        Version C
         recursive method from leetcode P046
         revised the recursion rule by bypassing the repeated next_list
         """
@@ -109,11 +100,9 @@ class Solution:
         return result
 
 
-class Solution:
-
+class Solution_D:
     def permuteUnique(self, nums: List[int]):
         """
-        Version D
         Pure recursive method, single and pure recursion from leetcode P046
         Revised the recursion rule by bypassing the repeated next_list
         """
@@ -135,11 +124,12 @@ class Solution:
 
 
 if __name__ == "__main__":
-    assert Solution().permuteUnique([1]) == [
+    testMethod = Solution_D().permuteUnique
+    assert testMethod([1]) == [
         [1]
     ], "Edge 1"
 
-    assert Solution().permuteUnique([1, 2, 3]) == [
+    assert testMethod([1, 2, 3]) == [
         [1, 2, 3],
         [1, 3, 2],
         [2, 1, 3],
@@ -148,7 +138,7 @@ if __name__ == "__main__":
         [3, 2, 1]
     ], "Example 1"
 
-    assert Solution().permuteUnique([1, 1, 2]) == [
+    assert testMethod([1, 1, 2]) == [
         [1, 1, 2],
         [1, 2, 1],
         [2, 1, 1]

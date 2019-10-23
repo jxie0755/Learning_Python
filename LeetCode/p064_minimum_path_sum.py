@@ -11,11 +11,9 @@ Note: You can only move either down or right at any point in time.
 
 from typing import *
 
-class Solution:
-
+class Solution_A:
     def minPathSum(self, grid: List[List[int]]) -> int:
         """
-        Version A
         新建一个表, 不破坏原表
         """
         if not len(grid) or not len(grid[0]):
@@ -39,11 +37,9 @@ class Solution:
         return min_to[n - 1][m - 1]
 
 
-class Solution:
-
+class Solution_B:
     def minPathSum(self, grid: List[List[int]]) -> int:
         """
-        Version B
         直接在原表上改动, 破坏原表, 但是速度更快
         """
         if not len(grid) or not len(grid[0]):
@@ -65,17 +61,19 @@ class Solution:
 
 
 if __name__ == "__main__":
+    testMethod = Solution_B().minPathSum
+
     E1 = [[]]
-    assert Solution().minPathSum(E1) == 0, "Edge 1"
+    assert testMethod(E1) == 0, "Edge 1"
 
     E2 = [[1]]
-    assert Solution().minPathSum(E2) == 1, "Edge 2"
+    assert testMethod(E2) == 1, "Edge 2"
 
     E3 = [[1, 1]]
-    assert Solution().minPathSum(E3) == 2, "Edge 3"
+    assert testMethod(E3) == 2, "Edge 3"
 
     E4 = [[1], [1]]
-    assert Solution().minPathSum(E4) == 2, "Edge 4"
+    assert testMethod(E4) == 2, "Edge 4"
 
     S1 = [
         [1, 3, 1],
@@ -83,5 +81,5 @@ if __name__ == "__main__":
         [4, 2, 1]
     ]
 
-    assert Solution().minPathSum(S1) == 7, "Example 1"
+    assert testMethod(S1) == 7, "Example 1"
     print("all passed")

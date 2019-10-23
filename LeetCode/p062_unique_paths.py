@@ -13,11 +13,10 @@ How many possible unique paths are there?
 from math import factorial
 
 
-class Solution:
-
+class Solution_A:
     def uniquePaths(self, m: int, n: int) -> int:
         """
-        Version A, best direct math calculation
+        The best direct math calculation
         This is the same as ProjectEuler p015 lattice paths
         Use combination method: Combination pick r out of n : n! // r! // (n-r)!
         """
@@ -25,10 +24,10 @@ class Solution:
         return factorial(total) // (factorial(total - (n - 1)) * factorial(n - 1))
 
 
-class Solution:
+class Solution_B:
     def uniquePaths(self, m: int, n: int) -> int:
         """
-        Version B, recursive method with hashmap memorizaton
+        Recursive method with hashmap memorizaton
         """
         hmp = dict()
 
@@ -45,11 +44,10 @@ class Solution:
 
         return uniquePaths_recur_mem(m, n)
 
-class Solution:
-
+class Solution_C:
     def uniquePaths(self, m: int, n: int) -> int:
         """
-        Version C, use grid iteration
+        Use grid iteration
         Get last grid value by adding the value of the neighbors from up and left
         This can avoid large number factorial calculation
         """
@@ -64,11 +62,12 @@ class Solution:
 
 
 if __name__ == "__main__":
-    assert Solution().uniquePaths(1, 1) == 1, "Edge 1"
-    assert Solution().uniquePaths(4, 1) == 1, "Edge 2"
-    assert Solution().uniquePaths(1, 4) == 1, "Edge 3"
+    testMethod = Solution_C().uniquePaths
+    assert testMethod(1, 1) == 1, "Edge 1"
+    assert testMethod(4, 1) == 1, "Edge 2"
+    assert testMethod(1, 4) == 1, "Edge 3"
 
-    assert Solution().uniquePaths(3, 2) == 3, "Example 1"
-    assert Solution().uniquePaths(7, 3) == 28, "Example 2"
-    assert Solution().uniquePaths(23, 12) == 193536720, "Example 3, large number"
+    assert testMethod(3, 2) == 3, "Example 1"
+    assert testMethod(7, 3) == 28, "Example 2"
+    assert testMethod(23, 12) == 193536720, "Example 3, large number"
     print("all passed")

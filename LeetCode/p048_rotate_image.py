@@ -14,14 +14,11 @@ Do not return anything, modify matrix in-place instead.
 from typing import *
 
 
-class Solution:
-
+class Solution_A:
     def rotate(self, matrix: List[List[int]]) -> None:
         """
-        Version A
         Hashmap, need additinal space to memory the matrix
         """
-
         n = len(matrix)
         if matrix[0]:
             hmp = {}
@@ -33,11 +30,9 @@ class Solution:
                 for col in range(n):
                     matrix[row][col] = hmp[(row, col)]
 
-class Solution:
-
+class Solution_B:
     def rotate(self, matrix: List[List[int]]) -> None:
         """
-        Version B
         Direct change in-place, with circiles shrinking to the center
         """
 
@@ -56,12 +51,13 @@ class Solution:
 
 
 if __name__ == "__main__":
+    testMethod = Solution_B().rotate
     edge_1 = [[1]]
-    Solution().rotate(edge_1)
+    testMethod(edge_1)
     assert edge_1 == [[1]], "Edge 1"
 
     edge_2 = [[]]
-    Solution().rotate(edge_2)
+    testMethod(edge_2)
     assert edge_2 == [[]], "Edge 2"
 
     sample_1 = [
@@ -77,8 +73,8 @@ if __name__ == "__main__":
         [15, 14, 12, 16]
     ]
 
-    Solution().rotate(sample_1)
-    Solution().rotate(sample_2)
+    testMethod(sample_1)
+    testMethod(sample_2)
 
     assert sample_1 == [
         [7, 4, 1],

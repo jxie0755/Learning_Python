@@ -12,11 +12,10 @@ n is a 32-bit signed integer, within the range [−2^31, 2^31 − 1]
 import math
 
 
-class Solution:
-
+class Solution_A:
     def myPow(self, x: float, n: int) -> float:
         """
-        Version A, iteration
+        Iteration
         this will fail on large case, exceeding max time limit
         """
         if n == 0:
@@ -29,11 +28,10 @@ class Solution:
                 result *= x
             return result
 
-class Solution:
-
+class Solution_B:
     def myPow(self, x: float, n: int) -> float:
         """
-        Version B, recursive
+        Recursive
         利用n每翻倍一次, 只是原数平方一次
         """
         if n == 0:
@@ -49,9 +47,10 @@ class Solution:
 
 
 if __name__ == "__main__":
-    assert Solution().myPow(2.00000, 10) == math.pow(2.00000, 10), "Example 1"
-    assert Solution().myPow(2.10000, 3) == math.pow(2.10000, 3), "Example 2"
-    assert Solution().myPow(2.00000, -2) == math.pow(2.00000, -2), "Example 3"
-    assert Solution().myPow(0.00001, 2147483647) == math.pow(0.00001, 2147483647), "Large 1"
-    print(Solution().myPow(2, -2147483648))
+    testMethod = Solution_B().myPow
+    assert testMethod(2.00000, 10) == math.pow(2.00000, 10), "Example 1"
+    assert testMethod(2.10000, 3) == math.pow(2.10000, 3), "Example 2"
+    assert testMethod(2.00000, -2) == math.pow(2.00000, -2), "Example 3"
+    assert testMethod(0.00001, 2147483647) == math.pow(0.00001, 2147483647), "Large 1"
+    print(testMethod(2, -2147483648))
     print("all passed")

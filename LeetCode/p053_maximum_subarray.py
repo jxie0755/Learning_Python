@@ -8,10 +8,9 @@ Find the contiguous subarray within an array (containing at least one number) wh
 
 from typing import *
 
-class Solution:
+class Solution_A:
     def maxSubArray(self, nums: List[int]) -> int:
         """
-        Version A
         O(n^2), Time Limit Exceeded, for large input size
         """
         result = []
@@ -20,10 +19,9 @@ class Solution:
                 result.append(sum(nums[start:start + length]))
         return max(result)
 
-class Solution:
+class Solution_B:
     def maxSubArray(self, nums: List[int]) -> int:
         """
-        Version B
         O(n), using local and global max_value to iterate over the elements
         """
         nonePositive = True
@@ -42,15 +40,16 @@ class Solution:
 
 
 if __name__ == "__main__":
-    assert Solution().maxSubArray([1, 2, 3, 4]) == 10, "All positives"
-    assert Solution().maxSubArray([-1, -2, -3, -4]) == -1, "All negatives"
-    assert Solution().maxSubArray([-2, 1, -3, 4, -1, 2, 1, -5, 4]) == 6, "mixed positive and negative"
-    assert Solution().maxSubArray([2, 2, 0, -1]) == 4, "with zero"
-    assert Solution().maxSubArray([-2, -1, -1, -1, -1, -1, -1, -1, 1]) == 1, "a lot of negatives"
-    assert Solution().maxSubArray([0, 0, -3, 1]) == 1, "group of zeros"
-    assert Solution().maxSubArray([1]) == 1, "just 1"
-    assert Solution().maxSubArray([-1]) == -1, "just -1"
-    assert Solution().maxSubArray([0]) == 0, "just 0"
-    assert Solution().maxSubArray([0, -1, -1, 0, 0, 0, -1, -2, -3]) == 0, "only one zero"
-    assert Solution().maxSubArray([0, 0, 0, 0, 0, 0]) == 0, "all zeros"
+    testMethod = Solution_B().maxSubArray
+    assert testMethod([1, 2, 3, 4]) == 10, "All positives"
+    assert testMethod([-1, -2, -3, -4]) == -1, "All negatives"
+    assert testMethod([-2, 1, -3, 4, -1, 2, 1, -5, 4]) == 6, "mixed positive and negative"
+    assert testMethod([2, 2, 0, -1]) == 4, "with zero"
+    assert testMethod([-2, -1, -1, -1, -1, -1, -1, -1, 1]) == 1, "a lot of negatives"
+    assert testMethod([0, 0, -3, 1]) == 1, "group of zeros"
+    assert testMethod([1]) == 1, "just 1"
+    assert testMethod([-1]) == -1, "just -1"
+    assert testMethod([0]) == 0, "just 0"
+    assert testMethod([0, -1, -1, 0, 0, 0, -1, -2, -3]) == 0, "only one zero"
+    assert testMethod([0, 0, 0, 0, 0, 0]) == 0, "all zeros"
     print("all passed")

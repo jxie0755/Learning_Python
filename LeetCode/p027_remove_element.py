@@ -10,14 +10,11 @@ The order of elements can be changed. It doesn't matter what you leave beyond th
 
 from typing import *
 
-class Solution(object):
-
+class Solution_A:
     def removeElement(self, nums: List[int], val: int) -> int:
         """
-        Version A
         Imperfect, Change of the Array length should be avoided
         """
-
         n = 0
         while n < len(nums):
             # this force to recalculate len() in O(1)
@@ -29,26 +26,20 @@ class Solution(object):
                 n += 1  # if no pop(), then move n to next index
         return len(nums)
 
-class Solution:
-
+class Solution_B:
     def removeElement(self, nums: List[int], val: int) -> int:
         """
-        Version B
         This slower by checking val in nums everytime O(N)
         """
-
         while val in nums:
             nums.remove(val)
         return len(nums)
 
-class Solution:
-
+class Solution_C:
     def removeElement(self, nums: List[int], val: int) -> int:
         """
-        Version C
         No pop, re-arrange with two flags
         """
-
         i = n = 0
         L = len(nums)
         while n < len(nums):
@@ -63,16 +54,18 @@ class Solution:
 
 
 if __name__ == "__main__":
+    testMethod = Solution_A().removeElement
+
     nums = []
-    assert Solution().removeElement(nums, 3) == 0, "Edge"
+    assert testMethod(nums, 3) == 0, "Edge"
     assert nums == [], "Edge final list"
 
     nums = [3, 2, 2, 3]
-    assert Solution().removeElement(nums, 3) == 2, "Example 1"
+    assert testMethod(nums, 3) == 2, "Example 1"
     assert nums == [2, 2, 2, 3], "Example 1 final list"
 
     nums = [0, 1, 2, 2, 3, 0, 4, 2]
-    assert Solution().removeElement(nums, 2) == 5, "Example 2"
+    assert testMethod(nums, 2) == 5, "Example 2"
     assert nums == [0, 1, 3, 0, 4, 0, 4, 2], "Example 2 final list"
 
     print('all passed')

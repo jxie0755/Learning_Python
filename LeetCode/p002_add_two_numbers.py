@@ -12,11 +12,10 @@ You may assume the two numbers do not contain any leading zero, except the numbe
 
 from a0_ListNode import *
 
-class Solution(object):
-
+class Solution_A:
     def addTwoNumbers(self, l1: ListNode, l2: ListNode) -> ListNode:
         """
-        Version A, Time:  O(n), Space: O(1)
+        Time:  O(n), Space: O(1)
         Non-recursion  method
         This will protect l1 and l2 from changing
         """
@@ -42,11 +41,10 @@ class Solution(object):
         return dummy.next
 
 
-class Solution:
-
+class Solution_B:
     def addTwoNumbers(self, l1: ListNode, l2: ListNode) -> ListNode:
         """
-        Version B, Time:  O(n), Space: O(1)
+        Time:  O(n), Space: O(1)
         Recursion method
         This will break down l1 and l2
         加一个parameter就可以避免改变l1和l2
@@ -74,16 +72,18 @@ class Solution:
 
 
 if __name__ == "__main__":
+    testMethod = Solution_B().addTwoNumbers
+
     a1 = genNode([0])
     b1 = genNode([0, 1])
 
-    c = Solution().addTwoNumbers(a1, b1)
+    c = testMethod(a1, b1)
     assert repr(c) == "0->1"
 
     a1 = genNode([9])
     b1 = genNode([9])
 
-    c = Solution().addTwoNumbers(a1, b1)
+    c = testMethod(a1, b1)
     assert repr(c) == "8->1"
 
     # Example 1
@@ -93,7 +93,7 @@ if __name__ == "__main__":
 
     a1 = genNode([2, 4, 3])
     b1 = genNode([5, 6, 4])
-    c = Solution().addTwoNumbers(a1, b1)
+    c = testMethod(a1, b1)
     assert repr(c) == "7->0->8"
 
     # Example 2
@@ -104,6 +104,6 @@ if __name__ == "__main__":
     a1 = genNode([2, 4, 3])
     b1 = genNode([8, 9])
 
-    c = Solution().addTwoNumbers(a1, b1)
+    c = testMethod(a1, b1)
     assert repr(c) == "0->4->4"
     print("all passed")

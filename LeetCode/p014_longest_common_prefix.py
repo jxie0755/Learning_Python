@@ -6,14 +6,13 @@ Easy
 Write a function to find the longest common prefix string amongst an array of strings.
 """
 
-from collections import deque  # 利用deque的maxlen特性
+from collections import deque
 from typing import *
 
 
-class Solution:
-
+class Solution_A:
     def longestCommonPrefix(self, strs: List[str]) -> str:
-        """Version A, Use set"""
+        """Use set to filter repeat"""
 
         result = ""
         if len(strs) == 0:
@@ -29,10 +28,12 @@ class Solution:
                 break
         return result
 
-class Solution:
-
+class Solution_B:
     def longestCommonPrefix(self, strs: List[str]) -> str:
-        """ Version B, Use Deque"""
+        """
+        Use Deque
+        利用deque的maxlen特性
+        """
 
         result = ""
         if len(strs) == 0:
@@ -47,10 +48,11 @@ class Solution:
 
 
 if __name__ == "__main__":
+    testMethod = Solution_B().longestCommonPrefix
     lst = ["Denis Xie", "Dennis X", "Dendi Den", "Denn"]
-    assert Solution().longestCommonPrefix(lst) == "Den", "regular test"
+    assert testMethod(lst) == "Den", "regular test"
 
     lst2 = []
-    assert Solution().longestCommonPrefix(lst2) == "", "empty list"
+    assert testMethod(lst2) == "", "empty list"
 
     print("all passed")

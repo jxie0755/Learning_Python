@@ -19,11 +19,10 @@ See reference in ZZProject/SudokuSolver
 
 from typing import *
 
-class Solution:
+class Solution_A:
 
     def isValidSudoku(self, board: List[List[str]]) -> bool:
         """Version A"""
-
         return self.all_rows(board) and self.all_cols(board) and self.all_blocks(board)
 
     def all_rows(self, board: List[List[str]]) -> bool:
@@ -55,7 +54,6 @@ class Solution:
 
     def correct_line(self, row: List[str]) -> bool:
         """Helper Aabc"""
-
         written = []
         for i in row:
             if i == ".":
@@ -68,6 +66,8 @@ class Solution:
 
 
 if __name__ == "__main__":
+    testMethod = Solution_A().isValidSudoku
+
     example_1 = [
         ["5", "3", ".", ".", "7", ".", ".", ".", "."],
         ["6", ".", ".", "1", "9", "5", ".", ".", "."],
@@ -80,7 +80,7 @@ if __name__ == "__main__":
         [".", ".", ".", ".", "8", ".", ".", "7", "9"]
     ]
 
-    assert Solution().isValidSudoku(example_1) == True, "Example 1"
+    assert testMethod(example_1) == True, "Example 1"
 
     example_2 = [
         ["8", "3", ".", ".", "7", ".", ".", ".", "."],
@@ -94,7 +94,7 @@ if __name__ == "__main__":
         [".", ".", ".", ".", "8", ".", ".", "7", "9"]
     ]
 
-    assert Solution().isValidSudoku(example_2) == False, "Example 2"
+    assert testMethod(example_2) == False, "Example 2"
 
     example_3 = [
         [".", ".", "4", ".", ".", ".", "6", "3", "."],
@@ -108,5 +108,5 @@ if __name__ == "__main__":
         [".", ".", ".", ".", ".", ".", ".", ".", "."]
     ]
 
-    assert Solution().isValidSudoku(example_3) == False, "Example 3"
+    assert testMethod(example_3) == False, "Example 3"
     print("all passed")

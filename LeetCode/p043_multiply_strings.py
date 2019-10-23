@@ -14,22 +14,17 @@ Note:
 """
 
 
-class Solution:
-
+class Solution_A:
     def multiply(self, num1: str, num2: str) -> str:
         """
-        Version A
         Python builtin direct convert
         """
-
         return str(int(num1) * int(num2))
 
 
-class Solution:
-
+class Solution_B:
     def multiply(self, num1: str, num2: str) -> str:
         """
-        Version B
         HashMap method
         Calulate string by hand calculation method, can avoid overflow of integer/long numbers
         Avoid using integer calculation, direct return the String value
@@ -76,11 +71,9 @@ class Solution:
         return result
 
 
-class Solution:
-
+class Solution_C:
     def multiply(self, num1: str, num2: str) -> str:
         """
-        Version C
         Break down to add with manual method
         This can completely avoid overflow of integer/long numbers
         """
@@ -134,9 +127,10 @@ class Solution:
 
 
 if __name__ == "__main__":
-    assert Solution().multiply("0", "23") == "0", "Edge 1"
-    assert Solution().multiply("2", "23") == "46", "Edge 2"
-    assert Solution().multiply("2", "3") == "6", "Example 1"
-    assert Solution().multiply("123", "456") == "56088", "Example 2"
-    assert Solution().multiply("50", "50") == "2500", "Extra 1"
+    testMethod = Solution_C().multiply
+    assert testMethod("0", "23") == "0", "Edge 1"
+    assert testMethod("2", "23") == "46", "Edge 2"
+    assert testMethod("2", "3") == "6", "Example 1"
+    assert testMethod("123", "456") == "56088", "Example 2"
+    assert testMethod("50", "50") == "2500", "Extra 1"
     print("all passed!")

@@ -23,7 +23,7 @@ import math
 from typing import *
 
 
-class Solution:
+class Solution_A:
     def nextPermutation(self, nums: List[int]) -> List[int]:
         """
         Helper from Leetcode P031
@@ -136,7 +136,7 @@ class Solution:
             return "".join([str(i) for i in lst])
 
 
-class Solution:
+class Solution_B:
 
     def permute(self, nums: List[int]) -> List[List[int]]:
         """
@@ -156,7 +156,6 @@ class Solution:
 
     def getPermutation(self, n: int, k: int) -> str:
         """
-        Version B
         Directly pick kth permuation
         Faster but still failed, and high Space Complexity
         """
@@ -167,10 +166,9 @@ class Solution:
             return "".join(str(i) for i in self.permute(lst)[k - 1])
 
 
-class Solution(object):
+class Solution_C1(object):
     def getPermutation(self, n: int, k: int) -> str:
         """
-        Version C1
         Direct generation, digit by digit
         这里利用的是每一位数字, 都会因为后面位数的总排列数为循环发生变化, 从小到大发展
         """
@@ -186,11 +184,10 @@ class Solution(object):
         return seq
 
 
-class Solution(object):
+class Solution_C2(object):
 
     def getPermutation(self, n: int, k: int) -> str:
         """
-        Version C2
         Direct generation, digit by digit
         recursive method
         """
@@ -212,17 +209,18 @@ class Solution(object):
 
 
 if __name__ == "__main__":
-    assert Solution().getPermutation(4, 1) == "1234", "Edge 1"
-    assert Solution().getPermutation(3, 3) == "213", "Example 1"
-    assert Solution().getPermutation(4, 9) == "2314", "Example 2"
-    assert Solution().getPermutation(8, 29805) == "68327415", "Long 1"
-    assert Solution().getPermutation(9, 62716) == "265183794", "Long 2"
+    testMethod = Solution_C2().getPermutation
+    assert testMethod(4, 1) == "1234", "Edge 1"
+    assert testMethod(3, 3) == "213", "Example 1"
+    assert testMethod(4, 9) == "2314", "Example 2"
+    assert testMethod(8, 29805) == "68327415", "Long 1"
+    assert testMethod(9, 62716) == "265183794", "Long 2"
     print("all passed")
 
     # print("test timeit")
-    # print(timeit.repeat("Solution().getPermutation_0(8, 6000)", setup="from __main__ import Solution", repeat=3, number=500))
+    # print(timeit.repeat("testMethod_0(8, 6000)", setup="from __main__ import Solution", repeat=3, number=500))
     # >>> [3.045518253785702, 3.04060806065978, 3.0435408311783467]
-    # print(timeit.repeat("Solution().getPermutation(8, 6000)", setup="from __main__ import Solution", repeat=3, number=500))
+    # print(timeit.repeat("testMethod(8, 6000)", setup="from __main__ import Solution", repeat=3, number=500))
     # >>> [0.48771537433245093, 0.48776606102485154, 0.48719471292885963]
     # 当k刚好略大于上一级n的时候, 会快很多, 但是其他情况下这样只能略微提速
     # print("timeit ended")

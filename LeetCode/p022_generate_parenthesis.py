@@ -9,15 +9,13 @@ Given n pairs of parentheses, write a function to generate all combinations of w
 from typing import *
 
 
-class Solution:
-
+class Solution_A:
     def generateParenthesis(self, n: int) -> List[str]:
         """
-        Version A, recursive
+        Recursive
         Time  O(N^2)
         Space O(N^2)
         """
-
         if n == 1:
             return ["()"]
         else:
@@ -41,15 +39,13 @@ class Solution:
             result.append(par[:i + 1] + "()" + par[i + 1:])
         return result
 
-class Solution:
-
+class Solution_STD:
     def generateParenthesis(self, n: int) -> List[str]:
         """
-        STD ANS, recursive
+        Recursive
         Time:  O(4^n / n^(3/2)) ~= Catalan numbers
         Space: O(n)
         """
-
         def generate(p: str, left: int, right: int, parens: List[str] = []) -> List[str]:
             """Helper"""
 
@@ -65,14 +61,11 @@ class Solution:
         return generate("", n, n)
 
 
-class Solution:
-
+class Solution_B:
     def generateParenthesis(self, n: int) -> List[str]:
         """
-        Version B
         An easier way to understand STD ans
         """
-
         parens = []
 
         def generate(p: str, left: int, right: int) -> None:
@@ -90,11 +83,12 @@ class Solution:
 
 
 if __name__ == "__main__":
-    assert Solution().generateParenthesis(1) == ["()"], "Edge 1"
+    testMethod = Solution_B().generateParenthesis
+    assert testMethod(1) == ["()"], "Edge 1"
 
-    assert Solution().generateParenthesis(2) == ["(())", "()()"]
-    assert Solution().generateParenthesis(3) == ["((()))", "(()())", "(())()", "()(())", "()()()"]
-    assert Solution().generateParenthesis(4) == ["(((())))", "((()()))", "((())())", "((()))()", "(()(()))", "(()()())",
+    assert testMethod(2) == ["(())", "()()"]
+    assert testMethod(3) == ["((()))", "(()())", "(())()", "()(())", "()()()"]
+    assert testMethod(4) == ["(((())))", "((()()))", "((())())", "((()))()", "(()(()))", "(()()())",
                                                  "(()())()", "(())(())", "(())()()", "()((()))", "()(()())", "()(())()",
                                                  "()()(())", "()()()()"]
 

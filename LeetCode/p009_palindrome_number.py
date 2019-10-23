@@ -9,19 +9,16 @@ Negative integer will not be a palindrome
 
 class Solution:
 
-    def isPalindrome(self, x: int) -> bool:
-        """Version A, string method, takes extra space"""
-
+    def isPalindrome_A(self, x: int) -> bool:
+        """String method, takes extra space"""
         if x < 0:
             return False
         else:
             return str(x) == str(x)[::-1]
 
-class Solution:
-
+class Solution_B:
     def isPalindrome(self, x: int) -> bool:
-        """Version B, divmod method"""
-
+        """Divmod method"""
         if x < 0:
             return False
         copy, reverse = x, 0
@@ -32,10 +29,11 @@ class Solution:
 
 
 if __name__ == "__main__":
-    assert Solution().isPalindrome(21477412) == True, "Is palindrome (even)"
-    assert Solution().isPalindrome(12321) == True, "Is palindrome (odd)"
-    assert not Solution().isPalindrome(1477412), "Not palindrome"
-    assert Solution().isPalindrome(1), "Single digit 1"
-    assert Solution().isPalindrome(0), "Single digit 0"
+    testMethod = Solution_B().isPalindrome
+    assert testMethod(21477412) == True, "Is palindrome (even)"
+    assert testMethod(12321) == True, "Is palindrome (odd)"
+    assert not testMethod(1477412), "Not palindrome"
+    assert testMethod(1), "Single digit 1"
+    assert testMethod(0), "Single digit 0"
 
     print("all passed")

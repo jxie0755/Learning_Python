@@ -13,10 +13,9 @@ Note:
 from typing import *
 
 
-class Solution:
-
+class Solution_A:
     def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
-        """Version A, use hashmap"""
+        """Use hashmap"""
 
         if not strs:
             return [[]]
@@ -32,18 +31,20 @@ class Solution:
 
 
 if __name__ == "__main__":
+    testMethod = Solution_A().groupAnagrams
+
     edge_1 = []
-    assert Solution().groupAnagrams(edge_1) == [
+    assert testMethod(edge_1) == [
         []
     ], "edge 1"
 
     edge_2 = ["a"]
-    assert Solution().groupAnagrams(edge_2) == [
+    assert testMethod(edge_2) == [
         ["a"]
     ], "edge 2"
 
     sample_1 = ["eat", "tea", "tan", "ate", "nat", "bat"]
-    assert Solution().groupAnagrams(sample_1) == [
+    assert testMethod(sample_1) == [
         ["eat", "tea", "ate"],
         ["tan", "nat"],
         ["bat"]

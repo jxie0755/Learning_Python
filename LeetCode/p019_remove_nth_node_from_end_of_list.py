@@ -12,14 +12,11 @@ Given n will always be valid.
 from a0_ListNode import *
 
 
-class Solution:
-
+class Solution_A:
     def removeNthFromEnd(self, head: ListNode, n: int) -> ListNode:
         """
-        Version A
         笨办法,先判断链表长度, 再正向解决
         """
-
         cur, length = head, 0
         while cur:
             length += 1
@@ -38,11 +35,9 @@ class Solution:
             return head
 
 
-class Solution(object):
-
+class Solution_STD:
     def removeNthFromEnd(self, head: ListNode, n: int) -> ListNode:
         """
-        STD Ans
         Two flags slow and fast
 
         解读:
@@ -72,17 +67,17 @@ class Solution(object):
         return dummy.next
 
 
-
-
 if __name__ == "__main__":
+    testMethod = Solution_STD().removeNthFromEnd
+
     # Given linked list: 1->2->3->4->5, and n = 2
     a = genNode([1, 2, 3, 4, 5])
 
-    f = Solution().removeNthFromEnd(a, 2)
+    f = testMethod(a, 2)
     assert repr(f) == "1->2->3->5"
 
     a = genNode([1])
-    f = Solution().removeNthFromEnd(a, 1)
+    f = testMethod(a, 1)
     assert repr(f) == "None"
 
     print("all passed")

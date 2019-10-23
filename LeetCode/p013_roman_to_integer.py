@@ -7,10 +7,10 @@ Given a roman numeral, convert it to an integer.
 Input is guaranteed to be within the range from 1 to 3999.
 """
 
-class Solution:
+class Solution_A:
 
     def romanToInt(self, s: str) -> int:
-        """Version A, hashmap method"""
+        """Hashmap method"""
 
         result = 0
         # remove the possibility of 4 and 9
@@ -29,5 +29,6 @@ class Solution:
 
 
 if __name__ == "__main__":
-    assert Solution().romanToInt("MMMCDXCIX") == 3499, "Example 1"
+    testMethod = Solution_A().romanToInt
+    assert testMethod("MMMCDXCIX") == 3499, "Example 1"
     print("all passed")

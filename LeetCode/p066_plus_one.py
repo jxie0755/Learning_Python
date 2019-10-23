@@ -11,10 +11,10 @@ You may assume the integer does not contain any leading zero, except the number 
 
 from typing import *
 
-class Solution:
+class Solution_A:
     def plusOne(self, digits: List[int]) -> List[int]:
         """
-        Version A, quick recursion
+        quick recursion
         """
         if digits[-1] == 9:
             if len(digits) == 1:
@@ -26,10 +26,10 @@ class Solution:
             return digits
 
 
-class Solution:
+class Solution_STD:
     def plusOne(self, digits: List[int]) -> List[int]:
         """
-        STD ans with carry number
+        With carry number
         """
         carry = 1
         for i in reversed(range(len(digits))):
@@ -45,9 +45,10 @@ class Solution:
 
 
 if __name__ == "__main__":
-    assert Solution().plusOne([0]) == [1], "Edge 0"
-    assert Solution().plusOne([1, 2, 3]) == [1, 2, 4], "Example 1"
-    assert Solution().plusOne([4, 3, 2, 1]) == [4, 3, 2, 2], "Example 2"
-    assert Solution().plusOne([1, 9, 9]) == [2, 0, 0], "Example 3"
-    assert Solution().plusOne([9, 9, 9]) == [1, 0, 0, 0], "Example 4"
+    testMethod = Solution_STD().plusOne
+    assert testMethod([0]) == [1], "Edge 0"
+    assert testMethod([1, 2, 3]) == [1, 2, 4], "Example 1"
+    assert testMethod([4, 3, 2, 1]) == [4, 3, 2, 2], "Example 2"
+    assert testMethod([1, 9, 9]) == [2, 0, 0], "Example 3"
+    assert testMethod([9, 9, 9]) == [1, 0, 0, 0], "Example 4"
     print("all passed")

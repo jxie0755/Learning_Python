@@ -6,15 +6,13 @@ Medium
 Given a string, find the length of the longest substring without repeating characters.
 """
 
-class Solution:
-
+class Solution_A:
     def lengthOfLongestSubstring(self, s: str) -> int:
         """
-        Version A, Brutal Force Time O(N^3)
+        Brutal Force Time O(N^3)
         Get all substrings from long to short, then check each on repeating characters
         Fail as Maximum Time limit exceeded
         """
-
         def is_no_repeat(s: str) -> bool:
             """Helper"""
 
@@ -36,11 +34,10 @@ class Solution:
                     return len(sample)
 
 
-class Solution:
-
+class Solution_B1:
     def lengthOfLongestSubstring(self, s: str) -> int:
         """
-        Versiom B1, Time O(N^2), Space O(N)
+        Time O(N^2), Space O(N)
         Find repeating element and start again after the first repeating element
         This wil pass, but may reach maximum recursion depth in long cases
 
@@ -68,12 +65,11 @@ class Solution:
 
 
 
-class Solution:
-
+class Solution_B2:
     def lengthOfLongestSubstring(self, s: str) -> int:
         """
-        Version B2, Time O(N^2), Space O(N)
-        Non-recursive way to previous method
+        Time O(N^2), Space O(N)
+        Non-recursive way of B1
         """
 
         result = []
@@ -99,15 +95,12 @@ class Solution:
             return max(result)
 
 
-class Solution(object):
-
+class Solution_STD:
     def lengthOfLongestSubstring(self, s: str) -> int:
         """
-        STD ans
         Time O(N), Space O(1)
         借字符表运算
         """
-
         longest, start, visited = 0, 0, [False for _ in range(256)]
         for i, char in enumerate(s):
             if visited[ord(char)]:
@@ -122,14 +115,15 @@ class Solution(object):
 
 
 if __name__ == "__main__":
-    assert Solution().lengthOfLongestSubstring("") == 0, "Edge 1"
-    assert Solution().lengthOfLongestSubstring(" ") == 1, "Edge 2"
-    assert Solution().lengthOfLongestSubstring("au") == 2, "Edge 3"
-    assert Solution().lengthOfLongestSubstring("aab") == 2, "Edge 4"
-    assert Solution().lengthOfLongestSubstring("dvdf") == 3, "Edge 5"
+    testMethod = Solution_STD().lengthOfLongestSubstring
+    assert testMethod("") == 0, "Edge 1"
+    assert testMethod(" ") == 1, "Edge 2"
+    assert testMethod("au") == 2, "Edge 3"
+    assert testMethod("aab") == 2, "Edge 4"
+    assert testMethod("dvdf") == 3, "Edge 5"
 
-    assert Solution().lengthOfLongestSubstring("abcabcbb") == 3, "Example 1, abc"
-    assert Solution().lengthOfLongestSubstring("bbbbb") == 1, "Example 2, "b""
-    assert Solution().lengthOfLongestSubstring("pwwkew") == 3, "Example 3, wke"
-    assert Solution().lengthOfLongestSubstring("tmmzuxt") == 5, "Example 4, mzuxt"
+    assert testMethod("abcabcbb") == 3, "Example 1, abc"
+    assert testMethod("bbbbb") == 1, "Example 2, b"
+    assert testMethod("pwwkew") == 3, "Example 3, wke"
+    assert testMethod("tmmzuxt") == 5, "Example 4, mzuxt"
     print("all passed")

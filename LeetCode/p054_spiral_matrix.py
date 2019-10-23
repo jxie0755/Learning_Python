@@ -8,11 +8,9 @@ Given a matrix of m x n elements (m rows, n columns), return all elements of the
 
 from typing import *
 
-class Solution:
-
+class Solution_A:
     def spiralOrder(self, matrix: List[List[int]]) -> List[int]:
         """
-        Version A
         Use multiple helper functions to solve
         Needs buffer area around the matrix
         """
@@ -77,15 +75,11 @@ class Solution:
         return result
 
 
-class Solution(object):
-
+class Solution_B:
     def spiralOrder(self, matrix: List[List[int]]) -> List[int]:
         """
-        Version B
         Direct output, no buffer needed
         """
-
-
         result = []
         if len(matrix)==0 or len(matrix[0])==0:
             return result
@@ -114,39 +108,41 @@ class Solution(object):
 
 
 if __name__ == "__main__":
+    testMethod = Solution_B().spiralOrder
+
     edge_0 = []
-    assert Solution().spiralOrder(edge_0) == [], "Edge 0"
+    assert testMethod(edge_0) == [], "Edge 0"
 
     edge_1 = [[]]
-    assert Solution().spiralOrder(edge_1) == [], "Edge 1"
+    assert testMethod(edge_1) == [], "Edge 1"
 
     edge_2 = [[1]]
-    assert Solution().spiralOrder(edge_2) == [1], "Edge 2"
+    assert testMethod(edge_2) == [1], "Edge 2"
 
     edge_3 = [[1], [2]]
-    assert Solution().spiralOrder(edge_3) == [1, 2], "Edge 3"
+    assert testMethod(edge_3) == [1, 2], "Edge 3"
 
     edge_4 = [[1, 2]]
-    assert Solution().spiralOrder(edge_4) == [1, 2], "Edge 4"
+    assert testMethod(edge_4) == [1, 2], "Edge 4"
 
     sample_1 = [
         [1, 2, 3],
         [4, 5, 6],
         [7, 8, 9]
     ]
-    assert Solution().spiralOrder(sample_1) == [1, 2, 3, 6, 9, 8, 7, 4, 5], "Example 1"
+    assert testMethod(sample_1) == [1, 2, 3, 6, 9, 8, 7, 4, 5], "Example 1"
 
     sample_2 = [
         [1, 2, 3, 4],
         [5, 6, 7, 8],
         [9, 10, 11, 12]
     ]
-    assert Solution().spiralOrder(sample_2) == [1, 2, 3, 4, 8, 12, 11, 10, 9, 5, 6, 7], "Example 2"
+    assert testMethod(sample_2) == [1, 2, 3, 4, 8, 12, 11, 10, 9, 5, 6, 7], "Example 2"
 
     sample_3 = [
         [1,2],
         [3,4]
     ]
-    assert Solution().spiralOrder(sample_3) == [1,2,4,3], "Example 3"
+    assert testMethod(sample_3) == [1,2,4,3], "Example 3"
 
     print("all passed")

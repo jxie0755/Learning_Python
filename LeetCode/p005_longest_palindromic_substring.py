@@ -8,20 +8,15 @@ You may assume that the maximum length of s is 1000.
 """
 
 
-class Solution:
-
-
+class Solution_A:
     def longestPalindrome(self, s: str) -> str:
         """
-        Version A
         Time: O(N^2) + O(1/2N) = O(N^2)
         Space: O(N)
         Maximum time limit exceeded
         """
-
         def is_palindrome(s: str) -> bool:
             """Helper"""
-
             return s == s[::-1]
 
         if not s:
@@ -37,16 +32,13 @@ class Solution:
             L -= 1
 
 
-class Solution:
-
+class Solution_B:
     def longestPalindrome(self, s: str) -> str:
         """
-        Version B
         Time: O(N^2)
         Space: O(1)
         从中心向两侧扩展法, 遍历中心点
         """
-
         length = len(s)
         result = ""
         for a in range(0, len(s)):
@@ -70,7 +62,7 @@ class Solution:
 
 
 # TODO: Practice Manacher's algorithm (Dynamic Programming)
-# class Solution:
+# class Solution_STD:
 #     def longestPalindrome(self, s: str) -> str:
 #         """
 #         Manacher's algorithm (Dynamic programming)
@@ -78,21 +70,21 @@ class Solution:
 #         """
 #         pass
 
-Solution().longestPalindrome("abccba")
 
 if __name__ == "__main__":
-    assert Solution().longestPalindrome("") == "", "Edge 1"
-    assert Solution().longestPalindrome("a") == "a", "Edge 2"
-    assert Solution().longestPalindrome("aaa") == "aaa", "Edge 3"
+    testMethod = Solution_B().longestPalindrome
+    assert testMethod("") == "", "Edge 1"
+    assert testMethod("a") == "a", "Edge 2"
+    assert testMethod("aaa") == "aaa", "Edge 3"
 
-    assert Solution().longestPalindrome("babad") == "bab" or "aba", "Example 1"
-    assert Solution().longestPalindrome("cbbd") == "bb", "Example 2"
+    assert testMethod("babad") == "bab" or "aba", "Example 1"
+    assert testMethod("cbbd") == "bb", "Example 2"
 
-    assert Solution().longestPalindrome("bababadddddddddddd") == "dddddddddddd", "Extra 1"
-    assert Solution().longestPalindrome("babababa") == "abababa" or "bababab", "Extra 2"
+    assert testMethod("bababadddddddddddd") == "dddddddddddd", "Extra 1"
+    assert testMethod("babababa") == "abababa" or "bababab", "Extra 2"
 
     a = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabcaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
     b = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
-    assert Solution().longestPalindrome(a) == b
+    assert testMethod(a) == b
 
     print("all passed")

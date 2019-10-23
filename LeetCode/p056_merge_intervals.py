@@ -26,10 +26,9 @@ from typing import *
 #         return False
 
 
-class Solution:
+class Solution_A:
     def merge(self, intervals: List[List[int]]) -> List[List[int]]:
         """
-        Version A1
         Sort first, then connect the two neighbored interval if possible
         Needs to pop, not working for array
         """
@@ -49,16 +48,18 @@ class Solution:
 
 
 if __name__ == "__main__":
+    testMethod = Solution_A().merge
+
     lst = [[0, 1]]
-    assert Solution().merge(lst) == [[0, 1]], "Edge 1"
+    assert testMethod(lst) == [[0, 1]], "Edge 1"
 
     lst = [[1, 3], [2, 6], [8, 10], [15, 18]]
-    assert Solution().merge(lst) == [[1, 6], [8, 10], [15, 18]], "Example 1"
+    assert testMethod(lst) == [[1, 6], [8, 10], [15, 18]], "Example 1"
 
     lst = [[15, 18], [1, 3], [8, 10], [2, 6]]
-    assert Solution().merge(lst) == [[1, 6], [8, 10], [15, 18]], "Example 1 unsorted"
+    assert testMethod(lst) == [[1, 6], [8, 10], [15, 18]], "Example 1 unsorted"
 
     lst = [[1, 4], [4, 5]]
-    assert Solution().merge(lst) == [[1, 5]], "Example 2"
+    assert testMethod(lst) == [[1, 5]], "Example 2"
 
     print("all passed")

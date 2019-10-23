@@ -6,10 +6,12 @@ Easy
 Return the index of the first occurrence of needle in haystack, or -1 if needle is not part of haystack.
 """
 
-class Solution:
+class Solution_A:
 
     def strStr(self, haystack: str, needle: str) -> int:
-        """Version A"""
+        """
+        Simple iteration
+        """
 
         length = len(needle)
         index = 0
@@ -21,10 +23,11 @@ class Solution:
 
 
 if __name__ == "__main__":
-    assert Solution().strStr("", "a") == -1, "Edge 0"
-    assert Solution().strStr("", "") == 0, "Edge 1"
+    testMethod = Solution_A().strStr
+    assert testMethod("", "a") == -1, "Edge 0"
+    assert testMethod("", "") == 0, "Edge 1"
 
-    assert Solution().strStr("abcdeabcde", "de") == 3, "Example 1"
-    assert Solution().strStr("abcdeabcde", "zz") == -1, "Example 2"
+    assert testMethod("abcdeabcde", "de") == 3, "Example 1"
+    assert testMethod("abcdeabcde", "zz") == -1, "Example 2"
 
     print("all passed")

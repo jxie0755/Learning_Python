@@ -11,11 +11,10 @@ Note: The solution set must not contain duplicate triplets.
 
 from typing import *
 
-class Solution:
-
+class Solution_A:
     def threeSum(self, nums: List[int]) -> List[List[int]]:
         """
-        Version A, hastable method from P001
+        Hstable method from P001
         Use modified method of two_sum (Above)
         with every number, check the rest of array for two_sum of (0-number)
         O(N^2), max time limit exceeded
@@ -37,7 +36,6 @@ class Solution:
 
     def twoSum_for_3sum(self, numbers: List[int], target: int, jump: int) -> List[List[int]]:
         """Helper A"""
-
         result = []
         hashtable = {}
         for idx in range(0, len(numbers)):
@@ -51,11 +49,9 @@ class Solution:
         return result
 
 
-class Solution:
-
+class Solution_B:
     def threeSum(self, nums: List[int]) -> List[List[int]]:
         """
-        Version B
         Pure brutal force, O(N^3), max time limit exceeded
         """
 
@@ -84,11 +80,10 @@ class Solution:
         return result
 
 
-class Solution:
-
-    def threeSum_x(self, nums: List[int]) -> List[List[int]]:
+class Solution_C:
+    def threeSum(self, nums: List[int]) -> List[List[int]]:
         """
-        Version C, optimized O(N^2)
+        Optimized O(N^2)
         Split the list to negative numbers and postive numbers
         handle [-i, 0, i] and [-i, -j, k] and [-i, j, k] individually
         Same O(N^2) max time limit exceeded
@@ -136,11 +131,9 @@ class Solution:
         return result
 
 
-class Solution:
-
+class Solution_D:
     def threeSum(self, nums: List[int]) -> List[List[int]]:
         """
-        Version D
         Since we only need to return numbers, it does not need to be indexed
         Break down the nums with a sort first, then move head and tail towards center
         Max Limit Exceeded
@@ -170,11 +163,9 @@ class Solution:
         return result
 
 
-class Solution:
-
+class Solution_E:
     def threeSum(self, nums: List[int]) -> List[List[int]]:
         """
-        Version E
         Use modified method of two_sum
         with every number, check the rest of array for two_sum of (0-number)
         O(N^2), max time limit exceeded
@@ -217,14 +208,11 @@ class Solution:
 
         return result
 
-class Solution(object):
-
+class Solution_STD:
     def threeSum(self, nums: List[int]) -> List[List[int]]:
         """
-        STD ans
         Time:  O(n^2)
         """
-
         nums, result, i = sorted(nums), [], 0
         while i < len(nums) - 2:
 
@@ -257,16 +245,17 @@ class Solution(object):
 
 
 if __name__ == "__main__":
-    assert Solution().threeSum([]) == [], "Edge 1"
-    assert Solution().threeSum([1]) == [], "Edge 2"
-    assert Solution().threeSum([1, 1]) == [], "Edge 3"
+    testMethod = Solution_STD().threeSum
+    assert testMethod([]) == [], "Edge 1"
+    assert testMethod([1]) == [], "Edge 2"
+    assert testMethod([1, 1]) == [], "Edge 3"
 
-    assert Solution().threeSum([-1, 0, 1, 2, -1, -4]) == [[-1, -1, 2], [-1, 0, 1]], "Example 1"
-    assert Solution().threeSum([-4, -2, -2, -2, 0, 1, 2, 2, 2, 3, 3, 4, 4, 6, 6]) == [[-4, -2, 6], [-4, 0, 4],
+    assert testMethod([-1, 0, 1, 2, -1, -4]) == [[-1, -1, 2], [-1, 0, 1]], "Example 1"
+    assert testMethod([-4, -2, -2, -2, 0, 1, 2, 2, 2, 3, 3, 4, 4, 6, 6]) == [[-4, -2, 6], [-4, 0, 4],
                                                                                       [-4, 1, 3], [-4, 2, 2],
                                                                                       [-2, -2, 4],
                                                                                       [-2, 0, 2]], "Example 2"
-    assert Solution().threeSum([-4, -2, -1]) == [], "Example 3"
-    assert Solution().threeSum([0, 0, 0]) == [[0, 0, 0]], "Example 4"
+    assert testMethod([-4, -2, -1]) == [], "Example 3"
+    assert testMethod([0, 0, 0]) == [[0, 0, 0]], "Example 4"
 
     print("all passed")

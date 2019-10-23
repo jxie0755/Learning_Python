@@ -21,18 +21,16 @@ Given an integer n, generate the nth term of the count-and-say sequence.
 """
 
 
-class Solution:
+class Solution_A:
     """Basically we need to build the concept of a generator here"""
 
     def countAndSay(self, n: int) -> str:
         """
-        Version A
         To create the say logic, then loop the say() to get nth number
         """
 
         def say(num: str) -> int:
             """Helper"""
-
             num = str(num) + " "
             lenth = 1
             result = ""
@@ -49,14 +47,11 @@ class Solution:
             number = say(str(number))
         return str(number)
 
-class Solution:
-
+class Solution_B:
     def countAndSay(self, n: int) -> str:
         """
-        Version B
         Combine the say() and loop together
         """
-
         number = 1
         for i in range(1, n):
             number = str(number) + " "  # 占一个末尾符
@@ -71,11 +66,9 @@ class Solution:
             number = int(result)
         return str(number)
 
-class Solution:
-
+class Solution_C:
     def countAndSay(self, n: int) -> str:
         """
-        Version C
         Avoid type convert between int and String
         """
 
@@ -95,11 +88,12 @@ class Solution:
 
 
 if __name__ == "__main__":
-    assert Solution().countAndSay(1) == "1", "first"
-    assert Solution().countAndSay(2) == "11", "second"
-    assert Solution().countAndSay(3) == "21", "third"
-    assert Solution().countAndSay(4) == "1211", "forth"
-    assert Solution().countAndSay(5) == "111221", "fifth"
-    assert Solution().countAndSay(6) == "312211", "sixth"
-    assert Solution().countAndSay(10) == "13211311123113112211", "Very Long"
+    testMethod = Solution_C().countAndSay
+    assert testMethod(1) == "1", "first"
+    assert testMethod(2) == "11", "second"
+    assert testMethod(3) == "21", "third"
+    assert testMethod(4) == "1211", "forth"
+    assert testMethod(5) == "111221", "fifth"
+    assert testMethod(6) == "312211", "sixth"
+    assert testMethod(10) == "13211311123113112211", "Very Long"
     print("all passed")

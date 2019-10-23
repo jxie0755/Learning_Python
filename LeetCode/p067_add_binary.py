@@ -6,18 +6,16 @@ Easy
 Given two binary strings, return their sum (also a binary string)
 """
 
-class Solution:
+class Solution_A:
     def addBinary(self, a: str, b: str) -> str:
         """
-        Version A
         use python built-in conversion
         """
         return "{:b}".format(int(a, 2) + int(b, 2))
 
-class Solution:
+class Solution_B:
     def addBinary(self, a: str, b: str) -> str:
         """
-        Version B
         Convert binary to decimal then add, and return the binary conversion of the result
         This will pass but very tedious
         """
@@ -35,10 +33,9 @@ class Solution:
 
         return deci_to_bi(bi_to_deci(a) + bi_to_deci(b))
 
-class Solution:
+class Solution_C:
     def addBinary(self, a: str, b: str) -> str:
         """
-        Version C
         Use the same logic of binary add calculation
         """
         carry = 0
@@ -56,10 +53,11 @@ class Solution:
 
 
 if __name__ == "__main__":
-    assert Solution().addBinary("0", "0") == "0", "zero"
-    assert Solution().addBinary("11", "1") == "100", "Example 1"
-    assert Solution().addBinary("1010", "1011") == "10101", "Example 2"
-    assert Solution().addBinary("111", "1") == "1000", "extra 1"
+    testMethod = Solution_C().addBinary
+    assert testMethod("0", "0") == "0", "zero"
+    assert testMethod("11", "1") == "100", "Example 1"
+    assert testMethod("1010", "1011") == "10101", "Example 2"
+    assert testMethod("111", "1") == "1000", "extra 1"
     print("all passed")
 
 

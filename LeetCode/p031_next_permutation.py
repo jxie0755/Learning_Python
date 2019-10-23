@@ -42,11 +42,9 @@ from itertools import permutations
 from typing import *
 
 
-class Solution:
-
+class Solution_A:
     def nextPermutation(self, nums: List[int]) -> None:
         """
-        Version A
         Use itertool.permutations itearate the permutation sequence from small to large,
         and stop at the nums, then return the next one
         Exceeded max time limit
@@ -69,14 +67,11 @@ class Solution:
             nums[:] = first
 
 
-class Solution:
-
+class Solution_B:
     def nextPermutation(self, nums: List[int]) -> None:
         """
-        Version B
         O(N), directly find next different permutations
         """
-
         length = len(nums)
         cur_i = -1
 
@@ -94,14 +89,12 @@ class Solution:
                     nums[cur_i + 1:] = nums[cur_i + 1:][::-1]  # reverse the tail back to sorted
                     break
 
-class Solution:
-
+class Solution_prev:
     def prevPermutation(self, nums: List[int]) -> None:
         """
         Addtional: prevPermute, which is the reverse process
         O(N), directly find previous different permutations
         """
-
         length = len(nums)
         cur_i = -1
 
@@ -121,44 +114,46 @@ class Solution:
 
 
 if __name__ == "__main__":
+    testMethod = Solution_B().nextPermutation
+
     a = []
-    Solution().nextPermutation(a)
+    testMethod(a)
     assert a == [], "Edge 1"
 
     a = [1]
-    Solution().nextPermutation(a)
+    testMethod(a)
     assert a == [1], "Edge 2"
 
     a = [1, 2]
-    Solution().nextPermutation(a)
+    testMethod(a)
     assert a == [2, 1], "Edge 3"
 
     a = [1, 2, 3]
-    Solution().nextPermutation(a)
+    testMethod(a)
     assert a == [1, 3, 2], "Example 1"
 
     a = [3, 2, 1]
-    Solution().nextPermutation(a)
+    testMethod(a)
     assert a == [1, 2, 3], "Example 2"
 
     a = [1, 1, 5]
-    Solution().nextPermutation(a)
+    testMethod(a)
     assert a == [1, 5, 1], "Example 3"
 
     a = [5, 1, 1]
-    Solution().nextPermutation(a)
+    testMethod(a)
     assert a == [1, 1, 5], "Extra 1"
 
     a = [2, 2, 2]
-    Solution().nextPermutation(a)
+    testMethod(a)
     assert a == [2, 2, 2], "Extra 2"
 
     a = [1, 2, 2, 2]
-    Solution().nextPermutation(a)
+    testMethod(a)
     assert a == [2, 1, 2, 2], "Extra 3"
 
     a = [2, 3, 1]
-    Solution().nextPermutation(a)
+    testMethod(a)
     assert a == [3, 1, 2], "Exatra 4"
 
     print("all passed")
