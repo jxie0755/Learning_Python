@@ -111,5 +111,6 @@ if __name__ == "__main__":
     assert testCase.myAtoi("   +0 123") == 0, "Extra 5"
     assert testCase.myAtoi("-5-") == -5, "Extra 6"
     assert testCase.myAtoi("9223372036854775808") == 2147483647, "Extra 6"
-
+    assert testCase.myAtoi("10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000522545459") == 2147483647, "Super Long"
+    assert testCase.myAtoi("  0000000000012345678") == 12345678, "Empty Head"
     print("all passed")
