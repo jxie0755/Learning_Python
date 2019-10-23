@@ -1,12 +1,13 @@
-# P073 Set Matrix Zeroes
-# Medium
+"""
+https://leetcode.com/problems/set-matrix-zeroes/
+P073 Set Matrix Zeroes
+Medium
 
+Given a m x n matrix, if an element is 0, set its entire row and column to 0.
+Do it in-place.
+"""
 
-# Given a m x n matrix, if an element is 0, set its entire row and column to 0.
-# Do it in-place.
-
-
-class Solution:
+class Solution_A:
     def setZeroes(self, matrix) -> None:
         """
         Do not return anything, modify matrix in-place instead.
@@ -27,24 +28,26 @@ class Solution:
 
 
 if __name__ == "__main__":
+    testCase = Solution_A()
+
     e1 = [[]]
-    Solution().setZeroes(e1)
+    testCase.setZeroes(e1)
     assert e1 == [[]], "Edge 1"
 
     e2 = [[1]]
-    Solution().setZeroes(e2)
+    testCase.setZeroes(e2)
     assert e2 == [[1]], "Edge 2"
 
     e3 = [[0]]
-    Solution().setZeroes(e3)
+    testCase.setZeroes(e3)
     assert e3 == [[0]], "Edge 3"
 
     e4 = [[0], [1]]
-    Solution().setZeroes(e4)
+    testCase.setZeroes(e4)
     assert e4 == [[0], [0]], "Edge 4"
 
     e5 = [[0, 1]]
-    Solution().setZeroes(e5)
+    testCase.setZeroes(e5)
     assert e5 == [[0, 0]], "Edge 5"
 
     s1 = [
@@ -52,7 +55,7 @@ if __name__ == "__main__":
         [1, 0, 1],
         [1, 1, 1]
     ]
-    Solution().setZeroes(s1)
+    testCase.setZeroes(s1)
     assert s1 == [
         [1, 0, 1],
         [0, 0, 0],
@@ -64,7 +67,7 @@ if __name__ == "__main__":
         [3, 4, 5, 2],
         [1, 3, 1, 5]
     ]
-    Solution().setZeroes(s2)
+    testCase.setZeroes(s2)
     assert s2 == [
         [0, 0, 0, 0],
         [0, 4, 5, 0],
