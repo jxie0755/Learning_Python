@@ -10,7 +10,7 @@ Do it in-place.
 class Solution_A:
     def setZeroes(self, matrix) -> None:
         """
-        Do not return anything, modify matrix in-place instead.
+        Memorize the coordinate that the value is 0 and iterate to change
         """
         m, n = len(matrix[0]), len(matrix)
         coor_list = []
@@ -22,7 +22,8 @@ class Solution_A:
 
         for coor in coor_list:
             x, y = coor[0], coor[1]
-            matrix[x] = [0 for _ in range(m)]
+            for i in range(m):
+                matrix[x][i] = 0
             for nn in range(n):
                 matrix[nn][y] = 0
 
