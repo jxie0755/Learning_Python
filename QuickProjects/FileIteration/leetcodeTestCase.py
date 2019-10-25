@@ -112,6 +112,7 @@ def general_modify_java(directory, fn):
             fn(true_sub_dir)
 
 
-# if __name__ == '__main__':
-    # general_modify_py(directory_py, LC_testCase_fix_py)
-    # general_modify_java(directory_java, LC_testCase_fix_java)
+if __name__ == '__main__':
+    # If repeat running, it won't do anything.
+    general_modify_py(directory_py, LC_testCase_fix_py)
+    general_modify_java(directory_java, LC_testCase_fix_java)
