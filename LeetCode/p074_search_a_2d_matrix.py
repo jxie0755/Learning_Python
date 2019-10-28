@@ -17,14 +17,14 @@ class Solution_A:
         Since it is strictly sorted, combine all the list and do a binary search
         """
         flat = sum(matrix, [])
-        lo, high = 0, len(flat) - 1
+        lo, hi = 0, len(flat) - 1
 
-        while lo <= high:
-            mid = (lo + high) // 2
+        while lo <= hi:
+            mid = (lo + hi) // 2
             if flat[mid] == target:
                 return True
             elif flat[mid] > target:
-                high = mid - 1
+                hi = mid - 1
             else:
                 lo = mid + 1
         return False
