@@ -14,7 +14,7 @@ class Solution_A:
 
     def searchMatrix(self, matrix, target: int) -> bool:
         """
-        Since it is strictly sorted, combine all the list and do a binary search1
+        Since it is strictly sorted, combine all the list and do a binary search
         """
         flat = sum(matrix, [])
         lo, high = 0, len(flat) - 1
