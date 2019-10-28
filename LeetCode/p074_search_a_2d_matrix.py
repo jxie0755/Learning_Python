@@ -1,16 +1,21 @@
-# P074 Search a 2D Matrix
-# Medium
+"""
+https://leetcode.com/problems/search-a-2d-matrix/
+P074 Search a 2D Matrix
+Medium
 
 
-# Write an efficient algorithm that searches for a value in an m x n matrix. This matrix has the following properties:
+Write an efficient algorithm that searches for a value in an m x n matrix. This matrix has the following properties:
 
-# Integers in each row are sorted from left to right.
-# The first integer of each row is greater than the last integer of the previous row.
+Integers in each row are sorted from left to right.
+The first integer of each row is greater than the last integer of the previous row.
+"""
 
+class Solution_A:
 
-class Solution:
-    # Since it is strictly sorted, combine all the list and do a binary search
     def searchMatrix(self, matrix, target: int) -> bool:
+        """
+        Since it is strictly sorted, combine all the list and do a binary search1
+        """
         flat = sum(matrix, [])
         lo, high = 0, len(flat) - 1
 
@@ -26,23 +31,25 @@ class Solution:
 
 
 if __name__ == "__main__":
+    testCase = Solution_A()
+
     matrix = [
         [],
     ]
     target = 3
-    assert Solution().searchMatrix(matrix, target) == False, "Edge 1"
+    assert testCase.searchMatrix(matrix, target) == False, "Edge 1"
 
     matrix = [
         [1], [3], [5], [7],
     ]
     target = 3
-    assert Solution().searchMatrix(matrix, target) == True, "Edge 2"
+    assert testCase.searchMatrix(matrix, target) == True, "Edge 2"
 
     matrix = [
         [1, 3, 5, 7],
     ]
     target = 3
-    assert Solution().searchMatrix(matrix, target) == True, "Edge 3"
+    assert testCase.searchMatrix(matrix, target) == True, "Edge 3"
 
     matrix = [
         [1, 3, 5, 7],
@@ -50,7 +57,7 @@ if __name__ == "__main__":
         [23, 30, 34, 50]
     ]
     target = 3
-    assert Solution().searchMatrix(matrix, target) == True, "Example 1"
+    assert testCase.searchMatrix(matrix, target) == True, "Example 1"
 
     matrix = [
         [1, 3, 5, 7],
@@ -58,5 +65,5 @@ if __name__ == "__main__":
         [23, 30, 34, 50]
     ]
     target = 13
-    assert Solution().searchMatrix(matrix, target) == False, "Example 2"
+    assert testCase.searchMatrix(matrix, target) == False, "Example 2"
     print("all passed")
