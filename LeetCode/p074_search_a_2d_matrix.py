@@ -36,34 +36,29 @@ if __name__ == "__main__":
     matrix = [
         [],
     ]
-    target = 3
-    assert testCase.searchMatrix(matrix, target) == False, "Edge 1"
+    assert testCase.searchMatrix(matrix, 3) == False, "Edge 1"
 
     matrix = [
         [1], [3], [5], [7],
     ]
-    target = 3
-    assert testCase.searchMatrix(matrix, target) == True, "Edge 2"
+    assert testCase.searchMatrix(matrix, 3) == True, "Edge 2"
 
     matrix = [
         [1, 3, 5, 7],
     ]
-    target = 3
-    assert testCase.searchMatrix(matrix, target) == True, "Edge 3"
-
-    matrix = [
-        [1, 3, 5, 7],
-        [10, 11, 16, 20],
-        [23, 30, 34, 50]
-    ]
-    target = 3
-    assert testCase.searchMatrix(matrix, target) == True, "Example 1"
+    assert testCase.searchMatrix(matrix, 3) == True, "Edge 3"
 
     matrix = [
         [1, 3, 5, 7],
         [10, 11, 16, 20],
         [23, 30, 34, 50]
     ]
-    target = 13
-    assert testCase.searchMatrix(matrix, target) == False, "Example 2"
+    assert testCase.searchMatrix(matrix, 3) == True, "Example 1"
+
+    matrix = [
+        [1, 3, 5, 7],
+        [10, 11, 16, 20],
+        [23, 30, 34, 50]
+    ]
+    assert testCase.searchMatrix(matrix, 13) == False, "Example 2"
     print("all passed")
