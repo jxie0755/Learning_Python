@@ -69,6 +69,7 @@ class Solution_C:
         hmp = {i: t.count(i) for i in t_set}
         indexes_list = [i for i in range(len(s)) if s[i] in t_set]
         L, startLength = len(s), len(t)
+
         for lenth in range(startLength, L + 1):
             for i in indexes_list:
                 window = s[i:i + lenth]
