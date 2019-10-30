@@ -19,23 +19,17 @@ class Solution_A:
         Brutal force, check every substring
         maximum time limit exceeded
         """
-        subs = self.substring_SL(s)
-        t_L = len(t)
         t_set = set(t)
         hmp = {i: t.count(i) for i in t_set}
 
-        # def isinclude(str) -> bool:
-        #     for i in t_set:
-        #         if str.count(i) < hmp[i]:
-        #             return False
-        #     return True
-
-        for sub in subs:
-            if len(sub) >= t_L:
+        for sub in self.substring_SL(s):
+            flag = False
+            if len(sub) >= len(t):
                 for i in t_set:
-                    if str.count(i) < hmp[i]:
-                        break
-                return sub
+                    if sub.count(i) < hmp[i]:
+                        flag = True
+                if not flag:
+                    return sub
         return ""
 
     def substring_SL(self, iterable: str, startLength:int=1) -> List[str]:
@@ -87,9 +81,9 @@ class Solution_C:
 
 
 if __name__ == "__main__":
-    testCase = Solution_A()
+    testCase = Solution_C()
 
-    print(testCase.minWindow("ADOBECODEBANC", "ABC"))
+    print(testCase.minWindow("ADOBECODEBANC", "ABC"), "?")
 
     assert testCase.minWindow("ABCDE", "Z") == "", "Edge 1"
     assert testCase.minWindow("A", "A") == "A", "Edge 2"
