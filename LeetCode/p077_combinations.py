@@ -1,21 +1,27 @@
-# P077 Combinations
-# Medium
+"""
+https://leetcode.com/problems/combinations/
+P077 Combinations
+Medium
 
-
-# Given two integers n and k, return all possible combinations of k numbers out of 1 ... n.
+Given two integers n and k, return all possible combinations of k numbers out of 1 ... n.
+"""
 
 import itertools
+from typing import *
 
+class Solution_A1:
 
-class Solution:
-    def combine(self, n: int, k: int):
-        sample = list(range(1, n + 1))
+    def combine(self, n: int, k: int) -> List[List[int]]:
+        """
+        Convert the n into an actual list, then use a helper to recursive run on the list
+        """
+        nums = list(range(1, n + 1))
 
         # this can individually work as a combination of list of elements
-        def helper(nums, k):
+        def helper(nums: List[int], k: int) -> List[List[int]]:
             if k == 0:
                 return [[]]
-            if k == len(nums):
+            elif k == len(nums):
                 return [nums]
             elif k == 1:
                 return [[i] for i in nums]
@@ -26,10 +32,27 @@ class Solution:
                 result += [[head] + com for com in helper(next_list, k - 1)] + helper(nums[1:], k)
                 return result
 
-        return helper(sample, k)
+        return helper(nums, k)
 
-    # OOP version
-    def combinationSolo(self, nums, k):
+class Solution_A2:
+    def combine(self, n: int, k: int) -> List[List[int]]:
+        """
+        Direct version of A1, without helper, but the sequence is reversed
+        """
+        # this can individually work as a combination of list of elements
+        if k == 0:
+            return [[]]
+        elif k == n:
+            return [list(range(1, n + 1))]
+        elif k == 1:
+            return [[i] for i in range(1, n+1)]
+        else:
+            return [[n] + com for com in self.combine(n - 1, k - 1)] + self.combine(n-1, k)
+
+
+class Solution_A_extra:
+    def combinationSolo(self, nums: List[int], k: int) -> List[List[int]]:
+        """Extracted out from the helper of A1"""
         if k == len(nums):
             return [nums]
         elif k == 1:
@@ -38,44 +61,23 @@ class Solution:
             result = []
             next_list = nums[:]
             head = next_list.pop(0)
-            result += [[head] + com for com in self.combinationSolo(next_list, k - 1)] + self.combinationSolo(nums[1:],
-                                                                                                              k)
+            result += [[head] + com for com in self.combinationSolo(next_list, k - 1)] + self.combinationSolo(nums[1:], k)
             return result
 
-
-# Extracted from the combineationSolo to straight application
-def combinationSolo(nums, k):
-    if k == len(nums):
-        return [nums]
-    elif k == 1:
-        return [[i] for i in nums]
-    else:
-        result = []
-        next_list = nums[:]
-        head = next_list.pop(0)
-        result += [[head] + com for com in combinationSolo(next_list, k - 1)] + combinationSolo(nums[1:], k)
-        return result
 
 
 if __name__ == "__main__":
 
-    print("Test solo")
-    for i in combinationSolo([1, 2, 3, 4], 2):
-        print(i)
+    testCase = Solution_A1()
 
-    print("End of test solo")
-
-    assert Solution().combine(1, 1) == [
+    assert testCase.combine(1, 1) == [
         [1]
     ], "Edge 1"
 
-    assert Solution().combine(4, 4) == [
+    assert testCase.combine(4, 4) == [
         [1, 2, 3, 4]
     ], "Edge 2"
 
-    assert Solution().combine(5, 3) == [list(i) for i in itertools.combinations([1, 2, 3, 4, 5], 3)]
-
-    for i in Solution().combine(4, 2):
-        print(i)
+    assert sorted([sorted(i) for i in testCase.combine(5, 3)]) == sorted([list(i) for i in itertools.combinations([1, 2, 3, 4, 5], 3)])
 
     print("all passed")
