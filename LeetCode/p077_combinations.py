@@ -64,5 +64,4 @@ if __name__ == "__main__":
 
     assert sorted([sorted(i) for i in testCase.combine(5, 3)]) == sorted([list(i) for i in itertools.combinations([1, 2, 3, 4, 5], 3)])
 
-    print(testCase.combine(5, 3))
     print("all passed")
