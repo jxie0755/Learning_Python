@@ -133,4 +133,4 @@ if __name__ == "__main__":
     assert testCase.multiply("2", "3") == "6", "Example 1"
     assert testCase.multiply("123", "456") == "56088", "Example 2"
     assert testCase.multiply("50", "50") == "2500", "Extra 1"
-    print("all passed!")
+    print("all passed")

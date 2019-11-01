@@ -91,4 +91,4 @@ if __name__ == "__main__":
 
     assert Solution().isSubtree(E3, E4), "Addtional 1"
 
-    print("all passed!")
+    print("all passed")
