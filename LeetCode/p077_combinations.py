@@ -54,7 +54,6 @@ class Solution_A2:
 if __name__ == "__main__":
     testCase = Solution_A1()
 
-
     assert testCase.combine(1, 1) == [
         [1]
     ], "Edge 1"
