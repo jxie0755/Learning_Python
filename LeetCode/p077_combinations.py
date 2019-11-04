@@ -50,7 +50,6 @@ class Solution_A2:
             return [[n] + com for com in self.combine(n - 1, k - 1)] + self.combine(n-1, k)
 
 
-
 if __name__ == "__main__":
     testCase = Solution_A1()
 
