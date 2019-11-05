@@ -13,7 +13,6 @@ class Solution_A:
     def subsets(self, nums: List[int]) -> List[List[int]]:
         """
         With the help from the combinationSolo from Leetcode P077
-        passed but on the slow side
         """
         result = []
         for i in range(0, len(nums) + 1):
