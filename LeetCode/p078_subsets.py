@@ -1,16 +1,33 @@
-# P078 Subsets
-# Medium
+"""
 
+P078 Subsets
+Medium
 
-# Given a set of distinct integers, nums, return all possible subsets (the power set).
-# Note: The solution set must not contain duplicate subsets.
+Given a set of distinct integers, nums, return all possible subsets (the power set).
+Note: The solution set must not contain duplicate subsets.
+"""
 
+from typing import *
 
-class Solution:
-    def combinationSolo(self, nums, k):
+class Solution_A:
+    def subsets(self, nums: List[int]) -> List[List[int]]:
+        """
+        With the help from the combinationSolo from Leetcode P077
+        passed but on the slow side
+        """
+        result = []
+        for i in range(0, len(nums) + 1):
+            result += self.combinationSolo(nums, i)
+        return result
+
+    def combinationSolo(self, nums: List[int], k: int) -> List[List[int]]:
+        """
+        Helper for A1
+        Change the paramter type from n to list(range(1, n+1))
+        """
         if k == 0:
             return [[]]
-        if k == len(nums):
+        elif k == len(nums):
             return [nums]
         elif k == 1:
             return [[i] for i in nums]
@@ -18,59 +35,24 @@ class Solution:
             result = []
             next_list = nums[:]
             head = next_list.pop(0)
-            result += [[head] + com for com in self.combinationSolo(next_list, k - 1)] + self.combinationSolo(nums[1:],
-                                                                                                              k)
+            result += [[head] + com for com in self.combinationSolo(next_list, k - 1)] + self.combinationSolo(nums[1:], k)
             return result
 
-    # passed but on the slow side
-    def subsets(self, nums):
-        result = []
-        for i in range(0, len(nums) + 1):
-            result += self.combinationSolo(nums, i)
-        return result
+if __name__ == "__main__":
+    testCase = Solution_A()
 
-    # passed but on the slow side
-    def subsets(self, nums):
+    nums = [1,2]
+    assert sorted(testCase.subsets(nums)) == sorted([[],[1],[2],[1,2]])
 
-        def otherhalf(ans):
-            result = nums[:]
-            if len(ans) == 0:
-                return result
-            for i in ans:
-                result.remove(i)
-            return result
-
-        N = len(nums)
-        result = []
-        range_to = N // 2 + 1
-        if N % 2 == 0:
-            range_to = N // 2
-            result += self.combinationSolo(nums, N // 2)
-
-        for i in range(0, range_to):
-            ans = self.combinationSolo(nums, i)
-            result += ans
-            for i in ans:
-                result.append(otherhalf(i))
-        return result
-
-
-print(sorted(Solution().subsets([1, 2, 3])))
-
-# if __name__ == "__main__":
-#     nums = [1,2]
-#     assert sorted(Solution().subsets(nums)) == sorted([[],[1],[2],[1,2]])
-#
-#
-#     nums = [1, 2, 3]
-#     assert sorted(Solution().subsets(nums)) == sorted([
-#         [3],
-#         [1],
-#         [2],
-#         [1, 2, 3],
-#         [1, 3],
-#         [2, 3],
-#         [1, 2],
-#         []
-#     ])
-#     print("all passed")
+    nums = [1, 2, 3]
+    assert sorted(testCase.subsets(nums)) == sorted([
+        [3],
+        [1],
+        [2],
+        [1, 2, 3],
+        [1, 3],
+        [2, 3],
+        [1, 2],
+        []
+    ])
+    print("all passed")
