@@ -22,7 +22,9 @@ class Solution_A1:
         Helper for A1
         Change the paramter type from n to list(range(1, n+1))
         """
-        if k == len(nums):
+        if k == 0:
+            return [[]]
+        elif k == len(nums):
             return [nums]
         elif k == 1:
             return [[i] for i in nums]
