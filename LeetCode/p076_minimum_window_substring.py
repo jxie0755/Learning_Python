@@ -80,7 +80,6 @@ class Solution_C:
     # TODO unresolved, need a faster algorithm to beat time limit.
 
 
-
 if __name__ == "__main__":
     testCase = Solution_C()
 
