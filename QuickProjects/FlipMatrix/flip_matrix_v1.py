@@ -32,6 +32,7 @@ def flipMatrix(matrix: List[List[int]], coor: Tuple[int, int]) -> None:
 
 
 def flipMatrixAll(matrix: List[List[int]]) -> None:
+    """Flip every point in the matrix following the flixMatrix rule"""
     width = len(matrix[0])
     height = len(matrix)
 
