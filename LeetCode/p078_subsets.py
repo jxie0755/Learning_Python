@@ -38,7 +38,6 @@ class Solution_A:
             result += [[head] + com for com in self.combinationSolo(next_list, k - 1)] + self.combinationSolo(nums[1:], k)
             return result
 
-
 if __name__ == "__main__":
     testCase = Solution_A()
     assert sorted(testCase.subsets([])) == [[]], "Edge empty"
