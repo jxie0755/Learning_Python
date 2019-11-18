@@ -107,17 +107,17 @@ CREATE DATABASE shop;
 
 
 **注意不同RDBMS中对于`DATABASE`和`SCHEMA`的区别对待方式:**
-    
+
     MySQL和PostgresSQL数据库结构略有不同:
     - MySQL/Schemas/Table
     - Postgresql/Database/Schemas/Table
-    
+
     其中psql的database相当于Mysql的Schemas
     所以psql会自动生成一组Schemas
     其中Schemas中的public为默认
-    
+
 [Difference Between Schema / Database in MySQL](https://stackoverflow.com/a/19257781/8435726)
-> Depends on the database server. 
+> Depends on the database server.
 
 > MySQL doesn't care, its basically the same thing.
 
@@ -227,7 +227,7 @@ DROP TABLE <表名>;
 ```
 - 一旦删除则无法恢复
 - 执行前务必确认!
-    
+
 
 **表定义的更新使用`ALTER`**
 
@@ -283,7 +283,7 @@ INSERT INTO <表名> VALUES (<列1数据>, <列2数据>, <列3数据>, ...)
 
 最后使用`COMMIT`, 目的是提交, 使得其他用户能看到变化
 ```sql
-COMMIT;  
+COMMIT;
 ```
 **注意: 不`COMMIT`本用户能看到变化, 但是其他用户看不到**
 
