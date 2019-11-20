@@ -72,3 +72,4 @@ if __name__ == "__main__":
     print(Solution().largestRectangleArea(additional))
 
     print("all passed")
+
