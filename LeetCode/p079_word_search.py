@@ -9,137 +9,154 @@ The word can be constructed from letters of sequentially adjacent cell, where "a
 
 from typing import *
 
-count = 0
-
-
-class Solution:
-    def neighbor(self, board: List[List[str]], coor: Tuple[int]) -> List[Tuple[int]]:
-        """Find possible coors in the neighbor"""
-        row, col = len(board), len(board[0])
-        x, y = coor[0], coor[1]
-        up = (x - 1, y)
-        down = (x + 1, y)
-        left = (x, y - 1)
-        right = (x, y + 1)
-        neighbor_list = list(
-            filter( # make sure the neighbor is in the boundary of the board
-                lambda c: 0 <= c[0] < row and 0 <= c[1] < col,
-                [up, down, left, right]
-            )
-        )
-        return neighbor_list
-
-
-    def exist(self, board, word: str):
-        # This recursive method passed most cased but exceeded max time when case is long.
-        if not board:
-            return False
-
-        row, col = len(board), len(board[0])
-        N = len(word)
-
-        # Starting list
-        start = [(r, c) for r in range(row) for c in range(col) if board[r][c] == word[0]]
-
-        def helper(board, coor, word, result):
-            result.append(coor)
-            if len(result) == N:
-                return True
-            hmp = self.neighbor(board, coor)
-            nextcoor = [c for c in hmp if hmp[c] == word[1] and c not in result]
-            if nextcoor:
-                return any([helper(board, c, word[1:], result[:]) for c in nextcoor])
-            else:
-                return False
-
-        return any([helper(board, i, word, []) for i in start])
-
-
 # TODO this algorithm is not fast enough to pass the time limit
+
+class Solution_A:
+
+    def exist(self, board: List[List[str]], word: str) -> bool:
+        """
+        Use a recursive finder to recursively find the word in the matrix
+        Exceeded max time limit when case is long.
+        """
+
+        row, col = len(board), len(board[0])
+
+        for coor in [(x, y) for x in range(row) for y in range(col)]:
+            if self.finder(board, word, 0, coor, dict()):
+                return True
+        return False
+
+
+    def finder(self, board: List[List[str]], word: str, idx: int, coor: Tuple[int, int], prev: Dict[Tuple[int], int]):
+        """
+        A helper function to find whether a word can be found in the matrix
+        需要使用哈希表来记忆之前走过哪些坐标
+        """
+
+        N = len(word)
+        x, y = coor[0], coor[1]
+        row, col = len(board), len(board[0]) # 长宽范围
+
+        if idx == N: # 如果走完整个word，就是可以找到
+            return True
+        elif not 0 <= x < row or not 0 <= y < col: # 确保坐标位于board内部
+            return False
+        elif coor in prev: # 如果坐标之前被算入过则不行
+            return False
+        elif board[x][y] != word[idx]: # 不符合单词
+            return False
+        else:
+            new_prev = prev.copy() # 复制一份为递归作准备
+            new_prev[coor] = 1     # 加入字典以防将来被再次算入
+
+            up = (x - 1, y)
+            down = (x + 1, y)
+            left = (x, y - 1)
+            right = (x, y + 1)
+
+            return any([self.finder(board, word, idx+1, new_coor, new_prev) for new_coor in [up, down, left, right]])
+
+
+
+
+
 
 
 if __name__ == "__main__":
+    testCase = Solution_A()
     board = [
         ["A", "B", "C", "E"],
         ["S", "F", "C", "S"],
         ["A", "D", "E", "E"]
     ]
 
-    # assert Solution().exist(board, "ABCCED"), "Example 1"
-    # assert Solution().exist(board, "SEE"), "Example 2"
-    # assert not Solution().exist(board, "ABCB"), "Example 3"
-    #
-    # board = [
-    #     ["b", "a", "b", "a", "a", "a"],
-    #     ["b", "b", "b", "a", "a", "a"],
-    #     ["b", "a", "b", "a", "b", "a"]
-    # ]
-    #
-    # assert Solution().exist(board, "ba"), "Additional 1"
-    #
-    # long = [
-    #     ["a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a",
-    #      "a", "a", "a", "a", "a", "a", "a", "a"],
-    #     ["a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a",
-    #      "a", "a", "a", "a", "a", "a", "a", "a"],
-    #     ["a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a",
-    #      "a", "a", "a", "a", "a", "a", "a", "a"],
-    #     ["a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a",
-    #      "a", "a", "a", "a", "a", "a", "a", "a"],
-    #     ["a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a",
-    #      "a", "a", "a", "a", "a", "a", "a", "a"],
-    #     ["a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a",
-    #      "a", "a", "a", "a", "a", "a", "a", "a"],
-    #     ["a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a",
-    #      "a", "a", "a", "a", "a", "a", "a", "a"],
-    #     ["a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a",
-    #      "a", "a", "a", "a", "a", "a", "a", "a"],
-    #     ["a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a",
-    #      "a", "a", "a", "a", "a", "a", "a", "a"],
-    #     ["a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a",
-    #      "a", "a", "a", "a", "a", "a", "a", "a"],
-    #     ["a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a",
-    #      "a", "a", "a", "a", "a", "a", "a", "a"],
-    #     ["a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a",
-    #      "a", "a", "a", "a", "a", "a", "a", "a"],
-    #     ["a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a",
-    #      "a", "a", "a", "a", "a", "a", "a", "a"],
-    #     ["a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a",
-    #      "a", "a", "a", "a", "a", "a", "a", "a"],
-    #     ["a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a",
-    #      "a", "a", "a", "a", "a", "a", "a", "a"],
-    #     ["a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a",
-    #      "a", "a", "a", "a", "a", "a", "a", "a"],
-    #     ["a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a",
-    #      "a", "a", "a", "a", "a", "a", "a", "a"],
-    #     ["a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a",
-    #      "a", "a", "a", "a", "a", "a", "a", "a"],
-    #     ["a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a",
-    #      "a", "a", "a", "a", "a", "a", "a", "a"],
-    #     ["a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a",
-    #      "a", "a", "a", "a", "a", "a", "a", "a"],
-    #     ["a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a",
-    #      "a", "a", "a", "a", "a", "a", "a", "a"],
-    #     ["a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a",
-    #      "a", "a", "a", "a", "a", "a", "a", "a"],
-    #     ["a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a",
-    #      "a", "a", "a", "a", "a", "a", "a", "a"],
-    #     ["a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a",
-    #      "a", "a", "a", "a", "a", "a", "a", "a"],
-    #     ["a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a",
-    #      "a", "a", "a", "a", "a", "a", "a", "a"],
-    #     ["a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a",
-    #      "a", "a", "a", "a", "a", "a", "a", "a"],
-    #     ["a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a",
-    #      "a", "a", "a", "a", "a", "a", "a", "a"],
-    #     ["a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a",
-    #      "a", "a", "a", "a", "a", "a", "a", "a"],
-    #     ["a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a",
-    #      "a", "a", "a", "a", "a", "a", "a", "a"],
-    #     ["a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a",
-    #      "a", "a", "a", "a", "a", "a", "a", "b"]
-    # ]
-    # target = "baaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
-    # # print(Solution().exist(long, target))
-    #
-    # print("all passed")
+    assert testCase.exist(board, "ABCCED"), "Example 1"
+    assert testCase.exist(board, "SEE"), "Example 2"
+    assert not testCase.exist(board, "ABCB"), "Example 3"
+
+    board = [
+        ["b", "a", "b", "a", "a", "a"],
+        ["b", "b", "b", "a", "a", "a"],
+        ["b", "a", "b", "a", "b", "a"]
+    ]
+
+    assert testCase.exist(board, "ba"), "Additional 1"
+
+    board = [
+        ["A", "B", "C", "E"],
+        ["S", "F", "E", "S"],
+        ["A", "D", "E", "E"]
+    ]
+
+    assert testCase.exist(board, "ABCESEEEFS"), "Additional 2"
+
+
+    long = [
+        ["a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a",
+         "a", "a", "a", "a", "a", "a", "a", "a"],
+        ["a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a",
+         "a", "a", "a", "a", "a", "a", "a", "a"],
+        ["a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a",
+         "a", "a", "a", "a", "a", "a", "a", "a"],
+        ["a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a",
+         "a", "a", "a", "a", "a", "a", "a", "a"],
+        ["a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a",
+         "a", "a", "a", "a", "a", "a", "a", "a"],
+        ["a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a",
+         "a", "a", "a", "a", "a", "a", "a", "a"],
+        ["a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a",
+         "a", "a", "a", "a", "a", "a", "a", "a"],
+        ["a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a",
+         "a", "a", "a", "a", "a", "a", "a", "a"],
+        ["a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a",
+         "a", "a", "a", "a", "a", "a", "a", "a"],
+        ["a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a",
+         "a", "a", "a", "a", "a", "a", "a", "a"],
+        ["a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a",
+         "a", "a", "a", "a", "a", "a", "a", "a"],
+        ["a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a",
+         "a", "a", "a", "a", "a", "a", "a", "a"],
+        ["a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a",
+         "a", "a", "a", "a", "a", "a", "a", "a"],
+        ["a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a",
+         "a", "a", "a", "a", "a", "a", "a", "a"],
+        ["a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a",
+         "a", "a", "a", "a", "a", "a", "a", "a"],
+        ["a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a",
+         "a", "a", "a", "a", "a", "a", "a", "a"],
+        ["a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a",
+         "a", "a", "a", "a", "a", "a", "a", "a"],
+        ["a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a",
+         "a", "a", "a", "a", "a", "a", "a", "a"],
+        ["a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a",
+         "a", "a", "a", "a", "a", "a", "a", "a"],
+        ["a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a",
+         "a", "a", "a", "a", "a", "a", "a", "a"],
+        ["a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a",
+         "a", "a", "a", "a", "a", "a", "a", "a"],
+        ["a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a",
+         "a", "a", "a", "a", "a", "a", "a", "a"],
+        ["a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a",
+         "a", "a", "a", "a", "a", "a", "a", "a"],
+        ["a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a",
+         "a", "a", "a", "a", "a", "a", "a", "a"],
+        ["a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a",
+         "a", "a", "a", "a", "a", "a", "a", "a"],
+        ["a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a",
+         "a", "a", "a", "a", "a", "a", "a", "a"],
+        ["a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a",
+         "a", "a", "a", "a", "a", "a", "a", "a"],
+        ["a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a",
+         "a", "a", "a", "a", "a", "a", "a", "a"],
+        ["a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a",
+         "a", "a", "a", "a", "a", "a", "a", "a"],
+        ["a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a",
+         "a", "a", "a", "a", "a", "a", "a", "b"]
+    ]
+    target = "baaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+    # print(testCase.exist(long, target)) # Maximum Recursion Depth reached
+
+    print("all passed")
+
+
+
