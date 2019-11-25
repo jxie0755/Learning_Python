@@ -16,6 +16,7 @@ class Solution_A:
     def exist(self, board: List[List[str]], word: str) -> bool:
         """
         Use a recursive finder to recursively find the word in the matrix
+        This is still an brutal force method to check every route until find the correct one.
         Exceeded max time limit when case is long.
         """
 
