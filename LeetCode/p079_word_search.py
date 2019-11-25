@@ -9,7 +9,7 @@ The word can be constructed from letters of sequentially adjacent cell, where "a
 
 from typing import *
 
-
+count = 0
 class Solution_A:
 
     def exist(self, board: List[List[str]], word: str) -> bool:
@@ -53,13 +53,16 @@ class Solution_A:
             left = (x, y - 1)
             right = (x, y + 1)
 
-            # return any([self.finder(board, word, idx + 1, new_coor, new_prev) for new_coor in [up, down, left, right]])
             # THIS IS WRONG! This will cost maximum depth
+            # result = any([self.finder(board, word, idx + 1, new_coor, new_prev) for new_coor in [up, down, left, right]])
 
-            return self.finder(board, word, idx + 1, up, new_prev) or \
+            # THIS is correct, using or instead of any
+            result = self.finder(board, word, idx + 1, up, new_prev) or \
                    self.finder(board, word, idx + 1, down, new_prev) or \
                    self.finder(board, word, idx + 1, left, new_prev) or \
                    self.finder(board, word, idx + 1, right, new_prev)
+
+            return result
 
 
 class Solution_STD:
@@ -97,7 +100,7 @@ class Solution_STD:
 
 
 if __name__ == "__main__":
-    testCase = Solution_STD()
+    testCase = Solution_A()
     board = [
         ["A", "B", "C", "E"],
         ["S", "F", "C", "S"],
