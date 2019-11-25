@@ -9,7 +9,6 @@ The word can be constructed from letters of sequentially adjacent cell, where "a
 
 from typing import *
 
-count = 0
 class Solution_A:
 
     def exist(self, board: List[List[str]], word: str) -> bool:
@@ -22,14 +21,14 @@ class Solution_A:
         row, col = len(board), len(board[0])
 
         for coor in [(x, y) for x in range(row) for y in range(col)]:
-            if self.finder(board, word, 0, coor, dict()):
+            if self.finder(board, word, 0, coor, set()):
                 return True
         return False
 
-    def finder(self, board: List[List[str]], word: str, idx: int, coor: Tuple[int, int], prev: Dict[Tuple[int], int]):
+    def finder(self, board: List[List[str]], word: str, idx: int, coor: Tuple[int, int], prev: Set[Tuple[int]]):
         """
         A helper function to find whether a word can be found in the matrix
-        需要使用哈希表来记忆之前走过哪些坐标
+        需要使用哈希set来记忆之前走过哪些坐标
         """
 
         N = len(word)
@@ -46,7 +45,7 @@ class Solution_A:
             return False
         else:
             new_prev = prev.copy()  # 复制一份为递归作准备
-            new_prev[coor] = 1  # 加入字典以防将来被再次算入
+            new_prev.add(coor)  # 加入字典以防将来被再次算入
 
             up = (x - 1, y)
             down = (x + 1, y)
