@@ -9,7 +9,6 @@ The word can be constructed from letters of sequentially adjacent cell, where "a
 
 from typing import *
 
-# TODO this algorithm is not fast enough to pass the time limit
 
 class Solution_A:
 
@@ -27,7 +26,6 @@ class Solution_A:
                 return True
         return False
 
-
     def finder(self, board: List[List[str]], word: str, idx: int, coor: Tuple[int, int], prev: Dict[Tuple[int], int]):
         """
         A helper function to find whether a word can be found in the matrix
@@ -36,26 +34,32 @@ class Solution_A:
 
         N = len(word)
         x, y = coor[0], coor[1]
-        row, col = len(board), len(board[0]) # 长宽范围
+        row, col = len(board), len(board[0])  # 长宽范围
 
-        if idx == N: # 如果走完整个word，就是可以找到
+        if idx == N:  # 如果走完整个word，就是可以找到
             return True
-        elif not 0 <= x < row or not 0 <= y < col: # 确保坐标位于board内部
+        elif not 0 <= x < row or not 0 <= y < col:  # 确保坐标位于board内部
             return False
-        elif coor in prev: # 如果坐标之前被算入过则不行
+        elif coor in prev:  # 如果坐标之前被算入过则不行
             return False
-        elif board[x][y] != word[idx]: # 不符合单词
+        elif board[x][y] != word[idx]:  # 不符合单词
             return False
         else:
-            new_prev = prev.copy() # 复制一份为递归作准备
-            new_prev[coor] = 1     # 加入字典以防将来被再次算入
+            new_prev = prev.copy()  # 复制一份为递归作准备
+            new_prev[coor] = 1  # 加入字典以防将来被再次算入
 
             up = (x - 1, y)
             down = (x + 1, y)
             left = (x, y - 1)
             right = (x, y + 1)
 
-            return any([self.finder(board, word, idx+1, new_coor, new_prev) for new_coor in [up, down, left, right]])
+            # return any([self.finder(board, word, idx + 1, new_coor, new_prev) for new_coor in [up, down, left, right]])
+            # THIS IS WRONG! This will cost maximum depth
+
+            return self.finder(board, word, idx + 1, up, new_prev) or \
+                   self.finder(board, word, idx + 1, down, new_prev) or \
+                   self.finder(board, word, idx + 1, left, new_prev) or \
+                   self.finder(board, word, idx + 1, right, new_prev)
 
 
 class Solution_STD:
@@ -73,12 +77,8 @@ class Solution_STD:
     def existRecu(self, board: List[List[str]], word: str, cur: int, i: int, j: int, visited: List[List[bool]]):
         """
         The general idea is almost the same, the key is using visitied table to record path
+        This saves space and time
         """
-        print(i, j)
-        for line in visited:
-            print(line)
-        print()
-
         if cur == len(word):
             return True
 
@@ -94,6 +94,7 @@ class Solution_STD:
         visited[i][j] = False
 
         return result
+
 
 if __name__ == "__main__":
     testCase = Solution_STD()
@@ -122,7 +123,6 @@ if __name__ == "__main__":
     ]
 
     assert testCase.exist(board, "ABCESEEEFS"), "Additional 2"
-
 
     long = [
         ["a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a",
@@ -187,9 +187,6 @@ if __name__ == "__main__":
          "a", "a", "a", "a", "a", "a", "a", "b"]
     ]
     target = "baaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
-    print(testCase.exist(long, target)) # Maximum Recursion Depth reached
+    print(testCase.exist(long, target))  # Maximum Recursion Depth reached
 
     print("all passed")
-
-
-
