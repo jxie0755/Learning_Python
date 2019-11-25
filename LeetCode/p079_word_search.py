@@ -58,38 +58,45 @@ class Solution_A:
             return any([self.finder(board, word, idx+1, new_coor, new_prev) for new_coor in [up, down, left, right]])
 
 
-class Solution_B:
+class Solution_STD:
 
     def exist(self, board: List[List[str]], word: str) -> bool:
+        visited = [[False for j in range(len(board[0]))] for i in range(len(board))]
+
+        for i in range(len(board)):
+            for j in range(len(board[0])):
+                if self.existRecu(board, word, 0, i, j, visited):
+                    return True
+
+        return False
+
+    def existRecu(self, board: List[List[str]], word: str, cur: int, i: int, j: int, visited: List[List[bool]]):
         """
-        Non recursive version, similar to solve the sudoku problem
+        The general idea is almost the same, the key is using visitied table to record path
         """
+        print(i, j)
+        for line in visited:
+            print(line)
+        print()
 
-        N = len(word)
-        row, col = len(board), len(board[0])
-        start_point = [(x, y) for x in range(row) for y in range(col)]
+        if cur == len(word):
+            return True
 
-        i = 0
-        route = []
-        while True:
-            if i == N:
-                return True
-            elif len(start_point) == 0:
-                return False
-            else:
-                if not route:
-                    route.append(start_point.pop(0))
-                coor = route[-1]
-                x, y = coor[0], coor[1]
+        if i < 0 or i >= len(board) or j < 0 or j >= len(board[0]) or visited[i][j] or board[i][j] != word[cur]:
+            return False
 
+        visited[i][j] = True
 
+        result = self.existRecu(board, word, cur + 1, i + 1, j, visited) or \
+                 self.existRecu(board, word, cur + 1, i - 1, j, visited) or \
+                 self.existRecu(board, word, cur + 1, i, j + 1, visited) or \
+                 self.existRecu(board, word, cur + 1, i, j - 1, visited)
+        visited[i][j] = False
 
-
-
-
+        return result
 
 if __name__ == "__main__":
-    testCase = Solution_A()
+    testCase = Solution_STD()
     board = [
         ["A", "B", "C", "E"],
         ["S", "F", "C", "S"],
@@ -180,7 +187,7 @@ if __name__ == "__main__":
          "a", "a", "a", "a", "a", "a", "a", "b"]
     ]
     target = "baaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
-    # print(testCase.exist(long, target)) # Maximum Recursion Depth reached
+    print(testCase.exist(long, target)) # Maximum Recursion Depth reached
 
     print("all passed")
 
