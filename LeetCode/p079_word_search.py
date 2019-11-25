@@ -57,6 +57,31 @@ class Solution_A:
             return any([self.finder(board, word, idx+1, new_coor, new_prev) for new_coor in [up, down, left, right]])
 
 
+class Solution_B:
+
+    def exist(self, board: List[List[str]], word: str) -> bool:
+        """
+        Non recursive version, similar to solve the sudoku problem
+        """
+
+        N = len(word)
+        row, col = len(board), len(board[0])
+        start_point = [(x, y) for x in range(row) for y in range(col)]
+
+        i = 0
+        route = []
+        while True:
+            if i == N:
+                return True
+            elif len(start_point) == 0:
+                return False
+            else:
+                if not route:
+                    route.append(start_point.pop(0))
+                coor = route[-1]
+                x, y = coor[0], coor[1]
+
+
 
 
 
