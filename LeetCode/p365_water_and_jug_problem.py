@@ -80,14 +80,15 @@ class Solution:
 
 
 if __name__ == "__main__":
-    assert Solution().canMeasureWater(0, 0, 0), "Edge 0"
-    assert not Solution().canMeasureWater(0, 2, 1), "Edge 1"
-    assert not Solution().canMeasureWater(1, 2, 3), "Edge 2"
+    testCase = Solution()
+    assert testCase.canMeasureWater(0, 0, 0), "Edge 0"
+    assert not testCase.canMeasureWater(0, 2, 1), "Edge 1"
+    assert not testCase.canMeasureWater(1, 2, 3), "Edge 2"
 
-    assert Solution().canMeasureWater(3, 5, 4), "Example 1, Di Hard"
-    assert not Solution().canMeasureWater(2, 6, 5), "Example 2"
-    assert not Solution().canMeasureWater(6, 9, 1), "Example3"
+    assert testCase.canMeasureWater(3, 5, 4), "Example 1, Di Hard"
+    assert not testCase.canMeasureWater(2, 6, 5), "Example 2"
+    assert not testCase.canMeasureWater(6, 9, 1), "Example3"
 
-    assert Solution().canMeasureWater(22003, 31237, 1), "Long"
+    assert testCase.canMeasureWater(22003, 31237, 1), "Long"
 
     print("all passed")
