@@ -39,6 +39,8 @@ class Solution_A1:
                 B_to_A = (A + B, 0)
 
             candidates = [(0, B), (A, 0), (x, B), (A, y), A_to_B, B_to_A]
+                         # drainA drainB  fillA   fillB
+
             for status in candidates:
                 if z in status:
                     found = True
