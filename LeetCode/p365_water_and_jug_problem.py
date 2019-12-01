@@ -12,53 +12,42 @@
 # Pour water from one jug into another till the other jug is completely full or the first jug itself is empty.
 
 
-class Solution:
+class Solution_A1:
 
     # Version A1
     # Start from 0, 0 and record all possible status of the two bottle
     # The recursive funtion will reach to maximum depth in big case
     def canMeasureWater(self, x: int, y: int, z: int) -> bool:
-        all_possible = {}
-        big, small = max(x, y), min(x, y)
+        all_possible = {(0,0)}
+        found = False
 
         def helper(A, B):
-            """
-            calculate the status of two water jar
-            A is the water in small jar
-            B is the water in big jar
-            """
-            if 0 <= A <= small and 0 <= B <= big and (A, B) not in all_possible:
-                all_possible[(A, B)] = 1
+            nonlocal found
 
-                helper(small, B)  # fill up small
-                helper(A, big)  # fill up big
-                helper(0, B)  # drain small
-                helper(A, 0)  # drain big
+            # A_to_B
+            available_B = y - B
+            if A >= available_B:
+                A_to_B = (A - available_B, y)
+            else:
+                A_to_B = (0, B + A)
 
-                # poor from big to small
-                if (small - A) >= B:
-                    helper(A + B, 0)
-                else:
-                    helper(small, B - (small - A))
+            # B_to_A
+            available_A = x - A
+            if B >= available_A:
+                B_to_A = (x, B - available_A)
+            else:
+                B_to_A = (A + B, 0)
 
-                # poor from small to big
-                if (big - B) >= A:
-                    helper(0, A + B)
-                else:
-                    helper(A - (big - B), big)
+            candidates = [(0, B), (A, 0), (x, B), (A, y), A_to_B, B_to_A]
+            for status in candidates:
+                if z in status:
+                    found = True
+                if 0 <= A <= x and 0 <= B <= y and status not in all_possible:
+                    all_possible.add(status)
+                    helper(status[0], status[1])
 
         helper(0, 0)
-        lst = []
-        for i in all_possible:
-            for j in i:
-                lst.append(j)
-
-        # print(sorted(list(set(lst))))
-
-        for key in all_possible:
-            if z in key:
-                return True
-        return False
+        return found
 
 
 # class Solution:
@@ -80,7 +69,7 @@ class Solution:
 
 
 if __name__ == "__main__":
-    testCase = Solution()
+    testCase = Solution_A1()
     assert testCase.canMeasureWater(0, 0, 0), "Edge 0"
     assert not testCase.canMeasureWater(0, 2, 1), "Edge 1"
     assert not testCase.canMeasureWater(1, 2, 3), "Edge 2"
