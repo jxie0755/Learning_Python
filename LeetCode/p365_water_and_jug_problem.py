@@ -80,6 +80,7 @@ if __name__ == "__main__":
     assert not testCase.canMeasureWater(2, 6, 5), "Example 2"
     assert not testCase.canMeasureWater(6, 9, 1), "Example3"
 
-    assert testCase.canMeasureWater(22003, 31237, 1), "Long"
+    assert testCase.canMeasureWater(500, 456, 128), "Additional 1"
+    # assert testCase.canMeasureWater(22003, 31237, 1), "Long"
 
     print("all passed")
