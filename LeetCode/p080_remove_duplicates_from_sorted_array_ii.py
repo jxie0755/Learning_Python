@@ -55,6 +55,7 @@ class Solution_B:
         use a label duplicate to record whether a duplicate if found
         (can set to numbers to accomodate to any level of duplication
         This makes space O(1)
+        For Java the data structure is array, so pop should be avoid
         """
         if len(nums) <= 2:
             return len(nums)
@@ -80,9 +81,36 @@ class Solution_B:
 
         return count
 
+class Solution_C:
+    def removeDuplicates(self, nums: List[int]) -> int:
+        """
+        A method single hash table, still space O(1)
+        use a label duplicate to record whether a duplicate if found
+        (can set to numbers to accomodate to any level of duplication
+        """
+        if not nums:
+            return 0
+
+        i = 0
+        open = 0
+        hmp = {nums[0]:0}
+        while i != len(nums):
+            if nums[i] in hmp:
+                if hmp[nums[i]] < 2:
+                    hmp[nums[i]] += 1
+                    nums[open] = nums[i]
+                    open += 1
+            else:
+                hmp.clear()
+                hmp[nums[i]] = 1
+                nums[open] = nums[i]
+                open += 1
+            i += 1
+        return open
+
 
 if __name__ == "__main__":
-    testCase = Solution_B()
+    testCase = Solution_C()
     a = []
     assert testCase.removeDuplicates(a) == 0, "Edge 0"
 
@@ -91,10 +119,11 @@ if __name__ == "__main__":
 
     a = [1, 1, 1, 2, 2, 3]
     assert testCase.removeDuplicates(a) == 5, "Example 1"
-    assert a == [1, 1, 2, 2, 3]
+    assert a == [1, 1, 2, 2, 3, 3]
 
     a = [0, 0, 1, 1, 1, 1, 2, 3, 3]
     assert testCase.removeDuplicates(a) == 7, "Example 2"
-    assert a == [0, 0, 1, 1, 2, 3, 3]
+    assert a == [0, 0, 1, 1, 2, 3, 3, 3, 3]
 
     print("all passed")
+
