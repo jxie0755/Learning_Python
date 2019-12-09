@@ -95,15 +95,16 @@ class Solution_C:
         open = 0
         hmp = {nums[0]:0}
         while i != len(nums):
-            if nums[i] in hmp:
-                if hmp[nums[i]] < 2:
-                    hmp[nums[i]] += 1
-                    nums[open] = nums[i]
+            k = nums[i]
+            if k in hmp:
+                if hmp[k] < 2:
+                    hmp[k] += 1
+                    nums[open] = k
                     open += 1
             else:
                 hmp.clear()
-                hmp[nums[i]] = 1
-                nums[open] = nums[i]
+                hmp[k] = 1
+                nums[open] = k
                 open += 1
             i += 1
         return open
