@@ -19,7 +19,7 @@ class Solution_A:
                 result.append(sum(nums[start:start + length]))
         return max(result)
 
-class Solution_B:
+class Solution_STD:
     def maxSubArray(self, nums: List[int]) -> int:
         """
         O(n), using local and global max_value to iterate over the elements
@@ -40,7 +40,7 @@ class Solution_B:
 
 
 if __name__ == "__main__":
-    testCase = Solution_B()
+    testCase = Solution_STD()
     assert testCase.maxSubArray([1, 2, 3, 4]) == 10, "All positives"
     assert testCase.maxSubArray([-1, -2, -3, -4]) == -1, "All negatives"
     assert testCase.maxSubArray([-2, 1, -3, 4, -1, 2, 1, -5, 4]) == 6, "mixed positive and negative"
