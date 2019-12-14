@@ -114,7 +114,7 @@ print(change_iter(123456, [1, 6, 7, 456, 678]))
 # https://zhuanlan.zhihu.com/p/31628866
 # 漫画动态递归
 
-print("\nFrom https://zhuanlan.zhihu.com/p/31628866")
+"""https://zhuanlan.zhihu.com/p/31628866"""
 # Q1 上楼梯
 print("\nQ1: 上楼梯")
 
