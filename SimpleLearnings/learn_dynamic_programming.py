@@ -239,4 +239,3 @@ def golddig_by_man(lst, man_total):
 
 print("\n金矿第二解:")
 print(golddig_by_man(A, 10))
-
