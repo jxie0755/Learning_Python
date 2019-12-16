@@ -13,7 +13,7 @@ Q1: 间隔最大和
 例如:
 A = [1,2,3,2,1,5,7,6]
 分解成多个小问题:
-F(A) = max(F[A:-2] + A[7], F[A:-1])
+F(A) = max(F[A:-2] + A[-1], F[A:-1])
 """
 
 # Recursive method
@@ -29,8 +29,10 @@ def foo_recur(lst: List[int]) -> int:
 
 # Non-recursive method
 def foo_iter(lst: List[int]) -> int:
-    sum_so_far = [0, lst[0]]  # 逐个记录到达list每个长度的最大可能性, 然后拓展下一个
+    if not lst:
+        return 0
 
+    sum_so_far = [0, lst[0]]  # 逐个记录到达list每个长度的最大可能性, 然后拓展下一个
     for i in range(1, len(lst)):
         sum_so_far.append(max(sum_so_far[-1], lst[i]+sum_so_far[-2]))
     return sum_so_far[-1]
@@ -77,7 +79,7 @@ def change_recur(target: int, coins: List[int]) -> int:
 def change_iter(target: int, coins: List[int]) -> int:
 
     num = [0]
-    # num represents number of coins needed for a value ( value = numbers of coins, idex of num is the value)
+    # num represents number of coins needed for a value ( value = numbers of coins, index of num is the value)
     # for example [0,3,5]  means, need 0 coins for 0, need 3 coins for value 1, and need 5 coins for value 2
     #              0 1 2
     while len(num) <= target:
