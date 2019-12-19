@@ -52,7 +52,7 @@ Q2: 找零钱"
 # Recursive
 # 递归法是倒着处理, 把大的case变成小的case, 这样分叉太多影响速度
 # 可以用memorization记录, 避免重复计算
-def change_recur(target: int, coins: List[int]) -> int:
+def change_recur(target: int, coins: List[int]) -> int or float:
     """coins are sorted from small to large"""
 
     memory = {}
