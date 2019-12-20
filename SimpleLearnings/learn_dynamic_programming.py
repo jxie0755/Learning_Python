@@ -165,7 +165,9 @@ def golddig_by_man(lst, man_total):
         return sum(k[1] for k in goldmine_lst)
 
     # 开始规划, 若是只有man_n - 1个人怎么办?
-    gold = [[[0, 0]]]  # represents which gold mine to dig if there is idx number of man, starting from [0,0] (zero man, zero gold)
+    gold = [[[0, 0]]]
+    # List[List[List[int]]], a list of gold mine list, each gold mine is a List[int] representing [manNeed, goldNumber]
+    # starting from [[0,0]] (zero man, zero gold), with idx=0 as zero people, goes for an empty gold mine
 
     for total_man in range(1, man_total + 1): # iterate man_total from 1 to man_total
         temp = []
@@ -186,7 +188,6 @@ def golddig_by_man(lst, man_total):
             gold.append(max(temp, key=sum_gold))
         else: # 如果不满足, 说明多出来的一个人, 没有更好的安放方式, 所以它的最佳就是total-1一样, 浪费了一个人
             gold.append(gold[-1])
-        print(gold)
 
     return gold[-1][1:] # 返回第man_total个最佳, 不需要包括[0,0]
 
