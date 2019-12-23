@@ -168,8 +168,8 @@ Use the `printf()` function.
 ``There is a literal backtick (`) here.针对在代码区段内插入反引号的情况``
 
 强调：
-*斜体强调*
-**粗体强调**
+*斜体强调ABC*
+**粗体强调ABC**
 
 图片
 ![Alt text](http://www.izhangbo.cn/wp-content/themes/minty/img/logo.png "Optional title")
