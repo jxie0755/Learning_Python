@@ -72,37 +72,34 @@ class Solution_B:
         """
         Regular while loop, binary search O(logN)
         Method modified from Leetcode P033
+        This will pass but it is not the preferred method as too many conditions and edge cases
         """
-
         if not nums:
             return False
 
         L, H = 0, len(nums) - 1
-
         while L <= H:
             M = (L + H) // 2
             low, mid, high = nums[L], nums[M], nums[H]
-
+            print("L", L, "M", M, "H", H)
             if L == H:  # means the length of the array is 1
                 return low == high == target
-            elif mid == target:
+            if mid == target:
                 return True
-            else:
-                if low <= target <= mid:  # if the first half is sorted and target in range
-                    H = M - 1
-                elif mid <= target <= high:  # if the second half is sorted and target in range
-                    L = M + 1
-                else:
-                    if low >= mid:  # if first half is unsorted, then must be in first half
-                        H = M - 1
-                    elif mid >= high: # if scond half is unsorted, then must be in second half
-                        L = M + 1
-
+            elif low <= target <= mid:  # determine if the first half is sorted
+                H = M - 1
+            elif mid <= target <= high:  # determine if the second half is sorted
+                L = M + 1
             # if target not in sorted sub-array, then it must be in the unsorted sub-array
             # an array can be unsorted in two way:
-                # 1 - Truely unsorted sorted
-                # 2 - Fake sorted because all elements is the same
-                    # modified the way to tell which half is sorted, considering repeating elements, by excluding situation 2
+            # 1 - Truely unsorted sorted (head > tail)
+            # 2 - Fake sorted because all elements is the same (can't use head == tail, must confirm with set())
+            elif low > mid or len(set(nums[M:H + 1])) == 1:  # if first half is unsorted, then must be in first half
+                H = M - 1
+            elif mid > high or len(set(nums[L:M + 1])) == 1:  # if second half is unsorted, then must be in first half
+                L = M + 1
+            else:
+                return target in nums[L:H + 1]
 
 
 if __name__ == "__main__":
@@ -113,4 +110,7 @@ if __name__ == "__main__":
     assert testCase.search([2, 5, 6, 0, 0, 1, 2], 0), "Example 1"
     assert not testCase.search([2, 5, 6, 0, 0, 1, 2], 3), "Example 2"
     assert testCase.search([1, 3, 1, 1, 1], 3), "Additional 1"
+    assert testCase.search([3, 1], 1), "Additional 2"
+    assert not testCase.search([1, 3, 5], 0), "Additional 3"
+    assert not testCase.search([0, 1, 2, 3, 3, 3], 4), "Additional 4"
     print("all passed")
