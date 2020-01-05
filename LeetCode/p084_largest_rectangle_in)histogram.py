@@ -9,13 +9,11 @@
 from typing import *
 
 
-class Solution:
+class Solution_A:
     # Worked, but exceeded maximum recursion depth
-    # O(2N), maixmum depth reached at N > 999.
+    # maximum depth reached at N > 999.
     def largestRectangleArea(self, heights: List[int]) -> int:
-        global count
-        count += 1
-        print(count)
+
         N = len(heights)
         if not N:
             return 0
@@ -31,11 +29,12 @@ class Solution:
             return max(area, self.largestRectangleArea(first), self.largestRectangleArea(second))
 
 
-class Solution(object):
-    # @param height, a list of integer
-    # @return an integer
-    # TODO to be reviewed
-    def largestRectangleArea(self, height):
+class Solution_STD:
+
+    def largestRectangleArea(self, height: List[int]) -> int:
+        """
+        # TODO to be reviewed
+        """
         increasing, area, i = [], 0, 0
         while i <= len(height):
             if not increasing or (i < len(height) and height[i] > height[increasing[-1]]):
@@ -52,23 +51,22 @@ class Solution(object):
         return area
 
 
-additional = list(range(0, 999))
-print(Solution().largestRectangleArea(additional))
 
 if __name__ == "__main__":
-    assert Solution().largestRectangleArea([]) == 0, "Edge 1"
-    assert Solution().largestRectangleArea([2]) == 2, "Edge 2"
-    assert Solution().largestRectangleArea([1, 2]) == 2, "Edge 3"
+    testCase = Solution_STD()
+    assert testCase.largestRectangleArea([]) == 0, "Edge 1"
+    assert testCase.largestRectangleArea([2]) == 2, "Edge 2"
+    assert testCase.largestRectangleArea([1, 2]) == 2, "Edge 3"
 
-    assert Solution().largestRectangleArea([2, 1, 5, 6, 2, 3]) == 10, "Example 1"
+    assert testCase.largestRectangleArea([2, 1, 5, 6, 2, 3]) == 10, "Example 1"
 
-    assert Solution().largestRectangleArea([4, 2, 0, 3, 2, 4, 3, 4]) == 10, "Additional 1"
-    assert Solution().largestRectangleArea([0, 2, 0]) == 2, "Additional 2"
+    assert testCase.largestRectangleArea([4, 2, 0, 3, 2, 4, 3, 4]) == 10, "Additional 1"
+    assert testCase.largestRectangleArea([0, 2, 0]) == 2, "Additional 2"
 
     additional = list(range(0, 30)) + list(range(30, 60, 2)) + list(range(60, 30, 3))
-    print(Solution().largestRectangleArea(additional))
+    assert testCase.largestRectangleArea(additional) == 506, "Extra Long 1"
 
     additional = list(range(0, 2000))
-    print(Solution().largestRectangleArea(additional))
+    assert testCase.largestRectangleArea(additional) == 1000000, "Extra Long 2"
 
     print("all passed")
