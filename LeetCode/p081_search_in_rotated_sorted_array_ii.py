@@ -57,8 +57,8 @@ class Solution_A:
             - binary search the sorted part
             - Recursive run on the other half
         """
-        lo, high = 0, len(nums) - 1  # index
-        mid = (lo + high) // 2 + 1
+        lo, hi = 0, len(nums) - 1  # index
+        mid = (lo + hi) // 2 + 1
         first, second = nums[:mid], nums[mid:]
 
         A, B = self.isSortedQuick(first), self.isSortedQuick(second)
@@ -113,7 +113,7 @@ class Solution_B:
 
 
 if __name__ == "__main__":
-    testCase = Solution_B()
+    testCase = Solution_A()
     assert testCase.search([1], 1), "Edge 1"
     assert testCase.search([1, 1], 1), "Edge 2"
     assert not testCase.search([3, 1], 0), "Edge 3"
