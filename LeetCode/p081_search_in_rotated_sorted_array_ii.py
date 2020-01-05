@@ -37,6 +37,13 @@ class Solution_A:
         return False
 
     def isSortedQuick(self, nums: List[int]) -> bool:
+        """
+        Helper
+        Quickly tell whether an array is sorted for this question on two condition:
+            1. First element < Last Element
+            2. If the array has only one repeating elements.
+
+        """
         if len(set(nums)) <= 1:
             return True
         else:
@@ -47,7 +54,6 @@ class Solution_A:
 
     def search(self, nums: List[int], target: int) -> bool:
         """
-        Helper
         Recursive method to break the array into two halves:
             - binary search the sorted part
             - Recursive run on the other half
