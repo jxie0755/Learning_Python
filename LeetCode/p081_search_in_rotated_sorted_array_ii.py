@@ -19,8 +19,12 @@ from typing import *
 
 
 class Solution_A:
+
     def binarySearch(self, nums: List[int], target: int) -> bool:
-        """regular binary search if a value is in sorted list"""
+        """
+        Helper
+        regular binary search if a value is in sorted list
+        """
         lo, high = 0, len(nums) - 1
         while lo <= high:
             mid = (lo + high) // 2
@@ -43,6 +47,7 @@ class Solution_A:
 
     def search(self, nums: List[int], target: int) -> bool:
         """
+        Helper
         Recursive method to break the array into two halves:
             - binary search the sorted part
             - Recursive run on the other half
