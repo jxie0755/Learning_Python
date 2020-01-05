@@ -25,24 +25,23 @@ class Solution_A:
         Helper
         regular binary search if a value is in sorted list
         """
-        lo, high = 0, len(nums) - 1
-        while lo <= high:
-            mid = (lo + high) // 2
+        lo, hi = 0, len(nums) - 1
+        while lo <= hi:
+            mid = (lo + hi) // 2
             if nums[mid] == target:
                 return True
             elif nums[mid] < target:
                 lo = mid + 1
             elif nums[mid] > target:
-                high = mid - 1
+                hi = mid - 1
         return False
 
     def isSortedQuick(self, nums: List[int]) -> bool:
         """
-        Helper
-        Quickly tell whether an array is sorted for this question on two condition:
+        Helper function specialized for this question
+        Quickly tell whether an array is sorted on two condition:
             1. First element < Last Element
             2. If the array has only one repeating elements.
-
         """
         if len(set(nums)) <= 1:
             return True
