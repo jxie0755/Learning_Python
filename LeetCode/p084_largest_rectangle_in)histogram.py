@@ -51,7 +51,6 @@ class Solution_STD:
         return area
 
 
-
 if __name__ == "__main__":
     testCase = Solution_STD()
     assert testCase.largestRectangleArea([]) == 0, "Edge 1"
