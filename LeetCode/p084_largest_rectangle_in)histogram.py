@@ -33,7 +33,14 @@ class Solution_STD:
 
     def largestRectangleArea(self, height: List[int]) -> int:
         """
-        // TODO to be reviewed
+        堆栈法
+        从左到有遍历, 入栈规则:
+            如果升高, 则入栈
+            如果降低, 则分析此前所有升高的栈,从后往前pop, 直到栈中末尾出现比此更低的值, 然后将其入栈
+
+        关键原理:
+            如果持续升高或降低, 则问题比较容易分析
+            一旦出现升高后的降低, 则此前所有比这个低的bar的具体高度已经没有意义, 因为从这里开始往后高度都被限制在了这个较矮的bar这里
         """
         increasing, area, i = [], 0, 0
         while i <= len(height):
@@ -42,12 +49,10 @@ class Solution_STD:
                 i += 1
             else:
                 last = increasing.pop()
-
                 if not increasing:
                     area = max(area, height[last] * i)
                 else:
                     area = max(area, height[last] * (i - increasing[-1] - 1))
-
         return area
 
 
