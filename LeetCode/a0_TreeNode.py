@@ -2,6 +2,7 @@
 
 from typing import *
 
+
 class TreeNode:
     def __init__(self, x):
         self.val = x
@@ -59,4 +60,4 @@ if __name__ == '__main__':
     print(genTree([1]))
 
     print("\nComplicated Tree:")
-    print(genTree([1,None,3,None,None,4,None]))
+    print(genTree([1, 2, 3, None, 4, 5, None]))
