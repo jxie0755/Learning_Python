@@ -52,6 +52,11 @@ def genTree(lst: List[int], i: int = 1) -> TreeNode:
 
 
 if __name__ == '__main__':
+    print("\nEmpty Tree:")
     print(genTree([]))
+
+    print("\nSingle node Tree:")
     print(genTree([1]))
+
+    print("\nComplicated Tree:")
     print(genTree([1,None,3,None,None,4,None]))
