@@ -33,3 +33,11 @@ def genNode(nodes: List[int]) -> ListNode:
             n = ListNode(i)
             n.next, end = end, n
         return n
+
+
+if __name__ == '__main__':
+
+    # test genNode
+    assert genNode([]) is None, "Check empty"
+    assert repr(genNode([1])) == "1", "Single node"
+    assert repr(genNode([1,2,3])) == "1->2->3", "Single node"

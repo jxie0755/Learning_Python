@@ -49,3 +49,9 @@ def genTree(lst: List[int], i: int = 1) -> TreeNode:
         node.left = genTree(lst, i * 2)
         node.right = genTree(lst, i * 2 + 1)
         return node
+
+
+if __name__ == '__main__':
+    print(genTree([]))
+    print(genTree([1]))
+    print(genTree([1,None,3,None,None,4,None]))
