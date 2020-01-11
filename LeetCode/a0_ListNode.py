@@ -26,8 +26,10 @@ class ListNode:
         return hash(id(self))
 
 
-def genNode(nodes: List[int], end: ListNode = None) -> ListNode:
-    for i in nodes[::-1]:
-        n = ListNode(i)
-        n.next, end = end, n
-    return n if nodes else None
+def genNode(nodes: List[int]) -> ListNode:
+    if nodes:
+        end = None
+        for i in nodes[::-1]:
+            n = ListNode(i)
+            n.next, end = end, n
+        return n
