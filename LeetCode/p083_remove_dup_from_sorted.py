@@ -8,56 +8,36 @@ Given a sorted linked list, delete all duplicates such that each element appear 
 
 from a0_ListNode import *
 
-class Solution:
+
+class Solution_A:
     def deleteDuplicates(self, head: ListNode) -> ListNode:
         """
         Version A
+        Since it is a sorted list, so the repeat should stick together
+        Remove in-place
         """
         if head is None:
             return head
 
-        result = ListNode(head.val)
-        current = result
-        tail = head.next
-        while tail is not None:
-            if current.val != tail.val:
-                current.next = tail
-                current = current.next
-            elif current.val == tail.val and tail.next is None:
-                current.next = None
-            tail = tail.next
-        return result
-
-    def deleteDuplicates(self, head):
         cur = head
-        prev = None
-        duplicates = dict()
-        while cur:
-            if cur.val in duplicates:
-                prev.next = cur.next
-                cur = None
+        tail = head.next
+        while tail:
+            if cur.val != tail.val:
+                cur.next = tail
+                cur = cur.next
             else:
-                duplicates[cur.val] = 1
-                prev = cur
-            cur = prev.next
+                cur.next = None
+            tail = tail.next
         return head
 
 
 if __name__ == "__main__":
-    a = genNode([1, 1, 2, 3, 3])
-    check = Solution().deleteDuplicates(a)
-    assert repr(check) == "1->2->3"
+    testCase = Solution_A()
 
-    b = genNode([1, 1, 2])
-    check = Solution().deleteDuplicates(b)
-    assert repr(check) == "1->2"
+    assert testCase.deleteDuplicates(None) is None, "Empty"
+    assert testCase.deleteDuplicates(genNode([4])) == genNode([4]), "Single Node"
 
-    a = None
-    check = Solution().deleteDuplicates(a)
-    assert check is None
-
-    a = genNode([4])
-    check = Solution().deleteDuplicates(a)
-    assert repr(check) == "4"
+    assert testCase.deleteDuplicates(genNode([1, 1, 2, 3, 3])) == genNode([1, 2, 3]), "Example 1"
+    assert testCase.deleteDuplicates(genNode([1, 1, 2])) == genNode([1, 2]), "Example 2"
 
     print("all passed")
