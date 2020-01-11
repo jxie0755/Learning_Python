@@ -16,18 +16,16 @@ class Solution_A:
         Since it is a sorted list, so the repeat should stick together
         Remove in-place
         """
-        if head is None:
-            return head
-
-        cur = head
-        tail = head.next
-        while tail:
-            if cur.val != tail.val:
-                cur.next = tail
-                cur = cur.next
-            else:
-                cur.next = None
-            tail = tail.next
+        if head:
+            cur = head
+            tail = head.next
+            while tail:
+                if cur.val != tail.val:
+                    cur.next = tail
+                    cur = cur.next
+                else:
+                    cur.next = None
+                tail = tail.next
         return head
 
 
