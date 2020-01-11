@@ -1,19 +1,17 @@
-# p083 Remove Duplicates from Sorted List
-# Easy
+"""
+https://leetcode.com/problems/remove-duplicates-from-sorted-list/
+p083 Remove Duplicates from Sorted List
+Easy
 
+Given a sorted linked list, delete all duplicates such that each element appear only once.
+"""
 
-# Given a sorted linked list, delete all duplicates such that each element appear only once.
-
-from typing import *
-from a0_TreeNode import *
 from a0_ListNode import *
 
-
 class Solution:
-    def deleteDuplicates(self, head):
+    def deleteDuplicates(self, head: ListNode) -> ListNode:
         """
-        :type head: ListNode
-        :rtype: ListNode
+        Version A
         """
         if head is None:
             return head
