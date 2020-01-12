@@ -33,9 +33,9 @@ if __name__ == "__main__":
     testCase = Solution_A()
 
     assert testCase.deleteDuplicates(None) is None, "Empty"
-    assert testCase.deleteDuplicates(genNode([4])) == genNode([4]), "Single Node"
+    assert repr(testCase.deleteDuplicates(genNode([4]))) == "4", "Single Node"
 
-    assert testCase.deleteDuplicates(genNode([1, 1, 2, 3, 3])) == genNode([1, 2, 3]), "Example 1"
-    assert testCase.deleteDuplicates(genNode([1, 1, 2])) == genNode([1, 2]), "Example 2"
+    assert repr(testCase.deleteDuplicates(genNode([1, 1, 2, 3, 3]))) == "1->2->3", "Example 1"
+    assert repr(testCase.deleteDuplicates(genNode([1, 1, 2]))) == "1->2", "Example 2"
 
     print("all passed")
