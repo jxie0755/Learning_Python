@@ -44,9 +44,6 @@ class Solution_A:
 class Solution_STD:
 
     def canJump(self, nums: List[int]) -> bool:
-        """
-        STD ans
-        """
         max_reachable_idx = 0  # 定义一个当前能走到的最远的位置
 
         for i, length in enumerate(nums):

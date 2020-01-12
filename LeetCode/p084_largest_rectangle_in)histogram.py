@@ -9,9 +9,12 @@ Given n non-negative integers representing the histogram's bar height where the 
 from typing import *
 
 class Solution_A:
-    # Worked, but exceeded maximum recursion depth
-    # maximum depth reached at N > 999.
+
     def largestRectangleArea(self, heights: List[int]) -> int:
+        """
+        Worked, but exceeded maximum recursion depth
+        maximum depth reached at N > 999.
+        """
 
         N = len(heights)
         if not N:
