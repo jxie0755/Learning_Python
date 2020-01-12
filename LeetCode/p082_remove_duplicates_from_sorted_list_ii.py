@@ -56,15 +56,15 @@ class Solution_B:
         repeat = False
 
         while tail:
-            if head.val != tail.val and not repeat:
-                cur.next = head
-                cur = cur.next
-
-            elif head.val != tail.val and repeat:
-                if tail.next:
-                    repeat = False
+            if head.val != tail.val:
+                if not repeat:
+                    cur.next = head
+                    cur = cur.next
                 else:
-                    cur.next = tail
+                    if tail.next:
+                        repeat = False
+                    else:
+                        cur.next = tail
             else:
                 cur.next = None
                 repeat = True
