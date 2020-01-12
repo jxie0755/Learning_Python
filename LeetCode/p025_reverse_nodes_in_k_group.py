@@ -98,7 +98,7 @@ class Solution_B:
 if __name__ == "__main__":
     testCase = Solution_B()
 
-    assert testCase.reverseKGroup(genNode([1]), 2) == genNode([1]), "Single"
+    assert repr(testCase.reverseKGroup(genNode([1]), 2)) == "1", "Single"
 
     a = genNode([1, 2, 3, 4, 5])
     f = testCase.reverseKGroup(a, 2)
