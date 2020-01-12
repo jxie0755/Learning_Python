@@ -45,7 +45,7 @@ class Solution_B:
         """
         Time O(N)
         Move in place
-        Put a dummy before head and check move three nodes at the same time to find if a repeat happened at the 2nd and 3rd.
+        Put a dummy before head and check move three nodes at the same time to find if a repeat happened at the 2nd and 3rd (by a boolean label).
         """
         if not head or not head.next:
             return head
