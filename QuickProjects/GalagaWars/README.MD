@@ -1,4 +1,4 @@
-![GameIntro](MD_image/GalagaWars.jpeg)
+![GameIntro](MD_image/GalagaWars.jpeg "Welcome!")
 
 # Galaga Wars (外星人入侵) # 
 
