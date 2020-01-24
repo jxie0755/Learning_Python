@@ -7,14 +7,14 @@ Translated by 沈洁元
 
 ## Study Notes ##
 
-* Basic
-* Operators and Expressions
-* Control flow
-* Functions
-* Modules
-* Data Structures
-* Problem Solving
-* Object Oriented Programming
-* Input and Output
-* Exceptions
-* Standard Library
+- Basic
+- Operators and Expressions
+- Control flow
+- Functions
+- Modules
+- Data Structures
+- Problem Solving
+- Object Oriented Programming
+- Input and Output
+- Exceptions
+- Standard Library
