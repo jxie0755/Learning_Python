@@ -14,7 +14,7 @@ Classes:
 * MIT CS 6.00.1x Introduction to Computer Science and Programming Using Python -- finished with final grade at 99%
   * https://courses.edx.org/certificates/0e00852250ce496ab2a6ebeb00a6985f
 
-* UC Berkeley CS61a Spring 2018 -- On-going
+* UC Berkeley CS61a Spring 2018 -- finished
   * https://inst.eecs.berkeley.edu/~cs61a/sp18/
   
 * RICE University An Introduction to Interactive Programming in Python P1 & P2

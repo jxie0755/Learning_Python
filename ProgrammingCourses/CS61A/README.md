@@ -1,5 +1,7 @@
 # UC Berkeley CS61a
 
+## Study Notes ##
+
 This is for CS61a in sping 2018
 
 at: [cs61a.org](https://inst.eecs.berkeley.edu/~cs61a/sp18/)

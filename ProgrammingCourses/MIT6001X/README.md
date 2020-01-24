@@ -1,7 +1,9 @@
-MIT公开课 Introduction to Computer Science and Programming Using Python (python3)
-edX: Introduction to Computer Science and Programming Using Python
+# MIT公开课 Introduction to Computer Science and Programming Using Python (python3) #
 
-https://courses.edx.org/courses/course-v1:MITx+6.00.1x+2T2017_2/course/
+## Study Notes ## 
+
+[edX: Introduction to Computer Science and Programming Using Python](https://courses.edx.org/courses/course-v1:MITx+6.00.1x+2T2017_2/course/ "edX online course")
+
 
 * Week 1 Python Basics
 * Week 2 Simple Programs
