@@ -16,7 +16,7 @@ Classes:
 
 - UC Berkeley CS61a Spring 2018 -- finished
   * https://inst.eecs.berkeley.edu/~cs61a/sp18/
-  
+
 - RICE University An Introduction to Interactive Programming in Python P1 & P2
 
 - Python Datastructure and Algorithm
