@@ -36,7 +36,7 @@ print(os.path.abspath("."))
 print(os.getcwd())
 
 
-# 直接创造新路径
+# 直接创造新路径(非文件)
 # mkdir
 try:
     os.mkdir("gopro")
