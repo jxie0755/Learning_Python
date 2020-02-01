@@ -6,12 +6,15 @@ The file should be in utf-8 in the first place
 """
 
 import re
+import os
 
+def strQ2B(ustring: str) -> str:
+    """
+    中文特殊符号转英文特殊符号
+    将ustring中的中文符号替换成英文半角符号
+    """
 
-def strQ2B(ustring):
-    """中文特殊符号转英文特殊符号"""
     # 中文特殊符号批量识别
-
     pattern = re.compile('[，。：“”【】《》？；、（）‘’『』「」﹃﹄〔〕—·]')
 
     # re.compile: 编译一个正则表达式模式，返回一个模式（匹配模式）对象。
@@ -24,18 +27,19 @@ def strQ2B(ustring):
     # 对有中文特殊符号的文本进行符号替换
 
     if len(fps) > 0:
-        ustring = ustring.replace('，', ',')
+        ustring = ustring.replace('，', ', ')
         ustring = ustring.replace('。', '.')
-        ustring = ustring.replace('：', ':')
+        ustring = ustring.replace('…', '...')
+        ustring = ustring.replace('：', ': ')
         ustring = ustring.replace('“', '"')
         ustring = ustring.replace('”', '"')
         ustring = ustring.replace('【', '[')
         ustring = ustring.replace('】', ']')
         ustring = ustring.replace('《', '<')
         ustring = ustring.replace('》', '>')
-        ustring = ustring.replace('？', '?')
-        ustring = ustring.replace('；', ':')
-        ustring = ustring.replace('、', ',')
+        ustring = ustring.replace('？', '? ')
+        ustring = ustring.replace('；', ': ')
+        ustring = ustring.replace('、', ', ')
         ustring = ustring.replace('（', '(')
         ustring = ustring.replace('）', ')')
         ustring = ustring.replace('‘', "'")
@@ -70,9 +74,46 @@ def strQ2B(ustring):
     return rstring
 
 
-# 测试代码
+def CNwash(project_dir: str) -> None:
+    """
+    将路径中的文件内容中的中文全角标点全部替换成英文标点
+    非递归操作
+    """
+    for sub_dir in os.listdir(project_dir):
+        full_sub_path = os.path.join(project_dir, sub_dir)
+        if os.path.isfile(full_sub_path):
+            print("working on:", full_sub_path)
+            with open(full_sub_path, "r", encoding="utf-8") as fobj:
+                content = fobj.read()
+            washed_content = strQ2B(content)
+            with open(full_sub_path, "w", encoding="utf-8") as fobj:
+                fobj.write(washed_content)
+
+
+def CNwash_recur(project_dir: str) -> None:
+    """
+    将路径中的文件内容中的中文全角标点全部替换成英文标点
+    递归操作将子路径也做同样的操作
+    """
+    for sub_dir in os.listdir(project_dir):
+        full_sub_path = os.path.join(project_dir, sub_dir)
+        if os.path.isfile(full_sub_path):
+            print("working on:", full_sub_path)
+            with open(full_sub_path, "r", encoding="utf-8") as fobj:
+                content = fobj.read()
+            washed_content = strQ2B(content)
+            with open(full_sub_path, "w", encoding="utf-8") as fobj:
+                fobj.write(washed_content)
+        else:
+            CNwash_recur(full_sub_path)
+
+
 if __name__ == "__main__":
-    str = '这是一个，【个人】ｄｅｂｏｋｅ'
+    # 测试单条代码
+    str = '这是一个，【个人】… ｄｅｂｏｋｅ。。。 正常abcd wtf?'
     str_q2b = strQ2B(str)
     print(str)
     print(str_q2b)
+
+    # 正式进入, 替换整个路径中的markdown文件中的中文标点
+    # CNwash("D:/Documents/GitHub/Learning_SQL/SQL101byMick")
