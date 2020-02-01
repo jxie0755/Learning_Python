@@ -74,7 +74,21 @@ def strQ2B(ustring: str) -> str:
     return rstring
 
 
-def CNwash(project_dir: str) -> None:
+def CNwash_single(file_dir: str) -> None:
+    """
+    将单文件内容中的中文全角标点全部替换成英文标点
+    递归操作
+    """
+    if os.path.isfile(file_dir):
+        print("working on:", file_dir)
+        with open(file_dir, "r", encoding="utf-8") as fobj:
+            content = fobj.read()
+        washed_content = strQ2B(content)
+        with open(file_dir, "w", encoding="utf-8") as fobj:
+            fobj.write(washed_content)
+
+
+def CNwash_dir(project_dir: str) -> None:
     """
     将路径中的文件内容中的中文全角标点全部替换成英文标点
     非递归操作
@@ -90,14 +104,16 @@ def CNwash(project_dir: str) -> None:
                 fobj.write(washed_content)
 
 
-def CNwash_recur(project_dir: str) -> None:
+def CNwash_dir_recur(project_dir: str) -> None:
     """
     将路径中的文件内容中的中文全角标点全部替换成英文标点
     递归操作将子路径也做同样的操作
     """
     for sub_dir in os.listdir(project_dir):
         full_sub_path = os.path.join(project_dir, sub_dir)
-        if os.path.isfile(full_sub_path):
+        if sub_dir == "zhongTranslate.py":
+            print("skipped this script")
+        elif os.path.isfile(full_sub_path):
             print("working on:", full_sub_path)
             with open(full_sub_path, "r", encoding="utf-8") as fobj:
                 content = fobj.read()
@@ -105,7 +121,7 @@ def CNwash_recur(project_dir: str) -> None:
             with open(full_sub_path, "w", encoding="utf-8") as fobj:
                 fobj.write(washed_content)
         else:
-            CNwash_recur(full_sub_path)
+            CNwash_dir_recur(full_sub_path)
 
 
 if __name__ == "__main__":
@@ -115,5 +131,11 @@ if __name__ == "__main__":
     print(str)
     print(str_q2b)
 
+    # 清洗Learning Android中的第一章MD文件
+    # CNwash_single("D:/Documents/GitHub/Learning_Android/FirstLineOfCodes/StudyNotes/Chapter_1.MD")
+
     # 正式进入, 替换整个路径中的markdown文件中的中文标点
-    # CNwash("D:/Documents/GitHub/Learning_SQL/SQL101byMick")
+    # CNwash_dir("D:/Documents/GitHub/Learning_SQL/SQL101byMick")
+
+    # 清洗整个Learning Python
+    CNwash_dir_recur("D:/Documents/GitHub/Learning_Python")
