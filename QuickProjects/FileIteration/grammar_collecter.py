@@ -36,7 +36,7 @@ else:
                     summary.write("---\n")
                     summary.write(chapter_title.group(0) + "\n")
 
-                # 在写入语法块
+                # 再把语法块写入All_grammars.md
                 for block in grammar_block_pattern.findall(chapter_content):
                     with open(destination, "a", encoding="utf-8") as summary:
                         summary.write(block + "\n")
