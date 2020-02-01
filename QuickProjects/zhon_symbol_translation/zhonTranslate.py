@@ -111,9 +111,10 @@ def CNwash_dir_recur(project_dir: str) -> None:
     """
     for sub_dir in os.listdir(project_dir):
         full_sub_path = os.path.join(project_dir, sub_dir)
+        print(sub_dir)
         if sub_dir.startswith(".") or sub_dir.startswith("__"):
             print(sub_dir, "skipped")
-        if sub_dir == "zhongTranslate.py":
+        elif sub_dir == "zhongTranslate.py":
             print("skipped this script")
         elif os.path.isfile(full_sub_path):
             print("working on:", full_sub_path)
@@ -125,6 +126,7 @@ def CNwash_dir_recur(project_dir: str) -> None:
         else:
             CNwash_dir_recur(full_sub_path)
 
+    print("ALL DONE!")
 
 if __name__ == "__main__":
     # 测试单条代码
