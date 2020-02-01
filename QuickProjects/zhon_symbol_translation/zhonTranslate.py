@@ -28,7 +28,7 @@ def strQ2B(ustring: str) -> str:
 
     if len(fps) > 0:
         ustring = ustring.replace('，', ', ')
-        ustring = ustring.replace('。', '.')
+        ustring = ustring.replace('。', '. ')
         ustring = ustring.replace('…', '...')
         ustring = ustring.replace('：', ': ')
         ustring = ustring.replace('“', '"')
