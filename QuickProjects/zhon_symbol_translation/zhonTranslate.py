@@ -118,15 +118,17 @@ def CNwash_dir_recur(project_dir: str) -> None:
             print("skipped this script")
         elif os.path.isfile(full_sub_path):
             print("working on:", full_sub_path)
-            with open(full_sub_path, "r", encoding="utf-8") as fobj:
-                content = fobj.read()
-            washed_content = strQ2B(content)
-            with open(full_sub_path, "w", encoding="utf-8") as fobj:
-                fobj.write(washed_content)
+            try:
+                with open(full_sub_path, "r", encoding="utf-8") as fobj:
+                    content = fobj.read()
+                washed_content = strQ2B(content)
+                with open(full_sub_path, "w", encoding="utf-8") as fobj:
+                    fobj.write(washed_content)
+            except:
+                pass
         else:
             CNwash_dir_recur(full_sub_path)
 
-    print("ALL DONE!")
 
 if __name__ == "__main__":
     # 测试单条代码
