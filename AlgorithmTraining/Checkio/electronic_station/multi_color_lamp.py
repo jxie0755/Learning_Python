@@ -1,5 +1,5 @@
 """
-Your task is to create the class Lamp() and method light() which will make the lamp glow with one of the four colors in the sequence - (‘Green’, ‘Red’, ‘Blue’, ‘Yellow’).
+Your task is to create the class Lamp() and method light() which will make the lamp glow with one of the four colors in the sequence - ('Green', 'Red', 'Blue', 'Yellow').
 When the light() method is used for the first time,
 the color should be "Green", the second time - "Red" and so on.
 If the current color is "Yellow", the next color should be "Green" and so on. In this mission you can use the State design pattern.

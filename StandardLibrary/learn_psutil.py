@@ -2,15 +2,15 @@
 Learn psutil
 https://psutil.readthedocs.io/en/latest/
 
-用Python来编写脚本简化日常的运维工作是Python的一个重要用途。
-在Linux下，有许多系统命令可以让我们时刻监控系统运行的状态，如ps，top，free等等。
-要获取这些系统信息，Python可以通过subprocess模块调用并获取结果。
-但这样做显得很麻烦，尤其是要写很多解析代码。
+用Python来编写脚本简化日常的运维工作是Python的一个重要用途. 
+在Linux下, 有许多系统命令可以让我们时刻监控系统运行的状态, 如ps, top, free等等. 
+要获取这些系统信息, Python可以通过subprocess模块调用并获取结果. 
+但这样做显得很麻烦, 尤其是要写很多解析代码. 
 
-在Python中获取系统信息的另一个好办法是使用psutil这个第三方模块。
-    顾名思义，psutil = process and system utilities，
-    它不仅可以通过一两行代码实现系统监控，还可以跨平台使用，
-    支持Linux／UNIX／OSX／Windows等，是系统管理员和运维小伙伴不可或缺的必备模块
+在Python中获取系统信息的另一个好办法是使用psutil这个第三方模块. 
+    顾名思义, psutil = process and system utilities, 
+    它不仅可以通过一两行代码实现系统监控, 还可以跨平台使用, 
+    支持Linux/UNIX/OSX/Windows等, 是系统管理员和运维小伙伴不可或缺的必备模块
 """
 
 import psutil
@@ -26,7 +26,7 @@ print(psutil.cpu_times())
         # dpc=2125.78125)
 
 
-# 再实现类似top命令的CPU使用率，每秒刷新一次，累计10次
+# 再实现类似top命令的CPU使用率, 每秒刷新一次, 累计10次
 # for x in range(10):
 #     print(psutil.cpu_percent(interval=1, percpu=True))
 # [4.7, 4.7, 4.7, 1.6, 4.7, 3.1, 14.1, 3.1, 4.7, 4.7, 3.1, 15.6]
@@ -54,7 +54,7 @@ print(psutil.swap_memory())
 
 
 
-# 可以通过psutil获取磁盘分区、磁盘使用率和磁盘IO信息
+# 可以通过psutil获取磁盘分区, 磁盘使用率和磁盘IO信息
 print()
 print(psutil.disk_partitions()) # 磁盘分区信息
 # [sdiskpart(device="C:\\", mountpoint="C:\\", fstype="NTFS", opts="rw,fixed"),
@@ -74,7 +74,7 @@ print(psutil.disk_io_counters()) # 磁盘IO
 
 # psutil可以获取网络接口和网络连接信息
 print()
-print(psutil.net_io_counters()) # 获取网络读写字节／包的个数
+print(psutil.net_io_counters()) # 获取网络读写字节/包的个数
 # snetio(bytes_sent=68468541570, bytes_recv=121054712924,
 # packets_sent=112391551, packets_recv=133056843,
 # errin=0, errout=15, dropin=0, dropout=0)
@@ -83,7 +83,7 @@ print(psutil.net_if_addrs() )# 获取网络接口信息
 print()
 print(psutil.net_if_stats()) # 获取网络接口状态
 
-# 要获取当前网络连接信息，使用net_connections()
+# 要获取当前网络连接信息, 使用net_connections()
 print()
 print(psutil.net_connections())
 
@@ -92,7 +92,7 @@ print(psutil.net_connections())
 print()
 
 print(psutil.pids()) # 所有进程ID
-p = psutil.Process(7816) # 获取指定进程ID=3776，其实就是当前Python交互环境 (可在task manager details tab里面核实)
+p = psutil.Process(7816) # 获取指定进程ID=3776, 其实就是当前Python交互环境 (可在task manager details tab里面核实)
 
 print(p.name())  # 进程名称
 # >>> pycharm64.exe

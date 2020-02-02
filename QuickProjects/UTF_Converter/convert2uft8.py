@@ -12,7 +12,7 @@ def WriteFile(filePath, u, encoding="utf-8"):
 
 
 def Convert_2_UTF8(src, dst):
-    #     检测编码，coding可能检测不到编码，有异常
+    #     检测编码, coding可能检测不到编码, 有异常
     f = open(src, "rb")
     coding = chardet.detect(f.read())["encoding"]
     f.close()
@@ -32,7 +32,7 @@ def Convert_2_UTF8(src, dst):
 def ReadDirectoryFile(rootdir):
     for parent, dirnames, filenames in os.walk(rootdir):
         for dirname in dirnames:
-            # 递归函数，遍历所有子文件夹
+            # 递归函数, 遍历所有子文件夹
             ReadDirectoryFile(dirname)
         for filename in filenames:
             if filename.endswith(".sql"):  # <-------------------------------------选择文件类型

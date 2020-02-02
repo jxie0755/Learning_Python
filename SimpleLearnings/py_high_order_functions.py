@@ -1,5 +1,5 @@
 print("filter(function, sequence)")
-# 对sequence中的item依次执行function(item)，将执行结果为True的item组成一个List/String/Tuple（取决于sequence的类型）返回
+# 对sequence中的item依次执行function(item), 将执行结果为True的item组成一个List/String/Tuple(取决于sequence的类型)返回
 
 # 定义一个函数,鉴别一个数不能被2整除的数.
 def f(x): return x % 2 != 0
@@ -18,14 +18,14 @@ print(list(filter(f, ["Denis", "" "Xie"])))
 
 print()
 print("map(function, sequence)")
-# 对sequence中的item依次执行function(item)，将执行结果组成一个List
+# 对sequence中的item依次执行function(item), 将执行结果组成一个List
 
 # 与上面那个例子相同的函数,鉴别能否被2整除
 def f(x): return x % 2 != 0
 print(list(map(f, range(0, 10))))
 # >>> [False, True, False, True, False, True, False, True, False, True]
 
-# map也支持多个sequence，这就要求function也支持相应数量的参数输入：
+# map也支持多个sequence, 这就要求function也支持相应数量的参数输入: 
 
 def add(x, y): return x+y
 print(list(map(add, range(8), range(8))))  # 如果两个sequence长度不同,只执行相同的部分,多余部分被忽略
@@ -50,18 +50,18 @@ print(max(list(map(abs, list(map(int, l))))))
 
 print()
 print("reduce(function, sequence, starting_value)")
-# 对sequence中的item顺序迭代调用function, 函数必须要有2个参数。要是有第3个参数，则表示初始值，可以继续调用初始值，返回一个值。
+# 对sequence中的item顺序迭代调用function, 函数必须要有2个参数. 要是有第3个参数, 则表示初始值, 可以继续调用初始值, 返回一个值. 
 
-# reduce()函数即为化简函数，它的执行过程为：每一次迭代，都将上一次的迭代结果（注：第一次为init元素，如果没有指定init则为seq的第一个元素）与下一个元素一同传入二元func函数中去执行。
+# reduce()函数即为化简函数, 它的执行过程为: 每一次迭代, 都将上一次的迭代结果(注: 第一次为init元素, 如果没有指定init则为seq的第一个元素)与下一个元素一同传入二元func函数中去执行. 
 
 from functools import reduce
 
 def add(x,y): return x + y
 print(reduce(add, range(1, 11)))      # >>> 55
-# （注：1+2+3+4+5+6+7+8+9+10 = 55）
+# (注: 1+2+3+4+5+6+7+8+9+10 = 55)
 
 print(reduce(add, range(1, 11), 20))  # >>> 75
-# （注：20+1+2+3+4+5+6+7+8+9+10 = 75）
+# (注: 20+1+2+3+4+5+6+7+8+9+10 = 75)
 
 l = [2, 3, 4]
 print(reduce(pow, l))  # >>> 4096
@@ -70,7 +70,7 @@ print(reduce(pow, l))  # >>> 4096
 
 print()
 print("lambda function")
-# lambda：这是Python支持一种有趣的语法，它允许你快速定义单行的最小函数，类似与C语言中的宏，这些叫做lambda的函数，是从LISP借用来的，可以用在任何需要函数的地方：
+# lambda: 这是Python支持一种有趣的语法, 它允许你快速定义单行的最小函数, 类似与C语言中的宏, 这些叫做lambda的函数, 是从LISP借用来的, 可以用在任何需要函数的地方: 
 g = lambda x: x * 2
 print(g(3))  # >>> 6
 
@@ -120,11 +120,11 @@ for i in range(1, (len(l))):
 print(result)              # >>> 1152921504606846976
 
 
-# 小问题：去除列表mylist中的空字符
+# 小问题: 去除列表mylist中的空字符
 mylist=["A","B","","C",None,"D"]
-# 暴力解决：
+# 暴力解决: 
 for item in mylist:
     if item=="" or item==None:
         del item
-# 优秀解决：filter+lambda
+# 优秀解决: filter+lambda
 newlist = list(filter(lambda x: x, mylist))

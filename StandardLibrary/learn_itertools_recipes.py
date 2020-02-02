@@ -3,7 +3,7 @@ itertools recipes
 https://docs.python.org/3/library/itertools.html#itertools-recipes
 
 This is to learn a few simple functions to use itertools
-扩展工具提供与底层工具集相同的高性能。优越的存储器性能通过一次一个处理元件来保持，而不是一次性地将整个可迭代器带入存储器。通过以有助于消除临时变量的功能样式将工具链接在一起，使代码量保持较小。在使用for循环和generator的情况下，通过优选“向量化”构造块来保持高速，这引起解释器开销。
+扩展工具提供与底层工具集相同的高性能. 优越的存储器性能通过一次一个处理元件来保持, 而不是一次性地将整个可迭代器带入存储器. 通过以有助于消除临时变量的功能样式将工具链接在一起, 使代码量保持较小. 在使用for循环和generator的情况下, 通过优选"向量化"构造块来保持高速, 这引起解释器开销. 
 
 """
 

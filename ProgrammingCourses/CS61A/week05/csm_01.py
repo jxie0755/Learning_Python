@@ -40,7 +40,7 @@ def is_sorted(n):
 
 # Tree Recursion
 # Q1
-# Mario needs to jump over a series of Piranha plants, represented as a string of 0’s and 1’s.
+# Mario needs to jump over a series of Piranha plants, represented as a string of 0's and 1's.
 # Mario only moves forward and can either step (move forward one space) or jump (move forward two spaces) from each position.
 # How many different ways can Mario traverse a level without stepping or jumping into a Piranha plant?
 

@@ -6,8 +6,8 @@ import collections
 
 print()
 print("class collections.ChainMap(*maps)")
-# 一个 ChainMap组合多个字典或其它映射集创建一个单一且可更新的视图。如果没有指定 maps ，那么将会用一个空字典作为新chain里面的一个mapping
-# 基础的mappings被存储在一个列表当中。这个列表是公开的，可以用 maps 属性访问和更新。没有其它的情况。
+# 一个 ChainMap组合多个字典或其它映射集创建一个单一且可更新的视图. 如果没有指定 maps , 那么将会用一个空字典作为新chain里面的一个mapping
+# 基础的mappings被存储在一个列表当中. 这个列表是公开的, 可以用 maps 属性访问和更新. 没有其它的情况. 
 
 # 用于将多个map组合到一起 (把map串联到一起)
 dict1 = {"a": 1, "b": 2}
@@ -45,7 +45,7 @@ dict3 = {"f": 5}
 new_chain = chain.new_child(dict3)
 print(new_chain.maps)  # >>> [{"f": 5}, {"a": 1}, {"b": 3, "c": 4}]  # new_child加在前方
 
-# parents(属性)返回一个新的ChainMap，它包含当前实例的除第一个map的所有maps。这个可以用于在搜索中跳过第一个map。
+# parents(属性)返回一个新的ChainMap, 它包含当前实例的除第一个map的所有maps. 这个可以用于在搜索中跳过第一个map. 
 print(new_chain.parents.maps)
 
 
@@ -53,7 +53,7 @@ print(new_chain.parents.maps)
 print()
 print("class collections.Counter([iterable-or-mapping])")
 
-# 计数器工具提供方面、快速的计数方法。
+# 计数器工具提供方面, 快速的计数方法. 
 cnt = collections.Counter()  # create empty counter
 for word in ["red", "blue", "red", "green", "blue", "blue"]:
     cnt[word] += 1
@@ -95,12 +95,12 @@ print(cnt) # >>> Counter({"blue": 3, "red": 2, "green": 1})
 print(cnt.most_common(2))  # >>>  [("blue", 3), ("red", 2)]
 
 # elements()
-print(cnt.elements())  # 生成一个迭代器, 对元素重复迭代其计数次。(元素不再以随机顺序返回,而是按照原数据出现顺序。(以前版本可能是))
+print(cnt.elements())  # 生成一个迭代器, 对元素重复迭代其计数次. (元素不再以随机顺序返回,而是按照原数据出现顺序. (以前版本可能是))
 print(list(cnt.elements()))  # >>> ["red", "red", "blue", "blue", "blue", "green"]
 
 # subtract([iterable-or-mapping])方法
-# 从一个可迭代对象或从另一个映射（或计数器）中减去元素。类似dict.update()，但减去计数，而不是替换它们。
-# 输入和输出都可以为零或负。
+# 从一个可迭代对象或从另一个映射(或计数器)中减去元素. 类似dict.update(), 但减去计数, 而不是替换它们. 
+# 输入和输出都可以为零或负. 
 c = collections.Counter(a=4, b=2, c=0, d=-2)
 d = collections.Counter(a=1, b=2, c=3, d=4)
 c.subtract(d)
@@ -146,13 +146,13 @@ print(-c)  # >>> Counter({"b": 4})
 print()
 print("class collections.deque([iterable[, maxlen]])")
 
-# 返回一个由迭代器从左到右(使用append())初始化的双向队列.若未指定初始化的迭代器，返回的双向队列的长度为0
-# 双向队列（Deque）是栈和队列的一般化（deque发音和‘deck’一样，是‘double-ended queue’的缩写）。
-# Deque是线程安全的。在队列两端添加（append）或弹出（pop）元素的复杂度大约是O(1),所以Deque的效率是很高的。
-# 尽管list 对象支持类似的操作, 但是list是专门为固定长度的操作进行了优化，导致了改变列表长度和数据位置的操作
+# 返回一个由迭代器从左到右(使用append())初始化的双向队列.若未指定初始化的迭代器, 返回的双向队列的长度为0
+# 双向队列(Deque)是栈和队列的一般化(deque发音和'deck'一样, 是'double-ended queue'的缩写). 
+# Deque是线程安全的. 在队列两端添加(append)或弹出(pop)元素的复杂度大约是O(1),所以Deque的效率是很高的. 
+# 尽管list 对象支持类似的操作, 但是list是专门为固定长度的操作进行了优化, 导致了改变列表长度和数据位置的操作
 # 例如 pop(0)和 insert(0, v) 操作的复杂度高达O(n)
-# 如果 maxlen 未指定或为 None，deque可能长到任意长度。否则，deque的最大长度为指定的maxlen。
-# 一旦有界的双向队列满了以后，当有新的元素添加到队列中，就会有相应数量的元素在另一端被丢弃。有界双向队列提供了类似于Unix中tail过滤器的功能。
+# 如果 maxlen 未指定或为 None, deque可能长到任意长度. 否则, deque的最大长度为指定的maxlen. 
+# 一旦有界的双向队列满了以后, 当有新的元素添加到队列中, 就会有相应数量的元素在另一端被丢弃. 有界双向队列提供了类似于Unix中tail过滤器的功能. 
 
 # Create a deque
 lst = [1,2,3,3,4,5]
@@ -245,7 +245,7 @@ def moving_average(iterable, n=3):
 print(list(moving_average([40, 30, 50, 46, 39, 44])))
 # >>> [40.0 42.0 45.0 43.0]
 
-# 理解:"一旦有界的双向队列满了以后，当有新的元素添加到队列中，就会有相应数量的元素在另一端被丢弃。"
+# 理解:"一旦有界的双向队列满了以后, 当有新的元素添加到队列中, 就会有相应数量的元素在另一端被丢弃. "
 dec = collections.deque([1,2,3,4,5,6,7,8,9], 5)
 print(dec)  # >>> deque([5, 6, 7, 8, 9], maxlen=5)
 dec.append("x")
@@ -289,17 +289,17 @@ delete_nth(sample, 3)       # deque([4, 5, 6, 7, 1, 2, 3]) after rotate(-3)
 print()
 print("class collections.defaultdict([default_factory[, ...]])")
 
-# 返回一个新的类似字典的对象。defaultdict是内置dict类的子类。
-# 它覆盖一个方法，并添加一个可写的实例变量。
-# 其余的功能与dict类相同，这里就不再记录。
-# 第一个参数提供default_factory属性的初始值；它默认为None。所有剩余的参数都视为与传递给dict构造函数的参数相同，包括关键字参数。
+# 返回一个新的类似字典的对象. defaultdict是内置dict类的子类. 
+# 它覆盖一个方法, 并添加一个可写的实例变量. 
+# 其余的功能与dict类相同, 这里就不再记录. 
+# 第一个参数提供default_factory属性的初始值: 它默认为None. 所有剩余的参数都视为与传递给dict构造函数的参数相同, 包括关键字参数. 
 
 # create a defaultdict
 lst = [("yellow", 1), ("blue", 2), ("yellow", 3), ("blue", 4), ("red", 1)]
 dic = dict(lst); print(dic)  # >>> {"yellow": 3, "blue": 4, "red": 1}
 
 # default_factory表示的是value的类型
-# 当每个键第一次遇到时，它不在映射中；因此default_factory函数自动创建一个条目,例如list(),int()。
+# 当每个键第一次遇到时, 它不在映射中: 因此default_factory函数自动创建一个条目,例如list(),int(). 
 ddic = ddic = collections.defaultdict()  # 缺省的话 defaultdict(None, {})
 ddic = collections.defaultdict(list)  # 使用list作为default factory
 print(ddic)  # >>> defaultdict(<class "list">, {})
@@ -322,7 +322,7 @@ for k, v in s:
 print(d.items())  # dict_items([("red", {1, 3}), ("blue", {2, 4})])
 
 s = "mississippi"
-# 当一个字母第一次遇到时，映射中缺少该字母，因此default_factory函数调用int()以提供默认计数零。增量操作然后建立每个字母的计数。
+# 当一个字母第一次遇到时, 映射中缺少该字母, 因此default_factory函数调用int()以提供默认计数零. 增量操作然后建立每个字母的计数. 
 d = collections.defaultdict(int)
 for k in s:
     d[k] += 1
@@ -351,22 +351,22 @@ print(d)  # >>> defaultdict(None, {"action": "ran"})
 print()
 print("collections.namedtuple(typename, field_names, verbose=False, rename=False)")
 # 返回一个叫做 typename 的tuple子类(译注:其实这是一个生成类的工厂方法).
-# 这个新的子类用来创建类tuple(tuple-like)的对象,这个对象拥有可以通过属性访问的字段，并且可以通过下标索引和迭代。
-# 这个子类的实例还拥有十分友好的文档[docstring(包括类型名和字段名)，
-# 可通过__doc__访问]和十分好用的__repr__() 方法，__repr__()以name=value的方式列出了元组中的内容
+# 这个新的子类用来创建类tuple(tuple-like)的对象,这个对象拥有可以通过属性访问的字段, 并且可以通过下标索引和迭代. 
+# 这个子类的实例还拥有十分友好的文档[docstring(包括类型名和字段名), 
+# 可通过__doc__访问]和十分好用的__repr__() 方法, __repr__()以name=value的方式列出了元组中的内容
 
 # 解读field_names:
-# field_names 是一个单独的字符串，这个字符串中包含的所有字段用空格或逗号隔开，例如 "x y" 或 "x, y".
-# 另外, field_names 也可以是字符串的列表，例如 ["x", "y"].
-# 除了以下划线开头的名称，任何有效的 Python 标识符都可用于 fieldname 。
-# 有效的标识符由字母、 数字和下划线组成，但做不能以数字或下划线开头
-# 并且不能是 关键字 例如 class、 for、 return、 global、 pass 或 raise。
+# field_names 是一个单独的字符串, 这个字符串中包含的所有字段用空格或逗号隔开, 例如 "x y" 或 "x, y".
+# 另外, field_names 也可以是字符串的列表, 例如 ["x", "y"].
+# 除了以下划线开头的名称, 任何有效的 Python 标识符都可用于 fieldname . 
+# 有效的标识符由字母,  数字和下划线组成, 但做不能以数字或下划线开头
+# 并且不能是 关键字 例如 class,  for,  return,  global,  pass 或 raise. 
 
 # 解读verbose和rename
 # 如果 rename参数 为 True, 无效的字段名会被自动转换成位置的名称.
 # 例如, ["abc", "def", "ghi", "abc"] 将被转换为 ["abc", "_1", "ghi", "_3"], 来消除关键字 def 和重复的字段名 abc.
-# 如果verbose 为 True, 在类被建立后将打印类的定义.这个选项是过时的; 相反，它打印的是类的 _source 属性(译注:也就是打印源代码).
-# namedtuple 的实例中并没有字典, 所以namedtuple并不会比常规的tuple消耗更多的内存，它是轻量级的.
+# 如果verbose 为 True, 在类被建立后将打印类的定义.这个选项是过时的; 相反, 它打印的是类的 _source 属性(译注:也就是打印源代码).
+# namedtuple 的实例中并没有字典, 所以namedtuple并不会比常规的tuple消耗更多的内存, 它是轻量级的.
 
 # Basic example
 # create a class of namedtuples
@@ -374,7 +374,7 @@ Point = collections.namedtuple("Point", ["x", "y"])
 print(Point)  # >>> <class "__main__.Point">
 coordict = {"x": 101, "y": 102}  # 注意这里key必须match class arguments
 print(Point(**coordict))  # >>> Point(x=101, y=102)
-# 可以验证创建的Point对象是tuple的一种子类：
+# 可以验证创建的Point对象是tuple的一种子类: 
 print(isinstance(p, Point)) # True
 print(isinstance(p, tuple)) # >>> True
 
@@ -433,10 +433,10 @@ Book.authors.__doc__ = "List of authors sorted by last name"
 print()
 print("class collections.OrderedDict([items])")
 
-# 返回一个dict子类的实例，支持通常的dict方法。
-# OrderedDict是记住键首次插入顺序的字典。
-# 如果新条目覆盖现有条目，则原始插入位置保持不变。
-# 删除条目并重新插入会将其移动到末尾。
+# 返回一个dict子类的实例, 支持通常的dict方法. 
+# OrderedDict是记住键首次插入顺序的字典. 
+# 如果新条目覆盖现有条目, 则原始插入位置保持不变. 
+# 删除条目并重新插入会将其移动到末尾. 
 
 # regular dict is order in python 3.6, but:
 # 1. it's not in the spec
@@ -457,7 +457,7 @@ print(odic["c"])  # >>> 3
 odic["e"] = 5
 print(odic)  # >>>OrderedDict([("a", 1), ("b", 2), ("c", 3), ("d", 4), ("e", 5)])
 
-# 除了通常的映射方法之外，有序字典还支持使用reversed()的反向迭代。
+# 除了通常的映射方法之外, 有序字典还支持使用reversed()的反向迭代. 
 print(list(reversed(odic)))  # >>> ["e", "d", "c", "b", "a"]
 rdiclist = [(k, v) for k, v in reversed(odic.items())]
 print(rdiclist)  # >>> [("e", 5), ("d", 4), ("c", 3), ("b", 2), ("a", 1)]
@@ -490,13 +490,13 @@ print(orddic2)  # >>> OrderedDict([("pear", 1), ("banana", 3), ("apple", 4)])
 print()
 print("class collections.UserDict([initialdata])")
 
-# UserDict是一个包裹了字典的对象。对这个类的需要已经部分地被直接从dict子类化的能力所代替；
-# 但是，此类可以更容易使用，因为底层字典可作为属性访问。
-# UserDict仿照字典。实例的内容保存在一个普通的字典当中，可以通过UserDict实例的属性data访问。
+# UserDict是一个包裹了字典的对象. 对这个类的需要已经部分地被直接从dict子类化的能力所代替: 
+# 但是, 此类可以更容易使用, 因为底层字典可作为属性访问. 
+# UserDict仿照字典. 实例的内容保存在一个普通的字典当中, 可以通过UserDict实例的属性data访问. 
 # 如果提供initialdata, data就会被初始化为initialldata
 
 # 一般来说没什么用
-# 主要使用来拷贝一个字典的数据，而不是共享同一份数据。
+# 主要使用来拷贝一个字典的数据, 而不是共享同一份数据. 
 
 lst = [("a", 1), ("b", 2), ("c", 3), ("d", 4)]
 udic = collections.UserDict(lst)
@@ -517,10 +517,10 @@ print(emptudic)  # >>> {"test": 1234} # no difference from regular dict
 print()
 print("class collections.UserList([list])")
 
-# 这个类充当列表对象的包装器。
-# 它是一个有用的基类，你自己的类列表类可以从它们继承，覆盖现有的方法或添加新的。这样，可以向列表中添加新的行为。
-# 这个类的需要已经部分地被直接从list子类化的能力所取代；
-# 但是，此类可以更容易使用，因为底层列表可作为属性访问。
+# 这个类充当列表对象的包装器. 
+# 它是一个有用的基类, 你自己的类列表类可以从它们继承, 覆盖现有的方法或添加新的. 这样, 可以向列表中添加新的行为. 
+# 这个类的需要已经部分地被直接从list子类化的能力所取代: 
+# 但是, 此类可以更容易使用, 因为底层列表可作为属性访问. 
 
 lst = [1,2,3,4]
 ulst = collections.UserList(lst)
@@ -532,8 +532,8 @@ print(type(ulst.data))  # regular list
 print()
 print("class collections.UserString([sequence])")
 
-# 类UserString充当字符串对象的包装器。这个类的需要已经部分地被从str直接子类化的能力所取代；
-# 但是，此类可以更容易使用，因为底层字符串可作为属性访问。
+# 类UserString充当字符串对象的包装器. 这个类的需要已经部分地被从str直接子类化的能力所取代: 
+# 但是, 此类可以更容易使用, 因为底层字符串可作为属性访问. 
 
 stri = "abcdefg"
 ustri = collections.UserString(stri)

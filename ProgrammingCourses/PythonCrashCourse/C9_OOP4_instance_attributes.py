@@ -21,7 +21,7 @@ class ElectricCar(Car):
         super().__init__(make, model, year, type)
         self.odometer = 0
         self.battery = Battery()  # 将Battery类的一个实例Battery()做为电动车的一个属性
-        # 每当方法__init__()被调用时，都将执行该操作；因此现在每个ElectricCar实例都包含一个自动创建的Battery实例。
+        # 每当方法__init__()被调用时, 都将执行该操作: 因此现在每个ElectricCar实例都包含一个自动创建的Battery实例. 
 
     # special attributes
     def battery(self):
@@ -60,7 +60,7 @@ print(type(my_tesla.battery))    # >>> <class "__main__.Battery"> 属性为Batte
 
 
 print()
-# 给Battery 类添加一个名为upgrade_battery() 的方法。这个方法检查电瓶容量，如果它不是85，就将它设置为85。
+# 给Battery 类添加一个名为upgrade_battery() 的方法. 这个方法检查电瓶容量, 如果它不是85, 就将它设置为85. 
 my_tesla.battery.upgrade_battery()
 my_tesla.battery.battery_info()  # >>> The battery size is: 85
 my_tesla.battery.get_range()     # >>> The car's range is 285 miles

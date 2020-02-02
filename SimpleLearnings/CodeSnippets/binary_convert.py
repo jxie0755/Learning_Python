@@ -40,7 +40,7 @@ if __name__ == "__main__":
 
 # A function to convert a decimal number to binary
 # 用2辗转相除至结果为1
-# 将余数和最后的1从下向上倒序写 就是结果 （逆序）
+# 将余数和最后的1从下向上倒序写 就是结果 (逆序)
 # 例如10
 # 10//2 = 5 余0
 # 5//2 = 2 余1

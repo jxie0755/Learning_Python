@@ -2,7 +2,7 @@ class AnonymousSurvey():
     """收集匿名调查问卷的答案"""
 
     def __init__(self, question):
-        """存储一个问题，并为存储答案做准备"""
+        """存储一个问题, 并为存储答案做准备"""
         self.question = question
         self.responses = []
 
@@ -20,7 +20,7 @@ class AnonymousSurvey():
         for response in self.responses:
             print("- " + response)
 
-#定义一个问题，并创建一个表示调查的AnonymousSurvey对象
+#定义一个问题, 并创建一个表示调查的AnonymousSurvey对象
 # my_survey = AnonymousSurvey("What language did you first learn to speak?" )
 #
 # #显示问题并存储答案 my_survey.show_question()

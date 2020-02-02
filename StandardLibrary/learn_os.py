@@ -11,23 +11,23 @@ import shutil
 # 系统信息查询
 
 print(os.name) # >>>  nt
-# 如果是posix，说明系统是Linux、Unix或Mac OS X，如果是nt，就是Windows系统
+# 如果是posix, 说明系统是Linux, Unix或Mac OS X, 如果是nt, 就是Windows系统
 
-# 要获取详细的系统信息，可以调用uname()函数
+# 要获取详细的系统信息, 可以调用uname()函数
 # print(os.uname())
-# uname()函数在Windows上不提供，也就是说，os模块的某些函数是跟操作系统相关的
+# uname()函数在Windows上不提供, 也就是说, os模块的某些函数是跟操作系统相关的
 
-# 在操作系统中定义的环境变量，全部保存在os.environ这个变量中，可以直接查看
+# 在操作系统中定义的环境变量, 全部保存在os.environ这个变量中, 可以直接查看
 # print(os.environ)
 
 
 
-# 操作文件和目录的函数一部分放在os模块中，一部分放在os.path模块中，这一点要注意一下
+# 操作文件和目录的函数一部分放在os模块中, 一部分放在os.path模块中, 这一点要注意一下
 
 
 print("\n文件/路径 操作")
 # 相对路径就是从这个py文件所在的文件夹出发
-# 我们常用’/‘来表示路径
+# 我们常用'/'来表示路径
 
 
 # 查看当前目录的绝对路径.初始时是脚本所在的路径:
@@ -45,8 +45,8 @@ except FileExistsError:
 
 
 # 合成两个路径
-# 把两个路径合成一个时，不要直接拼字符串，而要通过os.path.join()函数，这样可以正确处理不同操作系统的路径分隔符
-# 这些合并、拆分路径的函数并不要求目录和文件要真实存在，它们只对字符串进行操作
+# 把两个路径合成一个时, 不要直接拼字符串, 而要通过os.path.join()函数, 这样可以正确处理不同操作系统的路径分隔符
+# 这些合并, 拆分路径的函数并不要求目录和文件要真实存在, 它们只对字符串进行操作
 new_directory = os.path.join("./temp/New folder", "WTF")
 try:
     os.mkdir(new_directory)  # 然后根据这个新路径创造出来
@@ -55,16 +55,16 @@ except FileExistsError:
 
 
 # 分拆一个路径
-# 同样的道理，要拆分路径时，也不要直接去拆字符串，而要通过os.path.split()函数
-# 这样可以把一个路径拆分为两部分，后一部分总是最后级别的目录或文件名
-# 这些合并、拆分路径的函数并不要求目录和文件要真实存在，它们只对字符串进行操作
+# 同样的道理, 要拆分路径时, 也不要直接去拆字符串, 而要通过os.path.split()函数
+# 这样可以把一个路径拆分为两部分, 后一部分总是最后级别的目录或文件名
+# 这些合并, 拆分路径的函数并不要求目录和文件要真实存在, 它们只对字符串进行操作
 print(os.path.split("/Users/dxie/testdir/file.txt"))
 # >>> ("/Users/dxie/testdir", "file.txt")  输出为一个tuple
 # 通过这个可以得到上一层路径和文件名, 非常方便
 print(os.path.split("/Users/dxie/testdir/"))
 # >>> ("/Users/dxie/testdir", "")   对于纯路径, 也可以获得上一层路径
 # splitext分拆路径得到文件扩展名
-print(os.path.splitext("/Users/dxie/testdir/file.pdf"))  # 可以直接让你得到文件扩展名，很多时候非常方便
+print(os.path.splitext("/Users/dxie/testdir/file.pdf"))  # 可以直接让你得到文件扩展名, 很多时候非常方便
 # >>> ("/Users/dxie/testdir/file", ".pdf")
 
 
@@ -124,7 +124,7 @@ os.chdir(current_dir)
 # os.rmdir("toberemove/")
 print(os.getcwd())
 # os.rmdir("temp")  # 如果路径不为空, 则不让删除
-# 可以使用shutil库，该库为python内置库，是一个对文件及文件夹高级操作的库，可以与os库互补完成一些操作，如文件夹的整体复制，移动文件夹，对文件重命名等
+# 可以使用shutil库, 该库为python内置库, 是一个对文件及文件夹高级操作的库, 可以与os库互补完成一些操作, 如文件夹的整体复制, 移动文件夹, 对文件重命名等
 
 
 # 为gopro路径创建100个txt文件

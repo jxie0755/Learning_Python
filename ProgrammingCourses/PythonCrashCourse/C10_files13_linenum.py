@@ -16,6 +16,6 @@ print()
 
 # 另一种思路
 with open(filename) as f_obj:
-    lines = f_obj.readlines() #　读取全部line成为一个list
+    lines = f_obj.readlines() # 读取全部line成为一个list
     for line in lines[:2]:  # 打印该list的前2项
         print(line.rstrip())

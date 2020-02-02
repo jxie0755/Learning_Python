@@ -79,7 +79,7 @@ print(m1.dollars, "dollars,", m1.cents, "cents")
 class Money:
     def __init__(self, dollars, cents):  # 改进__init__方法
         self.total_cents = dollars * 100 + cents
-# 这一修改带来一个后果：引用Money类的每一行代码都必须要调整 (特别是被其他团队复用代码的情况)
+# 这一修改带来一个后果: 引用Money类的每一行代码都必须要调整 (特别是被其他团队复用代码的情况)
 
 # 被应用的代码将不能再运行,除非修改
 m1 = Money(27, 12)

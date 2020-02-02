@@ -59,7 +59,7 @@ print(ee.count("b"))  # >>> 1
 
 
 print()
-print("str.encode(encoding=”utf-8”, errors=”strict”)")
+print("str.encode(encoding="utf-8", errors="strict")")
 # Return an encoded version of the string as a bytes object.
 
 
@@ -201,13 +201,13 @@ print("*".join(dd))  # >>> "1*2*3"
 print()
 print("str.isprintable()")
 # Return true if all characters in the string are printable or the string is empty, false otherwise.
-# Nonprintable characters are those characters defined in the Unicode character database as “Other” or “Separator”, excepting the ASCII space (0x20) which is considered printable.
+# Nonprintable characters are those characters defined in the Unicode character database as "Other" or "Separator", excepting the ASCII space (0x20) which is considered printable.
 
 
 print()
 print("str.isspace()")
 # Return true if there are only whitespace characters in the string and there is at least one character, false otherwise.
-# Whitespace characters are those characters defined in the Unicode character database as “Other” or “Separator” and those with bidirectional property being one of “WS”, “B”, or “S”.
+# Whitespace characters are those characters defined in the Unicode character database as "Other" or "Separator" and those with bidirectional property being one of "WS", "B", or "S".
 
 
 print()
@@ -218,7 +218,7 @@ print("str.istitle()")
 print()
 print("str.maketrans(x[, y[, z]])")
 print("str.translate")
-# maketrans() 方法用于创建字符映射的转换表，对于接受两个参数的最简单的调用方式，第一个参数是字符串，表示需要转换的字符，第二个参数也是字符串表示转换的目标。两个字符串的长度必须相同，为一一对应的关系。
+# maketrans() 方法用于创建字符映射的转换表, 对于接受两个参数的最简单的调用方式, 第一个参数是字符串, 表示需要转换的字符, 第二个参数也是字符串表示转换的目标. 两个字符串的长度必须相同, 为一一对应的关系. 
 intab = "aeiou"
 outtab = "12345"
 trantab = str.maketrans(intab, outtab)

@@ -3,7 +3,7 @@ shoplist = ["apple", "mango", "carrot", "banana"]
 print("I have", len(shoplist), "items to purchase.")
 print("These items are:", end=" ")
 
-# for in 本来是每行罗列，以end=" " 命令取消
+# for in 本来是每行罗列, 以end=" " 命令取消
 for item in shoplist:
     print(item, end=" ")
 

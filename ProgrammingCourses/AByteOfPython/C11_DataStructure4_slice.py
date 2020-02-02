@@ -1,7 +1,7 @@
 shoplist = ["apple", "mango", "carrot", "banana"]
 name = "swaroop"
 
-# indexing or ’subscription’ operation
+# indexing or 'subscription' operation
 print("Item 0 is", shoplist[0])
 print("Item 1 is", shoplist[1])
 print("Item 2 is", shoplist[2])

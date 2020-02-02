@@ -9,13 +9,13 @@ print("class frozenset([iterable])")
 # Set 包含两个,一个是set,一个是frozenset.
 
 # 集合对象是一个由互不相同的hashable对象组成的无序集合
-# 它与tuple或者list非常类似,但是最大区别就是无序且不允许出现重复元素. 常见的使用包括成员测试、从序列中删除重复项和计算数学运算（如交、并、差和对称差）
+# 它与tuple或者list非常类似,但是最大区别就是无序且不允许出现重复元素. 常见的使用包括成员测试, 从序列中删除重复项和计算数学运算(如交, 并, 差和对称差)
 
-# 因此,集合支持x in set、len(set)以及for x in set
-# 但作为一个无序的集合，集合不记录元素位置和插入顺序. 因此，集合不支持索引、 切片、 或其它类似于序列的行为
+# 因此,集合支持x in set, len(set)以及for x in set
+# 但作为一个无序的集合, 集合不记录元素位置和插入顺序. 因此, 集合不支持索引,  切片,  或其它类似于序列的行为
 
-# set 类型是可变的 — 可以使用add()和remove()方法来更改内容. 因为它是可变的，所以它没有哈希值(not hashable)且不能用作字典的键或另一个集合的元素。
-# frozenset 类型是不可变的，hashable - 其内容创建后不能更改；它因此可以用作字典键或作为另一个集合的元素
+# set 类型是可变的 - 可以使用add()和remove()方法来更改内容. 因为它是可变的, 所以它没有哈希值(not hashable)且不能用作字典的键或另一个集合的元素. 
+# frozenset 类型是不可变的, hashable - 其内容创建后不能更改: 它因此可以用作字典键或作为另一个集合的元素
 
 
 # create a set
@@ -44,7 +44,7 @@ print(emptset)  # >>> set()
 
 
 # create frozenset
-# frozenset是冻结的集合，它是不可变的，存在哈希值，好处是它可以作为字典的key，也可以作为其它集合的元素。
+# frozenset是冻结的集合, 它是不可变的, 存在哈希值, 好处是它可以作为字典的key, 也可以作为其它集合的元素. 
 
 # 基本相同,但是不能直接使用{}
 print(frozenset(lst))   # >>> frozenset({1, 2, 3, 4, 5})
@@ -55,7 +55,7 @@ print(frozenset(tup2))  # >>> frozenset({"s", "d", "a", "f"})
 emptfset = frozenset([])
 print(emptfset)  # >>> frozenset()
 
-# 一旦创建便不能更改，没有add，remove方法。
+# 一旦创建便不能更改, 没有add, remove方法. 
 a = [0, 1, 1, 1, 2, 3, 3, 4]
 fst = frozenset(a)
 # fst.add(9)     AttributeError: "frozenset" object has no attribute "add"
@@ -79,8 +79,8 @@ st1 = {1,2,3}
 st2 = {1, 2, "c"}
 print(st1.isdisjoint(st2))  # >>> False
 print(emptset.isdisjoint(emptfset))  # >>> True # for two empty set
-# 如果该集合中任何一个元素都与另一个集合other中的任何一个元素都不一样（即两集合不相交），则返回True。
-# 当且仅当两集合的交集为空集时，这两个集合不相交
+# 如果该集合中任何一个元素都与另一个集合other中的任何一个元素都不一样(即两集合不相交), 则返回True. 
+# 当且仅当两集合的交集为空集时, 这两个集合不相交
 
 # create a copy
 st1 = {1,2,3}
@@ -129,7 +129,7 @@ print({1,2,3} - {1,2,3,4})       # >>> set()   # 子集-超集=空集
 # symmetric_difference(other)
 # set ^ other
 # 对称差集
-# 返回一个新的集合，元素在集合或other中，但不能在两个集合中都存在。
+# 返回一个新的集合, 元素在集合或other中, 但不能在两个集合中都存在. 
 print(st1.symmetric_difference(st2))  # >>> {1, 2, 5, 6}
 print(st1 ^ st2)                      # >>> {1, 2, 5, 6}
 
@@ -144,7 +144,7 @@ print(st == fst)  # >>> False
 print(st >= fst)  # >>> False
 print(st <= fst)  # >>> True
 
-# frozenset混合set实例的二元运算返回第一个操作数的类型。
+# frozenset混合set实例的二元运算返回第一个操作数的类型. 
 print(st | fst)  # >>> {1, 2, 3, 4, 5}
 print(fst | st)  # >>> frozenset({1, 2, 3, 4, 5})
 print(st.symmetric_difference(fst))  # >>> {4, 5}
@@ -155,7 +155,7 @@ print(fst.symmetric_difference(st))  # >>> frozenset({4, 5})
 
 # update(other, ...)
 # set |= other | ...
-# 更新的设置，添加从所有其他的元素。
+# 更新的设置, 添加从所有其他的元素. 
 st1 = {1,2,3,4}
 st2 = {"a", "b", "c", "d"}
 
@@ -177,7 +177,7 @@ print(st1)  # >>> {3, 4}  # 更改st1, 而不是新创一个交集
 
 # difference_update(other, ...)
 # set -= other | ...
-# 更新集合，发现在其他元素中删除
+# 更新集合, 发现在其他元素中删除
 st1 = {1,2,3,4}
 st2 = {3,4,5,6}
 st1.difference_update(st2)
@@ -185,7 +185,7 @@ print(st1)  # >>> {1, 2}
 
 # symmetric_difference_update(other)
 # set ^= other
-# 更新集，保持只发现在任一组中，但不是在两个的元素
+# 更新集, 保持只发现在任一组中, 但不是在两个的元素
 st1 = {1,2,3,4}
 st2 = {3,4,5,6}
 st1.symmetric_difference_update(st2)
@@ -193,27 +193,27 @@ print(st1) # >>> {1, 2, 5, 6}
 
 
 # add(elem)
-# 添加元素elem到集合。
+# 添加元素elem到集合. 
 st1 = {1,2,3,4}
 st1.add(9)
 print(st1)  # >>> {1, 2, 3, 4, 9}
 
 # remove(elem)
-# 从集合中移除元素elem, 如果elem不包含在集合中，提出了KeyError
+# 从集合中移除元素elem, 如果elem不包含在集合中, 提出了KeyError
 st1 = {1,2,3,4}
 st1.remove(3)
 print(st1)  # >>> {1, 2, 4}
 # st1.remove(8)  # 引发KeyError
 
 # discard(elem)
-# 从集合中移除元素elem，如果它存在
+# 从集合中移除元素elem, 如果它存在
 st1 = {1,2,3,4}
-st1.discard(8)  #　不引发KeyError
+st1.discard(8)  # 不引发KeyError
 st1.discard(1)
 print(st1)  # >>> {2, 3, 4}
 
 # pop()
-# 从集合中移除并返回任意元素。如果此集合为空，则引发KeyError
+# 从集合中移除并返回任意元素. 如果此集合为空, 则引发KeyError
 st1 = {4,2,1,3}
 st2 = {"a", "b", "c", "d"}
 st1.pop()   # 不能添加index
@@ -226,7 +226,7 @@ st2.pop()
 print(st2)  # >>> {"a", "c", "d"}  # string set 更随机
 
 # clear()
-# 从集合中移除所有元素。
+# 从集合中移除所有元素. 
 st1 = {4,2,1,3}
 st1.clear()
 print(st1)  # >>> set()

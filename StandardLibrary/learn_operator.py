@@ -9,7 +9,7 @@ print()
 print("operator.attrgetter(attr)")
 print("operator.attrgetter(*attrs)")
 
-# 返回从其操作数获取attr的可调用对象。如果请求多个属性，则返回一个属性元组。属性名称也可以包含点
+# 返回从其操作数获取attr的可调用对象. 如果请求多个属性, 则返回一个属性元组. 属性名称也可以包含点
 
 class Student(object):
     def __init__(self, id, name, marks):
@@ -48,7 +48,7 @@ print()
 print("operator.itemgetter(item)")
 print("operator.itemgetter(*items)")
 
-# 返回使用操作数的__getitem__()方法从其操作数获取项的可调用对象。如果指定了多个项，则返回查找值的元组。
+# 返回使用操作数的__getitem__()方法从其操作数获取项的可调用对象. 如果指定了多个项, 则返回查找值的元组. 
 
 import operator
 import itertools
@@ -75,7 +75,7 @@ for key,value_group in lstg:
     print(list(value_group))
 
 
-# 这些项可以是操作数的__getitem__()方法接受的任何类型。字典接受任何哈希值。列表，元组和字符串接受索引或切片
+# 这些项可以是操作数的__getitem__()方法接受的任何类型. 字典接受任何哈希值. 列表, 元组和字符串接受索引或切片
 import operator
 s = "ABCDEFG"
 print(operator.itemgetter(1)(s))  # >>> "B"
@@ -115,24 +115,24 @@ print(sorted(inventory, key=getcount)) # >>> [("orange", 1), ("banana", 2), ("ap
 # operator.__ge__(a, b)
 # operator.__gt__(a, b)
 
-# 逻辑操作也通常适用于所有对象，并支持真值测试，身份测试和布尔运算
+# 逻辑操作也通常适用于所有对象, 并支持真值测试, 身份测试和布尔运算
 # 这些带双__前后的method很多都可以用于定义新的类方法(OOP环境)
 
 # operator.not_(obj)
 # operator.__not__(obj)
-# 返回not obj。（请注意，对象实例没有__not__()方法；只有解释器核定义了此操作。结果受到__bool__()和__len__()方法的影响。）
+# 返回not obj. (请注意, 对象实例没有__not__()方法: 只有解释器核定义了此操作. 结果受到__bool__()和__len__()方法的影响. )
 
 # operator.truth(obj)
-# 如果obj为真，则返回True，否则返回False。这相当于使用bool构造函数。
+# 如果obj为真, 则返回True, 否则返回False. 这相当于使用bool构造函数. 
 
 # operator.is_(a, b)
-# 返回a 是 b。测试对象标识。
+# 返回a 是 b. 测试对象标识. 
 
 # operator.is_not(a, b)
-# 返回a 是 不是 b。测试对象标识。
+# 返回a 是 不是 b. 测试对象标识. 
 print(operator.is_not(6, 6))
 
-# 数学和按位操作是最多的：
+# 数学和按位操作是最多的: 
 
 # operator.abs(obj)
 # operator.__abs__(obj)
@@ -141,7 +141,7 @@ print(operator.is_not(6, 6))
 # operator.add(a, b)
 # operator.__add__(a, b)
 # 还有一个operator.__radd___(a, b), 相当于b + a
-# 返回a + b，对于a和b t5 >数字
+# 返回a + b, 对于a和b t5 >数字
 
 # operator.and_(a, b)
 # operator.__and__(a, b)
@@ -150,17 +150,17 @@ print(operator.and_(True, True))
 
 # operator.floordiv(a, b)
 # operator.__floordiv__(a, b)
-# 返回a // b。
+# 返回a // b. 
 
 # operator.index(a)
 # operator.__index__(a)
-# 返回a转换为整数。等同于a.__index__()
+# 返回a转换为整数. 等同于a.__index__()
 
 # operator.inv(obj)
 # operator.invert(obj)
 # operator.__inv__(obj)
 # operator.__invert__(obj)
-# 返回数字obj的按位逆。这相当于~obj
+# 返回数字obj的按位逆. 这相当于~obj
 print(operator.inv(123))  # >>> -124
 
 # operator.lshift(a, b)
@@ -173,7 +173,7 @@ print(operator.inv(123))  # >>> -124
 
 # operator.mul(a, b)
 # operator.__mul__(a, b)
-# 返回a * b，对于a和b t5 >数字
+# 返回a * b, 对于a和b t5 >数字
 
 # operator.matmul(a, b)
 # operator.__matmul__(a, b)
@@ -181,73 +181,73 @@ print(operator.inv(123))  # >>> -124
 
 # operator.neg(obj)
 # operator.__neg__(obj)
-# 返回obj否定（-obj）。
+# 返回obj否定(-obj). 
 
 # operator.or_(a, b)
 # operator.__or__(a, b)
-# 返回按位或a和b。
+# 返回按位或a和b. 
 
 # operator.pos(obj)
 # operator.__pos__(obj)
-# 返回obj正（+obj）。
+# 返回obj正(+obj). 
 
 # operator.pow(a, b)
 # operator.__pow__(a, b)
-# 对于a和b，返回a ** b t5>数字。
+# 对于a和b, 返回a ** b t5>数字. 
 
 # operator.rshift(a, b)
 # operator.__rshift__(a, b)
-# 返回a向右移动b。
+# 返回a向右移动b. 
 
 # operator.sub(a, b)
 # operator.__sub__(a, b)
-# 返回a - b。
+# 返回a - b. 
 
 # operator.truediv(a, b)
 # operator.__truediv__(a, b)
-# 返回a / b其中2/3为.66而不是0。这也被称为“真正的”分裂。
+# 返回a / b其中2/3为.66而不是0. 这也被称为"真正的"分裂. 
 
 # operator.xor(a, b)
 # operator.__xor__(a, b)
-# 返回a和b的逐位异或。
+# 返回a和b的逐位异或. 
 
-# 使用序列（其中一些与映射）的操作包括：
+# 使用序列(其中一些与映射)的操作包括: 
 
 # operator.concat(a, b)
 # operator.__concat__(a, b)
-# 对于a和b返回a + b序列。
+# 对于a和b返回a + b序列. 
 
 # operator.contains(a, b)
 # operator.__contains__(a, b)
-# 返回 t> a中的测试结果b 。注意反向操作数。
+# 返回 t> a中的测试结果b . 注意反向操作数. 
 
 # operator.countOf(a, b)
-# 返回a中b的出现次数。
+# 返回a中b的出现次数. 
 
 # operator.delitem(a, b)
 # operator.__delitem__(a, b)
-# 删除索引b处a的值。
+# 删除索引b处a的值. 
 
 # operator.getitem(a, b)
 # operator.__getitem__(a, b)
-# 返回a在索引b的值。
+# 返回a在索引b的值. 
 
 # operator.indexOf(a, b)
-# 返回a中b的第一个出现的索引。
+# 返回a中b的第一个出现的索引. 
 
 # operator.setitem(a, b, c)
 # operator.__setitem__(a, b, c)
-# 将索引b处的a值设置为c。
+# 将索引b处的a值设置为c. 
 
 # operator.length_hint(obj, default=0)
-# 返回对象o的估计长度。首先尝试返回其实际长度，然后使用object.__length_hint__()进行估计，最后返回默认值。
+# 返回对象o的估计长度. 首先尝试返回其实际长度, 然后使用object.__length_hint__()进行估计, 最后返回默认值. 
 
 # operator.iadd(a, b)
 # operator.__iadd__(a, b)
 # a = iadd(a, b) is equivalent to a += b.
 
 # operator.iand(a, b)
-# 操作符。 __ iand __ （ a，b ） t5 >
+# 操作符.  __ iand __ ( a, b ) t5 >
 # a = iand(a, b) is equivalent to a &= b.
 
 # operator.iconcat(a, b)

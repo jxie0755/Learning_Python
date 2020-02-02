@@ -1,5 +1,5 @@
 """
-此代码为a byte of python 中增强版，附加1-100提示(使用continue)，和22，24错误导致break引用
+此代码为a byte of python 中增强版, 附加1-100提示(使用continue), 和22, 24错误导致break引用
 Guess a number
 """
 

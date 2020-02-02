@@ -910,7 +910,7 @@ enchant.EventTarget = enchant.Class.create({
         /**
          * @name enchant.Core
          * @class
-         * A class for controlling the core’s main loop and scenes.
+         * A class for controlling the core's main loop and scenes.
          *
          * There can be only one instance at a time. When the
          * constructor is executed while an instance exists, the
@@ -5519,7 +5519,7 @@ enchant.DOMSound = enchant.Class.create(enchant.EventTarget, {
         }
     },
     /**
-     * Volume. 0 (muted) ～ 1 (full volume).
+     * Volume. 0 (muted) ~ 1 (full volume).
      * @type Number
      */
     volume: {
@@ -5749,7 +5749,7 @@ enchant.WebAudioSound = enchant.Class.create(enchant.EventTarget, {
         }
     },
     /**
-     * Volume. 0 (muted) ～ 1 (full volume).
+     * Volume. 0 (muted) ~ 1 (full volume).
      * @type Number
      */
     currentTime: {

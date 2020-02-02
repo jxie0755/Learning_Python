@@ -64,7 +64,7 @@ print(timeit.Timer("fib_gen_r(30)", setup="from fibonacci import fib_gen_r").rep
 
 print()
 print("timeit.default_timer()")
-# 默认计时器，始终为time.perf_counter()
+# 默认计时器, 始终为time.perf_counter()
 
 
 print()

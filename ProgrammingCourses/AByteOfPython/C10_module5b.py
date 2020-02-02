@@ -3,4 +3,4 @@ say_hi()
 print("Version", __version__)
 
 
-# 这个不能有效，因为module名字不规则
+# 这个不能有效, 因为module名字不规则

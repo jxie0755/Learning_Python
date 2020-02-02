@@ -34,9 +34,9 @@ class Solution(object):
 # the latter focus on eliminate "left top right bottom" diagonal
 
 # - col_per_row: the list of column index per row
-# - cur_row：current row we are seraching for valid column
-# - xy_diff：the list of x-y
-# - xy_sum：the list of x+y
+# - cur_row: current row we are seraching for valid column
+# - xy_diff: the list of x-y
+# - xy_sum: the list of x+y
 class Solution2(object):
     def solveNQueens(self, n):
         """

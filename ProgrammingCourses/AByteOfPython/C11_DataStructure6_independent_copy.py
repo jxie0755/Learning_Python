@@ -7,7 +7,7 @@ print("shoplist is", shoplist)
 print("mylist is", mylist)
 
 print("Copy by making a full slice")
-mylist = shoplist[:]  # 用fullslice的方法拷贝一个list，等形成独立的list
+mylist = shoplist[:]  # 用fullslice的方法拷贝一个list, 等形成独立的list
 del mylist[0]
 
 print("shoplist is", shoplist)

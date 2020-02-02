@@ -35,7 +35,7 @@ class Solution_A:
         x, y = coor[0], coor[1]
         row, col = len(board), len(board[0])  # 长宽范围
 
-        if idx == N:  # 如果走完整个word，就是可以找到
+        if idx == N:  # 如果走完整个word, 就是可以找到
             return True
         elif not 0 <= x < row or not 0 <= y < col:  # 确保坐标位于board内部
             return False

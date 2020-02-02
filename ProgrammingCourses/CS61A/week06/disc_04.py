@@ -70,7 +70,7 @@ print(lst2 is lst1) # >>> False
 
 
 # Write a function that takes in a value x, a value el, and a list
-# and adds as many el’s to the end of the list as there are x’s.
+# and adds as many el's to the end of the list as there are x's.
 # Make sure to modify the original list using list mutation techniques.
 
 def add_this_many(x, el, lst):

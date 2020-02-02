@@ -8,4 +8,4 @@ while True:
     print("Length of the string is", len(s))
 print("Exit")
 
-# continue用法讲究回到while语句初始，用于提示错误但不终结循环
+# continue用法讲究回到while语句初始, 用于提示错误但不终结循环

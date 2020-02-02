@@ -38,11 +38,11 @@ if __name__ == "__main__":
 # 在terminal中使用
 # input$ python -m doctest unnecessary_math.py
 # input$ python -m doctest -v unnecessary_math.py
-# 这里 -m 表示引用一个模块，-v 等价于 verbose=True。运行输出与上面基本一样
+# 这里 -m 表示引用一个模块, -v 等价于 verbose=True. 运行输出与上面基本一样
 
 
 
 # 独立测试文件
-# 果不想将doctest测试用例嵌入到python的源码中，则可以建立一个独立的文本文件来保存测试用例
+# 果不想将doctest测试用例嵌入到python的源码中, 则可以建立一个独立的文本文件来保存测试用例
 # 建立leanr_doctest_indi.txt
 # 注意txt文件中需要import原文件

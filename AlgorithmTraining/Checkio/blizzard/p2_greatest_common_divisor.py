@@ -22,7 +22,7 @@ if __name__ == "__main__":
     print("done")
 
 
-# 辗转相除法，又称欧几里得算法（英语：Euclidean algorithm)
+# 辗转相除法, 又称欧几里得算法(英语: Euclidean algorithm)
 # for two numbers
 def greatest_common_divisorA(x, y):
     if x == y:

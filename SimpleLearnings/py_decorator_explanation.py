@@ -17,10 +17,10 @@ printdebug(login)
 # enter the login
 # in login
 # exit the login
-# 这个方法讨厌的是每次调用login时，都通过printdebug来调用，但毕竟这是可行的
+# 这个方法讨厌的是每次调用login时, 都通过printdebug来调用, 但毕竟这是可行的
 
 
-# 既然函数可以作为返回值，可以赋值给变量，我们可以让代码优美一点
+# 既然函数可以作为返回值, 可以赋值给变量, 我们可以让代码优美一点
 def login():
     print("in login")
 
@@ -37,10 +37,10 @@ debug_login()  # 这样call这个debug的函数就显得更直观了
 # enter the login
 # in login
 # exit the login
-# 将原先的两个函数printdebug和login绑定到一起，成为debug_login,这种耦合叫内聚
+# 将原先的两个函数printdebug和login绑定到一起, 成为debug_login,这种耦合叫内聚
 
 
-# Python的解决方案是提供一个语法糖(Syntax Sugar)，用一个@符号来结合它们
+# Python的解决方案是提供一个语法糖(Syntax Sugar), 用一个@符号来结合它们
 def printdebug(func):
     def __decorator():
         print("enter the login")
@@ -171,8 +171,8 @@ logout()
 
 
 
-# 什么情况下装饰器不适用？装饰器不能对函数的一部分应用，只能作用于整个函数
-# 一个变通的办法是“提取函数”，我们将函数中的一行语句提取成函数，然后对提取出来的函数应用装饰器
+# 什么情况下装饰器不适用? 装饰器不能对函数的一部分应用, 只能作用于整个函数
+# 一个变通的办法是"提取函数", 我们将函数中的一行语句提取成函数, 然后对提取出来的函数应用装饰器
 def printdebug(func):
     def __decorator(user):
         print("enter the login")

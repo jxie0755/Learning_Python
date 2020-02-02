@@ -47,7 +47,7 @@ print(my_car.get_car_info())
 my_car.read_odometer()
 
 # 修改odometer数字
-# 有时候需要像这样直接访问属性，但其他时候需要编写对属性进行更新的方法。
+# 有时候需要像这样直接访问属性, 但其他时候需要编写对属性进行更新的方法. 
 my_car.odometer = 19999  # 从外部修改(若为private方法__odometer则无法更改,但不会报错!)
 my_car.read_odometer()
 

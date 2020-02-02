@@ -165,7 +165,7 @@ def foo(n):
         print("hello")
 # O(n)
 
-# What’s the runtime of foo if we change range(n):
+# What's the runtime of foo if we change range(n):
 # i. To range(n / 2)?       O(n)
 # ii. To range(10)?         O(1)
 # iii. To range(10000000)?  O(1)

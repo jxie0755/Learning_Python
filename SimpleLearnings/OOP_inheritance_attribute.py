@@ -26,7 +26,7 @@ class SubC1(SuperC):
         self.F = f
 
 sub1 = SubC1("A1", "B1", "C1", "Y1")
-print(sub1.A)  # >>> A1  # (无默认值设定情况下)Ａ, B, C被继承而且数值被刷新
+print(sub1.A)  # >>> A1  # (无默认值设定情况下)A, B, C被继承而且数值被刷新
 print(sub1.B)  # >>> B1
 print(sub1.C)  # >>> C1
 print(sub1.D)  # >>> 显性D what?   # 此处虽然super()没有指定,class也没有设定,但是由于SuperC中有默认值,所以仍然被继承
@@ -53,7 +53,7 @@ class SubC2(SuperC):
         self.F = f
 
 sub2 = SubC2("A2", "B2", "C2", "Y2", d="new d22")  # 此处不设定d,则维持同父类一致的默认值,但是同时又可以赋予实例新值
-print(sub2.A)  # >>> A2  # Ａ, B, C被继承而且数值被刷新
+print(sub2.A)  # >>> A2  # A, B, C被继承而且数值被刷新
 print(sub2.B)  # >>> B2
 print(sub2.C)  # >>> C2
 print(sub2.D)  # >>> new d22     # 显性默认值不再强制父类数值,而是跟随新默认值,或者新实例设定值
@@ -74,7 +74,7 @@ class SubC3(SuperC):
         self.F = f
 
 sub3 = SubC3("A3", "B3", "C3", "Y3", "new D again", "new E again")  # 此处完美继承
-print(sub3.A)  # >>> A3  # Ａ, B, C被继承而且数值被刷新
+print(sub3.A)  # >>> A3  # A, B, C被继承而且数值被刷新
 print(sub3.B)  # >>> B3
 print(sub3.C)  # >>> C3
 print(sub3.D)  # >>> D3  # D和E都可以跟随新默认值,或者新实例设定值

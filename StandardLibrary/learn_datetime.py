@@ -26,31 +26,31 @@ print(datetime.MAXYEAR)  # >>> 9999
 
 
 # datetime转换为timestamp
-# 在计算机中，时间实际上是用数字表示的。我们把1970年1月1日 00:00:00 UTC+00:00时区的时刻称为epoch time，记为0（1970年以前的时间timestamp为负数），当前时间就是相对于epoch time的秒数，称为timestamp。
-    # 你可以认为：
+# 在计算机中, 时间实际上是用数字表示的. 我们把1970年1月1日 00:00:00 UTC+00:00时区的时刻称为epoch time, 记为0(1970年以前的时间timestamp为负数), 当前时间就是相对于epoch time的秒数, 称为timestamp. 
+    # 你可以认为: 
         # timestamp = 0 = 1970-1-1 00:00:00 UTC+0:00
-    # 对应的北京时间是：
+    # 对应的北京时间是: 
         # timestamp = 0 = 1970-1-1 08:00:00 UTC+8:00
 
-# 可见timestamp的值与时区毫无关系，因为timestamp一旦确定，其UTC时间就确定了，转换到任意时区的时间也是完全确定的，这就是为什么计算机存储的当前时间是以timestamp表示的，因为全球各地的计算机在任意时刻的timestamp都是完全相同的（假定时间已校准）。
-# 把一个datetime类型转换为timestamp只需要简单调用timestamp()方法：
+# 可见timestamp的值与时区毫无关系, 因为timestamp一旦确定, 其UTC时间就确定了, 转换到任意时区的时间也是完全确定的, 这就是为什么计算机存储的当前时间是以timestamp表示的, 因为全球各地的计算机在任意时刻的timestamp都是完全相同的(假定时间已校准). 
+# 把一个datetime类型转换为timestamp只需要简单调用timestamp()方法: 
 dt = datetime.datetime(2015, 4, 19, 12, 20, microsecond=2999) # 用指定日期时间创建datetime
 print(dt.timestamp()) # 把datetime转换为timestamp
 # >>> 1429460400.002999   # 1000微秒=1豪秒
-# 注意Python的timestamp是一个浮点数。如果有小数位，小数位表示毫秒数。
-# 某些编程语言（如Java和JavaScript）的timestamp使用整数表示毫秒数，这种情况下只需要把timestamp除以1000就得到Python的浮点表示方
+# 注意Python的timestamp是一个浮点数. 如果有小数位, 小数位表示毫秒数. 
+# 某些编程语言(如Java和JavaScript)的timestamp使用整数表示毫秒数, 这种情况下只需要把timestamp除以1000就得到Python的浮点表示方
 
 
 print()
 print("class datetime.timedelta(days=0, seconds=0, microseconds=0, milliseconds=0, minutes=0, hours=0, weeks=0)")
 
-# timedelta对象表示时间的间隔，即两个日期或时间之间的差值。
+# timedelta对象表示时间的间隔, 即两个日期或时间之间的差值. 
 datetime.timedelta(days=0, seconds=0, microseconds=0, milliseconds=0, minutes=0, hours=0, weeks=0)
-# 所有参数都是可选的且默认为0。参数可以是整数或浮点数，也可以是正数或负数
+# 所有参数都是可选的且默认为0. 参数可以是整数或浮点数, 也可以是正数或负数
 dt = datetime.timedelta(1.5, 5.5, weeks=0.5)
 print(dt)  # >>> 5 days, 0:00:05.500000
 
-# timedelta对象是可哈希的（可用作字典键）
+# timedelta对象是可哈希的(可用作字典键)
 # 注意,timedelta只能在同类型的datetime class之间,不能跨越 (比如date-datetime)
 # timedelta 不支持time之间的运算,只支持date和datetime, 除非通过datetime实例中y,m,d均为同一个值(1)来实现
 # 原因: 不考虑时区来比较时间是不安全的,所以计算需要通过datetime确定日期,或者确定timezone才能安全的对比
@@ -66,7 +66,7 @@ print(A)                  # >>> 12:31:40   # half a day + 30 min + 100 seconds
 print(datetime.timedelta.min)  # >>> -999999999 days, 0:00:00         # 注意,最小值不是0,而是类似(-max)的概念
 print(datetime.timedelta.max)  # >>> 999999999 days, 23:59:59.999999
 # timedelta.resolution
-# 不相等的timedelta对象之间的最小可能差值，timedelta(microseconds=1)
+# 不相等的timedelta对象之间的最小可能差值, timedelta(microseconds=1)
 
 
 # timedelta 实例属性
@@ -74,7 +74,7 @@ A = datetime.timedelta(days=1, hours=2, seconds=100, microseconds=500)
 print(A.days)             # >>> 1     # just day
 print(A.seconds)          # >>> 7300  # 此处把hours也转换成秒(1天内的秒数)
 print(A.microseconds)     # >>> 500   # just microseconds
-# days属性可以取负值，另外两个属性都只能是正值
+# days属性可以取负值, 另外两个属性都只能是正值
 
 # timedelta 实例方法
 print(A.total_seconds())  # >>> 93700.0005
@@ -92,13 +92,13 @@ print(A.resolution) # >>> 0:00:00.000001
 # date.today()
 # 返回当前本地的日期
 datetime.date(2017, 11, 9)  # 指定一个date
-datetime.date.today()  # 返回当前本地的日期。这相当于(time.time())
+datetime.date.today()  # 返回当前本地的日期. 这相当于(time.time())
 
 # date.fromtimestamp(timestamp)
 # 返回与POSIX时间戳对应的本地日期
 
 # date.fromordinal(ordinal)
-# 返回对应于公历序数的日期，其中第一年的一月一日为序数1
+# 返回对应于公历序数的日期, 其中第一年的一月一日为序数1
 
 # date 实例属性
 A = datetime.date(2017, 11, 8)
@@ -119,7 +119,7 @@ print(D) # >>>  365 days, 0:00:00
 # date 实例方法
 A = datetime.date(2017, 8, 8)
 A.replace(year=2016, month=7, day=7)
-B = A.replace(year=2016, month=7, day=7)  # 依据关键字参数给出的新值，返回一个新的日期
+B = A.replace(year=2016, month=7, day=7)  # 依据关键字参数给出的新值, 返回一个新的日期
 print(A) # >>> 2017-08-08 # A不会因为replace被改变.
 print(B) # >>> 2016-07-07 # 可以使用关键字(year, month, day),修改局部数据
 
@@ -130,12 +130,12 @@ print(A.timetuple())
 # tm_wday - (0-6): Mon = 0, Sun = 6
 # tm_yday: 这是今年的第几天(1月1号是第一天,不是第零天)
 
-print(A.toordinal())   # >>> 736549  # 返回公历日期的序数，其中第1年的1月1日为第1天。
+print(A.toordinal())   # >>> 736549  # 返回公历日期的序数, 其中第1年的1月1日为第1天. 
 print(A.weekday())     # >>> 1  # same as tm_wday.(0-6): Mon = 0, Sun = 6
 print(A.isoweekday())  # >>> 2  # 竟然不一样, (1-7): Mon = 1, Sun = 7
 print(A.isocalendar()) # >>> (2017, 32, 2) 从1开始计算, 第2017年的第32周的第2天
 print(A.isoformat())   # 2017-08-08 # YYYY-MM-DD
-print(A.__str__())     # 对于日期d，str(d)等同于d.isoformat()
+print(A.__str__())     # 对于日期d, str(d)等同于d.isoformat()
 print(A.ctime())  # >>> Sat Jun  7 00:00:00 1986
 print(A.strftime("%m/%d/%y"))           # >>> 08/08/17
 print(A.strftime("%m/%d/%y %H:%M:%S"))  # >>> 08/08/17 00:00:00
@@ -148,7 +148,7 @@ print("class datetime.datetime(year, month, day, hour=0, minute=0, second=0, mic
 # 基本就是date + time
 
 # datetime类属性(基本与date相同)
-# datetime.min  #　datetime(MINYEAR, 1, 1, tzinfo=None)
+# datetime.min  # datetime(MINYEAR, 1, 1, tzinfo=None)
 # datetime.max  # datetime(MAXYEAR, 12, 31, 23, 59, 59, 999999, tzinfo=None)
 # datetime.resolution  # timedelta(microseconds=1)
 
@@ -176,15 +176,15 @@ print(datetime.datetime.utcnow())
 # 返回与POSIX时间戳对应的UTC datetime
 
 # datetime.fromordinal(ordinal)
-# 返回对应于普通公历的序数的datetime，其中第1年的1月1日为序数1
+# 返回对应于普通公历的序数的datetime, 其中第1年的1月1日为序数1
 print(datetime.datetime.fromordinal(365))  # >>> 0001-12-31 00:00:00
 # 公元后xx天的日期    # 只接受天数作为参数
 
 # datetime.combine(date, time)
-# 返回一个新的datetime对象，其日期部分等于给定的date对象，其时间部分和tzinfo属性等于给定time对象
+# 返回一个新的datetime对象, 其日期部分等于给定的date对象, 其时间部分和tzinfo属性等于给定time对象
 
 # datetime.strptime(date_string, format)
-# 返回对应于date_string的datetime，根据format进行解析
+# 返回对应于date_string的datetime, 根据format进行解析
 sample1 = datetime.datetime.strptime("21/11/06 16:30", "%d/%m/%y %H:%M")
 print(sample1)  # >>> datetime.datetime(2006, 11, 21, 16, 30)
 sample2 = datetime.datetime.strptime("16:30:59", "%H:%M:%S")
@@ -223,49 +223,49 @@ print(A.tzinfo)       # >>> None
 # 返回与POSIX时间戳对应的UTC datetime
 
 # datetime.fromordinal(ordinal)
-# 返回对应于普通公历的序数的datetime，其中第1年的1月1日为序数1
+# 返回对应于普通公历的序数的datetime, 其中第1年的1月1日为序数1
 
 # datetime.combine(date, time)
-# 返回一个新的datetime对象，其日期部分等于给定的date对象，其时间部分和tzinfo属性等于给定time对象
+# 返回一个新的datetime对象, 其日期部分等于给定的date对象, 其时间部分和tzinfo属性等于给定time对象
 
 # datetime.strptime(date_string, format)
-# 返回对应于date_string的datetime，根据format进行解析
+# 返回对应于date_string的datetime, 根据format进行解析
 
 A = datetime.datetime(year=2017, month=3, day=15, hour=17, minute=15, second=30, microsecond=59)
 print(A)  # >>> 2017-03-15 17:15:30.000059
 
 # datetime.date()
-# 返回具有相同年、月和日的date对象
+# 返回具有相同年, 月和日的date对象
 
 # datetime.time()
-# 返回具有相同小时、分钟、秒和微秒的time对象
+# 返回具有相同小时, 分钟, 秒和微秒的time对象
 print(A.time())  # >>> 17:15:30.000059
 
 # datetime.timetz()
-# 返回具有相同小时、分钟、秒、微秒和tzinfo属性的time对象
+# 返回具有相同小时, 分钟, 秒, 微秒和tzinfo属性的time对象
 
 # datetime.replace([year[, month[, day[, hour[, minute[, second[, microsecond[, tzinfo]]]]]]]])
-# 返回具有相同属性的 datetime，但通过任何关键字参数指定新值的那些属性除外
+# 返回具有相同属性的 datetime, 但通过任何关键字参数指定新值的那些属性除外
 
 # datetime.astimezone(tz=None)
-# 返回带有新tzinfo属性tz的datetime对象，调整日期和时间数据使结果与self 的UTC时间相同，但为tz的本地时间
+# 返回带有新tzinfo属性tz的datetime对象, 调整日期和时间数据使结果与self 的UTC时间相同, 但为tz的本地时间
 
 # datetime.utcoffset()
-# 如果tzinfo为None，则返回None，否则返回self.tzinfo.utcoffset(self)；如果后者未返回None或表示小于一天的整数分钟的timedelta对象，则引发一个异常
+# 如果tzinfo为None, 则返回None, 否则返回self.tzinfo.utcoffset(self): 如果后者未返回None或表示小于一天的整数分钟的timedelta对象, 则引发一个异常
 
 # datetime.dst()
-# 如果tzinfo为None，则返回None，否则返回self.tzinfo.dst(self)；如果后者未返回None或表示小于一天的整数分钟的timedelta对象，则引发一个异常
+# 如果tzinfo为None, 则返回None, 否则返回self.tzinfo.dst(self): 如果后者未返回None或表示小于一天的整数分钟的timedelta对象, 则引发一个异常
 
 # datetime.tzname()
-# 如果tzinfo为None，则返回None，否则返回self.tzinfo.tzname(self)；如果后者不返回None或字符串对象，则引发一个异常
+# 如果tzinfo为None, 则返回None, 否则返回self.tzinfo.tzname(self): 如果后者不返回None或字符串对象, 则引发一个异常
 
 # datetime.timetuple()
-# 返回一个time.struct_time，类似time.localtime()的返回值
+# 返回一个time.struct_time, 类似time.localtime()的返回值
 print(A.timetuple())
 # >>> time.struct_time(tm_year=2017, tm_mon=3, tm_mday=15, tm_hour=17, tm_min=15, tm_sec=30, tm_wday=2, tm_yday=74, tm_isdst=-1)
 
 # datetime.utctimetuple()
-# 如果datetime实例d是naive的，它等同于d.timetuple()，但是无论d.dst()返回什么，tm_isdst都被强制设置为0。对于UTC时间DST始终不会生效
+# 如果datetime实例d是naive的, 它等同于d.timetuple(), 但是无论d.dst()返回什么, tm_isdst都被强制设置为0. 对于UTC时间DST始终不会生效
 
 # datetime旗下.date()类的方法
 # datetime.toordinal()
@@ -276,7 +276,7 @@ print(A.toordinal())      # >>> 736403  # 相距公元-天数,只返回天数
 # datetime.isocalendar()
 
 # datetime.isoformat(sep="T")
-# 可选参数sep（默认为"T"）是一个单字符分隔符，位于结果的日期和时间部分之间
+# 可选参数sep(默认为"T")是一个单字符分隔符, 位于结果的日期和时间部分之间
 
 # 其他类似date的实例方法
 # datetime.__str__()
@@ -290,8 +290,8 @@ print(A.strftime("%m/%d/%Y %H:%M:%S"))  # >>> 03/15/2017 17:15:30
 
 print("\ndatetime时区转换")
 # 本地时间转换为UTC时间
-# 本地时间是指系统设定时区的时间，例如北京时间是UTC+8:00时区的时间，而UTC时间指UTC+0:00时区的时间。
-# 一个datetime类型有一个时区属性tzinfo，但是默认为None，所以无法区分这个datetime到底是哪个时区，除非强行给datetime设置一个时区
+# 本地时间是指系统设定时区的时间, 例如北京时间是UTC+8:00时区的时间, 而UTC时间指UTC+0:00时区的时间. 
+# 一个datetime类型有一个时区属性tzinfo, 但是默认为None, 所以无法区分这个datetime到底是哪个时区, 除非强行给datetime设置一个时区
 from datetime import datetime, timedelta, timezone
 tz_utc_m5 = timezone(timedelta(hours=-5)) # 创建时区UTC+8:00
 now = datetime.now()
@@ -300,9 +300,9 @@ print(now)
 dt = now.replace(tzinfo=tz_utc_m5) # 强制设置为UTC+8:00
 print(dt)
 # 2019-03-28 22:39:33.718295+08:00
-# 如果系统时区恰好是UTC-5:00，那么上述代码就是正确的，否则，不能强制设置为UTC-5:00时区
+# 如果系统时区恰好是UTC-5:00, 那么上述代码就是正确的, 否则, 不能强制设置为UTC-5:00时区
 
-# 我们可以先通过utcnow()拿到当前的UTC时间，再转换为任意时区的时间：
+# 我们可以先通过utcnow()拿到当前的UTC时间, 再转换为任意时区的时间: 
 utc_dt = datetime.utcnow().replace(tzinfo=timezone.utc)
 print(utc_dt)
 # >>> 2019-03-29 02:42:06.813251+00:00
@@ -317,91 +317,91 @@ nyc_dt2 = bj_dt.astimezone(timezone(timedelta(hours=-4)))
 print(nyc_dt2)
 # 2019-03-28 22:44:23.850321-04:00
 
-# 时区转换的关键在于，拿到一个datetime时，要获知其正确的时区，然后强制设置时区，作为基准时间。
-# 利用带时区的datetime，通过astimezone()方法，可以转换到任意时区。
-# 注：不是必须从UTC+0:00时区转换到其他时区，任何带时区的datetime都可以正确转换，例如上述bj_dt到nyc_dt2的转换
+# 时区转换的关键在于, 拿到一个datetime时, 要获知其正确的时区, 然后强制设置时区, 作为基准时间. 
+# 利用带时区的datetime, 通过astimezone()方法, 可以转换到任意时区. 
+# 注: 不是必须从UTC+0:00时区转换到其他时区, 任何带时区的datetime都可以正确转换, 例如上述bj_dt到nyc_dt2的转换
 
 
 print()
 print("class datetime.time(hour=0, minute=0, second=0, microsecond=0, tzinfo=None, *, fold=0)")
-# 所有参数都是可选的。tzinfo可以是None或tzinfo子类的实例
+# 所有参数都是可选的. tzinfo可以是None或tzinfo子类的实例
 # time是哈希的,所以可以用作字典键
 
 # time 类属性
 # time.min
-# 可表示的最早的time，time(0, 0, 0, 0)
+# 可表示的最早的time, time(0, 0, 0, 0)
 
 # time.max
-# 可表示的最晚的time，time(23, 59, 59, 999999)
+# 可表示的最晚的time, time(23, 59, 59, 999999)
 
 # time.resolution
-# 不相等的time对象之间的最小可能差，即timedelta(microseconds=1)
+# 不相等的time对象之间的最小可能差, 即timedelta(microseconds=1)
 
 # time 实例属性(只读)
-# time.hour         # 在range(24)之间。
-# time.minute       #　在range(60)之间。
-# time.second       # 在range(60)之间。
-# time.microsecond  # 在range(1000000)之间。
-# time.tzinfo       # 作为tzinfo参数传递给time构造函数的对象，如果没有传递则为None
+# time.hour         # 在range(24)之间. 
+# time.minute       # 在range(60)之间. 
+# time.second       # 在range(60)之间. 
+# time.microsecond  # 在range(1000000)之间. 
+# time.tzinfo       # 作为tzinfo参数传递给time构造函数的对象, 如果没有传递则为None
 
 
 # time 实例方法
 # time.replace([hour[, minute[, second[, microsecond[, tzinfo]]]]])
 
 # time.isoformat()
-# 返回以ISO 8601 格式HH:MM:SS.mmmmmm表示间的字符串，如果self.microsecond为0，则以HH:MM:SS的格式
+# 返回以ISO 8601 格式HH:MM:SS.mmmmmm表示间的字符串, 如果self.microsecond为0, 则以HH:MM:SS的格式
 
 # time.__str__()
-# 对于时间t，str(t)等同于t.isoformat()
+# 对于时间t, str(t)等同于t.isoformat()
 
 # time.strftime(format)
-# 返回一个表示time的字符串，由显式的格式字符串控制
+# 返回一个表示time的字符串, 由显式的格式字符串控制
 
 # time.__format__(format)
-# 与time.strftime()相同。这使得可以在使用str.format()时为time对象指定格式字符串
+# 与time.strftime()相同. 这使得可以在使用str.format()时为time对象指定格式字符串
 
 # time.utcoffset()
-# 如果tzinfo为None，则返回None，否则返回self.tzinfo.utcoffset(None)；
-# 如果后者未返回None或表示小于一天的整数分钟的timedelta对象，则引发一个异常
+# 如果tzinfo为None, 则返回None, 否则返回self.tzinfo.utcoffset(None): 
+# 如果后者未返回None或表示小于一天的整数分钟的timedelta对象, 则引发一个异常
 
 # time.dst()
-# 如果tzinfo为None，则返回None，否则返回self.tzinfo.utcoffset(None)；
-# 如果后者未返回None或表示小于一天的整数分钟的timedelta对象，则引发一个异常
+# 如果tzinfo为None, 则返回None, 否则返回self.tzinfo.utcoffset(None): 
+# 如果后者未返回None或表示小于一天的整数分钟的timedelta对象, 则引发一个异常
 
 # time.tzname()
-# 如果tzinfo为None，则返回None，否则返回self.tzinfo.tzname(None)；
-# 如果后者不返回None或字符串对象，则引发一个异常
+# 如果tzinfo为None, 则返回None, 否则返回self.tzinfo.tzname(None): 
+# 如果后者不返回None或字符串对象, 则引发一个异常
 
 
 
 print()
 print("class datetime.tzinfo")
-# 这是一个抽象的基类，意味着这个类不应该直接实例化
-# 你需要派生一个具体的子类，并且（至少）提供你使用的datetime方法所需的标准tzinfo方法的实现
-# datetime模块提供tzinfo的一个简单的具体子类timezone，它可以表示与UTC有固定偏移的时区，如UTC本身或北美EST和EDT
+# 这是一个抽象的基类, 意味着这个类不应该直接实例化
+# 你需要派生一个具体的子类, 并且(至少)提供你使用的datetime方法所需的标准tzinfo方法的实现
+# datetime模块提供tzinfo的一个简单的具体子类timezone, 它可以表示与UTC有固定偏移的时区, 如UTC本身或北美EST和EDT
 # tzinfo子类必须有一个可以无参数调用的__init__()方法
 
 # tzinfo 类方法
-# tzinfo的具体子类可能需要实现以下方法。需要哪些方法取决于对aware的datetime对象的使用
+# tzinfo的具体子类可能需要实现以下方法. 需要哪些方法取决于对aware的datetime对象的使用
 
 # tzinfo.utcoffset(dt)
-# 返回本地时间与UTC的偏移量，以UTC东部分钟数为单位,如果本地时间在UTC的西边，它应该是负的。
-# 注意，这是UTC的总偏移量
-# 指定-1439到1439范围内的整数分钟（1440 = 24*60；偏移量必须小于一天）
+# 返回本地时间与UTC的偏移量, 以UTC东部分钟数为单位,如果本地时间在UTC的西边, 它应该是负的. 
+# 注意, 这是UTC的总偏移量
+# 指定-1439到1439范围内的整数分钟(1440 = 24*60: 偏移量必须小于一天)
 
 # tzinfo.dst(dt)
-# 如果DST信息未知，则返回夏令时（DST）调整（以UTC以东为单位），或者None。
-# 如果DST不起作用，则返回timedelta(0)
-# 如果DST有效，则将偏移返回为timedelta对象
+# 如果DST信息未知, 则返回夏令时(DST)调整(以UTC以东为单位), 或者None. 
+# 如果DST不起作用, 则返回timedelta(0)
+# 如果DST有效, 则将偏移返回为timedelta对象
 
 # tzinfo.tzname(dt)
-# 将与datetime对象dt对应的时区名称作为字符串返回。
-# datetime模块没有定义有关字符串名称的内容，并且没有要求它有任何特别的意思。
-# 例如，“GMT”、“UTC”、“-500”、“-5:00”、“EDT”、“US/Eastern”、“America/New York”都是有效的返回
+# 将与datetime对象dt对应的时区名称作为字符串返回. 
+# datetime模块没有定义有关字符串名称的内容, 并且没有要求它有任何特别的意思. 
+# 例如, "GMT", "UTC", "-500", "-5:00", "EDT", "US/Eastern", "America/New York"都是有效的返回
 
 # tzinfo.fromutc(dt)
-# 这是从默认的datetime.astimezone()实现中调用的。
-# 当从中调用时，dt.tzinfo为self，并且dt的日期和时间数据被视为表示UTC时间
+# 这是从默认的datetime.astimezone()实现中调用的. 
+# 当从中调用时, dt.tzinfo为self, 并且dt的日期和时间数据被视为表示UTC时间
 
 # 举例说明
 from datetime import tzinfo, timedelta
@@ -446,20 +446,20 @@ print()
 print("class datetime.timezone(offset, name=None)")
 
 # timezone.utcoffset(dt)
-# 返回构建timezone实例时指定的固定值。忽略dt参数。返回值是等于本地时间和UTC之差的timedelta实例
+# 返回构建timezone实例时指定的固定值. 忽略dt参数. 返回值是等于本地时间和UTC之差的timedelta实例
 
 # timezone.tzname(dt)
-# 返回在构建timezone实例时指定的固定值或字符串"UTCsHH:MM"，其中s是offset的符号，HH和MM分别是offset.hours和offset.minutes
+# 返回在构建timezone实例时指定的固定值或字符串"UTCsHH:MM", 其中s是offset的符号, HH和MM分别是offset.hours和offset.minutes
 
 # timezone.dst(dt)
 # 始终返回None
 
 # timezone.fromutc(dt)
-# 返回dt + offset。dt参数必须是一个aware的datetime实例，其中tzinfo设置为self
+# 返回dt + offset. dt参数必须是一个aware的datetime实例, 其中tzinfo设置为self
 
-# timezone 类属性：
+# timezone 类属性: 
 # timezone.utc
-# UTC时区，timezone(timedelta(0))
+# UTC时区, timezone(timedelta(0))
 
 # Try out the timezone, and display time in different timezone
 
