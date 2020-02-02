@@ -30,4 +30,6 @@ def string_change(file_dir):
 
 
 if __name__ == '__main__':
-    pass
+    from FileIteration.dir_search import general_modify_recur
+    folder = "D:\Documents\GitHub\Learning_Python"
+    general_modify_recur(folder, string_change)
