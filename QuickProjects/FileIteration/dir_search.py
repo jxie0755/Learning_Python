@@ -24,7 +24,7 @@ def general_modify(folder_dir: str, fn):
     Must be complete directory
     """
     if os.path.isdir(folder_dir):
-        for sub_dir in os.listdir(folder_dir):
+        for sub_dir in sorted(os.listdir(folder_dir)):
             true_sub_dir = os.path.join(folder_dir, sub_dir)  # 不要用拼接字符串来组子路径
             if os.path.isfile(true_sub_dir):
                 fn(true_sub_dir)
@@ -37,7 +37,7 @@ def general_modify_recur(folder_dir: str, fn):
     Must be complete directory
     """
     if os.path.isdir(folder_dir):
-        for sub_dir in os.listdir(folder_dir):
+        for sub_dir in sorted(os.listdir(folder_dir)):
             true_sub_dir = os.path.join(folder_dir, sub_dir)  # 不要用拼接字符串来组子路径
             if os.path.isfile(true_sub_dir):
                 fn(true_sub_dir)

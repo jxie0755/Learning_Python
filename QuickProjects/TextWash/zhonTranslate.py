@@ -5,8 +5,9 @@ The regular Chinese characters should remain unchanged
 The file should be in utf-8 in the first place
 """
 
-import re
 import os
+import re
+
 
 def strQ2B(ustring: str) -> str:
     """
@@ -84,62 +85,27 @@ def CNwash_single(file_dir: str) -> None:
     递归操作
     """
     if os.path.isfile(file_dir):
-        print("working on:", file_dir)
-        with open(file_dir, "r", encoding="utf-8") as fobj:
-            content = fobj.read()
-        washed_content = strQ2B(content)
-        with open(file_dir, "w", encoding="utf-8") as fobj:
-            fobj.write(washed_content)
-
-
-def CNwash_dir(project_dir: str) -> None:
-    """
-    将路径中的文件内容中的中文全角标点全部替换成英文标点
-    非递归操作
-    """
-    for sub_dir in os.listdir(project_dir):
-        full_sub_path = os.path.join(project_dir, sub_dir)
-        if os.path.isfile(full_sub_path):
-            print("working on:", full_sub_path)
-            with open(full_sub_path, "r", encoding="utf-8") as fobj:
-                content = fobj.read()
-            washed_content = strQ2B(content)
-            with open(full_sub_path, "w", encoding="utf-8") as fobj:
-                fobj.write(washed_content)
-
-
-def CNwash_dir_recur(project_dir: str) -> None:
-    """
-    将路径中的文件内容中的中文全角标点全部替换成英文标点
-    递归操作将子路径也做同样的操作
-    """
-    for sub_dir in os.listdir(project_dir):
-        full_sub_path = os.path.join(project_dir, sub_dir)
-        print(sub_dir)
-        if sub_dir.startswith(".") or sub_dir.startswith("__"):
-            print(sub_dir, "skipped")
-        elif sub_dir == "zhonTranslate.py":
+        if "/." in file_dir or "/__" in file_dir or "\." in file_dir or "\__" in file_dir:
+            print(file_dir, "skipped")
+        elif "zhonTranslate.py" in file_dir:
             print("skipped this script")
-        elif os.path.isfile(full_sub_path):
-            print("working on:", full_sub_path)
+        else:
             try:
-                with open(full_sub_path, "r", encoding="utf-8") as fobj:
+                with open(file_dir, "r", encoding="utf-8") as fobj:
                     content = fobj.read()
                 washed_content = strQ2B(content)
-                with open(full_sub_path, "w", encoding="utf-8") as fobj:
-                    fobj.write(washed_content)
+                if content != washed_content:
+                    print(file_dir, "changed made")
+                    with open(file_dir, "w", encoding="utf-8") as fobj:
+                        fobj.write(washed_content)
             except:
-                pass
-        else:
-            CNwash_dir_recur(full_sub_path)
+                pass  # ignore non code files (byte files)
 
 
 if __name__ == "__main__":
     # 测试单条代码
     str = '这是一个，【个人】… ｄｅｂｏｋｅ。。。 正常abcd wtf?'
-    str_q2b = strQ2B(str)
-    print(str)
-    print(str_q2b)
+    assert strQ2B(str) == "这是一个, [个人]... deboke. . .  正常abcd wtf?"
 
     # 清洗Learning Android中的第一章MD文件
     # CNwash_single("D:/Documents/GitHub/Learning_Android/FirstLineOfCodes/StudyNotes/Chapter_1.MD")
@@ -148,4 +114,5 @@ if __name__ == "__main__":
     # CNwash_dir("D:/Documents/GitHub/Learning_SQL/SQL101byMick")
 
     # 清洗整个Learning Python
-    CNwash_dir_recur("D:/Documents/GitHub/Learning_Python")
+    from FileIteration.dir_search import general_modify_recur
+    general_modify_recur("/Users/Jxie0755/Documents/DXcodings/Learning_Python", CNwash_single)
