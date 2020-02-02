@@ -114,7 +114,7 @@ if __name__ == "__main__":
     # CNwash_dir("D:/Documents/GitHub/Learning_SQL/SQL101byMick")
 
     # 清洗整个Learning Python
-    from FileIteration.dir_search import general_modify_recur
     # general_modify_recur("/Users/Jxie0755/Documents/DXcodings/Learning_Python", CNwash)
-    general_modify_recur("/Users/Jxie0755/Documents/DXcodings/Learning_Java", CNwash)
-
+    # general_modify_recur("/Users/Jxie0755/Documents/DXcodings/Learning_Java", CNwash)
+    # general_modify_recur("/Users/Jxie0755/Documents/DXcodings/Learning_SQL", CNwash)
+    # general_modify_recur("/Users/Jxie0755/Documents/DXcodings/Learning_Android", CNwash)
