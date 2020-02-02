@@ -55,6 +55,10 @@ def strQ2B(ustring: str) -> str:
         ustring = ustring.replace('〕', "}")
         ustring = ustring.replace('—', "-")
         ustring = ustring.replace('·', ".")
+        ustring = ustring.replace('âˆ’', '-')
+        ustring = ustring.replace('Ã—', '*')
+        ustring = ustring.replace('â€“', '-')
+
 
     """全角转半角"""
     # 转换说明：
