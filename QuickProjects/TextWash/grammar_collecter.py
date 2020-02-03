@@ -12,7 +12,8 @@ def sql_grammar_collect(file_dir: str):
     destination must be a full file directory
     """
 
-    destination = "/Users/Jxie0755/Documents/DXcodings/Learning_SQL/All_grammars.md"
+    # Check mac or PC
+    destination = "D:\Documents\GitHub\Learning_SQL\SQL101byMick\Syntax_Summary.md"
 
     chapter_title_pattern = re.compile(r"[##]{2}[\S\s]+?[##]{2}\n")
     grammar_block_pattern = re.compile(r"语法\d[\S\s]+?```[\S\s]+?```\s")
@@ -40,10 +41,11 @@ def sql_grammar_collect(file_dir: str):
 if __name__ == '__main__':
     from FileIteration.dir_search import general_modify
     mac_project = "/Users/Jxie0755/Documents/DXcodings/Learning_SQL/SQL101byMick"
-    destination = "/Users/Jxie0755/Documents/DXcodings/Learning_SQL/All_grammars.md"
-
-    with open(destination, "w", encoding="utf-8") as fobj:
+    pc_project = "D:\Documents\GitHub\Learning_SQL\SQL101byMick"
+    mac_destination = "/Users/Jxie0755/Documents/DXcodings/Learning_SQL/SQL101byMick/Syntax_Summary.md"
+    pc_destination = "D:\Documents\GitHub\Learning_SQL\SQL101byMick\Syntax_Summary.md"
+    with open(pc_destination, "w", encoding="utf-8") as fobj:
         fobj.write("#Postgre SQL 语法总结#\n\n")
     print("destination generated")
 
-    general_modify(mac_project, sql_grammar_collect)
+    general_modify(pc_project, sql_grammar_collect)
