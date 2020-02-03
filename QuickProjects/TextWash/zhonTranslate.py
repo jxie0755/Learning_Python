@@ -79,7 +79,7 @@ def strQ2B(ustring: str) -> str:
     return rstring
 
 
-def CNwash_single(file_dir: str) -> None:
+def CNwash(file_dir: str) -> None:
     """
     将单文件内容中的中文全角标点全部替换成英文标点
     递归操作
@@ -108,11 +108,13 @@ if __name__ == "__main__":
     assert strQ2B(str) == "这是一个, [个人]... deboke. . .  正常abcd wtf?"
 
     # 清洗Learning Android中的第一章MD文件
-    # CNwash_single("D:/Documents/GitHub/Learning_Android/FirstLineOfCodes/StudyNotes/Chapter_1.MD")
+    # CNwash("D:/Documents/GitHub/Learning_Android/FirstLineOfCodes/StudyNotes/Chapter_1.MD")
 
     # 正式进入, 替换整个路径中的markdown文件中的中文标点
     # CNwash_dir("D:/Documents/GitHub/Learning_SQL/SQL101byMick")
 
     # 清洗整个Learning Python
-    from FileIteration.dir_search import general_modify_recur
-    general_modify_recur("/Users/Jxie0755/Documents/DXcodings/Learning_Python", CNwash_single)
+    # general_modify_recur("/Users/Jxie0755/Documents/DXcodings/Learning_Python", CNwash)
+    # general_modify_recur("/Users/Jxie0755/Documents/DXcodings/Learning_Java", CNwash)
+    # general_modify_recur("/Users/Jxie0755/Documents/DXcodings/Learning_SQL", CNwash)
+    # general_modify_recur("/Users/Jxie0755/Documents/DXcodings/Learning_Android", CNwash)
