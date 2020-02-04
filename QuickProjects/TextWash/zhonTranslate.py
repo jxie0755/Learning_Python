@@ -102,17 +102,17 @@ def CNwash(file_dir: str) -> None:
 
 if __name__ == "__main__":
     # 测试单条代码
-    str = '这是一个，【个人】… ｄｅｂｏｋｅ。。。 正常abcd wtf?'
-    assert strQ2B(str) == "这是一个, [个人]... deboke. . .  正常abcd wtf?"
+    str = r"这是一个，【个人】… ｄｅｂｏｋｅ。。。 正常abcd wtf?"
+    assert strQ2B(str) == r"这是一个, [个人]... deboke. . .  正常abcd wtf?"
 
     # 清洗Learning Android中的第一章MD文件
     # CNwash("D:/Documents/GitHub/Learning_Android/FirstLineOfCodes/StudyNotes/Chapter_1.MD")
 
     # 正式进入, 替换整个路径中的markdown文件中的中文标点
-    # CNwash_dir("D:/Documents/GitHub/Learning_SQL/SQL101byMick")
+    # CNwash_dir(r"D:/Documents/GitHub/Learning_SQL/SQL101byMick")
 
     # 清洗整个Learning Python
-    # general_modify_recur("/Users/Jxie0755/Documents/DXcodings/Learning_Python", CNwash)
-    # general_modify_recur("/Users/Jxie0755/Documents/DXcodings/Learning_Java", CNwash)
-    # general_modify_recur("/Users/Jxie0755/Documents/DXcodings/Learning_SQL", CNwash)
-    # general_modify_recur("/Users/Jxie0755/Documents/DXcodings/Learning_Android", CNwash)
+    # general_modify_recur(r"/Users/Jxie0755/Documents/DXcodings/Learning_Python", CNwash)
+    # general_modify_recur(r"/Users/Jxie0755/Documents/DXcodings/Learning_Java", CNwash)
+    # general_modify_recur(r"/Users/Jxie0755/Documents/DXcodings/Learning_SQL", CNwash)
+    # general_modify_recur(r"/Users/Jxie0755/Documents/DXcodings/Learning_Android", CNwash)

@@ -40,10 +40,10 @@ def sql_syntax_collect(file_dir: str):
 
 if __name__ == '__main__':
     from FileIteration.dir_search import general_modify
-    mac_project = "/Users/Jxie0755/Documents/DXcodings/Learning_SQL/SQL101byMick"
-    pc_project = "D:\Documents\GitHub\Learning_SQL\SQL101byMick"
-    mac_destination = "/Users/Jxie0755/Documents/DXcodings/Learning_SQL/SQL101byMick/Syntax_Summary.md"
-    pc_destination = "D:\Documents\GitHub\Learning_SQL\SQL101byMick\Syntax_Summary.md"
+    mac_project = r"/Users/Jxie0755/Documents/DXcodings/Learning_SQL/SQL101byMick"
+    pc_project = r"D:\Documents\GitHub\Learning_SQL\SQL101byMick"
+    mac_destination = r"/Users/Jxie0755/Documents/DXcodings/Learning_SQL/SQL101byMick/Syntax_Summary.md"
+    pc_destination = r"D:\Documents\GitHub\Learning_SQL\SQL101byMick\Syntax_Summary.md"
     with open(pc_destination, "w", encoding="utf-8") as fobj:
         fobj.write("#Postgre SQL 语法总结#\n\n")
     print("destination generated")
