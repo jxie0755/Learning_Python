@@ -58,6 +58,7 @@ def strQ2B(ustring: str) -> str:
         ustring = ustring.replace('…', '...')
 
 
+
     """全角转半角"""
     # 转换说明：
     # 全角字符unicode编码从65281~65374 (十六进制 0xFF01 ~ 0xFF5E)
