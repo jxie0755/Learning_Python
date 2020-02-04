@@ -6,7 +6,7 @@ The script will go through all chapters in MD format, and collect all the gramma
 import os
 import re
 
-def sql_grammar_collect(file_dir: str):
+def sql_syntax_collect(file_dir: str):
     """
     file_dir must be a full file directory
     destination must be a full file directory
@@ -48,4 +48,4 @@ if __name__ == '__main__':
         fobj.write("#Postgre SQL 语法总结#\n\n")
     print("destination generated")
 
-    general_modify(pc_project, sql_grammar_collect)
+    general_modify(pc_project, sql_syntax_collect)
