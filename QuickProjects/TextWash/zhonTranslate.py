@@ -16,7 +16,7 @@ def strQ2B(ustring: str) -> str:
     """
 
     # 中文特殊符号批量识别
-    pattern = re.compile('[，。：“”【】《》？；、（）‘’『』「」﹃﹄〔〕—·]')
+    pattern = re.compile('[，。：“”【】《》？；、（）‘’『』「」﹃﹄〔〕—·…]')
 
     # re.compile: 编译一个正则表达式模式, 返回一个模式（匹配模式）对象.
     # [...]用于定义待转换的中文特殊符号字符集
@@ -30,7 +30,6 @@ def strQ2B(ustring: str) -> str:
     if len(fps) > 0:
         ustring = ustring.replace('，', ', ')
         ustring = ustring.replace('。', '. ')
-        ustring = ustring.replace('…', '...')
         ustring = ustring.replace('：', ': ')
         ustring = ustring.replace('“', '"')
         ustring = ustring.replace('”', '"')
@@ -56,6 +55,7 @@ def strQ2B(ustring: str) -> str:
         ustring = ustring.replace('〕', "}")
         ustring = ustring.replace('—', "-")
         ustring = ustring.replace('·', ".")
+        ustring = ustring.replace('…', '...')
         ustring = ustring.replace('âˆ’', '-')
         ustring = ustring.replace('Ã—', '*')
         ustring = ustring.replace('â€“', '-')
