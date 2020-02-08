@@ -9,3 +9,4 @@ import os
 
 for sub in os.walk(r"C:\Users\jxie0\Documents"):
     print(sub)
+
