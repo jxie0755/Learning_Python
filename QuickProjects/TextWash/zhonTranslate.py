@@ -96,6 +96,8 @@ def CNwash(file_dir: str) -> None:
                     print(file_dir, "changed made")
                     with open(file_dir, "w", encoding="utf-8") as fobj:
                         fobj.write(washed_content)
+                else:
+                    print("Nothing changed")
             except:
                 pass  # ignore non code files (byte files)
 
