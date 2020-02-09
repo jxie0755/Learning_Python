@@ -15,7 +15,7 @@ def sql_syntax_collect(file_dir: str):
     # Check mac or PC
     destination = "D:\Documents\GitHub\Learning_SQL\SQL101byMick\Syntax_Summary.md"
 
-    chapter_title_pattern = re.compile(r"[##]{2}[\S\s]+?[##]{2}\n")
+    chapter_title_pattern = re.compile(r"(##)[\S\s]+?(##)\n")
     grammar_block_pattern = re.compile(r"语法\d[\S\s]+?```[\S\s]+?```\s")
 
     if os.path.isfile(file_dir) and file_dir.endswith(".md"):
