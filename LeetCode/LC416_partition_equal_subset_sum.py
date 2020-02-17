@@ -36,6 +36,7 @@ class Solution_STD_A:
     def build_combinations(self, nums: List[int], index: int, sum_: int, target: int) -> bool:
         """
         A helper to build up combinations check
+        # TODO: need lo learn why this works
         """
         sum_ += nums[index]
 
