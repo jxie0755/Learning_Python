@@ -59,7 +59,7 @@ class Solution_STD_A:
         if sum(nums) % 2:
             return False
         else:
-            return self.build_combinations(nums, 0, 0, sum(nums) //2)
+            return self.build_combinations(nums, 0, 0, sum(nums)//2)
 
 
 
