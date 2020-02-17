@@ -12,19 +12,20 @@ Note:
 
 from typing import *
 
-class Solution:
+class Solution_A:
     def canPartition(self, nums: List[int]) -> bool:
         pass
 
 
 if __name__ == '__main__':
-    testCase = Solution()
-    assert not testCase.canPartition([1]), "Edge 1"
-    assert not testCase.canPartition([1,2]), "Edge 2"
-    assert testCase.canPartition([2,2]), "Edge 3"
+    testCase = Solution_A()
+    # assert not testCase.canPartition([1]), "Edge 1"
+    # assert not testCase.canPartition([1,2]), "Edge 2"
+    # assert testCase.canPartition([2,2]), "Edge 3"
+    #
+    # assert testCase.canPartition([1,5,11,5]), "Example 1"
+    # assert not testCase.canPartition([1,2,3,5]), "Example 2"
+    #
+    # assert testCase.canPartition([1,2,3]), "Additional 1"
 
-    assert testCase.canPartition([1,5,11,5]), "Example 1"
-    assert not testCase.canPartition([1,2,3,5]), "Example 2"
-
-    assert testCase.canPartition([1,2,3]), "Additional 1"
-
+    print(testCase.canPartition([1,5,11,5]))
