@@ -1,4 +1,5 @@
 # from TextWash.zhonTranslate import CNwash
 # CNwash(r"D:\Documents\GitHub\Learning_SQL\SQL101byMick\Chatper_5_Complex_Query.md")
 
-
+a = [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]
+print(sum(a))
