@@ -63,7 +63,6 @@ class Solution_STD_A:
 
 
 
-
 if __name__ == '__main__':
     testCase = Solution_STD_A()
     assert not testCase.canPartition([1]), "Edge 1"
