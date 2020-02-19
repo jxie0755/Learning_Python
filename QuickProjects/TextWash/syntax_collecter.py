@@ -31,9 +31,9 @@ def sql_syntax_collect(file_dir: str):
                 summary.write(chapter_title.group(0) + "\n")
 
             # 再把语法块写入All_grammars.md
-            for block in syntax_block_pattern.findall(chapter_content):
+            for block in syntax_block_pattern.finditer(chapter_content):
                 with open(destination, "a", encoding="utf-8") as summary:
-                    summary.write("".join(block) + "\n")
+                    summary.write(block.group(0) + "\n")
 
 
 

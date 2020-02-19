@@ -91,6 +91,7 @@ re.compile(r"[,]*[\s]+").split(s, maxsplit=1)
 # 对 string 返回一个不重复的 pattern 的匹配列表
 # If one or more groups are present in the pattern, return a list of groups !!! 重要!分组将会导致显示不全
 # 解决方案: 如果要采用分组, 则必须保证pattern中每一个部分都有分组, 不要分组不彻底!!!
+# 第二解决方案: 使用re.finditer, 然后用mo.group(0)来得到字段
 faresult = re.findall(raw_pattern, sample) # >>> ["1a", "2d"]
 faresult2 = re.findall(raw_pattern, "1a2b3a4b") # >>> ["1a", "2b", "3a", "4b"]
 faresult3 = re.findall(raw_pattern, "1111") # >>> [] # can't find
