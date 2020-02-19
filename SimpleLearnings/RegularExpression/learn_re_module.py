@@ -46,7 +46,7 @@ pre_compile = re.compile(raw_pattern)
 # re.search(pattern, string, flags=0) -> match object
 # ro.search(string[, pos[, endpos]]) -> match object
 # ro optional: indicate the idx start and end to search part of the string
-# 扫描整个字符串 找到匹配样式的 第一个位置, 并返回一个相应的 match对象. 
+# 扫描整个字符串 找到匹配样式的 第一个位置, 并返回一个相应的 match对象.
 # 如果没有匹配, 就返回一个 None
 # 注意这和找到一个零长度匹配是不同的
 re.search(raw_pattern, sample) # >>> <_sre.SRE_Match object; span=(0, 2), match="1a">
@@ -90,6 +90,7 @@ re.compile(r"[,]*[\s]+").split(s, maxsplit=1)
 # ro optional: indicate the idx start and end to search part of the string
 # 对 string 返回一个不重复的 pattern 的匹配列表
 # If one or more groups are present in the pattern, return a list of groups !!! 重要!分组将会导致显示不全
+# 解决方案: 如果要采用分组, 则必须保证pattern中每一个部分都有分组, 不要分组不彻底!!!
 faresult = re.findall(raw_pattern, sample) # >>> ["1a", "2d"]
 faresult2 = re.findall(raw_pattern, "1a2b3a4b") # >>> ["1a", "2b", "3a", "4b"]
 faresult3 = re.findall(raw_pattern, "1111") # >>> [] # can't find
@@ -113,8 +114,8 @@ f_iter = re.finditer(raw_pattern, sample)
 
 # re.sub(pattern, repl, string, count=0, flags=0) -> new_string with replacement done
 # ro.sub(repl, string, count=0) -> new_string with replacement done
-# 返回通过使用 repl 替换在 string 最左边非重叠出现的 pattern 而获得的字符串. 
-# 如果样式没有找到, 则不加改变地返回 string. 
+# 返回通过使用 repl 替换在 string 最左边非重叠出现的 pattern 而获得的字符串.
+# 如果样式没有找到, 则不加改变地返回 string.
 raw_pattern = r"(genNode\()([0-9]+)(\))"
 sample = "000 genNode(123) 111 genNode(456) 222"
 
@@ -230,9 +231,9 @@ m_obj.groupdict(default="blank") # >>> {"name1": "denis", "name2": blank}
 
 # mo.start([group])
 # mo.end([group])
-# 返回 group 匹配到的字串的开始和结束的idx. 
-# group 默认为0(意思是整个匹配的子串). 
-# 如果 group 存在, 但未产生匹配, 就返回 -1 . 
+# 返回 group 匹配到的字串的开始和结束的idx.
+# group 默认为0(意思是整个匹配的子串).
+# 如果 group 存在, 但未产生匹配, 就返回 -1 .
 # 对于一个匹配对象 m,  和一个未参与匹配的组 g , 组 g (等价于 m.group(g))产生的匹配是 m.string[m.start(g):m.end(g)]
 email = "tony@tiremove_thisger.net"
 m = re.search("remove_this", email)
@@ -241,9 +242,9 @@ new_email = email[:m.start()] + email[m.end():] # >>> tony@tiger.net
 
 
 # mo.span([group])
-# 于一个匹配 m ,  返回一个二元组 (m.start(group), m.end(group)) . 
-# 注意如果 group 没有在这个匹配中, 就返回 (-1, -1) . 
-# group 默认为0, 就是整个匹配. 
+# 于一个匹配 m ,  返回一个二元组 (m.start(group), m.end(group)) .
+# 注意如果 group 没有在这个匹配中, 就返回 (-1, -1) .
+# group 默认为0, 就是整个匹配.
 sample = "denis0??"
 m_obj = re.match(r"(?P<name1>denis)([0-9]+)[\?]+(?P<name2>cindy)?", sample)
 # print(m_obj.span(1)) # >>>  (0,5)
@@ -266,7 +267,7 @@ m_obj = re.match(raw_pattern, sample)
 
 
 # mo.lastindex
-# 捕获组的最后一个匹配的整数索引值, 或者 None 如果没有匹配产生的话. 
+# 捕获组的最后一个匹配的整数索引值, 或者 None 如果没有匹配产生的话.
 raw_pattern = r"(?P<name1>denis)(?P<code>[0-9]+)[\?]+(?P<name2>cindy)?"
 sample = "denis0??,,,"
 m_obj = re.match(raw_pattern, sample)
