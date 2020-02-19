@@ -13,10 +13,10 @@ def sql_syntax_collect(file_dir: str):
     """
 
     # Check mac or PC
-    destination = "D:\Documents\GitHub\Learning_SQL\SQL101byMick\Syntax_Summary.md"
+    destination = "D:\Documents\GitHub\Learning_SQL\Syntax_Summary.md"
 
     chapter_title_pattern = re.compile(r"(##)[\S\s]+?(##)\n")
-    grammar_block_pattern = re.compile(r"语法\d[\S\s]+?```[\S\s]+?```\s")
+    syntax_block_pattern = re.compile(r"(语法)(\d+|extra)(:[\S\s]+?```[\S\s]+?```\s)")
 
     if os.path.isfile(file_dir) and file_dir.endswith(".md"):
         print("working on:", file_dir)
@@ -31,19 +31,22 @@ def sql_syntax_collect(file_dir: str):
                 summary.write(chapter_title.group(0) + "\n")
 
             # 再把语法块写入All_grammars.md
-            for block in grammar_block_pattern.findall(chapter_content):
+            for block in syntax_block_pattern.findall(chapter_content):
                 with open(destination, "a", encoding="utf-8") as summary:
-                    summary.write(block + "\n")
+                    summary.write("".join(block) + "\n")
 
 
 
 
 if __name__ == '__main__':
+
     from FileIteration.dir_search import general_modify
+
     mac_project = r"/Users/Jxie0755/Documents/DXcodings/Learning_SQL/SQL101byMick"
     pc_project = r"D:\Documents\GitHub\Learning_SQL\SQL101byMick"
-    mac_destination = r"/Users/Jxie0755/Documents/DXcodings/Learning_SQL/SQL101byMick/Syntax_Summary.md"
-    pc_destination = r"D:\Documents\GitHub\Learning_SQL\SQL101byMick\Syntax_Summary.md"
+    mac_destination = r"/Users/Jxie0755/Documents/DXcodings/Learning_SQL/Syntax_Summary.md"
+    pc_destination = r"D:\Documents\GitHub\Learning_SQL\Syntax_Summary.md"
+
     with open(pc_destination, "w", encoding="utf-8") as fobj:
         fobj.write("#Postgre SQL 语法总结#\n\n")
     print("destination generated")
