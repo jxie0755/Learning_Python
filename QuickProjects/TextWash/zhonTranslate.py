@@ -118,3 +118,6 @@ if __name__ == "__main__":
     # general_modify_recur(r"/Users/Jxie0755/Documents/DXcodings/Learning_Java", CNwash)
     # general_modify_recur(r"/Users/Jxie0755/Documents/DXcodings/Learning_SQL", CNwash)
     # general_modify_recur(r"/Users/Jxie0755/Documents/DXcodings/Learning_Android", CNwash)
+
+    CNwash(r"D:\Documents\GitHub\Learning_SQL\SQL101byMick\Chapter_6_Functions_Predicates_and_Case_Expression.md")
+
