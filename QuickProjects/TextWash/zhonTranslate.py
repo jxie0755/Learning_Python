@@ -91,13 +91,14 @@ def CNwash(file_dir: str) -> None:
             try:
                 with open(file_dir, "r", encoding="utf-8") as fobj:
                     content = fobj.read()
+                print("Working on: " + file_dir)
                 washed_content = strQ2B(content)
                 if content != washed_content:
-                    print(file_dir, "changed made")
+                    print(file_dir, "changed mad\n")
                     with open(file_dir, "w", encoding="utf-8") as fobj:
                         fobj.write(washed_content)
                 else:
-                    print("Nothing changed")
+                    print("Nothing changed\n")
             except:
                 pass  # ignore non code files (byte files)
 
@@ -119,5 +120,13 @@ if __name__ == "__main__":
     # general_modify_recur(r"/Users/Jxie0755/Documents/DXcodings/Learning_SQL", CNwash)
     # general_modify_recur(r"/Users/Jxie0755/Documents/DXcodings/Learning_Android", CNwash)
 
+
+    # Single file clean
+    CNwash(r"D:\Documents\GitHub\Learning_SQL\SQL101byMick\Chapter_0_Setup.md")
+    CNwash(r"D:\Documents\GitHub\Learning_SQL\SQL101byMick\Chapter_1_DataBase_and_SQL.md")
+    CNwash(r"D:\Documents\GitHub\Learning_SQL\SQL101byMick\Chapter_2_Query.md")
+    CNwash(r"D:\Documents\GitHub\Learning_SQL\SQL101byMick\Chapter_3_Query_with_functions.md")
+    CNwash(r"D:\Documents\GitHub\Learning_SQL\SQL101byMick\Chapter_4_Data_Alternation.md")
+    CNwash(r"D:\Documents\GitHub\Learning_SQL\SQL101byMick\Chapter_5_Complex_Query.md")
     CNwash(r"D:\Documents\GitHub\Learning_SQL\SQL101byMick\Chapter_6_Functions_Predicates_and_Case_Expression.md")
 
