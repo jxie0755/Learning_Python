@@ -94,7 +94,7 @@ def CNwash(file_dir: str) -> None:
                 print("Working on: " + file_dir)
                 washed_content = strQ2B(content)
                 if content != washed_content:
-                    print(file_dir, "changed mad\n")
+                    print(file_dir, "changed made\n")
                     with open(file_dir, "w", encoding="utf-8") as fobj:
                         fobj.write(washed_content)
                 else:
