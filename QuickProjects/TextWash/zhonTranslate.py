@@ -131,7 +131,7 @@ if __name__ == "__main__":
     # CNwash(r"D:\Documents\GitHub\Learning_SQL\SQL101byMick\Chapter_3_Query_with_functions.md")
     # CNwash(r"D:\Documents\GitHub\Learning_SQL\SQL101byMick\Chapter_4_Data_Alternation.md")
     # CNwash(r"D:\Documents\GitHub\Learning_SQL\SQL101byMick\Chapter_5_Complex_Query.md")
-    # CNwash(r"D:\Documents\GitHub\Learning_SQL\SQL101byMick\Chapter_6_Functions_Predicates_and_Case_Expression.md")
+    CNwash(r"D:\Documents\GitHub\Learning_SQL\SQL101byMick\Chapter_6_Functions_Predicates_and_Case_Expression.md")
 
     # Single file clean (mac)
     # CNwash(r"/Users/Jxie0755/Documents/DXcodings/Learning_SQL/SQL101byMick/Chapter_0_Setup.md")
@@ -140,4 +140,4 @@ if __name__ == "__main__":
     # CNwash(r"/Users/Jxie0755/Documents/DXcodings/Learning_SQL/SQL101byMick/Chapter_3_Query_with_functions.md")
     # CNwash(r"/Users/Jxie0755/Documents/DXcodings/Learning_SQL/SQL101byMick/Chapter_4_Data_Alternation.md")
     # CNwash(r"/Users/Jxie0755/Documents/DXcodings/Learning_SQL/SQL101byMick/Chapter_5_Complex_Query.md")
-    CNwash(r"/Users/Jxie0755/Documents/DXcodings/Learning_SQL/SQL101byMick/Chapter_6_Functions_Predicates_and_Case_Expression.md")
+    # CNwash(r"/Users/Jxie0755/Documents/DXcodings/Learning_SQL/SQL101byMick/Chapter_6_Functions_Predicates_and_Case_Expression.md")
