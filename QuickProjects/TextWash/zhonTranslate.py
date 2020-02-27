@@ -102,6 +102,8 @@ def CNwash(file_dir: str) -> None:
             except:
                 print(file_dir + " cannot be openned by encoding utf-8")
                 pass  # ignore non code files (byte files)
+    else:
+        raise FileNotFoundError
 
 
 if __name__ == "__main__":
