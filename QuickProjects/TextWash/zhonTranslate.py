@@ -94,7 +94,7 @@ def CNwash(file_dir: str) -> None:
                 print("Working on: " + file_dir)
                 washed_content = strQ2B(content)
                 if content != washed_content:
-                    print(file_dir, "changed made\n")
+                    print("changed made\n")
                     with open(file_dir, "w", encoding="utf-8") as fobj:
                         fobj.write(washed_content)
                 else:
@@ -132,7 +132,7 @@ if __name__ == "__main__":
     # CNwash(r"D:\Documents\GitHub\Learning_SQL\SQL101byMick\Chapter_4_Data_Alternation.md")
     # CNwash(r"D:\Documents\GitHub\Learning_SQL\SQL101byMick\Chapter_5_Complex_Query.md")
     # CNwash(r"D:\Documents\GitHub\Learning_SQL\SQL101byMick\Chapter_6_Functions_Predicates_and_Case_Expression.md")
-    # CNwash(r"D:\Documents\GitHub\Learning_SQL\SQL101byMick\Chapter_7_Table_Operations.md")
+    CNwash(r"D:\Documents\GitHub\Learning_SQL\SQL101byMick\Chapter_7_Table_Operations.md")
 
     # Single file clean (mac)
     # CNwash(r"/Users/Jxie0755/Documents/DXcodings/Learning_SQL/SQL101byMick/Chapter_0_Setup.md")
@@ -142,4 +142,4 @@ if __name__ == "__main__":
     # CNwash(r"/Users/Jxie0755/Documents/DXcodings/Learning_SQL/SQL101byMick/Chapter_4_Data_Alternation.md")
     # CNwash(r"/Users/Jxie0755/Documents/DXcodings/Learning_SQL/SQL101byMick/Chapter_5_Complex_Query.md")
     # CNwash(r"/Users/Jxie0755/Documents/DXcodings/Learning_SQL/SQL101byMick/Chapter_6_Functions_Predicates_and_Case_Expression.md")
-    CNwash(r"/Users/Jxie0755/Documents/DXcodings/Learning_SQL/SQL101byMick/Chapter_7_Table_Operations.md")
+    # CNwash(r"/Users/Jxie0755/Documents/DXcodings/Learning_SQL/SQL101byMick/Chapter_7_Table_Operations.md")
