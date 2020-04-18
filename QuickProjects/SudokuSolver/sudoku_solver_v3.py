@@ -372,6 +372,7 @@ class Sudoku(object):
 
 
 if __name__ == "__main__":
+    import time
     # websudoku hard puzzle 10
     hard_data_10_str = [
         ["0", "0", "0", "3", "7", "0", "0", "0", "5"],
@@ -386,8 +387,11 @@ if __name__ == "__main__":
     ]
 
     q = Sudoku(hard_data_10_str)
+    start_time = time.time()
     q.solve()
+    q.show_statistics()
     q.show_answer()
+    print(f"--- {time.time() - start_time}s seconds ---\n")
 
 
     # problem solved!
@@ -407,7 +411,6 @@ if __name__ == "__main__":
     # Total hypothesis:  17
     # max_layer_counted: 4
 
-    import time
     ultimate_puzzle_str_3 = [
         ["8", "0", "0", "0", "0", "0", "0", "0", "0"],
         ["0", "0", "3", "6", "0", "0", "0", "0", "0"],
@@ -423,6 +426,7 @@ if __name__ == "__main__":
     ultimate_sudoku_3 = Sudoku(ultimate_puzzle_str_3)
     start_time = time.time()
     ultimate_sudoku_3.solve()
+    ultimate_sudoku_3.show_answer()
     ultimate_sudoku_3.show_statistics()
     print(f"--- {time.time() - start_time}s seconds ---\n")
 
@@ -441,6 +445,6 @@ if __name__ == "__main__":
         ["0", "0", "8", "5", "0", "0", "9", "1", "0"],
         ["7", "9", "0", "0", "0", "0", "4", "0", "0"]]
 
-    ultimate_sudoku_3b = Sudoku(ultimate_puzzle_str_3b)
-    ultimate_sudoku_3b.direct_deduce()
-    print(ultimate_sudoku_3b.isSolved())
+    # ultimate_sudoku_3b = Sudoku(ultimate_puzzle_str_3b)
+    # ultimate_sudoku_3b.direct_deduce()
+    # print(ultimate_sudoku_3b.isSolved())  #不给出答案,但是告诉你此题可解
