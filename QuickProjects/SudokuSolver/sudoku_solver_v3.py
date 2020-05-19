@@ -449,3 +449,4 @@ if __name__ == "__main__":
     # ultimate_sudoku_3b = Sudoku(ultimate_puzzle_str_3b)
     # ultimate_sudoku_3b.direct_deduce()
     # print(ultimate_sudoku_3b.isSolved())  #不给出答案,但是告诉你此题可解
+
