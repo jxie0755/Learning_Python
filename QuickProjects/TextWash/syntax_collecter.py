@@ -13,7 +13,7 @@ def sql_syntax_collect(file_dir: str):
     """
 
     # Check mac or PC
-    destination = r"/Users/Jxie0755/Documents/DXcodings/Learning_SQL/Syntax_Summary.md"  # --------------------------
+    destination = r"/Users/Jxie0755/Documents/DXcodings/Learning_SQL/Syntax_Summary.md"  # --fill by OS--
 
     chapter_title_pattern = re.compile(r"(##)[\S\s]+?(##)\n")
     syntax_block_pattern = re.compile(r"(语法)(\d+|extra)(:[\S\s]+?```[\S\s]+?```\s)")
@@ -47,8 +47,8 @@ if __name__ == '__main__':
     mac_destination = r"/Users/Jxie0755/Documents/DXcodings/Learning_SQL/Syntax_Summary.md"
     pc_destination = r"D:\Documents\GitHub\Learning_SQL\Syntax_Summary.md"
 
-    with open(mac_destination, "w", encoding="utf-8") as fobj:  # ---------------------------------
+    with open(mac_destination, "w", encoding="utf-8") as fobj:  # --fill by OS--
         fobj.write("#Postgre SQL 语法总结#\n\n")
     print("destination generated")
 
-    general_modify(mac_project, sql_syntax_collect)         # -------------------------------------
+    general_modify(mac_project, sql_syntax_collect)  # --fill by OS--
