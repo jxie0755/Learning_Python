@@ -42,7 +42,7 @@ def general_modify_recur(folder_dir: str, fn):
             if os.path.isfile(true_sub_dir):
                 fn(true_sub_dir)
             else:
-                general_modify(true_sub_dir, fn)
+                general_modify_recur(true_sub_dir, fn)
     else:
         raise FileNotFoundError
 
