@@ -134,6 +134,7 @@ if __name__ == "__main__":
     # CNwash(r"D:\Documents\GitHub\Learning_SQL\SQL101byMick\Chapter_6_Functions_Predicates_and_Case_Expression.md")
     # CNwash(r"D:\Documents\GitHub\Learning_SQL\SQL101byMick\Chapter_7_Table_Operations.md")
     # CNwash(r"D:\Documents\GitHub\Learning_SQL\SQL101byMick\Chapter_8_Advanced_Processing.md")
+    # CNwash(r"D:\Documents\GitHub\Learning_SQL\SQL101byMick\Chapter_9_Connecting_to_SQL.md")
 
     # Single file clean (mac)
     # CNwash(r"/Users/Jxie0755/Documents/DXcodings/Learning_SQL/SQL101byMick/Chapter_0_Setup.md")
