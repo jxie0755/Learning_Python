@@ -37,14 +37,14 @@ class Solution_A:
     def twoSum_for_3sum(self, numbers: List[int], target: int, jump: int) -> List[List[int]]:
         """Helper A"""
         result = []
-        hashtable = {}
+        hmp = {}
         for idx in range(0, len(numbers)):
             if idx == jump:
                 pass  # jump over current check in 3sum, to avoid repeat use
-            elif numbers[idx] not in hashtable.keys():
-                hashtable[target - numbers[idx]] = idx
+            elif numbers[idx] not in hmp.keys():
+                hmp[target - numbers[idx]] = idx
             else:
-                result.append([numbers[hashtable[numbers[idx]]], numbers[idx]])
+                result.append([numbers[hmp[numbers[idx]]], numbers[idx]])
                 # do not return, but get every possible group of target two sum
         return result
 

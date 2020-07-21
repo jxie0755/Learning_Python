@@ -16,10 +16,10 @@ class Solution_A:
         def is_no_repeat(s: str) -> bool:
             """Helper"""
 
-            hastable = {}
+            hmp = {}
             for i in s:
-                if i not in hastable:
-                    hastable[i] = 1
+                if i not in hmp:
+                    hmp[i] = 1
                 else:
                     return False
             return True
@@ -51,14 +51,14 @@ class Solution_B1:
         if not s:
             return 0
         else:
-            hashtable = {}
+            hmp = {}
             i = 0
             while i != len(s):
                 if s[
-                    i] in hashtable:  # if repeat, then recursive compare to the next section, starting after the first repeating element.
-                    new_start = hashtable[s[i]] + 1
+                    i] in hmp:  # if repeat, then recursive compare to the next section, starting after the first repeating element.
+                    new_start = hmp[s[i]] + 1
                     return max(i, self.lengthOfLongestSubstring(s[new_start:]))
-                hashtable[s[i]] = i
+                hmp[s[i]] = i
                 i += 1
             else:  # if no repeat, go to the end and return the full length
                 return len(s)

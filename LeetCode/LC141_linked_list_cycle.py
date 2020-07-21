@@ -45,11 +45,11 @@ class Solution(object):
         """
         if not head:
             return False
-        hashtable = {}
+        hmp = {}
         cur = head
         while cur:
-            if cur not in hashtable:
-                hashtable[cur] = 1
+            if cur not in hmp:
+                hmp[cur] = 1
             else:
                 return True  # cyling will force to return
             cur = cur.next

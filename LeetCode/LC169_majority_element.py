@@ -16,14 +16,14 @@ class Solution:
         :type nums: List[int]
         :rtype: int
         """
-        hashtable = {}
+        hmp = {}
         for i in nums:
-            if i not in hashtable:
-                hashtable[i] = 1
+            if i not in hmp:
+                hmp[i] = 1
             else:
-                hashtable[i] += 1
+                hmp[i] += 1
 
-        return max(hashtable, key=hashtable.get)
+        return max(hmp, key=hmp.get)
 
 
 if __name__ == "__main__":

@@ -21,7 +21,7 @@ class Solution_A:
         Time:  O(n * 3^n)
         """
 
-        hashtable = {"0": [" "],
+        hmp = {"0": [" "],
                      "1": [""],
                      "2": ["a", "b", "c"],
                      "3": ["d", "e", "f"],
@@ -39,9 +39,9 @@ class Solution_A:
             current = digits[i]
 
             if i == 0:
-                result = hashtable[current]
+                result = hmp[current]
             else:
-                new_list = hashtable[current]
+                new_list = hmp[current]
                 result = [j + k for j in result for k in new_list]
             i += 1
 

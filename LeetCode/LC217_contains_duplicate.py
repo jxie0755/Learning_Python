@@ -17,10 +17,10 @@ class Solution:
     # Use hashtable for counting
     def containsDuplicate(self, nums: List[int]) -> bool:
 
-        hashtable = {}
+        hmp = {}
         for i in nums:
-            if i not in hashtable:
-                hashtable[i] = 1
+            if i not in hmp:
+                hmp[i] = 1
             else:
                 return True
         return False

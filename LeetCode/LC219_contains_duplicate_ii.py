@@ -31,16 +31,16 @@ class Solution:
 
     # Hashtable O(N)
     def containsNearbyDuplicate(self, nums: List[int], k: int) -> bool:
-        hashtable = {}
+        hmp = {}
         i = 0
         while i != len(nums):
-            if nums[i] not in hashtable:
-                hashtable[nums[i]] = i
+            if nums[i] not in hmp:
+                hmp[nums[i]] = i
             else:
-                if i - hashtable[nums[i]] <= k:
+                if i - hmp[nums[i]] <= k:
                     return True  # 每次出现重复就检查距离是否小于k
                 else:
-                    hashtable[nums[i]] = i  # 更新index
+                    hmp[nums[i]] = i  # 更新index
             i += 1
         return False
 

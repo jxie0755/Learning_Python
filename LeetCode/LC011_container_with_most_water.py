@@ -42,7 +42,7 @@ class Solution_B:
         """
 
         result = []
-        hashtable = dict(enumerate(height))
+        hmp = dict(enumerate(height))
         tops = {}
 
         def obtain_top(hstble: Dict[int, int]) -> None:
@@ -67,15 +67,15 @@ class Solution_B:
 
             # 然后把两个柱子之间的数据删除
             for i in range(start + 1, end):
-                if i in hashtable:
-                    del hashtable[i]
+                if i in hmp:
+                    del hmp[i]
 
         # 首先得到第一个最大值
-        obtain_top(hashtable)
+        obtain_top(hmp)
 
         # 然后得到第二个最大值, 开始循环添加装水体积和删除之间的数据
-        while len(hashtable) != 0:  # 若原始数据被删空则停止
-            obtain_top(hashtable)
+        while len(hmp) != 0:  # 若原始数据被删空则停止
+            obtain_top(hmp)
             remove_between(tops)
 
         return max(result)

@@ -55,12 +55,12 @@ class Solution_C:
         """
         The same method in p167 Two Sum II can be used here
         """
-        hashtable = {}
+        hmp = {}
         for idx in range(0, len(nums)):
-            if nums[idx] not in hashtable:
-                hashtable[target - nums[idx]] = idx  # 这里建立一个需要的另一半的数字作为key, 对应的值是当前的idx
+            if nums[idx] not in hmp:
+                hmp[target - nums[idx]] = idx  # 这里建立一个需要的另一半的数字作为key, 对应的值是当前的idx
             else:
-                return [hashtable[nums[idx]], idx]
+                return [hmp[nums[idx]], idx]
                 # 当到达一个新的idx,如果对应的数字出现在之前建立的字典的key里,也就是找到了match
                 # 这样就把那个key的值(也就是第一个idx)找出来,和新的idx配对
 

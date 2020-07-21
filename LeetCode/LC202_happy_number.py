@@ -28,9 +28,9 @@ class Solution:
                 result += digit ** 2
             return result
 
-        hashtable = {}
-        while n not in hashtable:
-            hashtable[n] = 1
+        hmp = {}
+        while n not in hmp:
+            hmp[n] = 1
             n = process(n)
 
         return n == 1

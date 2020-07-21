@@ -22,11 +22,11 @@ class Solution(object):
             return None
 
         val = 0
-        hashtable = {}
+        hmp = {}
         cur = head
         while cur:
-            if cur not in hashtable:
-                hashtable[cur] = val
+            if cur not in hmp:
+                hmp[cur] = val
                 val += 1
             else:
                 return cur  # cyling will force to return
