@@ -54,13 +54,16 @@ class Solution_B1:
             hmp = {}
             i = 0
             while i != len(s):
-                if s[
-                    i] in hmp:  # if repeat, then recursive compare to the next section, starting after the first repeating element.
+                if s[i] not in hmp:
+                    hmp[s[i]] = i
+                else:
+                # if repeat, then recursive compare to the next section, starting after the first repeating element.
                     new_start = hmp[s[i]] + 1
                     return max(i, self.lengthOfLongestSubstring(s[new_start:]))
-                hmp[s[i]] = i
                 i += 1
-            else:  # if no repeat, go to the end and return the full length
+
+            else:  # base case for recursion
+                # if no repeat, go to the end and return the full length
                 return len(s)
 
 
@@ -78,19 +81,18 @@ class Solution_B2:
             return 0
         else:
             i, label = 0, 0
-            hashtable = {}
+            hmp = {}
             while i != len(s):
-                current = s[i]
-                if current not in hashtable:
-                    hashtable[current] = i
+                if s[i] not in hmp:
+                    hmp[s[i]] = i
                     i += 1
                     if i == len(s):  # Define an end case as no repeating found at the last element
                         result.append(i - label)
                 else:
                     result.append(i - label)
-                    i = hashtable[current] + 1
+                    i = hmp[s[i]] + 1
                     label = i
-                    hashtable = {}
+                    hmp = {}
 
             return max(result)
 
@@ -115,7 +117,7 @@ class Solution_STD:
 
 
 if __name__ == "__main__":
-    testCase = Solution_STD()
+    testCase = Solution_B1()
     assert testCase.lengthOfLongestSubstring("") == 0, "Edge 1"
     assert testCase.lengthOfLongestSubstring(" ") == 1, "Edge 2"
     assert testCase.lengthOfLongestSubstring("au") == 2, "Edge 3"
