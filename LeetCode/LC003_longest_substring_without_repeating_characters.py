@@ -4,6 +4,7 @@ P003 Longest Substring Without Repeating Characters
 Medium
 
 Given a string, find the length of the longest substring without repeating characters.
+possible characters are 26*2 (alphabetic) + >42 (other symboles) + 1(space) >= 95
 """
 
 class Solution_A:
@@ -34,10 +35,35 @@ class Solution_A:
                     return len(sample)
 
 
-class Solution_B1:
+class Solution_B:
+    def lengthOfLongestSubstring(self, s: str) -> int:
+        """
+        Brutal Force Time O(N)
+        Interate substrate in the level of 26 character length only (because max length is 26)
+
+        Cannot Save time by check fixed length of 95 characters,
+        but iterate each sub from length = 1 to 95 characeters
+
+        This will pass but very slow
+        """
+        ans = 0
+        for i in range(0, len(s)):
+            sub = s[i:i+100]
+            for j in range(1, len(sub)+1):
+                subsub = sub[0:j]
+                if len(subsub) == len(set(subsub)):
+                    if ans < j:
+                        ans = j
+                else:
+                    break
+        return ans
+
+
+class Solution_C1:
     def lengthOfLongestSubstring(self, s: str) -> int:
         """
         Time O(N^2), Space O(N)
+        Recursive
         Find repeating element and start again after the first repeating element
         This wil pass, but may reach maximum recursion depth in long cases
 
@@ -68,7 +94,7 @@ class Solution_B1:
 
 
 
-class Solution_B2:
+class Solution_C2:
     def lengthOfLongestSubstring(self, s: str) -> int:
         """
         Time O(N^2), Space O(N)
@@ -96,7 +122,6 @@ class Solution_B2:
 
             return max(result)
 
-
 class Solution_STD:
     def lengthOfLongestSubstring(self, s: str) -> int:
         """
@@ -117,7 +142,7 @@ class Solution_STD:
 
 
 if __name__ == "__main__":
-    testCase = Solution_B1()
+    testCase = Solution_C2()
     assert testCase.lengthOfLongestSubstring("") == 0, "Edge 1"
     assert testCase.lengthOfLongestSubstring(" ") == 1, "Edge 2"
     assert testCase.lengthOfLongestSubstring("au") == 2, "Edge 3"

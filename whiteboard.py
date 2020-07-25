@@ -16,7 +16,7 @@ class Solution:
         """
         ans = 0
         for i in range(0, len(s)):
-            sub = s[i:i+53]
+            sub = s[i:i+95]
             for j in range(1, len(sub)+1):
                 subsub = sub[0:j]
                 if len(subsub) == len(set(subsub)):
