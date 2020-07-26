@@ -129,28 +129,35 @@ class Solution_STD:
         借字符表运算
         """
         longest, start, visited = 0, 0, [False for _ in range(256)]
-        for i, char in enumerate(s):
-            if visited[ord(char)]:
-                while char != s[start]:
+        # 建立一个字符表list,256位长,默认全部都是false,因为一开始没有字符被找到
+
+        for i, char in enumerate(s): # 遍历字符串和其索引
+            if not visited[ord(char)]: # 如果字符之前没被找到过(也就是无重复)
+                visited[ord(char)] = True #则标记True表示找到
+            else: # 一旦出现重复
+                while char != s[start]: #从开始位置一直到这个出现重复位置的字符全部被清零
                     visited[ord(s[start])] = False
                     start += 1
-                start += 1
-            else:
-                visited[ord(char)] = True
-            longest = max(longest, i - start + 1)
+                start += 1 # 下一次统计就从这个重复位置之后开始
+
+            longest = max(longest, i - start + 1) # 更新一下目前最大值
         return longest
 
 
-if __name__ == "__main__":
-    testCase = Solution_C2()
-    assert testCase.lengthOfLongestSubstring("") == 0, "Edge 1"
-    assert testCase.lengthOfLongestSubstring(" ") == 1, "Edge 2"
-    assert testCase.lengthOfLongestSubstring("au") == 2, "Edge 3"
-    assert testCase.lengthOfLongestSubstring("aab") == 2, "Edge 4"
-    assert testCase.lengthOfLongestSubstring("dvdf") == 3, "Edge 5"
 
-    assert testCase.lengthOfLongestSubstring("abcabcbb") == 3, "Example 1, abc"
-    assert testCase.lengthOfLongestSubstring("bbbbb") == 1, "Example 2, b"
-    assert testCase.lengthOfLongestSubstring("pwwkew") == 3, "Example 3, wke"
-    assert testCase.lengthOfLongestSubstring("tmmzuxt") == 5, "Example 4, mzuxt"
-    print("all passed")
+print(Solution_STD().lengthOfLongestSubstring("pwwkew"))
+
+
+# if __name__ == "__main__":
+#     testCase = Solution_STD()
+#     assert testCase.lengthOfLongestSubstring("") == 0, "Edge 1"
+#     assert testCase.lengthOfLongestSubstring(" ") == 1, "Edge 2"
+#     assert testCase.lengthOfLongestSubstring("au") == 2, "Edge 3"
+#     assert testCase.lengthOfLongestSubstring("aab") == 2, "Edge 4"
+#     assert testCase.lengthOfLongestSubstring("dvdf") == 3, "Edge 5"
+#
+#     assert testCase.lengthOfLongestSubstring("abcabcbb") == 3, "Example 1, abc"
+#     assert testCase.lengthOfLongestSubstring("bbbbb") == 1, "Example 2, b"
+#     assert testCase.lengthOfLongestSubstring("pwwkew") == 3, "Example 3, wke"
+#     assert testCase.lengthOfLongestSubstring("tmmzuxt") == 5, "Example 4, mzuxt"
+#     print("all passed")
