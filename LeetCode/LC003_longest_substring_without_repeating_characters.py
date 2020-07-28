@@ -7,6 +7,7 @@ Given a string, find the length of the longest substring without repeating chara
 possible characters are 26*2 (alphabetic) + >42 (other symboles) + 1(space) >= 95
 """
 
+
 class Solution_A:
     def lengthOfLongestSubstring(self, s: str) -> int:
         """
@@ -14,6 +15,7 @@ class Solution_A:
         Get all substrings from long to short, then check each on repeating characters
         Fail as Maximum Time limit exceeded
         """
+
         def is_no_repeat(s: str) -> bool:
             """Helper"""
 
@@ -48,8 +50,8 @@ class Solution_B:
         """
         ans = 0
         for i in range(0, len(s)):
-            sub = s[i:i+100]
-            for j in range(1, len(sub)+1):
+            sub = s[i:i + 100]
+            for j in range(1, len(sub) + 1):
                 subsub = sub[0:j]
                 if len(subsub) == len(set(subsub)):
                     if ans < j:
@@ -83,7 +85,7 @@ class Solution_C1:
                 if s[i] not in hmp:
                     hmp[s[i]] = i
                 else:
-                # if repeat, then recursive compare to the next section, starting after the first repeating element.
+                    # if repeat, then recursive compare to the next section, starting after the first repeating element.
                     new_start = hmp[s[i]] + 1
                     return max(i, self.lengthOfLongestSubstring(s[new_start:]))
                 i += 1
@@ -91,7 +93,6 @@ class Solution_C1:
             else:  # base case for recursion
                 # if no repeat, go to the end and return the full length
                 return len(s)
-
 
 
 class Solution_C2:
@@ -122,6 +123,7 @@ class Solution_C2:
 
             return max(result)
 
+
 class Solution_STD:
     def lengthOfLongestSubstring(self, s: str) -> int:
         """
@@ -131,22 +133,20 @@ class Solution_STD:
         longest, start, visited = 0, 0, [False for _ in range(256)]
         # 建立一个字符表list,256位长,默认全部都是false,因为一开始没有字符被找到
 
-        for i, char in enumerate(s): # 遍历字符串和其索引
-            if not visited[ord(char)]: # 如果字符之前没被找到过(也就是无重复)
-                visited[ord(char)] = True #则标记True表示找到
-            else: # 一旦出现重复
-                while char != s[start]: #从开始位置一直到这个出现重复位置的字符全部被清零
+        for i, char in enumerate(s):  # 遍历字符串和其索引
+            if not visited[ord(char)]:  # 如果字符之前没被找到过(也就是无重复)
+                visited[ord(char)] = True  # 则标记True表示找到
+            else:  # 一旦出现重复
+                while char != s[start]:  # 从开始位置一直到这个出现重复位置的字符全部被清零
                     visited[ord(s[start])] = False
                     start += 1
-                start += 1 # 下一次统计就从这个重复位置之后开始
+                start += 1  # 下一次统计就从这个重复位置之后开始
 
-            longest = max(longest, i - start + 1) # 更新一下目前最大值
+            longest = max(longest, i - start + 1)  # 更新一下目前最大值
         return longest
 
 
-
 print(Solution_STD().lengthOfLongestSubstring("pwwkew"))
-
 
 # if __name__ == "__main__":
 #     testCase = Solution_STD()
