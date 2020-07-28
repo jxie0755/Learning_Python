@@ -146,18 +146,17 @@ class Solution_STD:
         return longest
 
 
-print(Solution_STD().lengthOfLongestSubstring("pwwkew"))
 
-# if __name__ == "__main__":
-#     testCase = Solution_STD()
-#     assert testCase.lengthOfLongestSubstring("") == 0, "Edge 1"
-#     assert testCase.lengthOfLongestSubstring(" ") == 1, "Edge 2"
-#     assert testCase.lengthOfLongestSubstring("au") == 2, "Edge 3"
-#     assert testCase.lengthOfLongestSubstring("aab") == 2, "Edge 4"
-#     assert testCase.lengthOfLongestSubstring("dvdf") == 3, "Edge 5"
-#
-#     assert testCase.lengthOfLongestSubstring("abcabcbb") == 3, "Example 1, abc"
-#     assert testCase.lengthOfLongestSubstring("bbbbb") == 1, "Example 2, b"
-#     assert testCase.lengthOfLongestSubstring("pwwkew") == 3, "Example 3, wke"
-#     assert testCase.lengthOfLongestSubstring("tmmzuxt") == 5, "Example 4, mzuxt"
-#     print("all passed")
+if __name__ == "__main__":
+    testCase = Solution_STD()
+    assert testCase.lengthOfLongestSubstring("") == 0, "Edge 1"
+    assert testCase.lengthOfLongestSubstring(" ") == 1, "Edge 2"
+    assert testCase.lengthOfLongestSubstring("au") == 2, "Edge 3"
+    assert testCase.lengthOfLongestSubstring("aab") == 2, "Edge 4"
+    assert testCase.lengthOfLongestSubstring("dvdf") == 3, "Edge 5"
+
+    assert testCase.lengthOfLongestSubstring("abcabcbb") == 3, "Example 1, abc"
+    assert testCase.lengthOfLongestSubstring("bbbbb") == 1, "Example 2, b"
+    assert testCase.lengthOfLongestSubstring("pwwkew") == 3, "Example 3, wke"
+    assert testCase.lengthOfLongestSubstring("tmmzuxt") == 5, "Example 4, mzuxt"
+    print("all passed")
