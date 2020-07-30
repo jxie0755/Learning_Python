@@ -53,7 +53,7 @@ class Solution_B1:
     def findMedianSortedArrays(self, nums1: List[int], nums2: List[int]) -> float:
         """
         O(1/2N)
-        Modified merge sort to only merge half way
+        MergeSort like, Modified merge sort to only merge half way
         """
         L1, L2 = len(nums1), len(nums2)
         total_length = L1 + L2
@@ -81,8 +81,8 @@ class Solution_B1:
 class Solution_B2:
     def findMedianSortedArrays(self, nums1: List[int], nums2: List[int]) -> float:
         """
-        Time O(N), space O
-        Same half way method with but only keep tracking the last two in the merge_list
+        Time O(N), space O(1)
+        MergeSort like, Same half way method with but only keep tracking the last two in the merge_list
         """
 
         L1, L2 = len(nums1), len(nums2)
