@@ -37,7 +37,7 @@ class Solution_B:
         """
         Time: O(N^2)
         Space: O(1)
-        从中心向两侧扩展法, 遍历中心点
+        Interate the center points and expand on each
         """
         length = len(s)
         result = ""
@@ -66,7 +66,7 @@ class Solution_C:
         """
         Time: O(N^2) + O(1/2N) = O(N^2)
         Space: O(N)
-        interate from center and expand, easier to read than version B
+        Interate the center points and expand on each, easier to read than version B
         """
 
         ans = ""
