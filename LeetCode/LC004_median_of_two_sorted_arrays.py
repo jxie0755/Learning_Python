@@ -49,117 +49,72 @@ class Solution_A:
 
         return median(merge)
 
-class Solution_B:
+class Solution_B1:
     def findMedianSortedArrays(self, nums1: List[int], nums2: List[int]) -> float:
         """
         O(1/2N)
         Modified merge sort to only merge half way
         """
-        l1, l2 = len(nums1), len(nums2)
-        total_l = l1 + l2
-
-        i, j = 0, 0
-        merge = []
-        while i <= len(nums1) - 1 or j <= len(nums2) - 1:
-            if len(merge) == total_l // 2 + 1:
-                break
-
-            elif i == len(nums1):
-                merge.append(nums2[j])
-                j += 1
-            elif j == len(nums2):
-                merge.append(nums1[i])
-                i += 1
-            elif nums1[i] <= nums2[j]:
-                merge.append(nums1[i])
-                i += 1
-            elif nums1[i] > nums2[j]:
-                merge.append(nums2[j])
-                j += 1
-
-        if len(merge) == 1:
-            return merge[-1]
-        if total_l % 2 == 0:
-            return (merge[-1] + merge[-2]) / 2
-        else:
-            return merge[-1]
-
-class Solution_C1:
-    def findMedianSortedArrays(self, nums1: List[int], nums2: List[int]) -> float:
-        """
-        Time O(N), space O(1/2N)
-        Same half way method with different index
-        """
-
-        cur1, cur2 = 0, 0
-        ct, lst = 0, []
-        m1 = (len(nums1) + len(nums2) + 1) // 2 - 1
-        m2 = (len(nums1) + len(nums2) + 2) // 2 - 1
-
-        if not nums1:
-            return (nums2[m1] + nums2[m2]) / 2
-        if not nums2:
-            return (nums1[m1] + nums1[m2]) / 2
-
-        while ct <= m2:
-            if cur1 == len(nums1):
-                lst.append(nums2[cur2])
-                cur2 += 1
-            elif cur2 == len(nums2):
-                lst.append(nums1[cur1])
-                cur1 += 1
-            elif nums1[cur1] <= nums2[cur2]:
-                lst.append(nums1[cur1])
-                cur1 += 1
-            elif nums1[cur1] > nums2[cur2]:
-                lst.append(nums2[cur2])
-                cur2 += 1
-            ct += 1
-
-        return (lst[m1] + lst[m2]) / 2
-
-class Solution_C2:
-    def findMedianSortedArrays(self, nums1: List[int], nums2: List[int]) -> float:
-        """
-        Time O(N), space O(1)
-        Same half way method with different index, but only keep track last two
-        """
-        total_length = len(nums1) + len(nums2)
-        mid_idx = total_length // 2
+        L1, L2 = len(nums1), len(nums2)
+        total_length = L1 + L2
+        n = 0
         i1, i2 = 0, 0
-        ct = 0
-        pre, cur = 0, 0
+        merge_list = []
 
-        while True:
-
-            # push next sorted item to cur position
-            if i1 == len(nums1):
-                cur = nums2[i2]
-                i2 += 1
-            elif i2 == len(nums2):
-                cur = nums1[i1]
-                i1 += 1
-            elif nums1[i1] <= nums2[i2]:
-                cur = nums1[i1]
+        while n != total_length // 2 + 1:
+            v1 = nums1[i1] if i1 < L1 else float('inf')
+            v2 = nums2[i2] if i2 < L2 else float('inf')
+            if v1 <= v2:
+                merge_list.append(v1)
                 i1 += 1
             else:
-                cur = nums2[i2]
+                merge_list.append(v2)
                 i2 += 1
-
-            if ct < mid_idx:  # record cur position to pre and go for next cur
-                pre = cur
-                ct += 1
-            else:  # don't update pre, stay as it is
-                break
+            n += 1
 
         if total_length % 2 == 0:
-            return (cur + pre) / 2
+            return (merge_list[-1] + merge_list[-2]) / 2
         else:
-            return cur
+            return merge_list[-1]
+
+
+class Solution_B2:
+    def findMedianSortedArrays(self, nums1: List[int], nums2: List[int]) -> float:
+        """
+        Time O(N), space O
+        Same half way method with but only keep tracking the last two in the merge_list
+        """
+
+        L1, L2 = len(nums1), len(nums2)
+        total_length = L1 + L2
+        n = 0
+        i1, i2 = 0, 0
+        merge_list = [0, 0]
+
+        while n != total_length // 2 + 1:
+
+            merge_list[0] = merge_list[1] # 如果继续,第二项前移成为第一项,然后寻找新的第二项
+
+            v1 = nums1[i1] if i1 < L1 else float('inf')
+            v2 = nums2[i2] if i2 < L2 else float('inf')
+
+            if v1 <= v2:
+                merge_list[1] = v1
+                i1 += 1
+            else:
+                merge_list[1] = v2
+                i2 += 1
+
+            n += 1
+
+        if total_length % 2 == 0:
+            return (merge_list[0] + merge_list[1]) / 2
+        else:
+            return merge_list[1]
 
 
 if __name__ == "__main__":
-    testCase = Solution_C2()
+    testCase = Solution_B2()
     assert testCase.findMedianSortedArrays([], [1]) == 1.0, "Edge 1"
     assert testCase.findMedianSortedArrays([1], [2]) == 1.5, "Edge 2"
     assert testCase.findMedianSortedArrays([2], []) == 2.0, "Edge 3"
