@@ -61,6 +61,38 @@ class Solution_B:
         return result
 
 
+class Solution_C:
+    def longestPalindrome(self, s: str) -> str:
+        """
+        Time: O(N^2) + O(1/2N) = O(N^2)
+        Space: O(N)
+        interate from center and expand, easier to read than version B
+        """
+
+        ans = ""
+
+        # two checks in one iteration, odd length check and even length check
+        for i in range(len(s)):
+
+            # first odd length check
+            odd_j = i
+            odd_k = i
+            while odd_j >= 0 and odd_k <= len(s) -1 and s[odd_j] == s[odd_k]:
+                ans = max(ans, s[odd_j:odd_k + 1], key=len)
+                odd_j -= 1
+                odd_k += 1
+
+            # second even length check, only when found two consecutuve identical
+            even_j = i
+            even_k = i + 1
+            while even_j >= 0 and even_k <= len(s) -1 and s[even_j] == s[even_k]:
+                ans = max(ans, s[even_j:even_k + 1], key=len)
+                even_j -= 1
+                even_k += 1
+
+        return ans
+
+
 # TODO: Practice Manacher's algorithm (Dynamic Programming)
 # class Solution_STD:
 #     def longestPalindrome(self, s: str) -> str:
@@ -72,7 +104,7 @@ class Solution_B:
 
 
 if __name__ == "__main__":
-    testCase = Solution_B()
+    testCase = Solution_C()
     assert testCase.longestPalindrome("") == "", "Edge 1"
     assert testCase.longestPalindrome("a") == "a", "Edge 2"
     assert testCase.longestPalindrome("aaa") == "aaa", "Edge 3"
