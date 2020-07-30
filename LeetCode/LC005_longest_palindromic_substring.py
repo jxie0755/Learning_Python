@@ -69,7 +69,7 @@ class Solution_C:
         Interate the center points and expand on each, easier to read than version B
         """
 
-        ans = ""
+        result = ""
 
         # two checks in one iteration, odd length check and even length check
         for i in range(len(s)):
@@ -78,7 +78,7 @@ class Solution_C:
             odd_j = i
             odd_k = i
             while odd_j >= 0 and odd_k <= len(s) -1 and s[odd_j] == s[odd_k]:
-                ans = max(ans, s[odd_j:odd_k + 1], key=len)
+                result = max(result, s[odd_j:odd_k + 1], key=len)
                 odd_j -= 1
                 odd_k += 1
 
@@ -86,11 +86,11 @@ class Solution_C:
             even_j = i
             even_k = i + 1
             while even_j >= 0 and even_k <= len(s) -1 and s[even_j] == s[even_k]:
-                ans = max(ans, s[even_j:even_k + 1], key=len)
+                result = max(result, s[even_j:even_k + 1], key=len)
                 even_j -= 1
                 even_k += 1
 
-        return ans
+        return result
 
 
 # TODO: Practice Manacher's algorithm (Dynamic Programming)
