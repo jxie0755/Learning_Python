@@ -90,9 +90,10 @@ class Solution_B:
             for j in range(i, len(s), step):  # 使用step法直接原地找到index值
                 zigzag += s[j]
 
-                returning_idx = j + (numRows - 1 - i) * 2 # 补充折返字符串
-                if 0 < i < numRows - 1 and returning_idx < len(s):  # 重叠空间要管一下,而且不要超出末尾
-                    zigzag += s[returning_idx]
+                if 0 < i < numRows - 1: # 指定折返区间不能是头尾
+                    returning_idx = j + (numRows - 1 - i) * 2  # 补充折返字符串
+                    if returning_idx < len(s):  # 折返不要超出末尾
+                        zigzag += s[returning_idx]
 
         return zigzag
 
