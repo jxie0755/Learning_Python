@@ -51,20 +51,49 @@ class Solution_A2:
 
         return "".join(i for i in ["".join(j) for j in mapping])
 
+class Solution_A3:
+    def convert(self, s: str, numRows: int) -> str:
+        """Time O(N), space O(N), more general and straightforward for reading"""
+        # build a grid first
+        grid = []
+
+        # build a cycling grid_idx to guide adding letter from str to grid
+        cycle_idx = [i for i in range(numRows)]
+        cycle_idx = cycle_idx + cycle_idx[-2:0:-1]
+        for i in range(numRows):
+            grid.append([])
+
+        # add letter to grid following the rule
+        for i in range(len(s)):
+            letter = s[i]
+            grid_idx = cycle_idx[i % len(cycle_idx)]
+            grid[grid_idx].append(letter)
+
+        # output result by joining
+        ans = ""
+        for row in grid:
+            ans += "".join(row)
+
+        return ans
+
+
 
 class Solution_B:
     """Time O(N), Space O(1) better in space"""
     def convert(self, s: str, numRows: int) -> str:
         if numRows == 1:
             return s
-        step, zigzag = 2 * numRows - 2, ""
+        step = 2 * numRows - 2
+        zigzag = ""
 
         for i in range(numRows):
             for j in range(i, len(s), step):  # 使用step法直接原地找到index值
                 zigzag += s[j]
-                additional = j + (numRows - 1 - i) * 2
-                if 0 < i < numRows - 1 and additional < len(s):  # 重叠空间要管一下
-                    zigzag += s[additional]
+
+                returning_idx = j + (numRows - 1 - i) * 2 # 补充折返字符串
+                if 0 < i < numRows - 1 and returning_idx < len(s):  # 重叠空间要管一下,而且不要超出末尾
+                    zigzag += s[returning_idx]
+
         return zigzag
 
 
