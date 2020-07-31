@@ -66,7 +66,7 @@ class Solution_C:
         """
         Time: O(N^2) + O(1/2N) = O(N^2)
         Space: O(N)
-        Interate the center points and expand on each, easier to read than version B
+        Interate the center points and expand on each, easier to read than Solution B
         """
 
         result = ""
