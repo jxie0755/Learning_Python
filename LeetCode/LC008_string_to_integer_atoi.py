@@ -17,7 +17,7 @@ Only the space character " " is considered as whitespace character.
 Assume we are dealing with an environment which could only store integers within the 32-bit signed integer range: [−231,  231 − 1]. If the numerical value is out of the range of representable values, INT_MAX (2^31 − 1) or INT_MIN (−2^31) is returned.
 """
 
-from re import search
+import re
 
 class Solution_A:
     def myAtoi(self, str: str) -> int:
@@ -77,7 +77,8 @@ class Solution_B:
     def myAtoi(self, str: str) -> int:
         """use regex method to identify each group of elment"""
 
-        mo = search(r"^[\s]*([+\-]?)(\d+)", str)
+        mo = re.search(r"^[\s]*([+\-]?)(\d+)", str)
+        # 三部分, 可选的非数字的开头部分, 可选的正负号, 和数字部分, 非数字的中间项可以直接忽略
 
         if not mo:
             return 0
@@ -86,7 +87,9 @@ class Solution_B:
         for i in mo.group(2)[::-1]:
             result += int(i) * base
             base *= 10
+
         result = -1 * result if mo.group(1) == "-" else result
+
         if result < -2 ** 31:
             return -2 ** 31
         elif result > 2 ** 31 - 1:
