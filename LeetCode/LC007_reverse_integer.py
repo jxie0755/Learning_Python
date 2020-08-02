@@ -14,11 +14,13 @@ class Solution_A:
         """
         use string method, time O(logN), takes extra space O(logn)
         """
+        str_result = str(x)[::-1]
+
         if x >= 0:
-            result = int(str(x)[::-1])
+            result = int(str_result)
             return result if result <= 2147483647 else 0
         else:
-            result = int("-" + str(x)[-1:0:-1])
+            result = int("-" + str_result[:-1])
             return result if result >= -2147483648 else 0
 
 class Solution_B:
@@ -39,7 +41,7 @@ class Solution_B:
 
 
 if __name__ == "__main__":
-    testCase = Solution_B()
+    testCase = Solution_A()
     assert testCase.reverse(123) == 321, "regular"
     assert testCase.reverse(-120) == -21, "tricky reverse"
     assert testCase.reverse(1534236469) == 0, "large number"
