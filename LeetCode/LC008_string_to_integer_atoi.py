@@ -75,7 +75,7 @@ class Solution_A:
 class Solution_B:
 
     def myAtoi(self, str: str) -> int:
-        """use regex method to identify each group of elment"""
+        """use regex method to identify each group of element"""
 
         mo = re.search(r"^[\s]*([+\-]?)(\d+)", str)
         # 三部分, 可选的非数字的开头部分, 可选的正负号, 和数字部分, 非数字的中间项可以直接忽略
