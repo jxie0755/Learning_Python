@@ -77,14 +77,14 @@ class Solution_B:
     def myAtoi(self, str: str) -> int:
         """use regex method to identify each group of element"""
 
-        mo = re.search(r"^[\s]*([+\-]?)(\d+)", str)
-        # 三部分, 可选的非数字的开头部分, 可选的正负号, 和数字部分, 非数字的中间项可以直接忽略
+        mo = re.search(r"^[\s]*([+\-]?)([0]*)(\d+)", str)
+        # 4部分, 可选的非数字的开头部分, 可选的正负号, 前驱0, 有效数字部分, 非数字的中间项可以直接忽略
 
         if not mo:
             return 0
 
         result, base = 0, 1
-        for i in mo.group(2)[::-1]:
+        for i in mo.group(3)[::-1]:
             result += int(i) * base
             base *= 10
 
