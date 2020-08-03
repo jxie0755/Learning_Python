@@ -113,7 +113,9 @@ if __name__ == "__main__":
     assert testCase.myAtoi("  -0012a42") == -12, "Extra 4"
     assert testCase.myAtoi("   +0 123") == 0, "Extra 5"
     assert testCase.myAtoi("-5-") == -5, "Extra 6"
-    assert testCase.myAtoi("9223372036854775808") == 2147483647, "Extra 6"
-    assert testCase.myAtoi("10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000522545459") == 2147483647, "Super Long"
+    assert testCase.myAtoi("9223372036854775808") == 2147483647, "Extra 7"
+    assert testCase.myAtoi("-6147483648") == -2147483648, "Extra 8, 10 digit length but oversize Integer"
+
+    assert testCase.myAtoi("10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000522545459") == 2147483647, "Extra 9, Beyond Long"
     assert testCase.myAtoi("  0000000000012345678") == 12345678, "Empty Head"
     print("all passed")
