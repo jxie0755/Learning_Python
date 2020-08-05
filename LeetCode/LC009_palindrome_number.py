@@ -7,9 +7,9 @@ Determine whether an integer is a palindrome. Do this without extra space.
 Negative integer will not be a palindrome
 """
 
-class Solution:
+class Solution_A:
 
-    def isPalindrome_A(self, x: int) -> bool:
+    def isPalindrome(self, x: int) -> bool:
         """String method, takes extra space"""
         if x < 0:
             return False
