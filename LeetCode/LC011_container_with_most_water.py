@@ -97,7 +97,6 @@ class Solution_C:
         return max_area
 
 
-
 if __name__ == "__main__":
     testCase = Solution_C()
     assert testCase.maxArea([0, 0]) == 0, "Edge 1"
