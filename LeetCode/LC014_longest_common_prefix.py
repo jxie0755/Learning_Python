@@ -28,6 +28,25 @@ class Solution_A:
                 break
         return result
 
+class Solution_A2:
+    def longestCommonPrefix(self, strs: List[str]) -> str:
+        """Simple comparison from beginning"""
+
+        result = ""
+        if len(strs) == 0:
+            return result
+
+        for i in range(len(min(strs, key=len))):
+            temp = strs[0][i]
+            for j in range(1, len(strs)):
+                check = strs[j][i]
+                if check != temp:
+                    break
+            else:
+                result += temp
+        return result
+
+
 class Solution_B:
     def longestCommonPrefix(self, strs: List[str]) -> str:
         """
@@ -48,7 +67,7 @@ class Solution_B:
 
 
 if __name__ == "__main__":
-    testCase = Solution_B()
+    testCase = Solution_A2()
     lst = ["Denis Xie", "Dennis X", "Dendi Den", "Denn"]
     assert testCase.longestCommonPrefix(lst) == "Den", "regular test"
 
