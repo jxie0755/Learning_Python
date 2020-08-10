@@ -49,7 +49,10 @@ class Solution_B:
 class Solution_C:
 
     def intToRoman(self, num: int) -> str:
-        """Hashmap alternative"""
+        """
+        Hashmap alternative
+        DIVMOD method  -- it is actually a system of more than just decimal system, but a mixture of 1 to 1000
+        """
 
         result = ""
         roman_list = [(1000, "M"), (900, "CM"), (500, "D"), (400, "CD"),
