@@ -207,7 +207,7 @@ class Solution_STD:
     def threeSum(self, nums: List[int]) -> List[List[int]]:
         """
         Time:  O(n^2)
-        Sort first
+        Sort first, then iterate the first element, and find the 2nd and 3rd in the tail from two ends.
         """
         result = []
         nums = sorted(nums)
