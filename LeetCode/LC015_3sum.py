@@ -21,8 +21,7 @@ class Solution_A:
         """
 
         result = []
-        i = 0
-        while i != len(nums):
+        for i in range(len(nums)):
             current = nums[i]
             two_sum = self.twoSum_for_3sum(nums, 0 - current, i)
             if two_sum:
@@ -30,12 +29,15 @@ class Solution_A:
                     ans = sorted([current] + ts)
                     if ans not in result:
                         result.append(ans)
-            i += 1
 
-        return result
+        return sorted(result)
 
     def twoSum_for_3sum(self, numbers: List[int], target: int, jump: int) -> List[List[int]]:
-        """Helper A"""
+        """
+        Helper A
+        A simple modification from Leetcode 001
+        jump is a idx of one element in the nums, so that we can find the other two elements
+        """
         result = []
         hmp = {}
         for idx in range(0, len(numbers)):
@@ -52,6 +54,7 @@ class Solution_A:
 class Solution_B:
     def threeSum(self, nums: List[int]) -> List[List[int]]:
         """
+        3 For loops to iterate every combination, none-repeatly
         Pure brutal force, O(N^3), max time limit exceeded
         """
 
@@ -61,23 +64,17 @@ class Solution_B:
             return []
 
         result = []
-        i = 0
-        while i != length - 2:
+        for i in range(0, length-2):
             first = nums[i]
-            j = i + 1
-            while j != length - 1:
+            for j in range(i+1, length-1):
                 second = nums[j]
-                k = j + 1
-                while k != length:
+                for k in range(j+1, length):
                     third = nums[k]
                     if first + second + third == 0:
                         ans = sorted([first, second, third])
                         if ans not in result:
                             result.append(ans)
-                    k += 1
-                j += 1
-            i += 1
-        return result
+        return sorted(result)
 
 
 class Solution_C:
@@ -135,7 +132,7 @@ class Solution_D:
     def threeSum(self, nums: List[int]) -> List[List[int]]:
         """
         Since we only need to return numbers, it does not need to be indexed
-        Break down the nums with a sort first, then move head and tail towards center
+        sort nums first, then move head and tail towards center, it will find solution more quickly
         Max Limit Exceeded
         """
 
@@ -160,7 +157,7 @@ class Solution_D:
                 head += 1
                 tail = length - 1
 
-        return result
+        return sorted(result)
 
 
 class Solution_E:
@@ -174,9 +171,8 @@ class Solution_E:
         nums = sorted(nums)
 
         result = []
-        i = 0
 
-        while i != len(nums):
+        for i in range(len(nums)):
             current = nums[i]
             two_sum = self.twoSum(nums, 0 - current, i)
             if two_sum:
@@ -184,9 +180,8 @@ class Solution_E:
                     ans = sorted([current] + ts)
                     if ans not in result:
                         result.append(ans)
-            i += 1
 
-        return result
+        return sorted(result)
 
     def twoSum(self, numbers: List[int], target: int, jump: int) -> List[List[int]]:
         """
@@ -212,15 +207,15 @@ class Solution_STD:
     def threeSum(self, nums: List[int]) -> List[List[int]]:
         """
         Time:  O(n^2)
+        Sort first
         """
-        nums, result, i = sorted(nums), [], 0
-        while i < len(nums) - 2:
+        result = []
+        nums = sorted(nums)
 
-            if i == 0 or nums[i] != nums[i - 1]:
-                # 优化, 因为如果相同就别搞了
+        for i in range(len(nums) - 2):
 
-                j, k = i + 1, len(nums) - 1
-                # i 是下一个, k是尾部
+            if i == 0 or nums[i] != nums[i - 1]:  # 优化, 因为如果相同就别搞了
+                j, k = i + 1, len(nums) - 1 # j是i的下一个, k是尾部
 
                 while j < k:
                     # 正常情况就是后面两个数字头尾向中间推进
@@ -228,19 +223,19 @@ class Solution_STD:
                         j += 1
                     elif nums[i] + nums[j] + nums[k] > 0:
                         k -= 1
-
                     # 如果找到一个解,头尾一起动, 而且跳过一些相同解
                     else:
-                        result.append([nums[i], nums[j], nums[k]])
-                        j, k = j + 1, k - 1
+                        result.append([nums[i], nums[j], nums[k]]) # 这里可以保证每一组答案天然就是sorted
+                        j += 1
+                        k -= 1
 
                         # 去重, 如果有重复数字, 则会形成重复解
                         # 但是必须是找到一个答案才能做,不然可能会跳过一些解
+                        # 不要在result里面去重, 那样效率太低, 只有这样才能pass
                         while j < k and nums[j] == nums[j - 1]:
                             j += 1
                         while j < k and nums[k] == nums[k + 1]:
                             k -= 1
-            i += 1
         return result
 
 
@@ -250,6 +245,7 @@ if __name__ == "__main__":
     assert testCase.threeSum([1]) == [], "Edge 2"
     assert testCase.threeSum([1, 1]) == [], "Edge 3"
 
+    print(testCase.threeSum([-1, 0, 1, 2, -1, -4]))
     assert testCase.threeSum([-1, 0, 1, 2, -1, -4]) == [[-1, -1, 2], [-1, 0, 1]], "Example 1"
     assert testCase.threeSum([-4, -2, -2, -2, 0, 1, 2, 2, 2, 3, 3, 4, 4, 6, 6]) == [[-4, -2, 6], [-4, 0, 4],
                                                                                       [-4, 1, 3], [-4, 2, 2],
