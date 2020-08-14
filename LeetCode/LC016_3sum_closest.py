@@ -22,9 +22,7 @@ class Solution_A:
         diff = float("inf")
         result = float("inf")
 
-        i = 0
-
-        while i < len(nums) - 2:
+        for i in range(len(nums) - 2):
 
             if i == 0 or nums[i] != nums[i - 1]:
 
@@ -46,7 +44,6 @@ class Solution_A:
                     # 如果找到一个解, 也就是刚好等于target, 那就直接return
                     else:
                         return target
-            i += 1
         return result
 
 
