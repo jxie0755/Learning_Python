@@ -21,30 +21,31 @@ class Solution_A:
         Time:  O(n * 3^n)
         """
 
-        hmp = {"0": [" "],
-                     "1": [""],
-                     "2": ["a", "b", "c"],
-                     "3": ["d", "e", "f"],
-                     "4": ["g", "h", "i"],
-                     "5": ["j", "k", "l"],
-                     "6": ["m", "n", "o"],
-                     "7": ["p", "q", "r", "s"],
-                     "8": ["t", "u", "v"],
-                     "9": ["w", "x", "y", "z"]
-                     }
+        hmp = {
+            "0": [" "],
+            "1": [""],
+            "2": ["a", "b", "c"],
+            "3": ["d", "e", "f"],
+            "4": ["g", "h", "i"],
+            "5": ["j", "k", "l"],
+            "6": ["m", "n", "o"],
+            "7": ["p", "q", "r", "s"],
+            "8": ["t", "u", "v"],
+            "9": ["w", "x", "y", "z"]
+        }
 
         result = []
-        i = 0
-        while i != len(digits):
+        for i in range(len(digits)):
+
             current = digits[i]
 
             if i == 0:
                 result = hmp[current]
             else:
-                new_list = hmp[current]
-                result = [j + k for j in result for k in new_list]
-            i += 1
-
+                result = [j + k
+                          for j in result
+                          for k in hmp[current]
+                          ]
         return result
 
 
