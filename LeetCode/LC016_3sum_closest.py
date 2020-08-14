@@ -25,25 +25,26 @@ class Solution_A:
         for i in range(len(nums) - 2):
 
             if i == 0 or nums[i] != nums[i - 1]:
+                j, k = i + 1, len(nums) - 1 # j 是下一个, k是尾部
 
-                j, k = i + 1, len(nums) - 1
-                # j 是下一个, k是尾部
-
-                while j < k:
+                while j < k: # j和k后面两个数字头尾向中间推进
                     three_sum = nums[i] + nums[j] + nums[k]
+
                     check = abs(three_sum - target)
-                    if check < diff:
+                    if check < diff: # update result by checking diff
                         diff = check
                         result = three_sum
 
-                    if nums[i] + nums[j] + nums[k] < target:
+                    if three_sum < target:
                         j += 1
-                    elif nums[i] + nums[j] + nums[k] > target:
+                    elif three_sum > target:
                         k -= 1
 
                     # 如果找到一个解, 也就是刚好等于target, 那就直接return
+                    # 不需要像LC015那样去重, 因为我们只找一个答案, 不是一组数组
                     else:
-                        return target
+                        return result
+
         return result
 
 

@@ -217,11 +217,12 @@ class Solution_STD:
             if i == 0 or nums[i] != nums[i - 1]:  # 优化, 因为如果相同就别搞了
                 j, k = i + 1, len(nums) - 1 # j是i的下一个, k是尾部
 
-                while j < k:
-                    # 正常情况就是后面两个数字头尾向中间推进
-                    if nums[i] + nums[j] + nums[k] < 0:
+                while j < k:  # j和k后面两个数字头尾向中间推进
+                    three_sum = nums[i] + nums[j] + nums[k]
+
+                    if three_sum < 0:
                         j += 1
-                    elif nums[i] + nums[j] + nums[k] > 0:
+                    elif three_sum > 0:
                         k -= 1
                     # 如果找到一个解,头尾一起动, 而且跳过一些相同解
                     else:
