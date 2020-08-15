@@ -22,37 +22,39 @@ class Solution_A:
             return []
 
         nums = sorted(nums)
-        result, i = [], 0
+        result = []
 
-        while i < length - 3:
+        for i in range(length - 3):
             if i == 0 or nums[i] != nums[i - 1]:  # 跳跃i
-                ii = i + 1  # ii是第二个
 
-                while ii < length - 2:
+                for ii in range(i+1, length - 2):
                     if ii == i + 1 or nums[ii] != nums[ii - 1]:  # 同样不要忘了跳跃ii
-                        j, k = ii + 1, length - 1
-                        # j 是第三个, k是尾部
+
+                        j = ii + 1     # j是第三个
+                        k = length - 1 # k是尾部
 
                         while j < k:
                             # print([nums[i], nums[ii], nums[j], nums[k]], nums[i] + nums[ii] + nums[j] + nums[k])
                             # 正常情况就是后面两个数字头尾向中间推进
-                            if nums[i] + nums[ii] + nums[j] + nums[k] < target:
+
+                            four_sum = nums[i] + nums[ii] + nums[j] + nums[k]
+                            if four_sum < target:
                                 j += 1
-                            elif nums[i] + nums[ii] + nums[j] + nums[k] > target:
+                            elif four_sum > target:
                                 k -= 1
 
                             # 如果找到一个解,头尾一起动, 而且跳过一些相同解
                             else:
                                 result.append([nums[i], nums[ii], nums[j], nums[k]])
-                                j, k = j + 1, k - 1
-                                # 这一部分必须是找到一个答案才能做,不然可能会跳过一些解
+                                j = j + 1
+                                k = k - 1
 
+                                # 类似3Sum一样的去重
+                                # 这一部分必须是找到一个答案才能做,不然可能会跳过一些解
                                 while j < k and nums[j] == nums[j - 1]:
                                     j += 1
                                 while j < k and nums[k] == nums[k + 1]:
                                     k -= 1
-                    ii += 1
-            i += 1
         return result
 
 
