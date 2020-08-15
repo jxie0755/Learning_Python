@@ -15,7 +15,8 @@ from typing import *
 class Solution_A:
     def fourSum(self, nums: List[int], target: int) -> List[List[int]]:
         """
-        Same idea from 3Sum O(N*3^N)
+        Same idea from 3Sum STD solution
+        Time O(N*3^N)
         """
         length = len(nums)
         if length < 4:
