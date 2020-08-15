@@ -21,7 +21,6 @@ class Solution_A:
         length = len(nums)
         if length < 4:
             return []
-
         nums = sorted(nums)
         result = []
 
