@@ -46,7 +46,8 @@ class Solution_A:
 
                             # 如果找到一个解,头尾一起动, 而且跳过一些相同解
                             else:
-                                result.append([nums[i], nums[ii], nums[j], nums[k]])
+                                temp = [nums[i], nums[ii], nums[j], nums[k]]
+                                result.append(temp)
                                 j = j + 1
                                 k = k - 1
 
