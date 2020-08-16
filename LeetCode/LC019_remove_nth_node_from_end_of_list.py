@@ -55,13 +55,13 @@ class Solution_STD:
         dummy.next = head
         slow, fast = dummy, dummy
 
-        for i in range(n):
+        for i in range(n):   # 使得slow与fast之间刚好差距一个n
             fast = fast.next
 
-        while fast.next:
+        while fast.next:    # 把fast和slow同速移动到fast碰到末尾, 此时slow的idx正好是倒数第n之前一位
             slow, fast = slow.next, fast.next
 
-        slow.next = slow.next.next
+        slow.next = slow.next.next # 把slow后一位跳过,直接接上再下一位
 
         return dummy.next
 
