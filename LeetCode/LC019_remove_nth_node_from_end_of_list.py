@@ -48,7 +48,7 @@ class Solution_STD:
 
         为什么要设置dummy?
         D-1-2-3-4-5-N
-        s         f     // # 不设置dummy的话无法应对跳过head的情况
+        s         f     // # 不设置dummy的话无法应对正好是head需要被remove(倒数第n)的情况
         """
 
         dummy = ListNode(-1)
