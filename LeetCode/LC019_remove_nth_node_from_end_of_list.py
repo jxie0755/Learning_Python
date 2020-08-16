@@ -17,22 +17,21 @@ class Solution_A:
         """
         笨办法,先判断链表长度, 再正向解决
         """
-        cur, length = head, 0
+        cur = head
+        length = 0
         while cur:
             length += 1
             cur = cur.next
 
-        p_length = length - n
-        if p_length == 0:
-            return head.next
-        else:
-            curr = head
-            while p_length > 1:
-                curr = curr.next
-                p_length -= 1
+        dummy = ListNode('X')
+        dummy.next = head
+        new_cur = dummy
 
-            curr.next = curr.next.next
-            return head
+        for i in range(length - n):  # move to node right before removal
+            new_cur = new_cur.next
+        new_cur.next = new_cur.next.next
+
+        return dummy.next
 
 
 class Solution_STD:
@@ -69,15 +68,17 @@ class Solution_STD:
 
 if __name__ == "__main__":
     testCase = Solution_STD()
-
-    # Given linked list: 1->2->3->4->5, and n = 2
-    a = genNode([1, 2, 3, 4, 5])
-
-    f = testCase.removeNthFromEnd(a, 2)
-    assert repr(f) == "1->2->3->5"
-
+    # Given linked list: 1->2->3->4->5
     a = genNode([1])
     f = testCase.removeNthFromEnd(a, 1)
-    assert repr(f) == "None"
+    assert repr(f) == "None", "Edge 0"
+
+    a = genNode([1, 2])
+    f = testCase.removeNthFromEnd(a, 2)
+    assert repr(f) == "2", "Edge 1"
+
+    a = genNode([1, 2, 3, 4, 5])
+    f = testCase.removeNthFromEnd(a, 2)
+    assert repr(f) == "1->2->3->5"
 
     print("all passed")
