@@ -9,23 +9,25 @@ The brackets must close in the correct order, "()" and "()[]{}" are all valid bu
 
 
 class Solution_A:
+
+    # setup data as class attributes
+    OPEN_BRACKETS = {"(": 1, "{": 2, "[": 3}
+    CLOSE_BRACKETS = {")": 1, "}": 2, "]": 3}
+
     def isValid(self, s: str) -> bool:
         """
         idea from checkio/electionic station/p1_brackets and improved
         不再使用index,因为太不直观,直接使用mapping把左括号和右括号对应值(其实不需要是num,任何三个键值都能成立)
         仍然是用pop()来对应括号位置关系
         """
-        OPEN_BRACKETS = {"(": 1, "{": 2, "[": 3}
-        CLOSE_BRACKETS = {")": 1, "}": 2, "]": 3}  # setup data as class attributes
-
         brackets = []
         for i in s:
-            if i in OPEN_BRACKETS:
-                brackets.append(OPEN_BRACKETS[i])
-            if i in CLOSE_BRACKETS:
+            if i in self.OPEN_BRACKETS:
+                brackets.append(self.OPEN_BRACKETS[i])
+            if i in self.CLOSE_BRACKETS:
                 if len(brackets) == 0:
                     return False
-                if brackets.pop() != CLOSE_BRACKETS[i]:  # one step for two operations
+                if brackets.pop() != self.CLOSE_BRACKETS[i]:  # one step for two operations
                     return False    # pop anyway, and if true, pop is aleady done.
         return len(brackets) == 0
 
