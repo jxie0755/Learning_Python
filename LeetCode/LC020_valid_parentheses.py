@@ -18,16 +18,16 @@ class Solution_A:
         OPEN_BRACKETS = {"(": 1, "{": 2, "[": 3}
         CLOSE_BRACKETS = {")": 1, "}": 2, "]": 3}  # setup data as class attributes
 
-        result = []
+        brackets = []
         for i in s:
             if i in OPEN_BRACKETS:
-                result.append(OPEN_BRACKETS[i])
+                brackets.append(OPEN_BRACKETS[i])
             if i in CLOSE_BRACKETS:
-                if len(result) == 0:
+                if len(brackets) == 0:
                     return False
-                if result.pop() != CLOSE_BRACKETS[i]:
-                    return False
-        return len(result) == 0
+                if brackets.pop() != CLOSE_BRACKETS[i]:  # one step for two operations
+                    return False    # pop anyway, and if true, pop is aleady done.
+        return len(brackets) == 0
 
 
 if __name__ == "__main__":
@@ -38,4 +38,5 @@ if __name__ == "__main__":
     assert testCase.isValid("[1+1]+(2*2)-{3/3}"), "Different operators"
     assert not testCase.isValid("(({[(((1)-2)+3)-3]/3}-3)"), "One is redundant"
     assert testCase.isValid("2+3"), "No brackets, no problem"
+    assert not testCase.isValid(")("), "begin with right"
     print("all passed")
