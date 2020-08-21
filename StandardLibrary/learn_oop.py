@@ -28,23 +28,23 @@ class Student(object):
         self.score = score
 
 # __init__方法的第一个参数永远都是self,表示创建实例本身
-# 在__init__方法内部, 可以把各种属性绑定到self, 因为self指向创建的实例本身. 
+# 在__init__方法内部, 可以把各种属性绑定到self, 因为self指向创建的实例本身.
 # 有了__init__方法, 在创建实例的时候, 必须传入与__init__方法匹配的参数, 但self不需要传
 denis = Student("Denis Xie", 99)
 print(denis.name)  # >>> Denis Xie
 print(denis.score)  # >>> 99
 
-# 和普通函数相比, 在类中定义的函数只有一点不同, 就是第一个参数永远是实例变量self, 并且, 调用时不用传递该参数. 
-# 除此之外, 类的方法和普通函数没有什么区别. 
+# 和普通函数相比, 在类中定义的函数只有一点不同, 就是第一个参数永远是实例变量self, 并且, 调用时不用传递该参数.
+# 除此之外, 类的方法和普通函数没有什么区别.
 
-# 面向对象编程的一个重要特点就是数据封装. 在上面的Student类中, 每个实例就拥有各自的name和score这些数据. 
+# 面向对象编程的一个重要特点就是数据封装. 在上面的Student类中, 每个实例就拥有各自的name和score这些数据.
 # 我们可以通过外部函数来访问这些数据
 def print_score(std):
     print(f"{std.name} has a score of {std.score}")
 print_score(denis)  # >>> Denis Xie has a score of 99
 
 # 既然我们创建的实例里有自身的数据, 如果想访问这些数据, 就没必要从外面的函数去访问
-# 可以在Student类内部去定义这样一个访问数据的函数, 这样就把"数据"和 "函数"给封装起来了. 
+# 可以在Student类内部去定义这样一个访问数据的函数, 这样就把"数据"和 "函数"给封装起来了.
 
 # 这些封装数据的内部函数和Student类本身关联起来的, 我们称之为类的方法
 class Student(object):
@@ -61,9 +61,9 @@ denis.print_score()  # >>> Denis Xie has a score of 99
 # 数据和逻辑都被封装起来, 直接调用方法即可, 但却可以不用知道内部的细节
 
 # 总结:
-# *类是创建实例的模板, 而实例则是一个一个具体的对象, 各个实例拥有的数据都互相独立, 互不影响: 
-# *方法就是与实例绑定的函数, 和普通函数不同, 方法可以直接访问实例的数据: 
-# *通过在实例上调用方法, 我们就直接操作了对象内部的数据, 但无需知道方法内部的实现细节. 
+# *类是创建实例的模板, 而实例则是一个一个具体的对象, 各个实例拥有的数据都互相独立, 互不影响:
+# *方法就是与实例绑定的函数, 和普通函数不同, 方法可以直接访问实例的数据:
+# *通过在实例上调用方法, 我们就直接操作了对象内部的数据, 但无需知道方法内部的实现细节.
 
 # *和静态语言不同, Python允许对实例变量绑定任何数据, 也就是说, 对于两个实例变量, 虽然它们都是同一个类的不同实例, 但拥有的变量名称都可能不同
 denis = Student("Denis Xie", 99)
@@ -77,7 +77,7 @@ print(denis.gender)  # >>> male  # attribute only for denis
 print()
 print("Restriction of visit")
 
-# 在Class内部, 可以有属性和方法, 而外部代码可以通过直接调用实例变量的方法来操作数据, 这样, 就隐藏了内部的复杂逻辑. 
+# 在Class内部, 可以有属性和方法, 而外部代码可以通过直接调用实例变量的方法来操作数据, 这样, 就隐藏了内部的复杂逻辑.
 # 但是, 从前面Student类的定义来看, 外部代码还是可以自由地修改一个实例的name, score属性
 
 # change data from outside codes
@@ -111,14 +111,14 @@ denis.__score = 59
 print(denis.__score) # >>> 59  # 注意,这里强行添加的仍然是一个外形是private实际是public的变量
 denis.print_score()  # >>> Denis Xie has a score of 99  # 这里方法调用的仍然是init方法创造的真private变量
 
-# 如果外部还需要访问到这两个内部状态的话, 可以给Student类增加get_name和get_score这样的方法. 
+# 如果外部还需要访问到这两个内部状态的话, 可以给Student类增加get_name和get_score这样的方法.
 # 如果外部还有修改需求的话, 就给该类再增加set_score或set_name方法. 用这样的方式去get() set() 一个内部保护变量
 # 具体代码不再赘述
 
-# *需要注意的是, Python中如果变量名以双下划线开头和结尾的, 是特殊变量__special__是可以直接从类外部访问的. 
+# *需要注意的是, Python中如果变量名以双下划线开头和结尾的, 是特殊变量__special__是可以直接从类外部访问的.
 # *有时你会看到以一个下划线开头的实例变量名, 比如_name, 这样的实例变量外部是可以访问的.
 # 但按照约定俗成的规定, 意思就是"虽然我可以被访问, 但是, 请把我视为私有变量"
-# *双下划线开头的实例变量是不是一定不能从外部访问呢? 其实也不是. 
+# *双下划线开头的实例变量是不是一定不能从外部访问呢? 其实也不是.
 # 不能直接访问__name是因为Python解释器对外把__name变量改成了_Student__name, 所以, 仍然可以通过_Student__name来访问__name变量
 
 class Student(object):
@@ -127,7 +127,7 @@ class Student(object):
         self.__score = score
         self.__gender__ = gender
 
-    @staticmethod
+    @staticmethod  # 注意使用@staticmethod之后方法不再需要引用self作为必须第一参数
     def print_score(self):
         print(f"{self.__name} has a score of {self.__score}")
 
@@ -146,7 +146,7 @@ print("Inheritance and Polymorphism")
 
 # create a class Animal(), and a subclass Dog()
 class Animal(object):
-    @staticmethod
+    @staticmethod # 注意使用@staticmethod之后方法不再需要引用self作为必须第一参数
     def run():
         print("running...")
 
@@ -159,7 +159,7 @@ little_dog.run()  # >>> running...
 
 # 子类和父类如果定义的时候都有个run()?
 class Animal(object):
-    @staticmethod
+    @staticmethod # 注意使用@staticmethod之后方法不再需要引用self作为必须第一参数
     def run():
         print("running...")
 
@@ -190,7 +190,7 @@ animal_run(Animal())  # >>> running...
 animal_run(Dog())     # >>> dog running...
 animal_run(Cat())     # >>> cat running...
 
-# Dog作为Animal的子类, 不必对animal_run()做任何修改. 
+# Dog作为Animal的子类, 不必对animal_run()做任何修改.
 # 实际上, 任何依赖Animal作为参数的函数或者方法都可以不加修改地正常运行, 原因在于多态
 
 # 多态的好处就是, 当我们需要传入Dog, Cat 等子类时, 我们只需要接收Animal类型就可以了
@@ -208,7 +208,7 @@ animal_run(Timer())  # >>> Start...
 # 这就是动态语言的"鸭子类型", 它并不要求严格的继承体系, 一个对象只要"看起来像鸭子, 走起路来像鸭子", 那它就可以被看做是鸭子
 
 # 总结
-# 继承可以把父类的所有功能都直接拿过来, 这样就不必重零做起, 子类只需要新增自己特有的方法, 也可以把父类不适合的方法覆盖重写. 
+# 继承可以把父类的所有功能都直接拿过来, 这样就不必重零做起, 子类只需要新增自己特有的方法, 也可以把父类不适合的方法覆盖重写.
 # 动态语言的鸭子类型特点决定了继承不是必须的,这与静态语言有很大不同
 
 
@@ -222,8 +222,8 @@ print("Exraction Information from Objects")
 # 对于class的继承关系来说, 使用type()就很不方便. 我们要判断class的类型, 可以使用isinstance()函数
 # dir() 也很有用,返回全部可调用的属性和方法, 以包含字符串的list形式返回
 
-# 类似__xxx__的属性和方法在Python中都是有特殊用途的, 比如__len__方法返回长度. 
-# 在Python中, 如果你调用len()函数试图获取一个对象的长度, 实际上, 在len()函数内部, 它自动去调用str对象的__len__()方法, 
+# 类似__xxx__的属性和方法在Python中都是有特殊用途的, 比如__len__方法返回长度.
+# 在Python中, 如果你调用len()函数试图获取一个对象的长度, 实际上, 在len()函数内部, 它自动去调用str对象的__len__()方法,
 # 所以, 下面的代码是等价的
 print(len("ABC"))       # >>> 3
 print("ABC".__len__())  # >>> 3
@@ -243,7 +243,7 @@ print(len(denis))  # >>> 100  # 只有特殊方法才可以这样
 # python准备了getattr(), setattr(), hasattr(), 可以直接操作一个对象的状态
 # 具体函数使用已经有基础学习过,不再赘述
 
-# 通过内置的一系列函数, 我们可以对任意一个Python对象进行剖析, 拿到其内部的数据. 
+# 通过内置的一系列函数, 我们可以对任意一个Python对象进行剖析, 拿到其内部的数据.
 # 要注意的是, 只有在不知道对象信息的时候, 我们才会去获取对象信息
 # 如果可以直接写: sum = obj.x + obj.y
 # 就不要写: sum = getattr(obj, "x") + getattr(obj, "y")
@@ -414,7 +414,7 @@ didi.run()        # >>> I can run...     # Runnable类的方法
 # 这种多重继承的设计通常称之为MixIn:
 # * MixIn的目的就是给一个类增加多个功能
 # * 在设计类的时候, 我们优先考虑通过多重继承来组合多个MixIn的功能, 而不是设计多层次的复杂的继承关系
-# * 通过各种组合继承类, 不需要复杂而庞大的继承链, 只要选择组合不同的类的功能, 就可以快速构造出所需的子类. 
+# * 通过各种组合继承类, 不需要复杂而庞大的继承链, 只要选择组合不同的类的功能, 就可以快速构造出所需的子类.
 # * 由于Python允许使用多重继承, 因此, MixIn就是一种常见的设计
 # * 只允许单一继承的语言(如Java)不能使用MixIn的设计
 
@@ -497,7 +497,7 @@ print(Chain().status.user.timeline.list)
 
 # __call__()
 # 一个对象实例可以有自己的属性和方法, 当我们调用实例方法时, 我们用instance.method()来调用
-# 能不能直接在实例本身上调用呢? 
+# 能不能直接在实例本身上调用呢?
 class Student(object):
 
     def __init__(self, name):
@@ -556,7 +556,7 @@ print(dict(Month.__members__.items()))
 
 # 如果需要更精确地控制枚举类型, 可以从Enum派生出自定义类
 from enum import Enum, unique
-# @unique装饰器可以帮助我们检查保证没有重复值. 
+# @unique装饰器可以帮助我们检查保证没有重复值.
 @unique
 class Weekday(Enum):
     Sun = 0  # Sun的value被设定为0
@@ -626,14 +626,14 @@ h.hello()  # >>> Hello, world
 # 要在静态语言运行期创建类, 必须构造源代码字符串再调用编译器, 或者借助一些工具生成字节码实现, 本质上都是动态编译, 会非常复杂
 
 # 除了使用type()动态创建类以外, 要控制类的创建行为, 还可以使用metaclass
-# metaclass, 直译为 元类 , 简单的解释就是: 
+# metaclass, 直译为 元类 , 简单的解释就是:
 # 当我们定义了类以后, 就可以根据这个类创建出实例, 所以: 先定义类, 然后创建实例
 # 但是如果我们想创建出类呢? 那就必须根据metaclass创建出类, 所以: 先定义metaclass, 然后创建类
 # 连接起来就是: 先定义metaclass, 就可以创建类, 最后创建实例
 # metaclass允许你创建类或者修改类. 换句话说, 你可以把类看成是metaclass创建出来的"实例"
 
 # 按照默认习惯, metaclass的类名总是以Metaclass结尾, 以便清楚地表示这是一个metaclass
-# metaclass是类的模板, 所以必须从`type`类型派生: 
+# metaclass是类的模板, 所以必须从`type`类型派生:
 class ListMetaclass(type):
     def __new__(cls, name, bases, attrs):
         attrs["add"] = lambda self, value: self.append(value)
@@ -646,8 +646,8 @@ class MyList(list, metaclass=ListMetaclass):
 # 当我们传入关键字参数metaclass时, 魔术就生效了, 它指示Python解释器在创建MyList时, 要通过ListMetaclass.__new__()来创建
 # 在此, 我们可以修改类的定义, 比如, 加上新的方法, 然后, 返回修改后的定义
 
-# __new__()方法接收到的参数依次是: 
-# 当前准备创建的类的对象: 
-# 类的名字: 
-# 类继承的父类集合: 
-# 类的方法集合. 
+# __new__()方法接收到的参数依次是:
+# 当前准备创建的类的对象:
+# 类的名字:
+# 类继承的父类集合:
+# 类的方法集合.
