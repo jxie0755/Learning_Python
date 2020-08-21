@@ -20,24 +20,12 @@ class Solution_A:
             return ["()"]
         else:
             result = []
-            prev = self.generateParenthesis(n - 1)  # 根据n-1的答案, 其中每一个括号组做一个新的生成
-            for par in prev:
-                result += self.gen_par(par)
-            return list(set(result))  # 需要用set来去重复 (注意顺序可能变化,不能match test case)
-
-    def gen_par(self, par: str) -> List[str]:
-        """Helper A"""
-
-        index_list = []  # 找到所有右括号")"的位置
-        for i in range(0, len(par)):
-            if par[i] == ")":
-                index_list.append(i)
-
-        result = []  # 根据右括号的位置,分别插入一个"()"在左侧,和右侧
-        for i in index_list:
-            result.append(par[:i] + "()" + par[i:])
-            result.append(par[:i + 1] + "()" + par[i + 1:])
-        return result
+            for combination in self.generateParenthesis(n - 1):
+                for i in range(len(combination)):
+                    if combination[i] == ")":
+                        result.append(combination[:i] + "()" + combination[i:])
+                        result.append(combination[:i + 1] + "()" + combination[i + 1:])
+            return sorted(list(set(result)))
 
 class Solution_STD:
     def generateParenthesis(self, n: int) -> List[str]:
