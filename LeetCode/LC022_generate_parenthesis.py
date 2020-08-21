@@ -34,19 +34,19 @@ class Solution_STD:
         Time:  O(4^n / n^(3/2)) ~= Catalan numbers
         Space: O(n)
         """
-        def generate(p: str, left: int, right: int, parens: List[str] = []) -> List[str]:
-            """Helper"""
+        return self.generate("", n, n, [])
 
-            if left:
-                generate(p + "(", left - 1, right)
-            if right > left:
-                generate(p + ")", left, right - 1)
-            if not right:
-                # parens += p,   # Here p, means a tuple (p,) see ZSimpleLearnings.py_tuple_expression
-                parens.append(p)
-            return parens
+    def generate(self, p: str, left: int, right: int, parens: List[str]) -> List[str]:
+        """Helper"""
 
-        return generate("", n, n)
+        if left:
+            self.generate(p + "(", left - 1, right, parens)
+        if right > left:
+            self.generate(p + ")", left, right - 1, parens)
+        if not right:
+            # parens += p,   # Here p, means a tuple (p,) see ZSimpleLearnings.py_tuple_expression
+            parens.append(p)
+        return parens
 
 
 class Solution_B:
@@ -71,7 +71,7 @@ class Solution_B:
 
 
 if __name__ == "__main__":
-    testCase = Solution_B()
+    testCase = Solution_STD()
     assert testCase.generateParenthesis(1) == ["()"], "Edge 1"
 
     assert testCase.generateParenthesis(2) == ["(())", "()()"]
