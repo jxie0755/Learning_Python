@@ -7,113 +7,133 @@ Merge k sorted linked lists and return it as one sorted list. Analyze and descri
 """
 
 from a0_ListNode import *
+from typing import *
 
 class Solution_A:
 
-    def mergeKLists(self, lst) -> ListNode:
+    def mergeKLists(self, lists) -> ListNode:
         """
-        Merge all through iteration
-        Exceeded time limit
+        Use iteration to merge all sorted
+        Max Time limit reached
         """
-        cur = dummy = ListNode("X")
 
-        while any([i for i in lst]):
-            i, min_val, min_idx = 0, float("inf"), float("inf")
+        result = dummy = ListNode('X')
+        while True:
+            empty = 0  # 设立一个检查lst全部为空的的值
+            min_idx, min_val = 0, float('inf')
+            for i in range(len(lists)):  # 这里用一个循环来找出lst内部哪个链表是最小值
+                if lists[i]:
+                    val = lists[i].val
+                    if val < min_val:
+                        min_idx = i
+                        min_val = val
+                else:
+                    empty += 1  # 同时筛选出空链表,如果链表为空就+1
 
-            while i < len(lst):
-                node = lst[i]
-                if node:
-                    if node.val < min_val:
-                        min_val, min_idx = node.val, i
-                i += 1
+            if empty == len(lists):  # 先核实这一轮是不是全空
+                break  # 如果全空就没必要操作了
+            else:
+                dummy.next = ListNode(min_val)
+                dummy = dummy.next
+                lists[min_idx] = lists[min_idx].next
 
-            cur.next = ListNode(min_val)
-            lst[min_idx] = lst[min_idx].next
-            cur = cur.next
+        return result.next
 
-        return dummy.next
 
 
 class Solution_B:
-    def mergeKLists(self, lst) -> ListNode:
+    def mergeKLists(self, lists: List[ListNode]) -> ListNode:
         """
         take all val out into an ArrayList, then sort and re-link to LinkedList
-        not recommended
+        kind of cheating, not recommended
         """
         result = []
-        for node in lst:
+        for node in lists:
             while node:
                 result.append(node.val)
                 node = node.next
         return genNode(sorted(result))
 
 
-def merge_two(l1: ListNode, l2: ListNode) -> ListNode:
-    """
-    Helper for Solution C1 and C2
-    merge two sorted linked list
-    """
-    curr = dummy = ListNode("X")
-    while l1 and l2:
-        if l1.val < l2.val:
-            curr.next, l1 = l1, l1.next
-        else:
-            curr.next, l2 = l2, l2.next
-        curr = curr.next
-    curr.next = l1 or l2
-    return dummy.next
 
 class SolutionC1:
 
-    def mergeKLists_X(self, lst) -> ListNode:
+    def mergeKLists(self, lists: List[ListNode]) -> ListNode:
         """
         use merge two list, then use it multiple times
         但是这个合并的方法偏慢, 相当于要流经的重复节点太多次了
         """
         dummy = ListNode(float("-inf"))
-        for i in lst:
-            dummy = merge_two(dummy, i)
+        for i in lists:
+            dummy = self.merge_two(dummy, i)
 
         return dummy.next
 
-
+    def merge_two(self, l1: ListNode, l2: ListNode) -> ListNode:
+        """
+        Helper for Solution C1 and C2 (now set out side of the Solution)
+        merge two sorted linked list
+        """
+        curr = dummy = ListNode("X")
+        while l1 and l2:
+            if l1.val < l2.val:
+                curr.next, l1 = l1, l1.next
+            else:
+                curr.next, l2 = l2, l2.next
+            curr = curr.next
+        curr.next = l1 or l2
+        return dummy.next
 
 
 class Solution_C2:
-    def mergeKLists_O(self, lst) -> ListNode:
+    def mergeKLists(self, lists: List[ListNode]) -> ListNode:
         """
         Improved from C1
         这个方法采用首尾合并, 这样能显著减少重复流经的节点
         首尾相遇后, 重置首为0, 尾不变(因为已经都被合并到前面去了)
         """
 
-        if not lst:
+        if not lists:
             return None
 
-        left, right = 0, len(lst) - 1
+        left, right = 0, len(lists) - 1
         while right > 0:
             if left >= right:
                 left = 0
             else:
-                lst[left] = merge_two(lst[left], lst[right])
+                lists[left] = self.merge_two(lists[left], lists[right])
                 left += 1
                 right -= 1
-        return lst[0]
+        return lists[0]
 
+    def merge_two(self, l1: ListNode, l2: ListNode) -> ListNode:
+        """
+        Helper for Solution C1 and C2 (now set out side of the Solution)
+        merge two sorted linked list
+        """
+        curr = dummy = ListNode("X")
+        while l1 and l2:
+            if l1.val < l2.val:
+                curr.next, l1 = l1, l1.next
+            else:
+                curr.next, l2 = l2, l2.next
+            curr = curr.next
+        curr.next = l1 or l2
+        return dummy.next
 
 if __name__ == "__main__":
     testCase = Solution_C2()
-    assert testCase.mergeKLists_O([]) is None, "Empty"
+    assert testCase.mergeKLists([]) is None, "Empty"
 
     single = genNode([1])
-    e = testCase.mergeKLists_O([single])
+    e = testCase.mergeKLists([single])
     assert repr(e) == "1", "single"
 
     a = genNode([1, 4, 5])
     b = genNode([1, 3, 4])
     c = genNode([2, 6])
-    lst = [a, b, c]
-    check = testCase.mergeKLists_O(lst)
+    lists = [a, b, c]
+    check = testCase.mergeKLists(lists)
     assert repr(check) == "1->1->2->3->4->4->5->6", "Example"
 
     print("all passed")
