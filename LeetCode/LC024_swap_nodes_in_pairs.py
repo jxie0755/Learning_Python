@@ -68,10 +68,12 @@ class Solution_B2:
             second = head.next
             tail = head.next.next
 
+            # 交换过程
             pre.next = second
             second.next = first
             first.next = tail
 
+            # 把pre和head定位到下一组交换pair
             pre = first
             head = tail
 
