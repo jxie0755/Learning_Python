@@ -40,10 +40,11 @@ class Solution_A:
 
             return node_list[0]
 
-class Solution_B:
+class Solution_B1:
     def swapPairs(self, head: ListNode) -> ListNode:
         """
         不使用list,直接原地改
+        Recursive method
         """
         if head and head.next:
             new_head, next_head = head.next, head.next.next
@@ -52,9 +53,34 @@ class Solution_B:
         else:
             return head
 
+class Solution_B2:
+    def swapPairs(self, head: ListNode) -> ListNode:
+        """
+        不使用list,直接原地改
+        Iteration method
+        """
+        pre = dummy = ListNode('X')
+        dummy.next = head
+
+        while head and head.next:
+            # 标记4个节点,交换pair之前(pre), 交换pair(first and second), 交换pair之后(tail)
+            first = head
+            second = head.next
+            tail = head.next.next
+
+            pre.next = second
+            second.next = first
+            first.next = tail
+
+            pre = first
+            head = tail
+
+        return dummy.next
+
+
 
 if __name__ == "__main__":
-    testCase = Solution_B()
+    testCase = Solution_B2()
     assert testCase.swapPairs(None) is None, "Empty"
     assert testCase.swapPairs(genNode([1])) == genNode([1]), "Single"
 
