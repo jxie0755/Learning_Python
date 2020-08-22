@@ -47,9 +47,14 @@ class Solution_B1:
         Recursive method
         """
         if head and head.next:
-            new_head, next_head = head.next, head.next.next
-            new_head.next, head.next = head, self.swapPairs(next_head)
+            new_head = head.next
+            next_pair_first = head.next.next
+
+            new_head.next = head
+            head.next = self.swapPairs(next_pair_first)
+
             return new_head
+
         else:
             return head
 
@@ -82,7 +87,7 @@ class Solution_B2:
 
 
 if __name__ == "__main__":
-    testCase = Solution_B2()
+    testCase = Solution_B1()
     assert testCase.swapPairs(None) is None, "Empty"
     assert testCase.swapPairs(genNode([1])) == genNode([1]), "Single"
 
