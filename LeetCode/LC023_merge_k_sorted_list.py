@@ -85,7 +85,7 @@ class SolutionC1:
         return dummy.next
 
 
-class Solution_C2:
+class Solution_STD:
     def mergeKLists(self, lists: List[ListNode]) -> ListNode:
         """
         Improved from C1
@@ -122,7 +122,7 @@ class Solution_C2:
         return dummy.next
 
 if __name__ == "__main__":
-    testCase = Solution_C2()
+    testCase = Solution_STD()
     assert testCase.mergeKLists([]) is None, "Empty"
 
     single = genNode([1])
