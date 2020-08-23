@@ -92,7 +92,7 @@ if __name__ == "__main__":
     assert testCase.swapPairs(genNode([1])) == genNode([1]), "Single"
 
     assert repr(testCase.swapPairs(genNode([1, 2]))) == "2->1", "1 pair"
-    assert repr(testCase.swapPairs(genNode([1, 2, 3, 4]))) == "2->1->4->3", "Even Pairs"
-    assert repr(testCase.swapPairs(genNode([1, 2, 3, 4, 5]))) == "2->1->4->3->5", "with Odd"
+    assert repr(testCase.swapPairs(genNode([1, 2, 3, 4]))) == "2->1->4->3", "Even Length"
+    assert repr(testCase.swapPairs(genNode([1, 2, 3, 4, 5]))) == "2->1->4->3->5", "Odd Length"
 
     print("all passed")
