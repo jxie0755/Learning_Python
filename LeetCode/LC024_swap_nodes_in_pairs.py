@@ -78,7 +78,7 @@ class Solution_B2:
             second.next = first
             first.next = tail
 
-            # 把pre和head定位到下一组交换pair
+            # 把pre和head重新定位, 为下一组pair服务
             pre = first
             head = tail
 
