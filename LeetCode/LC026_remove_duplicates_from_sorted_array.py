@@ -34,6 +34,7 @@ class Solution_A:
             # 如出现重复,则length和new_idx都不移动,check也不变,直到下次出现不重复
 
         return length
+        # 注意, 这里不会减少array长度, 只是把不重复的元素位置提前了, 返回的是新的去重后的计算长度
 
 
 if __name__ == "__main__":
