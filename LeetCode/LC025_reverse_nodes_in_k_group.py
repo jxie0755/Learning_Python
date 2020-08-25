@@ -67,29 +67,30 @@ class Solution_B:
         if k == 1 or not head:
             return head
 
-        flag = False  # 设立一个标记, 如果结束时未走完一个循环,要处理一下这个不完整尾部
+        full_cycle = False  # 设立一个标记, 如果结束时未走完一个循环,要处理一下这个不完整尾部
         count = 1  # 设立一个counter, 以count % k == 0为发现完整k循环
 
         cur = head  # 备份一个head
-        dummy = H = ListNode(0)
+        dummy = new_head = ListNode(0)
 
         while cur:
-            next_node = cur.next  # 备份kgroup之后的下一个开头
+            next_head = cur.next  # 时刻备份kgroup之后的下一个开头
 
-            if count % k == 0:  # 若发现一个完整k循环
-                flag = False  # 撤销flag
-                cur.next = None  # 与后面断开
-                H.next = self.reverseNodes(head)  # H接上反转的head (此时head就是反转后的最后一个节点)
-                H = head  # 移动H到新链表的最后一个节点
-                cur = head = next_node  # 把cur和head定位到next下一个开头
-
-            else:
-                flag = True  # 标记未完整k group
+            if count % k != 0:
+                full_cycle = False  # 标记未完整k group
                 cur = cur.next  # 普通后移
+
+            else:  # 若发现一个完整k循环
+                full_cycle = True  # 标记完整k group
+                cur.next = None  # 与后面断开
+                new_head.next = self.reverseNodes(head)  # new_head接上反转的head (此时head就是反转后的最后一个节点)
+                new_head = head  # 移动new_head到新链表的最后一个节点(准备连接下一组k group)
+                cur = head = next_head  # 把cur和head定位到next下一个开头
+
             count += 1
 
-        if flag:  # 如果有不完整尾部, 要接上最后一个头部
-            H.next = head
+        if not full_cycle:  # 如果有不完整尾部, 要接上最后一个头部
+            new_head.next = head
 
         return dummy.next
 
@@ -110,7 +111,7 @@ class Solution_B:
 
 
 if __name__ == "__main__":
-    testCase = Solution_A()
+    testCase = Solution_B()
 
     assert repr(testCase.reverseKGroup(genNode([1]), 2)) == "1", "Single"
 
