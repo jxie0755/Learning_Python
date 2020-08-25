@@ -18,19 +18,22 @@ class Solution_A:
         Simple iteration with flag
         思路在于利用外部游标对应遍历时的瞬间赋值
         """
-        if not nums:
-            return 0
+        check = float('inf')  # 设立一个核查值,检查重复
 
-        index = 1  # The index where the character needs to be placed
-        start = 0  # The index of repeating characters
-        for i in range(1, len(nums)):
-            if nums[start] != nums[i]:
-                nums[index] = nums[i]
-                index += 1
-                start = i
+        length = 0
+        new_idx = 0
 
-        #
-        return index  # 注意, 这里不会减少array长度, 只是把不重复的元素位置提前了
+        for i in range(len(nums)):
+            cur = nums[i]
+            if cur != check:
+                nums[new_idx] = cur  # 只要不重复,就在new_idx重新赋值一次,哪怕new_idx == i
+                check = cur          # 不重复的话,就更新check
+                length += 1
+                new_idx += 1
+
+            # 如出现重复,则length和new_idx都不移动,check也不变,直到下次出现不重复
+
+        return length
 
 
 if __name__ == "__main__":
