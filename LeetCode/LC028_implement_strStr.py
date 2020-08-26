@@ -14,11 +14,9 @@ class Solution_A:
         """
 
         length = len(needle)
-        index = 0
-        while index <= len(haystack) - length:
+        for index in range(len(haystack) - length + 1):
             if haystack[index:index + length] == needle:
                 return index
-            index += 1
         return -1
 
 
