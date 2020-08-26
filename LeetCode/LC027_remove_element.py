@@ -40,21 +40,21 @@ class Solution_C:
         """
         No pop, re-arrange with two flags
         """
-        i = n = 0
-        L = len(nums)
-        while n < len(nums):
-            if nums[n] != val:
-                nums[i] = nums[n]
-                i += 1
-            else:
-                L -= 1
-            n += 1
+        new_idx = 0
+        new_len = len(nums)
 
-        return L
+        for i in range(len(nums)):
+            if nums[i] != val:
+                nums[new_idx] = nums[i]
+                new_idx += 1
+            else:
+                new_len -= 1 # directly reduce length
+
+        return new_len
 
 
 if __name__ == "__main__":
-    testCase = Solution_A()
+    testCase = Solution_C()
 
     nums = []
     assert testCase.removeElement(nums, 3) == 0, "Edge"
