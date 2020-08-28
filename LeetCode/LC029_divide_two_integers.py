@@ -74,12 +74,12 @@ class Solution_A2:
             result = prefix * (quotient + abs(self.divide(new_son, divisor)))
 
             # 规避Integer溢出
-            if -2147483648 <= result <= 2147483647:
-                return result
-            elif result < -2147483648:
+            if result < -2147483648:
                 return -2147483648
-            else:
+            elif result > 2147483647:
                 return 2147483647
+            else:
+                return result
 
 class Solution_C:
 
