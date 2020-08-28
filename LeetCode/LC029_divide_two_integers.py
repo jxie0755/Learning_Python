@@ -14,6 +14,7 @@ Note:
     The divisor will never be 0.
     Assume we are dealing with an environment which could only store integers within the 32-bit signed integer range: [−2^31,  2^31 − 1]. For the purpose of this problem, assume that your function returns 2^31 − 1 when the division result overflows.
 """
+
 from typing import *
 
 class Solution_A1:
