@@ -36,7 +36,7 @@ class Solution_A1:
             mom = abs(divisor)  # 分母重回原值
             result += quotient  # 结果累加商值
 
-        if (dividend < 0 and divisor > 0) or (dividend > 0 and divisor < 0):
+        if dividend * divisor < 0:
             result *= -1
 
         if result >= 2147483648:
@@ -70,7 +70,7 @@ class Solution_A2:
 
             new_son = son - mom  # 准备余下来的分子,继续递归求解
 
-            # 注意,为了避免多次求商时反复正负性叠加,递归时把各商绝对值累加后只测一次正负性
+            # 注意,为了避免多次递归求商时反复正负性叠加,递归时把各商绝对值累加后只测一次正负性
             result = prefix * (quotient + abs(self.divide(new_son, divisor)))
 
             # 规避Integer溢出
