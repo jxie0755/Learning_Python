@@ -116,6 +116,6 @@ if __name__ == "__main__":
 
     assert testCase.divide(-2147483648, 1) == -2147483648, "Edge 2"
     assert testCase.divide(-2147483648, -1) == 2147483647, "Edge 3"
-    assert testCase.divide(-2147483648, -3) ==715827882, "Long 3"
+    assert testCase.divide(-2147483648, -3) == 715827882, "Long 3"
 
     print("all passed")
