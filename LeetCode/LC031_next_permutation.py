@@ -92,7 +92,7 @@ class Solution_B:
                 if nums[second_idx] > nums[first_idx]:  # 定位成功后直接完成切换和尾部重新排序
                     # complete the swap
                     nums[first_idx], nums[second_idx] = nums[second_idx], nums[first_idx]
-                    # sort all element after first_idx
+                    # reverse element after first_idx
                     nums[first_idx + 1:] = nums[first_idx + 1:][::-1]
                     break  # end process
                 second_idx -= 1
@@ -125,7 +125,7 @@ class Solution_B:
 
                     # complete the swap
                     nums[first_idx], nums[second_idx] = nums[second_idx], nums[first_idx]
-                    # sort all element after first_idx
+                    # reverse element after first_idx
                     nums[first_idx + 1:] = nums[first_idx + 1:][::-1]
                     break  # end process
                 second_idx -= 1
