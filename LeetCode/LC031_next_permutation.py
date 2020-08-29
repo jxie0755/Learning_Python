@@ -69,91 +69,131 @@ class Solution_A:
 
 class Solution_B:
     def nextPermutation(self, nums: List[int]) -> None:
-        """
-        O(N), directly find next different permutations
-        """
-        length = len(nums)
-        cur_i = -1
 
-        for i in range(-2, -length - 1, -1):
-            if nums[i] < nums[i + 1]:
-                cur_i = i
+        if not nums:
+            return None
+
+        # 从后往前找到第一次出现下降趋势那个元素
+        first_idx = len(nums) - 2
+        second_idx = len(nums) - 1
+
+        # 先定位first_idx
+        while first_idx >= 0:
+            pre = nums[first_idx]
+            cur = nums[first_idx + 1]
+            if pre < cur:
                 break
+            first_idx -= 1
 
-        if cur_i == -1:
-            nums[:] = nums[::-1]  # 直接结束,因为本身是倒着排序的,返回正排序即可
+        if first_idx == -1:  # 如果完美倒序上升,则已经逆序排好,直接反转即可
+            nums.reverse()
         else:
-            for rev_i in range(-1, cur_i, -1):
-                if nums[rev_i] > nums[cur_i]:
-                    nums[cur_i], nums[rev_i] = nums[rev_i], nums[cur_i]  # switch
-                    nums[cur_i + 1:] = nums[cur_i + 1:][::-1]  # reverse the tail back to sorted
-                    break
+            # 定位second_idx
+            # 由于尾部已经是逆序排好, 所以从尾部开始倒退,第一个>first_element的元素就是second_element
+            while second_idx > first_idx:
+                if nums[second_idx] - nums[first_idx] > 0:  # 定位成功后直接完成切换和尾部重新排序
+                    # complete the swap
+                    nums[first_idx], nums[second_idx] = nums[second_idx], nums[first_idx]
+                    # sort all element after first_idx
+                    nums[first_idx + 1:] = nums[first_idx + 1:][::-1]
+                    break  # end process
+                second_idx -= 1
 
 class Solution_prev:
     def prevPermutation(self, nums: List[int]) -> None:
-        """
-        Addtional: prevPermute, which is the reverse process
-        O(N), directly find previous different permutations
-        """
-        length = len(nums)
-        cur_i = -1
+        if not nums:
+            return None
 
-        for i in range(-2, -length - 1, -1):
-            if nums[i] > nums[i + 1]:
-                cur_i = i
+        # 从后往前找到第一次出现上升趋势那个元素
+        first_idx = len(nums) - 2
+        second_idx = len(nums) - 1
+
+        # 先定位first_idx
+        while first_idx >= 0:
+            pre = nums[first_idx]
+            cur = nums[first_idx + 1]
+            if pre > cur:  ############################## 反转对比符号
                 break
+            first_idx -= 1
 
-        if cur_i == -1:
-            nums[:] = nums[::-1]  # 直接结束,因为本身是倒着排序的,返回正排序即可
+        if first_idx == -1:  # 如果完美排序,直接反转即可
+            nums.reverse()
         else:
-            for rev_i in range(-1, cur_i, -1):
-                if nums[rev_i] < nums[cur_i]:
-                    nums[cur_i], nums[rev_i] = nums[rev_i], nums[cur_i]  # switch
-                    nums[cur_i + 1:] = nums[cur_i + 1:][::-1]
-                    break
+            # 定位second_idx
+            # 由于尾部已经是排序好, 所以从尾部开始倒退,第一个<first_element的元素就是second_element
+            while second_idx > first_idx:
+                if nums[second_idx] - nums[first_idx] < 0:  ############################## 反转对比符号
+
+                    # complete the swap
+                    nums[first_idx], nums[second_idx] = nums[second_idx], nums[first_idx]
+                    # sort all element after first_idx
+                    nums[first_idx + 1:] = nums[first_idx + 1:][::-1]
+                    break  # end process
+                second_idx -= 1
 
 
 if __name__ == "__main__":
     testCase = Solution_B()
+    prev_testCase = Solution_prev()
 
     a = []
     testCase.nextPermutation(a)
     assert a == [], "Edge 1"
+    prev_testCase.prevPermutation(a)
+    assert a == [], "Edge 1 prev"
 
     a = [1]
     testCase.nextPermutation(a)
     assert a == [1], "Edge 2"
+    prev_testCase.prevPermutation(a)
+    assert a == [1], "Edge 2 prev"
 
     a = [1, 2]
     testCase.nextPermutation(a)
     assert a == [2, 1], "Edge 3"
+    prev_testCase.prevPermutation(a)
+    assert a == [1, 2], "Edge 3 prev"
 
     a = [1, 2, 3]
     testCase.nextPermutation(a)
     assert a == [1, 3, 2], "Example 1"
+    prev_testCase.prevPermutation(a)
+    assert a == [1, 2, 3], "Example 1 prev"
 
     a = [3, 2, 1]
     testCase.nextPermutation(a)
     assert a == [1, 2, 3], "Example 2"
+    prev_testCase.prevPermutation(a)
+    assert a == [3, 2, 1], "Example 2 prev"
 
     a = [1, 1, 5]
     testCase.nextPermutation(a)
     assert a == [1, 5, 1], "Example 3"
+    prev_testCase.prevPermutation(a)
+    assert a == [1, 1, 5], "Example 3 prev"
 
     a = [5, 1, 1]
     testCase.nextPermutation(a)
     assert a == [1, 1, 5], "Extra 1"
+    prev_testCase.prevPermutation(a)
+    assert a == [5, 1, 1], "Extra 1 prev"
 
     a = [2, 2, 2]
     testCase.nextPermutation(a)
     assert a == [2, 2, 2], "Extra 2"
+    prev_testCase.prevPermutation(a)
+    assert a == [2, 2, 2], "Extra 2 prev"
 
     a = [1, 2, 2, 2]
     testCase.nextPermutation(a)
     assert a == [2, 1, 2, 2], "Extra 3"
+    prev_testCase.prevPermutation(a)
+    assert a == [1, 2, 2, 2], "Extra 3 prev"
 
     a = [2, 3, 1]
     testCase.nextPermutation(a)
     assert a == [3, 1, 2], "Exatra 4"
+    prev_testCase.prevPermutation(a)
+    assert a == [2, 3, 1], "Exatra 4"
 
     print("all passed")
