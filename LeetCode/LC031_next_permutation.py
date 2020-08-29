@@ -100,10 +100,8 @@ class Solution_B:
     def prevPermutation(self, nums: List[int]) -> None:
         """
         This the the oppositve function to find previous permutation
-        only need to simply modify the two places
+        Only need to simply modify the two places
         """
-
-
         if not nums:
             return None
 
@@ -113,9 +111,7 @@ class Solution_B:
 
         # 先定位first_idx
         while first_idx >= 0:
-            pre = nums[first_idx]
-            cur = nums[first_idx + 1]
-            if pre > cur:  ############################## 反转对比符号
+            if nums[first_idx] > nums[first_idx + 1]:  ############################## 反转对比符号
                 break
             first_idx -= 1
 
