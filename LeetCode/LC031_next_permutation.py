@@ -124,6 +124,8 @@ class Solution_B:
             # reverse element after first_idx
             nums[first_idx + 1:] = nums[first_idx + 1:][::-1]
 
+
+
 if __name__ == "__main__":
     testCase = Solution_B()
 
