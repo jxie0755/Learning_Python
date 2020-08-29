@@ -192,6 +192,6 @@ if __name__ == "__main__":
     testCase.nextPermutation(a)
     assert a == [3, 1, 2], "Exatra 4"
     testCase.prevPermutation(a)
-    assert a == [2, 3, 1], "Exatra 4"
+    assert a == [2, 3, 1], "Exatra 4 prev"
 
     print("all passed")
