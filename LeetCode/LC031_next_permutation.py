@@ -38,36 +38,9 @@ Correct sequence (sorted):
  (4, 3, 2, 1)
  """
 
-from itertools import permutations
 from typing import *
 
-
 class Solution_A:
-    def nextPermutation(self, nums: List[int]) -> None:
-        """
-        Use itertool.permutations itearate the permutation sequence from small to large,
-        and stop at the nums, then return the next one
-        Exceeded max time limit
-        """
-
-        first_sample = False
-        length = len(nums)
-
-        for i in permutations(sorted(nums), length):
-            check = list(i)
-            if first_sample is False:
-                first = check
-                first_sample = True
-            if check > nums:
-                nums[:] = check
-                first_sample = False
-                break
-
-        if first_sample:
-            nums[:] = first
-
-
-class Solution_B:
     def nextPermutation(self, nums: List[int]) -> None:
 
         if not nums:
@@ -127,7 +100,7 @@ class Solution_B:
 
 
 if __name__ == "__main__":
-    testCase = Solution_B()
+    testCase = Solution_A()
 
     a = []
     testCase.nextPermutation(a)
