@@ -98,6 +98,12 @@ class Solution_B:
                 second_idx -= 1
 
     def prevPermutation(self, nums: List[int]) -> None:
+        """
+        This the the oppositve function to find previous permutation
+        only need to simply modify the two places
+        """
+
+
         if not nums:
             return None
 
