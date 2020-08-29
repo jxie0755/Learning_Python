@@ -78,9 +78,7 @@ class Solution_B:
         second_idx = len(nums) - 1
 
         # 先定位first_idx
-        while first_idx >= 0:
-            if nums[first_idx] < nums[first_idx + 1]:
-                break
+        while first_idx >= 0 and nums[first_idx] >= nums[first_idx + 1]:
             first_idx -= 1
 
         if first_idx == -1:  # 如果完美倒序上升,则已经逆序排好,直接反转即可
@@ -88,14 +86,14 @@ class Solution_B:
         else:
             # 定位second_idx
             # 由于尾部已经是逆序排好, 所以从尾部开始倒退,第一个>first_element的元素就是second_element
-            while second_idx > first_idx:
-                if nums[second_idx] > nums[first_idx]:  # 定位成功后直接完成切换和尾部重新排序
-                    # complete the swap
-                    nums[first_idx], nums[second_idx] = nums[second_idx], nums[first_idx]
-                    # reverse element after first_idx
-                    nums[first_idx + 1:] = nums[first_idx + 1:][::-1]
-                    break  # end process
+            while nums[second_idx] <= nums[first_idx]:
                 second_idx -= 1
+
+            # complete the swap
+            nums[first_idx], nums[second_idx] = nums[second_idx], nums[first_idx]
+            # reverse element after first_idx
+            nums[first_idx + 1:] = nums[first_idx + 1:][::-1]
+
 
     def prevPermutation(self, nums: List[int]) -> None:
         """
@@ -110,26 +108,21 @@ class Solution_B:
         second_idx = len(nums) - 1
 
         # 先定位first_idx
-        while first_idx >= 0:
-            if nums[first_idx] > nums[first_idx + 1]:  ######## reverse comparison
-                break
-            first_idx -= 1
+        while first_idx >= 0 and nums[first_idx] <= nums[first_idx + 1]:
+            first_idx -= 1                       ######## reverse comparison
 
         if first_idx == -1:  # 如果完美排序,直接反转即可
             nums.reverse()
         else:
             # 定位second_idx
             # 由于尾部已经是排序好, 所以从尾部开始倒退,第一个<first_element的元素就是second_element
-            while second_idx > first_idx:
-                if nums[second_idx] < nums[first_idx]:  ######## reverse comparison
+            while nums[second_idx] >= nums[first_idx]:
+                second_idx -= 1    ######## reverse comparison
 
-                    # complete the swap
-                    nums[first_idx], nums[second_idx] = nums[second_idx], nums[first_idx]
-                    # reverse element after first_idx
-                    nums[first_idx + 1:] = nums[first_idx + 1:][::-1]
-                    break  # end process
-                second_idx -= 1
-
+            # complete the swap
+            nums[first_idx], nums[second_idx] = nums[second_idx], nums[first_idx]
+            # reverse element after first_idx
+            nums[first_idx + 1:] = nums[first_idx + 1:][::-1]
 
 if __name__ == "__main__":
     testCase = Solution_B()
