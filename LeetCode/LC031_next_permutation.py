@@ -82,7 +82,7 @@ class Solution_B:
             first_idx -= 1
 
         if first_idx == -1:  # 如果完美倒序上升,则已经逆序排好,直接反转即可
-            nums.reverse()
+            nums[:] = nums[:][::-1] # nums.reverse()
         else:
             # 定位second_idx
             # 由于尾部已经是逆序排好, 所以从尾部开始倒退,第一个>first_element的元素就是second_element
@@ -112,7 +112,7 @@ class Solution_B:
             first_idx -= 1                       ######## reverse comparison
 
         if first_idx == -1:  # 如果完美排序,直接反转即可
-            nums.reverse()
+            nums[:] = nums[:][::-1] # nums.reverse()
         else:
             # 定位second_idx
             # 由于尾部已经是排序好, 所以从尾部开始倒退,第一个<first_element的元素就是second_element
