@@ -111,7 +111,7 @@ class Solution_B:
 
         # 先定位first_idx
         while first_idx >= 0:
-            if nums[first_idx] > nums[first_idx + 1]:  ############################## 反转对比符号
+            if nums[first_idx] > nums[first_idx + 1]:  ######## reverse comparison
                 break
             first_idx -= 1
 
@@ -121,7 +121,7 @@ class Solution_B:
             # 定位second_idx
             # 由于尾部已经是排序好, 所以从尾部开始倒退,第一个<first_element的元素就是second_element
             while second_idx > first_idx:
-                if nums[second_idx] < nums[first_idx]:  ############################## 反转对比符号
+                if nums[second_idx] < nums[first_idx]:  ######## reverse comparison
 
                     # complete the swap
                     nums[first_idx], nums[second_idx] = nums[second_idx], nums[first_idx]
