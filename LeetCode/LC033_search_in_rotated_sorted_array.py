@@ -101,37 +101,37 @@ class Solution_C:
             low, mid, high = nums[L], nums[M], nums[H]
 
             if mid <= high:  # identify mid to hi is sorted
-                potent_ans = self.binary_search(nums, M, H, target)
-                if potent_ans != -1:   # confirm if target in the sorted array section
-                    return potent_ans
+                potential_ans = self.binary_search(nums, M, H, target)
+                if potential_ans != -1:   # confirm if target in the sorted array section
+                    return potential_ans
 
                 # if not, then ans must be in the other section (un-sorted, just keep breaking down)
                 else:
                     H = M - 1
 
-            elif mid > high:  # identify lo to mid is sorted
-                potent_ans = self.binary_search(nums, L, M, target)
-                if potent_ans != -1:   # confirm if target in the sorted array section
-                    return potent_ans
+            else:  # identify lo to mid is sorted
+                potential_ans = self.binary_search(nums, L, M, target)
+                if potential_ans != -1:   # confirm if target in the sorted array section
+                    return potential_ans
 
                 # if not, then ans must be in the other section (un-sorted, just keep breaking down)
                 else:
                     L = M + 1
         return -1
 
-    def binary_search(self, nums: List[int], lo: int, hi: int, target: int) -> int:
+    def binary_search(self, nums: List[int], L: int, H: int, target: int) -> int:
         """
         helper functin for standard binary search in a sorted array at specific range
         a quick modification to definte binary search at specific range of indices
         """
-        while lo <= hi:
-            mid = (lo + hi) // 2
-            if nums[mid] == target:
-                return mid
-            elif nums[mid] < target:
-                lo = mid + 1
+        while L <= H:
+            M = (L + H) // 2
+            if nums[M] == target:
+                return M
+            elif nums[M] < target:
+                L = M + 1
             else:
-                hi = mid - 1
+                H = M - 1
         return -1
 
 
