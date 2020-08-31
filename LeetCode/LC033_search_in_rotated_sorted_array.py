@@ -93,28 +93,30 @@ class Solution_C:
         if not nums:
             return -1
 
-        lo = 0
-        hi = len(nums) - 1
+        L = 0
+        H = len(nums) - 1
 
-        while lo <= hi:
-            mid = (lo + hi) // 2
-            if nums[mid] <= nums[hi]:  # identify mid to hi is sorted
-                potent_ans = self.binary_search(nums, mid, hi, target)
+        while L <= H:
+            M = (L + H) // 2
+            low, mid, high = nums[L], nums[M], nums[H]
+
+            if mid <= high:  # identify mid to hi is sorted
+                potent_ans = self.binary_search(nums, M, H, target)
                 if potent_ans != -1:   # confirm if target in the sorted array section
                     return potent_ans
 
                 # if not, then ans must be in the other section (un-sorted, just keep breaking down)
                 else:
-                    hi = mid - 1
+                    H = M - 1
 
-            elif nums[mid] > nums[hi]:  # identify lo to mid is sorted
-                potent_ans = self.binary_search(nums, lo, mid, target)
+            elif mid > high:  # identify lo to mid is sorted
+                potent_ans = self.binary_search(nums, L, M, target)
                 if potent_ans != -1:   # confirm if target in the sorted array section
                     return potent_ans
 
                 # if not, then ans must be in the other section (un-sorted, just keep breaking down)
                 else:
-                    lo = mid + 1
+                    L = M + 1
         return -1
 
     def binary_search(self, nums: List[int], lo: int, hi: int, target: int) -> int:
