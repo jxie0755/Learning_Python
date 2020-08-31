@@ -155,6 +155,8 @@ if __name__ == "__main__":
     assert testCase.search([8, 9, 10, 1, 2, 3, 4, 5, 6, 7], 1) == 3, "Additional 8"
     assert testCase.search([8, 9, 10, 1, 2, 3, 4, 5, 6, 7], 6) == 8, "Additional 9"
 
+    assert testCase.search([6, 6, 6, 6, 6, 6, 6, 6, 8, 6], 8) == 8, "Additional 10"
+
     assert testCase.search([1, 3], 2) == -1, "Extra"
 
     print("all passed")
