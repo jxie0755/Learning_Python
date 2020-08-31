@@ -84,7 +84,6 @@ class Solution_B:
                 L = M + 1
 
 
-
 if __name__ == "__main__":
     testCase = Solution_B()
     assert testCase.search([], 1) == -1, "Edge 1"
