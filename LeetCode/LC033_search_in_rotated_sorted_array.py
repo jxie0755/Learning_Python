@@ -84,8 +84,57 @@ class Solution_B:
                 L = M + 1
 
 
+class Solution_C:
+    def search(self, nums: List[int], target: int) -> int:
+        """
+        Binary search, with use of another healper binary search for sorted array
+        """
+
+        if not nums:
+            return -1
+
+        lo = 0
+        hi = len(nums) - 1
+
+        while lo <= hi:
+            mid = (lo + hi) // 2
+            if nums[mid] <= nums[hi]:  # identify mid to hi is sorted
+                potent_ans = self.binary_search(nums, mid, hi, target)
+                if potent_ans != -1:   # confirm if target in the sorted array section
+                    return potent_ans
+
+                # if not, then ans must be in the other section (un-sorted, just keep breaking down)
+                else:
+                    hi = mid - 1
+
+            elif nums[mid] > nums[hi]:  # identify lo to mid is sorted
+                potent_ans = self.binary_search(nums, lo, mid, target)
+                if potent_ans != -1:   # confirm if target in the sorted array section
+                    return potent_ans
+
+                # if not, then ans must be in the other section (un-sorted, just keep breaking down)
+                else:
+                    lo = mid + 1
+        return -1
+
+    def binary_search(self, nums: List[int], lo: int, hi: int, target: int) -> int:
+        """
+        helper functin for standard binary search in a sorted array at specific range
+        a quick modification to definte binary search at specific range of indices
+        """
+        while lo <= hi:
+            mid = (lo + hi) // 2
+            if nums[mid] == target:
+                return mid
+            elif nums[mid] < target:
+                lo = mid + 1
+            else:
+                hi = mid - 1
+        return -1
+
+
 if __name__ == "__main__":
-    testCase = Solution_B()
+    testCase = Solution_C()
     assert testCase.search([], 1) == -1, "Edge 1"
     assert testCase.search([1], 1) == 0, "Edge 2"
     assert testCase.search([0], 1) == -1, "Edge 3"
