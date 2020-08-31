@@ -97,7 +97,7 @@ class Solution_B:
 class Solution_C:
     def search(self, nums: List[int], target: int) -> int:
         """
-        Recursive version of Solution C
+        Recursive version of Solution B
         Just for fun, it does not Look simpler
 
         """
