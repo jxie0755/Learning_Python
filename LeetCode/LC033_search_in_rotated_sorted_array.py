@@ -139,7 +139,8 @@ class Solution_D:
     def search(self, nums: List[int], target: int) -> int:
         """
         Recursive version of Solution C
-        Looks even simpler
+        Just for fun, it does not Look simpler
+
         """
         return self.search_range(nums, 0, len(nums)-1, target)
 
