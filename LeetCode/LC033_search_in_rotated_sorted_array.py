@@ -135,8 +135,67 @@ class Solution_C:
         return -1
 
 
+class Solution_D:
+    def search(self, nums: List[int], target: int) -> int:
+        """
+        Recursive version of Solution C
+        Looks even simpler
+        """
+        return self.search_range(nums, 0, len(nums)-1, target)
+
+
+    def search_range(self, nums: List[int], L: int, H: int, target: int) -> int:
+        """
+        Recursive version of Solution C
+        Looks even simpler
+        """
+
+        if not nums:
+            return -1
+
+        M = (L + H) // 2
+        low, mid, high = nums[L], nums[M], nums[H]
+
+        if L > H:
+            return -1
+        if L == H:
+            if low == target:
+                return L
+            else:
+                return -1
+        else:
+            if mid <= high:  # identify mid to hi is sorted
+                potential_ans = self.binary_search(nums, M, H, target)
+                if potential_ans != -1:  # confirm if target in the sorted array section
+                    return potential_ans
+                else:
+                    return self.search_range(nums, L, M-1, target)
+            else:
+                potential_ans = self.binary_search(nums, L, M, target)
+                if potential_ans != -1:  # confirm if target in the sorted array section
+                    return potential_ans
+                else:
+                    return self.search_range(nums, M+1, H, target)
+
+
+    def binary_search(self, nums: List[int], L: int, H: int, target: int) -> int:
+        """
+        helper functin for standard binary search in a sorted array at specific range
+        a quick modification to definte binary search at specific range of indices
+        """
+        while L <= H:
+            M = (L + H) // 2
+            if nums[M] == target:
+                return M
+            elif nums[M] < target:
+                L = M + 1
+            else:
+                H = M - 1
+        return -1
+
+
 if __name__ == "__main__":
-    testCase = Solution_C()
+    testCase = Solution_D()
     assert testCase.search([], 1) == -1, "Edge 1"
     assert testCase.search([1], 1) == 0, "Edge 2"
     assert testCase.search([0], 1) == -1, "Edge 3"
