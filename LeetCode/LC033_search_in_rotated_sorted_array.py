@@ -87,7 +87,7 @@ class Solution_B:
 class Solution_C:
     def search(self, nums: List[int], target: int) -> int:
         """
-        Binary search, with use of another healper binary search for sorted array
+        Binary search, with help of standard binary search for sorted array
         """
 
         if not nums:
