@@ -43,7 +43,6 @@ class Solution_A:
         head = tail = M
 
         # first find head
-
         while True:
             M = (L + head) // 2
             if nums[L] == target:  # 先检查末端是否为target如果是则不需要继续
