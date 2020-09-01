@@ -24,18 +24,18 @@ class Solution_A:
         L, H = 0, len(nums) - 1
         target_found = False
         # first determine if target is in nums
+        # 简单的二分法, 搜到一个答案后, 直接结束 (因为答案不唯一)
         while L <= H:
             M = (L + H) // 2
-            low, mid, high = nums[L], nums[M], nums[H]
-
-            if mid < target:
+            if nums[M] < target:
                 L = M + 1
-            elif target < mid:
+            elif target < nums[M]:
                 H = M - 1
             else:
                 target_found = True
                 break
 
+        # 找不到答案就返回[-1,-1], 只要能找到一个答案, 则必不可能为[-1,-1]
         if not target_found:
             return [-1, -1]
 
@@ -43,17 +43,20 @@ class Solution_A:
         head = tail = M
 
         # first find head
+
         while True:
             M = (L + head) // 2
 
-            if nums[L] == target:
+            if nums[L] == target:  # 先检查末端是否为target如果是则不需要继续
                 head = L
                 break
-            elif nums[M] < target:
+            elif nums[M] < target: # 如果中值小于目标,则直接把L移动到M之后
                 L = M + 1
             else:
-                head = M
-                if nums[M - 1] != target:
+                # 由于先前定位了M已经是的nums[M]==target, 而array是排序的,head已无可能向后移动
+                # 所以nums[M]已不可能大于target, 所以此处只可能是nums[M] == target
+                head = M # 把head定位于M继续寻找
+                if nums[M - 1] != target: # M上一位如果不是target即可结束, 否则继续寻找
                     break
 
 
@@ -61,14 +64,14 @@ class Solution_A:
         while True:
             M = (tail + H) // 2
 
-            if nums[H] == target:
+            if nums[H] == target:  # 先检查末端是否为target如果是则不需要继续
                 tail = H
                 break
-            elif nums[M] > target:
+            elif nums[M] > target:  # 如果中值大于目标,则直接把H移动到M之前
                 H = M - 1
             else:
-                tail = M
-                if nums[M + 1] != target:
+                tail = M # 把tail定位于M继续寻找
+                if nums[M + 1] != target:  # M下一位如果不是target即可结束, 否则继续寻找
                     break
 
         return [head, tail]
