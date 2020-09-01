@@ -46,7 +46,6 @@ class Solution_A:
 
         while True:
             M = (L + head) // 2
-
             if nums[L] == target:  # 先检查末端是否为target如果是则不需要继续
                 head = L
                 break
@@ -63,7 +62,6 @@ class Solution_A:
         # second find tail
         while True:
             M = (tail + H) // 2
-
             if nums[H] == target:  # 先检查末端是否为target如果是则不需要继续
                 tail = H
                 break
