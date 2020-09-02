@@ -19,8 +19,7 @@ class Solution_A:
 
         idx = 0
         while idx < len(nums):
-            cur = nums[idx]
-            if target > cur:
+            if target > nums[idx]:
                 idx += 1
             else:
                 return idx
