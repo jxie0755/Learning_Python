@@ -44,6 +44,7 @@ class Solution_A:
 
         # first find head
         # 这个binary search移动思路就是head不能离开target,L要逐渐摆脱非target的部分
+        # 有两种方式终结while loop,第一是L已经是target了,第二是head上一位不是target
         while True:
             M = (L + head) // 2
             if nums[L] == target:  # 先检查末端是否为target如果是则不需要继续
@@ -54,6 +55,7 @@ class Solution_A:
             else:
                 # 由于先前定位了M已经是的nums[M]==target, 而array是排序的,head已无可能向后移动
                 # 所以nums[M]已不可能大于target, 所以此处只可能是nums[M] == target
+                # head不离开target
                 head = M # 把head定位于M继续寻找
                 if nums[M - 1] != target: # M上一位如果不是target即可结束, 否则继续寻找
                     break
@@ -61,6 +63,7 @@ class Solution_A:
 
         # second find tail
         # 这个binary search移动思路就是tail不能离开target,H要逐渐摆脱非target的部分
+        # 有两种方式终结while loop,第一是H已经是target了,第二是tail下一位不是target
         while True:
             M = (tail + H) // 2
             if nums[H] == target:  # 先检查末端是否为target如果是则不需要继续
@@ -69,7 +72,7 @@ class Solution_A:
             elif nums[M] > target:  # 如果中值大于目标,则直接把H移动到M之前
                 H = M - 1
             else:
-                tail = M # 把tail定位于M继续寻找
+                tail = M # 把tail定位于M继续寻找(tail不离开target)
                 if nums[M + 1] != target:  # M下一位如果不是target即可结束, 否则继续寻找
                     break
 
