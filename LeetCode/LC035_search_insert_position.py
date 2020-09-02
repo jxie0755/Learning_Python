@@ -12,13 +12,19 @@ from typing import *
 
 class Solution_A:
     def searchInsert(self, nums: List[int], target: int) -> int:
-        """Sort first"""
-        new_nums = sorted(nums + [target])
-        index = 0
-        while index < len(new_nums):
-            if new_nums[index] == target:
-                return index
-            index += 1
+
+        """
+        Time O(N)
+        """
+
+        idx = 0
+        while idx < len(nums):
+            cur = nums[idx]
+            if target > cur:
+                idx += 1
+            else:
+                return idx
+        return idx
 
 
 if __name__ == "__main__":
