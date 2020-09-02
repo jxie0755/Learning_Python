@@ -43,6 +43,7 @@ class Solution_A:
         head = tail = M
 
         # first find head
+        # 这个binary search移动思路就是head不能离开target,L要逐渐摆脱非target的部分
         while True:
             M = (L + head) // 2
             if nums[L] == target:  # 先检查末端是否为target如果是则不需要继续
@@ -59,6 +60,7 @@ class Solution_A:
 
 
         # second find tail
+        # 这个binary search移动思路就是tail不能离开target,H要逐渐摆脱非target的部分
         while True:
             M = (tail + H) // 2
             if nums[H] == target:  # 先检查末端是否为target如果是则不需要继续
