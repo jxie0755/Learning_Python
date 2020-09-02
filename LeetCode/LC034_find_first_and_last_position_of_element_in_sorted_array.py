@@ -50,15 +50,13 @@ class Solution_A:
             if nums[L] == target:  # 先检查末端是否为target如果是则不需要继续
                 head = L
                 break
-            elif nums[M] < target: # 如果中值小于目标,则直接把L移动到M之后
-                L = M + 1
-            else:
+            if nums[M] == target:  # 所以nums[M]已不可能大于target, 所以此处只可能是nums[M] == target
                 # 由于先前定位了M已经是的nums[M]==target, 而array是排序的,head已无可能向后移动
-                # 所以nums[M]已不可能大于target, 所以此处只可能是nums[M] == target
-                # head不离开target
-                head = M # 把head定位于M继续寻找
-                if nums[M - 1] != target: # M上一位如果不是target即可结束, 否则继续寻找
+                head = M  # head不离开target
+                if nums[M - 1] != target:  # M上一位如果不是target即可结束, 否则继续寻找
                     break
+            if nums[M] < target: # 如果中值小于目标,则直接把L移动到M之后
+                L = M + 1
 
 
         # second find tail
@@ -69,12 +67,12 @@ class Solution_A:
             if nums[H] == target:  # 先检查末端是否为target如果是则不需要继续
                 tail = H
                 break
-            elif nums[M] > target:  # 如果中值大于目标,则直接把H移动到M之前
-                H = M - 1
-            else:
-                tail = M # 把tail定位于M继续寻找(tail不离开target)
+            if nums[M] == target:
+                tail = M # tail不离开target
                 if nums[M + 1] != target:  # M下一位如果不是target即可结束, 否则继续寻找
                     break
+            if nums[M] > target:  # 如果中值大于目标,则直接把H移动到M之前
+                H = M - 1
 
         return [head, tail]
 
