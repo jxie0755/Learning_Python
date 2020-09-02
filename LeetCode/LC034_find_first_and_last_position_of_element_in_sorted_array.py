@@ -24,7 +24,7 @@ class Solution_A:
         L, H = 0, len(nums) - 1
         target_found = False
         # first determine if target is in nums
-        # 简单的二分法, 搜到一个答案后, 直接结束 (因为答案不唯一)
+        # 简单的二分法, 但是搜到一个答案后, 应该直接结束 (因为答案不唯一)
         while L <= H:
             M = (L + H) // 2
             if nums[M] < target:
