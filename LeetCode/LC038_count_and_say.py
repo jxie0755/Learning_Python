@@ -25,27 +25,33 @@ class Solution_A:
     """Basically we need to build the concept of a generator here"""
 
     def countAndSay(self, n: int) -> str:
-        """
-        To create the say logic, then loop the say() to get nth number
-        """
 
-        def say(num: str) -> int:
-            """Helper"""
-            num = str(num) + " "
-            lenth = 1
-            result = ""
-            for i in range(len(num) - 1):
-                if num[i] == num[i + 1]:
-                    lenth += 1
-                elif num[i] != num[i + 1]:
-                    result += str(lenth) + num[i]
-                    lenth = 1
-            return int(result)
+        ans = "1"
+        if n == 1:
+            return ans
+        else:
+            for i in range(n - 1):
+                ans = self.say(ans)
+        return ans
 
-        number = 1
-        for i in range(1, n):
-            number = say(str(number))
-        return str(number)
+    def say(self, word: str) -> str:
+        ans = ""
+        cur = ""
+        count = 0
+        for letter in word:
+            if cur == "":
+                cur = letter
+                count += 1
+            else:
+                if letter == cur:
+                    count += 1
+                else:
+                    ans += str(count) + cur
+                    cur = letter
+                    count = 1
+
+        ans += str(count) + cur  # finish last set
+        return ans
 
 class Solution_B:
     def countAndSay(self, n: int) -> str:
@@ -71,7 +77,6 @@ class Solution_C:
         """
         Avoid type convert between int and String
         """
-
         number = "1"
         for i in range(1, n):
             number += " "
@@ -88,7 +93,7 @@ class Solution_C:
 
 
 if __name__ == "__main__":
-    testCase = Solution_C()
+    testCase = Solution_A()
     assert testCase.countAndSay(1) == "1", "first"
     assert testCase.countAndSay(2) == "11", "second"
     assert testCase.countAndSay(3) == "21", "third"
