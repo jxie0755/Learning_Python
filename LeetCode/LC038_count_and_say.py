@@ -35,6 +35,7 @@ class Solution_A:
         return ans
 
     def say(self, word: str) -> str:
+        """Helper function to say next number based on current number"""
         ans = ""
         cur = ""
         count = 0
