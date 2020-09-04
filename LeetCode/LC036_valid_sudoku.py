@@ -54,13 +54,13 @@ class Solution_A:
 
     def correct_line(self, row: List[str]) -> bool:
         """Helper Aabc"""
-        written = []
+        cur = None
         for i in row:
             if i == ".":
                 pass
-            elif i not in written:
-                written.append(i)
-            else:
+            elif not cur:
+                cur = i
+            elif i == cur:
                 return False
         return True
 
