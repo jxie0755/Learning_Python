@@ -94,7 +94,6 @@ class Solution_C:
         return number
 
 
-
 if __name__ == "__main__":
     testCase = Solution_A()
     assert testCase.countAndSay(1) == "1", "first"
