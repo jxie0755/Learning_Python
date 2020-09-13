@@ -49,6 +49,7 @@ class Solution:
         # Leetcode does not require sequence, but locally it is required to pass case
 
 
+
 if __name__ == "__main__":
     testCase = Solution()
 
