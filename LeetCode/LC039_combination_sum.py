@@ -20,7 +20,46 @@ class Solution_A:
 
     def combinationSum(self, candidates: List[int], target: int) -> List[List[int]]:
         """
+        Brutal Force O(N^2), very slow but passed
+        Basically trying out every combination from 1 to target
+        """
+
+        def process(temp: List[List[int]]) -> List[List[int]]:
+            """Helper"""
+            new_temp = []
+            i = 0
+            while i < len(temp):
+                if sum(temp[i]) == target:
+                    result.append(temp[i])
+                for j in candidates:
+                    if sum(temp[i]) + j < target:
+                        new_temp.append(temp[i] + [j])
+                    elif sum(temp[i]) + j == target:
+                        ans = sorted(temp[i] + [j])
+                        if ans not in result:
+                            result.append(ans)
+                i += 1
+            return new_temp
+
+
+        if not candidates:
+            return []
+
+        temp = [[i] for i in candidates]
+        result = []
+
+        while temp:
+            temp = process(temp)
+
+        return result
+
+
+class Solution_B:
+
+    def combinationSum(self, candidates: List[int], target: int) -> List[List[int]]:
+        """
         This will pass but very slowly
+        An optimized A, and without sub processing methods
         """
         result = []
         available = [[[], 0] for _ in
@@ -49,44 +88,7 @@ class Solution_A:
         # Leetcode does not require sequence, but locally it is required to pass case
 
 
-
-class Solution_B:
-
-    def combinationSum(self, candidates: List[int], target: int) -> List[List[int]]:
-        """
-        Brutal Force O(N^2), very slow but passed
-        """
-        if not candidates:
-            return []
-
-        def process(temp: List[List[int]]) -> List[List[int]]:
-            """Helper"""
-            new_temp = []
-            i = 0
-            while i < len(temp):
-                if sum(temp[i]) == target:
-                    result.append(temp[i])
-                for j in candidates:
-                    if sum(temp[i]) + j < target:
-                        new_temp.append(temp[i] + [j])
-                    elif sum(temp[i]) + j == target:
-                        ans = sorted(temp[i] + [j])
-                        if ans not in result:
-                            result.append(ans)
-                i += 1
-            return new_temp
-
-        candidates = sorted(candidates)
-        temp = [[i] for i in candidates]
-        result = []
-
-        while temp:
-            temp = process(temp)
-
-        return result
-
-
-class Solution_C1:
+class Solution_STD:
     def combinationSum(self, candidates: List[int], target: int) -> List[List[int]]:
         """
         Add a recursive process method to update result
@@ -104,7 +106,7 @@ class Solution_C1:
 
             while start < len(candidates) and candidates[start] <= target:  # while loop 走完全部candidates
                 intermediate.append(candidates[start])
-                process(candidates, start, intermediate, target - candidates[start])
+                process(candidates, start, intermediate, target - candidates[start]) # 这里很重要
                 intermediate.pop()  # 这里退回相当于,即使满足条件, 也可以跳过
                 start += 1
 
@@ -159,7 +161,7 @@ class Solution_D:
 
 
 if __name__ == "__main__":
-    testCase = Solution_C1()
+    testCase = Solution_B()
 
     # Test cases are check after sorting, to avoid sequence error
     assert sorted(testCase.combinationSum([], 1)) == [], "Edge 1"
