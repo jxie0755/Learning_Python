@@ -114,7 +114,6 @@ class Solution_C:
         return result
 
 
-from itertools import combinations_with_replacement
 
 class Solution_D:
 
@@ -123,23 +122,45 @@ class Solution_D:
         Version C
         # 本质上这是一道考排列组合的题,如果能构建排列组合的话, 直接对每个组合考虑是否之和等于target就可以了
         上解就是通过自己构建组合,并融合target条件所以直接得出答案.
-        这里利用python自带组合函数同样可以实现
+        可以通过python自带组合函数同样可以实现,也可以通过自建一个Combinations_with_replacements
         """
         candidates = sorted(candidates)  # must sort first
         if not candidates:
             return []
         max_n = target // min(candidates)
         result = []
-        for i in range(max_n, 0, -1):
-            all_comb = combinations_with_replacement(candidates, i)
-            for j in all_comb:
+        for i in range(1, max_n+1):
+            for j in self.combinationWR(candidates, i):
                 if sum(j) == target:
                     result.append(list(j))
         return result  # must sort at the end to pass case
 
 
+    def combinationWR(self, candidates: List[int], pick: int) -> List[List[int]]:
+        """
+        self verison of combination algorithm, with repeating
+        almost the same as itertools.combinations_with_replacement
+        """
+        if pick == 0:
+            return []
+
+        p = 1
+        ans = [[i] for i in candidates]
+
+        while p < pick:
+            new_ans = []
+            for comb in ans:
+                for i in candidates:
+                    if i >= max(comb):  # a very critical step to remove repeating
+                        new = comb + [i]
+                        new_ans.append(new)
+            ans = new_ans
+            p += 1
+        return ans
+
+
 if __name__ == "__main__":
-    testCase = Solution_A()
+    testCase = Solution_D()
 
     # Test cases are check after sorting, to avoid sequence error
     assert sorted(testCase.combinationSum([], 1)) == [], "Edge 1"
@@ -148,12 +169,24 @@ if __name__ == "__main__":
     assert sorted(testCase.combinationSum([2], 1)) == [], "Edge 4"
     assert sorted(testCase.combinationSum([2], 5)) == [], "Edge 5"
 
-    assert sorted(testCase.combinationSum([2, 3, 6, 7], 7)) == [[2, 2, 3], [7]], "Example 1"
-    assert sorted(testCase.combinationSum([2, 3, 5], 8)) == [[2, 2, 2, 2], [2, 3, 3], [3, 5]], "Example 2"
+    assert sorted([sorted(comb) for comb in testCase.combinationSum([2, 3, 6, 7], 7)]) == [
+        [2, 2, 3],
+        [7]
+    ], "Example 1"
 
-    assert sorted(testCase.combinationSum([2, 4], 10)) == [[2, 2, 2, 2, 2], [2, 2, 2, 4], [2, 4, 4]], "Extra 1"
+    assert sorted([sorted(comb) for comb in testCase.combinationSum([2, 3, 5], 8)]) == [
+        [2, 2, 2, 2],
+        [2, 3, 3],
+        [3, 5]
+    ], "Example 2"
 
-    assert sorted(testCase.combinationSum([7, 3, 2], 18)) == [
+    assert sorted([sorted(comb) for comb in testCase.combinationSum([2, 4], 10)]) == [
+        [2, 2, 2, 2, 2],
+        [2, 2, 2, 4],
+        [2, 4, 4]
+    ], "Extra 1"
+
+    assert sorted([sorted(comb) for comb in testCase.combinationSum([7, 3, 2], 18)]) == [
         [2, 2, 2, 2, 2, 2, 2, 2, 2],
         [2, 2, 2, 2, 2, 2, 3, 3],
         [2, 2, 2, 2, 3, 7],
