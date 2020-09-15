@@ -86,10 +86,11 @@ class Solution_B:
         return result
 
 
-class Solution_C:
+class Solution_C1:
     def combinationSum(self, candidates: List[int], target: int) -> List[List[int]]:
         """
         Add a recursive process method to update result
+        The best method, super fast
         """
 
         def process(candidates: List[int], start: int, intermediate: List[int], target: int) -> None:
@@ -108,7 +109,7 @@ class Solution_C:
                 start += 1
 
         result = []
-        candidates = sorted(candidates)
+        candidates = sorted(candidates)  # this must be sorted first, needed for algorithm
         process(candidates, 0, [], target)
 
         return result
@@ -119,12 +120,10 @@ class Solution_D:
 
     def combinationSum(self, candidates: List[int], target: int) -> List[List[int]]:
         """
-        Version C
+        Version D
         # 本质上这是一道考排列组合的题,如果能构建排列组合的话, 直接对每个组合考虑是否之和等于target就可以了
-        上解就是通过自己构建组合,并融合target条件所以直接得出答案.
         可以通过python自带组合函数同样可以实现,也可以通过自建一个Combinations_with_replacements
         """
-        candidates = sorted(candidates)  # must sort first
         if not candidates:
             return []
         max_n = target // min(candidates)
@@ -160,7 +159,7 @@ class Solution_D:
 
 
 if __name__ == "__main__":
-    testCase = Solution_D()
+    testCase = Solution_C1()
 
     # Test cases are check after sorting, to avoid sequence error
     assert sorted(testCase.combinationSum([], 1)) == [], "Edge 1"
