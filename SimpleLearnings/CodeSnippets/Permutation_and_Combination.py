@@ -26,7 +26,7 @@ def combinations(candidates: List, r: int) -> List[List]:
     Use a proxy helper to generate indices of based on length of candidates, then convert to real elments
     Similar to itertools.combinations
     """
-    # this can individually work as a combination of list of elements
+
     def combine(n: int, pick: int) -> List[List[int]]:
         """
         Recursive Helper function
