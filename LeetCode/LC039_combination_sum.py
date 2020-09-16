@@ -123,12 +123,14 @@ class Solution_D:
     def combinationSum(self, candidates: List[int], target: int) -> List[List[int]]:
         """
         Version D
-        # 本质上这是一道考排列组合的题,如果能构建排列组合的话, 直接对每个组合考虑是否之和等于target就可以了
-        可以通过python自带组合函数同样可以实现,也可以通过自建一个Combinations_with_replacements
+        本质上这是一道考排列组合的题,如果能构建排列组合的话, 直接对每个组合考虑是否之和等于target就可以了
+        (可以通过python自带组合函数同样可以实现,也可以通过自建一个Combinations_with_replacements)
+
+        但是必须要额外一些优化才能pass,并且速度一般
         """
         if not candidates:
             return []
-        max_n = target // min(candidates)
+        max_n = target // min(candidates) # 这里是一个重要的优化步骤,通过限定一个组合中的最大length来帮助显著减少组合数
         result = []
         for i in range(1, max_n+1):
             for j in self.combinationWR(candidates, i):
