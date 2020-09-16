@@ -3,11 +3,12 @@ This is a way to record self constructed Permutaion and Combination
 
 Similar python built-in method can be found in itertools
 
-Permutation
+Permutation:
+    itertools.permutations(iterable, r=None)
 
-Combiantion:
-    itertools.combiantions_with_replacement
-    itertools.combinations
+Combination:
+    itertools.combinations_with_replacement(iterable, r)
+    itertools.combinations(iterable, r)
 
 """
 
@@ -16,10 +17,11 @@ import itertools
 
 
 # Combinations with no replacement
-def combinations(candidates: List[int], pick: int) -> List[List[int]]:
+def combinations(candidates: List[int], r: int) -> List[List[int]]:
     """
     Self verison of combination algorithm, with no repeating
     Use a proxy helper to generate indices of based on length of candidates, then convert to real elments
+    Similar to itertools.combinations
     """
     # this can individually work as a combination of list of elements
     def combinesSolo(n: int, pick: int) -> List[List[int]]:
@@ -37,7 +39,7 @@ def combinations(candidates: List[int], pick: int) -> List[List[int]]:
             return [com + [n - 1] for com in combinesSolo(n - 1, pick - 1)] + combinesSolo(n - 1, pick)
                           # n-1 because end index of n length is n-1
 
-    proxy_ans = combinesSolo(len(candidates), pick)
+    proxy_ans = combinesSolo(len(candidates), r)
 
     # convert proxy answer into real elements in candidates
     ans = []
@@ -56,18 +58,18 @@ if __name__ == '__main__':
         [2, 3],
         [2, 4],
         [3, 4]
-    ]
+    ], "Combinations with no replacement test"
 
 
 
 # Combinations with replacement
-def combinations_with_replacements(candidates: List[int], pick: int) -> List[List[int]]:
+def combinations_with_replacements(candidates: List[int], r: int) -> List[List[int]]:
     """
     Self verison of combination algorithm, with repeating
-    Almost the same as itertools.combinations_with_replacement
     Also use a proxy to generate indices of based on length of candidates, then convert to real elments
+    Almost the same as itertools.combinations_with_replacement
     """
-    if pick == 0:
+    if r == 0:
         return []
 
     # setup a proxy (idx of candidates)
@@ -75,7 +77,7 @@ def combinations_with_replacements(candidates: List[int], pick: int) -> List[Lis
     proxy_ans = [[i] for i in proxy]
 
     p = 1
-    while p < pick:
+    while p < r:
         new_proxy_ans = []
         for comb in proxy_ans:
             for idx in proxy:
@@ -99,4 +101,67 @@ if __name__ == '__main__':
         [1, 1, 1], [1, 1, 2], [1, 1, 3], [1, 2, 2], [1, 2, 3], [1, 3, 3],
         [2, 2, 2], [2, 2, 3], [2, 3, 3],
         [3, 3, 3]
-    ]
+    ], "Combinations with replacement test"
+
+
+# Permutation
+def permutations(candidates: List[int], r: int) -> List[List[int]]:
+    """
+    Self verison of permutation algorithm
+    Need to use the Combinations first to pick r number of elements, and then do permutations on each combination
+    """
+    def permute(indices: List[int]) -> List[List[int]]:
+        """
+        Helper proxy function, take indices as input and output indices
+        This will permute all indices
+        """
+
+        if len(indices) == 1:
+            return [indices]
+        else:
+            result = []
+            for i in indices:
+                sub_indices = indices[:]
+                sub_indices.remove(i)
+                result += [[i] + per for per in permute(sub_indices)]
+            return result
+
+    # convert to indices first
+    proxy = [i for i in range(len(candidates))]
+
+    # Get all proxy combinations picking r elements, in indices
+    all_pxoxy_combinations = combinations(proxy, r)
+
+    # get all proxy permutations for each combination
+    all_proxy_permutations = []
+    for proxy_comb in all_pxoxy_combinations:
+        proxy_perm = permute(proxy_comb)
+        all_proxy_permutations += proxy_perm
+
+    # convert proxy answer into real elements in candidates
+    ans = []
+    for proxy_perm in all_proxy_permutations:
+        ans_perm = [candidates[idx] for idx in proxy_perm]
+        ans.append(ans_perm)
+
+    return ans
+
+if __name__ == '__main__':
+
+    assert sorted(permutations([1, 2, 3], 3)) == [
+        [1, 2, 3],
+        [1, 3, 2],
+        [2, 1, 3],
+        [2, 3, 1],
+        [3, 1, 2],
+        [3, 2, 1]
+    ], "Full permutation"
+
+    assert sorted(permutations([1, 2, 3], 2)) == [
+        [1, 2],
+        [1, 3],
+        [2, 1],
+        [2, 3],
+        [3, 1],
+        [3, 2]
+    ], "Partial permutation"
