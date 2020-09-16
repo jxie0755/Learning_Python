@@ -1,22 +1,23 @@
 """
+Similar python built-in method can be found in itertools:
+
+import itertools
+
+    Permutation:
+        itertools.permutations(iterable, r=None)
+
+    Combination:
+        itertools.combinations_with_replacement(iterable, r)
+        itertools.combinations(iterable, r)
+
 This is a way to record self constructed Permutaion and Combination
-
-Similar python built-in method can be found in itertools
-
-Permutation:
-    itertools.permutations(iterable, r=None)
-
-Combination:
-    itertools.combinations_with_replacement(iterable, r)
-    itertools.combinations(iterable, r)
-
 Everything done with proxy (combination/Permutation of idx instead of true element) for clarification
 Then convert to actual elements.
-
 """
 
 from typing import *
-import itertools
+
+
 
 
 # Combinations with no replacement
