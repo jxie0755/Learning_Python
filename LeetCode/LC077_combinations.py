@@ -49,7 +49,7 @@ class Solution_A2:
         elif k == 1:
             return [[i] for i in range(1, n+1)]
         else:
-            return [[n] + com for com in self.combine(n - 1, k - 1)] + self.combine(n-1, k)
+            return [com + [n] for com in self.combine(n - 1, k - 1)] + self.combine(n-1, k)
 
 
 if __name__ == "__main__":
