@@ -10,6 +10,9 @@ Combination:
     itertools.combinations_with_replacement(iterable, r)
     itertools.combinations(iterable, r)
 
+Everything done with proxy (combination/Permutation of idx instead of true element) for clarification
+Then convert to actual elements.
+
 """
 
 from typing import *
@@ -17,7 +20,7 @@ import itertools
 
 
 # Combinations with no replacement
-def combinations(candidates: List[int], r: int) -> List[List[int]]:
+def combinations(candidates: List, r: int) -> List[List]:
     """
     Self verison of combination algorithm, with no repeating
     Use a proxy helper to generate indices of based on length of candidates, then convert to real elments
@@ -39,6 +42,10 @@ def combinations(candidates: List[int], r: int) -> List[List[int]]:
             return [com + [n - 1] for com in combinesSolo(n - 1, pick - 1)] + combinesSolo(n - 1, pick)
                           # n-1 because end index of n length is n-1
 
+
+    if r > len(candidates):
+        raise ValueError("r > len(candidates)")
+
     proxy_ans = combinesSolo(len(candidates), r)
 
     # convert proxy answer into real elements in candidates
@@ -51,24 +58,27 @@ def combinations(candidates: List[int], r: int) -> List[List[int]]:
 
 
 if __name__ == '__main__':
-    assert sorted(combinations([1,2,3,4], 2)) == [
-        [1, 2],
-        [1, 3],
-        [1, 4],
-        [2, 3],
-        [2, 4],
-        [3, 4]
+    assert sorted(combinations(["A","B","C","D"], 2)) == [
+        ['A', 'B'],
+        ['A', 'C'],
+        ['A', 'D'],
+        ['B', 'C'],
+        ['B', 'D'],
+        ['C', 'D']
     ], "Combinations with no replacement test"
 
 
 
 # Combinations with replacement
-def combinations_with_replacements(candidates: List[int], r: int) -> List[List[int]]:
+def combinations_with_replacements(candidates: List, r: int) -> List[List]:
     """
     Self verison of combination algorithm, with repeating
     Also use a proxy to generate indices of based on length of candidates, then convert to real elments
     Almost the same as itertools.combinations_with_replacement
     """
+    if r > len(candidates):
+        raise ValueError("r > len(candidates)")
+
     if r == 0:
         return []
 
@@ -97,15 +107,22 @@ def combinations_with_replacements(candidates: List[int], r: int) -> List[List[i
 
 
 if __name__ == '__main__':
-    assert sorted(sorted(i) for i in combinations_with_replacements([1, 2, 3], 3)) == [
-        [1, 1, 1], [1, 1, 2], [1, 1, 3], [1, 2, 2], [1, 2, 3], [1, 3, 3],
-        [2, 2, 2], [2, 2, 3], [2, 3, 3],
-        [3, 3, 3]
+    assert sorted(sorted(i) for i in combinations_with_replacements(["A", "B", "C"], 3)) == [
+        ['A', 'A', 'A'],
+        ['A', 'A', 'B'],
+        ['A', 'A', 'C'],
+        ['A', 'B', 'B'],
+        ['A', 'B', 'C'],
+        ['A', 'C', 'C'],
+        ['B', 'B', 'B'],
+        ['B', 'B', 'C'],
+        ['B', 'C', 'C'],
+        ['C', 'C', 'C']
     ], "Combinations with replacement test"
 
 
 # Permutation
-def permutations(candidates: List[int], r: int) -> List[List[int]]:
+def permutations(candidates: List, r: int) -> List[List]:
     """
     Self verison of permutation algorithm
     Need to use the Combinations first to pick r number of elements, and then do permutations on each combination
@@ -125,6 +142,9 @@ def permutations(candidates: List[int], r: int) -> List[List[int]]:
                 sub_indices.remove(i)
                 result += [[i] + per for per in permute(sub_indices)]
             return result
+
+    if r > len(candidates):
+        raise ValueError("r > len(candidates)")
 
     # convert to indices first
     proxy = [i for i in range(len(candidates))]
@@ -147,21 +167,20 @@ def permutations(candidates: List[int], r: int) -> List[List[int]]:
     return ans
 
 if __name__ == '__main__':
-
-    assert sorted(permutations([1, 2, 3], 3)) == [
-        [1, 2, 3],
-        [1, 3, 2],
-        [2, 1, 3],
-        [2, 3, 1],
-        [3, 1, 2],
-        [3, 2, 1]
+    assert sorted(permutations(["A", "B", "C"], 3)) == [
+        ['A', 'B', 'C'],
+        ['A', 'C', 'B'],
+        ['B', 'A', 'C'],
+        ['B', 'C', 'A'],
+        ['C', 'A', 'B'],
+        ['C', 'B', 'A']
     ], "Full permutation"
 
-    assert sorted(permutations([1, 2, 3], 2)) == [
-        [1, 2],
-        [1, 3],
-        [2, 1],
-        [2, 3],
-        [3, 1],
-        [3, 2]
+    assert sorted(permutations(["A", "B", "C"], 2)) == [
+        ['A', 'B'],
+        ['A', 'C'],
+        ['B', 'A'],
+        ['B', 'C'],
+        ['C', 'A'],
+        ['C', 'B']
     ], "Partial permutation"
