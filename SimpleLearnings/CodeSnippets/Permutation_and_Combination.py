@@ -26,7 +26,7 @@ def combinations(candidates: List[int], r: int) -> List[List[int]]:
     # this can individually work as a combination of list of elements
     def combinesSolo(n: int, pick: int) -> List[List[int]]:
         """
-        Helper function
+        Recursive Helper function
         Combination of indices
         """
         if pick == 0:
@@ -112,7 +112,7 @@ def permutations(candidates: List[int], r: int) -> List[List[int]]:
     """
     def permute(indices: List[int]) -> List[List[int]]:
         """
-        Helper proxy function, take indices as input and output indices
+        Recursive Helper proxy function, take indices as input and output indices
         This will permute all indices
         """
 
