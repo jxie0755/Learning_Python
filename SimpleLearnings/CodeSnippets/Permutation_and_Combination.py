@@ -29,8 +29,8 @@ def combinations(candidates: List, r: int) -> List[List]:
 
     def combine(n: int, pick: int) -> List[List[int]]:
         """
-        Recursive Helper function
-        Combination of indices
+        Recursive Helper function, only on idices, n = end index
+        Combination of indices from 0 to n
         """
         if pick == 0:
             return [[]]
@@ -46,6 +46,7 @@ def combinations(candidates: List, r: int) -> List[List]:
     if r > len(candidates):
         raise ValueError("r > len(candidates)")
 
+    # setup a proxy and combine (idx of candidates) by picking r
     proxy_ans = combine(len(candidates), r)
 
     # convert proxy answer into real elements in candidates
@@ -83,7 +84,7 @@ def combinations_with_replacements(candidates: List, r: int) -> List[List]:
         return []
 
     # setup a proxy (idx of candidates)
-    proxy = [i for i in range(len(candidates))]
+    proxy = list(range(len(candidates)))
     proxy_ans = [[i] for i in proxy]
 
     p = 1
@@ -146,7 +147,7 @@ def permutations(candidates: List, r: int) -> List[List]:
         raise ValueError("r > len(candidates)")
 
     # convert to indices first
-    proxy = [i for i in range(len(candidates))]
+    proxy = list(range(len(candidates)))
 
     # Get all proxy combinations picking r elements, in indices
     all_pxoxy_combinations = combinations(proxy, r)
