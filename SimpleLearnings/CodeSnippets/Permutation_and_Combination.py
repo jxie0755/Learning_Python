@@ -27,7 +27,7 @@ def combinations(candidates: List, r: int) -> List[List]:
     Similar to itertools.combinations
     """
     # this can individually work as a combination of list of elements
-    def combinesSolo(n: int, pick: int) -> List[List[int]]:
+    def combine(n: int, pick: int) -> List[List[int]]:
         """
         Recursive Helper function
         Combination of indices
@@ -39,14 +39,14 @@ def combinations(candidates: List, r: int) -> List[List]:
         elif pick == 1:
             return [[i] for i in range(n)]
         else:
-            return [com + [n - 1] for com in combinesSolo(n - 1, pick - 1)] + combinesSolo(n - 1, pick)
+            return [com + [n - 1] for com in combine(n - 1, pick - 1)] + combine(n - 1, pick)
                           # n-1 because end index of n length is n-1
 
 
     if r > len(candidates):
         raise ValueError("r > len(candidates)")
 
-    proxy_ans = combinesSolo(len(candidates), r)
+    proxy_ans = combine(len(candidates), r)
 
     # convert proxy answer into real elements in candidates
     ans = []
@@ -132,7 +132,6 @@ def permutations(candidates: List, r: int) -> List[List]:
         Recursive Helper proxy function, take indices as input and output indices
         This will permute all indices
         """
-
         if len(indices) == 1:
             return [indices]
         else:
