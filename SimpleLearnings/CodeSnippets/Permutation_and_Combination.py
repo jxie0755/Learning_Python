@@ -178,19 +178,21 @@ def permutations(candidates: List, r: int) -> List[List]:
     Self verison of permutation algorithm
     Need to use the Combinations first to pick r number of elements, and then do permutations on each combination
     """
-    def permute(indices: List[int]) -> List[List[int]]:
+    def permute(candidates: List[int]) -> List[List[int]]:
         """
         Recursive Helper doesn't matter if proxy or not
         But in this implementation, indices are sent in, thus output permutations of indices
         """
-        if len(indices) == 1:
-            return [indices]
+        if len(candidates) == 1:
+            return [candidates]
         else:
             result = []
-            for i in indices:
-                sub_indices = indices[:]
-                sub_indices.remove(i)
-                result += [[i] + per for per in permute(sub_indices)]
+            idx = 0
+            while idx < len(candidates):
+                sub_indices = candidates[:]
+                popped = sub_indices.pop(idx)
+                result += [[popped] + per for per in permute(sub_indices)]
+                idx += 1
             return result
 
     if r > len(candidates):
@@ -209,12 +211,12 @@ def permutations(candidates: List, r: int) -> List[List]:
         all_proxy_permutations += proxy_perm
 
     # convert proxy answer into real elements in candidates
-    ans = []
+    all_permutations = []
     for proxy_perm in all_proxy_permutations:
         ans_perm = [candidates[idx] for idx in proxy_perm]
-        ans.append(ans_perm)
+        all_permutations.append(ans_perm)
 
-    return ans
+    return all_permutations
 
 
 def permutations(candidates: List, r: int) -> List[List]:
@@ -224,19 +226,21 @@ def permutations(candidates: List, r: int) -> List[List]:
     Need to use the Combinations first to pick r number of elements, and then do permutations on each combination
     """
 
-    def permute(indices: List[int]) -> List[List[int]]:
+    def permute(candidates: List[int]) -> List[List[int]]:
         """
         Recursive Helper, doesn't matter if proxy or not
-        This will permute all indices
+        This will permute all elements, meaning r == len(candidates)
         """
-        if len(indices) == 1:
-            return [indices]
+        if len(candidates) == 1:
+            return [candidates]
         else:
             result = []
-            for i in indices:
-                sub_indices = indices[:]
-                sub_indices.remove(i)
-                result += [[i] + per for per in permute(sub_indices)]
+            idx = 0
+            while idx < len(candidates):
+                sub_indices = candidates[:]
+                popped = sub_indices.pop(idx)
+                result += [[popped] + per for per in permute(sub_indices)]
+                idx += 1
             return result
 
     if r > len(candidates):
