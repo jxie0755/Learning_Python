@@ -7,8 +7,9 @@ import itertools
         itertools.permutations(iterable, r=None)
 
     Combination:
-        itertools.combinations_with_replacement(iterable, r)
         itertools.combinations(iterable, r)
+        itertools.combinations_with_replacement(iterable, r)
+
 
 This is a way to record self constructed Permutaion and Combination
 Everything done with proxy (combination/Permutation of idx instead of true element) for clarification
@@ -24,7 +25,7 @@ def combinations(candidates: List, r: int) -> List[List]:
     """
     Self verison of combination algorithm, with no repeating
     Use a proxy helper to generate indices of based on length of candidates, then convert to real elments
-    Similar to itertools.combinations
+    Similar to itertools.combinations_with_replacement(iterable, r)
     """
 
     def combine(n: int, pick: int) -> List[List[int]]:
@@ -62,7 +63,7 @@ def combinations(candidates: List, r: int) -> List[List]:
     """
     Self verison of combination algorithm, with no repeating
     None-proxy, directly forming, Recursive
-    Similar to itertools.combinations
+    Similar to itertools.combinations_with_replacement(iterable, r)
     """
 
     n = len(candidates)
@@ -96,7 +97,7 @@ def combinations_with_replacements(candidates: List, r: int) -> List[List]:
     """
     Self verison of combination algorithm, with repeating
     Also use a proxy to generate indices of based on length of candidates, then convert to real elments
-    Almost the same as itertools.combinations_with_replacement
+    Almost the same as itertools.combinations_with_replacement(iterable, r)
     """
     if r > len(candidates):
         raise ValueError("r > len(candidates)")
@@ -132,7 +133,7 @@ def combinations_with_replacements(candidates: List, r: int) -> List[List]:
     """
     Self verison of combination algorithm, with repeating
     None-proxy, directly forming
-    Almost the same as itertools.combinations_with_replacement
+    Almost the same as itertools.combinations_with_replacement(iterable, r)
     """
     if r > len(candidates):
         raise ValueError("r > len(candidates)")
@@ -173,10 +174,12 @@ if __name__ == '__main__':
 
 
 # Permutation
-def permutations(candidates: List, r: int) -> List[List]:
+def permutations(candidates: List, r: int = None) -> List[List]:
     """
     Self verison of permutation algorithm
     Need to use the Combinations first to pick r number of elements, and then do permutations on each combination
+    A Proxy method, to permute indices first, then convert to elements
+    Almost the same as itertools.permutations(iterable, r=None)
     """
     def permute(candidates: List[int]) -> List[List[int]]:
         """
@@ -194,6 +197,9 @@ def permutations(candidates: List, r: int) -> List[List]:
                 result += [[popped] + per for per in permute(sub_candidates)]
                 idx += 1
             return result
+
+    if r is None:
+        r = len(candidates)
 
     if r > len(candidates):
         raise ValueError("r > len(candidates)")
@@ -219,11 +225,12 @@ def permutations(candidates: List, r: int) -> List[List]:
     return all_permutations
 
 
-def permutations(candidates: List, r: int) -> List[List]:
+def permutations(candidates: List, r: int = None) -> List[List]:
     """
     Self verison of permutation algorithm
     Non-proxy, directly forming
     Need to use the Combinations first to pick r number of elements, and then do permutations on each combination
+    Almost the same as itertools.permutations(iterable, r=None)
     """
 
     def permute(candidates: List[int]) -> List[List[int]]:
@@ -242,6 +249,9 @@ def permutations(candidates: List, r: int) -> List[List]:
                 result += [[popped] + per for per in permute(sub_candidates)]
                 idx += 1
             return result
+
+    if r is None:
+        r = len(candidates)
 
     if r > len(candidates):
         raise ValueError("r > len(candidates)")
