@@ -75,8 +75,8 @@ def combinations(candidates: List, r: int) -> List[List]:
         return [[i] for i in candidates]
     else:
         sub_candidates = candidates[:]
-        sub_can_last = sub_candidates.pop()
-        return [com + [sub_can_last] for com in combinations(sub_candidates, r - 1)] + combinations(sub_candidates, r)
+        popped = sub_candidates.pop()
+        return [com + [popped] for com in combinations(sub_candidates, r - 1)] + combinations(sub_candidates, r)
 
 
 if __name__ == '__main__':
@@ -189,9 +189,9 @@ def permutations(candidates: List, r: int) -> List[List]:
             result = []
             idx = 0
             while idx < len(candidates):
-                sub_indices = candidates[:]
-                popped = sub_indices.pop(idx)
-                result += [[popped] + per for per in permute(sub_indices)]
+                sub_candidates = candidates[:]
+                popped = sub_candidates.pop(idx)
+                result += [[popped] + per for per in permute(sub_candidates)]
                 idx += 1
             return result
 
@@ -237,9 +237,9 @@ def permutations(candidates: List, r: int) -> List[List]:
             result = []
             idx = 0
             while idx < len(candidates):
-                sub_indices = candidates[:]
-                popped = sub_indices.pop(idx)
-                result += [[popped] + per for per in permute(sub_indices)]
+                sub_candidates = candidates[:]
+                popped = sub_candidates.pop(idx)
+                result += [[popped] + per for per in permute(sub_candidates)]
                 idx += 1
             return result
 
