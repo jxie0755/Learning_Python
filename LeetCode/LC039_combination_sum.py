@@ -133,9 +133,9 @@ class Solution_D:
         max_n = target // min(candidates) # 这里是一个重要的优化步骤,通过限定一个组合中的最大length来帮助显著减少组合数
         result = []
         for i in range(1, max_n+1):
-            for j in self.combinationWR(candidates, i):
-                if sum(j) == target:
-                    result.append(list(j))
+            for comb in self.combinationWR(candidates, i):
+                if sum(comb) == target:
+                    result.append(list(comb))
         return result  # must sort at the end to pass case
 
 
