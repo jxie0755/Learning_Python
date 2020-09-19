@@ -135,7 +135,7 @@ class Solution_D:
         for i in range(1, max_n+1):
             for comb in self.combinationWR(candidates, i):
                 if sum(comb) == target:
-                    result.append(list(comb))
+                    result.append(comb)
         return result  # must sort at the end to pass case
 
 
@@ -154,7 +154,7 @@ class Solution_D:
             new_ans = []
             for comb in ans:
                 for i in candidates:
-                    if i >= max(comb):  # a very critical step to remove repeating
+                    if i >= max(comb):  # a very critical step to remove repeating (and will sort each combinations)
                         new = comb + [i]
                         new_ans.append(new)
             ans = new_ans
@@ -163,7 +163,7 @@ class Solution_D:
 
 
 if __name__ == "__main__":
-    testCase = Solution_B()
+    testCase = Solution_D()
 
     # Test cases are check after sorting, to avoid sequence error
     assert sorted(testCase.combinationSum([], 1)) == [], "Edge 1"
