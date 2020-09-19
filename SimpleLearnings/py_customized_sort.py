@@ -21,7 +21,8 @@ print(sorted(a, key=abs))
 print(sorted(a, key=absSort))
 print(sorted(a, key=lambda x: abs(x)))
 
-
+# key也可以写成两者比较的函数,需要调用functools.cmp_to_key
+print(sorted(a, key=functools.cmp_to_key(lambda x, y: abs(x) - abs(y))))
 # >>> [2, -3, 4, -5]
 
 
@@ -29,7 +30,6 @@ print(sorted(a, key=lambda x: abs(x)))
 # x < y, return -1
 # x == y, return 0
 # x > y, return 1
-
 
 def intGridCompare(x: List[int], y: List[int]) -> int:
     min_length = min(len(x), len(y))
@@ -56,7 +56,7 @@ grid = [
     [3, 1, 2]
 ]
 
-# 自定义compare需要调用unctools.cmp_to_key(cmp)来做key
+# 自定义compare同样需要调用unctools.cmp_to_key(cmp)来做key
 print(sorted(grid))
 print(sorted(grid, key=functools.cmp_to_key(intGridCompare)))
 # >>> [[1, 2, 3], [1, 3, 2], [2, 1, 3], [2, 3, 1], [3, 1, 2], [3, 2, 1]]
