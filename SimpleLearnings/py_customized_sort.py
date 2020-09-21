@@ -60,4 +60,3 @@ grid = [
 print(sorted(grid))
 print(sorted(grid, key=functools.cmp_to_key(intGridCompare)))
 # >>> [[1, 2, 3], [1, 3, 2], [2, 1, 3], [2, 3, 1], [3, 1, 2], [3, 2, 1]]
-
