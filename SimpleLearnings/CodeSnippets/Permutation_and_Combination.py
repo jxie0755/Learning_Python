@@ -68,6 +68,9 @@ def combinations(candidates: List, r: int) -> List[List]:
 
     n = len(candidates)
 
+    if r > len(candidates):
+        raise ValueError("r > len(candidates)")
+
     if r == 0:
         return [[]]
     elif r == n:
