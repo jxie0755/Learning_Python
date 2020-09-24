@@ -93,6 +93,15 @@ if __name__ == '__main__':
         ['C', 'D']
     ], "Combinations with no replacement test"
 
+    print(sorted(combinations([1, 1, 2, 3], 3)))
+    assert sorted(combinations([1, 1, 2, 3], 3)) == [
+        [1, 1, 2],
+        [1, 1, 3],
+        [1, 2, 3],
+        [1, 2, 3]    # 注意,如果candidates里面自带重复,这里答案不会帮助去重(itertools.combinations也一样)
+    ], "Combinations with no replacement test"
+
+
 
 
 # Combinations with replacement
