@@ -119,6 +119,7 @@ class Solution_C:
             return [com + [popped] for com in self.combinations(sub_candidates, r - 1)] + self.combinations(
                 sub_candidates, r)
 
+
 if __name__ == "__main__":
     testCase = Solution_C()
 
