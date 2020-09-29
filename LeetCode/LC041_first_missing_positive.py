@@ -29,6 +29,14 @@ class Solution_STD:
         """
         桶排序法
         Time: O(N)
+
+        基本思路:
+        idx      [0,1,2,3,4,5,6]
+        element  [1,2,3,4,5,6,7]
+        对于一个长度的nums,理想状态下,如果最后分布是1开始的连续整数,则末尾为idx+1
+        通过观察可以发现nums[i]=i+1, 也就是nums[i-1] = i
+        所以通过一个O(N)桶排序法,互相交换element位置, 使得nums[i]的值,位于idx=nums[i]-1的位置上
+        所以nums[nums[i]-1] 和 nums[i] 互相交换值
         """
 
         n = len(nums)
