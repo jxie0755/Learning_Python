@@ -15,7 +15,6 @@
 
 from typing import *
 
-
 def bucket_sort_continous(nums: List[int]) -> None:
     """
     Bucket sort with any interger array (evenly distributed)
