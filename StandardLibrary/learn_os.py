@@ -70,7 +70,9 @@ print(os.path.splitext("/Users/dxie/testdir/file.pdf"))  # 可以直接让你得
 
 # Rename and move
 try:
+    print("TYYYYYYYYYYYYY")
     os.rename("./temp/1.txt", "23333.txt")   # 可以换路径, 这样就是相当于移动了
+    # .表示当前py脚本所在的位置, 省略的话就表示直接移动到py所在脚本根目录(D:\Documents\GitHub\Learning_Python\StandardLibrary)
 except FileExistsError:
     pass
 except FileNotFoundError:
