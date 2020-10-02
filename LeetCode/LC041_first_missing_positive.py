@@ -27,7 +27,7 @@ class Solution_A:
 class Solution_STD:
     def firstMissingPositive(self, nums: List[int]) -> int:
         """
-        桶排序法
+        思路基于桶排序
         Time: O(N)
 
         基本思路:
@@ -37,6 +37,8 @@ class Solution_STD:
         通过观察可以发现nums[i]=i+1, 也就是nums[i-1] = i
         所以通过一个O(N)桶排序法,互相交换element位置, 使得nums[i]的值,位于idx=nums[i]-1的位置上
         所以nums[nums[i]-1] 和 nums[i] 互相交换值
+
+        与桶排序不同之处就是这里强行按照nums[idx] = idx + 1的方式进行,所以不必额外创造桶,而是直接通过swap使得spaceO(1)
         """
 
         n = len(nums)
