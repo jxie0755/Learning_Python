@@ -106,7 +106,6 @@ print(dd.find("C"))   # >>> 4
 
 # rfind和rindex非常类似,只是找的是最后一个index而不是第一个
 
-
 print()
 print("str.format(*args, **kwargs)")
 # Perform a string formatting operation.
