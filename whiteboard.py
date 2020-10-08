@@ -17,7 +17,6 @@ class Solution:
 
 
 
-
 if __name__ == "__main__":
     testCase = Solution()
     assert testCase.trap([]) == 0, "Edge 1"
