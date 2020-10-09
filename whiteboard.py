@@ -15,7 +15,7 @@ class Solution:
 
         volume = 0
 
-        def max_idx(start: int, end: int):
+        def find_max_idx(start: int, end: int):
             """Helper A: find out the max idx in idx range"""
             max_so_far = -1
             max_idx = -1
@@ -31,7 +31,7 @@ class Solution:
             if end - start < 1:
                 pass
             else:
-                new_max_idx = max_idx(start, end)
+                new_max_idx = find_max_idx(start, end)
                 if new_max_idx < pre_max_i:
                     for i in range(new_max_idx, pre_max_i):
                         volume += (height[new_max_idx] - height[i])
@@ -41,7 +41,7 @@ class Solution:
                         volume += (height[new_max_idx] - height[i])
                     trap_helper(new_max_idx + 1, len(height) - 1, new_max_idx)
 
-        peak_idx = max_idx(0, len(height) - 1)
+        peak_idx = find_max_idx(0, len(height) - 1)
         trap_helper(0, peak_idx - 1, peak_idx)
         trap_helper(peak_idx + 1, len(height) - 1, peak_idx)
 
