@@ -17,7 +17,7 @@ class Solution:
 
         def max_idx(start: int, end: int):
             """Helper A: find out the max idx in idx range"""
-            max_so_far = 0
+            max_so_far = -1
             max_idx = -1
             for i in range(start, end + 1):
                 if height[i] > max_so_far:
@@ -61,4 +61,5 @@ if __name__ == "__main__":
     assert testCase.trap([10, 1, 2, 1, 2, 1, 10]) == 43, "Example 2"
     assert testCase.trap([5, 5, 1, 7, 1, 1, 5, 2, 7, 6]) == 23, "Example 3"
     assert testCase.trap([0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1]) == 6, "Extra 1"
+    assert testCase.trap([8, 5, 4, 1, 8, 9, 3, 0, 0]) ==14, "Extra 2"
     print("all passed")
