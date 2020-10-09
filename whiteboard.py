@@ -42,8 +42,8 @@ class Solution:
                     trap_helper(new_max_idx + 1, len(height) - 1, new_max_idx)
 
         peak_idx = find_max_idx(0, len(height) - 1)
-        trap_helper(0, peak_idx - 1, peak_idx)
-        trap_helper(peak_idx + 1, len(height) - 1, peak_idx)
+        trap_helper(0, peak_idx - 1, peak_idx)  # find everything before max_idx
+        trap_helper(peak_idx + 1, len(height) - 1, peak_idx) # find everything after max_idx
 
         return volume
 
