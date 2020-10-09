@@ -43,9 +43,10 @@ class Solution:
 
         peak_idx = max_idx(0, len(height) - 1)
         trap_helper(0, peak_idx - 1, peak_idx)
-        trap_helper(peak_idx+1, len(height)-1, peak_idx)
+        trap_helper(peak_idx + 1, len(height) - 1, peak_idx)
 
         return volume
+
 
 if __name__ == "__main__":
     testCase = Solution()
