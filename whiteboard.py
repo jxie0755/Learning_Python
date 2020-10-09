@@ -25,23 +25,29 @@ class Solution:
                     max_idx = i
             return max_idx
 
-        def trap_helper(start: int, end: int, pre_max_i):
-            """Helper B: recursively calcualte the volume between two peaks"""
+        def trap_helper(start: int, end: int, cur_max_idx):
+            """
+            Helper B: recursively calcualte the volume between two peaks
+            this can go two directsions:
+                if the new max idx < pre_max_i, means sweeping to head
+                if the new max idx > pre_max_i, means sweeping to end
+
+            """
             nonlocal volume
             if end - start < 1:
                 pass
             else:
                 new_max_idx = find_max_idx(start, end)
-                if new_max_idx < pre_max_i:
-                    for i in range(new_max_idx, pre_max_i):
+                if new_max_idx < cur_max_idx:
+                    for i in range(new_max_idx, cur_max_idx):
                         volume += (height[new_max_idx] - height[i])
-                    trap_helper(0, new_max_idx - 1, new_max_idx)
+                    trap_helper(0, new_max_idx - 1, new_max_idx)  # sweeping to head
                 else:
-                    for i in range(pre_max_i + 1, new_max_idx):
+                    for i in range(cur_max_idx + 1, new_max_idx):
                         volume += (height[new_max_idx] - height[i])
-                    trap_helper(new_max_idx + 1, len(height) - 1, new_max_idx)
+                    trap_helper(new_max_idx + 1, len(height) - 1, new_max_idx)  # sweeping to end
 
-        peak_idx = find_max_idx(0, len(height) - 1)
+        peak_idx = find_max_idx(0, len(height) - 1) # first locate the max peak idx
         trap_helper(0, peak_idx - 1, peak_idx)  # find everything before max_idx
         trap_helper(peak_idx + 1, len(height) - 1, peak_idx) # find everything after max_idx
 
