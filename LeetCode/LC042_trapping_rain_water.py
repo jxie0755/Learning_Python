@@ -113,9 +113,7 @@ class Solution_B:
             if the new max idx > pre_max_i, means continously sweeping to end
         This function use start and end to specify the range to check
         """
-        if end - start < 1:
-            pass
-        else:
+        if end - start >= 1:
             new_max_idx = self.find_max_idx(height, start, end)
             if new_max_idx < cur_max_idx:
                 for i in range(new_max_idx, cur_max_idx):
