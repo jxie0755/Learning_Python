@@ -108,8 +108,7 @@ class Solution_B:
 
     def trap_helper(self, height: List[int], start: int, end: int, cur_max_idx) -> None:
         """
-        Helper B: recursively calcualte the volume between two peaks
-        this can go two directsions by one setup:
+        Helper B: recursively calcualte the volume between two peaks, bidirectional search:
             if the new max idx < pre_max_i, means continously sweeping to head
             if the new max idx > pre_max_i, means continously sweeping to end
         This function use start and end to specify the range to check
