@@ -86,9 +86,9 @@ class Solution_B:
             Sweep from max peak to end, finding the next highest peak, and calculate the volume between
             In both cases, use the next highest peak to be the new high point and recursively move
         """
-        peak_idx = self.find_max_idx(height, 0, len(height) - 1)  # first locate the max peak idx
-        self.trap_helper(height, 0, peak_idx - 1, peak_idx)  # find everything before max_idx
-        self.trap_helper(height, peak_idx + 1, len(height) - 1, peak_idx)  # find everything after max_idx
+        peak_idx = self.find_max_idx(height, 0, len(height))  # first locate the max peak idx
+        self.trap_helper(height, 0, peak_idx, peak_idx)  # find everything before max_idx
+        self.trap_helper(height, peak_idx + 1, len(height), peak_idx)  # find everything after max_idx
         ans = self.VOLUME
         self.VOLUME = 0  # reset the class attributes for next run
         return ans
@@ -100,7 +100,7 @@ class Solution_B:
         """
         max_so_far = -1
         max_idx = -1
-        for i in range(start, end + 1):
+        for i in range(start, end):
             if height[i] > max_so_far:
                 max_so_far = height[i]
                 max_idx = i
@@ -121,11 +121,11 @@ class Solution_B:
             if new_max_idx < cur_max_idx:
                 for i in range(new_max_idx, cur_max_idx):
                     self.VOLUME += (height[new_max_idx] - height[i])
-                self.trap_helper(height, 0, new_max_idx - 1, new_max_idx)  # sweeping to head
+                self.trap_helper(height, 0, new_max_idx, new_max_idx)  # sweeping to head
             else:
                 for i in range(cur_max_idx + 1, new_max_idx):
                     self.VOLUME += (height[new_max_idx] - height[i])
-                self.trap_helper(height, new_max_idx + 1, len(height) - 1, new_max_idx)  # sweeping to end
+                self.trap_helper(height, new_max_idx + 1, len(height), new_max_idx)  # sweeping to end
 
 
 if __name__ == "__main__":
