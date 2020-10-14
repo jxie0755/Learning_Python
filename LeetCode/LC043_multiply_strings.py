@@ -200,8 +200,8 @@ class Solution_D:
 if __name__ == "__main__":
     testCase = Solution_D()
     assert testCase.multiply("0", "23") == "0", "Edge 1"
+    assert testCase.multiply("999", "0") == "0", "Extra Edge 1"
     assert testCase.multiply("2", "23") == "46", "Edge 2"
-    assert testCase.multiply("999", "0") == "0", "Extra Edge 2"
 
     assert testCase.multiply("2", "3") == "6", "Example 1"
     assert testCase.multiply("123", "456") == "56088", "Example 2"
