@@ -152,7 +152,7 @@ class Solution_D:
 
     def str_add(self, num1: str, num2: str) -> str:
         """
-        Helper:
+        Helper D1:
         add two string numbers
         """
         long_len = max(len(num1),
@@ -182,7 +182,7 @@ class Solution_D:
 
     def str_multiply(self, num1: str, sd: str) -> str:
         """
-        Helper:
+        Helper D2:
         Any number * single digit number
         """
         ans = ""
