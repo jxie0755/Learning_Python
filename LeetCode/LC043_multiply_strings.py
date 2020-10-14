@@ -28,6 +28,8 @@ class Solution_B:
         HashMap method
         Calulate string by hand calculation method, can avoid overflow of integer/long numbers
         Avoid using integer calculation, direct return the String value
+
+        This WILL still break the integer range before converting back to string (>2147483647)
         """
 
         hmp_s2n = {
@@ -49,6 +51,7 @@ class Solution_B:
                 j -= 1
             i -= 1
 
+        # The result can be a big number before converting
         return self.int2str(result)
 
     def int2str(self, num: int) -> str:
@@ -126,11 +129,82 @@ class Solution_C:
         return result
 
 
+class Solution_D:
+    def multiply(self, num1: str, num2: str) -> str:
+        """
+        Break down into two str calculations:
+        1. Add: Any two numbers in str
+        2. Multiply: Two numbers in str, one to be single digit
+        Overall: num2 * each digit in num1, and add up, just like manual calculation
+        Pay attention to the leading number (when n1*n2 > 10 or n1*n2 > 10).
+        """
+
+        if num1 == "0" or num2 == "0":
+            return "0"
+
+        lead = 0
+        ans = "0"
+        for digit in reversed(num1):
+            mult = self.str_multiply(num2, digit)  # num2 * each digit of num 1
+            ans = self.str_add(ans, mult + lead * "0")  # ans +
+            lead += 1
+        return ans
+
+    def str_add(self, num1: str, num2: str) -> str:
+        """
+        Helper:
+        add two string numbers
+        """
+        long_len = max(len(num1),
+                       len(num2))  # max length of sum of two digit can maximally be 1 didigt longer than the long one
+        i = - 1
+        ans = ""
+        lead = 0
+        while i >= -long_len:
+            try:
+                p1 = num1[i]
+            except IndexError:
+                p1 = "0"
+            try:
+                p2 = num2[i]
+            except IndexError:
+                p2 = "0"
+
+            p_sum = int(p1) + int(p2) + lead
+            lead, p_digit = divmod(p_sum, 10)
+            ans = str(p_digit) + ans
+            i -= 1
+
+        if lead != 0:
+            ans = "1" + ans  # the last lead may add one more head
+
+        return ans
+
+    def str_multiply(self, num1: str, sd: str) -> str:
+        """
+        Helper:
+        Any number * single digit number
+        """
+        ans = ""
+        lead = 0
+        for digit in reversed(num1):
+            p_mul = int(digit) * int(sd) + lead
+            lead, p_digit = divmod(p_mul, 10)
+            ans = str(p_digit) + ans
+
+        if lead:
+            ans = str(lead) + ans
+        return ans
+
+
 if __name__ == "__main__":
-    testCase = Solution_C()
+    testCase = Solution_D()
     assert testCase.multiply("0", "23") == "0", "Edge 1"
     assert testCase.multiply("2", "23") == "46", "Edge 2"
+    assert testCase.multiply("999", "0") == "0", "Extra Edge 2"
+
     assert testCase.multiply("2", "3") == "6", "Example 1"
     assert testCase.multiply("123", "456") == "56088", "Example 2"
     assert testCase.multiply("50", "50") == "2500", "Extra 1"
+
     print("all passed")
