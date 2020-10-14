@@ -153,37 +153,32 @@ class Solution_D:
     def str_add(self, num1: str, num2: str) -> str:
         """
         Helper D1:
-        add two string numbers
+        add two str numbers
         """
-        long_len = max(len(num1),
-                       len(num2))  # max length of sum of two digit can maximally be 1 didigt longer than the long one
-        i = - 1
-        ans = ""
-        lead = 0
-        while i >= -long_len:
-            try:
-                p1 = num1[i]
-            except IndexError:
-                p1 = "0"
-            try:
-                p2 = num2[i]
-            except IndexError:
-                p2 = "0"
+        result = ""
+        add_on = 0
+        idx1, idx2 = len(num1) - 1, len(num2) - 1
+        while (idx1 >= 0 or idx2 >= 0):
+            d1, d2 = 0, 0
+            if idx1 >= 0:
+                d1 = int(num1[idx1])
+            if idx2 >= 0:
+                d2 = int(num2[idx2])
 
-            p_sum = int(p1) + int(p2) + lead
-            lead, p_digit = divmod(p_sum, 10)
-            ans = str(p_digit) + ans
-            i -= 1
+            add_on, d_result = divmod(d1 + d2 + add_on, 10)
+            result = str(d_result) + result
+            idx1 -= 1
+            idx2 -= 1
 
-        if lead != 0:
-            ans = "1" + ans  # the last lead may add one more head
+        if add_on:
+            result = str(add_on) + result
 
-        return ans
+        return result
 
     def str_multiply(self, num1: str, sd: str) -> str:
         """
         Helper D2:
-        Any number * single digit number
+        Any str number * single digit str number
         """
         ans = ""
         lead = 0
