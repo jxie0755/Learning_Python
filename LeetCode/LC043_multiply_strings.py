@@ -212,7 +212,7 @@ class Solution_STD:
                 # this allow each digit to be > 10, but change later back to single digit
                 rev_res_array[i + j] += int(num1[i]) * int(num2[j])
 
-                # handle the overflow if digit > 10
+                # handle the overflow if digit >= 10
                 rev_res_array[i + j + 1] += rev_res_array[i + j] // 10
                 rev_res_array[i + j] %= 10
 
