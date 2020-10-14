@@ -192,8 +192,50 @@ class Solution_D:
         return result
 
 
+class Solution_STD:
+    def multiply(self, num1:str, num2:str) -> str:
+        """
+        create an empty array of digit at len_1 + len_2 length for result first
+        And directly fill in the digit by one-step calculation
+
+        Optimized by DX
+        Simple codes, but takes longer to run
+        """
+        if num1 == "0" or num2 == "0":
+            return "0"
+
+
+        num1, num2 = num1[::-1], num2[::-1]
+        rev_res_array = [0] * (len(num1) + len(num2))
+        for i in range(len(num1)):
+            for j in range(len(num2)):
+                # this allow each digit to be > 10, but change later back to single digit
+                rev_res_array[i + j] += int(num1[i]) * int(num2[j])
+
+                # handle the overflow if digit > 10
+                rev_res_array[i + j + 1] += rev_res_array[i + j] // 10
+                rev_res_array[i + j] %= 10
+
+
+        # convert rev_res_array into String (joint reversely)
+        i = len(rev_res_array) - 1
+        lead_zero = True;
+        result = ""
+
+        while i >= 0:
+            if rev_res_array[i] != 0:  # Skip leading 0s.
+                lead_zero = False
+            if lead_zero:
+                pass
+            else:
+                result += str(rev_res_array[i])
+            i -= 1
+
+        return result
+
+
 if __name__ == "__main__":
-    testCase = Solution_D()
+    testCase = Solution_STD()
     assert testCase.multiply("0", "23") == "0", "Edge 1"
     assert testCase.multiply("999", "0") == "0", "Extra Edge 1"
     assert testCase.multiply("2", "23") == "46", "Edge 2"
