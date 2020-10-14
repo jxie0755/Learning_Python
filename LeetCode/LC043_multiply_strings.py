@@ -209,7 +209,7 @@ class Solution_STD:
         rev_res_array = [0] * (len(num1) + len(num2))
         for i in range(len(num1)):
             for j in range(len(num2)):
-                # this allow each digit to be > 10, but change later back to single digit
+                # this allow each digit to be >= 10, but change later back to single digit
                 rev_res_array[i + j] += int(num1[i]) * int(num2[j])
 
                 # handle the overflow if digit >= 10
