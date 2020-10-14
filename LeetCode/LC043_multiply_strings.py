@@ -143,12 +143,12 @@ class Solution_D:
             return "0"
 
         lead = 0
-        ans = "0"
+        result = "0"
         for digit in reversed(num1):
             mult = self.str_multiply(num2, digit)  # num2 * each digit of num 1
-            ans = self.str_add(ans, mult + lead * "0")  # ans +
+            result = self.str_add(result, mult + lead * "0")  # result +
             lead += 1
-        return ans
+        return result
 
     def str_add(self, num1: str, num2: str) -> str:
         """
@@ -180,16 +180,16 @@ class Solution_D:
         Helper D2:
         Any str number * single digit str number
         """
-        ans = ""
+        result = ""
         lead = 0
         for digit in reversed(num1):
             p_mul = int(digit) * int(sd) + lead
             lead, p_digit = divmod(p_mul, 10)
-            ans = str(p_digit) + ans
+            result = str(p_digit) + result
 
         if lead:
-            ans = str(lead) + ans
-        return ans
+            result = str(lead) + result
+        return result
 
 
 if __name__ == "__main__":
