@@ -100,9 +100,35 @@ class Solution_B:
         return count + 1
 
 
+class Solution_C:
+    def jump(self, nums: List[int]) -> int:
+        """
+        Recursion method, just to practice recursion
+        it is now very similar to non-recursive method, but still slower.
+        """
+
+        if len(nums) == 1:
+            return 0
+        return self.jumphelpter(nums, 0)
+
+    def jumphelpter(self, nums: List[int], cur_idx: int, count: int = 0) -> int:
+        """Helper C2"""
+
+        cur_value = nums[cur_idx]
+        if cur_idx + cur_value >= len(nums) - 1:  # end case, this idx can cover to or over last_idx
+            return count + 1
+        else:
+            best_next_idx, best_reach = cur_idx, 0
+            for jump_distance in range(1, cur_value + 1):
+                can_reach = jump_distance + nums[cur_idx + jump_distance]
+                if can_reach >= best_reach:
+                    best_next_idx, best_reach = cur_idx + jump_distance, can_reach
+            return self.jumphelpter(nums, best_next_idx, count + 1)
+
+
 
 if __name__ == "__main__":
-    testCase = Solution_B()
+    testCase = Solution_C()
     assert testCase.jump([0]) == 0, "Edge 0"
     assert testCase.jump([2, 1]) == 1, "Edge 1"
     assert testCase.jump([2, 3, 1, 1, 4]) == 2, "Example 1"
