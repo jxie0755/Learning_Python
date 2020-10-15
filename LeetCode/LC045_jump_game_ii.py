@@ -17,21 +17,22 @@ from typing import *
 class Solution_A1:
     def jump(self, nums: List[int]) -> int:
         """
-        Simple Recursion method that worked but exceed max time limit
+        Simple Recursion method, full iteration
+        This will calcualte total_step of every strategy and return the minimum.
+        Exceed max time limit
         """
-        def jumpHelperA(cur_idx: int, cur_step: int = 0) -> None:
-            """Helper"""
-
+        def jumpHelper(cur_idx: int, cur_step: int = 0) -> None:
+            """Helper A"""
             if cur_idx >= last_idx:
                 all_ways.append(cur_step)
             else:
                 cur_value = nums[cur_idx]
                 for i in range(1, cur_value + 1):
-                    jumpHelperA(cur_idx + i, cur_step + 1)
+                    jumpHelper(cur_idx + i, cur_step + 1)
 
         last_idx = len(nums) - 1
         all_ways = []
-        jumpHelperA(0)
+        jumpHelper(0)
         return min(all_ways)
 
 
@@ -40,123 +41,72 @@ class Solution_A2:
         """
         A modified A1 with hashmap search to reduce repeating calculation
         Use memorization method
+        This will still fail by exceed max time limit
         """
-        def jumpHelperA2(cur_idx: int, cur_step: int = 0) -> None:
+
+        def jumpHelper(cur_idx: int, cur_step: int = 0) -> None:
             """Helper A2"""
 
-            cur_value = nums[cur_idx]
+            if cur_idx >= last_idx:
+                all_ways.append(cur_step)
+            else:
+                cur_value = nums[cur_idx]
+                if cur_step < hmp[cur_idx]:  # only iterate if there is a way to get to this idx with less steps than tested before
+                    hmp[cur_idx] = cur_step
+                    for i in range(1, cur_value + 1):
+                        jumpHelper(cur_idx + i, cur_step + 1)
 
-
-            if cur_value + cur_idx >= last_idx: # If currently direct jump the the end is possible
-                all_ways.append(cur_step + 1)
-
-            elif cur_step < hmp[cur_idx]:
-                hmp[cur_idx] = cur_step
-                for i in range(1, cur_value + 1):
-                    jumpHelperA2(cur_idx + i, cur_step + 1)
-
-            # skip if there is already a better way to get to cur_idx
-
+        # set up a hashmap to check the minimum steps that can reach to this idx
         hmp = {i: float("inf") for i in range(len(nums))}
+
         last_idx = len(nums) - 1
         all_ways = []
         if len(nums) == 1:
             return 0
-        jumpHelperA2(0)
+        jumpHelper(0)
         return min(all_ways)
 
 
 class Solution_B:
+    """
+    This is not a dynamic algorithm, there is a definite way to determine next_idx for each step based on cur_idx:
+    The next_idx comes from the idx that gives max(next_idx - cur_idx + nums[next_idx])
+                                            jump distance from cur_idx + max jump distance from next_idxt
+    """
+
     def jump(self, nums: List[int]) -> int:
-        """
-        Non-recursive
-        """
 
-        def findNextIdx(cur_idx: int) -> int:
-            """
-            Helper B
-            由于一定能走完, 下一个index就是能走的最远的(包括这次跳跃的步数和它能带来的下一个步数)
-            """
-
-            cur_value = nums[cur_idx]
-            next_idx, next_value = 0, 0
-            for idx in range(cur_idx + 1, cur_idx + cur_value + 1):
-                idx_value = nums[idx]
-                if idx + idx_value >= next_idx + next_value:
-                    next_idx, next_value = idx, idx_value
-            return next_idx
-
-        if len(nums) == 1:
+        if len(nums) <= 1:
             return 0
 
+        count = 0
         last_idx = len(nums) - 1
         cur_idx = 0
-        cur_value = nums[cur_idx]
-        count = 0
-        while cur_value + cur_idx < last_idx :
-            cur_idx = findNextIdx(cur_idx)
-            cur_value = nums[cur_idx]
+        while cur_idx + nums[cur_idx] < last_idx:
+            jump_range = nums[cur_idx]
+            best_next_idx, best_reach = cur_idx, 0
+
+            # iterate each idx within the jump range to find the best_reach
+            for jump_distance in range(1, jump_range + 1):
+                can_reach = jump_distance + nums[cur_idx + jump_distance]
+                if can_reach >= best_reach:
+                    best_next_idx, best_reach = cur_idx + jump_distance, can_reach
+
             count += 1
+            cur_idx = best_next_idx  # jump to this best idx
 
         return count + 1
 
 
-class Solution_C1:
-    def jump(self, nums: List[int]) -> int:
-        """
-        Based on Version B, but through recursion
-        by using max function, this will pass, but still slow.
-        """
-
-        if len(nums) == 1:
-            return 0
-        return self.jumpHelpterC1(nums, 0)
-
-    def jumpHelpterC1(self, nums: List[int], cur_idx: int, count: int = 0) -> int:
-        """Helper C1"""
-
-        cur_value = nums[cur_idx]
-        if cur_idx + cur_value >= len(nums) - 1:
-            return count + 1
-        else:
-            candidates = nums[cur_idx + 1: cur_idx + cur_value + 1]
-            next_idx = max(enumerate(candidates, cur_idx + 1), key=lambda x: x[0] + x[1])[0]
-            return self.jumpHelpterC1(nums, next_idx, count + 1)
-
-class Solution_C2:
-    def jump(self, nums: List[int]) -> int:
-        """
-        Improved Recursion method
-        Based on Version C but removed max() and enumerate
-        it is now very similar to non-recursive method, but still slower.
-        """
-
-        if len(nums) == 1:
-            return 0
-        return self.jumphelpterC2(nums, 0)
-
-    def jumphelpterC2(self, nums: List[int], cur_idx: int, count: int = 0) -> int:
-        """Helper C2"""
-
-        cur_value = nums[cur_idx]
-        if cur_idx + cur_value >= len(nums) - 1:
-            return count + 1
-        else:
-            next_idx, next_value = 0, 0
-            for idx in range(cur_idx + 1, cur_idx + cur_value + 1):
-                idx_value = nums[idx]
-                if idx + idx_value >= next_idx + next_value:
-                    next_idx, next_value = idx, idx_value
-            return self.jumphelpterC2(nums, next_idx, count + 1)
-
 
 if __name__ == "__main__":
-    testCase = Solution_C2()
+    testCase = Solution_B()
     assert testCase.jump([0]) == 0, "Edge 0"
     assert testCase.jump([2, 1]) == 1, "Edge 1"
     assert testCase.jump([2, 3, 1, 1, 4]) == 2, "Example 1"
     assert testCase.jump(
         [2, 9, 6, 5, 7, 0, 7, 2, 7, 9, 3, 2, 2, 5, 7, 8, 1, 6, 6, 6, 3, 5, 2, 2, 6, 3]) == 5, "Long 1"
+    #   1                       2                 3                 4           5
     assert testCase.jump(
         [5, 6, 5, 3, 9, 8, 3, 1, 2, 8, 2, 4, 8, 3, 9, 1, 0, 9, 4, 6, 5, 9, 8, 7, 4, 2, 1, 0, 2]) == 5, "Long 2"
     assert testCase.jump(
