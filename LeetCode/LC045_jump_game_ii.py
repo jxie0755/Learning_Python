@@ -114,12 +114,12 @@ class Solution_C:
     def jumphelpter(self, nums: List[int], cur_idx: int, count: int = 0) -> int:
         """Helper C2"""
 
-        cur_value = nums[cur_idx]
-        if cur_idx + cur_value >= len(nums) - 1:  # end case, this idx can cover to or over last_idx
+        jump_range = nums[cur_idx]
+        if cur_idx + jump_range >= len(nums) - 1:  # end case, this idx can cover to or over last_idx
             return count + 1
         else:
             best_next_idx, best_reach = cur_idx, 0
-            for jump_distance in range(1, cur_value + 1):
+            for jump_distance in range(1, jump_range + 1):
                 can_reach = jump_distance + nums[cur_idx + jump_distance]
                 if can_reach >= best_reach:
                     best_next_idx, best_reach = cur_idx + jump_distance, can_reach
