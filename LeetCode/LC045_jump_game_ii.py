@@ -104,7 +104,7 @@ class Solution_C:
     def jump(self, nums: List[int]) -> int:
         """
         Recursion method, just to practice recursion
-        it is now very similar to non-recursive method, but still slower.
+        Very similar idea to Solution B, but slower as it is Recursive.
         """
 
         if len(nums) == 1:
