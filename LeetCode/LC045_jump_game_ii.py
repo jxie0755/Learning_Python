@@ -56,13 +56,15 @@ class Solution_A2:
                     for i in range(1, cur_value + 1):
                         jumpHelper(cur_idx + i, cur_step + 1)
 
+
+        if len(nums) == 1:
+            return 0
+
         # set up a hashmap to check the minimum steps that can reach to this idx
         hmp = {i: float("inf") for i in range(len(nums))}
 
         last_idx = len(nums) - 1
         all_ways = []
-        if len(nums) == 1:
-            return 0
         jumpHelper(0)
         return min(all_ways)
 
