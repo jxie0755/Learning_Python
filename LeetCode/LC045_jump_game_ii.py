@@ -74,7 +74,6 @@ class Solution_B:
         """
         This is not a dynamic algorithm, there is a definite way to determine next_idx for each step based on cur_idx:
         The next_idx comes from the idx that gives max(next_idx - cur_idx + nums[next_idx])
-                                                jump distance from cur_idx + max jump distance from next_idxt
         """
 
         if len(nums) <= 1:
