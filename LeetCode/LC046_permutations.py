@@ -134,7 +134,7 @@ class Solution_C:
                 for i in range(len(lst)):  # pick one element, and take the rest to recursive run for another pick
                     next_list = lst[:]
                     picked = next_list.pop(i) # Copy lst then remove i 1 by 1
-                    updated_permute_list = permute_list + [picked]
+                    updated_permute_list = permute_list + [picked]  # sequence
                     permuteHelper(next_list, updated_permute_list)
 
         length = len(nums)
@@ -154,7 +154,7 @@ class Solution_D:
             for i in range(len(nums)):
                 subList = nums[:]
                 picked = subList.pop(i)
-                result += [[picked] + per for per in self.permute(subList)]
+                result += [[picked] + per for per in self.permute(subList)]  # sequence looks oppositve than version C because of the recursion
             return result
 
 
