@@ -23,11 +23,11 @@ class Solution_A:
         return result
 
 
-class Solution_B:
+class Solution_B1:
     def permute(self, nums: List[int]) -> List[List[int]]:
         """
         Version B1
-        Convert to permutation of indexes, then replace with nums[idx]
+        Proxy-version, convert to permutation of indexes, then replace with nums[idx]
         """
 
         total_n = factorial(len(nums))
@@ -39,10 +39,43 @@ class Solution_B:
             perm_idxs = self.next_permute(perm_idxs)
         return result
 
+    def next_permute(self, nums: List[int]) -> List[int]:
+        """
+        Herlper for B1, B2
+        From Leetcode LC031: next permutation, modified to return a new permute list instead in-place
+        calculate the next permuatation, with integers 0 to N-1 (for N elements)
+        this will both modify idx_list and return the updated idx_list
+        """
+
+        # 从后往前找到第一次出现下降趋势那个元素
+        first_idx = len(nums) - 2
+        second_idx = len(nums) - 1
+
+        # 先定位first_idx
+        while first_idx >= 0 and nums[first_idx] >= nums[first_idx + 1]:
+            first_idx -= 1
+
+        if first_idx == -1:  # 如果完美倒序上升,则已经逆序排好,直接反转即可
+            return nums[:][::-1]
+        else:
+            # 定位second_idx
+            # 由于尾部已经是逆序排好, 所以从尾部开始倒退,第一个>first_element的元素就是second_element
+            ans = nums[::] # duplicate nums, and swap in-lace
+            while ans[second_idx] <= ans[first_idx]:
+                second_idx -= 1
+
+            # complete the swap
+            ans[first_idx], ans[second_idx] = ans[second_idx], ans[first_idx]
+            # reverse element after first_idx
+            ans[first_idx + 1:] = ans[first_idx + 1:][::-1]
+            return ans
+
+
+class Solution_B2:
     def permute(self, nums: List[int]) -> List[List[int]]:
         """
         Version B2
-        Recursive method, but direct handle elements in nums
+        Non-proxy, recursive method, but direct handle elements in nums
         This only works for when sample is a collection of distinct numbers
         """
 
@@ -50,36 +83,39 @@ class Solution_B:
         result = []
         for i in range(total_n):
             result.append(nums[:])
-            self.next_permute(nums)
+            nums = self.next_permute(nums)
         return result
 
-    def next_permute(self, indexes: List[int]) -> List[int]:
+    def next_permute(self, nums: List[int]) -> List[int]:
         """
         Herlper for B1, B2
-        From Leetcode p032: next permutation
+        From Leetcode LC031: next permutation, modified to return a new permute list instead in-place
         calculate the next permuatation, with integers 0 to N-1 (for N elements)
         this will both modify idx_list and return the updated idx_list
         """
 
-        length = len(indexes)
-        cur_i = None
+        # 从后往前找到第一次出现下降趋势那个元素
+        first_idx = len(nums) - 2
+        second_idx = len(nums) - 1
 
-        for i in range(-2, -length - 1, -1):
-            if indexes[i] < indexes[i + 1]:
-                cur_i = i
-                break
+        # 先定位first_idx
+        while first_idx >= 0 and nums[first_idx] >= nums[first_idx + 1]:
+            first_idx -= 1
 
-        if not cur_i:
-            indexes.reverse()
-            return indexes
-
+        if first_idx == -1:  # 如果完美倒序上升,则已经逆序排好,直接反转即可
+            return nums[:][::-1]
         else:
-            for rev_i in range(-1, cur_i, -1):
-                if indexes[rev_i] > indexes[cur_i]:  # tail must already be sorted!
-                    indexes[cur_i], indexes[rev_i] = indexes[rev_i], indexes[cur_i]  # switch
-                    indexes[cur_i + 1:] = indexes[cur_i + 1:][::-1]
-                    break
-            return indexes
+            # 定位second_idx
+            # 由于尾部已经是逆序排好, 所以从尾部开始倒退,第一个>first_element的元素就是second_element
+            ans = nums[::]  # duplicate nums, and swap in-lace
+            while ans[second_idx] <= ans[first_idx]:
+                second_idx -= 1
+
+            # complete the swap
+            ans[first_idx], ans[second_idx] = ans[second_idx], ans[first_idx]
+            # reverse element after first_idx
+            ans[first_idx + 1:] = ans[first_idx + 1:][::-1]
+            return ans
 
 
 class Solution_C:
@@ -123,7 +159,7 @@ class Solution_D:
 
 
 if __name__ == "__main__":
-    testCase = Solution_D()
+    testCase = Solution_B2()
     assert testCase.permute([1]) == [
         [1]
     ], "Edge 1"

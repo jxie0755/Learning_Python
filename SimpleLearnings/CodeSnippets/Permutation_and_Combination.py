@@ -93,7 +93,6 @@ if __name__ == '__main__':
         ['C', 'D']
     ], "Combinations with no replacement test"
 
-    print(sorted(combinations([1, 1, 2, 3], 3)))
     assert sorted(combinations([1, 1, 2, 3], 3)) == [
         [1, 1, 2],
         [1, 1, 3],
@@ -268,16 +267,17 @@ def permutations(candidates: List, r: int = None) -> List[List]:
     if r > len(candidates):
         raise ValueError("r > len(candidates)")
 
-    # Get all proxy combinations picking r elements, in indices
+    # Get all combinations picking r elements, in indices
     all_combinations = combinations(candidates, r)
 
-    # get all proxy permutations for each combination
+    # get all permutations for each combination
     all_permutations = []
     for comb in all_combinations:
         perm = permute(comb)
         all_permutations += perm
 
     return all_permutations
+
 
 if __name__ == '__main__':
     assert sorted(permutations(["A", "B", "C"], 3)) == [
@@ -297,3 +297,35 @@ if __name__ == '__main__':
         ['C', 'A'],
         ['C', 'B']
     ], "Partial permutation"
+
+
+def pure_permutations(candidates: List) -> List[List]:
+    """
+    From LC046 Version D
+    Quick pure permutation method, only for full permute (r==len(candidates))
+    """
+
+    if len(candidates) == 1:
+        return [candidates]
+    else:
+        result = []
+        for i in candidates:
+            subList = candidates[:]
+            subList.remove(i)
+            result += [[i] + per for per in pure_permutations(subList)]
+        return result
+
+
+if __name__ == '__main__':
+    assert pure_permutations([1]) == [
+        [1]
+    ], "Edge 1"
+
+    assert pure_permutations([1, 2, 3]) == [
+        [1, 2, 3],
+        [1, 3, 2],
+        [2, 1, 3],
+        [2, 3, 1],
+        [3, 1, 2],
+        [3, 2, 1]
+    ], "Example 1"

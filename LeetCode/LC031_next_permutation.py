@@ -41,6 +41,7 @@ Correct sequence (sorted):
 from typing import *
 
 class Solution_A:
+
     def nextPermutation(self, nums: List[int]) -> None:
 
         if not nums:
