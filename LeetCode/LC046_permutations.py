@@ -128,10 +128,10 @@ class Solution_C:
         def permuteHelper(lst: List[int], permute_list: List[int] = []) -> None:
             """Helper C"""
 
-            if len(permute_list) == length:
+            if len(permute_list) == length: # end case, when all elements are picked
                 result.append(permute_list)
             else:
-                for i in range(len(lst)):
+                for i in range(len(lst)):  # pick one element, and take the rest to recursive run for another pick
                     next_list = lst[:]
                     picked = next_list.pop(i) # Copy lst then remove i 1 by 1
                     updated_permute_list = permute_list + [picked]
