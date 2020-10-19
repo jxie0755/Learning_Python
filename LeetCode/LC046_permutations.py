@@ -151,15 +151,15 @@ class Solution_D:
             return [nums]
         else:
             result = []
-            for i in nums:
+            for i in range(len(nums)):
                 subList = nums[:]
-                subList.remove(i)
-                result += [[i] + per for per in self.permute(subList)]
+                picked = subList.pop(i)
+                result += [[picked] + per for per in self.permute(subList)]
             return result
 
 
 if __name__ == "__main__":
-    testCase = Solution_B2()
+    testCase = Solution_D()
     assert testCase.permute([1]) == [
         [1]
     ], "Edge 1"
