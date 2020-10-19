@@ -131,10 +131,10 @@ class Solution_C:
             if len(permute_list) == length:
                 result.append(permute_list)
             else:
-                for i in lst:
+                for i in range(len(lst)):
                     next_list = lst[:]
-                    next_list.remove(i) # Copy lst then remove i 1 by 1
-                    updated_permute_list = permute_list + [i]
+                    picked = next_list.pop(i) # Copy lst then remove i 1 by 1
+                    updated_permute_list = permute_list + [picked]
                     permuteHelper(next_list, updated_permute_list)
 
         length = len(nums)
@@ -159,7 +159,7 @@ class Solution_D:
 
 
 if __name__ == "__main__":
-    testCase = Solution_D()
+    testCase = Solution_C()
     assert testCase.permute([1]) == [
         [1]
     ], "Edge 1"
