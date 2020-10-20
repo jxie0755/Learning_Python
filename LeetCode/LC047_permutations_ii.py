@@ -102,7 +102,7 @@ class Solution_C1:
         def permuteUniHelper(lst: List[int], permute_list: List[int] = []) -> None:
             """Helper from LC046 Version C"""
 
-            if len(permute_list) == length:
+            if len(lst) == 0:  # all elements got picked
                 result.append(permute_list)
             else:
                 sub_list_check = []  # create a next_list_list
@@ -119,7 +119,6 @@ class Solution_C1:
                         updated_permute_list = permute_list + [picked]
                         permuteUniHelper(sub_list, updated_permute_list)
 
-        length = len(nums)
         result = []
         permuteUniHelper(nums)
         return result
@@ -137,7 +136,7 @@ class Solution_C2:
         def permuteUniHelper(lst: List[int], permute_list: List[int] = []) -> None:
             """Helper from LC046 Version C"""
 
-            if len(permute_list) == length:
+            if len(lst) == 0:
                 result.append(permute_list)
             else:
                 sub_list_check = []  # create a next_list_list
@@ -151,7 +150,6 @@ class Solution_C2:
                         permuteUniHelper(sub_list, updated_permute_list)
 
         nums = sorted(nums)  # sort first to avoid repeating issue
-        length = len(nums)
         result = []
         permuteUniHelper(nums)
         return result
