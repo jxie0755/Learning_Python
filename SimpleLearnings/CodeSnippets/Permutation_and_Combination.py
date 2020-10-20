@@ -310,9 +310,9 @@ def pure_permutations(candidates: List) -> List[List]:
     else:
         result = []
         for i in range(len(candidates)):
-            subList = candidates[:]
-            picked = subList.pop(i)
-            result += [[picked] + per for per in pure_permutations(subList)]
+            sub_list = candidates[:]  # it will be the sub-list after the pop
+            picked = sub_list.pop(i)
+            result += [[picked] + per for per in pure_permutations(sub_list)]
         return result
 
 

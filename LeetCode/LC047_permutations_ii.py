@@ -11,10 +11,12 @@ from math import factorial
 from typing import *
 
 
-class Solution_A:
+class Solution_A1:
     def permuteUnique(self, nums: List[int]) -> List[List[int]]:
         """
         use python's internal method, only for testing the speed
+        Only permute the idx (non-repeating), as a proxy method, but check repeat after put back to elements
+        It is not necessary to use proxy
         """
         result = []
         for idxs in permutations(list(range(len(nums)))):
@@ -24,75 +26,98 @@ class Solution_A:
         return result
 
 
+class Solution_A2:
+    def permuteUnique(self, nums: List[int]) -> List[List[int]]:
+        """
+        use python's internal method, only for testing the speed
+        Non-proxy version of A1
+        """
+        result = []
+        for p in permutations(nums):
+            lp = list(p)
+            if lp not in result:
+                result.append(lp)
+        return result
+
+
 class Solution_B:
     def permuteUnique(self, nums: List[int]) -> List[List[int]]:
         """
-        Use next permuteUnique
+        Use next nextPermutation from LC031, but use proxy to avoid repeating causing comparison error
         First handle index, then convert to nuns[index], if not repeating then append.
+
         This will pass but way too slow
         revised to use set(tuples) to removed repeats, then sort, it is faster, but still slow
         """
         total_n = factorial(len(nums))
         result = []
         idxs = list(range(len(nums)))
-        for i in range(total_n):
-            next_perm = [nums[i] for i in idxs]
-            result.append(tuple(next_perm))
-            idxs = self.next_permute(idxs)
-        return sorted([list(i) for i in set(result)])
 
-    # You must not use Leetcode P046 Version B2, because it asks for distinct collection of numbers
+        for _ in range(total_n):
+            each_perm = [nums[i] for i in idxs]
+            if each_perm not in result:
+                result.append(each_perm)
+            self.nextPermutation(idxs)
 
-    def next_permute(self, indexes: List[int]) -> List[int]:
+        return result
+
+    def nextPermutation(self, nums: List[int]) -> None:
         """
-        Helper B
-        Use next permutation method from leetcode p031
-        calculate the next permuatation, with integers 0 to N-1 (for N elements)
-        this will both modify idx_list and return the updated idx_list
+        Helper function from LC031
         """
 
-        length = len(indexes)
-        cur_i = None
+        if not nums:
+            return None
 
-        for i in range(-2, -length - 1, -1):
-            if indexes[i] < indexes[i + 1]:
-                cur_i = i
-                break
+        # 从后往前找到第一次出现下降趋势那个元素
+        first_idx = len(nums) - 2
+        second_idx = len(nums) - 1
 
-        if not cur_i:
-            indexes.reverse()
-            return indexes
+        # 先定位first_idx
+        while first_idx >= 0 and nums[first_idx] >= nums[first_idx + 1]:
+            first_idx -= 1
 
+        if first_idx == -1:  # 如果完美倒序上升,则已经逆序排好,直接反转即可
+            nums[:] = nums[:][::-1]  # nums.reverse()
         else:
-            for rev_i in range(-1, cur_i, -1):
-                if indexes[rev_i] > indexes[cur_i]:  # tail must already be sorted!
-                    indexes[cur_i], indexes[rev_i] = indexes[rev_i], indexes[cur_i]  # switch
-                    indexes[cur_i + 1:] = indexes[cur_i + 1:][::-1]
-                    break
-            return indexes
+            # 定位second_idx
+            # 由于尾部已经是逆序排好, 所以从尾部开始倒退,第一个>first_element的元素就是second_element
+            while nums[second_idx] <= nums[first_idx]:
+                second_idx -= 1
+
+            # complete the swap
+            nums[first_idx], nums[second_idx] = nums[second_idx], nums[first_idx]
+            # reverse element after first_idx
+            nums[first_idx + 1:] = nums[first_idx + 1:][::-1]
 
 
-class Solution_C:
+
+class Solution_C1:
     def permuteUnique(self, nums: List[int]) -> List[List[int]]:
         """
-        recursive method from leetcode P046
+        recursive method modified from leetcode P046 Version C
         revised the recursion rule by bypassing the repeated next_list
         """
 
-        def permuteUniHelper(lst: List[int], permute_list: List[int] =[]) -> None:
-            """Helper"""
+        def permuteUniHelper(lst: List[int], permute_list: List[int] = []) -> None:
+            """Helper from LC046 Version C"""
 
             if len(permute_list) == length:
                 result.append(permute_list)
             else:
-                next_list_list = []
-                for i in lst:
-                    next_list = lst[:]
-                    next_list.remove(i)
-                    if next_list not in next_list_list:  # 在这里去重, 只要剩下的list完全相同就不要递归了
-                        next_list_list.append(next_list)
-                        updated_permute_list = permute_list + [i]
-                        permuteUniHelper(next_list, updated_permute_list)
+                sub_list_check = []  # create a next_list_list
+                for i in range(len(lst)):
+                    sub_list = lst[:]  # it will be the sub-list after the pop
+                    picked = sub_list.pop(i)
+
+                    # must check on sorted to avoid same sub_list in different sequence!
+                    sub_list_sorted = sorted(sub_list)
+
+                    # Modification: Recursively removing repeating sub_list through each pick
+                    if sub_list_sorted not in sub_list_check:
+                        sub_list_check.append(sub_list_sorted)
+                        updated_permute_list = permute_list + [picked]
+                        permuteUniHelper(sub_list, updated_permute_list)
 
         length = len(nums)
         result = []
@@ -100,36 +125,77 @@ class Solution_C:
         return result
 
 
+class Solution_C2:
+    def permuteUnique(self, nums: List[int]) -> List[List[int]]:
+        """
+        Version C1 modified
+        Sort nums first to avoid sort sub_list check for repeating
+
+        So far, this is the best solution
+        """
+
+        def permuteUniHelper(lst: List[int], permute_list: List[int] = []) -> None:
+            """Helper from LC046 Version C"""
+
+            if len(permute_list) == length:
+                result.append(permute_list)
+            else:
+                sub_list_check = []  # create a next_list_list
+                for i in range(len(lst)):
+                    sub_list = lst[:]  # it will be the sub-list after the pop
+                    picked = sub_list.pop(i)
+
+                    if sub_list not in sub_list_check:
+                        sub_list_check.append(sub_list)
+                        updated_permute_list = permute_list + [picked]
+                        permuteUniHelper(sub_list, updated_permute_list)
+
+        nums = sorted(nums)  # sort first to avoid repeating issue
+        length = len(nums)
+        result = []
+        permuteUniHelper(nums)
+        return result
+
+
+
 class Solution_D:
     def permuteUnique(self, nums: List[int]):
         """
-        Pure recursive method, single and pure recursion from leetcode P046
+        Pure recursive method, single and pure recursion modified from leetcode P046 version D
         Revised the recursion rule by bypassing the repeated next_list
+
+        Must sort sub_list for checking repeat, unlike version C
+        The sort nums can not be separated from main function, like the way version C uses helper
         """
 
         length = len(nums)
         if length == 1:
-            return [[nums[0]]]
+            return [nums]
         else:
             result = []
-            sublist_checklist = []  # add an intermediate step to prevent repeats
-            for i in nums:
-                subist = nums[:]
-                subist.remove(i)
-                if subist not in sublist_checklist:  # check repeats
-                    sublist_checklist.append(subist)
-                    result += [[i] + per for per in self.permuteUnique(subist)]
+            sub_list_check = []  # add an intermediate step to prevent repeats
+            for i in range(len(nums)):
+                sub_list = nums[:]
+                picked = sub_list.pop(i)
+
+                # must check on sorted to avoid same sub_list in different sequence!
+                sub_list_sorted = sorted(sub_list)
+
+                # Recursively removing repeating sub_list through each pick
+                if sub_list_sorted not in sub_list_check:
+                    sub_list_check.append(sub_list_sorted)
+                    result += [[picked] + per for per in self.permuteUnique(sub_list)]
             return result
 
 
 
 if __name__ == "__main__":
-    testCase = Solution_D()
+    testCase = Solution_C2()
     assert testCase.permuteUnique([1]) == [
         [1]
     ], "Edge 1"
 
-    assert testCase.permuteUnique([1, 2, 3]) == [
+    assert sorted(testCase.permuteUnique([1, 2, 3])) == [
         [1, 2, 3],
         [1, 3, 2],
         [2, 1, 3],
@@ -138,10 +204,33 @@ if __name__ == "__main__":
         [3, 2, 1]
     ], "Example 1"
 
-    assert testCase.permuteUnique([1, 1, 2]) == [
+    assert sorted(testCase.permuteUnique([3, 2, 1])) == [
+        [1, 2, 3],
+        [1, 3, 2],
+        [2, 1, 3],
+        [2, 3, 1],
+        [3, 1, 2],
+        [3, 2, 1]
+    ], "Example 1 addtional"
+
+    assert sorted(testCase.permuteUnique([1, 1, 2])) == [
         [1, 1, 2],
         [1, 2, 1],
         [2, 1, 1]
     ], "Example 2"
+
+    assert sorted(testCase.permuteUnique([2, 1, 1])) == [
+        [1, 1, 2],
+        [1, 2, 1],
+        [2, 1, 1]
+    ], "Example 2 additional"
+
+
+    assert sorted(testCase.permuteUnique([3, 3, 0, 3])) == [
+        [0, 3, 3, 3],
+        [3, 0, 3, 3],
+        [3, 3, 0, 3],
+        [3, 3, 3, 0]
+    ], "Extra 1"
 
     print("all passed")
