@@ -24,8 +24,8 @@ class Solution_A:
             hmp = {}
             for row in range(n):
                 for col in range(n):
-                    x, y = col, n - 1 - row
-                    hmp[(x, y)] = matrix[row][col]
+                    new_row, new_col = col, n - row - 1 # reverse set up the col and row
+                    hmp[(new_row, new_col)] = matrix[row][col]
             for row in range(n):
                 for col in range(n):
                     matrix[row][col] = hmp[(row, col)]
@@ -34,20 +34,32 @@ class Solution_B:
     def rotate(self, matrix: List[List[int]]) -> None:
         """
         Direct change in-place, with circiles shrinking to the center
+
+        The iteration goes through each square, [row,col] represent first row of the circle, except for the very last one
+        1 2 3 4 5 6 |
+        | 7 8 9 0 | |
+        | | 1 2 | | |
+        | | | * | | |
+        | | | - | | |
+        | | - - - | |
+        | - - - - - |
+        From each [row,col], 3 other [x, y] are located by row and col, and rotate all 4 points at the same time
+
+        If odd number matrix, center will not be iterated, as it won't move at all
         """
 
         N = len(matrix)
-        for i in range(N // 2):  # 层层缩小, 每次遍历一个圈
-            for j in range(i, N - i - 1):
-                A = matrix[i][j]
-                B = matrix[j][N - i - 1]
-                C = matrix[N - i - 1][N - j - 1]
-                D = matrix[N - j - 1][i]
+        for row in range(N // 2):  # row change,只走前半行(用//去除奇数中心)
+            for col in range(row, N - row - 1): # col change, 从row number开始,斜切入中心,-1用于去掉对称位
+                A = matrix[row][col]
+                B = matrix[col][N - row - 1]
+                C = matrix[N - row - 1][N - col - 1]
+                D = matrix[N - col - 1][row]
 
-                matrix[j][N - i - 1]         = A
-                matrix[N - i - 1][N - j - 1] = B
-                matrix[N - j - 1][i]         = C
-                matrix[i][j]                 = D
+                matrix[col][N - row - 1]         = A
+                matrix[N - row - 1][N - col - 1] = B
+                matrix[N - col - 1][row]         = C
+                matrix[row][col]                 = D
 
 
 if __name__ == "__main__":
