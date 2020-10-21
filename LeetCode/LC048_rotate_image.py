@@ -52,19 +52,26 @@ class Solution_B:
 
 if __name__ == "__main__":
     testCase = Solution_B()
+
+    edge_0 = [[]]
+    testCase.rotate(edge_0)
+    assert edge_0 == [[]], "Edge 0"
+
     edge_1 = [[1]]
     testCase.rotate(edge_1)
     assert edge_1 == [[1]], "Edge 1"
-
-    edge_2 = [[]]
-    testCase.rotate(edge_2)
-    assert edge_2 == [[]], "Edge 2"
 
     sample_1 = [
         [1, 2, 3],
         [4, 5, 6],
         [7, 8, 9]
     ]
+    testCase.rotate(sample_1)
+    assert sample_1 == [
+        [7, 4, 1],
+        [8, 5, 2],
+        [9, 6, 3]
+    ], "Example 1"
 
     sample_2 = [
         [5, 1, 9, 11],
@@ -72,16 +79,7 @@ if __name__ == "__main__":
         [13, 3, 6, 7],
         [15, 14, 12, 16]
     ]
-
-    testCase.rotate(sample_1)
     testCase.rotate(sample_2)
-
-    assert sample_1 == [
-        [7, 4, 1],
-        [8, 5, 2],
-        [9, 6, 3]
-    ], "Example 1"
-
     assert sample_2 == [
         [15, 13, 2, 5],
         [14, 3, 4, 1],
