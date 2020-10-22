@@ -22,11 +22,11 @@ class Solution_A:
 
         hmp = {}
         for word in strs:
-            k = tuple(sorted(list(word)))
-            if k not in hmp:
-                hmp[k] = [word]
+            sorted_anagram_key = tuple(sorted(list(word)))
+            if sorted_anagram_key not in hmp:
+                hmp[sorted_anagram_key] = [word]
             else:
-                hmp[k].append(word)
+                hmp[sorted_anagram_key].append(word)
         return list(hmp.values())
 
 
