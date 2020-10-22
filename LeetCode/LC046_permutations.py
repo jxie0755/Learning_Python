@@ -43,7 +43,7 @@ class Solution_B1:
         """
         Herlper for B1, B2
         From Leetcode LC031: next permutation, modified to return a new permute list instead in-place
-        calculate the next permuatation, with integers 0 to N-1 (for N elements)
+        calculate the next permuatation, with integers 0 to N-1 (as idx proxy)
         this will both modify idx_list and return the updated idx_list
         """
 
@@ -90,7 +90,7 @@ class Solution_B2:
         """
         Herlper for B1, B2
         From Leetcode LC031: next permutation, modified to return a new permute list instead in-place
-        calculate the next permuatation, with integers 0 to N-1 (for N elements)
+        calculate the next permuatation, with integers 0 to N-1 (as idx proxy)
         this will both modify idx_list and return the updated idx_list
         """
 
