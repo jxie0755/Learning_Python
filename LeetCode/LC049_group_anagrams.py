@@ -36,12 +36,12 @@ if __name__ == "__main__":
     edge_1 = []
     assert testCase.groupAnagrams(edge_1) == [
         []
-    ], "edge 1"
+    ], "edge 0"
 
     edge_2 = ["a"]
     assert testCase.groupAnagrams(edge_2) == [
         ["a"]
-    ], "edge 2"
+    ], "edge 1"
 
     sample_1 = ["eat", "tea", "tan", "ate", "nat", "bat"]
     assert testCase.groupAnagrams(sample_1) == [
