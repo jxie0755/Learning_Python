@@ -15,7 +15,9 @@ from typing import *
 
 class Solution_A:
     def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
-        """Use hashmap"""
+        """
+        Use hashmap to store each group under a sorted set of letters as the key.
+        """
 
         if not strs:
             return [[]]
