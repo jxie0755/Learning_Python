@@ -31,19 +31,19 @@ class Solution_A:
 class Solution_B:
     def myPow(self, x: float, n: int) -> float:
         """
-        Recursive
-        利用n每翻倍一次, 只是原数平方一次
+        Quick recursive version, with O(LogN) speed
         """
         if n == 0:
-            return 1
-        elif n < 0:
-            return 1 / self.myPow(x, -n)
-        else:
-            v = self.myPow(x, n // 2)  # 这里利用变量只算一次,避免树形递归
-            if n % 2 == 0:
-                return v * v
+            return 1.0
+        elif n > 0:
+            if n == 1:
+                return x
+            elif n % 2 == 0:
+                return self.myPow(x * x, n // 2)
             else:
-                return v * v * x
+                return self.myPow(x * x, n // 2) * x
+        else:
+            return 1 / self.myPow(x, -n)
 
 
 if __name__ == "__main__":
