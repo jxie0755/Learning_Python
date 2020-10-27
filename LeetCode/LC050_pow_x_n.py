@@ -20,13 +20,14 @@ class Solution_A:
         """
         if n == 0:
             return 1
-        elif n < 0:
-            return 1 / self.myPow(x, -n)
-        else:
+        elif n > 0:
             result = 1.0
             for i in range(n):  # 这里遍历太多了
                 result *= x
             return result
+        else:
+            return 1 / self.myPow(x, -n)
+
 
 class Solution_B:
     def myPow(self, x: float, n: int) -> float:
