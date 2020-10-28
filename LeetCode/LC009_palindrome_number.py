@@ -8,7 +8,6 @@ Negative integer will not be a palindrome
 """
 
 class Solution_A:
-
     def isPalindrome(self, x: int) -> bool:
         """String method, takes extra space"""
         if x < 0:
