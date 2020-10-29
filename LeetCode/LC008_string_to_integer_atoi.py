@@ -73,7 +73,6 @@ class Solution_A:
             return result
 
 class Solution_B:
-
     def myAtoi(self, str: str) -> int:
         """use regex method to identify each group of element"""
 
