@@ -13,6 +13,7 @@ class Solution:
         pass
 
 
+
 if __name__ == "__main__":
     testCase = Solution()
     assert testCase.maxSubArray([1, 2, 3, 4]) == 10, "All positives"
