@@ -23,18 +23,19 @@ class Solution_STD:
     def maxSubArray(self, nums: List[int]) -> int:
         """
         O(n), using local and global max_value to iterate over the elements
+        This won't work for all negatives, so add a check-flag for screening.
         """
         nonePositive = True
 
         global_max, local_max = 0, 0
         for i in nums:
-            if i > 0:
+            if i > 0: # check-flag
                 nonePositive = False
             local_max = max(0, local_max + i)
             global_max = max(global_max, local_max)
 
         if nonePositive:
-            return max(nums)
+            return max(nums)  # this will save the time to iterate all if `nonePositive -= False`
         else:
             return global_max
 
