@@ -8,7 +8,6 @@ Find the contiguous subarray within an array (containing at least one number) wh
 
 from typing import *
 
-
 class Solution:
     def maxSubArray(self, nums: List[int]) -> int:
         pass
