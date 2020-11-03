@@ -8,6 +8,7 @@ Find the contiguous subarray within an array (containing at least one number) wh
 
 from typing import *
 
+
 class Solution_A:
     def maxSubArray(self, nums: List[int]) -> int:
         """
@@ -19,6 +20,7 @@ class Solution_A:
                 result.append(sum(nums[start:start + length]))
         return max(result)
 
+
 class Solution_STD:
     def maxSubArray(self, nums: List[int]) -> int:
         """
@@ -29,10 +31,15 @@ class Solution_STD:
 
         global_max, local_max = 0, 0
         for i in nums:
-            if i > 0: # check-flag
+            if i > 0:  # check-flag
                 nonePositive = False
+
             local_max = max(0, local_max + i)
+            # here we lock local to be at least >= 0, so if temporarily drop because of a neg number, it continues
+            # it will only be reset to 0 if completely goes < 0
+
             global_max = max(global_max, local_max)
+            # here we record global_max in case local max start to drop
 
         if nonePositive:
             return max(nums)  # this will save the time to iterate all if `nonePositive -= False`
@@ -53,4 +60,5 @@ if __name__ == "__main__":
     assert testCase.maxSubArray([0]) == 0, "just 0"
     assert testCase.maxSubArray([0, -1, -1, 0, 0, 0, -1, -2, -3]) == 0, "only one zero"
     assert testCase.maxSubArray([0, 0, 0, 0, 0, 0]) == 0, "all zeros"
+    assert testCase.maxSubArray([1, 2, 3, -8, 2, 3, 4, -2, 9, -8, 9, -8, -7, -6]) == 17, "extra"
     print("all passed")
