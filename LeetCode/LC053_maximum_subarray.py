@@ -27,12 +27,12 @@ class Solution_STD:
         O(n), using local and global max_value to iterate over the elements
         This won't work for all negatives, so add a check-flag for screening.
         """
-        nonePositive = True
+        allNegative = True
 
         global_max, local_max = 0, 0
         for i in nums:
             if i > 0:  # check-flag
-                nonePositive = False
+                allNegative = False
 
             local_max = max(0, local_max + i)
             # here we lock local to be at least >= 0, so if temporarily drop because of a neg number, it continues
@@ -41,7 +41,7 @@ class Solution_STD:
             global_max = max(global_max, local_max)
             # here we record global_max in case local max start to drop
 
-        if nonePositive:
+        if allNegative:
             return max(nums)  # this will save the time to iterate all if `nonePositive -= False`
         else:
             return global_max
