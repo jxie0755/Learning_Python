@@ -90,27 +90,27 @@ class Solution_B:
             return result
 
         m, n = len(matrix), len(matrix[0])
-        top, bot, left, right = 0, m - 1, 0, n - 1
+        top_idx, bot_idx, left_idx, right_idx = 0, m - 1, 0, n - 1
 
-        while top <= bot and left <= right:
+        while top_idx <= bot_idx and left_idx <= right_idx:
 
-            for a in range(left, right + 1):  # left -> right
-                result.append(matrix[top][a])
-            top += 1
+            for a in range(left_idx, right_idx + 1):  # left -> right
+                result.append(matrix[top_idx][a])
+            top_idx += 1
 
-            for b in range(top, bot + 1):  # top -> bot
-                result.append(matrix[b][right])
-            right -= 1
+            for b in range(top_idx, bot_idx + 1):  # top -> bot
+                result.append(matrix[b][right_idx])
+            right_idx -= 1
 
-            if top <= bot: # 反向移动时, 注意在这里要补一个条件, 所以会出现只剩下横或者只剩下列的情况要规避
-                for c in range(right, left - 1, -1):  # right -> left
-                    result.append(matrix[bot][c])
-            bot -= 1
+            if top_idx <= bot_idx: # 反向移动时, 注意在这里要补一个条件, 因为top_idx在while loop之中被更新过一次
+                for c in range(right_idx, left_idx - 1, -1):  # right -> left
+                    result.append(matrix[bot_idx][c])
+            bot_idx -= 1
 
-            if left <= right:  # 同上
-                for d in range(bot, top - 1, -1):  #
-                    result.append(matrix[d][left])
-            left += 1
+            if left_idx <= right_idx:  # 同上,right_idx被更新过一次了
+                for d in range(bot_idx, top_idx - 1, -1):  #
+                    result.append(matrix[d][left_idx])
+            left_idx += 1
 
         return result
 
