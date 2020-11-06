@@ -14,29 +14,25 @@ from typing import *
 class Solution_A:
     def canJump(self, nums: List[int]) -> bool:
         """
-        Use a helper to find next idx based on current index, as long as it was able to move forward
+        Very similar to LC045 jump game ii, version B
+        Add an additional check if can't not find the best_next_idx, directly return False
         """
 
-        def findNext(cur_idx) -> int:
-            cur_val = nums[cur_idx]
-            next_idx, next_val = 0, 0
-            for idx in range(cur_idx + 1, cur_idx + cur_val + 1):
-                idx_val = nums[idx]
-                if idx + idx_val > next_idx + next_val:
-                    next_idx, next_val = idx, idx_val
-            return next_idx
-
-        cur_idx, cur_val = 0, nums[0]
         last_idx = len(nums) - 1
+        cur_idx = 0
 
-        if len(nums) == 1 or 0 not in nums:
-            return True
+        while cur_idx + nums[cur_idx] < last_idx:
+            jump_range = nums[cur_idx]
+            best_next_idx, best_reach = cur_idx, 0
+            for jump_distance in range(1, jump_range + 1):
+                can_reach = jump_distance + nums[cur_idx + jump_distance]
+                if can_reach >= best_reach:
+                    best_next_idx, best_reach = cur_idx + jump_distance, can_reach
 
-        while cur_val < last_idx - cur_idx:
-            cur_idx = findNext(cur_idx)
-            cur_val = nums[cur_idx]
-            if cur_idx == 0:
+            if best_next_idx == cur_idx:  # if after evaluating, the best_next_idx never changed from cur_idx
                 return False
+            else:
+                cur_idx = best_next_idx
 
         return True
 
@@ -46,10 +42,10 @@ class Solution_STD:
     def canJump(self, nums: List[int]) -> bool:
         max_reachable_idx = 0  # 定义一个当前能走到的最远的位置
 
-        for i, length in enumerate(nums):
-            if i > max_reachable_idx:
+        for idx, jump_range in enumerate(nums):
+            if idx > max_reachable_idx:
                 return False  # 如果到了一个idx, 发现之前最远idx都走不到这,就表示走不通
-            max_reachable_idx = max(max_reachable_idx, i + length)  # 对每个idx检查, 保留最大值
+            max_reachable_idx = max(max_reachable_idx, idx + jump_range)  # 对每个idx检查, 保留最大值
 
         return True
 
