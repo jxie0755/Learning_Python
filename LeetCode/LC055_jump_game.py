@@ -42,7 +42,7 @@ class Solution_STD:
     def canJump(self, nums: List[int]) -> bool:
         max_reachable_idx = 0  # 定义一个当前能走到的最远的位置
 
-        for idx, jump_range in enumerate(nums):
+        for idx, jump_range in enumerate(nums): # 利用enum提取idx和对应的nums[idx]
             if idx > max_reachable_idx:
                 return False  # 如果到了一个idx, 发现之前最远idx都走不到这,就表示走不通
             max_reachable_idx = max(max_reachable_idx, idx + jump_range)  # 对每个idx检查, 保留最大值
