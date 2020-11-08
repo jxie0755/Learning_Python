@@ -8,10 +8,13 @@ Given a collection of intervals, merge all overlapping intervals.
 
 from typing import *
 
+
 # NOTE: input types have been changed on April 15, 2019.
 # Please reset to default code definition to get new method signature.
-#
+
 # Helper: Definition for an interval.
+# No longer in use
+
 # class Interval:
 #     def __init__(self, s=0, e=0):
 #         self.start = s
@@ -31,24 +34,56 @@ class Solution_A:
         """
         Sort first, then connect the two neighbored interval if possible
         Needs to pop, not working for array
+        This change in-place
         """
         if len(intervals) < 2:
             return intervals
 
-        intervals.sort()
-        i = 0
-        while i != len(intervals) - 1:
-            first, second = intervals[i], intervals[i + 1]
+        # sort first
+        intervals.sort(key=lambda e: e[0]) # actually by defualt python will sort by this key
+
+        # merge
+        idx = 0
+        while idx != len(intervals) - 1:
+            first, second = intervals[idx], intervals[idx + 1]
             if first[1] >= second[0]:
                 first[1] = max(first[1], second[1])  # necessary, because [1,4] will be sorted before [2,3]
-                intervals.pop(i + 1)
+                intervals.pop(idx + 1) # after merge, remove the second element
             else:
-                i += 1
+                idx += 1
         return intervals
+
+
+class Solution_B:
+    def merge(self, intervals: List[List[int]]) -> List[List[int]]:
+        """
+        Sort first, then connect the two neighbored interval if possible
+        This output a new list
+        """
+        if len(intervals) < 2:
+            return intervals
+
+        # sort first
+        intervals.sort(key=lambda e: e[0])
+
+        # merge
+        result = [intervals[0]]
+        idx = 1
+        while idx < len(intervals):
+            cur = intervals[idx]
+            if result[-1][0] <= cur[0] <= result[-1][1]:
+                result[-1][1] = max(result[-1][1], cur[1])
+            else:
+                result.append(cur)
+            idx += 1
+        return result
 
 
 if __name__ == "__main__":
     testCase = Solution_A()
+
+    lst = []
+    assert testCase.merge(lst) == [], "Edge 0"
 
     lst = [[0, 1]]
     assert testCase.merge(lst) == [[0, 1]], "Edge 1"
