@@ -28,6 +28,7 @@ from typing import *
 #         return False
 
 
+
 class Solution_A:
     def merge(self, intervals: List[List[int]]) -> List[List[int]]:
         """
