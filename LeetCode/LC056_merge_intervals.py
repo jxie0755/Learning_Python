@@ -30,7 +30,6 @@ Given a collection of intervals, merge all overlapping intervals.
 from typing import *
 
 
-
 class Solution_A:
     def merge(self, intervals: List[List[int]]) -> List[List[int]]:
         """
