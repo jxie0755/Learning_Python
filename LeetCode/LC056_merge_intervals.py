@@ -55,7 +55,6 @@ class Solution_A:
         return intervals
 
 
-
 class Solution_B:
     def merge(self, intervals: List[List[int]]) -> List[List[int]]:
         """
