@@ -29,7 +29,16 @@ from typing import *
 
 class Solution:
     def insert(self, intervals: List[List[int]], newInterval: List[int]) -> List[List[int]]:
-        pass
+        result = []
+
+        head_found = False
+        end_found = False
+        for interval in intervals:
+            if interval[0] <= newInterval[0] < interval[1] < newInterval[1]:
+                head_found = True
+            if head_found and interval[0] <= newInterval[1] < interval[1]:
+                end_found = True
+
 
 
 if __name__ == "__main__":
@@ -59,5 +68,9 @@ if __name__ == "__main__":
         [3, 10],
         [12, 16]
     ], "Example 2 extended"
+
+    lst = [[1, 4], [7, 10]]
+    assert testCase.insert(lst, [1, 2]) == [[1, 4], [7, 10]], "Extra 1"
+
 
     print("all passed")
