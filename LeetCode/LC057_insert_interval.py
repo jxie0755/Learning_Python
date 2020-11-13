@@ -11,7 +11,7 @@ from typing import *
 
 # NOTE: input types have been changed on April 15, 2019.
 # Please reset to default code definition to get new method signature.
-#
+
 # class Interval:
 #     def __init__(self, s=0, e=0):
 #         self.start = s
