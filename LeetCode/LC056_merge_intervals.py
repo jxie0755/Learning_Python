@@ -41,7 +41,7 @@ class Solution_A:
             return intervals
 
         # sort first
-        intervals.sort(key=lambda e: e[0]) # actually by defualt python will sort by this key
+        intervals.sort(key=lambda e: e[0]) # actually by default python will sort by this key
 
         # merge
         idx = 0
