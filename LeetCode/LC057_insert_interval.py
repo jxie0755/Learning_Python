@@ -57,15 +57,17 @@ class Solution_A:
 class Solution_B:
     def insert(self, intervals: List[List[int]], newInterval: List[int]) -> List[List[int]]:
         """
-        insert the new interval at the right location of already sorted intervals
-        then skip the sorting and just merge
+        Insert the intervals only according to the first element, so that intervals is still sorted
+        Then merge like LC056
         """
-        i = 0
-        while i != len(intervals):
-            if newInterval[0] < intervals[i][0]:
-                intervals.insert(i, newInterval)
+        idx = 0
+        while idx < len(intervals):
+            cur = intervals[idx]
+            if newInterval[0] <= cur[0]:
+                intervals.insert(idx, newInterval)
                 break
-            i += 1
+            else:
+                idx += 1
         else:
             intervals.append(newInterval)
 
@@ -74,10 +76,12 @@ class Solution_B:
 
     def merge(self, intervals):
         """
-        Helper B modified from leetcode p056
+        Helper B modified from leetcode LC056
+        intervals already sorted
         """
         if len(intervals) < 2:
             return intervals
+
         # intervals.sort()  No need for sorting
         i = 0
         while i != len(intervals) - 1:
@@ -88,7 +92,6 @@ class Solution_B:
             else:
                 i += 1
         return intervals
-
 
 
 
