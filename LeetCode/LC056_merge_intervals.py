@@ -42,6 +42,7 @@ class Solution_A:
 
         # sort first
         # this is not python's default sort (because it only comparing first element)
+        # so it is actually faster
         intervals.sort(key=lambda e: e[0])
 
         # merge
@@ -66,6 +67,8 @@ class Solution_B:
             return intervals
 
         # sort first
+        # this is not python's default sort (because it only comparing first element)
+        # so it is actually faster
         intervals.sort(key=lambda e: e[0])
 
         # merge
