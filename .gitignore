@@ -140,3 +140,4 @@ Temporary Items
 .vscode/.ropeproject/config.py
 
 *.pyc
+/venv/
