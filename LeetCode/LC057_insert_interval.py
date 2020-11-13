@@ -82,7 +82,9 @@ class Solution_B:
         if len(intervals) < 2:
             return intervals
 
-        # intervals.sort()  No need for sorting
+        # sorting no longer needed
+        # intervals.sort(key=lambda e: e[0])
+
         idx = 0
         while idx != len(intervals) - 1:
             first, second = intervals[idx], intervals[idx + 1]
