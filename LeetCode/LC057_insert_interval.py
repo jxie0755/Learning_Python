@@ -83,14 +83,14 @@ class Solution_B:
             return intervals
 
         # intervals.sort()  No need for sorting
-        i = 0
-        while i != len(intervals) - 1:
-            first, second = intervals[i], intervals[i + 1]
+        idx = 0
+        while idx != len(intervals) - 1:
+            first, second = intervals[idx], intervals[idx + 1]
             if first[1] >= second[0]:
                 first[1] = max(first[1], second[1])
-                intervals.pop(i + 1)
+                intervals.pop(idx + 1)
             else:
-                i += 1
+                idx += 1
         return intervals
 
 
