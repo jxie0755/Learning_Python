@@ -150,6 +150,6 @@ if __name__ == "__main__":
     assert testCase.insert(lst, [10, 11]) == [[1, 4], [7, 11]], "Extra 10"
 
     lst = [[1, 4], [7, 10]]
-    assert testCase.insert(lst, [11, 12]) == [[1, 4], [7, 10], [11, 12]], "Extra 10"
+    assert testCase.insert(lst, [11, 12]) == [[1, 4], [7, 10], [11, 12]], "Extra 11"
 
     print("all passed")
