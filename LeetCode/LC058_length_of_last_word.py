@@ -73,6 +73,6 @@ if __name__ == "__main__":
     assert testCase.lengthOfLastWord("a") == 1, "Extra 2"
     assert testCase.lengthOfLastWord(" a") == 1, "Extra 3"
     assert testCase.lengthOfLastWord("  a") == 1, "Extra 4"
-    assert testCase.lengthOfLastWord("aaaa ") == 4, "Extra 5"
+    assert testCase.lengthOfLastWord("  aaaa   ") == 4, "Extra 5"
 
     print("all passed")
