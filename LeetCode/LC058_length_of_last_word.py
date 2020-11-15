@@ -27,16 +27,16 @@ class Solution_B:
         Set a counter for spaces
         No need for extra space
         """
-        cnt = 0
+        count = 0
         for v in reversed(s):  # create reversed iterator
             if v.isspace():  # to avoid end with a " "
-                if cnt != 0:  # force to move down from the end " ",
+                if count != 0:  # force to move down from the end " ",
                     break  # but break at next " "
                 else:
                     pass
             else:
-                cnt += 1
-        return cnt
+                count += 1
+        return count
 
 
 class Solution_C:
