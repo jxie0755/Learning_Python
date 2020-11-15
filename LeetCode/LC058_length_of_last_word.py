@@ -47,12 +47,12 @@ class Solution_C:
         if not s:
             return 0
 
-        raw_pattern = r"(.*\s|\.*)([A-Za-z]*\b)"
-        # 2 situations
-        # whatever + a space + word (some other thing, but then must be separated by at least a space)
-        # whatever + word (just spaces)
+        raw_pattern = r"(.*\s+?|\s*)([A-Za-z]*\b)"
 
-        # use \b to have clear cut on words at the end to avoid suffix spaces
+        # 2 situations
+        # whatever + at least a space + word (some other thing, but then must be separated by at least a space)
+        # 0 or many spaces + word (just spaces)
+            # use \b to have clear cut on words at the end to avoid suffix spaces
 
         match = re.search(raw_pattern, s)
         if match:
@@ -63,7 +63,7 @@ class Solution_C:
 
 
 if __name__ == "__main__":
-    testCase = Solution_B()
+    testCase = Solution_C()
     assert testCase.lengthOfLastWord("") == 0, "Edge 1"
     assert testCase.lengthOfLastWord(" ") == 0, "Edge 2"
 
