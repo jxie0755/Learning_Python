@@ -16,7 +16,9 @@ class Solution:
 
 if __name__ == "__main__":
     testCase = Solution()
-    assert testCase.generateMatrix(1) == [[1]], "Edge 1"
+    assert testCase.generateMatrix(1) == [
+        [1]
+    ], "Edge 1"
 
     assert testCase.generateMatrix(3) == [
         [1, 2, 3],
