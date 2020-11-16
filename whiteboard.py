@@ -11,7 +11,9 @@ from typing import *
 
 class Solution:
     def generateMatrix(self, n: int) -> List[List[int]]:
-        pass
+        coor = [0, 0]
+        for step in range(n*n):
+
 
 
 if __name__ == "__main__":
