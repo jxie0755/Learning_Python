@@ -50,7 +50,11 @@ class Solution_A:
 
         return matrix
 
+
 class Solution_A_rectangular:
+    """
+    This is an extended version for non-square situations
+    """
 
     def generateMatrix_rect(self, m: int, n: int) -> List[List[int]]:
         """
