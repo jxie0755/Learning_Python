@@ -59,7 +59,7 @@ class Solution_A_rectangular:
     def generateMatrix_rect(self, m: int, n: int) -> List[List[int]]:
         """
         Version A additional
-        To output any rectangular shape (non-perfect n*n)
+        To output any rectangular shape (non-perfect n^2 but m*n with width and hiegh)
         """
         val = 1
         matrix = [[0 for _ in range(m)] for _ in range(n)]
