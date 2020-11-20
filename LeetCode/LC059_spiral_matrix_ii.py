@@ -96,6 +96,7 @@ class Solution_A_rectangular:
         return matrix
 
 
+
 if __name__ == "__main__":
     testCase = Solution_A()
     assert testCase.generateMatrix(1) == [
