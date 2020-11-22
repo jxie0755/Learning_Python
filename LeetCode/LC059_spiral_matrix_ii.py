@@ -59,7 +59,7 @@ class Solution_A_rectangular:
     def generateMatrix_rect(self, m: int, n: int) -> List[List[int]]:
         """
         Version A additional
-        To output any rectangular shape (m*n with width and hiegh)
+        To output any rectangular shape (m*n with width and heigh)
         """
         val = 1
         matrix = [[0 for _ in range(m)] for _ in range(n)]
