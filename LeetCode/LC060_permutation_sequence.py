@@ -166,22 +166,50 @@ class Solution_B:
             return "".join(str(i) for i in self.permute(lst)[k - 1])
 
 
+
+
 class Solution_C1(object):
+    """
+    01 -> "1234"  --- x=1, 1! = 1, last 1 digit (4) is reversely sorted, the first 3 digit (123) is sorted
+    02 -> "1243"  --- x=2, 2! = 2, last 2 digit (43) is reversely sorted, the first 2 digit (12) is sorted
+    03 -> "1324"    |
+    04 -> "1342"  --- when in between, the last x=2 digit rotate permute with one digit move up everytime
+    05 -> "1423"    |
+    06 -> "1432"  --- x=3, 3! = 6, last x digit (432) is reversely sorted, the first 1 digit (1) is sorted
+    07 -> "2134"   |
+    08 -> "2143"   |
+    09 -> "2314"   |
+    10 -> "2341"   |
+    11 -> "2413"   |
+    12 -> "2431"   |
+    13 -> "3124"   |
+    14 -> "3142"   |
+    15 -> "3214" ___ when in between, the last x=3 digit rotate permute with one digit move up everytime
+    16 -> "3241"   |
+    17 -> "3412"   |
+    18 -> "3421"   |
+    19 -> "4123"   |
+    20 -> "4132"   |
+    21 -> "4213"   |
+    22 -> "4231"   |
+    23 -> "4312"   |
+    24 -> blank  --- x=4, 4! = n!, end
+    """
     def getPermutation(self, n: int, k: int) -> str:
         """
         Direct generation, digit by digit
-        这里利用的是每一位数字, 都会因为后面位数的总排列数为循环发生变化, 从小到大发展
+        这里利用的是每一位数字, 都会因为后面位数x的总排列数(x!)为循环发生变化, 从小到大发展
         """
-        seq, k= "", k - 1  # k = k-1 因为一开始算一个,所以要去掉
-        perm = list(range(1, n + 1))
+        result, k= "", k - 1  # k = k-1 因为一开始算一个,所以要去掉
+        candidates = list(range(1, n + 1))
 
-        for i in reversed(range(n)):
+        for i in (range(n-1, -1, -1)): # 迭代,从n-1一直到0, 仍是n次,每次算出一位数字
             fact = math.factorial(i)    # 这个数字后面, 剩余位数的所有排列数目
-            curr = perm.pop(k // fact)  # 这一步很关键, 找出fact被循环了几次
+            curr = candidates.pop(k // fact)  # 这一步很关键, 找出fact被循环了几次
                         # 用pop去掉已经排出来的数字, 因为此后的迭代这个数字不参与其中
-            seq += str(curr)
+            result += str(curr)
             k %= fact
-        return seq
+        return result
 
 
 class Solution_C2(object):
@@ -209,7 +237,7 @@ class Solution_C2(object):
 
 
 if __name__ == "__main__":
-    testCase = Solution_C2()
+    testCase = Solution_C1()
     assert testCase.getPermutation(4, 1) == "1234", "Edge 1"
     assert testCase.getPermutation(3, 3) == "213", "Example 1"
     assert testCase.getPermutation(4, 9) == "2314", "Example 2"
