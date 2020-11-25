@@ -195,6 +195,7 @@ class Solution_C1(object):
     23 -> "4312"   |
     24 -> blank  --- x=4, 4! = n!, end
     """
+
     def getPermutation(self, n: int, k: int) -> str:
         """
         Direct generation, digit by digit
