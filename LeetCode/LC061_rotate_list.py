@@ -18,30 +18,22 @@ class Solution_A:
 
         # Measure the length of the linked list, and locate the end node
         length = 1
-        find_end = head
-        while find_end.next:
-            find_end = find_end.next
+        last_node = head
+        while last_node.next:
+            last_node = last_node.next
             length += 1
 
-        # Special cases
-        if k % length == 0:
-            return head
-        elif k > length:  # optimize by remove full cycles
-            return self.rotateRight(head, k % length)
-
-        # Common cases
-        # locate the node before break point
-        find_node_before_break = head
-
-        for i in range(length - k - 1):
-            find_node_before_break = find_node_before_break.next
-
         # link the end to head to be a loop
-        find_end.next = head
+        last_node.next = head
+
+        # locate the node before break point
+        node_before_break = head
+        for i in range(length - k % length - 1):
+            node_before_break = node_before_break.next
 
         # locate the next node (as the new head), and break link of the two node
-        new_head = find_node_before_break.next
-        find_node_before_break.next = None
+        new_head = node_before_break.next
+        node_before_break.next = None
         return new_head
 
 
