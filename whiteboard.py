@@ -11,7 +11,31 @@ from a0_ListNode import *
 
 class Solution:
     def rotateRight(self, head: ListNode, k: int) -> ListNode:
-        pass
+        if not head:
+            return None
+
+        l = 0
+        dumb = last_node = ListNode("X")
+        last_node.next = head
+        head_copy = head
+        while head_copy:
+            l += 1
+            last_node = last_node.next
+            head_copy = head_copy.next
+
+        # here the last node is located, l = length of linked list is obtained
+        last_node.next = head # this will make a cycling linked list
+
+        move = l - k%l # avoid repeating when k >> l
+        pre_new_head, new_head = dumb, dumb.next
+        while move != 0:
+            pre_new_head = pre_new_head.next
+            new_head = pre_new_head.next
+            move -=1
+
+        pre_new_head.next = None # break the link before new_head, no longer cycling
+        return new_head
+
 
 
 
