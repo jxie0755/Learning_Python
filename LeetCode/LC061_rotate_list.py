@@ -11,7 +11,12 @@ from a0_ListNode import *
 class Solution_A:
     def rotateRight(self, head: ListNode, k: int) -> ListNode:
         """
-        Loop the linked list and break from the rotate point
+        Loop the linked list twice
+        First loop find out the length of the linked list
+        Second loop find out the break point (k from the end)
+
+        Cannot use 1 loop by the distanted k nodes (slow and fast)
+        because k can be much bigger than the length of linked list
         """
         if not head:
             return None
