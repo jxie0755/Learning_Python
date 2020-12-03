@@ -65,7 +65,6 @@ class Solution_C:
         return grid[n-1][m-1]
 
 
-
 if __name__ == "__main__":
     testCase = Solution_A()
     assert testCase.uniquePaths(1, 1) == 1, "Edge 1"
