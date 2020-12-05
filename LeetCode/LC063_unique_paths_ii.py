@@ -101,6 +101,6 @@ if __name__ == "__main__":
         [1, 0, 0, 0],
         [0, 0, 0, 0],
     ]
-    assert testCase.uniquePathsWithObstacles(s4) == 6, "Extra 2, like 3 * 3"
+    assert testCase.uniquePathsWithObstacles(s4) == 6, "Extra 2, equal to 3 * 3 with no obstacle"
 
     print("all passed")
