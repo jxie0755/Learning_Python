@@ -20,7 +20,6 @@ class Solution_A:
         Use the idea of LC062 version C (grid iteration)
         when hitting an obstacle, meansing the path to this point is 0
         """
-
         # First iterate the grid to relabel
         m = len(obstacleGrid)  # length
         n = len(obstacleGrid[0])  # width
