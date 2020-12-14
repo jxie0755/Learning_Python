@@ -24,16 +24,14 @@ class Solution_A:
 
         for nn in range(n):
             for mm in range(m):
-                cur = grid[mm][nn]
                 if nn == 0 and mm == 0:
-                    min_to[nn][mm] = cur
+                    min_to[nn][mm] += 0
                 elif nn == 0:
-                    min_to[nn][mm] = cur + min_to[nn][mm - 1]
+                    min_to[nn][mm] += min_to[nn][mm - 1]
                 elif mm == 0:
-                    min_to[nn][mm] = cur + min_to[nn - 1][mm]
+                    min_to[nn][mm] += min_to[nn - 1][mm]
                 else:
-                    # Difference from Leetcode P063, select the mininmum from two path lead to this spot
-                    min_to[nn][mm] = cur + min(min_to[nn][mm - 1], min_to[nn - 1][mm])
+                    min_to[nn][mm] += min(min_to[nn][mm - 1], min_to[nn - 1][mm])
 
         return min_to[n - 1][m - 1]
 
@@ -51,15 +49,14 @@ class Solution_B:
 
         for mm in range(m):
             for nn in range(n):
-                cur = grid[mm][nn]
                 if mm == 0 and nn == 0:
-                    pass
+                    grid[mm][nn] += 0
                 elif mm == 0:
-                    grid[mm][nn] = cur + grid[mm][nn - 1]
+                    grid[mm][nn] += grid[mm][nn - 1]
                 elif nn == 0:
-                    grid[mm][nn] = cur + grid[mm - 1][nn]
+                    grid[mm][nn] += grid[mm - 1][nn]
                 else:
-                    grid[mm][nn] = cur + min(grid[mm][nn - 1], grid[mm - 1][nn])
+                    grid[mm][nn] += min(grid[mm][nn - 1], grid[mm - 1][nn])
 
         return grid[m - 1][n - 1]
 
