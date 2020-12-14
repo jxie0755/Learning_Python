@@ -24,15 +24,16 @@ class Solution_A:
 
         for nn in range(n):
             for mm in range(m):
+                cur = grid[mm][nn]
                 if nn == 0 and mm == 0:
-                    min_to[nn][mm] = grid[nn][mm]
+                    min_to[nn][mm] = cur
                 elif nn == 0:
-                    min_to[nn][mm] = grid[nn][mm] + min_to[nn][mm - 1]
+                    min_to[nn][mm] = cur + min_to[nn][mm - 1]
                 elif mm == 0:
-                    min_to[nn][mm] = grid[nn][mm] + min_to[nn - 1][mm]
+                    min_to[nn][mm] = cur + min_to[nn - 1][mm]
                 else:
                     # Difference from Leetcode P063, select the mininmum from two path lead to this spot
-                    min_to[nn][mm] = grid[nn][mm] + min(min_to[nn][mm - 1], min_to[nn - 1][mm])
+                    min_to[nn][mm] = cur + min(min_to[nn][mm - 1], min_to[nn - 1][mm])
 
         return min_to[n - 1][m - 1]
 
@@ -42,22 +43,25 @@ class Solution_B:
         """
         直接在原表上改动, 破坏原表, 但是速度更快
         """
+        m = len(grid)
+        n = len(grid[0])
+
         if not len(grid) or not len(grid[0]):
             return 0
 
-        m, n = len(grid[0]), len(grid)
-        for nn in range(n):
-            for mm in range(m):
-                if nn == 0 and mm == 0:
+        for mm in range(m):
+            for nn in range(n):
+                cur = grid[mm][nn]
+                if mm == 0 and nn == 0:
                     pass
-                elif nn == 0:
-                    grid[nn][mm] = grid[nn][mm] + grid[nn][mm - 1]
                 elif mm == 0:
-                    grid[nn][mm] = grid[nn][mm] + grid[nn - 1][mm]
+                    grid[mm][nn] = cur + grid[mm][nn - 1]
+                elif nn == 0:
+                    grid[mm][nn] = cur + grid[mm - 1][nn]
                 else:
-                    grid[nn][mm] = grid[nn][mm] + min(grid[nn][mm - 1], grid[nn - 1][mm])
+                    grid[mm][nn] = cur + min(grid[mm][nn - 1], grid[mm - 1][nn])
 
-        return grid[n - 1][m - 1]
+        return grid[m - 1][n - 1]
 
 
 if __name__ == "__main__":
