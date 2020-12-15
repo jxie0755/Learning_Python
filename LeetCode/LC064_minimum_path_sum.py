@@ -41,11 +41,11 @@ class Solution_B:
         """
         直接在原表上改动, 破坏原表, 但是速度更快
         """
-        m = len(grid)
-        n = len(grid[0])
-
         if not len(grid) or not len(grid[0]):
             return 0
+
+        m = len(grid)
+        n = len(grid[0])
 
         for mm in range(m):
             for nn in range(n):
