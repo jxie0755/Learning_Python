@@ -15,6 +15,7 @@ class Solution_A:
     def minPathSum(self, grid: List[List[int]]) -> int:
         """
         新建一个表, 不破坏原表
+        然后在新表上遍历,根据左方和上方的邻居之中最小的较小的路径和来选择.
         """
         if not len(grid) or not len(grid[0]):
             return 0
