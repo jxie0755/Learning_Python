@@ -16,14 +16,14 @@ class Solution_A:
         """
         quick recursion
         """
-        if digits[-1] == 9:
+        if digits[-1] != 9:
+            digits[-1] += 1
+            return digits
+        else:
             if len(digits) == 1:
                 return [1, 0]
             else:
                 return self.plusOne(digits[:-1]) + [0]
-        else:
-            digits[-1] += 1
-            return digits
 
 
 class Solution_STD:
@@ -32,10 +32,10 @@ class Solution_STD:
         With carry number
         """
         carry = 1
-        for i in reversed(range(len(digits))):
-            tmp = digits[i]
-            carry, digits[i] = divmod(tmp + carry, 10)
-            if carry == 0:
+        for i in range(len(digits)-1, -1, -1):
+            cur = digits[i]
+            carry, digits[i] = divmod(cur + carry, 10)
+            if carry == 0:  # no need to finish iteration if nothing to add
                 break
 
         if carry == 1:
