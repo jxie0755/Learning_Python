@@ -36,7 +36,7 @@ class Solution_B:
 class Solution_C:
     def addBinary(self, a: str, b: str) -> str:
         """
-        Use the same logic of binary add calculation
+        Use the same principle of binary add calculation
         """
         carry = 0
         result = ""
@@ -50,6 +50,40 @@ class Solution_C:
 
         return "1" + result if carry else result
 
+
+class Solution_D:
+    def addBinary(self, a: str, b: str) -> str:
+        """
+        Same binary add principle but easier to understand
+        Make a and b same length first, (fill with "0" in the head)
+        Then add from tail to head, following binary add principle
+        """
+        if a == "0" and b == "0":  # Edge case for just two "0"
+            return "0"
+
+        # Fill in "0" to a and b, to the same length @ MaxLen + 1
+        L = max(len(a), len(b))
+        a = a.rjust(L + 1, "0")
+        b = b.rjust(L + 1, "0")
+
+        result = ""
+        carry = "0"
+        for i in range(L, -1, -1):
+            cur_a, cur_b = a[i], b[i]
+            if (cur_a, cur_b, carry).count("1") == 3:
+                result = "1" + result
+                carry = "1"
+            elif (cur_a, cur_b, carry).count("1") == 2:
+                result = "0" + result
+                carry = "1"
+            elif (cur_a, cur_b, carry).count("1") == 1:
+                result = "1" + result
+                carry = "0"
+            elif (cur_a, cur_b, carry).count("1") == 0:
+                result = "0" + result
+                carry = "0"
+
+        return result.lstrip("0")
 
 
 if __name__ == "__main__":
