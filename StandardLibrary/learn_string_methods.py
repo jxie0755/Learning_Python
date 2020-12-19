@@ -262,7 +262,7 @@ print()
 print("str.lstrip([chars])")
 print("str.rstrip([chars])")
 print("str.strip([chars])")
-# string all the space and escape of a string
+# strip all the space and escape of a string
 
 dd = "   abc   "
 print(dd.lstrip())  # >>> "abc   "
