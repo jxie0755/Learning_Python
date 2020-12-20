@@ -15,7 +15,6 @@ class Solution:
 
 
 
-
 if __name__ == "__main__":
     testCase = Solution()
     assert testCase.mySqrt(0) == 0
