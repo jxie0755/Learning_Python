@@ -36,15 +36,17 @@ class Solution_A2:
         """
         A modified binary search
         """
-        low, high = 1, x
+        lo = 0
+        hi = x
         while True:
-            mid = (low + high) // 2
-            if mid * mid <= x < (mid + 1) * (mid + 1):
+            mid = (lo + hi) // 2
+            if mid * mid <= x < (mid + 1) * (mid + 1):  # (mid + 1)^2 will exceed x, to round back to integer
                 return mid
-            elif mid * mid > x:
-                high = mid
             else:
-                low = mid
+                if mid * mid < x:
+                    lo = mid + 1
+                elif mid * mid > x:
+                    hi = mid - 1
 
 class Solution_Cheat:
     def mySqrt(self, x):
