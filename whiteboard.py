@@ -19,6 +19,9 @@ class Solution:
         pass
 
 
+
+
+
 if __name__ == "__main__":
     testCase = Solution()
     assert testCase.climbStairs(1) == 1, "Edge 1"
