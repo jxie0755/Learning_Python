@@ -17,6 +17,7 @@ class Solution_A:
     def climbStairs(self, n: int) -> int:
         """
         typical fibonacci recursion
+        exceed time limit
         """
         if n <= 2:
             return n
