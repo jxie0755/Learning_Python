@@ -28,8 +28,8 @@ if __name__ == "__main__":
 # 这其实就是最基础的动态规划 Time O(N)
 def fib_gen_nr(i):
     """
-        Fibonacci function generator
-        generate the fibonacci number at "i"th posistion
+    Fibonacci function generator
+    generate the fibonacci number at "i"th posistion
     """
     lst = [0, 1]
     if i == 0:
@@ -53,8 +53,8 @@ if __name__ == "__main__":
 # just need to revise the nr method slightly
 def fiblist_gen_nr(i):
     """
-        Fibonacci function generator
-        generate the fibonacci list till "i"th posistion
+    Fibonacci function generator
+    generate the fibonacci list till "i"th posistion
     """
     lst = [0, 1]
     if i == 0:
@@ -128,6 +128,11 @@ if __name__ == "__main__":
 # This will increase efficiency as the recursion method repeatedly calculate f(n-1), f(n-2)...to f(0) many times.
 
 def fib_gen_r_mem(n):
+    """
+    Memorization method
+    Create a hashmap to remember fibonacci's nth number
+    """
+
     mem_dict = {0: 0, 1: 1}
 
     def helper(n):
