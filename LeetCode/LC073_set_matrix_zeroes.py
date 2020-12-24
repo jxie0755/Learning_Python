@@ -28,8 +28,37 @@ class Solution_A:
                 matrix[nn][y] = 0
 
 
+class Solution_B:
+    def setZeroes(self, matrix) -> None:
+        """
+        Iterate once, use two sets to record row and col to avoid repeat
+        Then modify with according to the sets
+        This will avoid repeatingly set the same row and col to zero
+        """
+
+        row, col = set(), set()
+
+        for m in range(len(matrix)):
+            for n in range(len(matrix[0])):
+                cur = matrix[m][n]
+                if cur == 0:
+                    row.add(m)
+                    col.add(n)
+
+        # Set all rows to zero
+        for m in row:
+            r = matrix[m]
+            for n in range(len(matrix[m])):
+                matrix[m][n] = 0
+
+        # Set all cols to zero
+        for m in range(len(matrix)):
+            for n in col:
+                matrix[m][n] = 0
+
+
 if __name__ == "__main__":
-    testCase = Solution_A()
+    testCase = Solution_B()
 
     e1 = [[]]
     testCase.setZeroes(e1)
