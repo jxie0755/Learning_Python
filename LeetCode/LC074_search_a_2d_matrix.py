@@ -14,6 +14,7 @@ class Solution_A:
     def searchMatrix(self, matrix, target: int) -> bool:
         """
         Since it is strictly sorted, combine all the list and do a binary search
+        This will take extra space
         """
         flat = sum(matrix, [])
         lo, hi = 0, len(flat) - 1
@@ -32,42 +33,43 @@ class Solution_A:
 class Solution_B:
     def searchMatrix(self, matrix, target: int) -> bool:
         """
-        Direct binary search on the grid, without flatten
-        Need to do two binary search
+        Direct binary search on the grid with two binary search
         """
-        global row_mid
-        if len(matrix) == 0 or len(matrix[0]) == 0:
+        if not matrix or not matrix[0]:
             return False
 
+        # find the correct row from the first element.
+        # No need to equal target, as long as the first element <= target and next row's first element is larger
         row_lo = 0
         row_hi = len(matrix) - 1
-        col_lo = 0
-        col_hi = len(matrix[0]) - 1
-
-        while (row_lo <= row_hi):
-            row_mid = (row_lo + row_hi) // 2
-            row_head = matrix[row_mid][0]
-            row_tail = matrix[row_mid][len(matrix[0])-1]
-            if row_head <= target <= row_tail:
+        while row_lo <= row_hi:
+            row_idx = (row_lo + row_hi) // 2
+            if matrix[row_idx][0] > target:
+                row_hi = row_idx - 1
+            elif matrix[row_idx][0] == target:
                 break
-            elif target < row_head:
-                row_hi = row_mid - 1
-            else:
-                row_lo = row_mid + 1
+            elif matrix[row_idx][0] < target:
+                if row_idx == len(matrix) - 1: # already at low row
+                    break
+                else: # check next row's first element
+                    if matrix[row_idx + 1][0] <= target:
+                        row_lo = row_idx + 1
+                    else:
+                        break
 
-        row = matrix[row_mid]
-
+        # Find if the element is in the row (matrix[row_idx])
+        row = matrix[row_idx]
+        col_lo = 0
+        col_hi = len(row) - 1
         while col_lo <= col_hi:
-            col_mid = (col_lo + col_hi) // 2
-            check = row[col_mid]
-            if check == target:
+            col_idx = (col_lo + col_hi) // 2
+            if row[col_idx] < target:
+                col_lo = col_idx + 1
+            elif row[col_idx] == target:
                 return True
-            elif target < check:
-                col_hi = col_mid - 1
             else:
-                col_lo = col_mid + 1
+                col_hi = col_idx - 1
         return False
-
 
 
 
