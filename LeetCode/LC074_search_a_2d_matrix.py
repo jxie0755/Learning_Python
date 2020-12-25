@@ -11,7 +11,6 @@ The first integer of each row is greater than the last integer of the previous r
 """
 
 class Solution_A:
-
     def searchMatrix(self, matrix, target: int) -> bool:
         """
         Since it is strictly sorted, combine all the list and do a binary search
@@ -31,7 +30,6 @@ class Solution_A:
 
 
 class Solution_B:
-
     def searchMatrix(self, matrix, target: int) -> bool:
         """
         Direct binary search on the grid, without flatten
