@@ -14,7 +14,7 @@
 # Could you come up with a one-pass algorithm using only constant space?
 
 
-class Solution:
+class Solution_A:
     def sortColors(self, nums) -> None:
         """
         Do not return anything, modify nums in-place instead.
@@ -32,6 +32,7 @@ class Solution:
             else:
                 i += 1
 
+class Solution_B:
     def sortColors(self, nums) -> None:
         """
         Do not return anything, modify nums in-place instead.
@@ -51,19 +52,21 @@ class Solution:
 
 
 if __name__ == "__main__":
+    testCase = Solution_B()
+
     e1 = []
-    Solution().sortColors(e1)
+    testCase.sortColors(e1)
     assert e1 == [], "Edge 1"
 
     e2 = [0, 0]
-    Solution().sortColors(e2)
+    testCase.sortColors(e2)
     assert e2 == [0, 0], "Edge 2"
 
     s1 = [2, 0, 2, 1, 1, 0]
-    Solution().sortColors(s1)
+    testCase.sortColors(s1)
     assert s1 == [0, 0, 1, 1, 2, 2], "Example 1"
 
     s2 = [0, 2, 1, 2, 0, 1, 2, 1]
-    Solution().sortColors(s2)
+    testCase.sortColors(s2)
     assert s2 == [0, 0, 1, 1, 1, 2, 2, 2], "Case 1"
     print("all passed")
