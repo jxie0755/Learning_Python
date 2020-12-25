@@ -44,11 +44,12 @@ class Solution_B:
         row_hi = len(matrix) - 1
         while row_lo <= row_hi:
             row_idx = (row_lo + row_hi) // 2
-            if matrix[row_idx][0] > target:
+            row_head = matrix[row_idx][0]
+            if row_head > target:
                 row_hi = row_idx - 1
-            elif matrix[row_idx][0] == target:
+            elif row_head == target:
                 break
-            elif matrix[row_idx][0] < target:
+            elif row_head < target:
                 if row_idx == len(matrix) - 1: # already at low row
                     break
                 else: # check next row's first element
