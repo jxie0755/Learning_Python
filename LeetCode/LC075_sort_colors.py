@@ -45,7 +45,10 @@ class Solution_B:
         """
         i = 0
         L = len(nums)
-        head, tail = 0, L - 1 # label head and tail for moving 0 and 2 to
+
+        # label head and tail for moving 0 and 2 to
+        head = 0
+        tail = L-1
 
         while i != L:
             if nums[i] == 0 and i > head:
