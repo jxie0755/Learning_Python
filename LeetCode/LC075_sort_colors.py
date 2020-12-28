@@ -1,23 +1,27 @@
-# P075 Sort Colors
-# Medium
+"""
+https://leetcode.com/problems/search-a-2d-matrix/
+P075 Sort Colors
+Medium
 
 
-# Given an array with n objects colored red, white or blue, sort them in-place so that objects of the same color are adjacent, with the colors in the order red, white and blue.
+Given an array with n objects colored red, white or blue, sort them in-place so that objects of the same color are adjacent, with the colors in the order red, white and blue.
 
-# Here, we will use the integers 0, 1, and 2 to represent the color red, white, and blue respectively.
+Here, we will use the integers 0, 1, and 2 to represent the color red, white, and blue respectively.
 
-# Note: You are not suppose to use the library's sort function for this problem.
+Note: You are not suppose to use the library's sort function for this problem.
 
-# Follow up:
-# A rather straight forward solution is a two-pass algorithm using counting sort.
-# First, iterate the array counting number of 0"s, 1"s, and 2"s, then overwrite array with total number of 0"s, then 1"s and followed by 2"s.
-# Could you come up with a one-pass algorithm using only constant space?
-
+Follow up:
+A rather straight forward solution is a two-pass algorithm using counting sort.
+First, iterate the array counting number of 0"s, 1"s, and 2"s, then overwrite array with total number of 0"s, then 1"s and followed by 2"s.
+Could you come up with a one-pass algorithm using only constant space?
+"""
 
 class Solution_A:
     def sortColors(self, nums) -> None:
         """
         Do not return anything, modify nums in-place instead.
+        This uses pop which would change the length of array in process
+        Move 0 to head and Move 2 to tail
         """
         L = len(nums)
         i = 0
@@ -36,6 +40,8 @@ class Solution_B:
     def sortColors(self, nums) -> None:
         """
         Do not return anything, modify nums in-place instead.
+        This change by swapping, no need to change array length
+        This tracks head and tail and keep moving 0 to head and 2 to tail
         """
         L = len(nums)
         i = 0
@@ -68,5 +74,10 @@ if __name__ == "__main__":
 
     s2 = [0, 2, 1, 2, 0, 1, 2, 1]
     testCase.sortColors(s2)
-    assert s2 == [0, 0, 1, 1, 1, 2, 2, 2], "Case 1"
+    assert s2 == [0, 0, 1, 1, 1, 2, 2, 2], "Additional 1"
+
+    s3 = [1, 0]
+    testCase.sortColors(s3)
+    assert s3 == [0, 1], "Additional 2"
+
     print("all passed")
