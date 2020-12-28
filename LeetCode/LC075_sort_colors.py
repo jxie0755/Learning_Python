@@ -23,8 +23,8 @@ class Solution_A:
         This uses pop which would change the length of array in process
         Move 0 to head and Move 2 to tail
         """
-        L = len(nums)
         i = 0
+        L = len(nums)
         while i != L:
             if nums[i] == 0 and i != 0:
                 nums.pop(i)
@@ -43,8 +43,8 @@ class Solution_B:
         This change by swapping, no need to change array length
         This tracks head and tail and keep moving 0 to head and 2 to tail
         """
-        L = len(nums)
         i = 0
+        L = len(nums)
         head, tail = 0, L - 1
         while i != L:
             if nums[i] == 0 and i > head:
