@@ -45,7 +45,8 @@ class Solution_B:
         """
         i = 0
         L = len(nums)
-        head, tail = 0, L - 1
+        head, tail = 0, L - 1 # label head and tail for moving 0 and 2 to
+
         while i != L:
             if nums[i] == 0 and i > head:
                 nums[head], nums[i] = nums[i], nums[head]
