@@ -39,7 +39,7 @@ class Solution_A:
 class Solution_B:
     def sortColors(self, nums) -> None:
         """
-        Do not return anything, modify nums in-place instead.
+        Do not return anything, modify nums in-place instead
         This change by swapping, no need to change array length
         This tracks head and tail and keep moving 0 to head and 2 to tail
         """
