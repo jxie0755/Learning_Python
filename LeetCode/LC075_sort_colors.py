@@ -61,6 +61,27 @@ class Solution_B:
                 i += 1
 
 
+class Solution_STD:
+    def sortColors(self, nums) -> None:
+        """
+        Similar to Solution B but looks simpler
+        """
+        i = 0
+        head = 0
+        tail = len(nums) - 1
+
+        while i <= tail:
+            if nums[i] == 0:
+                nums[head], nums[i] = nums[i], nums[head]
+                head += 1
+                i += 1
+            elif nums[i] == 2:
+                nums[i], nums[tail] = nums[tail], nums[i]
+                tail -= 1
+            else:
+                i += 1
+
+
 if __name__ == "__main__":
     testCase = Solution_B()
 
