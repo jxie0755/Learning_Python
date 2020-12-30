@@ -6,7 +6,6 @@ Medium
 Given two integers n and k, return all possible combinations of k numbers out of 1 ... n.
 """
 
-import itertools
 from typing import *
 
 class Solution_A1:
@@ -21,6 +20,7 @@ class Solution_A1:
         """
         Helper for A1
         Change the paramter type from n to list(range(1, n+1))
+        The method is not naturally returning sorted, but each combination group is sorted
         """
         if k == 0:
             return [[]]
@@ -32,14 +32,15 @@ class Solution_A1:
             result = []
             next_list = nums[:]
             head = next_list.pop(0)
-            result += [[head] + com for com in self.combinationSolo(next_list, k - 1)] + self.combinationSolo(nums[1:], k)
+            result += self.combinationSolo(nums[1:], k) + [[head] + com for com in self.combinationSolo(next_list, k - 1)]
             return result
 
 class Solution_A2:
     def combine(self, n: int, k: int) -> List[List[int]]:
         """
         Direct version of A1, without helper, but the sequence is reversed
-        It will still pass Leetcode, and it contains the full combinations
+        No need to convert n in to a listm directly use n-1 for recursion
+        The method is not naturally returning sorted, but each combination group is sorted
         """
         # this can individually work as a combination of list of elements
         if k == 0:
@@ -49,11 +50,12 @@ class Solution_A2:
         elif k == 1:
             return [[i] for i in range(1, n+1)]
         else:
-            return [com + [n] for com in self.combine(n - 1, k - 1)] + self.combine(n-1, k)
+            return self.combine(n - 1, k) + [com + [n] for com in self.combine(n - 1, k - 1)]
+
 
 
 if __name__ == "__main__":
-    testCase = Solution_A1()
+    testCase = Solution_A2()
 
     assert testCase.combine(1, 1) == [
         [1]
@@ -63,6 +65,17 @@ if __name__ == "__main__":
         [1, 2, 3, 4]
     ], "Edge 2"
 
-    assert sorted([sorted(i) for i in testCase.combine(5, 3)]) == sorted([list(i) for i in itertools.combinations([1, 2, 3, 4, 5], 3)])
+    assert sorted([sorted(i) for i in testCase.combine(5, 3)]) == [
+        [1, 2, 3],
+        [1, 2, 4],
+        [1, 2, 5],
+        [1, 3, 4],
+        [1, 3, 5],
+        [1, 4, 5],
+        [2, 3, 4],
+        [2, 3, 5],
+        [2, 4, 5],
+        [3, 4, 5]
+    ]
 
     print("all passed")
