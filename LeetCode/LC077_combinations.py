@@ -32,7 +32,8 @@ class Solution_A1:
             result = []
             next_list = nums[:]
             tail = next_list.pop()
-            result += self.combinationSolo(nums[:len(nums)-1], k) + [com + [tail] for com in self.combinationSolo(next_list, k - 1)]
+            result += self.combinationSolo(nums[:len(nums)-1], k)
+            result += [com + [tail] for com in self.combinationSolo(next_list, k - 1)]
             return result
 
 class Solution_A2:
@@ -52,8 +53,6 @@ class Solution_A2:
         else:
             return self.combine(n - 1, k) + [com + [n] for com in self.combine(n - 1, k - 1)]
 
-
-print(Solution_A1().combine(5, 3))
 
 
 if __name__ == "__main__":
