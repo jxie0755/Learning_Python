@@ -40,8 +40,32 @@ class Solution_A:
 
 if __name__ == "__main__":
     testCase = Solution_A()
-    assert sorted(testCase.subsets([])) == [[]], "Edge empty"
-    assert sorted(testCase.subsets([1])) == [[], [1]], "Edge 1"
-    assert sorted(testCase.subsets([1, 2])) == [[], [1], [1, 2], [2]], "Example 1"
-    assert sorted(testCase.subsets([1, 2, 3])) == [[], [1], [1, 2], [1, 2, 3], [1, 3], [2], [2, 3], [3]], "Example 2"
+
+    assert sorted(testCase.subsets([])) == [
+        []
+    ], "Edge empty"
+
+    assert sorted(testCase.subsets([1])) == [
+        [],
+        [1]
+    ], "Edge 1"
+
+    assert sorted(testCase.subsets([1, 2])) == [
+        [],
+        [1],
+        [1, 2],
+        [2]
+    ], "Example 1"
+
+    assert sorted(testCase.subsets([1, 2, 3])) == [
+        [],
+        [1],
+        [1, 2],
+        [1, 2, 3],
+        [1, 3],
+        [2],
+        [2, 3],
+        [3]
+    ], "Example 2"
+
     print("all passed")
