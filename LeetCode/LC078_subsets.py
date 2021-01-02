@@ -34,8 +34,9 @@ class Solution_A:
         else:
             result = []
             next_list = nums[:]
-            head = next_list.pop(0)
-            result += [[head] + com for com in self.combinationSolo(next_list, k - 1)] + self.combinationSolo(nums[1:], k)
+            tail = next_list.pop()
+            result += self.combinationSolo(nums[:len(nums)-1], k)
+            result += [com + [tail] for com in self.combinationSolo(next_list, k - 1)]
             return result
 
 if __name__ == "__main__":
