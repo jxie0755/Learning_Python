@@ -22,7 +22,7 @@ class Solution_A:
 
     def combinationSolo(self, nums: List[int], k: int) -> List[List[int]]:
         """
-        Helper for A1
+        Helper for A1, refer to LC077, except it runs on a full list instead of n that represent a list from 1 to n.
         Change the paramter type from n to list(range(1, n+1))
         """
         if k == 0:
