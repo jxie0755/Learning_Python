@@ -20,11 +20,11 @@ class Solution_A:
         for row in range(0, len(board)):
             for col in range(0, len(board[0])):
                 board_copy = deepcopy(board)
-                if self.find(board_copy, word, row, col):
+                if self.existRecu(board_copy, word, row, col):
                     return True
         return False
 
-    def find(self, board, word, row, col) -> bool:
+    def existRecu(self, board, word, row, col) -> bool:
         """
         A helper function to find whether a word can be found in the matrix
         Use dupplicate board to track previous change and avoid conflict in split recursion
@@ -41,10 +41,10 @@ class Solution_A:
             return False
         else:
             board[row][col] = None
-            return self.find(board, word[1:], row - 1, col) or \
-                   self.find(board, word[1:], row + 1, col) or \
-                   self.find(board, word[1:], row, col - 1) or \
-                   self.find(board, word[1:], row, col + 1)
+            return self.existRecu(deepcopy(board), word[1:], row - 1, col) or \
+                   self.existRecu(deepcopy(board), word[1:], row + 1, col) or \
+                   self.existRecu(deepcopy(board), word[1:], row, col - 1) or \
+                   self.existRecu(deepcopy(board), word[1:], row, col + 1)
 
 
 class Solution_STD:
@@ -94,7 +94,7 @@ class Solution_STD:
 
 
 if __name__ == "__main__":
-    testCase = Solution_STD()
+    testCase = Solution_A()
     board = [
         ["A", "B", "C", "E"],
         ["S", "F", "C", "S"],
