@@ -8,11 +8,36 @@ The word can be constructed from letters of sequentially adjacent cell, where "a
 """
 
 from typing import *
-
+from copy import deepcopy
 
 class Solution_A:
     def exist(self, board: List[List[str]], word: str) -> bool:
-        pass
+        for row in range(0, len(board)):
+            for col in range(0, len(board[0])):
+                board_copy = deepcopy(board)
+                if self.find(board_copy, word, row, col):
+                    return True
+        return False
+
+    def find(self, board, word, row, col) -> bool:
+        if len(word) == 0:
+            return True
+        elif row < 0 or row == len(board):    # Edge breaking
+            return False
+        elif col < 0 or col == len(board[0]):  # Edge breaking
+            return False
+        elif board[row][col] != word[0]:  # miss-matching
+            return False
+        else:
+            board[row][col] = None
+            return self.find(deepcopy(board), word[1:], row - 1, col) or \
+                   self.find(deepcopy(board), word[1:], row + 1, col) or \
+                   self.find(deepcopy(board), word[1:], row, col - 1) or \
+                   self.find(deepcopy(board), word[1:], row, col + 1)
+
+
+
+
 
 
 if __name__ == "__main__":
@@ -106,3 +131,4 @@ if __name__ == "__main__":
     assert testCase.exist(long, target), "Long"
 
     print("all passed")
+
