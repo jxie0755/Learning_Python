@@ -48,7 +48,6 @@ class Solution_A:
 
 
 class Solution_STD:
-
     def exist(self, board: List[List[str]], word: str) -> bool:
 
         # This is the key to solve, use a visitied table to record path
