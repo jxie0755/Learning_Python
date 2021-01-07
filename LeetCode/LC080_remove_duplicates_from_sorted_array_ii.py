@@ -91,23 +91,23 @@ class Solution_C:
         if not nums:
             return 0
 
-        i = 0
-        open = 0
-        hmp = {nums[0]:0}
-        while i != len(nums):
-            k = nums[i]
-            if k in hmp:
-                if hmp[k] < 2:
-                    hmp[k] += 1
-                    nums[open] = k
-                    open += 1
+        check_idx = 0
+        idx = 0
+        counter = {float('inf'):0}
+        while check_idx != len(nums):
+            cur = nums[check_idx]
+            if cur in counter:
+                if counter[cur] < 2:
+                    counter[cur] += 1
+                    nums[idx] = cur
+                    idx += 1
             else:
-                hmp.clear()
-                hmp[k] = 1
-                nums[open] = k
-                open += 1
-            i += 1
-        return open
+                counter.clear()
+                counter[cur] = 1
+                nums[idx] = cur
+                idx += 1   # Always ensure final length is idx + 1, since idx start at 0
+            check_idx += 1
+        return idx
 
 
 if __name__ == "__main__":
