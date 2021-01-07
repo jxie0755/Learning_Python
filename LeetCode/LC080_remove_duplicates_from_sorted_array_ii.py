@@ -112,6 +112,7 @@ class Solution_C:
 
 if __name__ == "__main__":
     testCase = Solution_C()
+
     a = []
     assert testCase.removeDuplicates(a) == 0, "Edge 0"
 
