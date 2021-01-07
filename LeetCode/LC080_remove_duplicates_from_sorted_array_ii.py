@@ -88,9 +88,6 @@ class Solution_C:
         use a label duplicate to record whether a duplicate if found
         (can set to numbers to accomodate to any level of duplication
         """
-        if not nums:
-            return 0
-
         check_idx = 0
         idx = 0
         counter = {float('inf'):0}
