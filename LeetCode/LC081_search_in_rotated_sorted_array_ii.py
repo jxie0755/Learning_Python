@@ -91,7 +91,6 @@ class Solution_B:
         while L <= H:
             M = (L + H) // 2
             low, mid, high = nums[L], nums[M], nums[H]
-            print("L", L, "M", M, "H", H)
             if L == H:  # means the length of the array is 1
                 return low == high == target
             if mid == target:
@@ -112,8 +111,55 @@ class Solution_B:
                 return target in nums[L:H + 1]
 
 
+class Solution_C:
+    def search(self, nums: List[int], target: int) -> bool:
+        """
+        Use a pure binary search helper.
+        Find mid index as M. Compare mid element with head and tail
+
+        Clearer logic with 3 possible situations:
+        1. Looks like sorted, but actually not. Recursive run the same test on both section
+        2. Run recursive search in unsorted section (first section) and pure binary search in the sorted (second section)
+        3. Run pure binary search in sorted section (first section) and recursive search in the unsorted (second section)
+
+        """
+        if len(nums) <= 2:
+            # when it comes down to less than two elements, just directly check
+            # To avoid infinite cut of M betwen L and H
+            return target in nums
+        else:
+            L = 0
+            H = len(nums) - 1
+            M = (L + H) // 2
+            Lo = nums[L]
+            Hi = nums[H]
+            Mid = nums[M]
+            if Lo <= Mid <= Hi:
+                return self.search(nums[L:M], target) or self.search(nums[M:], target)
+            elif Lo > Mid and Mid <= Hi:
+                return self.search(nums[L:M], target) or self.binarysearch(nums[M:], target)
+            elif Lo <= Mid and Mid > Hi:
+                return self.binarysearch(nums[L:M + 1], target) or self.search(nums[M + 1:], target)
+
+    def binarysearch(self, nums: List[int], target: int) -> bool:
+        """
+        Binary search in sorted array
+        """
+        L = 0
+        H = len(nums) - 1
+        while L <= H:
+            M = (L + H) // 2
+            if nums[M] == target:
+                return True
+            elif nums[M] < target:
+                L = M + 1
+            else:
+                H = M - 1
+        return False
+
+
 if __name__ == "__main__":
-    testCase = Solution_A()
+    testCase = Solution_C()
     assert testCase.search([1], 1), "Edge 1"
     assert testCase.search([1, 1], 1), "Edge 2"
     assert not testCase.search([3, 1], 0), "Edge 3"
