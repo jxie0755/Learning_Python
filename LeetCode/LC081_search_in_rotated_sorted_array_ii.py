@@ -101,8 +101,8 @@ class Solution_B:
                 L = M + 1
             # if target not in sorted sub-array, then it must be in the unsorted sub-array
             # an array can be unsorted in two way:
-                # 1 - Truely unsorted sorted (head > tail)
-                # 2 - Fake sorted because all elements is the same (can't use head == tail, must confirm with set())
+            # 1 - Truely unsorted sorted (head > tail)
+            # 2 - Fake sorted because all elements is the same (can't use head == tail, must confirm with set())
             elif low > mid or len(set(nums[M:H + 1])) == 1:  # if first half is unsorted, then must be in first half
                 H = M - 1
             elif mid > high or len(set(nums[L:M + 1])) == 1:  # if second half is unsorted, then must be in first half
