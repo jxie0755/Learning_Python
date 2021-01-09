@@ -76,7 +76,7 @@ class Solution_A2:
         """
         本质上是与VersionA1同一个意思,只是少一个helper判断两段是否是sorted.
         把这个Helper的判断直接引入到了递归判断之中.
-        代码更简洁,但是缺点是,判断不够准确导致可能要连续对两段都使用search
+        代码更简洁,但是缺点是,判断不够准确导致可能要连续对两段都使用search,递归层数增多
         """
         if len(nums) <= 2:
             # when it comes down to less than two elements, just directly check
