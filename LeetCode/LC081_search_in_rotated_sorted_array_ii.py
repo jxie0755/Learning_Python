@@ -18,7 +18,7 @@ now:    [0,0,1,2,2,5,6] might become [2,5,6,0,0,1,2]
 from typing import *
 
 
-class Solution_A:
+class Solution_A1:
 
     def binarySearch(self, nums: List[int], target: int) -> bool:
         """
@@ -62,66 +62,21 @@ class Solution_A:
         first, second = nums[:mid], nums[mid:]
 
         A, B = self.isSortedQuick(first), self.isSortedQuick(second)
-
+        # At least one of A and B will be True
         if A and B:
             return self.binarySearch(first, target) or self.binarySearch(second, target)
         elif A:
-            if self.binarySearch(first, target):
-                return True
-            else:
-                return self.search(second, target)
+            return self.binarySearch(first, target) or self.search(second, target)
         elif B:
-            if self.binarySearch(second, target):
-                return True
-            else:
-                return self.search(first, target)
+            return self.binarySearch(second, target) or self.search(first, target)
 
 
-class Solution_B:
+class Solution_A2:
     def search(self, nums: List[int], target: int) -> bool:
         """
-        Regular while loop, binary search O(logN)
-        Method modified from Leetcode P033
-        This will pass but it is not the preferred method as too many conditions and edge cases
-        """
-        if not nums:
-            return False
-
-        L, H = 0, len(nums) - 1
-        while L <= H:
-            M = (L + H) // 2
-            low, mid, high = nums[L], nums[M], nums[H]
-            if L == H:  # means the length of the array is 1
-                return low == high == target
-            if mid == target:
-                return True
-            elif low <= target <= mid:  # determine if the first half is sorted
-                H = M - 1
-            elif mid <= target <= high:  # determine if the second half is sorted
-                L = M + 1
-            # if target not in sorted sub-array, then it must be in the unsorted sub-array
-            # an array can be unsorted in two way:
-            # 1 - Truely unsorted sorted (head > tail)
-            # 2 - Fake sorted because all elements is the same (can't use head == tail, must confirm with set())
-            elif low > mid or len(set(nums[M:H + 1])) == 1:  # if first half is unsorted, then must be in first half
-                H = M - 1
-            elif mid > high or len(set(nums[L:M + 1])) == 1:  # if second half is unsorted, then must be in first half
-                L = M + 1
-            else:
-                return target in nums[L:H + 1]
-
-
-class Solution_C:
-    def search(self, nums: List[int], target: int) -> bool:
-        """
-        Use a pure binary search helper.
-        Find mid index as M. Compare mid element with head and tail
-
-        Clearer logic with 3 possible situations:
-        1. Looks like sorted, but actually not. Recursive run the same test on both section
-        2. Run recursive search in unsorted section (first section) and pure binary search in the sorted (second section)
-        3. Run pure binary search in sorted section (first section) and recursive search in the unsorted (second section)
-
+        本质上是与VersionA1同一个意思,只是少一个helper判断两段是否是sorted.
+        把这个Helper的判断直接引入到了递归判断之中.
+        代码更简洁,但是缺点是,判断不够准确导致可能要连续对两段都使用search
         """
         if len(nums) <= 2:
             # when it comes down to less than two elements, just directly check
@@ -158,8 +113,43 @@ class Solution_C:
         return False
 
 
+class Solution_B:
+    def search(self, nums: List[int], target: int) -> bool:
+        """
+        Regular while loop, binary search O(logN)
+        Method modified from Leetcode P033
+        This will pass but it is not the preferred method as too many conditions and edge cases
+        """
+        if not nums:
+            return False
+
+        L, H = 0, len(nums) - 1
+        while L <= H:
+            M = (L + H) // 2
+            low, mid, high = nums[L], nums[M], nums[H]
+            if L == H:  # means the length of the array is 1
+                return low == high == target
+            if mid == target:
+                return True
+            elif low <= target <= mid:  # determine if the first half is sorted
+                H = M - 1
+            elif mid <= target <= high:  # determine if the second half is sorted
+                L = M + 1
+            # if target not in sorted sub-array, then it must be in the unsorted sub-array
+            # an array can be unsorted in two way:
+            # 1 - Truely unsorted sorted (head > tail)
+            # 2 - Fake sorted because all elements is the same (can't use head == tail, must confirm with set())
+            elif low > mid or len(set(nums[M:H + 1])) == 1:  # if first half is unsorted, then must be in first half
+                H = M - 1
+            elif mid > high or len(set(nums[L:M + 1])) == 1:  # if second half is unsorted, then must be in first half
+                L = M + 1
+            else:
+                return target in nums[L:H + 1]
+
+
+
 if __name__ == "__main__":
-    testCase = Solution_C()
+    testCase = Solution_A1()
     assert testCase.search([1], 1), "Edge 1"
     assert testCase.search([1, 1], 1), "Edge 2"
     assert not testCase.search([3, 1], 0), "Edge 3"
