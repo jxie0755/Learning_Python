@@ -18,13 +18,13 @@ now:    [0,0,1,2,2,5,6] might become [2,5,6,0,0,1,2]
 from typing import *
 
 
-class Solution_A:
+class Solution:
     def search(self, nums: List[int], target: int) -> bool:
         pass
 
 
 if __name__ == "__main__":
-    testCase = Solution_A()
+    testCase = Solution()
     assert testCase.search([1], 1), "Edge 1"
     assert testCase.search([1, 1], 1), "Edge 2"
     assert not testCase.search([3, 1], 0), "Edge 3"
