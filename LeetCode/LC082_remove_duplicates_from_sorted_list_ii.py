@@ -108,7 +108,7 @@ class Solution_C:
         """
         if not head or not head.next:  # no node or one node
             return head
-        elif head and head.next and not head.next.next:  # only two nodes
+        elif not head.next.next:  # only two nodes
             if head.val == head.next.val:
                 return None
             else:
