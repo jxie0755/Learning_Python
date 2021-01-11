@@ -113,7 +113,7 @@ class Solution_C:
                 return None
             else:
                 return head
-        else:  # three nodes
+        else:  # at least three nodes
             if head.val != head.next.val != head.next.next.val:  # first and second are unique, keep and check from third
                 head.next.next = self.deleteDuplicates(head.next.next)
                 return head
