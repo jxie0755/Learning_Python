@@ -68,4 +68,4 @@ if __name__ == "__main__":
     ])
     assert Solution().hasPathSum(A, 22), "Example 1"
 
-    print("All passed")
+    print("all passed")

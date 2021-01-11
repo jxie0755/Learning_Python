@@ -29,4 +29,4 @@ if __name__ == "__main__":
     A = genTree([3, 9, 20, None, None, 15, 7])
     assert Solution().maxDepth(A) == 3, "Example"
 
-    print("All passed")
+    print("all passed")
