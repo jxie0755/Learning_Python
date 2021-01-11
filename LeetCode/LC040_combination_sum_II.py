@@ -13,9 +13,9 @@ Note:
     The solution set must not contain duplicate combinations.
 """
 
-
-from itertools import combinations
 from typing import *
+from itertools import combinations
+
 
 class Solution_A:
     def combinationSum2(self, candidates: List[int], target: int) -> List[List[int]]:

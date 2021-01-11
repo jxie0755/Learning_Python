@@ -9,7 +9,6 @@
 # If pos is -1, then there is no cycle in the linked list.
 
 
-from typing import *
 from a0_ListNode import *
 
 

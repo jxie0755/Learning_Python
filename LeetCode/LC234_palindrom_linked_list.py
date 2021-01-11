@@ -5,7 +5,6 @@
 # Follow up:
 # Could you do it in O(n) time and O(1) space?
 
-from typing import *
 from a0_ListNode import *
 
 

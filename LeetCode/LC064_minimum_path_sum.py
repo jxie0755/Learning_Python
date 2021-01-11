@@ -11,6 +11,7 @@ Note: You can only move either down or right at any point in time.
 
 from typing import *
 
+
 class Solution_A:
     def minPathSum(self, grid: List[List[int]]) -> int:
         """

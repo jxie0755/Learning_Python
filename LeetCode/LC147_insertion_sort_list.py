@@ -9,7 +9,6 @@
 # It repeats until no input elements remain.
 
 
-from typing import *
 from a0_ListNode import *
 
 

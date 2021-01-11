@@ -8,6 +8,7 @@ Given two integers n and k, return all possible combinations of k numbers out of
 
 from typing import *
 
+
 class Solution_A1:
     def combine(self, n: int, k: int) -> List[List[int]]:
         """

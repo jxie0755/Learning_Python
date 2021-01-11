@@ -13,7 +13,6 @@
 # The relative order inside both the even and odd groups should remain as it was in the input.
 # The first node is considered odd, the second node even and so on ...
 
-from typing import *
 from a0_ListNode import *
 
 

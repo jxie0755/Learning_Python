@@ -9,6 +9,7 @@ compute how much water it is able to trap after raining.
 
 from typing import *
 
+
 class Solution_A:
     def trap(self, height: List[int]) -> int:
         """

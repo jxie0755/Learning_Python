@@ -3,7 +3,6 @@
 
 # Given a binary tree, check whether it is a mirror of itself (ie, symmetric around its center).
 
-from typing import *
 from a0_TreeNode import *
 
 

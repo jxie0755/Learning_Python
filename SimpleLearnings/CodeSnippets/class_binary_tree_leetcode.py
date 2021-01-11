@@ -1,6 +1,5 @@
 # This is just to summarize some useful functions learn from Leetcode Tree problems
 
-from typing import *
 from a0_TreeNode import *
 
 

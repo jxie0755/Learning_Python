@@ -8,6 +8,7 @@ Find the minimum number of flips that you need to do in order to set all the ele
 
 from typing import *
 
+
 def flipMatrix(matrix: List[List[int]], coor: Tuple[int, int]) -> None:
     """
     This is to apply one flip to a matrix

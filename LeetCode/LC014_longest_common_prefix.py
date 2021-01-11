@@ -6,8 +6,8 @@ Easy
 Write a function to find the longest common prefix string amongst an array of strings.
 """
 
-from collections import deque
 from typing import *
+from collections import deque
 
 
 class Solution_A:

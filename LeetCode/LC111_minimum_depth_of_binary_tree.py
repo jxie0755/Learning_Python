@@ -7,7 +7,6 @@
 
 # Note: A leaf is a node with no children.
 
-from typing import *
 from a0_TreeNode import *
 
 

@@ -19,8 +19,8 @@ Given n will be between 1 and 9 inclusive.
 Given k will be between 1 and n! inclusive.
 """
 
-import math
 from typing import *
+import math
 
 
 class Solution_A:

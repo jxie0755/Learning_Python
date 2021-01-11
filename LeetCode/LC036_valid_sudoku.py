@@ -19,6 +19,7 @@ See reference in ZZProject/SudokuSolver
 
 from typing import *
 
+
 class Solution_A:
 
     def isValidSudoku(self, board: List[List[str]]) -> bool:

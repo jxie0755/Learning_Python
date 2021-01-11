@@ -4,7 +4,6 @@
 
 # Given a binary tree, imagine yourself standing on the right side of it, return the values of the nodes you can see ordered from top to bottom.
 
-from typing import *
 from a0_TreeNode import *
 
 

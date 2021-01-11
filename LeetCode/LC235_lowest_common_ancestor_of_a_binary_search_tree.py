@@ -10,7 +10,6 @@
 # p and q are different and both values will exist in the BST.
 
 
-from typing import *
 from a0_TreeNode import *
 
 

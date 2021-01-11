@@ -11,6 +11,7 @@ You may assume that each input would have exactly one solution.
 
 from typing import *
 
+
 class Solution_A:
     def threeSumClosest(self, nums: List[int], target: int) -> int:
         """

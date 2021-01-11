@@ -19,6 +19,7 @@ Note:
 
 from typing import *
 
+
 class Solution_A:
     def solveSudoku(self, board: List[List[str]]) -> None:
         """

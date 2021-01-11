@@ -12,6 +12,7 @@ If there is such window, you are guaranteed that there will always be only one u
 
 from typing import *
 
+
 class Solution_A:
 
     def minWindow(self, s: str, t: str) -> str:

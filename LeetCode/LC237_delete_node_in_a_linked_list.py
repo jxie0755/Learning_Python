@@ -13,7 +13,6 @@
 # Do not return anything from your function.
 
 
-from typing import *
 from a0_ListNode import *
 
 

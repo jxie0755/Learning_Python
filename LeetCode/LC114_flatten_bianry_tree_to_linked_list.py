@@ -2,7 +2,7 @@
 # Medium
 
 # Given a binary tree, flatten it to a linked list in-place.
-from typing import *
+
 from a0_TreeNode import *
 
 

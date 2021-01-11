@@ -11,6 +11,7 @@ You may assume the integer does not contain any leading zero, except the number 
 
 from typing import *
 
+
 class Solution_A:
     def plusOne(self, digits: List[int]) -> List[int]:
         """

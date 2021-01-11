@@ -6,7 +6,6 @@
 # Note:
 # You may assume k is always valid, 1 ≤ k ≤ BST's total elements.
 
-from typing import *
 from a0_TreeNode import *
 
 

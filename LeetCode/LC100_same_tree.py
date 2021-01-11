@@ -9,7 +9,6 @@
 # Mirrored trees are considered not the same
 # Circular trees can not be tested
 
-from typing import *
 from a0_TreeNode import *
 
 

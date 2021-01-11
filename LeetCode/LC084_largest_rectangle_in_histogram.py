@@ -8,6 +8,7 @@ Given n non-negative integers representing the histogram's bar height where the 
 
 from typing import *
 
+
 class Solution_A:
 
     def largestRectangleArea(self, heights: List[int]) -> int:

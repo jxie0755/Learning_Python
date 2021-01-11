@@ -8,7 +8,6 @@
 # You may assume that duplicates do not exist in the tree.
 
 
-from typing import *
 from a0_TreeNode import *
 
 

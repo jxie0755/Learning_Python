@@ -12,6 +12,7 @@ The solution set must not contain duplicate quadruplets.
 
 from typing import *
 
+
 class Solution_A:
     def fourSum(self, nums: List[int], target: int) -> List[List[int]]:
         """

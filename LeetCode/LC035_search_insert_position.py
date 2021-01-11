@@ -10,6 +10,7 @@ You may assume no duplicates in the array
 
 from typing import *
 
+
 class Solution_A:
     def searchInsert(self, nums: List[int], target: int) -> int:
 

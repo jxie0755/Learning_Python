@@ -9,6 +9,7 @@ You may assume that the intervals were initially sorted according to their start
 
 from typing import *
 
+
 # NOTE: input types have been changed on April 15, 2019.
 # Please reset to default code definition to get new method signature.
 

@@ -6,6 +6,7 @@
 
 from typing import *
 
+
 # class Solution:
 #
 #     # Time O(N^2), Exceeded max time limit

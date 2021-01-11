@@ -9,6 +9,7 @@ You may assume that each input would have exactly one solution, and you may not 
 
 from typing import *
 
+
 class Solution_A:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
         """

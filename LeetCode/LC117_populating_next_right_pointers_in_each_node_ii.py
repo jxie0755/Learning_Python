@@ -20,8 +20,6 @@ class Node:
 # Initially, all next pointers are set to NULL.
 
 
-from typing import *
-
 
 class Solution:
     def showLayers(self, root):

@@ -6,9 +6,9 @@ Medium
 Given a collection of distinct (数字不会重复) integers, return all possible permutations.
 """
 
+from typing import *
 from itertools import permutations
 from math import factorial
-from typing import *
 
 
 class Solution_A:
