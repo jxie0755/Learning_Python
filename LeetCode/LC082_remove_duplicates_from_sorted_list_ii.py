@@ -75,27 +75,27 @@ class Solution_B:
         if not head or not head.next:
             return head
 
-        dummy = cur = ListNode("X")
+        dummy = pre_head = ListNode("X")
         dummy.next = head
-        tail = head.next
+        next_head = head.next
         repeat = False
 
-        while tail:
-            if head.val != tail.val:
-                if not repeat:
-                    cur.next = head
-                    cur = cur.next
-                else:
-                    if tail.next:
-                        repeat = False
-                    else:
-                        cur.next = tail
-            else:
-                cur.next = None
+        while next_head:
+            if head.val == next_head.val:
+                pre_head.next = None  # 断开pre_head和head
                 repeat = True
+            else:
+                if not repeat:
+                    pre_head.next = head # head is unique, include
+                    pre_head = pre_head.next  # 只有之前不重复,后面也不重复,才会move first
+                else:
+                    if next_head.next:
+                        repeat = False
+                    else: # prevent next_head is the last node
+                        pre_head.next = next_head
 
-            head = head.next
-            tail = tail.next
+            head = head.next # move second
+            next_head = next_head.next # move third
 
         return dummy.next
 
@@ -126,8 +126,9 @@ class Solution_C:
                 # this is most tricky, continuity must be guranteed, can't skip all three
                 return self.deleteDuplicates(head.next)
 
+
 if __name__ == "__main__":
-    testCase = Solution_C()
+    testCase = Solution_B()
 
     assert repr(testCase.deleteDuplicates(None)) == "None", "Edge 1"
     assert repr(testCase.deleteDuplicates(genNode([1, 1]))) == "None", "Edge 2"
@@ -140,6 +141,7 @@ if __name__ == "__main__":
     assert repr(testCase.deleteDuplicates(genNode([1, 2, 2, 3]))) == "1->3", "Additional 2"
     assert repr(testCase.deleteDuplicates(genNode([1, 2, 2, 2]))) == "1", "Additional 3"
     assert repr(testCase.deleteDuplicates(genNode([1, 1, 1, 1]))) == "None", "Additional 4"
+    assert repr(testCase.deleteDuplicates(genNode([1, 1, 2, 2]))) == "None", "Additional 5"
 
     print("All passed")
 
