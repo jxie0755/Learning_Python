@@ -9,7 +9,7 @@ Given a sorted linked list, delete all nodes that have duplicate numbers, leavin
 from a0_ListNode import *
 
 
-class Solution_A:
+class Solution_A1:
 
     def deleteDuplicates(self, head: ListNode) -> ListNode:
         """
@@ -27,7 +27,7 @@ class Solution_A:
             if head.next:
                 if head.val == head.next.val:
                     check = head.val
-                elif head.val != cur.next and head.val != check:
+                elif head.val != cur.next and head.val != check: # ensure not repeating before and after
                     cur.next = ListNode(head.val)
                     cur = cur.next
             elif head.val != check:
@@ -38,6 +38,31 @@ class Solution_A:
 
         return new_head.next
 
+
+class Solution_A2:
+    def deleteDuplicates(self, head: ListNode) -> ListNode:
+        """
+        Similar to Version A1 but with clearer logic
+        """
+        new_head = dumb = ListNode("X")
+
+        repeat = False
+        while head:
+            if head.next:
+                if head.val == head.next.val:
+                    repeat = True
+                else:
+                    if not repeat:  # ensure not repeating before and after
+                        new_head.next = ListNode(head.val)
+                        new_head = new_head.next
+                    else:  # if already repeating, then skip but reset the label
+                        repeat = False
+            else:
+                if not repeat:  # check if this last node is different from before
+                    new_head.next = ListNode(head.val)
+            head = head.next
+
+        return dumb.next
 
 class Solution_B:
 
@@ -84,6 +109,8 @@ if __name__ == "__main__":
 
     assert repr(testCase.deleteDuplicates(genNode([1, 2, 3, 3, 4, 4, 5]))) == "1->2->5", "Example 1"
     assert repr(testCase.deleteDuplicates(genNode([1, 1, 1, 2, 3]))) == "2->3", "Example 2"
+
+    assert repr(testCase.deleteDuplicates(genNode([1, 2, 2]))) == "1", "Additional 1"
 
     print("all passed")
 
