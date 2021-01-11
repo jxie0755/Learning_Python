@@ -9,7 +9,6 @@
 # The total number of nodes is at most 5000.
 
 from typing import *
-from a0_TreeNode import *
 from a0_ListNode import *
 
 

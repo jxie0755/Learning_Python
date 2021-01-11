@@ -12,7 +12,6 @@ from typing import *
 
 from typing import *
 from a0_TreeNode import *
-from a0_ListNode import *
 
 
 class Solution:

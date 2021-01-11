@@ -4,7 +4,6 @@
 # Given a binary tree, flatten it to a linked list in-place.
 from typing import *
 from a0_TreeNode import *
-from a0_ListNode import *
 
 
 class Solution:

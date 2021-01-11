@@ -7,8 +7,6 @@
 # You should preserve the original relative order of the nodes in each of the two partitions.
 
 
-from typing import *
-from a0_TreeNode import *
 from a0_ListNode import *
 
 

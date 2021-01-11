@@ -6,7 +6,6 @@
 # A linked list can be reversed either iteratively or recursively. Could you implement both?
 
 from typing import *
-from a0_TreeNode import *
 from a0_ListNode import *
 
 

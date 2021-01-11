@@ -9,7 +9,6 @@
 
 from typing import *
 from a0_TreeNode import *
-from a0_ListNode import *
 
 
 class Solution:
@@ -45,7 +44,7 @@ class Solution(object):
 
 
 # Morris Traversal Solution
-class Solution(object):
+class Solution_B(object):
     def inorderTraversal(self, root):
         # STD Ans
         # TODO Learn algorithm

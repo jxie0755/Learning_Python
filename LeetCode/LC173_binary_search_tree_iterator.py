@@ -11,7 +11,6 @@
 
 from typing import *
 from a0_TreeNode import *
-from a0_ListNode import *
 
 
 # Your BSTIterator object will be instantiated and called as such:

@@ -88,8 +88,8 @@ class Solution_B2:
 
 if __name__ == "__main__":
     testCase = Solution_B1()
-    assert testCase.swapPairs(None) is None, "Empty"
-    assert testCase.swapPairs(genNode([1])) == genNode([1]), "Single"
+    assert repr(testCase.swapPairs(None)) == "None", "Empty"
+    assert repr(testCase.swapPairs(genNode([1]))) == "1", "Single"
 
     assert repr(testCase.swapPairs(genNode([1, 2]))) == "2->1", "1 pair"
     assert repr(testCase.swapPairs(genNode([1, 2, 3, 4]))) == "2->1->4->3", "Even Length"

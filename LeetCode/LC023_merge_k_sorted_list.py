@@ -7,7 +7,6 @@ Merge k sorted linked lists and return it as one sorted list. Analyze and descri
 """
 
 from a0_ListNode import *
-from typing import *
 
 class Solution_A:
 
@@ -123,7 +122,7 @@ class Solution_STD:
 
 if __name__ == "__main__":
     testCase = Solution_STD()
-    assert testCase.mergeKLists([]) is None, "Empty"
+    assert repr(testCase.mergeKLists([])) == "None", "Empty"
 
     single = genNode([1])
     e = testCase.mergeKLists([single])

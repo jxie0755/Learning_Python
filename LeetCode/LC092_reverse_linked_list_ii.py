@@ -5,8 +5,6 @@
 # Reverse a linked list from position m to n. Do it in one-pass.
 # Note: 1 ≤ m ≤ n ≤ length of list.
 
-from typing import *
-from a0_TreeNode import *
 from a0_ListNode import *
 
 
