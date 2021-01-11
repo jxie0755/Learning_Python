@@ -52,4 +52,4 @@ if __name__ == "__main__":
         ["bat"]
     ], "Example 1"
 
-    print("all passed")
+    print("All passed")

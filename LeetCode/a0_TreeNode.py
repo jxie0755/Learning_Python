@@ -52,7 +52,7 @@ def genTree(lst: List[int], i: int = 1) -> TreeNode:
         return node
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     print("\nEmpty Tree:")
     print(genTree([]))
 

@@ -121,4 +121,4 @@ if __name__ == "__main__":
     a = genNode([1, 2, 3, 4, 5])
     f = Solution().reverseList(a)
     assert repr(f) == "5->4->3->2->1"
-    print("all passed")
+    print("All passed")

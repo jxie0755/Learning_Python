@@ -35,4 +35,4 @@ if __name__ == "__main__":
     assert testCase.searchInsert([1, 3, 5, 6], 5) == 2, "In the list"
     assert testCase.searchInsert([1, 3, 5, 6], 7) == 4, "At the end"
 
-    print("all passed")
+    print("All passed")

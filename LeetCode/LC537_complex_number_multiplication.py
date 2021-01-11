@@ -38,4 +38,4 @@ class Solution:
 if __name__ == "__main__":
     assert Solution().complexNumberMultiply("1+1i", "1+1i") == "0+2i", "positive test"
     assert Solution().complexNumberMultiply("1+-1i", "1+-1i") == "0+-2i", "negative test"
-    print("all passed")
+    print("All passed")

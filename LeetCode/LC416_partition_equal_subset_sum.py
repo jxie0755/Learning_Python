@@ -63,7 +63,7 @@ class Solution_STD_A:
 
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     testCase = Solution_STD_A()
     assert not testCase.canPartition([1]), "Edge 1"
     assert not testCase.canPartition([1,2]), "Edge 2"
@@ -77,4 +77,4 @@ if __name__ == '__main__':
 
     assert not testCase.canPartition([1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,100]), "Long"
 
-    print('all passed')
+    print("all passed")

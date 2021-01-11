@@ -44,4 +44,4 @@ if __name__ == "__main__":
     ])
     assert Solution().binaryTreePaths(A) == ["1->2->5", "1->3"], "Example 1"
 
-    print("all passed")
+    print("All passed")

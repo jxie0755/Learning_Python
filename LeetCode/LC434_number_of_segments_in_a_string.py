@@ -33,4 +33,4 @@ if __name__ == "__main__":
     assert Solution().countSegments("") == 0, "empty"
     assert Solution().countSegments("     ") == 0, "all space"
     assert Solution().countSegments("  aaa   ") == 1, "tricky space on both side"
-    print("all passed")
+    print("All passed")

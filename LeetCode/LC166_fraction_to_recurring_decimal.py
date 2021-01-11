@@ -112,4 +112,4 @@ if __name__ == "__main__":
     assert Solution().fractionToDecimal(1, 90) == "0.0(1)", "Additional 3"
     assert Solution().fractionToDecimal(10, 333) == "0.(030)", "Additional 4"
 
-    print("all passed")
+    print("All passed")

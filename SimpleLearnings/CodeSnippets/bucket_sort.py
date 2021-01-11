@@ -38,7 +38,7 @@ def bucket_sort_continous(nums: List[int]) -> None:
                 idx += 1
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     q0 = []
     bucket_sort_continous(q0)
     assert q0 == [], "Edge 0"
@@ -111,7 +111,7 @@ def bucket_sort(nums: List[int]) -> None:
             bucket_idx += 1
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     q0 = []
     bucket_sort(q0)
     assert q0 == [], "Edge 0"

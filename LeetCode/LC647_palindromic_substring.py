@@ -76,8 +76,8 @@ class Solution:
         return ans
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     assert Solution().countSubstrings("abc") == 3, "regular"
     assert Solution().countSubstrings("aaa") == 6, "'a', 'a', 'a', 'aa', 'aa', 'aaa'"
     assert Solution().countSubstrings("abcba") == 7
-    print("all passed")
+    print("All passed")

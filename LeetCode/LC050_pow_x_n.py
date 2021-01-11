@@ -54,4 +54,4 @@ if __name__ == "__main__":
     assert testCase.myPow(2.00000, -2) == math.pow(2.00000, -2), "Example 3"
     assert testCase.myPow(0.00001, 2147483647) == math.pow(0.00001, 2147483647), "Large 1"
     assert testCase.myPow(2, -2147483648) == math.pow(2, -2147483648), "Large 2"
-    print("all passed") # takes a while to pass
+    print("All passed") # takes a while to pass

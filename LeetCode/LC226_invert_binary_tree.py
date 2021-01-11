@@ -55,4 +55,4 @@ if __name__ == "__main__":
     ])
     assert Solution().invertTree(A) == B, "Example 1b"
 
-    print("all passed")
+    print("All passed")

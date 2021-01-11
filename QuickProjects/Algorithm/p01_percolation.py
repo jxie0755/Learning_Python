@@ -108,4 +108,4 @@ if __name__ == "__main__":
     assert not Percolation().determination(sample_N1), "Example N1"
     assert not Percolation().determination(sample_N2), "Example N2"
 
-    print("all passed")
+    print("All passed")

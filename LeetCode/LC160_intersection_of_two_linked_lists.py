@@ -158,4 +158,4 @@ if __name__ == "__main__":
     B = genNode([1, 5])
     assert not Solution().getIntersectionNode(A, B) == C, "Example 3, Edge"
 
-    print("all passed")
+    print("All passed")

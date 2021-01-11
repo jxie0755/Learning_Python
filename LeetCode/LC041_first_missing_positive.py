@@ -72,4 +72,4 @@ if __name__ == "__main__":
 
     assert testCase.firstMissingPositive([2,2]) == 1, "Extra 1"
 
-    print("all passed")
+    print("All passed")

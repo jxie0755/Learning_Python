@@ -81,4 +81,4 @@ if __name__ == "__main__":
     f = testCase.removeNthFromEnd(a, 2)
     assert repr(f) == "1->2->3->5"
 
-    print("all passed")
+    print("All passed")

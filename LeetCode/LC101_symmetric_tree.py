@@ -164,4 +164,4 @@ if __name__ == "__main__":
     ])
     assert not Solution().isSymmetric(A3)
 
-    print("all passed")
+    print("All passed")

@@ -68,4 +68,4 @@ if __name__ == "__main__":
     assert testCase.removeElement(nums, 2) == 5, "Example 2"
     assert nums == [0, 1, 3, 0, 4, 0, 4, 2], "Example 2 final list"
 
-    print('all passed')
+    print("All passed")

@@ -77,4 +77,4 @@ if __name__ == "__main__":
     assert Solution().searchMatrix(A, 5), "Example 1"
     assert not Solution().searchMatrix(A, 20), "Example 2"
 
-    print("all passed")
+    print("All passed")

@@ -89,4 +89,4 @@ if __name__ == "__main__":
     #                                   0  1  2  3  4  5  6  7  8  9
     # it should return 1, but it returned 9, nums[9] is not a true peak.
 
-    print("all passed")
+    print("All passed")

@@ -72,4 +72,4 @@ if __name__ == "__main__":
     long = "9371597631128776948387197132267188677349946742344217846154932859125134924241649584251978418763151253"
     print(Solution().numDecodings(long))
 
-    print("all passed")
+    print("All passed")

@@ -52,4 +52,4 @@ if __name__ == "__main__":
     assert AA.next.random.val == 2, "cycling"
     assert AA.next.random == AA.next, "True self poiting"
 
-    print("all passed")
+    print("All passed")

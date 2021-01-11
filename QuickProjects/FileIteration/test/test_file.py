@@ -60,4 +60,4 @@ if __name__ == "__main__":
     assert Solution().letterCombinations("23") == ["ad", "ae", "af", "bd", "be", "bf", "cd", "ce", "cf"], "Example 3"
     assert Solution().letterCombinations("213") == ["ad", "ae", "af", "bd", "be", "bf", "cd", "ce", "cf"], "Example 4"
 
-    print("all passed")
+    print("All passed")

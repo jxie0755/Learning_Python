@@ -82,4 +82,4 @@ if __name__ == "__main__":
     B.left.right.next = B.right.right
 
     assert Solution().connect(A) == B, "Example 1"
-    print("all passed")
+    print("All passed")

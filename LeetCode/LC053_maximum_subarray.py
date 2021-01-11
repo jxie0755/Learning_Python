@@ -61,4 +61,4 @@ if __name__ == "__main__":
     assert testCase.maxSubArray([0, -1, -1, 0, 0, 0, -1, -2, -3]) == 0, "only one zero"
     assert testCase.maxSubArray([0, 0, 0, 0, 0, 0]) == 0, "all zeros"
     assert testCase.maxSubArray([1, 2, 3, -8, 2, 3, 4, -2, 9, -8, 9, -8, -7, -6]) == 17, "extra"
-    print("all passed")
+    print("All passed")

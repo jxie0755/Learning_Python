@@ -33,4 +33,4 @@ if __name__ == "__main__":
     assert Solution().isPowerOfTwo(1) == True, "Example 1"
     assert Solution().isPowerOfTwo(16) == True, "Example 2"
     assert Solution().isPowerOfTwo(218) == False, "Example 3"
-    print("all passed")
+    print("All passed")

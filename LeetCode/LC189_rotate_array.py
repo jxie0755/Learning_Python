@@ -55,4 +55,4 @@ if __name__ == "__main__":
     Solution().rotate(a, 5)
     assert a == [4, 1, 2, 3], "Large k"
 
-    print("all passed")
+    print("All passed")

@@ -93,7 +93,7 @@ def LC_testCase_fix_java(file_dir):
             print("file NOT changed")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     # If repeat running, it won't do anything.
     from FileIteration.dir_search import general_modify
     general_modify(pc_directory_py, LC_testCase_fix_py)

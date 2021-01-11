@@ -55,4 +55,4 @@ if __name__ == "__main__":
     assert Solution().addDigits(10) == 1, "Edge 2"
 
     assert Solution().addDigits(38) == 2, "Example 1"
-    print("all passed")
+    print("All passed")

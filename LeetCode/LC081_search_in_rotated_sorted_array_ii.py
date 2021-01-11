@@ -159,4 +159,4 @@ if __name__ == "__main__":
     assert testCase.search([3, 1], 1), "Additional 2"
     assert not testCase.search([1, 3, 5], 0), "Additional 3"
     assert not testCase.search([0, 1, 2, 3, 3, 3], 4), "Additional 4"
-    print("all passed")
+    print("All passed")

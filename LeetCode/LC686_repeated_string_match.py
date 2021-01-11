@@ -77,4 +77,4 @@ if __name__ == "__main__":
     assert Solution().repeatedStringMatch("abcd", "dabcdabcdabcdabcdabcdabcdabcdabcdabcdabcd") == 11, "A<B long in 1"
     assert Solution().repeatedStringMatch("a", "aaaaaaaaaa") == 10, "A<B long in 2"
     assert Solution().repeatedStringMatch("a", "aaaaaaaaaax") == -1, "A<B long not in"
-    print("all passed")
+    print("All passed")

@@ -75,4 +75,4 @@ if __name__ == "__main__":
     additional = list(range(0, 2000))
     assert testCase.largestRectangleArea(additional) == 1000000, "Extra Long 2"
 
-    print("all passed")
+    print("All passed")

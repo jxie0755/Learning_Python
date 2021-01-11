@@ -155,4 +155,4 @@ if __name__ == "__main__":
 
     assert Solution().nthUglyNumber(80) == 800, "Long 1"
     assert Solution().nthUglyNumber(1690) == 2123366400, "End"
-    print("all passed")
+    print("All passed")

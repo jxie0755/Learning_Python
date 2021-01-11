@@ -26,4 +26,4 @@ if __name__ == "__main__":
     assert Solution().checkRecord("LALALALALALA") == False, "bad bad"
     assert Solution().checkRecord("LLLLLLLL") == False, "lazy guy"
 
-    print("all passed")
+    print("All passed")

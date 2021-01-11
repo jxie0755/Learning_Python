@@ -52,4 +52,4 @@ if __name__ == "__main__":
     assert Solution().countNumbersWithUniqueDigits(9) == 5611771, "Example Last"
     assert Solution().countNumbersWithUniqueDigits(10) == 5611771, "Example Exceed Last"
 
-    print("all passed")
+    print("All passed")

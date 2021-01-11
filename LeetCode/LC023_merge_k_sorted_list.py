@@ -135,4 +135,4 @@ if __name__ == "__main__":
     check = testCase.mergeKLists(lists)
     assert repr(check) == "1->1->2->3->4->4->5->6", "Example"
 
-    print("all passed")
+    print("All passed")

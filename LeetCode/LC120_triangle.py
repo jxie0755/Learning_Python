@@ -76,4 +76,4 @@ if __name__ == "__main__":
     ]
 
     assert Solution().minimumTotal(A) == 11, "Example 1"
-    print("all passed")
+    print("All passed")

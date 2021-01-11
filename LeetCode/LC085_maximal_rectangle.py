@@ -40,4 +40,4 @@ if __name__ == "__main__":
     ]
     assert Solution().maximalRectangle(sample) == 6, "Example 1"
 
-    print("all passed")
+    print("All passed")

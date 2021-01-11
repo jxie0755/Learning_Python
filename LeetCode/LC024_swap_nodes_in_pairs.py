@@ -95,4 +95,4 @@ if __name__ == "__main__":
     assert repr(testCase.swapPairs(genNode([1, 2, 3, 4]))) == "2->1->4->3", "Even Length"
     assert repr(testCase.swapPairs(genNode([1, 2, 3, 4, 5]))) == "2->1->4->3->5", "Odd Length"
 
-    print("all passed")
+    print("All passed")

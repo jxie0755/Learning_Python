@@ -76,4 +76,4 @@ if __name__ == "__main__":
     assert Solution().integerBreak(10) == 36, "Example 2, 3+3+4, 3*3*4=36"
     assert Solution().integerBreak(17) == 486, "Example 2, 3+3+4, 3*3*4=36"
 
-    print("all passed")
+    print("All passed")

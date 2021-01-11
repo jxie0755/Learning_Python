@@ -113,4 +113,4 @@ if __name__ == "__main__":
     ])
     assert Solution().kthSmallest(A, 3) == 3, "Example 2"
 
-    print("all passed")
+    print("All passed")

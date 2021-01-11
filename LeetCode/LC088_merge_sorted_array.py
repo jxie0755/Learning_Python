@@ -85,4 +85,4 @@ if __name__ == "__main__":
     Solution().merge(nums1, 6, nums2, 3)
     assert nums1 == [-1, 0, 0, 1, 2, 2, 3, 3, 3], "T10"
 
-    print("all passed")
+    print("All passed")

@@ -56,4 +56,4 @@ if __name__ == "__main__":
 
     assert Solution().containsNearbyDuplicate([0, 1, 2, 3, 2, 5], 3) == True, "Additional 1"
 
-    print("all passed")
+    print("All passed")

@@ -18,7 +18,7 @@ if __name__ == "__main__":
     assert count_partitions(10, 10) == 42
     assert count_partitions(15, 15) == 176
     assert count_partitions(20, 20) == 627
-    print("all passed")
+    print("All passed")
 
 
 # the m-1 is a step-down process to include all integers from 0 to m.

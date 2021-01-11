@@ -164,4 +164,4 @@ if __name__ == "__main__":
     testCase.prevPermutation(a)
     assert a == [2, 3, 1], "Exatra 4 prev"
 
-    print("all passed")
+    print("All passed")

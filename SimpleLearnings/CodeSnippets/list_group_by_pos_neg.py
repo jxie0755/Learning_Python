@@ -81,7 +81,7 @@ if __name__ == "__main__":
     assert group_pos_neg_list([0]) == [0]
     assert group_pos_neg_list([1, 2, 3, 4]) == [10]
     assert group_pos_neg_list([-1, 0, -1, 0, -1, 123]) == [-1, 0, -1, 0, -1, 123]
-    print("all passed")
+    print("All passed")
 
 
 # see more at STOF:

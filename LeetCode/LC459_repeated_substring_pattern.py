@@ -26,4 +26,4 @@ if __name__ == "__main__":
     assert Solution().repeatedSubstringPattern("a") == False
     assert Solution().repeatedSubstringPattern("aa") == True
     assert Solution().repeatedSubstringPattern("aaa") == True
-    print("all passed")
+    print("All passed")

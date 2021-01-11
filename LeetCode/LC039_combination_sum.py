@@ -199,4 +199,4 @@ if __name__ == "__main__":
         [3, 3, 3, 3, 3, 3]
     ], "Extra 2"
 
-    print("all passed")
+    print("All passed")

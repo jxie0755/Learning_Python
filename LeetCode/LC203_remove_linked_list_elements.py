@@ -51,4 +51,4 @@ if __name__ == "__main__":
     A = genNode([1, 2, 6, 3, 4, 5, 6])
     assert repr(Solution().removeElements(A, 6)) == "1->2->3->4->5", "Example 1"
 
-    print("all passed")
+    print("All passed")

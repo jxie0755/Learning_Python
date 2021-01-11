@@ -130,4 +130,4 @@ if __name__ == "__main__":
         [0]
     ]
 
-    print("all passed")
+    print("All passed")

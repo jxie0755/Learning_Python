@@ -18,4 +18,4 @@ class Solution:
 
 if __name__ == "__main__":
     assert Solution().reverseString("hello") == "olleh"
-    print("all passed")
+    print("All passed")

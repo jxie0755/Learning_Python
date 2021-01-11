@@ -35,4 +35,4 @@ if __name__ == "__main__":
     assert testCase.isPalindrome(1), "Single digit 1"
     assert testCase.isPalindrome(0), "Single digit 0"
 
-    print("all passed")
+    print("All passed")

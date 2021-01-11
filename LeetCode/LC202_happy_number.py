@@ -38,4 +38,4 @@ class Solution:
 
 if __name__ == "__main__":
     assert Solution().isHappy(19) is True, "Example 1"
-    print("all passed")
+    print("All passed")

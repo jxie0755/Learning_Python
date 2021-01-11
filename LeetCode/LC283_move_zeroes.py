@@ -67,4 +67,4 @@ if __name__ == "__main__":
     Solution().moveZeroes(a)
     assert a == [1, 3, 12, 0, 0], "Example 1"
 
-    print("all passed")
+    print("All passed")

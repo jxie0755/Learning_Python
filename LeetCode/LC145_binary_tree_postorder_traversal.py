@@ -33,4 +33,4 @@ if __name__ == "__main__":
 
     assert Solution().postorderTraversal(A) == [3, 2, 1], "Example 1"
 
-    print("all passed")
+    print("All passed")

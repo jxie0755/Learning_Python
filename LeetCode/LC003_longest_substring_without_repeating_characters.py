@@ -159,4 +159,4 @@ if __name__ == "__main__":
     assert testCase.lengthOfLongestSubstring("bbbbb") == 1, "Example 2, b"
     assert testCase.lengthOfLongestSubstring("pwwkew") == 3, "Example 3, wke"
     assert testCase.lengthOfLongestSubstring("tmmzuxt") == 5, "Example 4, mzuxt"
-    print("all passed")
+    print("All passed")

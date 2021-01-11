@@ -62,4 +62,4 @@ if __name__ == "__main__":
     assert sorted(Solution().subsetsWithDup([1, 1, 2, 2])) == [[], [1], [1, 1], [1, 1, 2], [1, 1, 2, 2], [1, 2],
                                                                [1, 2, 2], [2], [2, 2]], "Additional 2"
 
-    print("all passed")
+    print("All passed")

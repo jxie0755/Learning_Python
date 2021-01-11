@@ -90,4 +90,4 @@ if __name__ == "__main__":
     assert Solution().maxProduct([2, 3, -2, 4]) == 6, "Example 1"
     assert Solution().maxProduct([-2, 0, -1]) == 0, "Example 2"
     #
-    print("all passed")
+    print("All passed")

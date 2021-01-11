@@ -124,4 +124,4 @@ if __name__ == "__main__":
     assert testCase.findMedianSortedArrays([1, 2, 3, 4], [2, 3, 4, 5]) == 3.0, "Example 3"
     assert testCase.findMedianSortedArrays([3], [-2, -1]) == -1.0, "Negative"
 
-    print("all passed")
+    print("All passed")

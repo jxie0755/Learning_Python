@@ -31,4 +31,4 @@ if __name__ == "__main__":
     assert Solution().majorityElement([3, 2, 3]) == 3, "Example 1"
     assert Solution().majorityElement([2, 2, 1, 1, 1, 2, 2]) == 2, "Example 2"
 
-    print("all passed")
+    print("All passed")

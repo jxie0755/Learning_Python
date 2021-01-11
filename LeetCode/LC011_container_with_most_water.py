@@ -108,4 +108,4 @@ if __name__ == "__main__":
     assert testCase.maxArea([1, 1, 1, 1, 1, 10, 10, 1, 1, 1, 1, 1]) == 11, "Example 4"
     assert testCase.maxArea([1, 1, 4, 1, 5, 5, 4, 1, 1, 1]) == 16, "Example 5"
 
-    print("all passed")
+    print("All passed")

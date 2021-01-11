@@ -57,4 +57,4 @@ if __name__ == "__main__":
     s1 = genNode([1, 2, 3, 4, 5])
     assert repr(Solution().reverseBetween(s1, 2, 4)) == "1->4->3->2->5", "Example 1"
 
-    print("all passed")
+    print("All passed")

@@ -97,4 +97,4 @@ if __name__ == "__main__":
                                                                                                                13], "Extra 5"
     assert testCase.searchRange([1, 2, 3, 3, 3, 3, 4, 5, 9], 3) == [2, 5], "Extra 6"
 
-    print("all passed")
+    print("All passed")

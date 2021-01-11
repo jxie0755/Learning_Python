@@ -83,4 +83,4 @@ if __name__ == "__main__":
     assert testCase.canMeasureWater(500, 456, 128), "Additional 1"
     # assert testCase.canMeasureWater(22003, 31237, 1), "Long"
 
-    print("all passed")
+    print("All passed")

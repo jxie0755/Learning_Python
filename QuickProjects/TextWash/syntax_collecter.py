@@ -38,7 +38,7 @@ def sql_syntax_collect(file_dir: str):
 
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
 
     from FileIteration.dir_search import general_modify
 

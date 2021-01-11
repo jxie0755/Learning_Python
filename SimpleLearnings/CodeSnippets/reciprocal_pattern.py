@@ -40,4 +40,4 @@ if __name__ == "__main__":
     a = find_reciprocal(1, 983)
     print("Pattern length for 1/983 is", len(a))
 
-    print("all passed")
+    print("All passed")

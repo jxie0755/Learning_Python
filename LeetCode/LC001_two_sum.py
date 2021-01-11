@@ -73,4 +73,4 @@ if __name__ == "__main__":
     assert testCase.twoSum([3, 3], 6) == [0, 1], "two identical"
     assert testCase.twoSum([-1, -2, -3, -4, -5], -8) == [2, 4], "negative int"
     assert testCase.twoSum([3, 2, 4], 6) == [1, 2], "struggle with 1/2 target"
-    print("all passed")
+    print("All passed")

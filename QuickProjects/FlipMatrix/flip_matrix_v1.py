@@ -47,7 +47,7 @@ def printGrid(matrix: List[List[int]]) -> None:
         print(row)
     print()
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     grid_1 = [
         [0, 0, 0],
         [0, 1, 0],

@@ -30,4 +30,4 @@ if __name__ == "__main__":
     ") == "
     s
     "teL ekat edoCteeL tsetnoc", "regular"
-    print("all passed")
+    print("All passed")

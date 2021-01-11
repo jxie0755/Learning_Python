@@ -64,4 +64,4 @@ if __name__ == "__main__":
     ])
     assert not Solution().isBalanced(A), "Additional 2"
 
-    print("all passed")
+    print("All passed")

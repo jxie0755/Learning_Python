@@ -38,4 +38,4 @@ if __name__ == "__main__":
     assert repr(testCase.deleteDuplicates(genNode([1, 1, 2, 3, 3]))) == "1->2->3", "Example 1"
     assert repr(testCase.deleteDuplicates(genNode([1, 1, 2]))) == "1->2", "Example 2"
 
-    print("all passed")
+    print("All passed")

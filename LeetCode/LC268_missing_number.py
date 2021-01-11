@@ -62,4 +62,4 @@ if __name__ == "__main__":
 
     assert Solution().missingNumber([3, 0, 1]) == 2, "Example 1"
     assert Solution().missingNumber([9, 6, 4, 2, 3, 5, 7, 0, 1]) == 8, "Example 2"
-    print("all passed")
+    print("All passed")

@@ -41,4 +41,4 @@ if __name__ == "__main__":
     assert Solution().detectCapitalUse("flag") == True, "all low"
     assert Solution().detectCapitalUse("a") == True, "one low"
     assert Solution().detectCapitalUse("A") == True, "one up"
-    print("all passed")
+    print("All passed")

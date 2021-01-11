@@ -102,4 +102,4 @@ if __name__ == "__main__":
     lst = [[1, 4], [4, 5]]
     assert testCase.merge(lst) == [[1, 5]], "Example 2"
 
-    print("all passed")
+    print("All passed")

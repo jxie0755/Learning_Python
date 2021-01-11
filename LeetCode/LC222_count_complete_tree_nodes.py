@@ -179,4 +179,4 @@ if __name__ == "__main__":
     ])
     assert Solution().countNodes(A) == 4, "Additional 3, (3,4,5,6)"
 
-    print("all passed")
+    print("All passed")

@@ -127,4 +127,4 @@ if __name__ == "__main__":
            [1, 3, 9, 18, 90, 180, 360, 720], \
         "Additional 1"
 
-    print("all passed")
+    print("All passed")

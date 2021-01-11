@@ -17,7 +17,7 @@ def all_identical_4(iterable):  # 错位对比法
 if __name__ == "__main__":
     assert all_identical_3((1,1,1,1))  # >>> True
     assert not all_identical_4([1,2,3,4,5])  # >>> False
-    print("all passed")
+    print("All passed")
 
 
 

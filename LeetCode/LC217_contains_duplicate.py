@@ -34,4 +34,4 @@ if __name__ == "__main__":
     assert Solution().containsDuplicate([1, 2, 3, 4]) == False, "Example 2"
     assert Solution().containsDuplicate([1, 1, 1, 3, 3, 4, 3, 2, 4, 2]) == True, "Example 3"
 
-    print("all passed")
+    print("All passed")

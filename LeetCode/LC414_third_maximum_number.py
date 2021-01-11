@@ -42,4 +42,4 @@ if __name__ == "__main__":
     assert Solution().thirdMax([1, 2]) == 2, "Example 2"
     assert Solution().thirdMax([2, 2, 3, 1]) == 1, "Example 3"
 
-    print("all passed")
+    print("All passed")

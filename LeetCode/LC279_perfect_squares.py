@@ -237,7 +237,7 @@ if __name__ == "__main__":
     assert Solution().numSquares(143) == 4, "Example 9"
     assert Solution().numSquares(488) == 2, "Example 10"
 
-    print("all passed")
+    print("All passed")
 
     # import time
     # start_time = time.time()

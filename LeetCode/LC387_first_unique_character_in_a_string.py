@@ -23,4 +23,4 @@ if __name__ == "__main__":
     assert Solution().firstUniqChar("leetcode") == 0, "test 1"
     assert Solution().firstUniqChar("loveleetcode") == 2, "test 2"
     assert Solution().firstUniqChar("aabbccdd") == -1, "does not exist"
-    print("all passed")
+    print("All passed")

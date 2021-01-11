@@ -46,4 +46,4 @@ if __name__ == "__main__":
     assert Solution().isUgly(6) is True, "Example 1"
     assert Solution().isUgly(8) is True, "Example 2"
     assert Solution().isUgly(14) is False, "Example 3"
-    print("all passed")
+    print("All passed")

@@ -131,4 +131,4 @@ if __name__ == "__main__":
     g = testCase.reverseKGroup(b, 3)
     assert repr(g) == "3->2->1->4->5", "Example 2"
 
-    print("all passed")
+    print("All passed")

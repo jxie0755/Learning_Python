@@ -84,4 +84,4 @@ if __name__ == "__main__":
     assert Solution().trailingZeroes(20) == 4, "Additional 1"
     assert Solution().trailingZeroes(3743) == 932, "Additional 2"
     print(Solution().trailingZeroes(1808548329))
-    print("all passed")
+    print("All passed")

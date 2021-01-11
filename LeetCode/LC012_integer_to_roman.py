@@ -73,4 +73,4 @@ class Solution_C:
 if __name__ == "__main__":
     testCase = Solution_A()
     assert testCase.intToRoman(3888) == "MMMDCCCLXXXVIII", "one check is good"
-    print("all passed")
+    print("All passed")

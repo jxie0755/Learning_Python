@@ -61,4 +61,4 @@ if __name__ == "__main__":
     assert testCase.letterCombinations("23") == ["ad", "ae", "af", "bd", "be", "bf", "cd", "ce", "cf"], "Example 3"
     assert testCase.letterCombinations("213") == ["ad", "ae", "af", "bd", "be", "bf", "cd", "ce", "cf"], "Example 4"
 
-    print("all passed")
+    print("All passed")

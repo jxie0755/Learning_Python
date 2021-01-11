@@ -147,4 +147,4 @@ if __name__ == "__main__":
     assert Solution().computeArea(-5, -2, 5, 1, -3, -3, 3, 3) == 48, "Additional 5"
     assert Solution().computeArea(-5, -5, -4, 5, -3, -3, 3, 3) == 46, "Additional 6"
 
-    print("all passed")
+    print("All passed")

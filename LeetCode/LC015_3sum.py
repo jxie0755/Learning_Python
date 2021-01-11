@@ -256,4 +256,4 @@ if __name__ == "__main__":
     assert testCase.threeSum([-4, -2, -1]) == [], "Example 3"
     assert testCase.threeSum([0, 0, 0]) == [[0, 0, 0]], "Example 4"
 
-    print("all passed")
+    print("All passed")

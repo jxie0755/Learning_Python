@@ -12,7 +12,7 @@ def LC_name_change(file_dir):
     if file_dir.endswith(".py") and "a0_" not in file_dir:
         os.rename(file_dir, re.sub(pattern, r"\1LC\3", file_dir))
 
-if __name__ == '__main__':
+if __name__ == "__main__":
 
     # count = 0
     # for subdir in sorted(os.listdir(folder)):

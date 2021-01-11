@@ -167,4 +167,4 @@ if __name__ == "__main__":
     print(Solution().countPrimes(499979))
     print(Solution().countPrimes(999983))
     print(Solution().countPrimes(1500000))
-    print("all passed")
+    print("All passed")

@@ -141,4 +141,4 @@ if __name__ == "__main__":
     assert testCase.trap([0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1]) == 6, "Extra 1"
     assert testCase.trap([8, 5, 4, 1, 8, 9, 3, 0, 0]) == 14, "Extra 2"
 
-    print("all passed")
+    print("All passed")

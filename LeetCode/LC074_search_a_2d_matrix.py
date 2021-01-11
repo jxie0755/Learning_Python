@@ -108,4 +108,4 @@ if __name__ == "__main__":
         [23, 30, 34, 50]
     ]
     assert testCase.searchMatrix(matrix, 13) == False, "Example 2"
-    print("all passed")
+    print("All passed")

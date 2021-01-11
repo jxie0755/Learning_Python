@@ -92,7 +92,7 @@ if __name__ == "__main__":
     A.setInteger(5)
     assert repr(A) == "[5]", "set Integer"
 
-    print("all passed")
+    print("All passed")
 
 
 class Solution(object):

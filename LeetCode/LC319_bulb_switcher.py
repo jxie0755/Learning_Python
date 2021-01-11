@@ -71,4 +71,4 @@ if __name__ == "__main__":
 
     assert Solution().bulbSwitch(9999999) == 3162, "Long"
 
-    print("all passed")
+    print("All passed")

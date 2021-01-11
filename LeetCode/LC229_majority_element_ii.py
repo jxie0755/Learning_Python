@@ -69,4 +69,4 @@ if __name__ == "__main__":
 
     assert Solution().majorityElement([1, 3, 1, 3, 1, 3, 1, 3, 2]) == [1, 3], "Additional 1"
 
-    print("all passed")
+    print("All passed")

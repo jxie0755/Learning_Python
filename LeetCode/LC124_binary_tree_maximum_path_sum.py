@@ -186,4 +186,4 @@ if __name__ == "__main__":
     ])
     assert Solution().maxPathSum(A) == 12, "Additional 4, 7+2+3=12"
 
-    print("all passed")
+    print("All passed")

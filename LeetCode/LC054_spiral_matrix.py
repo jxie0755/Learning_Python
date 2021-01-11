@@ -169,4 +169,4 @@ if __name__ == "__main__":
     ]
     assert testCase.spiralOrder(sample_4) == [1, 2, 4, 6, 8, 7, 5, 3], "Extra"
 
-    print("all passed")
+    print("All passed")

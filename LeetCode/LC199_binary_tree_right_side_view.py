@@ -67,4 +67,4 @@ if __name__ == "__main__":
 
     assert Solution().rightSideView(A) == [1, 3, 5], "Additional 1"
 
-    print("all passed")
+    print("All passed")

@@ -66,4 +66,4 @@ if __name__ == "__main__":
     assert Solution().compareVersion("1.01", "1.001") == 0, "Example 4, ignore leding zero"
     assert Solution().compareVersion("1.0", "1.0.0") == 0, "Example 5"
 
-    print("all passed")
+    print("All passed")

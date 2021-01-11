@@ -102,4 +102,4 @@ if __name__ == "__main__":
     ]
     assert testCase.uniquePathsWithObstacles(s4) == 6, "Extra 2, equal to 3 * 3 with no obstacle"
 
-    print("all passed")
+    print("All passed")

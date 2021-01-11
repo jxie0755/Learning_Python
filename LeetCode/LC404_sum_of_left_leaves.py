@@ -76,4 +76,4 @@ if __name__ == "__main__":
     ])
     assert Solution().sumOfLeftLeaves(A) == 5, "Example 3"
 
-    print("all passed")
+    print("All passed")

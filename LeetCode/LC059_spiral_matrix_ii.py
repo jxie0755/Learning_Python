@@ -120,4 +120,4 @@ if __name__ == "__main__":
         [10, 9,  8,  7]
     ], "Extra 2"
 
-    print("all passed")
+    print("All passed")

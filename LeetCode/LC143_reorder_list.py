@@ -94,4 +94,4 @@ if __name__ == "__main__":
     Solution().reorderList(A)
     assert A == genNode([1, 5, 2, 4, 3]), "Example 2"
 
-    print("all passed")
+    print("All passed")

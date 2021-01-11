@@ -82,7 +82,7 @@ def combinations(candidates: List, r: int) -> List[List]:
         return [com + [popped] for com in combinations(sub_candidates, r - 1)] + combinations(sub_candidates, r)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     assert sorted(combinations(["A","B","C","D"], 2)) == [
         ['A', 'B'],
         ['A', 'C'],
@@ -168,7 +168,7 @@ def combinations_with_replacements(candidates: List, r: int) -> List[List]:
     return ans
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     assert sorted(sorted(i) for i in combinations_with_replacements(["A", "B", "C"], 3)) == [
         ['A', 'A', 'A'],
         ['A', 'A', 'B'],
@@ -278,7 +278,7 @@ def permutations(candidates: List, r: int = None) -> List[List]:
     return all_permutations
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     assert sorted(permutations(["A", "B", "C"], 3)) == [
         ['A', 'B', 'C'],
         ['A', 'C', 'B'],
@@ -315,7 +315,7 @@ def pure_permutations(candidates: List) -> List[List]:
         return result
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     assert pure_permutations([1]) == [
         [1]
     ], "Edge 1"

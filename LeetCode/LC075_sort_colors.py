@@ -106,4 +106,4 @@ if __name__ == "__main__":
     testCase.sortColors(s3)
     assert s3 == [0, 1], "Additional 2"
 
-    print("all passed")
+    print("All passed")

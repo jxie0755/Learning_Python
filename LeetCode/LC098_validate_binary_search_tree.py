@@ -59,4 +59,4 @@ if __name__ == "__main__":
     A = genTree([0, None, -1])
     assert not Solution().isValidBST(A), "Additional"
 
-    print("all passed")
+    print("All passed")

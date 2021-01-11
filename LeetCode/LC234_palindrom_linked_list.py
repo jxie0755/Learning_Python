@@ -135,4 +135,4 @@ if __name__ == "__main__":
     assert Solution().isPalindrome(genNode([1, 2, 1])), "Example 3"
     assert Solution().isPalindrome(genNode([1, 2, 3, 2, 1])), "Example 4"
 
-    print("all passed")
+    print("All passed")

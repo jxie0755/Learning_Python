@@ -127,4 +127,4 @@ if __name__ == "__main__":
 
     # assert Solution().hasCycle(a) is False, "Example 3"
 
-    print("all passed")
+    print("All passed")

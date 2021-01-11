@@ -178,4 +178,4 @@ if __name__ == "__main__":
 
     assert testCase.search([1, 3], 2) == -1, "Extra"
 
-    print("all passed")
+    print("All passed")

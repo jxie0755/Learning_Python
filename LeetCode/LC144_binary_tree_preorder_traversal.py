@@ -38,4 +38,4 @@ if __name__ == "__main__":
     ])
     assert Solution().preorderTraversal(A) == [1, 4, 2, 3], "Example 2"
 
-    print("all passed")
+    print("All passed")

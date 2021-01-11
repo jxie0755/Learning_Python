@@ -624,4 +624,4 @@ if __name__ == "__main__":
         ["6", "4", "1", "2", "7", "5", "9", "8", "3"]
     ], "question 2"
 
-    print("all passed")
+    print("All passed")

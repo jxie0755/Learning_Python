@@ -62,4 +62,4 @@ if __name__ == "__main__":
     assert testCase.mySqrt(8) == 2, "Eight"
     assert testCase.mySqrt(36) == 6, "Thirty Six"
     assert testCase.mySqrt(2147395601) == 46340, "Long"
-    print("all passed")
+    print("All passed")

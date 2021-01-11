@@ -52,4 +52,4 @@ if __name__ == "__main__":
     assert testCase.removeDuplicates(Q1) == 3, "Example 1"
     assert Q1 == [1, 2, 3, 2, 3], "Example 1 revised list"
 
-    print("all passed")
+    print("All passed")

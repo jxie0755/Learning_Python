@@ -92,4 +92,4 @@ if __name__ == "__main__":
 
     print(obj.getRandom())
 
-    print("all passed")
+    print("All passed")

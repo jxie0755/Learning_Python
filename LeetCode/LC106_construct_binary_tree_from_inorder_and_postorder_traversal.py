@@ -78,4 +78,4 @@ if __name__ == "__main__":
         None, None, 15, 7
     ]), "Example 1"
 
-    print("all passed")
+    print("All passed")

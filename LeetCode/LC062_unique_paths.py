@@ -74,4 +74,4 @@ if __name__ == "__main__":
     assert testCase.uniquePaths(3, 2) == 3, "Example 1"
     assert testCase.uniquePaths(7, 3) == 28, "Example 2"
     assert testCase.uniquePaths(23, 12) == 193536720, "Example 3, large number"
-    print("all passed")
+    print("All passed")

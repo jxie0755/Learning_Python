@@ -43,4 +43,4 @@ class Solution:
 if __name__ == "__main__":
     assert Solution().isPalindrome("A man, a plan, a canal: Panama") == True
     assert Solution().isPalindrome("race a car") == False
-    print("all passed")
+    print("All passed")

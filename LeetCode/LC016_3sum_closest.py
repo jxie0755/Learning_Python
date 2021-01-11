@@ -56,4 +56,4 @@ if __name__ == "__main__":
     assert testCase.threeSumClosest([-1, 2, 1, -4], 1) == 2, "Example 1"
     assert testCase.threeSumClosest([-1, 2, 1, -1], 0) == 0, "Match"
 
-    print("all passed")
+    print("All passed")

@@ -136,4 +136,4 @@ if not __name__ == "__main__":
     ])
     assert Solution().rob(A) == 7, "Example 5"
 
-    print("all passed")
+    print("All passed")

@@ -52,4 +52,4 @@ if __name__ == "__main__":
 
     sample = genNode([1, 4, 3, 2, 5, 2])
     assert repr(Solution().partition(sample, 3)) == "1->2->2->4->3->5", "Example 1"
-    print("all passed")
+    print("All passed")

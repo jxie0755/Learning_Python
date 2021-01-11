@@ -79,4 +79,4 @@ if __name__ == "__main__":
     assert Solution().twoSum([5, 25, 75], 100) == [2, 3], "T1"
     assert Solution().twoSum([-1, 0], -1) == [1, 2], "T2"
     assert Solution().twoSum([1, 2, 3, 4, 4, 9, 56, 90], 8) == [4, 5], "T3"
-    print("all passed")
+    print("All passed")

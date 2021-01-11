@@ -46,4 +46,4 @@ if __name__ == "__main__":
     assert testCase.reverse(-120) == -21, "tricky reverse"
     assert testCase.reverse(1534236469) == 0, "large number"
     assert testCase.reverse(0) == 0, "zero"
-    print("all passed")
+    print("All passed")

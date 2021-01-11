@@ -148,4 +148,4 @@ if __name__ == "__main__":
     ])
     assert Solution().lowestCommonAncestor(A, A, A.left) == A, "Additional 4"
 
-    print("all passed")
+    print("All passed")

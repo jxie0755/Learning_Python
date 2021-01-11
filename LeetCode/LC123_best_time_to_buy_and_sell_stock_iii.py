@@ -136,4 +136,4 @@ if __name__ == "__main__":
     assert Solution().maxProfit([1, 11, 1, 2, 3, 2, 3, 4, 3, 4, 5]) == 14, "Additional 1"
     assert Solution().maxProfit([5, 6, 1, 4, 2, 6]) == 7, "Additional 2"
 
-    print("all passed")
+    print("All passed")

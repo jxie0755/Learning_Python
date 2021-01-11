@@ -106,4 +106,4 @@ if __name__ == "__main__":
 
     c = testCase.addTwoNumbers(a1, b1)
     assert repr(c) == "0->4->4"
-    print("all passed")
+    print("All passed")

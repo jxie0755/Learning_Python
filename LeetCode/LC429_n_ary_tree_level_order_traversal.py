@@ -49,4 +49,4 @@ if __name__ == "__main__":
         [5, 6]
     ], "Example"
 
-    print("all passed")
+    print("All passed")

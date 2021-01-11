@@ -146,4 +146,4 @@ if __name__ == "__main__":
     assert iterator.next() == 20, "Step 8"
     assert not iterator.hasNext(), "Step 9"
 
-    print("all passed")
+    print("All passed")

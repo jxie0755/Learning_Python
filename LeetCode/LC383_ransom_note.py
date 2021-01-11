@@ -36,4 +36,4 @@ if __name__ == "__main__":
     assert Solution().canConstruct("abc", "cxxxbxxxxa") == True, "in 2"
     assert Solution().canConstruct("abc", "xxxxxxxxxxbca") == True, "in end 2"
     assert Solution().canConstruct("fffbfg", "effjfggbffjdgbjjhhdegh") == True, "put together"
-    print("all passed")
+    print("All passed")

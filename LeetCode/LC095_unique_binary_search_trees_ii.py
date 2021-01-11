@@ -22,4 +22,4 @@ if __name__ == "__main__":
         genTree([1, None, 2, None, None, None, 3]),
     ], "Example 1"
 
-    print("all passed")
+    print("All passed")

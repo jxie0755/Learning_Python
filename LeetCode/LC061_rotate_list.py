@@ -63,4 +63,4 @@ if __name__ == "__main__":
     S3 = genNode([0, 1, 2])
     assert repr(testCase.rotateRight(S3, 4)) == "2->0->1", "Example 3"
 
-    print("all passed")
+    print("All passed")

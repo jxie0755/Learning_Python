@@ -49,7 +49,7 @@ def general_modify_recur(folder_dir: str, fn):
 def fn_test(file_dir):
     print(file_dir)
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     # test fn (show file name)
     mac_dir = r"/Users/Jxie0755/Documents/DXcodings/Learning_Python/QuickProjects/FileIteration/test"
     pc_dir = r"D:\Documents\GitHub\Learning_Python\QuickProjects\FileIteration\test"

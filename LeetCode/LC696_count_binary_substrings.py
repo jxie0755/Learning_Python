@@ -70,4 +70,4 @@ class Solution:
 if __name__ == "__main__":
     assert Solution().countBinarySubstrings("00110011") == 6, "test 1"
     assert Solution().countBinarySubstrings("10101") == 4, "test 2"
-    print("all passed")
+    print("All passed")

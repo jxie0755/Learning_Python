@@ -110,4 +110,4 @@ if __name__ == "__main__":
     ]
 
     assert testCase.isValidSudoku(example_3) == False, "Example 3"
-    print("all passed")
+    print("All passed")

@@ -59,4 +59,4 @@ if __name__ == "__main__":
     assert binsearch([1,2,4,5,6,7], 6) == 4, "Test 3"
     assert binsearch([1,2,4,5,6,7], 7) == 5, "Test 4"
 
-    print("all passed")
+    print("All passed")

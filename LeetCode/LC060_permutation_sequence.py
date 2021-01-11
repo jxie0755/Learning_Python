@@ -244,7 +244,7 @@ if __name__ == "__main__":
     assert testCase.getPermutation(4, 9) == "2314", "Example 2"
     assert testCase.getPermutation(8, 29805) == "68327415", "Long 1"
     assert testCase.getPermutation(9, 62716) == "265183794", "Long 2"
-    print("all passed")
+    print("All passed")
 
     # print("test timeit")
     # print(timeit.repeat("testCase.getPermutation_0(8, 6000)", setup="from __main__ import Solution", repeat=3, number=500))

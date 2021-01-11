@@ -71,4 +71,4 @@ if __name__ == "__main__":
 
     assert Solution().isSameTree(T10, T20) == False, "T2"
 
-    print("all passed")
+    print("All passed")

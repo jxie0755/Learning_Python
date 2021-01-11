@@ -56,4 +56,4 @@ if __name__ == "__main__":
     assert Solution().titleToNumber("BA") == 53, "Example 5"
     assert Solution().titleToNumber("ZY") == 701, "Example 6"
     assert Solution().titleToNumber("AAB") == 704, "Example 7"
-    print("all passed")
+    print("All passed")

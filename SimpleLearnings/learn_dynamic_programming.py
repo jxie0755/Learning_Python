@@ -39,7 +39,7 @@ def foo_iter(lst: List[int]) -> int:
     return sum_so_far[-1]
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     assert foo_recur([1,2,3,2,1,5,7,6]) == 15, "Q1 间隔最大和, recursive"
     assert foo_iter([1,2,3,2,1,5,7,6]) == 15, "Q1 间隔最大和, iterative"
 
@@ -96,7 +96,7 @@ def change_iter(target: int, coins: List[int]) -> int:
     return ans if ans != float("inf") else None
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     assert change_recur(12, [1, 4, 5]) == 3, "Q2 找零钱, (4 * 3)"
     assert change_recur(55, [1, 3, 7]) == 9, "Q2 找零钱, (7*7 + 3*2)"
     assert change_iter(15, [6, 7]) is None, "Q2 找零钱, Not possible"
@@ -133,7 +133,7 @@ def stair_iter(n):
     return steps[-1]
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     assert stair_recur(10) == 89, "Q1 stairs, Recursive"
     assert stair_iter(10) == 89, "Q1 stairs, Iterative"
 
@@ -229,7 +229,7 @@ def golddig_by_mine(lst, man_total):
 # 扩展问题, 此上二法复杂度为O(m*n), m=金矿数, n=人数
 # 若n比较大, 导致m*n大于2^m, 则不如用递归来的容易!
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     assert golddig_by_man(
         [[5, 400], [5, 500], [3, 200], [4, 300], [3, 350]],
         10

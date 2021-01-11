@@ -41,4 +41,4 @@ if __name__ == "__main__":
     assert testCase.climbStairs(2) == 2, "Example 1"
     assert testCase.climbStairs(3) == 3, "Example 2"
     assert testCase.climbStairs(7) == 21, "Long"
-    print("passed")
+    print("All passed")

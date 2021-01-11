@@ -52,4 +52,4 @@ if __name__ == "__main__":
     assert testCase.plusOne([4, 3, 2, 1]) == [4, 3, 2, 2], "Example 2"
     assert testCase.plusOne([1, 9, 9]) == [2, 0, 0], "Example 3"
     assert testCase.plusOne([9, 9, 9]) == [1, 0, 0, 0], "Example 4"
-    print("all passed")
+    print("All passed")

@@ -49,4 +49,4 @@ if __name__ == "__main__":
     assert Solution().addStrings("15", "19") == "34", "Example 5"
     assert Solution().addStrings("111", "889") == "1000", "Example 6"
 
-    print("all passed")
+    print("All passed")

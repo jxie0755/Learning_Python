@@ -80,4 +80,4 @@ if __name__ == "__main__":
         [3, 4, 5]
     ]
 
-    print("all passed")
+    print("All passed")

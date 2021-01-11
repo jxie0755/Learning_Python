@@ -92,6 +92,6 @@ if __name__ == "__main__":
     assert testCase.addBinary("11", "1") == "100", "Example 1"
     assert testCase.addBinary("1010", "1011") == "10101", "Example 2"
     assert testCase.addBinary("111", "1") == "1000", "extra 1"
-    print("all passed")
+    print("All passed")
 
 

@@ -109,4 +109,4 @@ if __name__ == "__main__":
     assert Solution().integerReplacement(10000000) == 30, "Long 1"
     assert Solution().integerReplacement(100000000) == 31, "Long 2"
 
-    print("all passed")
+    print("All passed")

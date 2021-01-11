@@ -68,4 +68,4 @@ if __name__ == "__main__":
     A = genNode([-1, 5, 3, 4, 0])
     assert Solution().sortList(A) == genNode([-1, 0, 3, 4, 5]), "Example 2"
 
-    print("all passed")
+    print("All passed")

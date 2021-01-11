@@ -32,4 +32,4 @@ if __name__ == "__main__":
     assert Solution().findLUSlength("aba", "cdc") == 3, "same length but different"
     assert Solution().findLUSlength("abcd", "abc") == 4, "a longer than b"
     assert Solution().findLUSlength("abc", "abcd") == 4, "b longer than a"
-    print("all passed")
+    print("All passed")

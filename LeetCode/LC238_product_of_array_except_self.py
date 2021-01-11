@@ -83,4 +83,4 @@ if __name__ == "__main__":
     assert Solution().productExceptSelf([0, 0]) == [0, 0], "Additional 1"
     assert Solution().productExceptSelf([1, 0, 1]) == [0, 1, 0], "Additional 2"
 
-    print("all passed")
+    print("All passed")

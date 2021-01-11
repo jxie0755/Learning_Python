@@ -103,4 +103,4 @@ if __name__ == "__main__":
     assert testCase.countAndSay(5) == "111221", "fifth"
     assert testCase.countAndSay(6) == "312211", "sixth"
     assert testCase.countAndSay(10) == "13211311123113112211", "Very Long"
-    print("all passed")
+    print("All passed")

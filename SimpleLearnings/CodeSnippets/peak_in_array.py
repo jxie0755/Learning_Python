@@ -51,7 +51,7 @@ def find_peak(height: List[int]) -> List[Tuple[int]]:
     return peaks
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     assert find_peak([]) == [], "Empty"
     assert find_peak([1]) == [], "Single"
 
@@ -70,4 +70,4 @@ if __name__ == '__main__':
     assert find_peak([3, 2, 1, 3, 2, 1]) == [(0, 3), (3, 3)], "Two step down"
     assert find_peak([3, 1, 3, 1, 3, 1, 3]) == [(0, 3), (2, 3), (4, 3), (6, 3)], "Zig Zag"
 
-    print("all passed")
+    print("All passed")

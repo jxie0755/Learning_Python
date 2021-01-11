@@ -67,4 +67,4 @@ if __name__ == "__main__":
     ])
     assert Solution().minDepth(A) == 2, "Additional 1"
 
-    print("all passed")
+    print("All passed")

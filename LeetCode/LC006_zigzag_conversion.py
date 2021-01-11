@@ -106,4 +106,4 @@ if __name__ == "__main__":
 
     assert testCase.convert("PAYPALISHIRING", 3) == "PAHNAPLSIIGYIR", "Example 1"
     assert testCase.convert("PAYPALISHIRING", 4) == "PINALSIGYAHRPI", "Example 2"
-    print("all passed")
+    print("All passed")

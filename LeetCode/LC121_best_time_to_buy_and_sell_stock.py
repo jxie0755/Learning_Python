@@ -113,4 +113,4 @@ if __name__ == "__main__":
 
     assert Solution().maxProfit([100, 5, 25, 1, 20]) == 20, "Tricky"
 
-    print("all passed")
+    print("All passed")

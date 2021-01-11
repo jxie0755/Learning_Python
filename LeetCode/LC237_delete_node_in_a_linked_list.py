@@ -50,4 +50,4 @@ if __name__ == "__main__":
     A = genNode([4, 5, 1, 9])
     Solution().deleteNode(A)
     assert A == genNode([5, 1, 9]), "Example 3"
-    print("all passed")
+    print("All passed")

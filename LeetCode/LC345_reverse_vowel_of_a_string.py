@@ -51,4 +51,4 @@ if __name__ == "__main__":
     assert Solution().reverseVowels("hello") == "holle", "test 1"
     assert Solution().reverseVowels("leetcode") == "leotcede", "test 2"
     assert Solution().reverseVowels("aA") == "Aa", "vowel mixed case"
-    print("all passed")
+    print("All passed")

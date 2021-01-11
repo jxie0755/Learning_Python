@@ -9,7 +9,7 @@ from typing import *
 def absSort(a: int) -> int:
     return a * a
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     # 三者等同
     a = [-5, 4, -3, 2]
     print(max(a, key=abs))
@@ -46,7 +46,7 @@ def intGridCompare(x: List[int], y: List[int]) -> int:
     else:
         return 1
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     grid = [
         [3, 2, 1],
         [1, 3, 2],

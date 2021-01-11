@@ -74,4 +74,4 @@ if __name__ == "__main__":
     lst2 = []
     assert testCase.longestCommonPrefix(lst2) == "", "empty list"
 
-    print("all passed")
+    print("All passed")

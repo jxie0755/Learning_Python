@@ -49,4 +49,4 @@ if __name__ == "__main__":
     A = [-10, -3, 0, 5, 9]
     assert Solution().sortedArrayToBST(A) == genTree([0, -3, 9, -10, None, 5, None]), "Example 1"
 
-    print("all passed")
+    print("All passed")

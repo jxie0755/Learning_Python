@@ -79,4 +79,4 @@ if __name__ == "__main__":
     assert Solution().reverseWords("  hello world!  ") == "world! hello", "Example 2"
     assert Solution().reverseWords("a good   example") == "example good a", "Example 3"
 
-    print("all passed")
+    print("All passed")

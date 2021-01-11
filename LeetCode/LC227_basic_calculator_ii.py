@@ -165,4 +165,4 @@ if __name__ == "__main__":
     assert Solution().calculate("282-1*2*13-30-2*2*2/2-95/5*2+55+804+3024") == 4067, "Additional 1"
     # assert Solution().calculate("(3-1)*(4-1)") == 6, "Additional 2"
 
-    print("all passed")
+    print("All passed")

@@ -41,4 +41,4 @@ if __name__ == "__main__":
     assert not testCase.isValid("(({[(((1)-2)+3)-3]/3}-3)"), "One is redundant"
     assert testCase.isValid("2+3"), "No brackets, no problem"
     assert not testCase.isValid(")("), "begin with right"
-    print("all passed")
+    print("All passed")

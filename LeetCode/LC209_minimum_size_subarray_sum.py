@@ -151,4 +151,4 @@ if __name__ == "__main__":
     A = [4, 4, 1, 1, 1, 5, 1, 1]
     assert Solution().minSubArrayLen(8, A) == 2, "Additional 6"
 
-    print("all passed")
+    print("All passed")

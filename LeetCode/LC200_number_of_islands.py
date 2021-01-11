@@ -156,4 +156,4 @@ if __name__ == "__main__":
     ]
     assert Solution().numIslands(M3) == 4, "Additional 1"
 
-    print("all passed")
+    print("All passed")

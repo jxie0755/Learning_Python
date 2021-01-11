@@ -55,4 +55,4 @@ class Solution:
 if __name__ == "__main__":
     assert Solution().maxRotateFunction([]) == 0, "Edge 0"
     assert Solution().maxRotateFunction([4, 3, 2, 6]) == 26, "Example 1"
-    print("all passed")
+    print("All passed")

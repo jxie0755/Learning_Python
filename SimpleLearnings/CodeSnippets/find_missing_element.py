@@ -18,4 +18,4 @@ if __name__ == "__main__":
     b = [4,2,3,8,2,1]
 
     assert find_miss(a, b) == 8, "Test case"
-    print("all passed")
+    print("All passed")

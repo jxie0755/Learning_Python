@@ -83,4 +83,4 @@ if __name__ == "__main__":
         None, None, 3, None])
     assert Solution().inorderTraversal(t1) == [1, 3, 2]
 
-    print("all passed")
+    print("All passed")

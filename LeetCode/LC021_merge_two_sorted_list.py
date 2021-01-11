@@ -42,4 +42,4 @@ if __name__ == "__main__":
     check = testCase.mergeTwoLists(l1, l2)
     assert repr(check) == "1->1->2->3->4->4", "Example 1"
 
-    print("all passed")
+    print("All passed")

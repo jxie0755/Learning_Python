@@ -41,4 +41,4 @@ if __name__ == "__main__":
     assert Solution().judgeCircle("UDUD") == True, "regular up and down"
     assert Solution().judgeCircle("UDU") == False, "regular False"
     assert Solution().judgeCircle("UULDDR") == True, "regular circcle"
-    print("all passed")
+    print("All passed")

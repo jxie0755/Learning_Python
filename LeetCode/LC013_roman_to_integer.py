@@ -31,4 +31,4 @@ class Solution_A:
 if __name__ == "__main__":
     testCase = Solution_A()
     assert testCase.romanToInt("MMMCDXCIX") == 3499, "Example 1"
-    print("all passed")
+    print("All passed")

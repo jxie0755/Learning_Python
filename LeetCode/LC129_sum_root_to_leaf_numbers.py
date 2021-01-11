@@ -68,4 +68,4 @@ if __name__ == "__main__":
         5, 1, None, None
     ])
     assert Solution().sumNumbers(A) == 1026, "Example 2, 495 + 491 + 40 = 1036"
-    print("all passed")
+    print("All passed")

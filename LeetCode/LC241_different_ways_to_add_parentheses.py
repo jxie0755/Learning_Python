@@ -154,4 +154,4 @@ if __name__ == "__main__":
     assert Solution().diffWaysToCompute("10+11+12") == [33, 33], "Double digit"
     assert Solution().diffWaysToCompute("15*1*4") == [60, 60], "Copycat"
 
-    print("all passed")
+    print("All passed")

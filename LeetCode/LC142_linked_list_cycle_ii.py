@@ -47,4 +47,4 @@ if __name__ == "__main__":
 
     A = genNode([1])
     assert not Solution().detectCycle(A), "Edge 1, no cycle"
-    print("all passed")
+    print("All passed")

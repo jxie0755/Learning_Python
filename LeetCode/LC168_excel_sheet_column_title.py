@@ -82,4 +82,4 @@ if __name__ == "__main__":
     assert Solution().convertToTitle(701) == "ZY", "Example 3"
     assert Solution().convertToTitle(704) == "AAB", "Extra"
 
-    print("all passed")
+    print("All passed")

@@ -55,4 +55,4 @@ if __name__ == "__main__":
     a = [1,1,1]
     assert MergeSort().sort(a) == [1, 1, 1], "Edge 3"
 
-    print("all passed")
+    print("All passed")

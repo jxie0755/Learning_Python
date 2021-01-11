@@ -63,4 +63,4 @@ if __name__ == "__main__":
     assert Solution().maxProfit([1]) == 0
     assert Solution().maxProfit([1, 1, 1]) == 0
 
-    print("all passed")
+    print("All passed")
