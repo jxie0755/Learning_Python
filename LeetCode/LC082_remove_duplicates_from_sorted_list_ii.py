@@ -21,22 +21,22 @@ class Solution_A1:
             return head
 
         check = "X"
-        new_head = cur = ListNode(check)
+        dumb = new_head = ListNode(check)
 
         while head:
             if head.next:
                 if head.val == head.next.val:
                     check = head.val
-                elif head.val != cur.next and head.val != check: # ensure not repeating before and after
-                    cur.next = ListNode(head.val)
-                    cur = cur.next
+                elif head.val != new_head.next and head.val != check: # ensure not repeating before and after
+                    new_head.next = ListNode(head.val)
+                    new_head = new_head.next
             elif head.val != check:
-                cur.next = ListNode(head.val)
-                cur = cur.next
+                new_head.next = ListNode(head.val)
+                new_head = new_head.next
 
             head = head.next
 
-        return new_head.next
+        return dumb.next
 
 
 class Solution_A2:
@@ -128,7 +128,7 @@ class Solution_C:
 
 
 if __name__ == "__main__":
-    testCase = Solution_B()
+    testCase = Solution_C()
 
     assert repr(testCase.deleteDuplicates(None)) == "None", "Edge 1"
     assert repr(testCase.deleteDuplicates(genNode([1, 1]))) == "None", "Edge 2"
