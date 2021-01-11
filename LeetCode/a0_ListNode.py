@@ -29,7 +29,7 @@ class ListNode:
 def genNode(nodes: List[int]) -> ListNode:
     if nodes:
         end = None
-        for i in nodes[::-1]:
+        for i in reversed(nodes):
             n = ListNode(i)
             n.next, end = end, n
         return n
