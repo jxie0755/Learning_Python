@@ -109,10 +109,10 @@ class Solution_C:
         if not head or not head.next:  # no node or one node
             return head
         elif head and head.next and not head.next.next:  # only two nodes
-            if head.val != head.next.val:
-                return head
-            else:
+            if head.val == head.next.val:
                 return None
+            else:
+                return head
         else:  # three nodes
             if head.val != head.next.val != head.next.next.val:  # first and second are unique, keep and check from third
                 head.next.next = self.deleteDuplicates(head.next.next)
