@@ -29,6 +29,20 @@ class Solution_A:
         return head
 
 
+class Solution_B:
+    def deleteDuplicates(self, head: ListNode) -> ListNode:
+        """Create a new_head and link head to new head if value is different from the tail of new_head"""
+        dumb = new_head = ListNode("X")
+        while head:
+            next_node = head.next  # record next head
+            head.next = None  # break head's next, so that new_head only linked
+            if head.val != new_head.val:
+                new_head.next = head  # new_head -> head (single)
+                new_head = new_head.next  # locate the tail of new_head
+            head = next_node  # just move to next_node
+
+        return dumb.next
+
 if __name__ == "__main__":
     testCase = Solution_A()
 
