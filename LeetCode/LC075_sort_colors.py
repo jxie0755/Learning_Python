@@ -88,11 +88,11 @@ if __name__ == "__main__":
 
     e1 = []
     testCase.sortColors(e1)
-    assert e1 == [], "Edge 1"
+    assert e1 == [], "Empty"
 
     e2 = [0, 0]
     testCase.sortColors(e2)
-    assert e2 == [0, 0], "Edge 2"
+    assert e2 == [0, 0], "Edge 1"
 
     s1 = [2, 0, 2, 1, 1, 0]
     testCase.sortColors(s1)

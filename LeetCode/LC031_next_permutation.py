@@ -106,21 +106,21 @@ if __name__ == "__main__":
 
     a = []
     testCase.nextPermutation(a)
-    assert a == [], "Edge 1"
+    assert a == [], "Empty"
     testCase.prevPermutation(a)
-    assert a == [], "Edge 1 prev"
+    assert a == [], "Empty prev"
 
     a = [1]
     testCase.nextPermutation(a)
-    assert a == [1], "Edge 2"
+    assert a == [1], "Edge 1"
     testCase.prevPermutation(a)
-    assert a == [1], "Edge 2 prev"
+    assert a == [1], "Edge 1 prev"
 
     a = [1, 2]
     testCase.nextPermutation(a)
-    assert a == [2, 1], "Edge 3"
+    assert a == [2, 1], "Edge 2"
     testCase.prevPermutation(a)
-    assert a == [1, 2], "Edge 3 prev"
+    assert a == [1, 2], "Edge 2 prev"
 
     a = [1, 2, 3]
     testCase.nextPermutation(a)

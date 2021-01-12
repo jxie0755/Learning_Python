@@ -61,9 +61,10 @@ class Solution_STD:
 
 if __name__ == "__main__":
     testCase = Solution_STD()
-    assert testCase.largestRectangleArea([]) == 0, "Edge 1"
-    assert testCase.largestRectangleArea([2]) == 2, "Edge 2"
-    assert testCase.largestRectangleArea([1, 2]) == 2, "Edge 3"
+    assert testCase.largestRectangleArea([]) == 0, "Empty 1"
+    assert testCase.largestRectangleArea([2]) == 2, "Edge 1"
+    assert testCase.largestRectangleArea([1, 2]) == 2, "Edge 2"
+
     assert testCase.largestRectangleArea([2, 1, 5, 6, 2, 3]) == 10, "Example 1"
 
     assert testCase.largestRectangleArea([4, 2, 0, 3, 2, 4, 3, 4]) == 10, "Additional 1"

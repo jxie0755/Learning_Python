@@ -243,9 +243,9 @@ class Solution_STD:
 
 if __name__ == "__main__":
     testCase = Solution_STD()
-    assert testCase.threeSum([]) == [], "Edge 1"
-    assert testCase.threeSum([1]) == [], "Edge 2"
-    assert testCase.threeSum([1, 1]) == [], "Edge 3"
+    assert testCase.threeSum([]) == [], "Empty"
+    assert testCase.threeSum([1]) == [], "Edge 1"
+    assert testCase.threeSum([1, 1]) == [], "Edge 2"
 
     print(testCase.threeSum([-1, 0, 1, 2, -1, -4]))
     assert testCase.threeSum([-1, 0, 1, 2, -1, -4]) == [[-1, -1, 2], [-1, 0, 1]], "Example 1"
