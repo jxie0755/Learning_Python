@@ -74,17 +74,17 @@ class Solution_B:
 if __name__ == "__main__":
     testCase = Solution_B()
 
-    a1 = genNode([0])
+    a1 = genNode([1])
     b1 = genNode([0, 1])
 
     c = testCase.addTwoNumbers(a1, b1)
-    assert repr(c) == "0->1"
+    assert repr(c) == "1->1", "Simple Case 1"
 
     a1 = genNode([9])
     b1 = genNode([9])
 
     c = testCase.addTwoNumbers(a1, b1)
-    assert repr(c) == "8->1"
+    assert repr(c) == "8->1", "Simple Case 2"
 
     # Example 1
     # Input: (2 -> 4 -> 3) + (5 -> 6 -> 4)
@@ -94,7 +94,7 @@ if __name__ == "__main__":
     a1 = genNode([2, 4, 3])
     b1 = genNode([5, 6, 4])
     c = testCase.addTwoNumbers(a1, b1)
-    assert repr(c) == "7->0->8"
+    assert repr(c) == "7->0->8", "Example 1"
 
     # Example 2
     # Input: (2 -> 4 -> 3) + (8 -> 9)
@@ -105,5 +105,6 @@ if __name__ == "__main__":
     b1 = genNode([8, 9])
 
     c = testCase.addTwoNumbers(a1, b1)
-    assert repr(c) == "0->4->4"
+    assert repr(c) == "0->4->4","Example 2"
+
     print("All passed")
