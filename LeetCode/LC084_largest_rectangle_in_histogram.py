@@ -10,7 +10,6 @@ from typing import *
 
 
 class Solution_A:
-
     def largestRectangleArea(self, heights: List[int]) -> int:
         """
         Worked, but exceeded maximum recursion depth
