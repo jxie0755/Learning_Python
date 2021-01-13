@@ -28,7 +28,10 @@ class Solution_A:
             lowest_idx = heights.index(lowest)
             area = lowest * N
             first, second = heights[:lowest_idx], heights[lowest_idx + 1:]
-            return max(area, self.largestRectangleArea(first), self.largestRectangleArea(second))
+            return max(area,
+                       self.largestRectangleArea(first),
+                       self.largestRectangleArea(second)
+                       )
 
 
 class Solution_STD:
