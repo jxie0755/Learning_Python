@@ -16,16 +16,16 @@ class Solution_A:
         maximum depth reached at N > 999.
         """
 
-        N = len(heights)
-        if N == 0:
+        width = len(heights)
+        if width == 0:
             return 0
-        elif N == 1:
+        elif width == 1:
             return heights[0]
         else:
-            lowest = min(heights)
-            lowest_idx = heights.index(lowest)
-            area = lowest * N
-            first, second = heights[:lowest_idx], heights[lowest_idx + 1:]
+            lo_height = min(heights)
+            lo_idx = heights.index(lo_height)
+            area = lo_height * width
+            first, second = heights[:lo_idx], heights[lo_idx + 1:]
             return max(area,
                        self.largestRectangleArea(first),
                        self.largestRectangleArea(second)
