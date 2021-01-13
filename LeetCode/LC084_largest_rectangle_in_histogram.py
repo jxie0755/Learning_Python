@@ -17,10 +17,8 @@ class Solution_A:
         """
 
         N = len(heights)
-        if not N:
+        if N == 0:
             return 0
-        elif len(set(heights)) == 1:
-            return heights[0] * len(heights)
         elif N == 1:
             return heights[0]
         else:
