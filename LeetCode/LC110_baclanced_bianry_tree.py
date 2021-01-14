@@ -26,7 +26,7 @@ class Solution:
 
 if __name__ == "__main__":
     A = None
-    assert Solution().isBalanced(A), "Edge 0"
+    assert Solution().isBalanced(A), "Edge Emppty"
 
     A = genTree([1])
     assert Solution().isBalanced(A), "Edge 1"

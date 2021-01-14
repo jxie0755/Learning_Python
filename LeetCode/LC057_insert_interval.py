@@ -100,11 +100,11 @@ class Solution_B:
 
 if __name__ == "__main__":
     testCase = Solution_B()
-    assert testCase.insert([], [1, 2]) == [[1, 2]], "Edge 1"
+    assert testCase.insert([], [1, 2]) == [[1, 2]], "Edge 0"
 
-    assert testCase.insert([[1,5]], [1, 2]) == [[1, 5]], "Edge 2"
+    assert testCase.insert([[1,5]], [1, 2]) == [[1, 5]], "Edge 1"
 
-    assert testCase.insert([[1,5]], [2, 7]) == [[1, 7]], "Edge 3"
+    assert testCase.insert([[1,5]], [2, 7]) == [[1, 7]], "Edge 2"
 
     lst = [[1, 3], [6, 9]]
     assert testCase.insert(lst,[2, 5]) == [

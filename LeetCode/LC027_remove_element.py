@@ -57,7 +57,7 @@ if __name__ == "__main__":
     testCase = Solution_C()
 
     nums = []
-    assert testCase.removeElement(nums, 3) == 0, "Empty"
+    assert testCase.removeElement(nums, 3) == 0, "Edge 0"
     assert nums == [], "Emptu final list"
 
     nums = [3, 2, 2, 3]

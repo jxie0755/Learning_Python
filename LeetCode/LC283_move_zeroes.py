@@ -41,7 +41,7 @@ class Solution(object):
 if __name__ == "__main__":
     a = []
     Solution().moveZeroes(a)
-    assert a == [], "Edge 1"
+    assert a == [], "Edge 0"
 
     a = [0]
     Solution().moveZeroes(a)

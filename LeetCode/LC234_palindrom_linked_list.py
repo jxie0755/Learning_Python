@@ -128,7 +128,7 @@ class Solution(object):
 
 
 if __name__ == "__main__":
-    assert Solution().isPalindrome(None), "Edge"
+    assert Solution().isPalindrome(None), "Edge 0"
     assert Solution().isPalindrome(genNode([1])), "Edge 1"
     assert not Solution().isPalindrome(genNode([1, 2])), "Example 1"
     assert Solution().isPalindrome(genNode([1, 2, 2, 1])), "Example 2"

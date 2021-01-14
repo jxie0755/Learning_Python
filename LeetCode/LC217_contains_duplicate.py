@@ -27,7 +27,7 @@ class Solution:
 
 
 if __name__ == "__main__":
-    assert Solution().containsDuplicate([]) == False, "Edge 1"
+    assert Solution().containsDuplicate([]) == False, "Edge 0"
     assert Solution().containsDuplicate([1]) == False, "Edge 2"
 
     assert Solution().containsDuplicate([1, 2, 3, 1]) == True, "Example 1"

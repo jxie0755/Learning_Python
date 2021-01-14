@@ -116,7 +116,7 @@ if __name__ == "__main__":
         [15, 7],
         [9, 20],
         [3]
-    ], "Example"
+    ], "Example 1"
 
     A = genTree([
         0,
@@ -128,6 +128,6 @@ if __name__ == "__main__":
         [1, 3, -1],
         [2, 4],
         [0]
-    ]
+    ], "Additional"
 
     print("All passed")

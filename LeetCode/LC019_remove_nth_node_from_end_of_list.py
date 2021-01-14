@@ -71,11 +71,11 @@ if __name__ == "__main__":
     # Given linked list: 1->2->3->4->5
     a = genNode([1])
     f = testCase.removeNthFromEnd(a, 1)
-    assert repr(f) == "None", "Edge 0"
+    assert repr(f) == "None", "Edge 1"
 
     a = genNode([1, 2])
     f = testCase.removeNthFromEnd(a, 2)
-    assert repr(f) == "2", "Edge 1"
+    assert repr(f) == "2", "Edge 2"
 
     a = genNode([1, 2, 3, 4, 5])
     f = testCase.removeNthFromEnd(a, 2)

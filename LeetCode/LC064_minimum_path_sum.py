@@ -67,7 +67,7 @@ if __name__ == "__main__":
     testCase = Solution_B()
 
     E1 = [[]]
-    assert testCase.minPathSum(E1) == 0, "Edge 1"
+    assert testCase.minPathSum(E1) == 0, "Edge 0"
 
     E2 = [[1]]
     assert testCase.minPathSum(E2) == 1, "Edge 2"

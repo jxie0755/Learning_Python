@@ -63,7 +63,7 @@ class Solution_A:
 
 if __name__ == "__main__":
     testCase = Solution_A()
-    assert testCase.fourSum([], 0) == [], "Empty"
+    assert testCase.fourSum([], 0) == [], "Edge 0"
     assert testCase.fourSum([1], 0) == [], "Edge 1"
     assert testCase.fourSum([0, 0, 0, 0], 0) == [[0, 0, 0, 0]], "Edge 2"
 

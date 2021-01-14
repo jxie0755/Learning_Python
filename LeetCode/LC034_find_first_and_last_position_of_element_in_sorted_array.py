@@ -79,7 +79,7 @@ class Solution_A:
 
 if __name__ == "__main__":
     testCase = Solution_A()
-    assert testCase.searchRange([], 0) == [-1, -1], "Empty"
+    assert testCase.searchRange([], 0) == [-1, -1], "Edge 0"
     assert testCase.searchRange([8], 8) == [0, 0], "Edge 1"
     assert testCase.searchRange([0], 8) == [-1, -1], "Edge 2"
 

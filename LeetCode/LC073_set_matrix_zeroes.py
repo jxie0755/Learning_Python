@@ -62,23 +62,23 @@ if __name__ == "__main__":
 
     e1 = [[]]
     testCase.setZeroes(e1)
-    assert e1 == [[]], "Edge 1"
+    assert e1 == [[]], "Edge 0"
 
     e2 = [[1]]
     testCase.setZeroes(e2)
-    assert e2 == [[1]], "Edge 2"
+    assert e2 == [[1]], "Edge 1"
 
     e3 = [[0]]
     testCase.setZeroes(e3)
-    assert e3 == [[0]], "Edge 3"
+    assert e3 == [[0]], "Edge 2"
 
     e4 = [[0], [1]]
     testCase.setZeroes(e4)
-    assert e4 == [[0], [0]], "Edge 4"
+    assert e4 == [[0], [0]], "Edge 3"
 
     e5 = [[0, 1]]
     testCase.setZeroes(e5)
-    assert e5 == [[0, 0]], "Edge 5"
+    assert e5 == [[0, 0]], "Edge 4"
 
     s1 = [
         [1, 1, 1],

@@ -46,28 +46,28 @@ class Solution_A:
 if __name__ == "__main__":
     testCase = Solution_A()
     e0 = [[0]]
-    assert testCase.uniquePathsWithObstacles(e0) == 1, "Edge 0"
+    assert testCase.uniquePathsWithObstacles(e0) == 1, "Edge 1"
 
     e1 = [[1]]
-    assert testCase.uniquePathsWithObstacles(e1) == 0, "Edge 1"
+    assert testCase.uniquePathsWithObstacles(e1) == 0, "Edge 2"
 
     e2 = [
         [0, 0],
         [1, 0]
     ]
-    assert testCase.uniquePathsWithObstacles(e2) == 1, "Edge 2"
+    assert testCase.uniquePathsWithObstacles(e2) == 1, "Edge 3"
 
     e3 = [[1, 1]]
-    assert testCase.uniquePathsWithObstacles(e3) == 0, "Edge 3"
+    assert testCase.uniquePathsWithObstacles(e3) == 0, "Edge 4"
 
     e4 = [[1, 0]]
-    assert testCase.uniquePathsWithObstacles(e4) == 0, "Edge 4"
+    assert testCase.uniquePathsWithObstacles(e4) == 0, "Edge 5"
 
     e5 = [
         [0, 1],
         [0, 0]
     ]
-    assert testCase.uniquePathsWithObstacles(e5) == 1, "Edge 5"
+    assert testCase.uniquePathsWithObstacles(e5) == 1, "Edge 6"
 
     s1 = [
         [0, 0, 0],

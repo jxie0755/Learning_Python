@@ -115,7 +115,7 @@ class Solution_B2:
 
 if __name__ == "__main__":
     testCase = Solution_B2()
-    assert testCase.findMedianSortedArrays([], [1]) == 1.0, "Empty 1"
+    assert testCase.findMedianSortedArrays([], [1]) == 1.0, "Edge 0"
     assert testCase.findMedianSortedArrays([1], [2]) == 1.5, "Empty 2"
     assert testCase.findMedianSortedArrays([2], []) == 2.0, "Edge 1"
 

@@ -41,7 +41,7 @@ if __name__ == "__main__":
     testCase = Solution_A()
 
     Empty = []
-    assert testCase.removeDuplicates(Empty) == 0, "Empty"
+    assert testCase.removeDuplicates(Empty) == 0, "Edge 0"
     assert Empty == [], "Empty revised list"
 
     Q0 = [1, 1]

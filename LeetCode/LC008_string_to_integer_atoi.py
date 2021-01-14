@@ -98,6 +98,7 @@ class Solution_B:
 
 if __name__ == "__main__":
     testCase = Solution_B()
+    assert testCase.myAtoi("") == 0, "Edge 0"
     assert testCase.myAtoi("ABC") == 0, "Edge 1"
 
     assert testCase.myAtoi("42") == 42, "Example 1"

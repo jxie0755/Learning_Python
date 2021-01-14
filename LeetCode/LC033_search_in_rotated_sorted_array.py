@@ -156,7 +156,7 @@ class Solution_C:
 
 if __name__ == "__main__":
     testCase = Solution_B()
-    assert testCase.search([], 1) == -1, "Empty"
+    assert testCase.search([], 1) == -1, "Edge 0"
     assert testCase.search([1], 1) == 0, "Edge 1"
     assert testCase.search([0], 1) == -1, "Edge 2"
 

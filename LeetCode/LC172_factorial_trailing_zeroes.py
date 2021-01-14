@@ -77,8 +77,8 @@ class Solution(object):
 
 
 if __name__ == "__main__":
-    assert Solution().trailingZeroes(0) == 0, "Edge 0"
-    assert Solution().trailingZeroes(1) == 0, "Edge 1"
+    assert Solution().trailingZeroes(0) == 0, "Edge 1"
+    assert Solution().trailingZeroes(1) == 0, "Edge 2"
     assert Solution().trailingZeroes(3) == 0, "Example 1"
     assert Solution().trailingZeroes(5) == 1, "Example 2"
     assert Solution().trailingZeroes(20) == 4, "Additional 1"

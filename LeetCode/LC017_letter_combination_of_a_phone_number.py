@@ -52,9 +52,9 @@ class Solution_A:
 
 if __name__ == "__main__":
     testCase = Solution_A()
-    assert testCase.letterCombinations("") == [], "Edge 1"
-    assert testCase.letterCombinations("1") == [""], "Edge 2"
-    assert testCase.letterCombinations("0") == [" "], "Edge 3"
+    assert testCase.letterCombinations("") == [], "Edge 0"
+    assert testCase.letterCombinations("1") == [""], "Edge 1"
+    assert testCase.letterCombinations("0") == [" "], "Edge 2"
 
     assert testCase.letterCombinations("2") == ["a", "b", "c"], "Example 1"
     assert testCase.letterCombinations("20") == ["a ", "b ", "c "], "Example 2"

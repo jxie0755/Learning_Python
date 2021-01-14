@@ -128,12 +128,12 @@ class Solution_B:
 
 if __name__ == "__main__":
     testCase = Solution_B()
-    assert testCase.trap([]) == 0, "Edge 1"
-    assert testCase.trap([0]) == 0, "Edge 2"
-    assert testCase.trap([1]) == 0, "Edge 3"
-    assert testCase.trap([1, 1]) == 0, "Edge 4"
-    assert testCase.trap([2, 2, 2]) == 0, "Edge 5"
-    assert testCase.trap([2, 0, 2]) == 2, "Edge 6"
+    assert testCase.trap([]) == 0, "Edge 0"
+    assert testCase.trap([0]) == 0, "Edge 1"
+    assert testCase.trap([1]) == 0, "Edge 2"
+    assert testCase.trap([1, 1]) == 0, "Edge 3"
+    assert testCase.trap([2, 2, 2]) == 0, "Edge 4"
+    assert testCase.trap([2, 0, 2]) == 2, "Edge 5"
 
     assert testCase.trap([0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1]) == 6, "Example 1"
     assert testCase.trap([10, 1, 2, 1, 2, 1, 10]) == 43, "Example 2"

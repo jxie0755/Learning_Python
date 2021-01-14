@@ -105,9 +105,9 @@ class Solution_C:
 
 if __name__ == "__main__":
     testCase = Solution_C()
-    assert testCase.longestPalindrome("") == "", "Edge 1"
-    assert testCase.longestPalindrome("a") == "a", "Edge 2"
-    assert testCase.longestPalindrome("aaa") == "aaa", "Edge 3"
+    assert testCase.longestPalindrome("") == "", "Edge 0"
+    assert testCase.longestPalindrome("a") == "a", "Edge 1"
+    assert testCase.longestPalindrome("aaa") == "aaa", "Edge 2"
 
     assert testCase.longestPalindrome("babad") == "bab" or "aba", "Example 1"
     assert testCase.longestPalindrome("cbbd") == "bb", "Example 2"

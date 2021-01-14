@@ -44,7 +44,7 @@ if __name__ == "__main__":
 
     assert sorted(testCase.subsets([])) == [
         []
-    ], "Empty"
+    ], "Edge 0"
 
     assert sorted(testCase.subsets([1])) == [
         [],

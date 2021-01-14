@@ -123,14 +123,14 @@ class Solution:
 
 if __name__ == "__main__":
     M0 = []
-    assert Solution().numIslands(M0) == 0, "Edge 1"
+    assert Solution().numIslands(M0) == 0, "Edge 0"
 
     M00 = [
         ["1"],
         ["1"]
     ]
 
-    assert Solution().numIslands(M00) == 1, "Edge 2"
+    assert Solution().numIslands(M00) == 1, "Edge 1"
 
     M1 = [
         ["1", "1", "1", "1", "0"],

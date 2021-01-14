@@ -46,7 +46,7 @@ class Solution_B:
 if __name__ == "__main__":
     testCase = Solution_A()
 
-    assert repr(testCase.deleteDuplicates(None)) == "None", "Empty"
+    assert repr(testCase.deleteDuplicates(None)) == "None", "Edge 0"
     assert repr(testCase.deleteDuplicates(genNode([4]))) == "4", "Single Node"
 
     assert repr(testCase.deleteDuplicates(genNode([1, 1, 2, 3, 3]))) == "1->2->3", "Example 1"

@@ -72,8 +72,9 @@ class Solution(object):
 
 
 if __name__ == "__main__":
-    assert Solution().reverseWords("    ") == "", "Edge 0"
-    assert Solution().reverseWords("   a   ") == "a", "Edge 1"
+    assert Solution().reverseWords("") == "", "Edge 0"
+    assert Solution().reverseWords("    ") == "", "Edge 1"
+    assert Solution().reverseWords("   a   ") == "a", "Edge 2"
 
     assert Solution().reverseWords("the sky is blue") == "blue is sky the", "Example 1"
     assert Solution().reverseWords("  hello world!  ") == "world! hello", "Example 2"

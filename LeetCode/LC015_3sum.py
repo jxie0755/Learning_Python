@@ -243,7 +243,7 @@ class Solution_STD:
 
 if __name__ == "__main__":
     testCase = Solution_STD()
-    assert testCase.threeSum([]) == [], "Empty"
+    assert testCase.threeSum([]) == [], "Edge 0"
     assert testCase.threeSum([1]) == [], "Edge 1"
     assert testCase.threeSum([1, 1]) == [], "Edge 2"
 

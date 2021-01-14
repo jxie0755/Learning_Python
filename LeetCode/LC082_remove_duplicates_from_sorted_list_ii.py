@@ -130,7 +130,7 @@ class Solution_C:
 if __name__ == "__main__":
     testCase = Solution_C()
 
-    assert repr(testCase.deleteDuplicates(None)) == "None", "Empty"
+    assert repr(testCase.deleteDuplicates(None)) == "None", "Edge 0"
     assert repr(testCase.deleteDuplicates(genNode([1, 1]))) == "None", "Edge 1"
     assert repr(testCase.deleteDuplicates(genNode([1]))) == "1", "Edge 2"
 

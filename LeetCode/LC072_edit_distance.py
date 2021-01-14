@@ -51,9 +51,9 @@ class Solution_A:
 
 if __name__ == "__main__":
     testCase = Solution_A()
-    assert testCase.minDistance("", "ros") == 3, "Edge 1"
-    assert testCase.minDistance("ros", "") == 3, "Edge 2"
-    assert testCase.minDistance("a", "b") == 3, "Edge 3"
+    assert testCase.minDistance("", "ros") == 3, "Edge 0"
+    assert testCase.minDistance("ros", "") == 3, "Edge 1"
+    assert testCase.minDistance("a", "b") == 3, "Edge 2"
 
     assert testCase.minDistance("horse", "ros") == 3, "Eample 1"
     assert testCase.minDistance("intention", "execution") == 5, "Eample 2"

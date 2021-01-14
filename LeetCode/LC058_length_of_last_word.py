@@ -64,8 +64,8 @@ class Solution_C:
 
 if __name__ == "__main__":
     testCase = Solution_C()
-    assert testCase.lengthOfLastWord("") == 0, "Edge 1"
-    assert testCase.lengthOfLastWord(" ") == 0, "Edge 2"
+    assert testCase.lengthOfLastWord("") == 0, "Edge 0"
+    assert testCase.lengthOfLastWord(" ") == 0, "Edge 1"
 
     assert testCase.lengthOfLastWord("Hello World") == 5, "Regular"
 

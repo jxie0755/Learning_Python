@@ -29,7 +29,7 @@ class Solution_A:
 
 if __name__ == "__main__":
     testCase = Solution_A()
-    assert testCase.searchInsert([], 5) == 0, "Empty"
+    assert testCase.searchInsert([], 5) == 0, "Edge 0"
     assert testCase.searchInsert([1, 3, 5, 6], 2) == 1, "Not in the list"
     assert testCase.searchInsert([1, 3, 5, 6], 0) == 0, "At the beginning"
     assert testCase.searchInsert([1, 3, 5, 6], 5) == 2, "In the list"

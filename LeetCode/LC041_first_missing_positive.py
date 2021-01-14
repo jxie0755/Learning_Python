@@ -61,10 +61,10 @@ class Solution_STD:
 
 if __name__ == "__main__":
     testCase = Solution_STD()
-    assert testCase.firstMissingPositive([]) == 1, "Edge 1"
-    assert testCase.firstMissingPositive([1]) == 2, "Edge 2"
-    assert testCase.firstMissingPositive([2]) == 1, "Edge 3"
-    assert testCase.firstMissingPositive([-1]) == 1, "Edge 4"
+    assert testCase.firstMissingPositive([]) == 1, "Edge 0"
+    assert testCase.firstMissingPositive([1]) == 2, "Edge 1"
+    assert testCase.firstMissingPositive([2]) == 1, "Edge 2"
+    assert testCase.firstMissingPositive([-1]) == 1, "Edge 3"
 
     assert testCase.firstMissingPositive([1, 2, 0]) == 3, "Example 1"
     assert testCase.firstMissingPositive([3, 4, -1, 1]) == 2, "Example 2"

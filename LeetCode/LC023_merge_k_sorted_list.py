@@ -122,7 +122,7 @@ class Solution_STD:
 
 if __name__ == "__main__":
     testCase = Solution_STD()
-    assert repr(testCase.mergeKLists([])) == "None", "Empty"
+    assert repr(testCase.mergeKLists([])) == "None", "Edge 0"
 
     single = genNode([1])
     e = testCase.mergeKLists([single])

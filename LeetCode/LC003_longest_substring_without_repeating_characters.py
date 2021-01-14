@@ -149,11 +149,11 @@ class Solution_STD:
 
 if __name__ == "__main__":
     testCase = Solution_STD()
-    assert testCase.lengthOfLongestSubstring("") == 0, "Edge 1"
-    assert testCase.lengthOfLongestSubstring(" ") == 1, "Edge 2"
-    assert testCase.lengthOfLongestSubstring("au") == 2, "Edge 3"
-    assert testCase.lengthOfLongestSubstring("aab") == 2, "Edge 4"
-    assert testCase.lengthOfLongestSubstring("dvdf") == 3, "Edge 5"
+    assert testCase.lengthOfLongestSubstring("") == 0, "Edge 0"
+    assert testCase.lengthOfLongestSubstring(" ") == 1, "Edge 1"
+    assert testCase.lengthOfLongestSubstring("au") == 2, "Edge 2"
+    assert testCase.lengthOfLongestSubstring("aab") == 2, "Edge 3"
+    assert testCase.lengthOfLongestSubstring("dvdf") == 3, "Edge 4"
 
     assert testCase.lengthOfLongestSubstring("abcabcbb") == 3, "Example 1, abc"
     assert testCase.lengthOfLongestSubstring("bbbbb") == 1, "Example 2, b"

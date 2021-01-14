@@ -59,10 +59,10 @@ class Solution(object):
 
 
 if __name__ == "__main__":
-    assert Solution().numDecodings("0") == 0, "Edge 0"
-    assert Solution().numDecodings("00") == 0, "Edge 00"
-    assert Solution().numDecodings("230") == 0, "Edge 00"
-    assert Solution().numDecodings("1") == 1, "Edge 1"
+    assert Solution().numDecodings("0") == 0, "Edge 1"
+    assert Solution().numDecodings("00") == 0, "Edge 2"
+    assert Solution().numDecodings("230") == 0, "Edge 3"
+    assert Solution().numDecodings("1") == 1, "Edge 4"
 
     assert Solution().numDecodings("12") == 2, "Example 1"
     assert Solution().numDecodings("226") == 3, "Example 2"

@@ -46,8 +46,8 @@ class Solution:
 
 
 if __name__ == "__main__":
-    assert Solution().containsNearbyDuplicate([], 0) == False, "Edge 1"
-    assert Solution().containsNearbyDuplicate([1], 1) == False, "Edge 2"
+    assert Solution().containsNearbyDuplicate([], 0) == False, "Edge 0"
+    assert Solution().containsNearbyDuplicate([1], 1) == False, "Edge 1"
 
     assert Solution().containsNearbyDuplicate([1, 2, 3, 1], 3) == True, "Example 1"
     assert Solution().containsNearbyDuplicate([1, 0, 1, 1], 1) == True, "Example 2"

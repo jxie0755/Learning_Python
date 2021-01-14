@@ -106,7 +106,7 @@ if __name__ == "__main__":
 
     a = []
     testCase.nextPermutation(a)
-    assert a == [], "Empty"
+    assert a == [], "Edge 0"
     testCase.prevPermutation(a)
     assert a == [], "Empty prev"
 

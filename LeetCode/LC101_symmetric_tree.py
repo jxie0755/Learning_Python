@@ -139,29 +139,29 @@ class Solution2(object):
 
 if __name__ == "__main__":
     A0 = None
-    assert Solution().isSymmetric(A0), "Edge 1"
+    assert Solution().isSymmetric(A0), "Edge 0"
 
     A00 = TreeNode(1)
-    assert Solution().isSymmetric(A00), "Edge 2"
+    assert Solution().isSymmetric(A00), "Edge 1"
 
     A1 = genTree([
         1,
         2, 2,
         3, 4, 4, 3
     ])
-    assert Solution().isSymmetric(A1)
+    assert Solution().isSymmetric(A1), "Example 1"
 
     A2 = genTree([
         1,
         2, 2,
         None, 3, None, 3
     ])
-    assert not Solution().isSymmetric(A2)
+    assert not Solution().isSymmetric(A2), "Example 2"
 
     A3 = genTree([
         1,
         0, None
     ])
-    assert not Solution().isSymmetric(A3)
+    assert not Solution().isSymmetric(A3), "Example 3"
 
     print("All passed")

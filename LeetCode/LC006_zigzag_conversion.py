@@ -100,9 +100,9 @@ class Solution_B:
 
 if __name__ == "__main__":
     testCase = Solution_B()
-    assert testCase.convert("", 3) == "", "Edge 1"
-    assert testCase.convert("A", 1) == "A", "Edge 2"
-    assert testCase.convert("AB", 1) == "AB", "Edge 3"
+    assert testCase.convert("", 3) == "", "Edge 0"
+    assert testCase.convert("A", 1) == "A", "Edge 1"
+    assert testCase.convert("AB", 1) == "AB", "Edge 2"
 
     assert testCase.convert("PAYPALISHIRING", 3) == "PAHNAPLSIIGYIR", "Example 1"
     assert testCase.convert("PAYPALISHIRING", 4) == "PINALSIGYAHRPI", "Example 2"

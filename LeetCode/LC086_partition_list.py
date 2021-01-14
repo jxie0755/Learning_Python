@@ -49,7 +49,7 @@ if __name__ == "__main__":
     testCase = Solution_A()
 
     sample = None
-    assert repr(testCase.partition(sample, 5)) == "None", "Empty"
+    assert repr(testCase.partition(sample, 5)) == "None", "Edge 0"
 
     sample = genNode([9, 1, 4, 3, 2, 5, 2])
     assert repr(testCase.partition(sample, 9)) == "1->4->3->2->5->2->9", "Edge 1"

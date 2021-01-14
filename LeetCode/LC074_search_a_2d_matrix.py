@@ -78,7 +78,7 @@ if __name__ == "__main__":
     testCase = Solution_B()
 
     matrix = []
-    assert testCase.searchMatrix(matrix, 3) == False, "Empty"
+    assert testCase.searchMatrix(matrix, 3) == False, "Edge 0"
 
     matrix = [
         [],

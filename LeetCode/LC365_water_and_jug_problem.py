@@ -72,9 +72,9 @@ class Solution_STD:
 
 if __name__ == "__main__":
     testCase = Solution_A1()
-    assert testCase.canMeasureWater(0, 0, 0), "Edge 0"
-    assert not testCase.canMeasureWater(0, 2, 1), "Edge 1"
-    assert not testCase.canMeasureWater(1, 2, 3), "Edge 2"
+    assert testCase.canMeasureWater(0, 0, 0), "Edge 1"
+    assert not testCase.canMeasureWater(0, 2, 1), "Edge 2"
+    assert not testCase.canMeasureWater(1, 2, 3), "Edge 3"
 
     assert testCase.canMeasureWater(3, 5, 4), "Example 1, Di Hard"
     assert not testCase.canMeasureWater(2, 6, 5), "Example 2"

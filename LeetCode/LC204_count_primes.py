@@ -155,7 +155,6 @@ class Solution_extend(object):
         return list(filter(lambda x: bool(x), primes))
 
 
-print(Solution().countPrimes(10))
 
 if __name__ == "__main__":
     assert Solution().countPrimes(0) == 0, "Edge 1"

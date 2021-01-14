@@ -127,8 +127,8 @@ class Solution_C:
 
 if __name__ == "__main__":
     testCase = Solution_C()
-    assert testCase.jump([0]) == 0, "Edge 0"
-    assert testCase.jump([2, 1]) == 1, "Edge 1"
+    assert testCase.jump([0]) == 0, "Edge 1"
+    assert testCase.jump([2, 1]) == 1, "Edge 2"
 
     assert testCase.jump([2, 3, 1, 1, 4]) == 2, "Example 1"
 

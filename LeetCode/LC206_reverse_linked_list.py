@@ -112,7 +112,7 @@ class Solution2(object):
 if __name__ == "__main__":
     emp = None
     f = Solution().reverseList(emp)
-    assert repr(f) == "None", "Edge 1"
+    assert repr(f) == "None", "Edge 0"
 
     single = genNode([99])
     f = Solution().reverseList(single)

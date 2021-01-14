@@ -166,11 +166,11 @@ if __name__ == "__main__":
     testCase = Solution_D()
 
     # Test cases are check after sorting, to avoid sequence error
-    assert sorted(testCase.combinationSum([], 1)) == [], "Edge 1"
-    assert sorted(testCase.combinationSum([1], 1)) == [[1]], "Edge 2"
-    assert sorted(testCase.combinationSum([1], 2)) == [[1, 1]], "Edge 3"
-    assert sorted(testCase.combinationSum([2], 1)) == [], "Edge 4"
-    assert sorted(testCase.combinationSum([2], 5)) == [], "Edge 5"
+    assert sorted(testCase.combinationSum([], 1)) == [], "Edge 0"
+    assert sorted(testCase.combinationSum([1], 1)) == [[1]], "Edge 1"
+    assert sorted(testCase.combinationSum([1], 2)) == [[1, 1]], "Edge 2"
+    assert sorted(testCase.combinationSum([2], 1)) == [], "Edge 3"
+    assert sorted(testCase.combinationSum([2], 5)) == [], "Edge 4"
 
     assert sorted([sorted(comb) for comb in testCase.combinationSum([2, 3, 6, 7], 7)]) == [
         [2, 2, 3],

@@ -60,9 +60,9 @@ class Solution(object):
 
 
 if __name__ == "__main__":
-    assert Solution().bulbSwitch(0) == 0, "Edge 0"
-    assert Solution().bulbSwitch(1) == 1, "Edge 1"
-    assert Solution().bulbSwitch(2) == 1, "Edge 2"
+    assert Solution().bulbSwitch(0) == 0, "Edge 1"
+    assert Solution().bulbSwitch(1) == 1, "Edge 2"
+    assert Solution().bulbSwitch(2) == 1, "Edge 3"
 
     assert Solution().bulbSwitch(3) == 1, "Example 1"
     assert Solution().bulbSwitch(4) == 2, "Example 2"
