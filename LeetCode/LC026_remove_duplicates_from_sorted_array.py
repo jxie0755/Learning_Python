@@ -45,8 +45,8 @@ if __name__ == "__main__":
     assert Empty == [], "Empty revised list"
 
     Q0 = [1, 1]
-    assert testCase.removeDuplicates(Q0) == 1, "Edge"
-    assert Q0 == [1, 1], "Edge 0 revised list"
+    assert testCase.removeDuplicates(Q0) == 1, "Edge 1"
+    assert Q0 == [1, 1], "Edge 1 revised list"
 
     Q1 = [1, 1, 2, 2, 3]
     assert testCase.removeDuplicates(Q1) == 3, "Example 1"
