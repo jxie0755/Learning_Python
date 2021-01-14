@@ -33,7 +33,6 @@ class Solution_A:
 
 
 class Solution_STD:
-
     def largestRectangleArea(self, heights: List[int]) -> int:
         """
         堆栈法
@@ -45,24 +44,31 @@ class Solution_STD:
             如果持续升高或降低, 则问题比较容易分析
             一旦出现升高后的降低, 则此前所有比这个低的bar的具体高度已经没有意义, 因为从这里开始往后高度都被限制在了这个较矮的bar这里
         """
-        increasing, area, i = [], 0, 0
-        while i <= len(heights):
-            if not increasing or (i < len(heights) and heights[i] > heights[increasing[-1]]):
-                increasing.append(i)
-                i += 1
-            else:
-                last = increasing.pop()
-                if not increasing:
-                    area = max(area, heights[last] * i)
+        increasing_idx = []  # 一个栈来记录连续上升的idx
+        area, cur_idx = 0, 0
+        while cur_idx <= len(heights):
+            if not increasing_idx or (cur_idx < len(heights) and heights[cur_idx] > heights[increasing_idx[-1]]):
+                # 空栈            whileloop未结束        上升趋势
+
+                # 空栈,或者比栈中最后一个idx高度更高,也就是增高趋势
+                increasing_idx.append(cur_idx)  # 入栈
+                cur_idx += 1
+            else:  # 一旦出现下降趋势,则停止i的变化,把栈依次推空,直到当前height超过栈中最高点
+                # 若while loop结束,也做最后一次运算
+                last = increasing_idx.pop()  # 依次将栈中最后一个idx退出,也就是
+                if not increasing_idx:
+                    # 如果没有上升趋势,则这是一个下降趋势,当前i就是最低点,面积就是这个点的高度*i
+                    area = max(area, heights[last] * cur_idx)
                 else:
-                    area = max(area, heights[last] * (i - increasing[-1] - 1))
+                    # 通过记录栈中的idx和当前i的差值纯粹上升趋势中的来计算宽度
+                    area = max(area, heights[last] * (cur_idx - increasing_idx[-1] - 1))
         return area
 
 
 if __name__ == "__main__":
     testCase = Solution_STD()
 
-    assert testCase.largestRectangleArea([]) == 0, "Empty 1"
+    assert testCase.largestRectangleArea([]) == 0, "Empty"
     assert testCase.largestRectangleArea([2]) == 2, "Edge 1"
     assert testCase.largestRectangleArea([1, 2]) == 2, "Edge 2"
 
