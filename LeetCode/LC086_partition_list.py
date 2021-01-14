@@ -15,7 +15,6 @@ from a0_ListNode import *
 
 class Solution_A:
     def partition(self, head: ListNode, x: int) -> ListNode:
-
         cur = head
         swappoint = False
         ans = prev = ListNode("X")
