@@ -229,6 +229,6 @@ if __name__ == "__main__":
         [3, 0, 3, 3],
         [3, 3, 0, 3],
         [3, 3, 3, 0]
-    ], "Extra 1"
+    ], "Additional 1"
 
     print("All passed")

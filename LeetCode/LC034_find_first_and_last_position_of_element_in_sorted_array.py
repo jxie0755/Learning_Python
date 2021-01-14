@@ -89,12 +89,12 @@ if __name__ == "__main__":
     assert testCase.searchRange([5, 7, 7, 7, 8, 10], 8) == [4, 4], "Addtional 1"
     assert testCase.searchRange([5, 7, 7, 7, 8, 10], 7) == [1, 3], "Addtional 2"
 
-    assert testCase.searchRange([1, 4], 4) == [1, 1], "Extra 1"
-    assert testCase.searchRange([1, 3], 1) == [0, 0], "Extra 2"
-    assert testCase.searchRange([-3, -2, -1], 0) == [-1, -1], "Extra 3"
-    assert testCase.searchRange([0, 0, 2, 3, 4, 4, 4, 5], 5) == [7, 7], "Extra 4"
+    assert testCase.searchRange([1, 4], 4) == [1, 1], "Additional 1"
+    assert testCase.searchRange([1, 3], 1) == [0, 0], "Additional 2"
+    assert testCase.searchRange([-3, -2, -1], 0) == [-1, -1], "Additional 3"
+    assert testCase.searchRange([0, 0, 2, 3, 4, 4, 4, 5], 5) == [7, 7], "Additional 4"
     assert testCase.searchRange([0, 0, 1, 1, 1, 2, 2, 3, 3, 3, 4, 4, 4, 4, 5, 5, 6, 6, 6, 8, 10, 10], 4) == [10,
-                                                                                                               13], "Extra 5"
-    assert testCase.searchRange([1, 2, 3, 3, 3, 3, 4, 5, 9], 3) == [2, 5], "Extra 6"
+                                                                                                               13], "Additional 5"
+    assert testCase.searchRange([1, 2, 3, 3, 3, 3, 4, 5, 9], 3) == [2, 5], "Additional 6"
 
     print("All passed")

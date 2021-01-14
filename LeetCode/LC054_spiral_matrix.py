@@ -167,6 +167,6 @@ if __name__ == "__main__":
         [5, 6],
         [7, 8]
     ]
-    assert testCase.spiralOrder(sample_4) == [1, 2, 4, 6, 8, 7, 5, 3], "Extra"
+    assert testCase.spiralOrder(sample_4) == [1, 2, 4, 6, 8, 7, 5, 3], "Additional"
 
     print("All passed")

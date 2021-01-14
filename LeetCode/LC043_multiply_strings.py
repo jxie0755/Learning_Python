@@ -237,11 +237,11 @@ class Solution_STD:
 if __name__ == "__main__":
     testCase = Solution_STD()
     assert testCase.multiply("0", "23") == "0", "Edge 1"
-    assert testCase.multiply("999", "0") == "0", "Extra Edge 1"
+    assert testCase.multiply("999", "0") == "0", "Additional Edge 1"
     assert testCase.multiply("2", "23") == "46", "Edge 2"
 
     assert testCase.multiply("2", "3") == "6", "Example 1"
     assert testCase.multiply("123", "456") == "56088", "Example 2"
-    assert testCase.multiply("50", "50") == "2500", "Extra 1"
+    assert testCase.multiply("50", "50") == "2500", "Additional 1"
 
     print("All passed")

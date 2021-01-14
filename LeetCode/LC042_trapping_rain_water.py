@@ -138,7 +138,7 @@ if __name__ == "__main__":
     assert testCase.trap([0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1]) == 6, "Example 1"
     assert testCase.trap([10, 1, 2, 1, 2, 1, 10]) == 43, "Example 2"
     assert testCase.trap([5, 5, 1, 7, 1, 1, 5, 2, 7, 6]) == 23, "Example 3"
-    assert testCase.trap([0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1]) == 6, "Extra 1"
-    assert testCase.trap([8, 5, 4, 1, 8, 9, 3, 0, 0]) == 14, "Extra 2"
+    assert testCase.trap([0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1]) == 6, "Additional 1"
+    assert testCase.trap([8, 5, 4, 1, 8, 9, 3, 0, 0]) == 14, "Additional 2"
 
     print("All passed")

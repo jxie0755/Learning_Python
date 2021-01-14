@@ -187,7 +187,7 @@ if __name__ == "__main__":
         [2, 2, 2, 2, 2],
         [2, 2, 2, 4],
         [2, 4, 4]
-    ], "Extra 1"
+    ], "Additional 1"
 
     assert sorted([sorted(comb) for comb in testCase.combinationSum([7, 3, 2], 18)]) == [
         [2, 2, 2, 2, 2, 2, 2, 2, 2],
@@ -197,6 +197,6 @@ if __name__ == "__main__":
         [2, 2, 7, 7],
         [2, 3, 3, 3, 7],
         [3, 3, 3, 3, 3, 3]
-    ], "Extra 2"
+    ], "Additional 2"
 
     print("All passed")

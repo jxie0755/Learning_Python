@@ -70,6 +70,6 @@ if __name__ == "__main__":
     assert testCase.firstMissingPositive([3, 4, -1, 1]) == 2, "Example 2"
     assert testCase.firstMissingPositive([7, 8, 9, 11, 12]) == 1, "Example 3"
 
-    assert testCase.firstMissingPositive([2,2]) == 1, "Extra 1"
+    assert testCase.firstMissingPositive([2,2]) == 1, "Additional 1"
 
     print("All passed")

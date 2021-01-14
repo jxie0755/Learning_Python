@@ -78,9 +78,9 @@ if __name__ == "__main__":
     assert testCase.largestRectangleArea([0, 2, 0]) == 2, "Additional 2"
 
     additional = list(range(0, 30)) + list(range(30, 60, 2)) + list(range(60, 30, 3))
-    assert testCase.largestRectangleArea(additional) == 506, "Extra Long 1"
+    assert testCase.largestRectangleArea(additional) == 506, "Additional Long 1"
 
     additional = list(range(0, 2000))
-    assert testCase.largestRectangleArea(additional) == 1000000, "Extra Long 2"
+    assert testCase.largestRectangleArea(additional) == 1000000, "Additional Long 2"
 
     print("All passed")

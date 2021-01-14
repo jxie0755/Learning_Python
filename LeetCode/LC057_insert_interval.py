@@ -121,36 +121,36 @@ if __name__ == "__main__":
 
 
     lst = [[1, 4], [7, 10]]
-    assert testCase.insert(lst, [1, 2]) == [[1, 4], [7, 10]], "Extra 1"
+    assert testCase.insert(lst, [1, 2]) == [[1, 4], [7, 10]], "Additional 1"
 
     lst = [[1, 4], [7, 10]]
-    assert testCase.insert(lst, [2, 3]) == [[1, 4], [7, 10]], "Extra 2"
+    assert testCase.insert(lst, [2, 3]) == [[1, 4], [7, 10]], "Additional 2"
 
     lst = [[1, 4], [7, 10]]
-    assert testCase.insert(lst, [3, 4]) == [[1, 4], [7, 10]], "Extra 3"
+    assert testCase.insert(lst, [3, 4]) == [[1, 4], [7, 10]], "Additional 3"
 
     lst = [[1, 4], [7, 10]]
-    assert testCase.insert(lst, [4, 5]) == [[1, 5], [7, 10]], "Extra 4"
+    assert testCase.insert(lst, [4, 5]) == [[1, 5], [7, 10]], "Additional 4"
 
     lst = [[1, 4], [7, 10]]
-    assert testCase.insert(lst, [5, 6]) == [[1, 4], [5, 6], [7, 10]], "Extra 5"
+    assert testCase.insert(lst, [5, 6]) == [[1, 4], [5, 6], [7, 10]], "Additional 5"
 
     lst = [[1, 4], [7, 10]]
-    assert testCase.insert(lst, [6, 7]) == [[1, 4], [6, 10]], "Extra 6"
+    assert testCase.insert(lst, [6, 7]) == [[1, 4], [6, 10]], "Additional 6"
 
     lst = [[1, 4], [7, 10]]
-    assert testCase.insert(lst, [7, 8]) == [[1, 4], [7, 10]], "Extra 7"
+    assert testCase.insert(lst, [7, 8]) == [[1, 4], [7, 10]], "Additional 7"
 
     lst = [[1, 4], [7, 10]]
-    assert testCase.insert(lst, [8, 9]) == [[1, 4], [7, 10]], "Extra 8"
+    assert testCase.insert(lst, [8, 9]) == [[1, 4], [7, 10]], "Additional 8"
 
     lst = [[1, 4], [7, 10]]
-    assert testCase.insert(lst, [9, 10]) == [[1, 4], [7, 10]], "Extra 9"
+    assert testCase.insert(lst, [9, 10]) == [[1, 4], [7, 10]], "Additional 9"
 
     lst = [[1, 4], [7, 10]]
-    assert testCase.insert(lst, [10, 11]) == [[1, 4], [7, 11]], "Extra 10"
+    assert testCase.insert(lst, [10, 11]) == [[1, 4], [7, 11]], "Additional 10"
 
     lst = [[1, 4], [7, 10]]
-    assert testCase.insert(lst, [11, 12]) == [[1, 4], [7, 10], [11, 12]], "Extra 11"
+    assert testCase.insert(lst, [11, 12]) == [[1, 4], [7, 10], [11, 12]], "Additional 11"
 
     print("All passed")

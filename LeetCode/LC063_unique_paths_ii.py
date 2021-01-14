@@ -92,7 +92,7 @@ if __name__ == "__main__":
         [0, 0, 0, 0],
         [0, 0, 0, 0]
     ]
-    assert testCase.uniquePathsWithObstacles(s3) == 0, "Extra 1, all blocked"
+    assert testCase.uniquePathsWithObstacles(s3) == 0, "Additional 1, all blocked"
 
     s4 = [
         [0, 1, 0, 0],
@@ -100,6 +100,6 @@ if __name__ == "__main__":
         [1, 0, 0, 0],
         [0, 0, 0, 0],
     ]
-    assert testCase.uniquePathsWithObstacles(s4) == 6, "Extra 2, equal to 3 * 3 with no obstacle"
+    assert testCase.uniquePathsWithObstacles(s4) == 6, "Additional 2, equal to 3 * 3 with no obstacle"
 
     print("All passed")

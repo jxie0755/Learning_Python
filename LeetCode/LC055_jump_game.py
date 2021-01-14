@@ -60,7 +60,7 @@ if __name__ == "__main__":
     assert testCase.canJump([2, 3, 1, 1, 4]), "Example 1"
     assert not testCase.canJump([3, 2, 1, 0, 4]), "Example 2"
 
-    assert testCase.canJump([3, 2, 5, 0, 1, 0, 0, 0]), "Extra 1"
-    assert not testCase.canJump([3, 2, 5, 0, 1, 0, 0, 2, 0, 0, 1]), "Extra 2"
+    assert testCase.canJump([3, 2, 5, 0, 1, 0, 0, 0]), "Additional 1"
+    assert not testCase.canJump([3, 2, 5, 0, 1, 0, 0, 2, 0, 0, 1]), "Additional 2"
 
     print("All passed")

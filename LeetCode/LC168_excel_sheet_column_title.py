@@ -76,10 +76,10 @@ class Solution(object):
 
 if __name__ == "__main__":
     assert Solution().convertToTitle(1) == "A", "Example 1"
-    assert Solution().convertToTitle(27) == "AA", "Extra"
+    assert Solution().convertToTitle(27) == "AA", "Additional"
     assert Solution().convertToTitle(28) == "AB", "Example 2"
     assert Solution().convertToTitle(52) == "AZ", "Example 1"
     assert Solution().convertToTitle(701) == "ZY", "Example 3"
-    assert Solution().convertToTitle(704) == "AAB", "Extra"
+    assert Solution().convertToTitle(704) == "AAB", "Additional"
 
     print("All passed")

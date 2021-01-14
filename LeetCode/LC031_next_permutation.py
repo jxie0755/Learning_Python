@@ -142,21 +142,21 @@ if __name__ == "__main__":
 
     a = [5, 1, 1]
     testCase.nextPermutation(a)
-    assert a == [1, 1, 5], "Extra 1"
+    assert a == [1, 1, 5], "Additional 1"
     testCase.prevPermutation(a)
-    assert a == [5, 1, 1], "Extra 1 prev"
+    assert a == [5, 1, 1], "Additional 1 prev"
 
     a = [2, 2, 2]
     testCase.nextPermutation(a)
-    assert a == [2, 2, 2], "Extra 2"
+    assert a == [2, 2, 2], "Additional 2"
     testCase.prevPermutation(a)
-    assert a == [2, 2, 2], "Extra 2 prev"
+    assert a == [2, 2, 2], "Additional 2 prev"
 
     a = [1, 2, 2, 2]
     testCase.nextPermutation(a)
-    assert a == [2, 1, 2, 2], "Extra 3"
+    assert a == [2, 1, 2, 2], "Additional 3"
     testCase.prevPermutation(a)
-    assert a == [1, 2, 2, 2], "Extra 3 prev"
+    assert a == [1, 2, 2, 2], "Additional 3 prev"
 
     a = [2, 3, 1]
     testCase.nextPermutation(a)
