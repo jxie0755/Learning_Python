@@ -56,4 +56,5 @@ if __name__ == "__main__":
 
     sample = genNode([1, 4, 3, 2, 5, 2])
     assert repr(testCase.partition(sample, 3)) == "1->2->2->4->3->5", "Example 1"
+    # only move 2 and 2 before 3, but 4 will still be before 3.
     print("All passed")
