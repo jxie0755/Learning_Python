@@ -16,7 +16,7 @@ from a0_ListNode import *
 class Solution_A:
     def partition(self, head: ListNode, x: int) -> ListNode:
         """
-        This will have to create new nodes, not the best way
+        This will have to create new nodes (not the best way)
         """
 
         cur = head
@@ -52,7 +52,7 @@ class Solution_A:
 class Solution_B:
     def partition(self, head: ListNode, x: int) -> ListNode:
         """
-        Move in-place, no need to create new nodes
+        Move in-place, no need to create new node
         """
 
         if not head:
@@ -92,20 +92,14 @@ class Solution_B:
 if __name__ == "__main__":
     testCase = Solution_A()
 
-    assert repr(testCase.partition(
-        None,
-        5
-    )) == "None", "Edge 0"
+    q1 = None
+    assert repr(testCase.partition(q1, 5)) == "None", "Edge 0"
 
-    assert repr(testCase.partition(
-        genNode([9, 1, 4, 3, 2, 5, 2]),
-        9
-    )) == "1->4->3->2->5->2->9", "Edge 1"
+    q2 = genNode([9, 1, 4, 3, 2, 5, 2])
+    assert repr(testCase.partition(q2, 9)) == "1->4->3->2->5->2->9", "Edge 1"
 
-    assert repr(testCase.partition(
-        genNode([1, 4, 3, 2, 5, 2]),
-        3
-    )) == "1->2->2->4->3->5", "Example 1"
+    q3 = genNode([1, 4, 3, 2, 5, 2])
+    assert repr(testCase.partition(q3, 3)) == "1->2->2->4->3->5", "Example 1"
     # only move 2 and 2 before 3, but 4 will still be before 3.
 
     print("All passed")
