@@ -98,8 +98,11 @@ if __name__ == "__main__":
     q2 = genNode([9, 1, 4, 3, 2, 5, 2])
     assert repr(testCase.partition(q2, 9)) == "1->4->3->2->5->2->9", "Edge 1"
 
-    q3 = genNode([1, 4, 3, 2, 5, 2])
-    assert repr(testCase.partition(q3, 3)) == "1->2->2->4->3->5", "Example 1"
+    q3 = genNode([1])
+    assert repr(testCase.partition(q3, 2)) == "1", "Edge 2"
+
+    q4 = genNode([1, 4, 3, 2, 5, 2])
+    assert repr(testCase.partition(q4, 3)) == "1->2->2->4->3->5", "Example 1"
     # only move 2 and 2 before 3, but 4 will still be before 3.
 
     print("All passed")
