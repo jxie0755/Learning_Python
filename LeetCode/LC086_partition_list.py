@@ -15,6 +15,10 @@ from a0_ListNode import *
 
 class Solution_A:
     def partition(self, head: ListNode, x: int) -> ListNode:
+        """
+        This will have to create new nodes, not the best way
+        """
+
         cur = head
         swappoint = False
         ans = prev = ListNode("X")
@@ -45,16 +49,63 @@ class Solution_A:
         return ans.next.next
 
 
+class Solution_B:
+    def partition(self, head: ListNode, x: int) -> ListNode:
+        """
+        Move in-place, no need to create new nodes
+        """
+
+        if not head:
+            return head
+
+        pre = dumb = ListNode("X")
+        dumb.next = head
+
+        # First find where is the partition node
+        while pre and pre.next:
+            if pre.next.val >= x:  # find the first partition point
+                break
+            else:
+                pre = pre.next
+        else:  # if find no partition point just return head
+            return head
+
+        partition_head = partition_tail = pre.next  # partition can have length
+        check = partition_tail.next
+        while check:
+            if check.val < x:
+                this_node = check  # record current check
+                check = check.next  # move check to next
+
+                # move this current node between pre and partition head
+                pre.next = this_node
+                this_node.next = partition_head
+
+                partition_tail.next = check  # link partition_tail to next node
+                pre = pre.next  # move pre after squeeze in
+            else:
+                partition_tail = partition_tail.next  # extend the partition part
+                check = check.next
+        return dumb.next
+
+
 if __name__ == "__main__":
     testCase = Solution_A()
 
-    sample = None
-    assert repr(testCase.partition(sample, 5)) == "None", "Edge 0"
+    assert repr(testCase.partition(
+        None,
+        5
+    )) == "None", "Edge 0"
 
-    sample = genNode([9, 1, 4, 3, 2, 5, 2])
-    assert repr(testCase.partition(sample, 9)) == "1->4->3->2->5->2->9", "Edge 1"
+    assert repr(testCase.partition(
+        genNode([9, 1, 4, 3, 2, 5, 2]),
+        9
+    )) == "1->4->3->2->5->2->9", "Edge 1"
 
-    sample = genNode([1, 4, 3, 2, 5, 2])
-    assert repr(testCase.partition(sample, 3)) == "1->2->2->4->3->5", "Example 1"
+    assert repr(testCase.partition(
+        genNode([1, 4, 3, 2, 5, 2]),
+        3
+    )) == "1->2->2->4->3->5", "Example 1"
     # only move 2 and 2 before 3, but 4 will still be before 3.
+
     print("All passed")
