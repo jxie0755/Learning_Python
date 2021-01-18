@@ -12,7 +12,6 @@ from a0_ListNode import *
 class Solution_A:
     def deleteDuplicates(self, head: ListNode) -> ListNode:
         """
-        Version A
         Since it is a sorted list, so the repeat should stick together
         Remove in-place
         """
