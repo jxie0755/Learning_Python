@@ -1,12 +1,15 @@
-# P085 Maximal Rectangle
-# Hard
+"""
+https://leetcode.com/problems/maximal-rectangle/
+P085 Maximal Rectangle
+Hard
 
+Given a 2D binary matrix filled with 0"s and 1"s, find the largest rectangle containing only 1's and return its area.
+"""
 
-# Given a 2D binary matrix filled with 0"s and 1"s, find the largest rectangle containing only 1's and return its area.
-
+from typing import *
 
 class Solution:
-    def maximalRectangle(self, matrix):
+    def maximalRectangle(self, matrix: List[List[str]]) -> int:
         hmp = dict()
         row, col = len(matrix), len(matrix[0])
         for r in range(row):
