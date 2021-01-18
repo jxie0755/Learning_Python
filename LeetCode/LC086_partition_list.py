@@ -90,7 +90,7 @@ class Solution_B:
 
 
 if __name__ == "__main__":
-    testCase = Solution_A()
+    testCase = Solution_B()
 
     q1 = None
     assert repr(testCase.partition(q1, 5)) == "None", "Edge 0"
