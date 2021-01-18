@@ -15,23 +15,44 @@ Key is to modified nums1, not returning a new list
 
 from typing import *
 
-class Solution_A:
+
+class Solution_A1:
     def merge(self, nums1: List[int], m: int, nums2: List[int], n: int) -> None:
         """
-
+        Insert the properly sorted element from num2 to num1, while poping the end of num1 to keep the length
         """
-        cur = 0
-        tmp_n = 0
-        for j in nums2:
-            while j >= nums1[cur] and cur < m + tmp_n:
-                cur += 1
-            nums1.insert(cur, j)
-            tmp_n += 1
+        i = 0
+        j = 0
+        while i != m + n and j != n:
+            cur = nums1[i]
+            check = nums2[j]
+            if check <= cur or i == m + j:
+                # two conditions (insertable or reaching last index of nums1)
+                # After inserting from nums 2, if i touch m+j then i is at last element of nums 1
+                nums1.insert(i, check)
+                nums1.pop()
+                j += 1
+            i += 1
+
+
+class Solution_A2:
+    def merge(self, nums1: List[int], m: int, nums2: List[int], n: int) -> None:
+        """
+        Insert the properly sorted element from num2 to num1, while poping the end of num1 to keep the length
+        Clearer logic with simple codes
+        """
+        merged_idx = 0   # start from 0, end at m+n-1
+        num_inserted = 0 # how many elem from nums2 inserted to nums1
+        for elem in nums2:
+            while elem >= nums1[merged_idx] and merged_idx < m + num_inserted:
+                merged_idx += 1
+            nums1.insert(merged_idx, elem)
+            num_inserted += 1
             nums1.pop()
 
 
 if __name__ == "__main__":
-    testCase = Solution_A()
+    testCase = Solution_A2()
 
     nums1 = [1]
     nums2 = []
