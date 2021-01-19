@@ -21,18 +21,18 @@ class Solution_A1:
         """
         Insert the properly sorted element from num2 to num1, while poping the end of num1 to keep the length
         """
-        i = 0
-        j = 0
-        while i != m + n and j != n:
-            cur = nums1[i]
-            check = nums2[j]
-            if check <= cur or i == m + j:
+        merged_idx = 0
+        nums2_idx = 0
+        while merged_idx != m + n and nums2_idx != n:
+            cur = nums1[merged_idx]
+            check = nums2[nums2_idx]
+            if check <= cur or merged_idx == m + nums2_idx:
                 # two conditions (insertable or reaching last index of nums1)
                 # After inserting from nums 2, if i touch m+j then i is at last element of nums 1
-                nums1.insert(i, check)
+                nums1.insert(merged_idx, check)
                 nums1.pop()
-                j += 1
-            i += 1
+                nums2_idx += 1
+            merged_idx += 1
 
 
 class Solution_A2:
@@ -51,8 +51,30 @@ class Solution_A2:
             nums1.pop()
 
 
+class Solution_B1:
+    def merge(self, nums1: List[int], m: int, nums2: List[int], n: int) -> None:
+        """
+        Treated as true array, length fixed, no insert or pop implement
+        Developed based on Version A1
+        Move every element one index to right when insert
+        """
+        merged_idx = 0
+        nums2_idx = 0
+        while merged_idx != m + n and nums2_idx != n:
+            cur = nums1[merged_idx]
+            check = nums2[nums2_idx]
+            if check <= cur or merged_idx == m + nums2_idx:
+                for x in range(merged_idx+1, m+n): # from idx=i+1 to end, move all to right
+                    tmp = nums1[x]
+                    nums1[x] = nums1[merged_idx]
+                    nums1[merged_idx] = tmp
+                nums1[merged_idx] = check
+                nums2_idx += 1
+            merged_idx += 1
+
+
 if __name__ == "__main__":
-    testCase = Solution_A2()
+    testCase = Solution_B1()
 
     nums1 = [1]
     nums2 = []
