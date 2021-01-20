@@ -64,11 +64,11 @@ class Solution_B1:
             cur = nums1[merged_idx]
             check = nums2[nums2_idx]
             if check <= cur or merged_idx == m + nums2_idx:
-                for x in range(merged_idx+1, m+n): # from idx=i+1 to end, move all to right
+                for x in range(merged_idx+1, m+n): # from idx=i+1 to end, move all to right, make space for insert
                     tmp = nums1[x]
                     nums1[x] = nums1[merged_idx]
                     nums1[merged_idx] = tmp
-                nums1[merged_idx] = check
+                nums1[merged_idx] = check # insert element from nums2
                 nums2_idx += 1
             merged_idx += 1
 
