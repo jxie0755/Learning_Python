@@ -8,6 +8,8 @@ Given a collection of integers that might contain duplicates, nums, return all p
 Note: The solution set must not contain duplicate subsets.
 """
 
+from typing import *
+
 class Solution_A:
     def combination(self, nums, k):
         if k == 0:
@@ -24,7 +26,7 @@ class Solution_A:
             result += self.combination(nums[1:], k)
             return result
 
-    def subsetsWithDup(self, nums):
+    def subsetsWithDup(self, nums: List[int]) -> List[List[int]]:
 
         def helper(comb):
             # this is actually the tricky part
