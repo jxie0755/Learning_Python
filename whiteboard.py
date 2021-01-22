@@ -13,7 +13,32 @@ from typing import *
 
 class Solution_A:
     def subsetsWithDup(self, nums: List[int]) -> List[List[int]]:
-        pass
+        """
+        With the help from the combinationSolo from Leetcode P077
+        """
+        result = []
+        for i in range(0, len(nums) + 1):
+            result += self.combinationSolo(nums, i)
+        return result
+
+    def combinationSolo(self, nums: List[int], k: int) -> List[List[int]]:
+        """
+        Helper for A1, refer to LC077, except it runs on a full list instead of n that represent a list from 1 to n.
+        Change the paramter type from n to list(range(1, n+1))
+        """
+        if k == 0:
+            return [[]]
+        elif k == len(nums):
+            return [nums]
+        elif k == 1:
+            return [[i] for i in nums]
+        else:
+            result = []
+            next_list = nums[:]
+            tail = next_list.pop()
+            result += self.combinationSolo(nums[:len(nums) - 1], k)
+            result += [com + [tail] for com in self.combinationSolo(next_list, k - 1)]
+            return result
 
 
 if __name__ == "__main__":
