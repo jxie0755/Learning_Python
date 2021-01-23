@@ -139,4 +139,16 @@ if __name__ == "__main__":
         [2, 2]
     ], "Additional 2"
 
+    assert sorted(testCase.subsetsWithDup([2, 1, 2, 1])) == [
+        [],
+        [1],
+        [1, 1],
+        [1, 1, 2],
+        [1, 1, 2, 2],
+        [1, 2],
+        [1, 2, 2],
+        [2],
+        [2, 2]
+    ], "Additional 2 unsorted"
+
     print("All passed")
