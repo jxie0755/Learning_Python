@@ -10,6 +10,7 @@ Note: The solution set must not contain duplicate subsets.
 
 from typing import *
 
+
 class Solution_A:
     def subsetsWithDup(self, nums: List[int]) -> List[List[int]]:
         """
@@ -19,27 +20,29 @@ class Solution_A:
         for i in range(0, len(nums) + 1):
             result += self.combinationSolo(nums, i)
 
-        # this is a complext list comprehension to remove repeat
-        return [list(k) for k in set([tuple(sorted(i)) for i in result])]
+        # use set to remove repeat then convert back to list
+        return [list(i) for i in set(result)]
 
-    def combinationSolo(self, nums: List[int], k: int) -> List[list[int]]:
+    def combinationSolo(self, nums: List[int], k: int) -> List[Tuple[int]]:
         """
-        Helper for A1, refer to LC077, except it runs on a full list instead of n that represent a list from 1 to n.
-        Change the paramter type from n to list(range(1, n+1))
+        Helper for A1, refer to LC077, modify to output in tuple
         """
+        nums = sorted(nums)  # make sure the nums is sorted to begin with
+
         if k == 0:
-            return [[]]
+            return [tuple()]
         elif k == len(nums):
-            return [sorted(nums)]
+            return [tuple(nums)]
         elif k == 1:
-            return [[i] for i in nums]
+            return [(i,) for i in nums]
         else:
             result = []
             next_list = nums[:]
             tail = next_list.pop()
             result += self.combinationSolo(nums[:len(nums) - 1], k)
-            result += [com + [tail] for com in self.combinationSolo(next_list, k - 1)]
+            result += [com + (tail,) for com in self.combinationSolo(next_list, k - 1)]
             return result
+
 
 
 if __name__ == "__main__":
