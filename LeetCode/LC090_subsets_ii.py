@@ -11,47 +11,35 @@ Note: The solution set must not contain duplicate subsets.
 from typing import *
 
 class Solution_A:
-    def combination(self, nums, k):
+    def subsetsWithDup(self, nums: List[int]) -> List[List[int]]:
+        """
+        With the help from the combinationSolo from Leetcode P077
+        """
+        result = []
+        for i in range(0, len(nums) + 1):
+            result += self.combinationSolo(nums, i)
+
+        # this is a complext list comprehension to remove repeat
+        return [list(k) for k in set([tuple(sorted(i)) for i in result])]
+
+    def combinationSolo(self, nums: List[int], k: int) -> List[list[int]]:
+        """
+        Helper for A1, refer to LC077, except it runs on a full list instead of n that represent a list from 1 to n.
+        Change the paramter type from n to list(range(1, n+1))
+        """
         if k == 0:
             return [[]]
-        if k == 1:
+        elif k == len(nums):
+            return [sorted(nums)]
+        elif k == 1:
             return [[i] for i in nums]
-        elif len(nums) == k:
-            return [nums]
         else:
             result = []
-            subnums = nums[:]
-            head = subnums.pop(0)
-            result += [[head] + com for com in self.combination(subnums, k - 1)]
-            result += self.combination(nums[1:], k)
+            next_list = nums[:]
+            tail = next_list.pop()
+            result += self.combinationSolo(nums[:len(nums) - 1], k)
+            result += [com + [tail] for com in self.combinationSolo(next_list, k - 1)]
             return result
-
-    def subsetsWithDup(self, nums: List[int]) -> List[List[int]]:
-
-        def helper(comb):
-            # this is actually the tricky part
-            """
-            according to a dictionary suggesting the maximum occurance of an element
-            it is like a cross multiply:
-            [[x, y] for x in range(i) for y in range(j)]
-            """
-            result = [[]]
-            for d in nums_hmp:
-                if d in comb:
-                    # Updating the list by list concatenation of adding the every sub-list in result with newest
-                    result = [x + y for x in result for y in [[d] * n for n in range(1, nums_hmp[d] + 1)]]
-
-            return result
-
-        nums_set = list(set(nums))
-        nums_hmp = {i: nums.count(i) for i in nums_set}
-
-        result = []
-        for k in range(len(nums_set) + 1):
-            for i in self.combination(nums_set, k):
-                result += helper(i)
-
-        return result
 
 
 if __name__ == "__main__":
