@@ -79,8 +79,7 @@ class Solution_B:
             result = []
             next_list = nums[:]
             tail = next_list.pop()
-            result += self.combinationSolo(nums[:len(nums) - 1], k)
-
+            result += self.combinationSolo(nums[:len(nums) - 1], k) # this must be first to avoid repeat
             # remove repeat
             for _ in [com + [tail] for com in self.combinationSolo(next_list, k - 1)]:
                 if _ not in result:
@@ -150,5 +149,7 @@ if __name__ == "__main__":
         [2],
         [2, 2]
     ], "Additional 2 unsorted"
+
+    print(Solution_A().combinationSolo([1,2,2], 2))
 
     print("All passed")
