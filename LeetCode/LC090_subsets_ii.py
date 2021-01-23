@@ -19,30 +19,33 @@ class Solution_A:
         result = []
         for i in range(0, len(nums) + 1):
             result += self.combinationSolo(nums, i)
+        return result
 
-        # use set to remove repeat then convert back to list
-        return [list(i) for i in set(result)]
-
-    def combinationSolo(self, nums: List[int], k: int) -> List[Tuple[int]]:
+    def combinationSolo(self, nums: List[int], k: int) -> List[List[int]]:
         """
-        Helper for A1, refer to LC077, modify to output in tuple
+        Helper for A1, refer to LC077, modify to output in none repeated elements
         """
         nums = sorted(nums)  # make sure the nums is sorted to begin with
 
         if k == 0:
-            return [tuple()]
+            return [[]]
         elif k == len(nums):
-            return [tuple(nums)]
+            return [nums]
         elif k == 1:
-            return [(i,) for i in nums]
+            result = []
+            for i in nums:
+                if [i] not in result:
+                    result.append([i])
+            return result
         else:
             result = []
             next_list = nums[:]
             tail = next_list.pop()
             result += self.combinationSolo(nums[:len(nums) - 1], k)
-            result += [com + (tail,) for com in self.combinationSolo(next_list, k - 1)]
+            for _ in [com + [tail] for com in self.combinationSolo(next_list, k - 1)]:
+                if _ not in result:
+                    result.append(_)
             return result
-
 
 
 if __name__ == "__main__":
