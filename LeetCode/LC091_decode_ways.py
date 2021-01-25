@@ -44,6 +44,7 @@ class Solution_B:
     def numDecodings(self, s: str) -> int:
         """
         STD ans
+        linear itreration, dynamic programming
         """
         if len(s) == 0 or s[0] == "0":
             return 0
