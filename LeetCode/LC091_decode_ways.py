@@ -15,7 +15,7 @@ Given a non-empty string containing only digits, determine the total number of w
 
 
 class Solution_A:
-    # This will now work, but exceeded max timei limit
+    # This will now work, but exceeded max time limit
     # Recursion depth is not the problem
     def numDecodings(self, s: str) -> int:
         if len(s) == 0:
