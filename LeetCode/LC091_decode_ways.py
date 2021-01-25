@@ -11,6 +11,7 @@ A message containing letters from A-Z is being encoded to numbers using the foll
 "Z" -> 26
 
 Given a non-empty string containing only digits, determine the total number of ways to decode it.
+由于数字之间没有间断,可能有很多种解读方法, 比如"123"可以是"1" + "2" + "3", 或者"12"+"3", 或者"1" + "23"
 """
 
 
@@ -73,7 +74,8 @@ if __name__ == "__main__":
     assert testCase.numDecodings("1") == 1, "Edge 4"
 
     assert testCase.numDecodings("12") == 2, "Example 1"
-    assert testCase.numDecodings("226") == 3, "Example 2"
+    assert testCase.numDecodings("123") == 3, "Example 2"
+    assert testCase.numDecodings("226") == 3, "Example 3"
 
     assert testCase.numDecodings("227") == 2, "Additional 1"
     assert testCase.numDecodings("611") == 2, "Additional 2"
