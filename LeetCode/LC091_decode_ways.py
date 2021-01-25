@@ -74,6 +74,7 @@ if __name__ == "__main__":
     assert testCase.numDecodings("12390123") == 0, "Edge 4"
     assert testCase.numDecodings("1") == 1, "Edge 5"
 
+
     assert testCase.numDecodings("12") == 2, "Example 1"
     assert testCase.numDecodings("123") == 3, "Example 2"
     assert testCase.numDecodings("226") == 3, "Example 3"
