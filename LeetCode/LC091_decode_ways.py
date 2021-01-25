@@ -55,16 +55,15 @@ class Solution_B:
 
             # 此时再看上一位如果和当前能组成一个小于26且不为0的数, 那么也可以从上上位走到这里
             # 不然的话就没办法从上上位走到这里
-            if i > 0 and (s[i - 1] == "1" or (s[i - 1] == "2" and s[i] <= "6")):
+            if i > 0 and (s[i - 1] == "1" or (s[i - 1] == "2" and s[i] not in ["7", "8", "9"])):
                 cur += prev_prev
 
             prev, prev_prev = cur, prev  # 迭代前两位的数线数
 
         return prev
 
-
 if __name__ == "__main__":
-    testCase = Solution_A()
+    testCase = Solution_B()
 
     assert testCase.numDecodings("0") == 0, "Edge 1"
     assert testCase.numDecodings("00") == 0, "Edge 2"
