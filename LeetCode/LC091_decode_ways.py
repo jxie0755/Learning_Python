@@ -15,32 +15,34 @@ Given a non-empty string containing only digits, determine the total number of w
 
 
 class Solution_A:
-    # This will now work, but exceeded max time limit
-    # Recursion depth is not the problem
     def numDecodings(self, s: str) -> int:
+        """
+        This will now work, but exceeded max time limit
+        Recursion depth is not the problem
+        """
         if len(s) == 0:
+            # this should return 1 as no letters represent one interpretation
             return 1
         elif s[0] == "0":
+            # anything start with 0 should return 0
             return 0
         elif len(s) == 1:
+            # excluded start with "0"
             return 1
         else:
-            if int(s[0]) < 2 or int(s[0]) == 2 and int(s[1]) <= 6:
+            if s[0] == "1" or s[0] == "2" and s[1] not in ["7", "8", "9"]:
+                # only way to be able to branch into two ways
                 return self.numDecodings(s[1:]) + self.numDecodings(s[2:])
-            elif int(s[0]) > 2 and s[1] == "0":
-                return 0
-            elif int(s[0]) > 2:
-                return self.numDecodings(s[1:])
             else:
-                return self.numDecodings(s[2:])
+                # just by pass the first digit
+                return self.numDecodings(s[1:])
+            # there is no situation to bypass two digit, if that is the case, it won't work
 
 
 class Solution_B:
-    # STD ans
-    def numDecodings(self, s):
+    def numDecodings(self, s: str) -> int:
         """
-        :type s: str
-        :rtype: int
+        STD ans
         """
         if len(s) == 0 or s[0] == "0":
             return 0
