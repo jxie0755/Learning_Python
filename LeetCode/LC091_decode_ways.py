@@ -71,7 +71,8 @@ if __name__ == "__main__":
     assert testCase.numDecodings("0") == 0, "Edge 1"
     assert testCase.numDecodings("00") == 0, "Edge 2"
     assert testCase.numDecodings("230") == 0, "Edge 3"
-    assert testCase.numDecodings("1") == 1, "Edge 4"
+    assert testCase.numDecodings("12390123") == 0, "Edge 4"
+    assert testCase.numDecodings("1") == 1, "Edge 5"
 
     assert testCase.numDecodings("12") == 2, "Example 1"
     assert testCase.numDecodings("123") == 3, "Example 2"
@@ -79,7 +80,6 @@ if __name__ == "__main__":
 
     assert testCase.numDecodings("227") == 2, "Additional 1"
     assert testCase.numDecodings("611") == 2, "Additional 2"
-    assert testCase.numDecodings("12390123") == 0, "Additional 3"
 
     long = "9371597631128776948387197132267188677349946742344217846154932859125134924241649584251978418763151253"
     assert testCase.numDecodings(long) == 3981312, "Long"
