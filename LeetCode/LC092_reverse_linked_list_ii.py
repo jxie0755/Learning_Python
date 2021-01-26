@@ -36,8 +36,9 @@ class Solution:
 
         # start reverse in place
         end = start = pre.next  # record the end (not moving
-
+        tail = start.next
         insert_point = None  # a premade tail after the section is reversed
+
         for j in range(n - m + 1):
             tail = start.next
 
