@@ -13,41 +13,43 @@ from a0_ListNode import *
 
 class Solution:
     def reverseBetween(self, head: ListNode, m: int, n: int) -> ListNode:
-        if m == n:
-            return head
+        """
+        One pass method.
+        First locate the head of reverse section
+        Gradually insert each node between pre and a None node (to reverse, same as LC206) for n-m+1 steps
+        The true tail will be found automatically after the reverse
 
-        ans = prehead = ListNode("X")
-        prehead.next = head
-        idx = 1
+         1   ->   2    ->    3    ->    4    ->    5
+        pre      end                           true_tail
+                start
+                  m                     n
+         1   ->   4    ->    3    ->    2    ->    5
+                start                  end       true tail
+        """
+        dummy = ListNode(0)
+        dummy.next = head
 
-        #  1   ->   2    ->    3    ->    4    ->    5
-        # pre    tail                head
-        #         m             n
-        #  1   ->   4    ->    3    ->    2    ->    5
-        #      dummy.next                tail       head
+        # locate the note before reverse section
+        pre = dummy
+        for i in range(m - 1):
+            pre = pre.next
 
-        while head and idx < m:
-            # When this while loop ended, cur will be the first element to be reversed
-            head = head.next
-            prehead = prehead.next  # locate the pre-head for future connection
-            idx += 1
+        # start reverse in place
+        end = start = pre.next  # record the end (not moving
 
-        tail = head  # 此时位于第一个需要被reverse的节点, 也将是reverse之后的最后一个节点
+        insert_point = None  # a premade tail after the section is reversed
+        for j in range(n - m + 1):
+            tail = start.next
 
-        # 根据leetcode p206把这一段链表反转
-        dummy = ListNode("D")
-        while head and idx <= n:
-            tempheadnext = head.next
-            dummynext = dummy.next
-            dummy.next = head
-            head.next = dummynext
-            head = tempheadnext  # 最终head被move到了反转段落之后的节点
-            idx += 1
+            # insert the reverse head between pre_reverse and inserting point
+            start.next = insert_point
+            pre.next = start
+            insert_point = start  # move insert point to left to keep insert reversely
+            start = tail
 
-        prehead.next = dummy.next  # 把反转段落之前的节点连上翻转后的head
-        tail.next = head  # 把tail接上反转段落之后的head节点
+        end.next = tail  # link the
+        return dummy.next
 
-        return ans.next
 
 
 if __name__ == "__main__":
