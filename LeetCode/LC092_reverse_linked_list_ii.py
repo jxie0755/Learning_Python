@@ -11,7 +11,7 @@ Note: 1 ≤ m ≤ n ≤ length of list.
 from a0_ListNode import *
 
 
-class Solution:
+class Solution_A:
     def reverseBetween(self, head: ListNode, m: int, n: int) -> ListNode:
         """
         One pass method.
@@ -54,7 +54,7 @@ class Solution:
 
 
 if __name__ == "__main__":
-    testCase = Solution()
+    testCase = Solution_A()
 
     s1 = genNode([1])
     assert repr(testCase.reverseBetween(s1, 1, 1)) == "1", "Edge 1"
