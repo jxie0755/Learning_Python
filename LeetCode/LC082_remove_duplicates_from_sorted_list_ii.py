@@ -21,7 +21,7 @@ class Solution_A1:
             return head
 
         check = "X"
-        dumb = new_head = ListNode(check)
+        dummy = new_head = ListNode(check)
 
         while head:
             if head.next:
@@ -36,7 +36,7 @@ class Solution_A1:
 
             head = head.next
 
-        return dumb.next
+        return dummy.next
 
 
 class Solution_A2:
@@ -44,7 +44,7 @@ class Solution_A2:
         """
         Similar to Version A1 but with clearer logic
         """
-        new_head = dumb = ListNode("X")
+        new_head = dummy = ListNode("X")
 
         repeat = False
         while head:
@@ -62,7 +62,7 @@ class Solution_A2:
                     new_head.next = ListNode(head.val)
             head = head.next
 
-        return dumb.next
+        return dummy.next
 
 class Solution_B:
 

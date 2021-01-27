@@ -57,8 +57,8 @@ class Solution_B:
         if not head:
             return head
 
-        pre = dumb = ListNode("X")
-        dumb.next = head
+        pre = dummy = ListNode("X")
+        dummy.next = head
 
         # First find where is the partition node
         while pre and pre.next:
@@ -85,7 +85,7 @@ class Solution_B:
             else:
                 partition_tail = partition_tail.next  # extend the partition part
                 check = check.next
-        return dumb.next
+        return dummy.next
 
 
 if __name__ == "__main__":
