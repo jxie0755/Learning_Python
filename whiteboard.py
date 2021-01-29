@@ -12,7 +12,13 @@ from typing import *
 
 class Solution_A:
     def restoreIpAddresses(self, s: str) -> List[str]:
-        pass
+        result = []
+
+
+        def restoreIpHelper(self, s:str, address:str, parts:int=0):
+            pass
+
+
 
 
 if __name__ == "__main__":
