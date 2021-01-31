@@ -78,7 +78,6 @@ class Solution_B(object):
 if __name__ == "__main__":
     testCase = Solution()
 
-
     t0 = None
     assert testCase.inorderTraversal(t0) == []
 
