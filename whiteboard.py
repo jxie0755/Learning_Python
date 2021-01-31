@@ -31,3 +31,4 @@ if __name__ == "__main__":
     assert testCase.inorderTraversal(t1) == [1, 3, 2]
 
     print("All passed")
+
