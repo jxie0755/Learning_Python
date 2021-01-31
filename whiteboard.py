@@ -13,7 +13,6 @@ from a0_TreeNode import *
 
 
 class Solution:
-    # Recursive method
     def inorderTraversal(self, root: TreeNode) -> List[int]:
         pass
 
