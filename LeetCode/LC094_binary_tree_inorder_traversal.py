@@ -27,17 +27,19 @@ class Solution_STD_A:
     def inorderTraversal(self, root: TreeNode) -> List[int]:
         """
         Stack Solution
+        Space O(N), Time O(N)
         """
         result, stack = [], [(root, False)]
         while stack:
-            root, is_visited = stack.pop()
+            root, is_visited = stack.pop() # Sequence guaranteed by always pop from end
             if root is None:
                 continue
             if is_visited:
                 result.append(root.val)
             else:
+                # after poping, replace with expanded to next level by swapping
                 stack.append((root.right, False))
-                stack.append((root, True))
+                stack.append((root, True)) # label is_visited, to avoid repeatingly expand
                 stack.append((root.left, False))
         return result
 
@@ -46,31 +48,34 @@ class Solution_STD_B:
     def inorderTraversal(self, root):
         """
         Morris Traversal Solution
-        TODO Learn algorithm
+        Space O(1), space O(N)
         """
-        result, curr = [], root
-        while curr:
-            if curr.left is None:
-                result.append(curr.val)
-                curr = curr.right
+        result, cur = [], root
+        while cur:
+            if cur.left is None:
+                result.append(cur.val)
+                cur = cur.right
             else:
-                node = curr.left
-                while node.right and node.right != curr:
+                node = cur.left # if both L and R has value, always go left (label as node)
+
+                # DO NOT use "==", this algorithm create cycling tree
+                while node.right and node.right is not cur:
                     node = node.right
 
                 if node.right is None:
-                    node.right = curr
-                    curr = curr.left
+                    # push cur all the way to the left, and label cur.right back to above level
+                    node.right = cur # change orginal tree
+                    cur = cur.left   # cur at the very left end of the right
                 else:
-                    result.append(curr.val)
-                    node.right = None
-                    curr = curr.right
+                    result.append(cur.val)
+                    node.right = None # return to the original tree
+                    cur = cur.right # finished everything on the left, now move the right branch
 
         return result
 
 
 if __name__ == "__main__":
-    testCase = Solution_A()
+    testCase = Solution_STD_B()
 
     t0 = None
     assert testCase.inorderTraversal(t0) == []
