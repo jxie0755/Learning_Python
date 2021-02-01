@@ -13,8 +13,10 @@ from typing import *
 from a0_TreeNode import *
 
 
-class Solution:
-    # Recursive method
+class Solution_A:
+    """
+    Simple recursive method
+    """
     def inorderTraversal(self, root: TreeNode) -> List[int]:
         if not root:
             return []
@@ -22,10 +24,10 @@ class Solution:
 
 
 class Solution(object):
-    # STD ans
-    # Time:  O(n)
-    # Space: O(h)
-    # Stack Solution
+    """
+    STD ans
+    Stack Solution
+    """
     def inorderTraversal(self, root):
         """
         :type root: TreeNode

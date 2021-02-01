@@ -14,7 +14,10 @@ from a0_TreeNode import *
 
 class Solution:
     def inorderTraversal(self, root: TreeNode) -> List[int]:
-        pass
+        if not root:
+            return []
+        else:
+            return self.inorderTraversal(root.left) + [root.val] + self.inorderTraversal(root.right)
 
 
 if __name__ == "__main__":
@@ -27,6 +30,7 @@ if __name__ == "__main__":
         1,
         None, 2,
         None, None, 3, None])
+    print(Solution().inorderTraversal(t1))
     assert testCase.inorderTraversal(t1) == [1, 3, 2]
 
     print("All passed")
