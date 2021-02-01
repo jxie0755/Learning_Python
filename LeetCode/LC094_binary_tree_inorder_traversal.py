@@ -34,8 +34,8 @@ class Solution_STD_A:
         while stack:
             root, is_visited = stack.pop() # Sequence guaranteed by always pop from end
             if root is None:
-                pass
-            elif is_visited:
+                continue
+            if is_visited:
                 result.append(root.val)
             else:
                 # after poping, replace with expanded to next level by swapping
