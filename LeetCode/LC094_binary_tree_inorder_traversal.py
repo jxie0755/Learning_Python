@@ -23,15 +23,10 @@ class Solution_A:
         return self.inorderTraversal(root.left) + [root.val] + self.inorderTraversal(root.right)
 
 
-class Solution(object):
-    """
-    STD ans
-    Stack Solution
-    """
-    def inorderTraversal(self, root):
+class Solution_STD_A:
+    def inorderTraversal(self, root: TreeNode) -> List[int]:
         """
-        :type root: TreeNode
-        :rtype: List[int]
+        Stack Solution
         """
         result, stack = [], [(root, False)]
         while stack:
@@ -47,14 +42,11 @@ class Solution(object):
         return result
 
 
-# Morris Traversal Solution
-class Solution_B(object):
+class Solution_STD_B:
     def inorderTraversal(self, root):
-        # STD Ans
-        # TODO Learn algorithm
         """
-        :type root: TreeNode
-        :rtype: List[int]
+        Morris Traversal Solution
+        TODO Learn algorithm
         """
         result, curr = [], root
         while curr:
@@ -78,7 +70,7 @@ class Solution_B(object):
 
 
 if __name__ == "__main__":
-    testCase = Solution()
+    testCase = Solution_A()
 
     t0 = None
     assert testCase.inorderTraversal(t0) == []
