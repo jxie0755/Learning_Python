@@ -78,12 +78,20 @@ if __name__ == "__main__":
     testCase = Solution_STD_B()
 
     t0 = None
-    assert testCase.inorderTraversal(t0) == []
+    assert testCase.inorderTraversal(t0) == [], "Edge 0"
 
     t1 = genTree([
         1,
         None, 2,
         None, None, 3, None])
-    assert testCase.inorderTraversal(t1) == [1, 3, 2]
+    assert testCase.inorderTraversal(t1) == [1, 3, 2], "Example 1"
+
+    t2 = genTree([
+        6,
+        2, 7,
+        1, 4, None,  9,
+        None, None, 3, 5, None, None, 8, None
+    ])
+    assert testCase.inorderTraversal(t2) == [1,2,3,4,5,6,7,8,9], "Addtinal 1"
 
     print("All passed")
