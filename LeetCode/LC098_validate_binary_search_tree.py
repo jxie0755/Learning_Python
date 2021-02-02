@@ -17,11 +17,12 @@ from typing import *
 from a0_TreeNode import *
 
 
-class Solution:
-
-    # Use inorderTraversal to get the list from Leetcode P094
-    # Then filter the None out from the list and check if the list is sorted
+class Solution_A:
     def inorderTraversal(self, root: TreeNode) -> List[int]:
+        """
+        Use inorderTraversal to get the list from Leetcode P094
+        Then filter the None out from the list and check if the list is sorted
+        """
         if not root:
             # Must write this way to avoid val=0
             # Do not write "not root.val"
@@ -42,7 +43,7 @@ class Solution:
 
 
 if __name__ == "__main__":
-    testCase = Solution()
+    testCase = Solution_A()
 
 
     t1 = genTree([2, 1, 3])
