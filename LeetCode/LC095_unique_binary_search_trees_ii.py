@@ -1,4 +1,5 @@
 """
+https://leetcode.com/problems/unique-binary-search-trees-ii/
 P095 Unique Binary Search Trees II
 Medium
 
@@ -16,7 +17,9 @@ class Solution:
 
 
 if __name__ == "__main__":
-    assert Solution().generateTrees(3) == [
+    testCase = Solution()
+
+    assert testCase.generateTrees(3) == [
         genTree([1, None, 3, None, None, 2, None]),
         genTree([3, 2, None, 1, None, None, None]),
         genTree([3, 1, None, None, 2, None, None]),
