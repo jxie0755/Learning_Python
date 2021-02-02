@@ -528,7 +528,6 @@ def linky_paths(t):
     helper(t, Link.empty)
 
 
-from class_tree import Tree
 
 # Other Tree related functions:
 # Fibonacci tree setup by Tree class
