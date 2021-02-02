@@ -4,6 +4,8 @@ A similar structure as tree that use tree as a structure
 See the OOP setup in class_tree.py
 """
 
+from tree_recursion_tree import tree, is_tree, label, branches
+
 def mobile(left, right):
     """Construct a mobile from a left side and a right side."""
     return tree("mobile", [left, right])
