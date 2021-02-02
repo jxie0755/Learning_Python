@@ -40,7 +40,7 @@ class TreeNode:
         return hash(id(self))
 
 
-def genTree(lst: List[int], ith: int = 1) -> TreeNode:
+def genTree(lst: List[int], idx: int = 0) -> TreeNode:
     """
     To generate a perfect binary tree according to a non-empty list of values
     The lst must be all filled, even the branch is empty, then use None to suggest the empty treeNode
@@ -48,10 +48,10 @@ def genTree(lst: List[int], ith: int = 1) -> TreeNode:
 
     ith is always idx+1, so that need to adjust ith back to idx through ith-1
     """
-    if len(lst)>= ith and lst[ith - 1] is not None:
-        node = TreeNode(lst[ith - 1])
-        node.left = genTree(lst, ith * 2)
-        node.right = genTree(lst, ith * 2 + 1)
+    if len(lst)>= idx+1 and lst[idx] is not None:
+        node = TreeNode(lst[idx])
+        node.left = genTree(lst, idx * 2 + 1)
+        node.right = genTree(lst, idx * 2 + 2)
         return node
 
 
