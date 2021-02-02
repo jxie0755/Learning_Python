@@ -7,6 +7,7 @@ Merge two sorted linked lists and return it as a new list.
 The new list should be made by splicing together the nodes of the first two lists.
 """
 
+from typing import *
 from a0_ListNode import *
 
 class Solution_A:

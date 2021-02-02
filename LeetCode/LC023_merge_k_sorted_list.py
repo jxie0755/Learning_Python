@@ -6,6 +6,7 @@ Hard
 Merge k sorted linked lists and return it as one sorted list. Analyze and describe its complexity.
 """
 
+from typing import *
 from a0_ListNode import *
 
 class Solution_A:

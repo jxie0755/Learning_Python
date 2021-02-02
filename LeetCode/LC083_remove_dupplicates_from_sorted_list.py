@@ -6,6 +6,7 @@ Easy
 Given a sorted linked list, delete all duplicates such that each element appear only once.
 """
 
+from typing import *
 from a0_ListNode import *
 
 

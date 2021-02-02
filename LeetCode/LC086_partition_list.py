@@ -8,7 +8,7 @@ Given a linked list and a value x, partition it such that all nodes less than x 
 You should preserve the original relative order of the nodes in each of the two partitions.
 """
 
-
+from typing import *
 from a0_ListNode import *
 
 

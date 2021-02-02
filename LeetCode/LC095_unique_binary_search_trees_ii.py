@@ -1,8 +1,10 @@
-# P095 Unique Binary Search Trees II
-# Medium
+"""
+P095 Unique Binary Search Trees II
+Medium
 
-# Given an integer n, generate all structurally unique BST's (binary search trees) that store values 1 ... n.
-# TODO after learning BST
+Given an integer n, generate all structurally unique BST's (binary search trees) that store values 1 ... n.
+TODO after learning BST
+"""
 
 from typing import *
 from a0_TreeNode import *

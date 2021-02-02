@@ -6,6 +6,7 @@ Medium
 Given a sorted linked list, delete all nodes that have duplicate numbers, leaving only distinct numbers from the original list.
 """
 
+from typing import *
 from a0_ListNode import *
 
 
