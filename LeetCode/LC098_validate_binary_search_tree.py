@@ -40,8 +40,41 @@ class Solution_A:
         return True
 
 
+class Solution_STD:
+    def isValidBST(self, root: TreeNode) -> bool:
+        """
+        Incorporate Morris Travael and check in-place
+        """
+        check = None # starting check with minimum value
+        cur = root
+        while cur:
+            if cur.left is None: # ignore adding the first element
+                if check is not None and cur.val < check: # always compare cur.val with check, replace if >
+                    return False
+                else:
+                    check = cur.val
+                    cur = cur.right
+            else:
+                node = cur.left
+
+                while node.right and node.right is not cur:
+                    node = node.right
+
+                if node.right is None:
+                    node.right = cur
+                    cur = cur.left
+                else:
+                    if check is not None and cur.val < check:  # always compare cur.val with check, replace if >
+                        return False
+                    else:
+                        check = cur.val
+                        node.right = None
+                        cur = cur.right
+        return True # everything checked out
+
+
 if __name__ == "__main__":
-    testCase = Solution_A()
+    testCase = Solution_STD()
 
 
     t1 = genTree([2, 1, 3])
@@ -52,7 +85,6 @@ if __name__ == "__main__":
         1, 4,
         None, None, 3, 6
     ])
-
     assert not testCase.isValidBST(t2), "Example 2"
 
     t3 = genTree([
