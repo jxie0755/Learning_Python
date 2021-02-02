@@ -21,7 +21,7 @@ class Solution_A:
     def inorderTraversal(self, root: TreeNode) -> List[int]:
         """
         Use inorderTraversal to get the list from Leetcode P094
-        Then filter the None out from the list and check if the list is sorted
+        Then check if the flateen list is sorted
         """
         if not root:
             # Must write this way to avoid val=0
@@ -31,11 +31,9 @@ class Solution_A:
         return self.inorderTraversal(root.left) + [root.val] + self.inorderTraversal(root.right)
 
     def isValidBST(self, root: TreeNode) -> bool:
-        flat = list(filter(lambda x: x is not None, self.inorderTraversal(root)))
+        flat = self.inorderTraversal(root)
 
-        if not flat:
-            return True
-
+        # tell if flat list is sorted
         for i in range(1, len(flat)):
             if flat[i] <= flat[i - 1]:
                 return False
@@ -68,3 +66,6 @@ if __name__ == "__main__":
     assert not testCase.isValidBST(t4), "Additional"
 
     print("All passed")
+
+    aa = []
+

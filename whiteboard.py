@@ -18,8 +18,14 @@ from a0_TreeNode import *
 
 
 class Solution_A:
-    def inorderTraversal(self, root: TreeNode) -> List[int]:
-        pass
+    def isValidBST(self, root: TreeNode) -> bool:
+        """
+        Recursive verification
+        """
+
+
+
+
 
 
 
@@ -27,6 +33,7 @@ if __name__ == "__main__":
     testCase = Solution_A()
 
     t1 = genTree([2, 1, 3])
+    print(testCase.isValidBST(t1))
     assert testCase.isValidBST(t1), "Example 1"
 
     t2 = genTree([
@@ -42,9 +49,9 @@ if __name__ == "__main__":
         1, 6,
         None, None, 3, 7
     ])
-    assert not testCase.isValidBST(t3), "Additional"
+    assert not testCase.isValidBST(t3), "Additional 1"
 
     t4 = genTree([0, None, -1])
-    assert not testCase.isValidBST(t4), "Additional"
+    assert not testCase.isValidBST(t4), "Additional 2"
 
     print("All passed")
