@@ -40,7 +40,28 @@ class Solution_A:
         return True
 
 
-class Solution_STD:
+class Solution_STD_A:
+    def isValidBST(self, root: TreeNode) -> bool:
+        """
+        Recursive verification
+        Use a helper to carry low and high boundary
+        """
+        return self.isValidBSTRecu(root, float("-inf"), float("inf"))
+
+    def isValidBSTRecu(self, root: TreeNode, low: int, high: int) -> bool:
+        """
+        Recursive helper to carry the low and high boundary
+        """
+        if root is None:
+            return True
+        else:
+            return low < root.val < high \
+                   and self.isValidBSTRecu(root.left, low, root.val) \
+                   and self.isValidBSTRecu(root.right, root.val, high)
+
+
+
+class Solution_STD_B:
     def isValidBST(self, root: TreeNode) -> bool:
         """
         Incorporate Morris Travael and check in-place
@@ -74,8 +95,7 @@ class Solution_STD:
 
 
 if __name__ == "__main__":
-    testCase = Solution_STD()
-
+    testCase = Solution_STD_A()
 
     t1 = genTree([2, 1, 3])
     assert testCase.isValidBST(t1), "Example 1"
@@ -85,6 +105,7 @@ if __name__ == "__main__":
         1, 4,
         None, None, 3, 6
     ])
+
     assert not testCase.isValidBST(t2), "Example 2"
 
     t3 = genTree([
@@ -92,12 +113,10 @@ if __name__ == "__main__":
         1, 6,
         None, None, 3, 7
     ])
-    assert not testCase.isValidBST(t3), "Additional"
+    assert not testCase.isValidBST(t3), "Additional 1"
 
     t4 = genTree([0, None, -1])
-    assert not testCase.isValidBST(t4), "Additional"
+    assert not testCase.isValidBST(t4), "Additional 2"
 
     print("All passed")
-
-    aa = []
 

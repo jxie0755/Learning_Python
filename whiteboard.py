@@ -22,8 +22,15 @@ class Solution_A:
         """
         Recursive verification
         """
+        return self.isValidBSTRecu(root, float("-inf"), float("inf"))
 
+    def isValidBSTRecu(self, root: TreeNode, low: int, high: int) -> bool:
+        if root is None:
+            return True
 
+        return low < root.val and root.val < high \
+               and self.isValidBSTRecu(root.left, low, root.val) \
+               and self.isValidBSTRecu(root.right, root.val, high)
 
 
 
@@ -33,7 +40,6 @@ if __name__ == "__main__":
     testCase = Solution_A()
 
     t1 = genTree([2, 1, 3])
-    print(testCase.isValidBST(t1))
     assert testCase.isValidBST(t1), "Example 1"
 
     t2 = genTree([
