@@ -54,10 +54,10 @@ class Solution_STD_A:
         """
         if root is None:
             return True
-        else:
-            return low < root.val < high \
-                   and self.isValidBSTRecu(root.left, low, root.val) \
-                   and self.isValidBSTRecu(root.right, root.val, high)
+
+        return low < root.val < high \
+               and self.isValidBSTRecu(root.left, low, root.val) \
+               and self.isValidBSTRecu(root.right, root.val, high)
 
 
 
