@@ -63,4 +63,8 @@ if __name__ == "__main__":
     print(genTree([1]))
 
     print("\nComplicated Tree:")
-    print(genTree([1, 2, 3, None, 4, 5, None]))
+    print(genTree([
+        1,
+        2, 3,
+        None, 4, 5, None
+    ]))
