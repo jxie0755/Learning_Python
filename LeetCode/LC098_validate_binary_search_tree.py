@@ -91,7 +91,7 @@ class Solution_STD_B:
                         check = cur.val
                         node.right = None
                         cur = cur.right
-        return True # everything checked out
+        return True
 
 
 if __name__ == "__main__":
