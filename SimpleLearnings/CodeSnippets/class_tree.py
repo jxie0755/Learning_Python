@@ -357,7 +357,7 @@ class Tree:
 
     def prune_repeats(self, seen=[]):
         """remove the tree in the branches that has shown before
-        >>> from class_tree_others import fib_tree
+        >>> from class_tree import fib_tree
         >>> T = fib_tree(6)
         >>> print(T) # a binary tree to 6th fib, starting from 0th (0,1,1,2,3,5,8)
         8
