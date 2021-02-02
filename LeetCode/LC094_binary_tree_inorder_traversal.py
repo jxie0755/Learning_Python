@@ -93,6 +93,6 @@ if __name__ == "__main__":
         1, 4, None,  9,
         None, None, 3, 5, None, None, 8, None
     ])
-    assert testCase.inorderTraversal(t2) == [1,2,3,4,5,6,7,8,9], "Addtinal 1"
+    assert testCase.inorderTraversal(t2) == [1,2,3,4,5,6,7,8,9], "Additonal 1"
 
     print("All passed")
