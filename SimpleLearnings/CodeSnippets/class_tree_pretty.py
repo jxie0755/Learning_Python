@@ -210,6 +210,7 @@ def pretty(tree):
 if __name__ == "__main__":
     T = Tree(1, [Tree(2, [Tree(4), Tree(5)]), Tree(3, [Tree(6), Tree(7, [Tree(8), Tree(9)])])])
 
+    print("\n")
     pretty(T)
     #     1
     #  /    \
