@@ -11,19 +11,19 @@ class TreeNode:
 
     def __str__(self):
 
-        def layer(T, L=1):
+        def layer(T, space="  ", L=1):
             if T.val is None:
                 return "N"
 
             s = str(T.val)
             if T.left and T.right:
-                return s + "\n" + "  " * L + layer(T.left, L + 1) + "\n" + "  " * L + layer(T.right, L + 1)
+                return s + "\n" + space * L + layer(T.left, space, L + 1) + "\n" + space * L + layer(T.right, space, L + 1)
             elif T.left and not T.right:
-                return s + "\n" + "  " * L + layer(T.left, L + 1) + "\n" + "  " * L + "N"
+                return s + "\n" + space * L + layer(T.left, space, L + 1) + "\n" + space * L + "N"
             elif not T.left and T.right:
-                return s + "\n" + "  " * L + "N" + "\n" + "  " * L + layer(T.right, L + 1)
+                return s + "\n" + space * L + "N" + "\n" + space * L + layer(T.right, space, L + 1)
             else:
-                return s + "\n" + "  " * L + "N" + "\n" + "  " * L + "N"
+                return s + "\n" + space * L + "N" + "\n" + space * L + "N"
 
         return layer(self)
 
@@ -46,7 +46,7 @@ def genTree(lst: List[int], idx: int = 0) -> TreeNode:
     The lst must be all filled, even the branch is empty, then use None to suggest the empty treeNode
     Starting idx = 0, and every branch idx of i is i*2+1 (left) and i*2+2 (right)
     """
-    if len(lst)>= idx+1 and lst[idx] is not None:
+    if len(lst) >= idx + 1 and lst[idx] is not None:
         node = TreeNode(lst[idx])
         node.left = genTree(lst, idx * 2 + 1)
         node.right = genTree(lst, idx * 2 + 2)
@@ -65,4 +65,10 @@ if __name__ == "__main__":
         1,
         2, 3,
         None, 4, 5, None
+    ]))
+
+    print(genTree([
+        1,
+        2, 5,
+        13, 14, 16, 17
     ]))
