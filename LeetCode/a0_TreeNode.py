@@ -64,11 +64,5 @@ if __name__ == "__main__":
     print(genTree([
         1,
         2, 3,
-        None, 4, 5, None
-    ]))
-
-    print(genTree([
-        1,
-        2, 5,
-        13, 14, 16, 17
+        None, 14, 15, None
     ]))
