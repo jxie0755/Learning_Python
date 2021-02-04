@@ -103,6 +103,7 @@ if __name__ == "__main__":
     testCase = Solution_A3()
 
     assert testCase.numTrees(3) == 5, "Example 1"
+    assert testCase.numTrees(4) == 14, "Additional 1"
     assert testCase.numTrees(19) == 1767263190, "Long 1"
 
     print("All passed")
