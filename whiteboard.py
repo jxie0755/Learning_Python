@@ -17,9 +17,11 @@ class Solution:
         create a list, Length = 2^n-1 (maximum possible length)
         Then assign the element at idx to generate tree
         """
-        L = [None for i in range(2**n - 1)]
+        L = list(range(1, n+1))
+        candidates = [None for i in range(2**n - 1)]
 
-
+    def generateTrees(self, lst:List[int],left: List[int], right: List[int], candid: List[int]):
+        pass
 
     def genTree(self, lst: List[int], idx: int = 0) -> TreeNode:
         """
