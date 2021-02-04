@@ -82,8 +82,26 @@ class Solution_A3:
         return numTreesHelper(n)
 
 
+class Solution_STD:
+    """
+    Dynamic Programming
+    """
+    def numTrees(self, n: int) -> int:
+
+        # Dynamic list, idx is length of List (n)
+        counts = [1, 1] # start with L=0, return 1, L=1, return 1.
+
+        for idx_n in range(2, n + 1): # iterate from 2 to n
+            count = 0
+            for left in range(idx_n):
+                count += counts[left] * counts[idx_n - left - 1]
+                    # left side length * right side length
+            counts.append(count) # progrssive extend counts to idx = n
+        return counts[-1]
+
+
 if __name__ == "__main__":
-    testCase = Solution_A3()
+    testCase = Solution_STD()
 
     assert testCase.numTrees(3) == 5, "Example 1"
     assert testCase.numTrees(19) == 1767263190, "Long 1"
