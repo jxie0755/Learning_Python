@@ -17,11 +17,14 @@ class Solution:
         create a list, Length = 2^n-1 (maximum possible length)
         Then assign the element at idx to generate tree
         """
+        result = []
         L = list(range(1, n+1))
         candidates = [None for i in range(2**n - 1)]
 
-    def generateTrees(self, lst:List[int],left: List[int], right: List[int], candid: List[int]):
-        pass
+
+
+
+
 
     def genTree(self, lst: List[int], idx: int = 0) -> TreeNode:
         """
@@ -34,7 +37,7 @@ class Solution:
             return node
 
 
-
+Solution().generateTrees(1)
 
 # if __name__ == "__main__":
 #     testCase = Solution()
@@ -55,5 +58,3 @@ class Solution:
 #     assert len(t1) == len(a1) == m1, "Example 1"  # verify without sorted
 #
 #     print("All passed")
-
-
