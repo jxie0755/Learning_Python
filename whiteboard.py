@@ -63,34 +63,37 @@ idx_list = [1, 2]
 new_rt_idx = []
 n = 5
 
-# temp = candidate.copy()
-# for idx in idx_list:
-#     new_rt_idx.append(idx * 2 + 1)  # add left to new rt list
-#     new_rt_idx.append(idx * 2 + 2)  # add right to new rt list
-#
-#     # determine parent root idx
-#     direction = idx % 2
-#     if direction == 1:  # node on L side
-#         prev = (idx - 1) // 2
-#         if candidate[prev]:
-#             for j in range(1, candidate[prev]):
-#                 temp[idx] = j
-#
-#     if direction == 0:  # node on
-#
-#         # R side
-#         prev = (idx - 2) // 2
-#         if candidate[prev]:
-#             for j in range(candidate[prev] + 1, n + 1):
-#                 temp[idx] = j
+print([[x, y] for x in range(1, 4) for y in range(1, 4)])
 
+# a = [None, None]
+# for x in range(1, 4):
+#     for y in range(1, 4):
+#         aa = a.copy()
+#         aa[0] = x
+#         aa[1] = y
+#         print(aa)
 
-a = [3, None, None]
-for i in range(1, 3):
-    x = a.copy()
-    for j in range(5, 7):
-        a[i] = j
-    print(a)
+temp = candidate.copy()
+for idx in idx_list:
+    new_rt_idx.append(idx * 2 + 1)  # add left to new rt list
+    new_rt_idx.append(idx * 2 + 2)  # add right to new rt list
+
+    # determine parent root idx
+    direction = idx % 2
+    if direction == 1:  # node on L side
+        prev = (idx - 1) // 2
+        if candidate[prev]:
+            for j in range(1, candidate[prev]):
+                temp[idx] = j
+
+    if direction == 0:  # node on
+
+        # R side
+        prev = (idx - 2) // 2
+        if candidate[prev]:
+            for j in range(candidate[prev] + 1, n + 1):
+                temp[idx] = j
+
 
 ''
 # if __name__ == "__main__":
@@ -113,4 +116,3 @@ for i in range(1, 3):
 #
 #     print("All passed")
 
-print([[x,y] for x in range(1,4) for y in range(1,4)])
