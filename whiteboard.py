@@ -11,21 +11,6 @@ from a0_TreeNode import *
 
 
 class Solution:
-    def generateTrees(self, n: int) -> List[TreeNode]:
-        """
-        DP method
-        create a list, Length = 2^n-1 (maximum possible length)
-        Then assign the element at idx to generate tree
-        """
-        result = []
-        L = list(range(1, n+1))
-        candidates = [None for i in range(2**n - 1)]
-
-
-
-
-
-
     def genTree(self, lst: List[int], idx: int = 0) -> TreeNode:
         """
         A helper fucntion just like TreeNode.genTree to solve this problem
@@ -36,9 +21,78 @@ class Solution:
             node.right = self.genTree(lst, idx * 2 + 2)
             return node
 
+    def generateTrees(self, n: int) -> List[TreeNode]:
+        """
+        DP method
+        create a list, Length = 2^n-1 (maximum possible length)
+        Then assign the element at idx to generate tree
+        """
+        template = [None for _ in range(2 ** n - 1)]
+        result = [template]
 
-Solution().generateTrees(1)
+        L = 1
+        idx_list = [0]
+        while L != 3:
+            new_result = []
+            new_rt_idx = []
+            for candidate in result:
+                for idx in idx_list:
+                    new_rt_idx.append(idx * 2 + 1)  # add left to new rt list
+                    new_rt_idx.append(idx * 2 + 2)  # add right to new rt list
+                    if L == 1:
+                        for i in range(1, n + 1):
+                            new_candidate = candidate.copy()
+                            new_candidate[idx] = i
+                            new_result.append(new_candidate)
+                    else:
+                        pass
 
+            result = new_result
+            idx_list = new_rt_idx
+            L += 1
+            break
+
+        print(idx_list)
+        print(result)
+
+
+# Solution().generateTrees(3)
+
+candidate = [3, None, None, None]
+idx_list = [1, 2]
+new_rt_idx = []
+n = 5
+
+# temp = candidate.copy()
+# for idx in idx_list:
+#     new_rt_idx.append(idx * 2 + 1)  # add left to new rt list
+#     new_rt_idx.append(idx * 2 + 2)  # add right to new rt list
+#
+#     # determine parent root idx
+#     direction = idx % 2
+#     if direction == 1:  # node on L side
+#         prev = (idx - 1) // 2
+#         if candidate[prev]:
+#             for j in range(1, candidate[prev]):
+#                 temp[idx] = j
+#
+#     if direction == 0:  # node on
+#
+#         # R side
+#         prev = (idx - 2) // 2
+#         if candidate[prev]:
+#             for j in range(candidate[prev] + 1, n + 1):
+#                 temp[idx] = j
+
+
+a = [3, None, None]
+for i in range(1, 3):
+    x = a.copy()
+    for j in range(5, 7):
+        a[i] = j
+    print(a)
+
+''
 # if __name__ == "__main__":
 #     testCase = Solution()
 #
@@ -58,3 +112,16 @@ Solution().generateTrees(1)
 #     assert len(t1) == len(a1) == m1, "Example 1"  # verify without sorted
 #
 #     print("All passed")
+
+a = [[1, 1],
+[1, 2],
+[1, 3],
+[2, 1],
+[2, 2],
+[2, 3],
+[3, 1],
+[3, 2],
+[3, 3]]
+
+for r in a:
+    print(r)
