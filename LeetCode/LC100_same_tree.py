@@ -1,42 +1,41 @@
-# p100 Same Tree
-# Easy
+"""
+https://leetcode.com/problems/same-tree/
+p100 Same Tree
+Easy
 
 
-# Given two binary trees, write a function to check if they are the same or not.
-# Two binary trees are considered the same if they are structurally identical and the nodes have the same value.
+Given two binary trees, write a function to check if they are the same or not.
+Two binary trees are considered the same if they are structurally identical and the nodes have the same value.
 
-# Note:
-# Mirrored trees are considered not the same
-# Circular trees can not be tested
+Note:
+Mirrored trees are considered not the same
+Circular trees can not be tested
+"""
 
 from a0_TreeNode import *
 
 
-class Solution:
-    # def isSameTree(self, p, q):
-    #     """
-    #     :type p: TreeNode
-    #     :type q: TreeNode
-    #     :rtype: bool
-    #     """
-    #     if not p and not q:
-    #         return True
-    #     elif not p or not q:
-    #         return False
-    #     elif p.left and q.left and p.right and q.right:
-    #         return p.val == q.val and self.isSameTree(p.left, q.left) and self.isSameTree(p.right, q.right)
-    #     elif p.left and q.left:
-    #         return p.val == q.val and self.isSameTree(p.left, q.left) and not p.right and not q.right
-    #     elif p.right and q.right:
-    #         return p.val == q.val and self.isSameTree(p.right, q.right) and not p.left and not q.left
-    #     else:
-    #         return p.val == q.val and not p.left and not q.left and not p.right and not q.right
-
-    def isSameTree(self, p, q):
+class Solution_A:
+    def isSameTree(self, p: TreeNode, q: TreeNode) -> bool:
         """
-        :type p: TreeNode
-        :type q: TreeNode
-        :rtype: bool
+        Recursive comparison each branch
+        """
+        if not p and not q:
+            return True
+        elif not p or not q:
+            return False
+        elif p.left and q.left and p.right and q.right:
+            return p.val == q.val and self.isSameTree(p.left, q.left) and self.isSameTree(p.right, q.right)
+        elif p.left and q.left:
+            return p.val == q.val and self.isSameTree(p.left, q.left) and not p.right and not q.right
+        elif p.right and q.right:
+            return p.val == q.val and self.isSameTree(p.right, q.right) and not p.left and not q.left
+        else:
+            return p.val == q.val and not p.left and not q.left and not p.right and not q.right
+
+class Solution_B:
+    def isSameTree(self, p: TreeNode, q: TreeNode) -> bool:
+        """
         """
         if not p and not q:
             return True
@@ -47,28 +46,51 @@ class Solution:
 
 
 if __name__ == "__main__":
-    T10 = genTree([
+    testCase = Solution_A()
+
+    T0 = None;
+    T00 = None;
+    T000 = TreeNode(5)
+
+    assert testCase.isSameTree(T0, T00)== True, "Edge 0"
+    assert testCase.isSameTree(T0, T000) == False, "Edge 1"
+    assert testCase.isSameTree(T00, T000) == False, "Edge 2"
+
+
+    T1 = genTree([
         1,
         2, 3
     ])
-    T20 = genTree([
+    T2 = genTree([
         1,
         2, 3
     ])
+    assert testCase.isSameTree(T1, T2) == True, "Example 1"
 
-    assert Solution().isSameTree(T10, T20) == True, "T1"
-
-    T10 = genTree([
+    T3 = genTree([
         1,
         2, 3,
         4, None, None, None
     ])
-    T20 = genTree([
+    T4 = genTree([
         1,
         3, 2,
         4, None, None, None
     ])
+    assert testCase.isSameTree(T3, T4) == False, "Example 2"
 
-    assert Solution().isSameTree(T10, T20) == False, "T2"
+
+    T5 = genTree([
+        1,
+        2, 3,
+        None, 4, 5, None
+    ])
+
+    T6 = genTree([
+        1,
+        2, 3,
+        None, 4, 5, None
+    ])
+    assert testCase.isSameTree(T5, T6) == True, "Additional 1"
 
     print("All passed")
