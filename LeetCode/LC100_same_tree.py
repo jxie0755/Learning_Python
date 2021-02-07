@@ -17,6 +17,9 @@ from a0_TreeNode import *
 
 class Solution_A:
     def isSameTree(self, p: TreeNode, q: TreeNode) -> bool:
+        """
+        Recursive comparison every branch
+        """
         if not p and not q:
             return True
         elif not p or not q:
