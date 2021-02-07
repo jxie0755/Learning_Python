@@ -17,14 +17,22 @@ from a0_TreeNode import *
 
 class Solution_A:
     def isSameTree(self, p: TreeNode, q: TreeNode) -> bool:
-        pass
+        if not p and not q:
+            return True
+        elif not p or not q:
+            return False
+        else:
+            return p.val == q.val and \
+        self.isSameTree(p.left, q.left) and \
+        self.isSameTree(p.right, q.right)
+
 
 
 if __name__ == "__main__":
     testCase = Solution_A()
 
-    T0 = None;
-    T00 = None;
+    T0 = None
+    T00 = None
     T000 = TreeNode(5)
 
     assert testCase.isSameTree(T0, T00) == True, "Edge 0"
