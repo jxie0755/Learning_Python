@@ -39,7 +39,7 @@ if __name__ == "__main__":
 
     assert testCase.isSameTree(T0, T00) == True, "Edge 0"
     assert testCase.isSameTree(T0, T000) == False, "Edge 1"
-    assert testCase.isSameTree(T00, T000) == False, "Edge 2"
+    assert testCase.isSameTree(T000, T00) == False, "Edge 2"
 
     T1 = genTree([
         1,
