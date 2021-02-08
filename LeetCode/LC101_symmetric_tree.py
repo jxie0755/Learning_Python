@@ -217,6 +217,14 @@ if __name__ == "__main__":
         1,
         0, None
     ])
-    assert not testCase.isSymmetric(T3), "Example 3"
+    assert not testCase.isSymmetric(T3), "Additional 1"
+
+    T4 = genTree([
+        1,
+        2, 2,
+        None,3,3, None,
+        None, None, 4,None,None,4,None,None
+    ])
+    assert testCase.isSymmetric(T4), "Additional 2"
 
     print("All passed")
