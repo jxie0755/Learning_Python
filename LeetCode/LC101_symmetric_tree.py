@@ -1,13 +1,14 @@
-# P101 Symmetric Tree
-# Easy
+"""
+https: // leetcode.com / problems / symmetric - tree /
+P101 Symmetric Tree
+Easy
 
-# Given a binary tree, check whether it is a mirror of itself (ie, symmetric around its center).
+Given a binary tree, check whether it is a mirror of itself (ie, symmetric around its center).
+"""
 
 from a0_TreeNode import *
 
-
-class Solution:
-
+class Solution_A:
     def showLayers(self, root):  # Omit None
         """Show the tree layer by layer from top to bottom"""
         if root is None:
@@ -38,7 +39,7 @@ class Solution:
         return True
 
 
-class Solution:
+class Solution_B:
     def isSymmetric(self, root: TreeNode) -> bool:
         # Check on the run, accepted, but too slow
         # O(N^2)
@@ -65,7 +66,7 @@ class Solution:
         return True
 
 
-class Solution:
+class Solution_C:
     def preorderTraversal(self, t):
         """return a flat list of the binary tree including None"""
         if not t:
@@ -85,7 +86,7 @@ class Solution:
 
 
 # Iterative solution
-class Solution(object):
+class Solution_D:
     # STD ans
     # @param root, a tree node
     # @return a boolean
@@ -119,7 +120,7 @@ class Solution(object):
 
 
 # Recursive solution
-class Solution2(object):
+class Solution_E:
     # STD ans
     # @param root, a tree node
     # @return a boolean
@@ -138,30 +139,33 @@ class Solution2(object):
 
 
 if __name__ == "__main__":
-    A0 = None
-    assert Solution().isSymmetric(A0), "Edge 0"
+    testCase = Solution_A()
 
-    A00 = TreeNode(1)
-    assert Solution().isSymmetric(A00), "Edge 1"
+    T0 = None
+    assert testCase.isSymmetric(T0), "Edge 0"
 
-    A1 = genTree([
+    T00 = TreeNode(1)
+    assert testCase.isSymmetric(T00), "Edge 1"
+
+    T1 = genTree([
         1,
         2, 2,
         3, 4, 4, 3
     ])
-    assert Solution().isSymmetric(A1), "Example 1"
+    assert testCase.isSymmetric(T1), "Example 1"
 
-    A2 = genTree([
+    T2 = genTree([
         1,
         2, 2,
         None, 3, None, 3
     ])
-    assert not Solution().isSymmetric(A2), "Example 2"
+    assert not testCase.isSymmetric(T2), "Example 2"
 
-    A3 = genTree([
+    T3 = genTree([
         1,
         0, None
     ])
-    assert not Solution().isSymmetric(A3), "Example 3"
+    assert not testCase.isSymmetric(T3), "Example 3"
 
     print("All passed")
+
