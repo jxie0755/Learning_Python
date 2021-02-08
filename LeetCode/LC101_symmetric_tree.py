@@ -8,28 +8,12 @@ Given a binary tree, check whether it is a mirror of itself (ie, symmetric aroun
 
 from a0_TreeNode import *
 
-class Solution_A:
-    def showLayers(self, root):  # Omit None
-        """Show the tree layer by layer from top to bottom"""
-        if root is None:
-            return []
 
-        result, current = [], [root]
-        while current:
-            next_level, vals = [], []
-            for node in current:
-                vals.append(node.val)
-                if node.left:
-                    next_level.append(node.left)
-                if node.right:
-                    next_level.append(node.right)
-            current = next_level
-            result.append(vals)
-
-        return result
-
+class Solution_A1:
     def isSymmetric(self, root: TreeNode) -> bool:
-        # If wait till getting all the layers, it will be too late
+        """
+        Verify if all layers are symmetric
+        """
         if not root:
             return True
         all_layer = self.showLayers(root)
@@ -38,108 +22,181 @@ class Solution_A:
                 return False
         return True
 
-
-class Solution_B:
-    def isSymmetric(self, root: TreeNode) -> bool:
-        # Check on the run, accepted, but too slow
-        # O(N^2)
-        layer = [root]
-        while any([i for i in layer]):
-            new_layer = []
-            new_layer_val = []
-            for i in layer:
-                if i:
-                    new_layer.append(i.left)
-                    new_layer_val.append(i.left.val if i.left else None)
-                    new_layer.append(i.right)
-                    new_layer_val.append(i.right.val if i.right else None)
+    def showLayers(self, root) -> List[List[int]]:
+        """
+        Helper: show all layers in a tree
+        Show the tree layer by layer from top to bottom
+        """
+        result, layer = [], [root]
+        while layer:
+            valid_node_found = False; # setup a label to identify the layer has a valid node
+            next_layer, node_vals = [], []
+            for node in layer:
+                if not node:
+                    node_vals.append(None)
                 else:
-                    new_layer.append(None)
-                    new_layer_val.append(None)
-                    new_layer.append(None)
-                    new_layer_val.append(None)
+                    node_vals.append(node.val)
+                    valid_node_found = True # label if one valid node can be found
+                    next_layer.append(node.left)
+                    next_layer.append(node.right)
 
-            if new_layer_val != new_layer_val[::-1]:
-                return False
+            if valid_node_found:
+                layer = next_layer
             else:
-                layer = new_layer
+                break
+
+            result.append(node_vals)
+
+        return result
+
+
+
+class Solution_A2:
+    def isSymmetric(self, root: TreeNode) -> bool:
+        """
+        Similar idea to A1, but all-in-one without helper
+        Check each layer on the run
+        """
+        layer = [root]
+        while layer:
+            next_layer = []
+            node_vals = []
+            valid_node_found = False;
+            for node in layer:
+                if not node:
+                    node_vals.append(None)
+                else:
+                    node_vals.append(node.val)
+                    valid_node_found = True  # label if one valid node can be found
+                    next_layer.append(node.left)
+                    next_layer.append(node.right)
+
+            if node_vals != node_vals[::-1]:
+                return False
+            elif valid_node_found:
+                layer = next_layer
+            else:
+                break
         return True
 
 
-class Solution_C:
+
+class Solution_B:
+    def isSymmetric(self, root: TreeNode) -> bool:
+        """
+        Traversal with left pre and post order to generate the mirrored flat list compare if they are the same
+        O(N)
+        """
+        return self.preorderTraversal(root) == self.preorderTraversal_mirrored(root)
+
     def preorderTraversal(self, t):
-        """return a flat list of the binary tree including None"""
+        """
+        return a flat list of the binary tree
+        Refer to LC144, but record None nodes, to track symmetry
+        """
         if not t:
             return [None]
         return [t.val] + self.preorderTraversal(t.left) + self.preorderTraversal(t.right)
 
     def preorderTraversal_mirrored(self, t):
-        """return a flat list of the binary tree including None"""
+        """
+        return a flat list of the binary tree
+        Refer to LC144, but record None nodes, to track symmetry
+        Mirrored version
+        """
         if not t:
             return [None]
         return [t.val] + self.preorderTraversal_mirrored(t.right) + self.preorderTraversal_mirrored(t.left)
 
+
+class Solution_C:
     def isSymmetric(self, root: TreeNode) -> bool:
-        # Traversal with left pre and post order to generate the mirrored flat list compare if they are the same
-        # O(N)
-        return self.preorderTraversal(root) == self.preorderTraversal_mirrored(root)
+        """
+        Verify by comparing the root and the flipped root
+        If a flipped tree is the same as itself, then it is symmetric
+        """
+        return self.isSameTree(root, self.flipTree(root))
+
+    def flipTree(self, root: TreeNode) -> TreeNode:
+        """
+        A helper to generate a flipped tree
+        """
+        if not root:
+            return None
+        else:
+            duplicateTree = TreeNode(root.val)
+            duplicateTree.left = self.flipTree(root.right)
+            duplicateTree.right = self.flipTree(root.left)
+            return duplicateTree
+
+    def isSameTree(self, p: TreeNode, q: TreeNode) -> bool:
+        """
+        Helper, refer to LC100
+        """
+        if not p and not q:
+            return True
+        elif not p or not q:
+            return False
+        else:
+            return p.val == q.val and \
+                   self.isSameTree(p.left, q.left) and \
+                   self.isSameTree(p.right, q.right)
 
 
-# Iterative solution
-class Solution_D:
-    # STD ans
-    # @param root, a tree node
-    # @return a boolean
-    def isSymmetric(self, root):
+
+class Solution_STD1:
+    def isSymmetric(self, root: TreeNode) -> bool:
+        """
+        Iterative solution using a stack
+        """
         if root is None:
             return True
-        stack = []
-        stack.append(root.left)
-        stack.append(root.right)
 
+        stack = [root.left, root.right]
         while stack:
             # 查看栈堆
             # print([i.val if i else "N" for i in stack])
+            L, R = stack.pop(), stack.pop()
 
-            p, q = stack.pop(), stack.pop()
-
-            if p is None and q is None:
+            if L is None and R is None:
                 continue
 
-            if p is None or q is None or p.val != q.val:
+            if L is None or R is None or L.val != R.val:
                 return False
 
             # 这个堆栈顺序是精髓, 可以永远维持对称组相连在一起
-            stack.append(p.left)
-            stack.append(q.right)
+            stack.append(L.left)
+            stack.append(R.right) # external side
 
-            stack.append(p.right)
-            stack.append(q.left)
+            stack.append(L.right)
+            stack.append(R.left) # internal side
 
         return True
 
 
-# Recursive solution
-class Solution_E:
-    # STD ans
-    # @param root, a tree node
-    # @return a boolean
-    def isSymmetric(self, root):
+
+class Solution_STD2:
+    """
+    Recursive solution
+    """
+    def isSymmetric(self, root: TreeNode) -> bool:
         if root is None:
             return True
 
         return self.isSymmetricRecu(root.left, root.right)
 
-    def isSymmetricRecu(self, left, right):
+    def isSymmetricRecu(self, left: TreeNode, right: TreeNode) -> bool:
         if left is None and right is None:
             return True
         if left is None or right is None or left.val != right.val:
             return False
         return self.isSymmetricRecu(left.left, right.right) and self.isSymmetricRecu(left.right, right.left)
+                                      # external side                                 # internal side
+
 
 
 if __name__ == "__main__":
-    testCase = Solution_A()
+    testCase = Solution_STD2()
 
     T0 = None
     assert testCase.isSymmetric(T0), "Edge 0"
@@ -168,4 +225,3 @@ if __name__ == "__main__":
     assert not testCase.isSymmetric(T3), "Example 3"
 
     print("All passed")
-
