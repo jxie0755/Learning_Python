@@ -175,6 +175,7 @@ class Solution_STD2:
     """
     Recursive solution
     """
+
     def isSymmetric(self, root: TreeNode) -> bool:
         if root is None:
             return True
@@ -222,8 +223,8 @@ if __name__ == "__main__":
     T4 = genTree([
         1,
         2, 2,
-        None,3,3, None,
-        None, None, 4,None,None,4,None,None
+        None, 3, 3, None,
+        None, None, 4, None, None, 4, None, None
     ])
     assert testCase.isSymmetric(T4), "Additional 2"
 
