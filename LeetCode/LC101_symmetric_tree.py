@@ -188,7 +188,7 @@ class Solution_STD2:
         if left is None or right is None or left.val != right.val:
             return False
         return self.isSymmetricRecu(left.left, right.right) and self.isSymmetricRecu(left.right, right.left)
-        # external side                                 # internal side
+                                      # external side                                 # internal side
 
 
 if __name__ == "__main__":
