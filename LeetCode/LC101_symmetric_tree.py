@@ -112,6 +112,8 @@ class Solution_C:
         """
         Verify by comparing the root and the flipped root
         If a flipped tree is the same as itself, then it is symmetric
+        Space: O(N)
+        Time: O(N)
         """
         return self.isSameTree(root, self.flipTree(root))
 
