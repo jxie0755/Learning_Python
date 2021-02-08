@@ -175,7 +175,6 @@ class Solution_STD2:
     """
     Recursive solution
     """
-
     def isSymmetric(self, root: TreeNode) -> bool:
         if root is None:
             return True
