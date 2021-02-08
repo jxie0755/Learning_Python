@@ -3,7 +3,7 @@ https: // leetcode.com / problems / symmetric - tree /
 P101 Symmetric Tree
 Easy
 
-Given a binary tree, check whether it is a mirror of itself (ie, symmetric around its center).
+Given a binary tree, check whether it is a mirror of itself (ie, symmetric around its center)
 """
 
 from a0_TreeNode import *
@@ -29,14 +29,14 @@ class Solution_A1:
         """
         result, layer = [], [root]
         while layer:
-            valid_node_found = False; # setup a label to identify the layer has a valid node
+            valid_node_found = False;  # setup a label to identify the layer has a valid node
             next_layer, node_vals = [], []
             for node in layer:
                 if not node:
                     node_vals.append(None)
                 else:
                     node_vals.append(node.val)
-                    valid_node_found = True # label if one valid node can be found
+                    valid_node_found = True  # label if one valid node can be found
                     next_layer.append(node.left)
                     next_layer.append(node.right)
 
@@ -48,7 +48,6 @@ class Solution_A1:
             result.append(node_vals)
 
         return result
-
 
 
 class Solution_A2:
@@ -78,7 +77,6 @@ class Solution_A2:
             else:
                 break
         return True
-
 
 
 class Solution_B:
@@ -143,7 +141,6 @@ class Solution_C:
                    self.isSameTree(p.right, q.right)
 
 
-
 class Solution_STD1:
     def isSymmetric(self, root: TreeNode) -> bool:
         """
@@ -166,13 +163,12 @@ class Solution_STD1:
 
             # 这个堆栈顺序是精髓, 可以永远维持对称组相连在一起
             stack.append(L.left)
-            stack.append(R.right) # external side
+            stack.append(R.right)  # external side
 
             stack.append(L.right)
-            stack.append(R.left) # internal side
+            stack.append(R.left)  # internal side
 
         return True
-
 
 
 class Solution_STD2:
@@ -191,8 +187,7 @@ class Solution_STD2:
         if left is None or right is None or left.val != right.val:
             return False
         return self.isSymmetricRecu(left.left, right.right) and self.isSymmetricRecu(left.right, right.left)
-                                      # external side                                 # internal side
-
+        # external side                                 # internal side
 
 
 if __name__ == "__main__":
