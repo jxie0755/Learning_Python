@@ -41,30 +41,30 @@ class Solution_A:
 if __name__ == "__main__":
     testCase = Solution_A()
 
-    A = None
-    assert testCase.levelOrder(A) == [
+    T0 = None
+    assert testCase.levelOrder(T0) == [
 
     ], "Edge 0"
 
-    A = genTree([1])
-    assert testCase.levelOrder(A) == [
+    T1 = genTree([1])
+    assert testCase.levelOrder(T1) == [
         [1]
     ], "Edge 1"
 
-    A = genTree([3, 9, 20, None, None, 15, 7])
-    assert testCase.levelOrder(A) == [
+    T2 = genTree([3, 9, 20, None, None, 15, 7])
+    assert testCase.levelOrder(T2) == [
         [3],
         [9, 20],
         [15, 7],
     ], "Example 1"
 
-    A = genTree([
+    T3 = genTree([
         0,
         2, 4,
         1, None, 3, -1,
         5, 1, None, None, 6, None, 8, None])
 
-    assert testCase.levelOrder(A) == [
+    assert testCase.levelOrder(T3) == [
         [0],
         [2, 4],
         [1, 3, -1],
