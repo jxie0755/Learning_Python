@@ -25,6 +25,7 @@ class Solution_A1:
     def levelOrderTraversal(self, root) -> List[List[int]]:
         """
         Helper: show all layers in a tree, refer to LC102 levelOrder
+        Modification: trap all None nodes
         Show the tree layer by layer from top to bottom
         """
         result, layer = [], [root]
