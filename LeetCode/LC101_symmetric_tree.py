@@ -16,15 +16,15 @@ class Solution_A1:
         """
         if not root:
             return True
-        all_layer = self.showLayers(root)
+        all_layer = self.levelOrderTraversal(root)
         for i in all_layer:
             if i != i[::-1]:
                 return False
         return True
 
-    def showLayers(self, root) -> List[List[int]]:
+    def levelOrderTraversal(self, root) -> List[List[int]]:
         """
-        Helper: show all layers in a tree
+        Helper: show all layers in a tree, refer to LC102 levelOrder
         Show the tree layer by layer from top to bottom
         """
         result, layer = [], [root]
