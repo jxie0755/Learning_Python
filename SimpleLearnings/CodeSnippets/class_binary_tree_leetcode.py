@@ -42,7 +42,7 @@ if __name__ == "__main__":
     print(postorderTraversal(A))
     # >>> [None, None, 4, None, None, 5, 2, None, None, 6, None, None, 7, 3, 1]
 
-def showLayers(root):
+def levelOrderTraversal(root):
     """Show the tree layer value by layer from top to bottom"""
     if root is None:
         return []
@@ -93,8 +93,8 @@ def showPerfectLayers(root):  # Include None
 
 if __name__ == "__main__":
     A = genTree([3, None, 20, None, None, 15, 7])
-    print("\nshowLayers:")
-    print(showLayers(A))
+    print("\nlevelOrderTraversal:")
+    print(levelOrderTraversal(A))
     # >>> [[3], [20], [15, 7]]
     print("showPerfectLayers:")
     print(showPerfectLayers(A))

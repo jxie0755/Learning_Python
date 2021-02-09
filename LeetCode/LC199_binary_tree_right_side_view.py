@@ -9,8 +9,8 @@ from a0_TreeNode import *
 
 class Solution(object):
 
-    # Use the showLayers method and add each Layer's last item to a list
-    def showLayers(self, root):  # Omit None
+    # Use the levelOrderTraversal method and add each Layer's last item to a list
+    def levelOrderTraversal(self, root):  # Omit None
         """Show the tree layer by layer from top to bottom"""
         if root is None:
             return []
@@ -35,7 +35,7 @@ class Solution(object):
         :rtype: List[int]
         """
         result = []
-        for i in self.showLayers(root):
+        for i in self.levelOrderTraversal(root):
             result.append(i[-1])
         return result
 

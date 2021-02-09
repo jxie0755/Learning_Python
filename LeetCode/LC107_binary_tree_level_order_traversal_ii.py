@@ -8,9 +8,13 @@ from a0_TreeNode import *
 
 
 class Solution:
-    # Use the showLayers operation but the maximum time limit is exceeded
-    def showLayers(self, root):  # Omit None
-        """Show the tree layer by layer from top to bottom"""
+    # Use the levelOrderTraversal operation but the maximum time limit is exceeded
+    def levelOrderTraversal(self, root):
+        """
+        Show the tree layer by layer from top to bottom
+        This will omit None nodes
+        Refer to LC102
+        """
         if root is None:
             return []
 
@@ -35,7 +39,7 @@ class Solution:
             return [[root.val]]
 
         result = []
-        for i in self.showLayers(root)[::-1]:
+        for i in self.levelOrderTraversal(root)[::-1]:
             filtered = list(filter(lambda x: x is not None, i))  # Be careful with the t.val == 0
             result.append(filtered)
         return result[1:]

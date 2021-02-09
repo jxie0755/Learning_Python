@@ -20,7 +20,7 @@ class Node:
 
 
 class Solution:
-    def showLayers(self, root):
+    def levelOrderTraversal(self, root):
         if not root:
             return []
         result = [[root]]
@@ -45,7 +45,7 @@ class Solution:
                 i += 1
 
     def connect(self, root: Node) -> Node:
-        all_layer = self.showLayers(root)
+        all_layer = self.levelOrderTraversal(root)
         for nodes in all_layer:
             self.pointTo(nodes)
         return root
