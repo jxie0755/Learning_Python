@@ -19,7 +19,7 @@ class Solution_A:
     def levelOrderTraversal_zigzag(self, root: TreeNode) -> List[List[int]]:
         """
         Helper function
-        Similar to Leetcode P102, use the levelOrderTraversal (modified version) to solve the problem
+        Modified from LC102, use the levelOrderTraversal (modified version) to solve the problem
         """
         if root is None:
             return []
@@ -48,7 +48,7 @@ class Solution_A:
 
         return result
 
-    # This needs some modification of levelOrderTraversal Method
+
 
 
 if __name__ == "__main__":
