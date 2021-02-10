@@ -24,27 +24,27 @@ class Solution_A:
         if root is None:
             return []
 
-        result = []
-        layer = [root]
-        REV = False
+        result, layer = [], [root]
+        REV = False # label for reverse order
         while layer:
-            vals = []
-            new_layer = []
+            next_layer, node_vals = [], []
 
-            for i in layer:
-                if i:
-                    vals.append(i.val)
-                if i.left:
-                    new_layer.append(i.left)
-                if i.right:
-                    new_layer.append(i.right)
+            for node in layer:
+                node_vals.append(node.val)
+
+                if node.left:
+                    next_layer.append(node.left)
+                if node.right:
+                    next_layer.append(node.right)
+
+            layer = next_layer
+
             if REV:
-                result.append(vals[::-1])
+                result.append(node_vals[::-1])
             else:
-                result.append(vals)
-            REV = not REV
+                result.append(node_vals)
 
-            layer = new_layer
+            REV = not REV  # flip every turn
 
         return result
 
@@ -54,30 +54,30 @@ class Solution_A:
 if __name__ == "__main__":
     testCase = Solution_A()
 
-    A = None
-    assert testCase.zigzagLevelOrder(A) == [
+    T0 = None
+    assert testCase.zigzagLevelOrder(T0) == [
 
     ], "Edge 0"
 
-    A = genTree([1])
-    assert testCase.zigzagLevelOrder(A) == [
+    T1 = genTree([1])
+    assert testCase.zigzagLevelOrder(T1) == [
         [1]
     ], "Edge 1"
 
-    A = genTree([3, 9, 20, None, None, 15, 7])
-    assert testCase.zigzagLevelOrder(A) == [
+    T2 = genTree([3, 9, 20, None, None, 15, 7])
+    assert testCase.zigzagLevelOrder(T2) == [
         [3],
         [20, 9],
         [15, 7],
     ], "Example 1"
 
-    A = genTree([
+    T3 = genTree([
         0,
         2, 4,
         1, None, 3, -1,
         5, 1, None, None, 6, None, 8, None])
 
-    assert testCase.zigzagLevelOrder(A) == [
+    assert testCase.zigzagLevelOrder(T3) == [
         [0],
         [4, 2],
         [1, 3, -1],
