@@ -1,17 +1,26 @@
-# P103 Binary Tree Zigzag Level Order Traversal
-# Medium
+"""
+https://leetcode.com/problems/binary-tree-zigzag-level-order-traversal/
+P103 Binary Tree Zigzag Level Order Traversal
+Medium
 
 
-# Given a binary tree, return the zigzag level order traversal of its nodes' values. (ie, from left to right, then right to left for the next level and alternate between).
+Given a binary tree, return the zigzag level order traversal of its nodes' values. (ie, from left to right, then right to left for the next level and alternate between).
+"""
+
 
 from a0_TreeNode import *
 
 
-class Solution:
+class Solution_A:
+    def zigzagLevelOrder(self, root: TreeNode) -> List[List[int]]:
+        return self.levelOrderTraversal_zigzag(root)
 
-    # Similar to Leetcode P107, use the levelOrderTraversal (modified version) to solve the problem
-    def showLayers_zigzag(self, root):
-        """show layers of tree"""
+
+    def levelOrderTraversal_zigzag(self, root: TreeNode) -> List[List[int]]:
+        """
+        Helper function
+        Similar to Leetcode P102, use the levelOrderTraversal (modified version) to solve the problem
+        """
         if root is None:
             return []
 
@@ -40,19 +49,23 @@ class Solution:
         return result
 
     # This needs some modification of levelOrderTraversal Method
-    def zigzagLevelOrder(self, root: TreeNode):
-        return self.showLayers_zigzag(root)
 
 
 if __name__ == "__main__":
+    testCase = Solution_A()
+
     A = None
-    assert Solution().zigzagLevelOrder(A) == [], "Edge 0"
+    assert testCase.zigzagLevelOrder(A) == [
+
+    ], "Edge 0"
 
     A = genTree([1])
-    assert Solution().zigzagLevelOrder(A) == [[1]], "Edge 1"
+    assert testCase.zigzagLevelOrder(A) == [
+        [1]
+    ], "Edge 1"
 
     A = genTree([3, 9, 20, None, None, 15, 7])
-    assert Solution().zigzagLevelOrder(A) == [
+    assert testCase.zigzagLevelOrder(A) == [
         [3],
         [20, 9],
         [15, 7],
@@ -64,11 +77,11 @@ if __name__ == "__main__":
         1, None, 3, -1,
         5, 1, None, None, 6, None, 8, None])
 
-    assert Solution().zigzagLevelOrder(A) == [
+    assert testCase.zigzagLevelOrder(A) == [
         [0],
         [4, 2],
         [1, 3, -1],
         [8, 6, 1, 5],
-    ], "Additional"
+    ], "Additional 1"
 
     print("All passed")
