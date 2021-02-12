@@ -7,16 +7,11 @@ Medium
 Given a binary tree, return the zigzag level order traversal of its nodes' values. (ie, from left to right, then right to left for the next level and alternate between).
 """
 
-
 from a0_TreeNode import *
 
 
 class Solution_A:
     def zigzagLevelOrder(self, root: TreeNode) -> List[List[int]]:
-        return self.levelOrderTraversal_zigzag(root)
-
-
-    def levelOrderTraversal_zigzag(self, root: TreeNode) -> List[List[int]]:
         """
         Helper function
         Modified from LC102, use the levelOrderTraversal (modified version) to solve the problem
@@ -25,7 +20,7 @@ class Solution_A:
             return []
 
         result, layer = [], [root]
-        REV = False # label for reverse order
+        REV = False  # label for reverse order
         while layer:
             next_layer, node_vals = [], []
 
@@ -47,8 +42,6 @@ class Solution_A:
             REV = not REV  # flip every turn
 
         return result
-
-
 
 
 if __name__ == "__main__":
