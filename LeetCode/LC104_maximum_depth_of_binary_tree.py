@@ -34,7 +34,10 @@ if __name__ == "__main__":
     T1 = TreeNode([1])
     assert testCase.maxDepth(T1) == 1, "Edge 1"
 
-    T2 = genTree([3, 9, 20, None, None, 15, 7])
+    T2 = genTree([
+        3,
+        9, 20,
+        None, None, 15, None])
     assert testCase.maxDepth(T2) == 3, "Example 1"
 
     print("All passed")
