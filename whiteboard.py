@@ -22,13 +22,13 @@ class Solution_A:
 if __name__ == "__main__":
     testCase = Solution_A()
 
-    A = None
-    assert testCase.maxDepth(A) == 0, "Edge 0"
+    T0 = None
+    assert testCase.maxDepth(T0) == 0, "Edge 0"
 
-    A = TreeNode([1])
-    assert testCase.maxDepth(A) == 1, "Edge 1"
+    T1 = TreeNode([1])
+    assert testCase.maxDepth(T1) == 1, "Edge 1"
 
-    A = genTree([3, 9, 20, None, None, 15, 7])
-    assert testCase.maxDepth(A) == 3, "Example"
+    T2 = genTree([3, 9, 20, None, None, 15, 7])
+    assert testCase.maxDepth(T2) == 3, "Example 1"
 
     print("All passed")
