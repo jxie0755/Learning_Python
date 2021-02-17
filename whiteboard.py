@@ -15,7 +15,30 @@ from a0_TreeNode import *
 
 class Solution:
     def buildTree(self, preorder: List[int], inorder: List[int]) -> TreeNode:
-        return genTree(preorder)
+        """
+        Recursive method to build a tree
+        The key is:
+        1. The current root node is always preorder[0]
+        2. Determine the left side and right side of current root by indorer index
+        """
+
+        if not inorder:  # end case, no nodes
+            return None
+        else:
+            root_val = preorder.pop(0) # pop the value and iterate to next recursion
+            root_idx = inorder.index(root_val) # only when no duplicates (see question notes)
+
+            T = TreeNode(root_val) # build the root node
+
+            L_list = inorder[:root_idx] # recursively determine left side of the root
+            if L_list:
+                T.left = self.buildTree(preorder, L_list)
+
+            R_list = inorder[root_idx+1:] # recursively determine right side of the root
+            if R_list:
+                T.right = self.buildTree(preorder, R_list)
+
+            return T
 
 
 
