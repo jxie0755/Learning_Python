@@ -14,9 +14,8 @@ from a0_TreeNode import *
 
 
 class Solution:
-    # This will pass but exceed max time limit
     def buildTree(self, preorder: List[int], inorder: List[int]) -> TreeNode:
-        pass
+        return genTree(preorder)
 
 
 
@@ -25,7 +24,9 @@ if __name__ == "__main__":
 
     assert not testCase.buildTree([], []), "Edge 0"
 
-    assert testCase.buildTree([1], [1]) == genTree([1]), "Edge 1"
+    assert testCase.buildTree([1], [1]) == genTree(
+        [1]
+    ), "Edge 1"
 
     assert testCase.buildTree([3, 9, 20, 15, 7], [9, 3, 15, 20, 7]) == genTree([
         3,
