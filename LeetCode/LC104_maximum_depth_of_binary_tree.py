@@ -16,6 +16,9 @@ from a0_TreeNode import *
 
 class Solution_A:
     def maxDepth(self, root: TreeNode) -> int:
+        """
+        Recursive compare left and right, inherit root level by + 1
+        """
         if not root:
             return 0
         else:
