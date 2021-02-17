@@ -37,7 +37,8 @@ if __name__ == "__main__":
     T2 = genTree([
         3,
         9, 20,
-        None, None, 15, None])
+        None, None, 15, None
+    ])
     assert testCase.maxDepth(T2) == 3, "Example 1"
 
     print("All passed")
