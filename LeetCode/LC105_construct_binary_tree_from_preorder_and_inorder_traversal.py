@@ -15,8 +15,14 @@ from a0_TreeNode import *
 
 
 class Solution_A1:
-    # This will pass but exceed max time limit
+
     def buildTree(self, preorder: List[int], inorder: List[int]) -> TreeNode:
+        """
+        Recursive method
+        Build a tree, and recursively determine the left side and right side by inorder index
+        This will pass but exceed max time limit
+        """
+
         if not preorder:
             return None
         root_val = preorder[0]
@@ -49,44 +55,40 @@ class Solution_A1:
 
 
 class Solution_A2:
-    # Same method idea as above but build a hash table to store the index of each value
-    # Passed, but still very slow
     def buildTree(self, preorder: List[int], inorder: List[int]) -> TreeNode:
+        """
+        Recursive method, similar to A1
+        The key is:
+        1. The current root node is always preorder[0]
+        2. Determine the left side and right side of current root by indorer index
+        This is much faster
+        """
 
-        hmp = dict()
-        for idx, val in enumerate(inorder):
-            hmp[val] = idx
+        if not inorder:  # end case, no nodes
+            return None
+        else:
+            root_val = preorder.pop(0)  # pop the value and iterate to next recursion
+            root_idx = inorder.index(root_val)  # only when no duplicates (see question notes)
 
-        def helper(preorder_lst):
-            if not preorder_lst:
-                return None
-            root_val = preorder_lst[0]
-            root = TreeNode(root_val)
-            root_idx = hmp[root_val]
+            T = TreeNode(root_val)  # build the root node
 
-            left_preorder, right_preorder = [], []
+            L_list = inorder[:root_idx]  # recursively determine left side of the root
+            if L_list:
+                T.left = self.buildTree(preorder, L_list)
 
-            # 通过对比idx过滤preorder, 得到新的left preorder和right preorder
-            for i in preorder_lst:
-                check_idx = hmp[i]
-                if check_idx < root_idx:
-                    left_preorder.append(i)
-                elif check_idx > root_idx:
-                    right_preorder.append(i)
+            R_list = inorder[root_idx + 1:]  # recursively determine right side of the root
+            if R_list:
+                T.right = self.buildTree(preorder, R_list)
 
-            root.left = helper(left_preorder)
-            root.right = helper(right_preorder)
-            return root
-
-        return helper(preorder)
+            return T
 
 
 class Solution_STD:
-    # STD ans
-    # @param preorder, a list of integers
-    # @param inorder, a list of integers
-    # @return a tree node
     def buildTree(self, preorder, inorder):
+        """
+        STD version, recursive
+        Save space by jumping the index stead of creating new inorder list
+        """
         lookup = {}
         for i, num in enumerate(inorder):
             lookup[num] = i
