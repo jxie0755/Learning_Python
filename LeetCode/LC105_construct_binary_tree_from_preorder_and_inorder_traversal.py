@@ -26,7 +26,7 @@ class Solution_A1:
         if not preorder:
             return None
         root_val = preorder[0]
-        root = TreeNode(root_val)
+        T = TreeNode(root_val)
         root_idx = inorder.index(root_val)  # root在inorder中的位置
 
         left_found, right_found = False, False
@@ -49,9 +49,9 @@ class Solution_A1:
                 if left_found and right_found:
                     break
 
-        root.left = self.buildTree(left_preorder, left_inorder)
-        root.right = self.buildTree(right_preorder, right_inorder)
-        return root
+        T.left = self.buildTree(left_preorder, left_inorder)
+        T.right = self.buildTree(right_preorder, right_inorder)
+        return T
 
 
 class Solution_A2:
