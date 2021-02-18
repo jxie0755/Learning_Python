@@ -10,7 +10,6 @@ Note:
 You may assume that duplicates do not exist in the tree.
 """
 
-
 from a0_TreeNode import *
 
 
@@ -67,25 +66,24 @@ class Solution_A2:
         if not inorder:  # end case, no nodes
             return None
         else:
-            root_val = preorder[0]  # pop the value and iterate to next recursion
+            root_val = preorder.pop(0)  # must use pop to carry the change into recursion
+                                        # restricted by List structure, Array cannot pop
             in_idx = inorder.index(root_val)  # only when no duplicates (see question notes)
-
             T = TreeNode(root_val)  # build the root node
 
             L_list = inorder[:in_idx]  # recursively determine left side of the root
             if L_list:
-                preorder = preorder[1:]
                 T.left = self.buildTree(preorder, L_list)
+                # preorder.pop in this step will carry over to next if condition
 
             R_list = inorder[in_idx + 1:]  # recursively determine right side of the root
             if R_list:
-                preorder = preorder[1:]
                 T.right = self.buildTree(preorder, R_list)
 
             return T
 
 
-class Solution_STD_2:
+class Solution_STD:
     def buildTree(self, preorder: List[int], inorder: List[int]) -> TreeNode:
         """
         STD version, recursive
@@ -95,7 +93,7 @@ class Solution_STD_2:
                                   0,
                                   0, len(inorder))
 
-    def buildTreeRecu(self, preorder, inorder, pre_start: int, in_start: int, in_end:int) -> TreeNode:
+    def buildTreeRecu(self, preorder, inorder, pre_start: int, in_start: int, in_end: int) -> TreeNode:
         """
         A helper function, in addition to the preorder and inorder list
         pre_star defines start index of preorder to search, no need to define the end
@@ -103,22 +101,24 @@ class Solution_STD_2:
         """
         if in_start == in_end:
             return None
+
         root_val = preorder[pre_start]
         T = TreeNode(root_val)
         in_idx = inorder.index(root_val)
 
         T.left = self.buildTreeRecu(preorder, inorder,
-                                    pre_start + 1,    # left side preorder idx starts from the next
-                                    in_start, in_idx) # left side inorder ends at root idx
+                                    pre_start + 1,  # left side preorder idx starts from the next
+                                    in_start, in_idx)  # left side inorder ends at root idx
 
         T.right = self.buildTreeRecu(preorder, inorder,
-                                     pre_start + 1 + in_idx - in_start, # most tricky part
+                                     pre_start + 1 + in_idx - in_start,  # most tricky part
                                      in_idx + 1, in_end)  # right side inorder always ends at last one
 
         return T
 
+
 if __name__ == "__main__":
-    testCase = Solution_A2()
+    testCase = Solution_STD()
 
     assert not testCase.buildTree([], []), "Edge 0"
 
@@ -130,4 +130,18 @@ if __name__ == "__main__":
         None, None, 15, 7
     ]), "Example 1"
 
+    assert testCase.buildTree([3, 1, 2, 4], [1, 2, 3, 4]) == genTree([
+        3,
+        1, 4,
+        None, 2, None, None
+    ]), "Additional 1"
+
+    assert testCase.buildTree([1, 2, 4, 5, 3, 6, 7], [4, 2, 5, 1, 6, 3, 7]) == genTree([
+        1,
+        2, 3,
+        4, 5, 6, 7
+    ])
+
     print("All passed")
+
+
