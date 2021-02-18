@@ -67,18 +67,19 @@ class Solution_A2:
         if not inorder:  # end case, no nodes
             return None
         else:
-            root_val = preorder.pop(0)  # pop the value and iterate to next recursion
+            root_val = preorder[0]  # pop the value and iterate to next recursion
             in_idx = inorder.index(root_val)  # only when no duplicates (see question notes)
 
             T = TreeNode(root_val)  # build the root node
 
             L_list = inorder[:in_idx]  # recursively determine left side of the root
             if L_list:
+                preorder = preorder[1:]
                 T.left = self.buildTree(preorder, L_list)
 
             R_list = inorder[in_idx + 1:]  # recursively determine right side of the root
             if R_list:
-                T.right = self.buildTree(preorder, R_list)
+                T.right = self.buildTree(preorder[1:], R_list)
 
             return T
 
@@ -116,7 +117,7 @@ class Solution_STD_2:
         return T
 
 if __name__ == "__main__":
-    testCase = Solution_STD_2()
+    testCase = Solution_A2()
 
     assert not testCase.buildTree([], []), "Edge 0"
 
