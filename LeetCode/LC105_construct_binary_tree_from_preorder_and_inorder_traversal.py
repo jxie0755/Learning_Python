@@ -93,26 +93,26 @@ class Solution_STD:
                                   0,
                                   0, len(inorder))
 
-    def buildTreeRecu(self, preorder, inorder, pre_start: int, in_start: int, in_end: int) -> TreeNode:
+    def buildTreeRecu(self, preorder, inorder, pre_start_idx: int, in_start_idx: int, in_end_idx: int) -> TreeNode:
         """
         A helper function, in addition to the preorder and inorder list
         pre_star defines start index of preorder to search, no need to define the end
         in_start and in_end defines range of inorder to search
         """
-        if in_start == in_end:
+        if in_start_idx == in_end_idx:
             return None
 
-        root_val = preorder[pre_start]
+        root_val = preorder[pre_start_idx]
         T = TreeNode(root_val)
         in_idx = inorder.index(root_val)
 
         T.left = self.buildTreeRecu(preorder, inorder,
-                                    pre_start + 1,  # left side preorder idx starts from the next
-                                    in_start, in_idx)  # left side inorder ends at root idx
+                                    pre_start_idx + 1,  # left side preorder idx starts from the next
+                                    in_start_idx, in_idx)  # left side inorder ends at root idx
 
         T.right = self.buildTreeRecu(preorder, inorder,
-                                     pre_start + 1 + in_idx - in_start,  # most tricky part
-                                     in_idx + 1, in_end)  # right side inorder always ends at last one
+                                     pre_start_idx + 1 + in_idx - in_start_idx,  # most tricky part
+                                     in_idx + 1, in_end_idx)  # right side inorder always ends at last one
 
         return T
 
