@@ -79,7 +79,8 @@ class Solution_A2:
 
             R_list = inorder[in_idx + 1:]  # recursively determine right side of the root
             if R_list:
-                T.right = self.buildTree(preorder[1:], R_list)
+                preorder = preorder[1:]
+                T.right = self.buildTree(preorder, R_list)
 
             return T
 
