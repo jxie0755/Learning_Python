@@ -17,7 +17,7 @@ from a0_TreeNode import *
 class Solution_A1:
     def buildTree(self, inorder: List[int], postorder: List[int]) -> TreeNode:
         """
-        Basically the same idea the slow version in leetcode P105-A1
+        Same idea the slow version in leetcode P105-A1
         """
         hmp = dict()
         for idx, val in enumerate(inorder):
