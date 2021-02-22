@@ -60,13 +60,11 @@ class Solution_A2:
         in_idx = inorder.index(root_val)  # only when no duplicates (see question notes)
         T = TreeNode(root_val)  # build the root node
 
-        L_inorder = inorder[:in_idx]  # recursively determine left side of the root
         R_inorder = inorder[in_idx + 1:]  # recursively determine right side of the root
-
-        # confirm which side
         if postorder and postorder[-1] in R_inorder:
             T.right = self.buildTree(R_inorder, postorder)
 
+        L_inorder = inorder[:in_idx]  # recursively determine left side of the root
         if postorder and postorder[-1] in L_inorder:
             T.left = self.buildTree(L_inorder, postorder)
             # preorder.pop in this step will carry over to next if condition
