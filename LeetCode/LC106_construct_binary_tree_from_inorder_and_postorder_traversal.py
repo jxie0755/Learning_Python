@@ -121,6 +121,6 @@ if __name__ == "__main__":
         1,
         2, 3,
         4, 5, 6, 7
-    ]), "Example 1"
+    ]), "Additional 1"
 
     print("All passed")
