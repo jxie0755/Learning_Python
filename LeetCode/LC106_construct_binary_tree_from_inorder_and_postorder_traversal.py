@@ -53,45 +53,26 @@ class Solution_A2:
         """
         if not inorder:  # end case, no nodes
             return None
-        else:
-            root_val = postorder.pop()  # must use pop to carry the change into recursion
-            # restricted by List structure, Array cannot pop
 
-            in_idx = inorder.index(root_val)  # only when no duplicates (see question notes)
-            T = TreeNode(root_val)  # build the root node
+        root_val = postorder.pop()  # must use pop to carry the change into recursion
+        # restricted by List structure, Array cannot pop
 
-            L_inorder = inorder[:in_idx]  # recursively determine left side of the root
-            R_inorder = inorder[in_idx + 1:]  # recursively determine right side of the root
+        in_idx = inorder.index(root_val)  # only when no duplicates (see question notes)
+        T = TreeNode(root_val)  # build the root node
 
-            # confirm which side
-            if postorder and postorder[-1] in R_inorder:
-                T.right = self.buildTree(R_inorder, postorder)
+        L_inorder = inorder[:in_idx]  # recursively determine left side of the root
+        R_inorder = inorder[in_idx + 1:]  # recursively determine right side of the root
 
-            if postorder and postorder[-1] in L_inorder:
-                T.left = self.buildTree(L_inorder, postorder)
-                # preorder.pop in this step will carry over to next if condition
+        # confirm which side
+        if postorder and postorder[-1] in R_inorder:
+            T.right = self.buildTree(R_inorder, postorder)
 
-            return T
+        if postorder and postorder[-1] in L_inorder:
+            T.left = self.buildTree(L_inorder, postorder)
+            # preorder.pop in this step will carry over to next if condition
 
+        return T
 
-class Solution_STD:
-    def buildTree(self, inorder: List[int], postorder: List[int]) -> TreeNode:
-        """
-        STD version, similar to P105-STD
-        """
-        lookup = {}
-        for i, num in enumerate(inorder):
-            lookup[num] = i
-        return self.buildTreeRecu(lookup, postorder, inorder, len(postorder), 0, len(inorder))
-
-    def buildTreeRecu(self, lookup, postorder, inorder, post_end, in_start, in_end):
-        if in_start == in_end:
-            return None
-        node = TreeNode(postorder[post_end - 1])
-        i = lookup[postorder[post_end - 1]]
-        node.left = self.buildTreeRecu(lookup, postorder, inorder, post_end - 1 - (in_end - i - 1), in_start, i)
-        node.right = self.buildTreeRecu(lookup, postorder, inorder, post_end - 1, i + 1, in_end)
-        return node
 
 
 class Solution_STD:
@@ -101,23 +82,23 @@ class Solution_STD:
         """
         return self.buildTreeRecu(postorder, inorder, len(postorder), 0, len(inorder))
 
-    def buildTreeRecu(self,postorder, inorder, post_end, in_start, in_end):
-        if in_start == in_end:
+    def buildTreeRecu(self, postorder, inorder, post_end_idx, in_start_idx, in_end_idx):
+        if in_start_idx == in_end_idx:
             return None
 
-        root_val = postorder[post_end-1]
+        root_val = postorder[post_end_idx - 1]
         T = TreeNode(root_val)
         in_idx =inorder.index(root_val)
 
 
         T.left = self.buildTreeRecu(postorder, inorder,
-                                    post_end - 1 - (in_end - in_idx - 1),
-                                    in_start, in_idx
+                                    post_end_idx - 1 - (in_end_idx - in_idx - 1),
+                                    in_start_idx, in_idx
                                     )
 
         T.right = self.buildTreeRecu(postorder, inorder,
-                                     post_end - 1,
-                                     in_idx + 1, in_end
+                                     post_end_idx - 1,
+                                     in_idx + 1, in_end_idx
                                      )
 
         return T
