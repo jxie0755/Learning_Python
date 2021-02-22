@@ -31,4 +31,10 @@ if __name__ == "__main__":
         None, None, 15, 7
     ]), "Example 1"
 
+    assert testCase.buildTree([4, 2, 5, 1, 6, 3, 7], [4, 5, 6, 7, 2, 3, 1]) == genTree([
+        1,
+        2, 3,
+        4, 5, 6, 7
+    ]), "Example 1"
+
     print("All passed")
