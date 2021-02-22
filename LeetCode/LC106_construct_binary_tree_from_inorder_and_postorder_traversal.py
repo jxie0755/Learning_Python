@@ -14,10 +14,10 @@ from typing import *
 from a0_TreeNode import *
 
 
-class Solution_A:
+class Solution_A1:
     def buildTree(self, inorder: List[int], postorder: List[int]) -> TreeNode:
         """
-        Basically the same idea of my own slow version in leetcode P105
+        Basically the same idea the slow version in leetcode P105-A1
         """
         hmp = dict()
         for idx, val in enumerate(inorder):
@@ -45,10 +45,39 @@ class Solution_A:
         return helper(postorder)
 
 
+class Solution_A2:
+    def buildTree(self, inorder: List[int], postorder: List[int]) -> TreeNode:
+        """
+        Similar idea of P105-A2
+        Recursively Pop from the end, locate the head on which side of the tree
+        """
+        if not inorder:  # end case, no nodes
+            return None
+        else:
+            root_val = postorder.pop()  # must use pop to carry the change into recursion
+            # restricted by List structure, Array cannot pop
+
+            in_idx = inorder.index(root_val)  # only when no duplicates (see question notes)
+            T = TreeNode(root_val)  # build the root node
+
+            L_inorder = inorder[:in_idx]  # recursively determine left side of the root
+            R_inorder = inorder[in_idx + 1:]  # recursively determine right side of the root
+
+            # confirm which side
+            if postorder and postorder[-1] in R_inorder:
+                T.right = self.buildTree(R_inorder, postorder)
+
+            if postorder and postorder[-1] in L_inorder:
+                T.left = self.buildTree(L_inorder, postorder)
+                # preorder.pop in this step will carry over to next if condition
+
+            return T
+
+
 class Solution_STD:
     def buildTree(self, inorder: List[int], postorder: List[int]) -> TreeNode:
         """
-
+        STD version, similar to P105-STD
         """
         lookup = {}
         for i, num in enumerate(inorder):
@@ -65,6 +94,35 @@ class Solution_STD:
         return node
 
 
+class Solution_STD:
+    def buildTree(self, inorder: List[int], postorder: List[int]) -> TreeNode:
+        """
+        STD version, similar to P105-STD
+        """
+        return self.buildTreeRecu(postorder, inorder, len(postorder), 0, len(inorder))
+
+    def buildTreeRecu(self,postorder, inorder, post_end, in_start, in_end):
+        if in_start == in_end:
+            return None
+
+        root_val = postorder[post_end-1]
+        T = TreeNode(root_val)
+        in_idx =inorder.index(root_val)
+
+
+        T.left = self.buildTreeRecu(postorder, inorder,
+                                    post_end - 1 - (in_end - in_idx - 1),
+                                    in_start, in_idx
+                                    )
+
+        T.right = self.buildTreeRecu(postorder, inorder,
+                                     post_end - 1,
+                                     in_idx + 1, in_end
+                                     )
+
+        return T
+
+
 if __name__ == "__main__":
     testCase = Solution_STD()
 
@@ -76,6 +134,12 @@ if __name__ == "__main__":
         3,
         9, 20,
         None, None, 15, 7
+    ]), "Example 1"
+
+    assert testCase.buildTree([4, 2, 5, 1, 6, 3, 7], [4, 5, 2, 6, 7, 3, 1]) == genTree([
+        1,
+        2, 3,
+        4, 5, 6, 7
     ]), "Example 1"
 
     print("All passed")

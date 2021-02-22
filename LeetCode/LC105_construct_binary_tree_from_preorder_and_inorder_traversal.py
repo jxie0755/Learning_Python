@@ -108,11 +108,13 @@ class Solution_STD:
 
         T.left = self.buildTreeRecu(preorder, inorder,
                                     pre_start_idx + 1,  # left side preorder idx starts from the next
-                                    in_start_idx, in_idx)  # left side inorder ends at root idx
+                                    in_start_idx, in_idx
+                                    )  # left side inorder ends at root idx
 
         T.right = self.buildTreeRecu(preorder, inorder,
                                      pre_start_idx + 1 + in_idx - in_start_idx,  # most tricky part
-                                     in_idx + 1, in_end_idx)  # right side inorder always ends at last one
+                                     in_idx + 1, in_end_idx
+                                     )  # right side inorder always ends at last one
 
         return T
 
