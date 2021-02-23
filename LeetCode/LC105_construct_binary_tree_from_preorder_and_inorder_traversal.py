@@ -72,13 +72,11 @@ class Solution_A2:
             T = TreeNode(root_val)  # build the root node
 
             L_inorder = inorder[:in_idx]  # recursively determine left side of the root
-            if L_inorder:
-                T.left = self.buildTree(preorder, L_inorder)
+            T.left = self.buildTree(preorder, L_inorder)
                 # preorder.pop in this step will carry over to next if condition
 
             R_inorder = inorder[in_idx + 1:]  # recursively determine right side of the root
-            if R_inorder:
-                T.right = self.buildTree(preorder, R_inorder)
+            T.right = self.buildTree(preorder, R_inorder)
 
             return T
 
