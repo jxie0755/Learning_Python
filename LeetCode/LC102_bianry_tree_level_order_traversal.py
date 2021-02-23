@@ -26,7 +26,7 @@ class Solution_A:
             for node in layer:
                 node_vals.append(node.val)
 
-                # omit by checking left tand right None
+                # omit None by checking left tand right None
                 if node.left:
                     next_layer.append(node.left)
                 if node.right:
