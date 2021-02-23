@@ -61,16 +61,13 @@ class Solution_A2:
         T = TreeNode(root_val)  # build the root node
 
         R_inorder = inorder[in_idx + 1:]  # recursively determine right side of the root
-        if postorder and postorder[-1] in R_inorder:
-            T.right = self.buildTree(R_inorder, postorder)
+        T.right = self.buildTree(R_inorder, postorder)
 
         L_inorder = inorder[:in_idx]  # recursively determine left side of the root
-        if postorder and postorder[-1] in L_inorder:
-            T.left = self.buildTree(L_inorder, postorder)
-            # preorder.pop in this step will carry over to next if condition
+        T.left = self.buildTree(L_inorder, postorder)
+        # preorder.pop in this step will carry over to next if condition
 
         return T
-
 
 class Solution_STD:
     def buildTree(self, inorder: List[int], postorder: List[int]) -> TreeNode:
@@ -102,7 +99,7 @@ class Solution_STD:
 
 
 if __name__ == "__main__":
-    testCase = Solution_STD()
+    testCase = Solution_A2()
 
     assert not testCase.buildTree([], []), "Edge 0"
 
