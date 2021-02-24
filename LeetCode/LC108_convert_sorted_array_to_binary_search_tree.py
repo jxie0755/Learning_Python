@@ -45,13 +45,13 @@ class Solution_A:
 if __name__ == "__main__":
     testCase = Solution_A()
 
-    T0 = []
-    assert testCase.sortedArrayToBST(T0) is None, "Edge 0"
+    A0 = []
+    assert testCase.sortedArrayToBST(A0) is None, "Edge 0"
 
-    T1 = [1]
-    assert testCase.sortedArrayToBST(T1) == genTree([1]), "Edge 1"
+    A2 = [1]
+    assert testCase.sortedArrayToBST(A2) == genTree([1]), "Edge 1"
 
-    T2 = [-10, -3, 0, 5, 9]
-    assert testCase.sortedArrayToBST(T2) == genTree([0, -3, 9, -10, None, 5, None]), "Example 1"
+    A3 = [-10, -3, 0, 5, 9]
+    assert testCase.sortedArrayToBST(A3) == genTree([0, -3, 9, -10, None, 5, None]), "Example 1"
 
     print("All passed")
