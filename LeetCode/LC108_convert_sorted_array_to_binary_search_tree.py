@@ -26,6 +26,7 @@ class Solution_A:
         mid_idx = len(nums) // 2
         mid_val = nums[mid_idx]
         T = TreeNode(mid_val)
+
         T.left = self.sortedArrayToBST(nums[:mid_idx])
         T.right = self.sortedArrayToBST(nums[mid_idx+1:])
 
