@@ -16,30 +16,20 @@ from a0_TreeNode import *
 
 class Solution_A:
     def sortedArrayToBST(self, nums: List[int]) -> TreeNode:
+        """
+        Make a balanced BST
+        Find the mid point and recursive create the left and right part
+        """
         if not nums:
             return None
 
         mid_idx = len(nums) // 2
         mid = nums[mid_idx]
-        ans = TreeNode(mid)
+        T = TreeNode(mid)
+        T.left = self.sortedArrayToBST(nums[:mid_idx])
+        T.right = self.sortedArrayToBST(nums[mid_idx+1:])
 
-        def helper(root, left_list, right_list):
-            if left_list:
-                left_mid_idx = len(left_list) // 2
-                left_val = left_list[left_mid_idx]
-                root.left = TreeNode(left_val)
-                LL, LR = left_list[:left_mid_idx], left_list[left_mid_idx + 1:]
-                helper(root.left, LL, LR)
-
-            if right_list:
-                right_mid_idx = len(right_list) // 2
-                right_val = right_list[right_mid_idx]
-                root.right = TreeNode(right_val)
-                RL, RR = right_list[:right_mid_idx], right_list[right_mid_idx + 1:]
-                helper(root.right, RL, RR)
-
-        helper(ans, nums[:mid_idx], nums[mid_idx + 1:])
-        return ans
+        return T
 
 
 if __name__ == "__main__":
