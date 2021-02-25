@@ -24,8 +24,8 @@ class Solution_A:
             return None
 
         mid_idx = len(nums) // 2
-        mid = nums[mid_idx]
-        T = TreeNode(mid)
+        mid_val = nums[mid_idx]
+        T = TreeNode(mid_val)
         T.left = self.sortedArrayToBST(nums[:mid_idx])
         T.right = self.sortedArrayToBST(nums[mid_idx+1:])
 
