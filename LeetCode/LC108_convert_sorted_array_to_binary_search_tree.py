@@ -33,8 +33,30 @@ class Solution_A:
         return T
 
 
+class Solution_STD:
+    def sortedArrayToBST(self, nums):
+        """
+        STD version
+        Time:  O(n)
+        Space: O(logn)
+        """
+        return self.sortedArrayToBSTRecu(nums, 0, len(nums))
+
+    def sortedArrayToBSTRecu(self, nums, start_idx, end_idx):
+        if start_idx == end_idx:
+            return None
+
+        # find mid idx according to start value and the range
+        mid_idx = start_idx + (end_idx - start_idx)//2
+        node = TreeNode(nums[mid_idx])
+
+        node.left = self.sortedArrayToBSTRecu(nums, start_idx, mid_idx)
+        node.right = self.sortedArrayToBSTRecu(nums, mid_idx + 1, end_idx)
+        return node
+
+
 if __name__ == "__main__":
-    testCase = Solution_A()
+    testCase = Solution_STD()
 
     A0 = []
     assert testCase.sortedArrayToBST(A0) is None, "Edge 0"
