@@ -66,12 +66,14 @@ class Solution_STD:    # @param root, a tree node
             """
             if root is None:
                 return 0
+
             left_height= getHeight(root.left)
             right_height = getHeight(root.right)
 
             if left_height < 0 or right_height < 0 or \
                     abs(left_height - right_height) > 1:
                 return -1
+
             return max(left_height, right_height) + 1
 
         return (getHeight(root) >= 0)
