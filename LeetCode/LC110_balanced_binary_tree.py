@@ -57,6 +57,25 @@ class Solution_A2:
             return max_depth
 
 
+class Solution_STD:    # @param root, a tree node
+    def isBalanced(self, root: TreeNode) -> bool:
+
+        def getHeight(root: TreeNode) -> int:
+            """
+            Helper function
+            """
+            if root is None:
+                return 0
+            left_height, right_height = \
+                getHeight(root.left), getHeight(root.right)
+            if left_height < 0 or right_height < 0 or \
+                    abs(left_height - right_height) > 1:
+                return -1
+            return max(left_height, right_height) + 1
+
+        return (getHeight(root) >= 0)
+
+
 
 if __name__ == "__main__":
     testCase = Solution_A2()
