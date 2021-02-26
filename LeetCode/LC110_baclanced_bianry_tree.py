@@ -13,7 +13,7 @@ a binary tree in which the depth of the two subtrees of every node never differ 
 from a0_TreeNode import *
 
 
-class Solution_A1:
+class Solution_A:
     def isBalanced(self, root: TreeNode) -> bool:
         """
         Check if two side maxDepth differece <= 1 and recursively verify their two sides
@@ -32,29 +32,8 @@ class Solution_A1:
             return 1 + max(self.maxDepth(root.left), self.maxDepth(root.right))
 
 
-class Solution_A2:
-    def isBalanced(self, root: TreeNode) -> bool:
-        """
-        Same idea with A1 but use memoization hashmap to expedite
-        """
-
-        if not root:
-            return True
-        return abs(self.maxDepth(root.left) - self.maxDepth(root.right)) <= 1 and \
-               self.isBalanced(root.left) and \
-               self.isBalanced(root.right)
-
-
-
-    def maxDepth(self, root: TreeNode) -> int:
-        if not root:
-            return 0
-        else:
-            return 1 + max(self.maxDepth(root.left), self.maxDepth(root.right))
-
-
 if __name__ == "__main__":
-    testCase = Solution_A2()
+    testCase = Solution_A()
 
     T0 = None
     assert testCase.isBalanced(T0), "Edge 0"
