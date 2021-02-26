@@ -57,8 +57,9 @@ if __name__ == "__main__":
 
     A = genNode([-10, -3, 0, 5, 9])
     assert testCase.sortedListToBST(A) == genTree([
-        0, -3,
-        9, -10, None, 5, None
+        0,
+        -3, 9,
+        -10, None, 5, None
     ]), "Example 1"
 
     print("All passed")
