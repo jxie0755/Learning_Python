@@ -66,8 +66,9 @@ class Solution_STD:    # @param root, a tree node
             """
             if root is None:
                 return 0
-            left_height, right_height = \
-                getHeight(root.left), getHeight(root.right)
+            left_height= getHeight(root.left)
+            right_height = getHeight(root.right)
+
             if left_height < 0 or right_height < 0 or \
                     abs(left_height - right_height) > 1:
                 return -1
@@ -78,7 +79,7 @@ class Solution_STD:    # @param root, a tree node
 
 
 if __name__ == "__main__":
-    testCase = Solution_A2()
+    testCase = Solution_STD()
 
     T0 = None
     assert testCase.isBalanced(T0), "Edge 0"
