@@ -13,7 +13,7 @@ a binary tree in which the depth of the two subtrees of every node never differ 
 from a0_TreeNode import *
 
 
-class Solution_A:
+class Solution_A1:
     def isBalanced(self, root: TreeNode) -> bool:
         """
         Check if two side maxDepth differece <= 1 and recursively verify their two sides
@@ -22,8 +22,7 @@ class Solution_A:
             return True
         return abs(self.maxDepth(root.left) - self.maxDepth(root.right)) <= 1 and \
                self.isBalanced(root.left) and \
-                self.isBalanced(root.right)
-
+               self.isBalanced(root.right)
 
     def maxDepth(self, root: TreeNode) -> int:
         if not root:
@@ -32,8 +31,35 @@ class Solution_A:
             return 1 + max(self.maxDepth(root.left), self.maxDepth(root.right))
 
 
+class Solution_A2:
+    MAX_DEPTH_HMP = {None: 0}
+
+    def isBalanced(self, root: TreeNode) -> bool:
+        """
+        Same idea of A1 but use memoization to track maxDepth of each TreeNode
+        """
+        if not root:
+            return True
+
+        ans = abs(self.maxDepth(root.left) - self.maxDepth(root.right)) <= 1 and \
+               self.isBalanced(root.left) and \
+               self.isBalanced(root.right)
+
+        self.MAX_DEPTH_HMP = {None: 0}
+        return ans
+
+    def maxDepth(self, root: TreeNode) -> int:
+        if root in self.MAX_DEPTH_HMP:
+            return self.MAX_DEPTH_HMP[root]
+        else:
+            max_depth = 1 + max(self.maxDepth(root.left), self.maxDepth(root.right))
+            self.MAX_DEPTH_HMP[root] = max_depth
+            return max_depth
+
+
+
 if __name__ == "__main__":
-    testCase = Solution_A()
+    testCase = Solution_A2()
 
     T0 = None
     assert testCase.isBalanced(T0), "Edge 0"
