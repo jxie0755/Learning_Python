@@ -131,7 +131,7 @@ class Solution(object):
 class Solution(object):
 
     # STD and
-    # dynamic + memorization
+    # dynamic + memoization
     # 根据硬币组合的动态规划思路, 但是建立一张表, index表示n, index位置的值表示n的最优解
     # 动态规划时,通过反向跳跃-i^2来找到 n - squarenumber, 很有特色
     # 从n=1一直计算到target n, 同时建立一个memorization, 这样递归分叉时可以避免重复计算, 精妙!
@@ -149,7 +149,7 @@ class Solution(object):
 
 class Solution(object):
 
-    # Version D, Improved recursion with memorization
+    # Version D, Improved recursion with memoization
     # This will run very quickly, but reach to maximum depth of recursion
     def SQlist(self, n):
         """find all possible square number up to n"""
@@ -161,7 +161,7 @@ class Solution(object):
     def numSquares(self, n: int) -> int or float:
 
         sqlist = self.SQlist(n)
-        hashmap = {}  # memorization
+        hashmap = {}  # memoization
 
         def helper(n):
 
@@ -184,7 +184,7 @@ class Solution(object):
 
 class Solution(object):
 
-    # Version D2, Improved recursion with memorization and depth control
+    # Version D2, Improved recursion with memoization and depth control
     # This is much faster but still fail the max time limit
     def SQlist(self, n):
         """find all possible square number up to n"""
@@ -196,7 +196,7 @@ class Solution(object):
     def numSquares(self, n: int) -> int or float:
 
         sqlist = self.SQlist(n)
-        hashmap = {}  # memorization
+        hashmap = {}  # memoization
 
         def helper(n, depth=0):
             if n == 0:  # base case

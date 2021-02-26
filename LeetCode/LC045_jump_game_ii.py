@@ -40,7 +40,7 @@ class Solution_A2:
     def jump(self, nums: List[int]) -> int:
         """
         A modified A1 with hashmap search to reduce repeating calculation
-        Use memorization method
+        Use memoization method
         This will still fail by exceed max time limit
         """
 

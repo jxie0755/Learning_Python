@@ -41,7 +41,7 @@ class Solution:
 class Solution:
 
     # Version A2
-    # Recursive check next layer and next next layer with help of memorization (twice faster)
+    # Recursive check next layer and next next layer with help of memoization (twice faster)
     # Exceeded max time limit
     def rob(self, root: TreeNode) -> int:
 

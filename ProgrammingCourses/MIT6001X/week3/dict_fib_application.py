@@ -27,7 +27,7 @@ def fib_e(n, d):
     else:
         ans = fib_e(n-1, d) + fib_e(n-2, d)
         d[n] = ans         # add calculated result of n > 2, to the dict
-        return ans         # called memorization method
+        return ans         # called memoization method
 
 # set a base dict
 numFibCalls = 0

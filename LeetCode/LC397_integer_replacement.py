@@ -78,7 +78,7 @@ class Solution:
         else:
             return min(self.integerReplacement(n - 1) + 1, self.integerReplacement((n + 1) // 2) + 2)
 
-    # Version B2, with memorization
+    # Version B2, with memoization
     # This will pass much faster
     def integerReplacement(self, n: int) -> int:
 

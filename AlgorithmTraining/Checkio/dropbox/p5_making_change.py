@@ -35,7 +35,7 @@ def checkio(price, coins):
 
 
 # Idea from Leetcode P279
-# Dynamic Programing and memorization
+# Dynamic Programing and memoization
 def checkio(price, coins):
 
     num = [0]
