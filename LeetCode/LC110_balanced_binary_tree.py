@@ -99,7 +99,8 @@ if __name__ == "__main__":
     T2 = genTree([
         3,
         9, 20,
-        None, None, 15, 7])
+        None, None, 15, 7
+    ])
     assert testCase.isBalanced(T2), "Example 1"
 
     T3 = genTree([
