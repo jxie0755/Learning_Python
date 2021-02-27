@@ -76,7 +76,7 @@ class Solution_STD:    # @param root, a tree node
 
             return max(left_height, right_height) + 1
 
-        return (getHeight(root) >= 0)
+        return getHeight(root) >= 0
 
 
 
