@@ -84,7 +84,7 @@ class Solution_STD:    # @param root, a tree node
 
 
 if __name__ == "__main__":
-    testCase = Solution_STD()
+    testCase = Solution_A2()
 
     T0 = None
     assert testCase.isBalanced(T0), "Edge 0"
