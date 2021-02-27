@@ -32,7 +32,7 @@ class Solution_A1:
 
 
 class Solution_A2:
-    MAX_DEPTH_HMP = {None: 0}
+    MAX_DEPTH_HMP = {}
 
     def isBalanced(self, root: TreeNode) -> bool:
         """
@@ -45,11 +45,14 @@ class Solution_A2:
                self.isBalanced(root.left) and \
                self.isBalanced(root.right)
 
-        self.MAX_DEPTH_HMP = {None: 0}
+        self.MAX_DEPTH_HMP.clear()
+
         return ans
 
     def maxDepth(self, root: TreeNode) -> int:
-        if root in self.MAX_DEPTH_HMP:
+        if not root:
+            return 0
+        elif root in self.MAX_DEPTH_HMP:
             return self.MAX_DEPTH_HMP[root]
         else:
             max_depth = 1 + max(self.maxDepth(root.left), self.maxDepth(root.right))
@@ -71,12 +74,12 @@ class Solution_STD:    # @param root, a tree node
             right_height = getHeight(root.right)
 
             if left_height < 0 or right_height < 0 or \
-                    abs(left_height - right_height) > 1:
-                return -1
+                    abs(left_height - right_height) > 1: # save time by skip if one unbalanced tree is found
+                return -1 # not balanced
 
             return max(left_height, right_height) + 1
 
-        return getHeight(root) >= 0
+        return getHeight(root) != -1
 
 
 
