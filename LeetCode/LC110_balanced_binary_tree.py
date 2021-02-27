@@ -64,12 +64,12 @@ class Solution_STD:
     def isBalanced(self, root: TreeNode) -> bool:
         """
         Save time by skip if one unbalanced tree is found while seeking for tree height
-        Combine Tree height and boolean judgement, if tree height = -1 means unbalanced
         """
 
         def getHeight(root: TreeNode) -> int:
             """
             Helper function
+            Combine Tree height and boolean judgement, if tree height = -1 means unbalanced
             """
             if root is None:
                 return 0
