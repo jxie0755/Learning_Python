@@ -69,7 +69,7 @@ class Solution_STD:
         def getHeight(root: TreeNode) -> int:
             """
             Helper function
-            Combine Tree height and boolean judgement, if tree height = -1 means unbalanced
+            Combine Tree height and boolean judgement, if tree height == -1 means unbalanced
             """
             if root is None:
                 return 0
