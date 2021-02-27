@@ -65,30 +65,28 @@ class Solution_STD:
         """
         Save time by skip if one unbalanced tree is found while seeking for tree height
         """
+        return self.getHeight(root) != -1
 
-        def getHeight(root: TreeNode) -> int:
-            """
-            Helper function
-            Combine Tree height and boolean judgement, if tree height == -1 means unbalanced
-            """
-            if root is None:
-                return 0
+    def getHeight(self, root: TreeNode) -> int:
+        """
+        Helper function
+        Combine Tree height and boolean judgement, if tree height == -1 means unbalanced
+        """
+        if root is None:
+            return 0
 
-            left_height= getHeight(root.left)
-            right_height = getHeight(root.right)
+        left_height = self.getHeight(root.left)
+        right_height = self.getHeight(root.right)
 
-            if left_height < 0 or right_height < 0 or \
-                    abs(left_height - right_height) > 1:
-                return -1 # not balanced
+        if left_height < 0 or right_height < 0 or \
+                abs(left_height - right_height) > 1:
+            return -1  # not balanced
 
-            return max(left_height, right_height) + 1
-
-        return getHeight(root) != -1
-
+        return max(left_height, right_height) + 1
 
 
 if __name__ == "__main__":
-    testCase = Solution_A2()
+    testCase = Solution_STD()
 
     T0 = None
     assert testCase.isBalanced(T0), "Edge 0"
