@@ -60,8 +60,11 @@ class Solution_A2:
             return max_depth
 
 
-class Solution_STD:    # @param root, a tree node
+class Solution_STD:
     def isBalanced(self, root: TreeNode) -> bool:
+        """
+        save time by skip if one unbalanced tree is found
+        """
 
         def getHeight(root: TreeNode) -> int:
             """
@@ -74,7 +77,7 @@ class Solution_STD:    # @param root, a tree node
             right_height = getHeight(root.right)
 
             if left_height < 0 or right_height < 0 or \
-                    abs(left_height - right_height) > 1: # save time by skip if one unbalanced tree is found
+                    abs(left_height - right_height) > 1:
                 return -1 # not balanced
 
             return max(left_height, right_height) + 1
