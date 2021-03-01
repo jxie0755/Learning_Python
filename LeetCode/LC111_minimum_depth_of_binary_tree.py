@@ -27,7 +27,7 @@ class Solution_A:
         while layer:
             new_layer = []
             for node in layer:
-                if self.isLeaf(node): # modified to return
+                if self.isLeaf(node):  # modified to return
                     return depth
 
                 # omit None by checking left tand right None
@@ -56,11 +56,11 @@ class Solution_STD:
         """
         Critcal factor is to determine a leaf
         """
-        if root is None: # end node not a leaf
+        if root is None:  # end node not a leaf
             return 0
-        if root.left and root.right: # not a leaf, both side is valid node, find the min()
+        if root.left and root.right:  # not a leaf, both side is valid node, find the min()
             return min(self.minDepth(root.left), self.minDepth(root.right)) + 1
-        else: # if at least one side is None, then go for the other side with Max()
+        else:  # if at least one side is None, then go for the other side with Max()
             return max(self.minDepth(root.left), self.minDepth(root.right)) + 1
 
 
