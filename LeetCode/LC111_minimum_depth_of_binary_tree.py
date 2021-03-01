@@ -65,7 +65,7 @@ class Solution_STD:
 
 
 if __name__ == "__main__":
-    testCase = Solution_A()
+    testCase = Solution_STD()
 
     T0 = None
     assert testCase.minDepth(T0) == 0, "Edge 0"
