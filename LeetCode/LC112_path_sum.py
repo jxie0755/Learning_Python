@@ -12,53 +12,78 @@ Note: A leaf is a node with no children.
 from a0_TreeNode import *
 
 
-class Solution_A:
+class Solution_A1:
     def hasPathSum(self, root: TreeNode, target: int) -> bool:
         """
-        Borrow the idea of allPath
+        Borrow the idea of allPath, but add boolean verification when hit a leaf
         """
-        def helper(root, cur=[]):
-            if not root:
-                return False
+        return self.pathCollecter(root, target)
 
-            elif not root.left and not root.right:
-                cur.append(root.val)
-                return sum(cur) == target
+    def pathCollecter(self, root, target: int, path_so_far: List[int] = []) -> bool:
+        if not root:
+            return False
 
-            else:
-                left_cur, right_cur = cur[:], cur[:]
-                left_cur.append(root.val)
-                right_cur.append(root.val)
-                return helper(root.left, left_cur) or helper(root.right, right_cur)
+        elif not root.left and not root.right:  # isLeaf
+            path_so_far = path_so_far + [root.val]
+            return sum(path_so_far) == target
 
-        return helper(root)
+        else:
+            left_path, right_path = path_so_far[:], path_so_far[:]
+            left_path.append(root.val)
+            right_path.append(root.val)
+            return self.pathCollecter(root.left, target, left_path) or \
+                   self.pathCollecter(root.right, target, right_path)
 
-    def allPath(self, root):
-        """show all the paths in a non-empty root"""
-        result = []
+    # def allPath(self, root) -> List[int]:
+    #     """
+    #     show all the paths in a non-empty root
+    #     """
+    #     result = []
+    #
+    #     def helper(root, cur=[]):
+    #         if not root:
+    #             return None
+    #         elif not root.left and not root.right: # isLeaf
+    #             cur.append(root.val)
+    #             result.append(cur)
+    #         else:
+    #             if root.left:
+    #                 new_cur = cur[:]
+    #                 new_cur.append(root.val)
+    #                 helper(root.left, new_cur)
+    #             if root.right:
+    #                 new_cur = cur[:]
+    #                 new_cur.append(root.val)
+    #                 helper(root.right, new_cur)
+    #
+    #     helper(root)
+    #     return result
 
-        def helper(root, cur=[]):
-            if not root:
-                return None
-            elif not root.left and not root.right:
-                cur.append(root.val)
-                result.append(cur)
-            else:
-                if root.left:
-                    new_cur = cur[:]
-                    new_cur.append(root.val)
-                    helper(root.left, new_cur)
-                if root.right:
-                    new_cur = cur[:]
-                    new_cur.append(root.val)
-                    helper(root.right, new_cur)
 
-        helper(root)
-        return result
+class Solution_A2:
+    def hasPathSum(self, root: TreeNode, target: int) -> bool:
+        """
+        Use an internal fucntion to collect all path sums when hit a leaf
+        Similar idea as A, but carry just the pathSum in recursion in stead of detailed path
+        """
+        return self.pathSumCollector(root, 0, target)
+
+    def pathSumCollector(self, root: TreeNode, carryover: int, target: int) -> bool:
+        """
+        Internal helper to add all pathSum to a list
+        """
+        if not root:
+            return False
+        elif not root.left and not root.right:  # isLeaf
+            return carryover + root.val == target  # collect path sum
+        else:
+            # carry the path sum so far and recursive find left and right
+            return self.pathSumCollector(root.left, carryover + root.val, target) or \
+                   self.pathSumCollector(root.right, carryover + root.val, target)
 
 
 if __name__ == "__main__":
-    testCase = Solution_A()
+    testCase = Solution_A1()
 
     T0 = None
     assert not testCase.hasPathSum(T0, 0), "Edge 0"
