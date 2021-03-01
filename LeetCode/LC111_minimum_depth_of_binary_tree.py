@@ -16,13 +16,9 @@ from a0_TreeNode import *
 class Solution_A:
     def minDepth(self, root: TreeNode) -> int:
         """
-        The key is to find the first leaf
+        Similar to LC102
+        levelOrderTraversal to find the depth when the first leaf is found
         """
-        if root and not root.left and not root.right:
-            return True
-        return False
-
-    def minDepth(self, root):
         if not root:
             return 0
 
@@ -30,52 +26,73 @@ class Solution_A:
         depth = 1
         while layer:
             new_layer = []
-            for i in layer:
-                if self.isLeaf(i):
+            for node in layer:
+                if self.isLeaf(node): # modified to return
                     return depth
-                if i.left:
-                    new_layer.append(i.left)
-                if i.right:
-                    new_layer.append(i.right)
+
+                # omit None by checking left tand right None
+                if node.left:
+                    new_layer.append(node.left)
+                if node.right:
+                    new_layer.append(node.right)
+
             layer = new_layer
             depth += 1
 
         return depth
 
+    def isLeaf(self, root: TreeNode) -> bool:
+        """
+        Helper
+        The key is to find the first leaf
+        """
+        if root and not root.left and not root.right:
+            return True
+        return False
+
 
 class Solution_STD:
     def minDepth(self, root: TreeNode) -> int:
         """
-
+        Critcal factor is to determine a leaf
         """
-        if root is None:
+        if root is None: # end node not a leaf
             return 0
-        if root.left and root.right:
+        if root.left and root.right: # not a leaf, both side is valid node, find the min()
             return min(self.minDepth(root.left), self.minDepth(root.right)) + 1
-        else:
+        else: # if at least one side is None, then go for the other side with Max()
             return max(self.minDepth(root.left), self.minDepth(root.right)) + 1
 
 
 if __name__ == "__main__":
     testCase = Solution_A()
 
-    A = None
-    assert testCase.minDepth(A) == 0, "Edge 0"
+    T0 = None
+    assert testCase.minDepth(T0) == 0, "Edge 0"
 
-    A = TreeNode(1)
-    assert testCase.minDepth(A) == 1, "Edge 1"
+    T1 = TreeNode(1)
+    assert testCase.minDepth(T1) == 1, "Edge 1"
 
-    A = genTree([
+    T2 = genTree([
         3,
         9, 20,
         None, None, 15, 7
     ])
-    assert testCase.minDepth(A) == 2, "Example 1"
+    assert testCase.minDepth(T2) == 2, "Example 1"
 
-    A = genTree([
+    T3 = genTree([
+        2,
+        None, 3,
+        None, None, None, 4,
+        None, None, None, None, None, None, None, 5,
+        None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, 6
+    ])
+    assert testCase.minDepth(T3) == 5, "Example 2"
+
+    T4 = genTree([
         1,
         2, None
     ])
-    assert testCase.minDepth(A) == 2, "Additional 1"
+    assert testCase.minDepth(T4) == 2, "Additional 1"
 
     print("All passed")
