@@ -85,7 +85,7 @@ class Solution_A2:
 
 
 if __name__ == "__main__":
-    testCase = Solution_A1()
+    testCase = Solution_A2()
 
     T0 = None
     assert not testCase.hasPathSum(T0, 0), "Edge 0"
