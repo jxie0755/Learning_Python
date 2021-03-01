@@ -58,7 +58,7 @@ class Solution_STD:
         """
         if root is None:  # end node not a leaf
             return 0
-        if root.left and root.right:  # not a leaf, both side is valid node, find the min()
+        elif root.left and root.right:  # not a leaf, both side is valid node, find the min()
             return min(self.minDepth(root.left), self.minDepth(root.right)) + 1
         else:  # if at least one side is None, then go for the other side with Max()
             return max(self.minDepth(root.left), self.minDepth(root.right)) + 1
