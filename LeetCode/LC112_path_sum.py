@@ -66,9 +66,9 @@ class Solution_A2:
         Use an internal fucntion to collect all path sums when hit a leaf
         Similar idea as A, but carry just the pathSum in recursion in stead of detailed path
         """
-        return self.pathSumCollector(root, 0, target)
+        return self.pathSumChecker(root, 0, target)
 
-    def pathSumCollector(self, root: TreeNode, carryover: int, target: int) -> bool:
+    def pathSumChecker(self, root: TreeNode, carryover: int, target: int) -> bool:
         """
         Internal helper to add all pathSum to a list
         """
@@ -80,8 +80,8 @@ class Solution_A2:
                 return new_carryover == target  # collect path sum
             else:
                 # carry the path sum so far and recursive find left and right
-                return self.pathSumCollector(root.left, new_carryover, target) or \
-                       self.pathSumCollector(root.right, new_carryover, target)
+                return self.pathSumChecker(root.left, new_carryover, target) or \
+                       self.pathSumChecker(root.right, new_carryover, target)
 
 
 if __name__ == "__main__":
