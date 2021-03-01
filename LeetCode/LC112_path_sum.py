@@ -17,9 +17,9 @@ class Solution_A1:
         """
         Borrow the idea of allPath, but add boolean verification when hit a leaf
         """
-        return self.pathCollecter(root, target)
+        return self.pathCollecter(root, target, [])
 
-    def pathCollecter(self, root, target: int, path_so_far: List[int] = []) -> bool:
+    def pathCollecter(self, root, target: int, path_so_far: List[int]) -> bool:
         if not root:
             return False
 
@@ -85,7 +85,7 @@ class Solution_A2:
 
 
 if __name__ == "__main__":
-    testCase = Solution_A2()
+    testCase = Solution_A1()
 
     T0 = None
     assert not testCase.hasPathSum(T0, 0), "Edge 0"
