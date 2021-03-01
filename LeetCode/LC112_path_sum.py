@@ -74,16 +74,18 @@ class Solution_A2:
         """
         if not root:
             return False
-        elif not root.left and not root.right:  # isLeaf
-            return carryover + root.val == target  # collect path sum
         else:
-            # carry the path sum so far and recursive find left and right
-            return self.pathSumCollector(root.left, carryover + root.val, target) or \
-                   self.pathSumCollector(root.right, carryover + root.val, target)
+            new_carryover = carryover + root.val
+            if not root.left and not root.right:  # isLeaf
+                return new_carryover == target  # collect path sum
+            else:
+                # carry the path sum so far and recursive find left and right
+                return self.pathSumCollector(root.left, new_carryover, target) or \
+                       self.pathSumCollector(root.right, new_carryover, target)
 
 
 if __name__ == "__main__":
-    testCase = Solution_A1()
+    testCase = Solution_A2()
 
     T0 = None
     assert not testCase.hasPathSum(T0, 0), "Edge 0"
