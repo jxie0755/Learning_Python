@@ -1,18 +1,23 @@
-# P111 Minimum Depth of Binary Tree
-# Easy
+"""
+https://leetcode.com/problems/minimum-depth-of-binary-tree/
+P111 Minimum Depth of Binary Tree
+Easy
 
 
-# Given a binary tree, find its minimum depth.
-# The minimum depth is the number of nodes along the shortest path from the root node down to the nearest leaf node.
+Given a binary tree, find its minimum depth.
+The minimum depth is the number of nodes along the shortest path from the root node down to the nearest leaf node.
 
-# Note: A leaf is a node with no children.
+Note: A leaf is a node with no children.
+"""
 
 from a0_TreeNode import *
 
 
-class Solution:
-    # The key is to find the first leaf
-    def isLeaf(self, root):
+class Solution_A:
+    def minDepth(self, root: TreeNode) -> int:
+        """
+        The key is to find the first leaf
+        """
         if root and not root.left and not root.right:
             return True
         return False
@@ -38,11 +43,11 @@ class Solution:
         return depth
 
 
-class Solution(object):
-    # STD ans
-    # @param root, a tree node
-    # @return an integer
-    def minDepth(self, root):
+class Solution_STD:
+    def minDepth(self, root: TreeNode) -> int:
+        """
+
+        """
         if root is None:
             return 0
         if root.left and root.right:
@@ -52,19 +57,25 @@ class Solution(object):
 
 
 if __name__ == "__main__":
+    testCase = Solution_A()
+
     A = None
-    assert Solution().minDepth(A) == 0, "Edge 0"
+    assert testCase.minDepth(A) == 0, "Edge 0"
 
     A = TreeNode(1)
-    assert Solution().minDepth(A) == 1, "Edge 1"
+    assert testCase.minDepth(A) == 1, "Edge 1"
 
-    A = genTree([3, 9, 20, None, None, 15, 7])
-    assert Solution().minDepth(A) == 2, "Example 1"
+    A = genTree([
+        3,
+        9, 20,
+        None, None, 15, 7
+    ])
+    assert testCase.minDepth(A) == 2, "Example 1"
 
     A = genTree([
         1,
         2, None
     ])
-    assert Solution().minDepth(A) == 2, "Additional 1"
+    assert testCase.minDepth(A) == 2, "Additional 1"
 
     print("All passed")
