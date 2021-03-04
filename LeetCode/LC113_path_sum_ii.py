@@ -12,38 +12,33 @@ from a0_TreeNode import *
 
 
 class Solution_A:
+    VALID_PATHS = []
+
     def pathSum(self, root: TreeNode, targetSum: int) -> List[List[int]]:
+        self.validPathCollecter(root, targetSum, [])
+        ans = self.VALID_PATHS.copy()
+        self.VALID_PATHS.clear() # clear memory for next run
+        return ans
+
+    def validPathCollecter(self, root, target: int, path_so_far: List[int]) -> None:
         """
-        show all the paths in a non-empty root
+        Modified path collecting helper from LC112
+        Add valid path to Class Attribute
         """
-        result = []
-        for i in self.allPath(root):
-            if sum(i) == targetSum:
-                result.append(i)
-        return result
+        if not root:
+            pass
 
+        elif not root.left and not root.right:  # isLeaf
+            path_so_far = path_so_far + [root.val]
+            if sum(path_so_far) == target:
+                self.VALID_PATHS.append(path_so_far)
 
-    def allPath(self, root):
-        result = []
-
-        def helper(root, cur=[]):
-            if not root:
-                return None
-            elif not root.left and not root.right:
-                cur.append(root.val)
-                result.append(cur)
-            else:
-                if root.left:
-                    new_cur = cur[:]
-                    new_cur.append(root.val)
-                    helper(root.left, new_cur)
-                if root.right:
-                    new_cur = cur[:]
-                    new_cur.append(root.val)
-                    helper(root.right, new_cur)
-
-        helper(root)
-        return result
+        else:
+            left_path, right_path = path_so_far[:], path_so_far[:]
+            left_path.append(root.val)
+            right_path.append(root.val)
+            self.validPathCollecter(root.left, target, left_path)
+            self.validPathCollecter(root.right, target, right_path)
 
 
 

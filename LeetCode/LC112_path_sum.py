@@ -17,9 +17,9 @@ class Solution_A1:
         """
         Borrow the idea of allPath, but add boolean verification when hit a leaf
         """
-        return self.pathCollecter(root, target, [])
+        return self.validPathCollecter(root, target, [])
 
-    def pathCollecter(self, root, target: int, path_so_far: List[int]) -> bool:
+    def validPathCollecter(self, root, target: int, path_so_far: List[int]) -> bool:
         if not root:
             return False
 
@@ -31,33 +31,8 @@ class Solution_A1:
             left_path, right_path = path_so_far[:], path_so_far[:]
             left_path.append(root.val)
             right_path.append(root.val)
-            return self.pathCollecter(root.left, target, left_path) or \
-                   self.pathCollecter(root.right, target, right_path)
-
-    # def allPath(self, root) -> List[int]:
-    #     """
-    #     show all the paths in a non-empty root
-    #     """
-    #     result = []
-    #
-    #     def helper(root, cur=[]):
-    #         if not root:
-    #             return None
-    #         elif not root.left and not root.right: # isLeaf
-    #             cur.append(root.val)
-    #             result.append(cur)
-    #         else:
-    #             if root.left:
-    #                 new_cur = cur[:]
-    #                 new_cur.append(root.val)
-    #                 helper(root.left, new_cur)
-    #             if root.right:
-    #                 new_cur = cur[:]
-    #                 new_cur.append(root.val)
-    #                 helper(root.right, new_cur)
-    #
-    #     helper(root)
-    #     return result
+            return self.validPathCollecter(root.left, target, left_path) or \
+                   self.validPathCollecter(root.right, target, right_path)
 
 
 class Solution_A2:
