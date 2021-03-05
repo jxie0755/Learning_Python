@@ -15,23 +15,23 @@ from a0_TreeNode import *
 class Solution_A:
     def flatten(self, root: TreeNode) -> None:
         """
-        Do not return anything, modify root in-place instead.
+        Use a preOrderTraversal helper to keep the TreeNode in order
+        Then assign to a dumb head to the right with iteration
         """
-        travel = self.preorderTraversal(root)
-        if len(travel) > 1:
-            i = 1
-            root.left = None
-            while i != len(travel):
-                new = TreeNode(travel[i])
-                root.right = new
-                root = new
-                i += 1
+        dumb = TreeNode(0)
 
-    def preorderTraversal(self, t):
-        """return a flat list of the binary tree including None"""
-        if not t:
-            return []  # skip none
-        return [t.val] + self.preorderTraversal(t.left) + self.preorderTraversal(t.right)
+        for nodes in self.preOrderTraversalNodes(root):
+            dumb.right = nodes
+            dumb = dumb.right
+            dumb.left = None  # clear the left side
+
+    def preOrderTraversalNodes(self, root: TreeNode) -> List[TreeNode]:
+        """
+        Modified preOrder traversal to get nodes instead of the values
+        """
+        if not root:
+            return []
+        return [root] + self.preOrderTraversalNodes(root.left) + self.preOrderTraversalNodes(root.right)
 
 
 if __name__ == "__main__":
