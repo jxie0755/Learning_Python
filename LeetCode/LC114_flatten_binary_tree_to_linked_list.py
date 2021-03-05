@@ -34,8 +34,29 @@ class Solution_A:
         return [root] + self.preOrderTraversalNodes(root.left) + self.preOrderTraversalNodes(root.right)
 
 
+class Solution_STD:
+    def flatten(self, root):
+        """
+        Run in-place with a helper
+        """
+        return self.flattenRecu(root, None)
+
+    def flattenRecu(self, root, list_head):
+        """
+        Helper function
+        """
+        if not root:
+            return list_head
+
+        list_head = self.flattenRecu(root.right, list_head)
+        list_head = self.flattenRecu(root.left, list_head)
+        root.right = list_head
+        root.left = None
+        return root
+
+
 if __name__ == "__main__":
-    testCase = Solution_A()
+    testCase = Solution_STD()
 
     T0 = None
     testCase.flatten(T0)
