@@ -20,8 +20,8 @@ class Solution_A:
         """
         dumb = TreeNode(0)
 
-        for nodes in self.preOrderTraversalNodes(root):
-            dumb.right = nodes
+        for node in self.preOrderTraversalNodes(root):
+            dumb.right = node
             dumb = dumb.right
             dumb.left = None  # clear the left side
 
