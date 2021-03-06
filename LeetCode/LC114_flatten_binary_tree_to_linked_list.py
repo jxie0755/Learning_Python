@@ -35,23 +35,24 @@ class Solution_A:
 
 
 class Solution_STD:
-    def flatten(self, root):
+    def flatten(self, root: TreeNode) -> None:
         """
         Run in-place with a helper
         """
-        return self.flattenRecu(root, None)
+        self.flattenRecu(root, None)
 
-    def flattenRecu(self, root, list_head):
+    def flattenRecu(self, root, list_head: TreeNode) -> TreeNode:
         """
         Helper function
         """
         if not root:
             return list_head
 
-        list_head = self.flattenRecu(root.right, list_head)
-        list_head = self.flattenRecu(root.left, list_head)
-        root.right = list_head
+        list_head = self.flattenRecu(root.right, list_head) # -> list_head = root.right
+        list_head = self.flattenRecu(root.left, list_head)  # link root.left -> root.right, return root.left
+        root.right = list_head  # link root -> root.left
         root.left = None
+
         return root
 
 
@@ -85,5 +86,16 @@ if __name__ == "__main__":
         None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None,
         None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, 6
     ]), "Example 1"
+
+    T4 = genTree([
+        1,
+        2,3
+    ])
+    testCase.flatten(T4)
+    assert T4 == genTree([
+        1,
+        None, 2,
+        None, None, None, 3
+    ]), "Addtional 1"
 
     print("All passed")
