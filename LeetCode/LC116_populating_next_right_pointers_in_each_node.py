@@ -3,10 +3,13 @@ https://leetcode.com/problems/populating-next-right-pointers-in-each-node/
 P116 Populating Next Right Pointers in Each Node
 Medium
 
-You are given a perfect binary tree where all leaves are on the same level, and every parent has two children.
+You are given a perfect binary tree where:
+1. all leaves are on the same level
+2. every parent has two children.
 
-Populate each next pointer to point to its next right node. If there is no next right node, the next pointer should be set to NULL.
-
+Note:
+Populate each next pointer to point to its next right node.
+If there is no next right node, the next pointer should be set to NULL.
 Initially, all next pointers are set to NULL.
 """
 
