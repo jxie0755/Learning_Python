@@ -1,8 +1,15 @@
-# P116 Populating Next Right Pointers in Each Node
-# Medium
+"""
+https://leetcode.com/problems/populating-next-right-pointers-in-each-node/
+P116 Populating Next Right Pointers in Each Node
+Medium
 
-# You are given a perfect binary tree where all leaves are on the same level, and every parent has two children. The binary tree has the following definition:
-# Definition for a Node.
+You are given a perfect binary tree where all leaves are on the same level, and every parent has two children.
+
+Populate each next pointer to point to its next right node. If there is no next right node, the next pointer should be set to NULL.
+
+Initially, all next pointers are set to NULL.
+"""
+
 class Node:
     def __init__(self, val, left, right, next):
         self.val = val
@@ -16,11 +23,21 @@ class Node:
         return False
 
 
-# Populate each next pointer to point to its next right node. If there is no next right node, the next pointer should be set to NULL.
 
 
-class Solution:
+
+class Solution_A:
+    def connect(self, root: Node) -> Node:
+        all_layer = self.levelOrderTraversal(root)
+        for nodes in all_layer:
+            self.pointTo(nodes)
+        return root
+
+
     def levelOrderTraversal(self, root):
+        """
+        Helper
+        """
         if not root:
             return []
         result = [[root]]
@@ -36,6 +53,9 @@ class Solution:
         return result
 
     def pointTo(self, node_lst):
+        """
+        Helper
+        """
         if len(node_lst) > 1:
             i = 1
             while i != len(node_lst):
@@ -44,14 +64,10 @@ class Solution:
                 prev.next = cur
                 i += 1
 
-    def connect(self, root: Node) -> Node:
-        all_layer = self.levelOrderTraversal(root)
-        for nodes in all_layer:
-            self.pointTo(nodes)
-        return root
-
 
 if __name__ == "__main__":
+    testCase = Solution_A()
+
     A = Node(1,
              Node(2,
                   Node(4, None, None, None),
@@ -79,5 +95,6 @@ if __name__ == "__main__":
     B.left.right.next = B.right.left
     B.right.left.next = B.right.right
 
-    assert Solution().connect(A) == B, "Example 1"
+    assert testCase.connect(A) == B, "Example 1"
+
     print("All passed")
