@@ -43,16 +43,16 @@ class Solution_A:
         """
         if not root:
             return []
-        result = [[root]]
-        layer = [root]
-        while layer:
+        result = []
+        current = [root]
+        while current:
             new_layer = []
-            for i in layer:
-                if i.left and i.right:
-                    new_layer.append(i.left)
-                    new_layer.append(i.right)
+            for node in current:
+                if node.left and node.right:
+                    new_layer.append(node.left)
+                    new_layer.append(node.right)
             result.append(new_layer)
-            layer = new_layer
+            current = new_layer
         return result
 
     def pointTo(self, node_lst):

@@ -1,106 +1,86 @@
 """
-https://leetcode.com/problems/binary-tree-level-order-traversal-ii/
-P107 Binary Tree Level Order Traversal II
-Easy
+https://leetcode.com/problems/populating-next-right-pointers-in-each-node/
+P116 Populating Next Right Pointers in Each Node
+Medium
 
-Given a binary tree, return the bottom-up level order traversal of its nodes' values. (ie, from left to right, level by level from leaf to root).
+You are given a perfect binary tree where:
+1. all leaves are on the same level
+2. every parent has two children.
+
+Note:
+Populate each next pointer to point to its next right node.
+If there is no next right node, the next pointer should be set to NULL.
+Initially, all next pointers are set to NULL.
 """
 
-from a0_TreeNode import *
+
+class Node:
+    def __init__(self, val, left, right, next):
+        self.val = val
+        self.left = left
+        self.right = right
+        self.next = next
+
+    def __eq__(self, other):
+        if self and other:
+            return self.val == other.val and self.left == other.left and self.right == other.right and self.next == other.next
+        return False
 
 
 class Solution_A:
-    def levelOrderBottom(self, root: TreeNode) -> List[List[int]]:
+    def connect(self, root: Node) -> Node:
         """
-        Show the tree layer by layer from top to bottom
-        Refer to LC102
-        Use the levelOrderTraversal operation but the maximum time limit is exceeded
+        Combine levelOrderTraversal idea from LC107
         """
-        return self.levelOrderTraversal(root)[::-1]
+        if root:
+            current = [root]
+            L = 1
 
-    def levelOrderTraversal(self, root: TreeNode) -> List[List[int]]:
-        """
-        Helper function from LC102
-        Omit None nodes
-        """
-        if root is None:
-            return []
+            while current:
+                # modification: link next to right side
+                for lidx in range(L - 1):
+                    current[lidx].next = current[lidx + 1]
 
-        result, current = [], [root]
-        while current:
-            next_level, vals = [], []
-            for node in current:
-                vals.append(node.val)
+                new_layer = []
+                for node in current:
+                    if node.left and node.right:
+                        new_layer.append(node.left)
+                        new_layer.append(node.right)
 
-                # omit None by checking left tand right None
-                if node.left:
-                    next_level.append(node.left)
-                if node.right:
-                    next_level.append(node.right)
-            current = next_level
-            result.append(vals)
-
-        return result
+                L *= 2  # perfect binary tree will always double length evey level down
+                current = new_layer
+        return root
 
 
-class Solution_STD:
-    def levelOrderBottom(self, root: TreeNode) -> List[List[int]]:
-        """
-        STD ans
-        Basically combine the helper function into version A
-        """
-        if root is None:
-            return []
+if __name__ == '__main__':
+    testCase = Solution_A()
 
-        result, current = [], [root]
-        while current:
-            next_level, vals = [], []
-            for node in current:
-                vals.append(node.val)
+    A = Node(1,
+             Node(2,
+                  Node(4, None, None, None),
+                  Node(5, None, None, None),
+                  None),
+             Node(3,
+                  Node(6, None, None, None),
+                  Node(7, None, None, None),
+                  None),
+             None)
 
-                if node.left:
-                    next_level.append(node.left)
-                if node.right:
-                    next_level.append(node.right)
-            current = next_level
-            result.append(vals)
+    B = Node(1,
+             Node(2,
+                  Node(4, None, None, None),
+                  Node(5, None, None, None),
+                  None),
+             Node(3,
+                  Node(6, None, None, None),
+                  Node(7, None, None, None),
+                  None),
+             None)
 
-        return result[::-1]
-
-
-
-if __name__ == "__main__":
-    testCase = Solution_STD()
-
-    T0 = None
-    assert testCase.levelOrderBottom(T0) == [], "Edge 0"
-
-    T1 = genTree([1])
-    assert testCase.levelOrderBottom(T1) == [[1]], "Edge 1"
-
-    T2 = genTree([
-        3,
-        9, 20,
-        None, None, 15, 7
-    ])
-
-    assert testCase.levelOrderBottom(T2) == [
-        [15, 7],
-        [9, 20],
-        [3]
-    ], "Example 1"
-
-    T3 = genTree([
-        0,
-        2, 4,
-        1, None, 3, -1,
-        5, 1, None, None, 6, None, 8, None])
-
-    assert testCase.levelOrderBottom(T3) == [
-        [5, 1, 6, 8],
-        [1, 3, -1],
-        [2, 4],
-        [0]
-    ], "Additional 1"
+    B.left.next = B.right
+    B.left.left.next = B.left.right
+    B.left.right.next = B.right.left
+    B.right.left.next = B.right.right
+    assert testCase.connect(A) == B, "Example 1"
 
     print("All passed")
