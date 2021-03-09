@@ -81,6 +81,7 @@ if __name__ == '__main__':
     B.left.left.next = B.left.right
     B.left.right.next = B.right.left
     B.right.left.next = B.right.right
+
     assert testCase.connect(A) == B, "Example 1"
 
     print("All passed")
