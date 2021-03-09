@@ -13,6 +13,7 @@ If there is no next right node, the next pointer should be set to NULL.
 Initially, all next pointers are set to NULL.
 """
 
+
 class Node:
     def __init__(self, val, left, right, next):
         self.val = val
@@ -26,49 +27,32 @@ class Node:
         return False
 
 
-
-
-
 class Solution_A:
     def connect(self, root: Node) -> Node:
-        all_layer = self.levelOrderTraversal(root)
-        for nodes in all_layer:
-            self.pointTo(nodes)
+        """
+        Combine levelOrderTraversal idea from LC102
+        """
+        if root:
+            current = [root]
+            L = 1
+
+            while current:
+                # modification: link next to right side
+                for lidx in range(L - 1):
+                    current[lidx].next = current[lidx + 1]
+
+                new_layer = []
+                for node in current:
+                    if node.left and node.right:
+                        new_layer.append(node.left)
+                        new_layer.append(node.right)
+
+                L *= 2  # perfect binary tree will always double length evey level down
+                current = new_layer
         return root
 
 
-    def levelOrderTraversal(self, root):
-        """
-        Helper
-        """
-        if not root:
-            return []
-        result = []
-        current = [root]
-        while current:
-            new_layer = []
-            for node in current:
-                if node.left and node.right:
-                    new_layer.append(node.left)
-                    new_layer.append(node.right)
-            result.append(new_layer)
-            current = new_layer
-        return result
-
-    def pointTo(self, node_lst):
-        """
-        Helper
-        """
-        if len(node_lst) > 1:
-            i = 1
-            while i != len(node_lst):
-                prev = node_lst[i - 1]
-                cur = node_lst[i]
-                prev.next = cur
-                i += 1
-
-
-if __name__ == "__main__":
+if __name__ == '__main__':
     testCase = Solution_A()
 
     A = Node(1,
@@ -97,7 +81,6 @@ if __name__ == "__main__":
     B.left.left.next = B.left.right
     B.left.right.next = B.right.left
     B.right.left.next = B.right.right
-
     assert testCase.connect(A) == B, "Example 1"
 
     print("All passed")
