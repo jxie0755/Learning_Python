@@ -23,8 +23,14 @@ class Node:
 
     def __eq__(self, other):
         if self and other:
-            return self.val == other.val and self.left == other.left and self.right == other.right and self.next == other.next
-        return False
+            return self.val == other.val and \
+                   self.left == other.left and \
+                   self.right == other.right and \
+                   self.next == other.next
+        elif not self and not other:
+            return True
+        else:
+            return False
 
 
 class Solution_A:
