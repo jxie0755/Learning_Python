@@ -4,7 +4,7 @@
 
 # Given a binary tree, imagine yourself standing on the right side of it, return the values of the nodes you can see ordered from top to bottom.
 
-from a0_TreeNode import *
+from A02_TreeNode import *
 
 
 class Solution(object):

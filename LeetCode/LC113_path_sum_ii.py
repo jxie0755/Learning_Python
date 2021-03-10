@@ -8,7 +8,7 @@ Given a binary tree and a sum, find all root-to-leaf paths where each path's sum
 Note: A leaf is a node with no children.
 
 """
-from a0_TreeNode import *
+from A02_TreeNode import *
 
 
 class Solution_A:

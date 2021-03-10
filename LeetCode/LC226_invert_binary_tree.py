@@ -7,7 +7,7 @@
 # Google: 90% of our engineers use the software you wrote (Homebrew), but you canâ€™t invert a binary tree on a whiteboard so f*** off.
 
 
-from a0_TreeNode import *
+from A02_TreeNode import *
 
 
 class Solution(object):

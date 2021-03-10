@@ -7,7 +7,7 @@
 # Determine the maximum amount of money the thief can rob tonight without alerting the police.
 
 
-from a0_TreeNode import *
+from A02_TreeNode import *
 
 
 class Solution:

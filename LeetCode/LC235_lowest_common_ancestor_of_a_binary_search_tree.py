@@ -10,7 +10,7 @@
 # p and q are different and both values will exist in the BST.
 
 
-from a0_TreeNode import *
+from A02_TreeNode import *
 
 
 class Solution(object):

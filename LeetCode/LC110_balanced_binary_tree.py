@@ -10,7 +10,7 @@ For this problem, a height-balanced binary tree is defined as:
 a binary tree in which the depth of the two subtrees of every node never differ by more than 1.
 """
 
-from a0_TreeNode import *
+from A02_TreeNode import *
 
 
 class Solution_A1:

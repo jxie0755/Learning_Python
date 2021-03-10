@@ -6,7 +6,7 @@
 # For this problem, a path is defined as any sequence of nodes from some starting node to any node in the tree along the parent-child connections. The path must contain at least one node and does not need to go through the root.
 
 from typing import *
-from a0_TreeNode import *
+from A02_TreeNode import *
 
 
 class Solution:

@@ -12,7 +12,7 @@
 
 
 from typing import *
-from a0_TreeNode import *
+from A02_TreeNode import *
 
 
 class Solution(object):

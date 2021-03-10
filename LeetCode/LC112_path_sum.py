@@ -9,7 +9,7 @@ determine if the tree has a root-to-leaf path such that adding up all the values
 Note: A leaf is a node with no children.
 """
 
-from a0_TreeNode import *
+from A02_TreeNode import *
 
 
 class Solution_A1:

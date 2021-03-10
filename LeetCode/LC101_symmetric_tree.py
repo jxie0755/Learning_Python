@@ -6,7 +6,7 @@ Easy
 Given a binary tree, check whether it is a mirror of itself (ie, symmetric around its center)
 """
 
-from a0_TreeNode import *
+from A02_TreeNode import *
 
 
 class Solution_A1:

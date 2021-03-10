@@ -12,7 +12,7 @@ Mirrored trees are considered not the same
 Circular trees can not be tested
 """
 
-from a0_TreeNode import *
+from A02_TreeNode import *
 
 
 class Solution_A:

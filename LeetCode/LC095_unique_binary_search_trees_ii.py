@@ -7,7 +7,7 @@ Given an integer n, generate all structurally unique BST's (binary search trees)
 """
 
 from typing import *
-from a0_TreeNode import *
+from A02_TreeNode import *
 
 
 class Solution:

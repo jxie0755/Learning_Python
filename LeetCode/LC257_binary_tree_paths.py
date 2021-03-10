@@ -6,7 +6,7 @@
 # Note: A leaf is a node with no children.
 
 
-from a0_TreeNode import *
+from A02_TreeNode import *
 
 
 class Solution(object):

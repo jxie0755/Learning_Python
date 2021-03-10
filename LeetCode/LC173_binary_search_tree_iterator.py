@@ -9,7 +9,7 @@
 # next() and hasNext() should run in average O(1) time and uses O(h) memory, where h is the height of the tree.
 # You may assume that next() call will always be valid, that is, there will be at least a next smallest number in the BST when next() is called.
 
-from a0_TreeNode import *
+from A02_TreeNode import *
 
 
 # Your BSTIterator object will be instantiated and called as such:

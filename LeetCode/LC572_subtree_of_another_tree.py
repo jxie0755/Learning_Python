@@ -8,7 +8,7 @@
 # The tree s could also be considered as a subtree of itself.
 
 from typing import *
-from a0_TreeNode import *
+from A02_TreeNode import *
 
 
 class Solution:

@@ -11,7 +11,7 @@ longest path from the root node down to the farthest leaf node.
 Note: A leaf is a node with no children.
 """
 
-from a0_TreeNode import *
+from A02_TreeNode import *
 
 
 class Solution_A:

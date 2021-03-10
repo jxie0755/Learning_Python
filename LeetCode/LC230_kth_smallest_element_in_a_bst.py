@@ -6,7 +6,7 @@
 # Note:
 # You may assume k is always valid, 1 ≤ k ≤ BST's total elements.
 
-from a0_TreeNode import *
+from A02_TreeNode import *
 
 
 class Solution(object):

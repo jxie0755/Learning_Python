@@ -10,7 +10,7 @@ Note:
 You may assume that duplicates do not exist in the tree.
 """
 
-from a0_TreeNode import *
+from A02_TreeNode import *
 
 
 class Solution_A1:

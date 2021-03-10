@@ -4,7 +4,7 @@
 # Find the sum of all left leaves in a given binary tree.
 
 from typing import *
-from a0_TreeNode import *
+from A02_TreeNode import *
 
 
 class Solution:

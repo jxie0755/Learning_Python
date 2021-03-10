@@ -14,7 +14,7 @@ Both the left and right subtrees must also be binary search trees.
 """
 
 from typing import *
-from a0_TreeNode import *
+from A02_TreeNode import *
 
 
 class Solution_A:

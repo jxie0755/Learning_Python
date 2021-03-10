@@ -10,7 +10,7 @@ The minimum depth is the number of nodes along the shortest path from the root n
 Note: A leaf is a node with no children.
 """
 
-from a0_TreeNode import *
+from A02_TreeNode import *
 
 
 class Solution_A:
