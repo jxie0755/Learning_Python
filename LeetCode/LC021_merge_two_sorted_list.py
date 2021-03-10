@@ -8,7 +8,7 @@ The new list should be made by splicing together the nodes of the first two list
 """
 
 from typing import *
-from a0_ListNode import *
+from A01_ListNode import *
 
 class Solution_A:
 

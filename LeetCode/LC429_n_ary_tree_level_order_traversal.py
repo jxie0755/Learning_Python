@@ -8,7 +8,7 @@
 # The depth of the tree is at most 1000.
 # The total number of nodes is at most 5000.
 
-from a0_ListNode import *
+from A01_ListNode import *
 
 
 class Node:

@@ -8,7 +8,7 @@
 # Note: Do not modify the linked list.
 
 from typing import *
-from a0_ListNode import *
+from A01_ListNode import *
 
 
 class Solution(object):

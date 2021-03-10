@@ -8,7 +8,7 @@ Reverse a linked list from position m to n. Do it in one-pass.
 Note: 1 ≤ m ≤ n ≤ length of list.
 """
 
-from a0_ListNode import *
+from A01_ListNode import *
 
 
 class Solution_A:

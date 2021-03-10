@@ -9,7 +9,7 @@
 # If pos is -1, then there is no cycle in the linked list.
 
 
-from a0_ListNode import *
+from A01_ListNode import *
 
 
 class Solution(object):

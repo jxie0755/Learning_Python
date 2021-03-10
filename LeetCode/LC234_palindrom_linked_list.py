@@ -5,7 +5,7 @@
 # Follow up:
 # Could you do it in O(n) time and O(1) space?
 
-from a0_ListNode import *
+from A01_ListNode import *
 
 
 class Solution(object):

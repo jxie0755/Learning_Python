@@ -4,7 +4,7 @@
 # Remove all elements from a linked list of integers that have value val.
 
 
-from a0_ListNode import *
+from A01_ListNode import *
 
 
 class Solution(object):

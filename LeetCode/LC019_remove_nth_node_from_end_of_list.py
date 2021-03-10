@@ -9,7 +9,7 @@ Given n will always be valid.
 """
 
 from typing import *
-from a0_ListNode import *
+from A01_ListNode import *
 
 
 class Solution_A:

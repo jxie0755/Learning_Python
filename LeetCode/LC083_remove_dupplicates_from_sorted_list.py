@@ -7,7 +7,7 @@ Given a sorted linked list, delete all duplicates such that each element appear 
 """
 
 from typing import *
-from a0_ListNode import *
+from A01_ListNode import *
 
 
 class Solution_A:

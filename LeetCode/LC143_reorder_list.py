@@ -8,7 +8,7 @@
 
 from typing import *
 from A02_TreeNode import *
-from a0_ListNode import *
+from A01_ListNode import *
 
 
 class Solution(object):

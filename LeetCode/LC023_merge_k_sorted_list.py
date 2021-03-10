@@ -7,7 +7,7 @@ Merge k sorted linked lists and return it as one sorted list. Analyze and descri
 """
 
 from typing import *
-from a0_ListNode import *
+from A01_ListNode import *
 
 class Solution_A:
 

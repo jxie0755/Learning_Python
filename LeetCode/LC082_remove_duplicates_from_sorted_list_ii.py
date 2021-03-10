@@ -7,7 +7,7 @@ Given a sorted linked list, delete all nodes that have duplicate numbers, leavin
 """
 
 from typing import *
-from a0_ListNode import *
+from A01_ListNode import *
 
 
 class Solution_A1:
