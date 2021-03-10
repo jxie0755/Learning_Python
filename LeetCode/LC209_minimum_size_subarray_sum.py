@@ -1,4 +1,4 @@
-# P209 Minimum Size Subarray Sum
+# LC209 Minimum Size Subarray Sum
 # Medium
 
 # Given an array of n positive integers and a positive integer s,

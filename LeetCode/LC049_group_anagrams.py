@@ -1,6 +1,6 @@
 """
 https://leetcode.com/problems/group-anagrams/
-P049 Group Anagrams
+LC049 Group Anagrams
 Medium
 
 Given an array of strings, group anagrams together.

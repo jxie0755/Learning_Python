@@ -1,4 +1,4 @@
-# P169 Majority Element
+# LC169 Majority Element
 # Easy
 
 

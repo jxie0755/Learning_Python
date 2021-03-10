@@ -1,6 +1,6 @@
 """
 https://leetcode.com/problems/two-sum/
-p001 Two Sum
+LC001 Two Sum
 Easy
 
 Given an array of integers, return indices of the two numbers such that they add up to a specific target.
@@ -54,7 +54,7 @@ class Solution_B:
 class Solution_C:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
         """
-        The same method in p167 Two Sum II can be used here
+        The same method in LC167 Two Sum II can be used here
         """
         hmp = {}
         for idx in range(0, len(nums)):

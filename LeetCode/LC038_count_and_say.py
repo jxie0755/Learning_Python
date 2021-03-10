@@ -1,6 +1,6 @@
 """
 https://leetcode.com/problems/count-and-say/
-p038 Count and Say
+LC038 Count and Say
 Easy
 
 The count-and-say sequence is the sequence of integers with the first five terms as following:

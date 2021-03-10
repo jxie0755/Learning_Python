@@ -1,6 +1,6 @@
 """
 https://leetcode.com/problems/path-sum/
-P112 Path Sum
+LC112 Path Sum
 Easy
 
 Given a binary tree and a sum,

@@ -1,4 +1,4 @@
-# P147 Insertion Sort List
+# LC147 Insertion Sort List
 # Medium
 
 # Sort a linked list using insertion sort.

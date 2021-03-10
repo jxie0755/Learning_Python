@@ -1,4 +1,4 @@
-# P235 Lowest Common Ancestor of a Binary Search Tree
+# LC235 Lowest Common Ancestor of a Binary Search Tree
 # Easy
 
 

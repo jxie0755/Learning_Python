@@ -1,6 +1,6 @@
 """
 https://leetcode.com/problems/permutations/
-P046 Permutations
+LC046 Permutations
 Medium
 
 Given a collection of distinct (数字不会重复) integers, return all possible permutations.

@@ -1,6 +1,6 @@
 """
 https://leetcode.com/problems/trapping-rain-water/
-P042 Trapping Rain Water
+LC042 Trapping Rain Water
 Hard
 
 Given n non-negative integers representing an elevation map where the width of each bar is 1,

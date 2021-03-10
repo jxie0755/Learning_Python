@@ -1,4 +1,4 @@
-# P204 Count Primes
+# LC204 Count Primes
 # Easy
 
 

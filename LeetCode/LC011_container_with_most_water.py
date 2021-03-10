@@ -1,6 +1,6 @@
 """
 https://leetcode.com/problems/container-with-most-water/
-P011 Container with Most Water
+LC011 Container with Most Water
 Medium
 
 Given n non-negative integers a1, a2, ..., an , where each represents a point at coordinate (i, ai).

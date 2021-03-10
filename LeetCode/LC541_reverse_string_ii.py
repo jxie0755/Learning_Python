@@ -1,4 +1,4 @@
-# p541 Reverse String II
+# LC541 Reverse String II
 # Easy
 
 # Given a string and an integer k, you need to reverse the first k characters for every 2k characters counting from the start of the string.

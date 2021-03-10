@@ -1,4 +1,4 @@
-# P372 Super Pow
+# LC372 Super Pow
 # Medium
 
 

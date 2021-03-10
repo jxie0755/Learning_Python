@@ -1,6 +1,6 @@
 """
 https://leetcode.com/problems/valid-parentheses/
-p020 Valid Parentheses
+LC020 Valid Parentheses
 Easy
 
 Given a string containing just the characters "(", ")", "{", "}", "[" and "]", determine if the input string is valid.

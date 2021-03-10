@@ -1,4 +1,4 @@
-# P171 Excel Column Number
+# LC171 Excel Column Number
 # Easy
 
 # Given a column title as appear in an Excel sheet, return its corresponding column number.

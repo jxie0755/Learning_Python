@@ -1,4 +1,4 @@
-# P200 Number of Islands
+# LC200 Number of Islands
 # Medium
 
 
@@ -6,7 +6,7 @@
 
 
 class LC200UnionFind(object):
-    # Designed for Leetcode P200
+    # Designed for Leetcode LC200
     # Weighted and not path compressed
     def __init__(self, size):
         self.id = list(range(size))

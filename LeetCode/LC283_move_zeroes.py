@@ -1,4 +1,4 @@
-# P283 Move Zeroes
+# LC283 Move Zeroes
 # Easy
 
 

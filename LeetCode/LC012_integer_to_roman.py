@@ -1,6 +1,6 @@
 """
 https://leetcode.com/problems/integer-to-roman/
-p012 Integer to Roman
+LC012 Integer to Roman
 Medium
 
 Given an integer, convert it to a roman numeral.

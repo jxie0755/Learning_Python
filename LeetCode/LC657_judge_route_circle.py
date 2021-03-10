@@ -1,4 +1,4 @@
-# p657 Judge Route Circle
+# LC657 Judge Route Circle
 # Easy
 
 # Initially, there is a Robot at position (0, 0).

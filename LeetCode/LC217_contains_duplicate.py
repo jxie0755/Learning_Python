@@ -1,4 +1,4 @@
-# P217 Contains Duplicate
+# LC217 Contains Duplicate
 # Easy
 
 # Given an array of integers, find if the array contains any duplicates.

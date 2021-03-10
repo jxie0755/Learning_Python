@@ -1,4 +1,4 @@
-# P404 Sum of Left Leaves
+# LC404 Sum of Left Leaves
 # Easy
 
 # Find the sum of all left leaves in a given binary tree.

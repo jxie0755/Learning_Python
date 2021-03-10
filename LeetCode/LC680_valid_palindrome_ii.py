@@ -1,4 +1,4 @@
-# p680 Valid Palindrome II
+# LC680 Valid Palindrome II
 # Easy
 
 # Given a non-empty string s, you may delete at most one character.

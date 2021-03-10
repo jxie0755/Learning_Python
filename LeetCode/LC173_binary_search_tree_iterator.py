@@ -1,4 +1,4 @@
-# P173 Binary Search Tree Iterator
+# LC173 Binary Search Tree Iterator
 # Medium
 
 # Implement an iterator over a binary search tree (BST). Your iterator will be initialized with the root node of a BST.
@@ -64,7 +64,7 @@ class BSTIterator(object):
             self.que.append(root)
             self.updateQue()
 
-    # Add from Leetcode P230
+    # Add from Leetcode LC230
     def kthSmallest(self, k):
         s = []
         rank = 0

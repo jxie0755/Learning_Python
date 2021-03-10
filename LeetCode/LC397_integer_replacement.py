@@ -1,4 +1,4 @@
-# P397 Integer Replacement
+# LC397 Integer Replacement
 # Medium
 
 

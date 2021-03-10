@@ -1,4 +1,4 @@
-# P367 Valid Perfect Square
+# LC367 Valid Perfect Square
 # Easy
 
 

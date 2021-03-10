@@ -1,6 +1,6 @@
 """
 https://leetcode.com/problems/same-tree/
-p100 Same Tree
+LC100 Same Tree
 Easy
 
 

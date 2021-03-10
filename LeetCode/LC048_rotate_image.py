@@ -1,6 +1,6 @@
 """
 https://leetcode.com/problems/rotate-image/
-P048 Roate Image
+LC048 Roate Image
 Medium
 
 You are given an n x n 2D matrix representing an image.

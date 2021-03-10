@@ -1,4 +1,4 @@
-# p443 String Compression
+# LC443 String Compression
 # Easy
 
 # Given an array of characters, compress it in-place.

@@ -1,6 +1,6 @@
 """
 https://leetcode.com/problems/3sum/
-P015 3Sum
+LC015 3Sum
 Medium
 
 Given an array nums of n integers, are there elements a, b, c in nums such that a + b + c = 0?
@@ -15,7 +15,7 @@ from typing import *
 class Solution_A:
     def threeSum(self, nums: List[int]) -> List[List[int]]:
         """
-        Hstable method from P001
+        Hstable method from LC001
         Use modified method of two_sum (Above)
         with every number, check the rest of array for two_sum of (0-number)
         O(N^2), max time limit exceeded
@@ -187,7 +187,7 @@ class Solution_E:
     def twoSum(self, numbers: List[int], target: int, jump: int) -> List[List[int]]:
         """
         Helper E
-        # 提取p167 two sum II 中的头尾缩进法 O(N)
+        # 提取LC167 two sum II 中的头尾缩进法 O(N)
         """
 
         result = []

@@ -1,6 +1,6 @@
 """
 https://leetcode.com/problems/search-a-2d-matrix/
-P074 Search a 2D Matrix
+LC074 Search a 2D Matrix
 Medium
 
 

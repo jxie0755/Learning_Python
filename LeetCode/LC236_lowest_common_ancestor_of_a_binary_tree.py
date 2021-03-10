@@ -1,4 +1,4 @@
-# P235 Lowest Common Ancestor of a Binary Tree
+# LC235 Lowest Common Ancestor of a Binary Tree
 # Medium
 
 # Given a binary tree, find the lowest common ancestor (LCA) of two given nodes in the tree.

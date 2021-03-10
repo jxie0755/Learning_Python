@@ -1,4 +1,4 @@
-# P222 Count Complete Tree Nodes
+# LC222 Count Complete Tree Nodes
 # Medium
 
 

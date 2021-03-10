@@ -1,4 +1,4 @@
-# P141 Linked List Cycle
+# LC141 Linked List Cycle
 # Easy
 
 

@@ -1,6 +1,6 @@
 """
 https://leetcode.com/problems/search-in-rotated-sorted-array-ii/
-P081 Search in Rotated Sorted Array II
+LC081 Search in Rotated Sorted Array II
 Medium
 
 Suppose an array sorted in ascending order is rotated at some pivot unknown to you beforehand.
@@ -117,7 +117,7 @@ class Solution_B:
     def search(self, nums: List[int], target: int) -> bool:
         """
         Regular while loop, binary search O(logN)
-        Method modified from Leetcode P033
+        Method modified from Leetcode LC033
         This will pass but it is not the preferred method as too many conditions and edge cases
         """
         if not nums:

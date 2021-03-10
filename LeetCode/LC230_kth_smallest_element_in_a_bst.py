@@ -1,4 +1,4 @@
-# P230 Kth Smallest Element in a BST
+# LC230 Kth Smallest Element in a BST
 # Medium
 
 
@@ -24,10 +24,10 @@ class Solution(object):
 
 
 class Solution(object):
-    # Internal class of BST iterator from Leetcode P173
+    # Internal class of BST iterator from Leetcode LC173
     class BSTIterator(object):
 
-        # from Leetcode P173
+        # from Leetcode LC173
         def __init__(self, root):
             """
             :type root: TreeNode
@@ -66,7 +66,7 @@ class Solution(object):
                 return next_val
 
     # Version B
-    # Borrow the idea from Leetcode P173, by using an iterator
+    # Borrow the idea from Leetcode LC173, by using an iterator
     def kthSmallest(self, root: TreeNode, k: int) -> int:
         iter = Solution().BSTIterator(root)
         for i in range(k):

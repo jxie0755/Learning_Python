@@ -1,4 +1,4 @@
-# P313 Super Ugly Number
+# LC313 Super Ugly Number
 # Medium
 
 # Write a program to find the nth super ugly number.
@@ -36,7 +36,7 @@ class Solution:
 
 class Solution(object):
 
-    # Version B, idea borrowed from Leetcode P264 STD ans B
+    # Version B, idea borrowed from Leetcode LC264 STD ans B
     # Table method
     # Passed but slow
     def nthSuperUglyNumber(self, n: int, primes: List[int]) -> int:

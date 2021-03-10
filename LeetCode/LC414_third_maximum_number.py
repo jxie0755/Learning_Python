@@ -1,4 +1,4 @@
-# P414 Third Maximum Number
+# LC414 Third Maximum Number
 # Easy
 
 # Given a non-empty array of integers, return the third maximum number in this array. If it does not exist, return the maximum number.

@@ -1,6 +1,6 @@
 """
 https://leetcode.com/problems/insert-interval/
-P057 Insert Interval
+LC057 Insert Interval
 Hard
 
 Given a set of non-overlapping intervals, insert a new interval into the intervals (merge if necessary).
@@ -38,7 +38,7 @@ class Solution_A:
 
     def merge(self, intervals: List[List[int]]) -> List[List[int]]:
         """
-        Helper A from leetcode P056
+        Helper A from leetcode LC056
         """
         if len(intervals) < 2:
             return intervals

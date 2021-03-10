@@ -1,4 +1,4 @@
-# P129 Sum Root to Leaf Numbers
+# LC129 Sum Root to Leaf Numbers
 # Medium
 
 
@@ -13,7 +13,7 @@ from a0_TreeNode import *
 
 
 class Solution:
-    # This is also using the showPaths method from Leetcode P112
+    # This is also using the showPaths method from Leetcode LC112
     def allPath(self, root):
         """show all the paths in a non-empty root"""
         result = []

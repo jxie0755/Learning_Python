@@ -1,4 +1,4 @@
-# P160 Instersection of Two Linked Lists
+# LC160 Instersection of Two Linked Lists
 # Easy
 
 # Write a program to find the node at which the intersection of two singly linked lists begins.

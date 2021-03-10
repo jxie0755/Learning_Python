@@ -1,6 +1,6 @@
 """
 https://leetcode.com/problems/binary-tree-inorder-traversal/
-P094 Binary Tree Inorder Traversal
+LC094 Binary Tree Inorder Traversal
 Medium
 
 

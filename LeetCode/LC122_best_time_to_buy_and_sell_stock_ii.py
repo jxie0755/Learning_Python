@@ -1,4 +1,4 @@
-# P122 Best time to buy and sell stock II
+# LC122 Best time to buy and sell stock II
 # Easy
 
 

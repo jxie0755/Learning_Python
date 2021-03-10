@@ -1,6 +1,6 @@
 """
 https://leetcode.com/problems/add-binary/
-p067 Add Binary
+LC067 Add Binary
 Easy
 
 Given two binary strings, return their sum (also a binary string)

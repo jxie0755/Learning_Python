@@ -1,6 +1,6 @@
 """
 https://leetcode.com/problems/4sum/
-P018 4Sum
+LC018 4Sum
 Medium
 
 Given an array nums of n integers and an integer target, are there elements a, b, c, and d in nums such that a + b + c + d = target?

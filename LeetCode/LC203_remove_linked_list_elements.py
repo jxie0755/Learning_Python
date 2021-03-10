@@ -1,4 +1,4 @@
-# 203 Remove Linked List Elements
+# LC203 Remove Linked List Elements
 # Easy
 
 # Remove all elements from a linked list of integers that have value val.

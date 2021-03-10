@@ -1,4 +1,4 @@
-# P396 Rotate Function
+# LC396 Rotate Function
 # Medium
 
 # Given an array of integers A and let n to be its length.

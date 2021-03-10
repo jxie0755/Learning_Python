@@ -1,4 +1,4 @@
-# P202 Happy Number
+# LC202 Happy Number
 # Easy
 
 

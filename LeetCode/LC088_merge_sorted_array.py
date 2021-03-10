@@ -1,6 +1,6 @@
 """
 https://leetcode.com/problems/merge-sorted-array/
-p088 Merge Sorted Array
+LC088 Merge Sorted Array
 Easy
 
 

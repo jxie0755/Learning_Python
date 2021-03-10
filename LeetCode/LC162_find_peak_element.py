@@ -1,4 +1,4 @@
-# P162 Find Peak Element
+# LC162 Find Peak Element
 # Medium
 
 

@@ -1,6 +1,6 @@
 """
 https://leetcode.com/problems/unique-paths/
-P062 Unique Paths
+LC062 Unique Paths
 Medium
 
 A robot is located at the top-left corner of a m x n grid (marked "Start" in the diagram below).
@@ -17,7 +17,7 @@ class Solution_A:
     def uniquePaths(self, m: int, n: int) -> int:
         """
         The best direct math calculation
-        This is the same as ProjectEuler p015 lattice paths
+        This is the same as ProjectEuler LC015 lattice paths
         Use combination method: Combination pick r out of x : x! // (x! * (x-r)!)
         """
         total = m + n - 2 # actually m-1 + n-1, as path is node-1

@@ -1,4 +1,4 @@
-# P231 Power of Two
+# LC231 Power of Two
 # Easy
 
 

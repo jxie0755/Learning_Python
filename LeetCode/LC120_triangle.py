@@ -1,4 +1,4 @@
-# P120 Triangle
+# LC120 Triangle
 # Medium
 
 # Given a triangle, find the minimum path sum from top to bottom.

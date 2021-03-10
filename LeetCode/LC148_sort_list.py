@@ -1,4 +1,4 @@
-# P148 Sort List
+# LC148 Sort List
 # Medium
 
 

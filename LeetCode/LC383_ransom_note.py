@@ -1,4 +1,4 @@
-# p383 Ransom Note
+# LC383 Ransom Note
 # Easy
 
 # Given an arbitrary ransom note string and another string containing letters from all the magazines

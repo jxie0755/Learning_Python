@@ -1,4 +1,4 @@
-# p537 Complex Number Multiplication
+# LC537 Complex Number Multiplication
 # Medium
 
 # Given two strings representing two complex numbers.

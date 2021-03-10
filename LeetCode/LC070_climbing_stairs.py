@@ -1,6 +1,6 @@
 """
 https://leetcode.com/problems/climbing-stairs/
-p070 Climbing Stairs
+LC070 Climbing Stairs
 Easy
 
 You are climbing a stair case. It takes n steps to reach to the top.

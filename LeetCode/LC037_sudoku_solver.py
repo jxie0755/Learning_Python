@@ -1,6 +1,6 @@
 """
 https://leetcode.com/problems/sudoku-solver/
-P037 Sudoku Solver
+LC037 Sudoku Solver
 Hard
 
 Write a program to solve a Sudoku puzzle by filling the empty cells.
@@ -324,7 +324,7 @@ class Solution_B:
             [".", ".", ".", ".", ".", ".", ".", ".", "."],
         ]):
             """
-            只支持str的raw data, 空白处用"."来表示 (符合Leetcode p037)
+            只支持str的raw data, 空白处用"."来表示 (符合Leetcode LC037)
 
             这里用哈希表实现算法, 基本原理:
             棋盘本身不变 self.board, 只有最终出解了才变化棋盘

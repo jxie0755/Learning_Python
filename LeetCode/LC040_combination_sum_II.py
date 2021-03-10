@@ -1,6 +1,6 @@
 """
 https://leetcode.com/problems/combination-sum-ii/
-P040 Combination Sum II
+LC040 Combination Sum II
 Medium
 
 Given a collection of candidate numbers (candidates) and a target number (target),
@@ -9,7 +9,7 @@ Each number in candidates may only be used once in the combination.
 
 Note:
     All numbers (including target) will be positive integers.
-    The difference between the P039 and P040 is that the candidates can be duplicated in P040 but not in P039
+    The difference between the LC039 and LC040 is that the candidates can be duplicated in LC040 but not in LC039
     The solution set must not contain duplicate combinations.
 """
 
@@ -51,7 +51,7 @@ class Solution_A:
 class Solution_B:
     def combinationSum2(self, candidates: List[int], target: int) -> List[List[int]]:
         """
-        Same idea with Leetcode P039 Combination Sum, but cannot repeat same elements
+        Same idea with Leetcode LC039 Combination Sum, but cannot repeat same elements
         Add a recursive process method to update result
         """
 
@@ -59,7 +59,7 @@ class Solution_B:
             """
             Helper
             """
-            if target == 0 and intermediate not in result:  # 相对于P039 加一个去重条件
+            if target == 0 and intermediate not in result:  # 相对于LC039 加一个去重条件
                 result.append(list(intermediate))  # 终止case, target降到0就完成
                 # 这里使用list其实就是复制一个itermediate, 可以用interme[:]取代
 
@@ -67,7 +67,7 @@ class Solution_B:
 
                 intermediate.append(candidates[start])
                 process(candidates, start + 1, intermediate, target - candidates[start])
-                # 这里与p039不同,需要跳过, 因为不得重复使用同一个元素
+                # 这里与LC039不同,需要跳过, 因为不得重复使用同一个元素
                 intermediate.pop()
                 start += 1
 

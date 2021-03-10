@@ -1,6 +1,6 @@
 """
 https://leetcode.com/problems/3sum-closest/
-P016 3Sum Closest
+LC016 3Sum Closest
 Medium
 
 Given an array nums of n integers and an integer target,

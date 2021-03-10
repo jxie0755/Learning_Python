@@ -1,4 +1,4 @@
-# P264 Ugly Number II
+# LC264 Ugly Number II
 # Medium
 
 # Write a program to find the n-th ugly number.
@@ -56,7 +56,7 @@ class Solution(object):
 
 class Solution(object):
     # Self version B Dynamic programming
-    # Same idea in P264, P279
+    # Same idea in LC264, LC279
     # Exceed max time limit
     def nthUglyNumber(self, n: int) -> int:
         result = [1]

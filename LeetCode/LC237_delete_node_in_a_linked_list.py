@@ -1,4 +1,4 @@
-# P237 Delete Node in a Linked List
+# LC237 Delete Node in a Linked List
 # Easy
 
 

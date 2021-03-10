@@ -1,6 +1,6 @@
 """
 https://leetcode.com/problems/permutation-sequence/
-P060 Permutation Sequence
+LC060 Permutation Sequence
 Medium
 
 The set [1,2,3,...,n] contains a total of n! unique permutations.
@@ -26,7 +26,7 @@ import math
 class Solution_A:
     def nextPermutation(self, nums: List[int]) -> List[int]:
         """
-        Helper from Leetcode P031
+        Helper from Leetcode LC031
         O(N), directly find next different permutations
         """
         length = len(nums)
@@ -49,7 +49,7 @@ class Solution_A:
 
     def prevPermutation(self, nums: List[int]) -> List[int]:
         """
-        Helper developped from Leetcode P031
+        Helper developped from Leetcode LC031
         O(N), directly find next different permutations
         """
         length = len(nums)

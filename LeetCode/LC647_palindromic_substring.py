@@ -1,4 +1,4 @@
-# p647 Palindromic Substrings
+# LC647 Palindromic Substrings
 # Medium
 
 # Given a string, your task is to count how many palindromic substrings in this string.

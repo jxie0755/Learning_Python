@@ -1,4 +1,4 @@
-# P241 Different Ways to Add Parentheses
+# LC241 Different Ways to Add Parentheses
 # Medium
 
 

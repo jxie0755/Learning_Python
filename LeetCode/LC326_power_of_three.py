@@ -1,4 +1,4 @@
-# P326 Power of Three
+# LC326 Power of Three
 # Easy
 
 

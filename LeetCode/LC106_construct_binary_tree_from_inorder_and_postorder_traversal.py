@@ -1,6 +1,6 @@
 """
 https://leetcode.com/problems/construct-binary-tree-from-inorder-and-postorder-traversal/
-P106 Construct Binary Tree from Inorder and Postorder Traversal
+LC106 Construct Binary Tree from Inorder and Postorder Traversal
 Medium
 
 Given inorder and postorder traversal of a tree, construct the binary tree.
@@ -17,7 +17,7 @@ from a0_TreeNode import *
 class Solution_A1:
     def buildTree(self, inorder: List[int], postorder: List[int]) -> TreeNode:
         """
-        Same idea the slow version in leetcode P105-A1
+        Same idea the slow version in leetcode LC105-A1
         """
         hmp = dict()
         for idx, val in enumerate(inorder):
@@ -48,7 +48,7 @@ class Solution_A1:
 class Solution_A2:
     def buildTree(self, inorder: List[int], postorder: List[int]) -> TreeNode:
         """
-        Similar idea of P105-A2
+        Similar idea of LC105-A2
         Recursively Pop from the end, locate the head on which side of the tree
         """
         if not inorder:  # end case, no nodes
@@ -72,7 +72,7 @@ class Solution_A2:
 class Solution_STD:
     def buildTree(self, inorder: List[int], postorder: List[int]) -> TreeNode:
         """
-        STD version, similar to P105-STD
+        STD version, similar to LC105-STD
         """
         return self.buildTreeRecu(postorder, inorder, len(postorder), 0, len(inorder))
 

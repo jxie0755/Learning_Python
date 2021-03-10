@@ -1,6 +1,6 @@
 """
 https://leetcode.com/problems/maximum-depth-of-binary-tree/
-P104 Maximum Depth of Binary Tree
+LC104 Maximum Depth of Binary Tree
 Easy
 
 

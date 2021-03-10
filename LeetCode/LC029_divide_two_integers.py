@@ -1,6 +1,6 @@
 """
 https://leetcode.com/problems/divide-two-integers/
-P029 Divide Two Integers
+LC029 Divide Two Integers
 Medium
 
 Given two integers dividend and divisor, divide two integers without using multiplication, division and mod operator.

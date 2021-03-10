@@ -1,6 +1,6 @@
 """
 https://leetcode.com/problems/permutations-ii/
-P047 Permutations II
+LC047 Permutations II
 Medium
 
 Given a collection of numbers that might contain duplicates, return all possible unique permutations.
@@ -95,7 +95,7 @@ class Solution_B:
 class Solution_C1:
     def permuteUnique(self, nums: List[int]) -> List[List[int]]:
         """
-        recursive method modified from leetcode P046 Version C
+        recursive method modified from leetcode LC046 Version C
         revised the recursion rule by bypassing the repeated next_list
         """
 
@@ -159,7 +159,7 @@ class Solution_C2:
 class Solution_D:
     def permuteUnique(self, nums: List[int]):
         """
-        Pure recursive method, single and pure recursion modified from leetcode P046 version D
+        Pure recursive method, single and pure recursion modified from leetcode LC046 version D
         Revised the recursion rule by bypassing the repeated next_list
 
         Must sort sub_list for checking repeat, unlike version C

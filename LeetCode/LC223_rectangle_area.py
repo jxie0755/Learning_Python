@@ -1,4 +1,4 @@
-# P223 Rectangle Area
+# LC223 Rectangle Area
 # Medium
 
 # Find the total area covered by two rectilinear rectangles in a 2D plane.

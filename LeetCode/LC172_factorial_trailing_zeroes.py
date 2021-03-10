@@ -1,4 +1,4 @@
-# P172 Factorial Trailing Zeroes
+# LC172 Factorial Trailing Zeroes
 # Easy
 
 # Given an integer n, return the number of trailing zeroes in n!.

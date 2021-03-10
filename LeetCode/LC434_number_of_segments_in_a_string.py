@@ -1,4 +1,4 @@
-# p434 Number of Segments in a String
+# LC434 Number of Segments in a String
 # Easy
 
 # Count the number of segments in a string, where a segment is defined to be a contiguous sequence of non-space characters.

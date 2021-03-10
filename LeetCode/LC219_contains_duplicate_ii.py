@@ -1,4 +1,4 @@
-# P219 Contains Duplicate II
+# LC219 Contains Duplicate II
 # Easy
 
 

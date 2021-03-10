@@ -1,4 +1,4 @@
-# P368 Largest Divisible Subset
+# LC368 Largest Divisible Subset
 # Medium
 
 # Given a set of distinct positive integers, find the largest subset such that every pair (Si, Sj) of elements in this subset satisfies:

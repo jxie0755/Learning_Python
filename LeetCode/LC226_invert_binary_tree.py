@@ -1,4 +1,4 @@
-# P226 Invert Binary Tree
+# LC226 Invert Binary Tree
 # Easy
 
 # Invert a binary tree.

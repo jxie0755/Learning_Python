@@ -1,4 +1,4 @@
-# P319 Bulb Switcher
+# LC319 Bulb Switcher
 # Medium
 
 

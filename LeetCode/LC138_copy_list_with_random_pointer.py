@@ -1,4 +1,4 @@
-# P139 Copy List with Random Pointer
+# LC139 Copy List with Random Pointer
 # Medium
 
 

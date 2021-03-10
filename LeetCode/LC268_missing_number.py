@@ -1,4 +1,4 @@
-# P268 Missing Number
+# LC268 Missing Number
 # Easy
 
 

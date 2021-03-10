@@ -1,6 +1,6 @@
 """
 https://leetcode.com/problems/zigzag-conversion/
-P006 ZigZag Conversion
+LC006 ZigZag Conversion
 Medium
 
 The string "PAYPALISHIRING" is written in a zigzag pattern on a given number of rows like this:

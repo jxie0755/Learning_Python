@@ -1,6 +1,6 @@
 """
 https://leetcode.com/problems/maximum-subarray/
-p053 Maximum Subarray
+LC053 Maximum Subarray
 Easy
 
 Find the contiguous subarray within an array (containing at least one number) which has the largest sum.

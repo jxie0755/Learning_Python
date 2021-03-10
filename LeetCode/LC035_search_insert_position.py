@@ -1,6 +1,6 @@
 """
 https://leetcode.com/problems/search-insert-position/
-p035 Search Insert Position
+LC035 Search Insert Position
 Easy
 
 Given a sorted array and a target value, return the index if the target is found.

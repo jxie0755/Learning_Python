@@ -1,6 +1,6 @@
 """
 https://leetcode.com/problems/subsets/
-P078 Subsets
+LC078 Subsets
 Medium
 
 Given a set of distinct integers, nums, return all possible subsets (the power set).
@@ -13,7 +13,7 @@ from typing import *
 class Solution_A:
     def subsets(self, nums: List[int]) -> List[List[int]]:
         """
-        With the help from the combinationSolo from Leetcode P077
+        With the help from the combinationSolo from Leetcode LC077
         """
         result = []
         for i in range(0, len(nums) + 1):

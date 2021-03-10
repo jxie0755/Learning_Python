@@ -1,4 +1,4 @@
-# p553 Optimal Division
+# LC553 Optimal Division
 # Medium
 
 # Given a list of positive integers, the adjacent integers will perform the float division.

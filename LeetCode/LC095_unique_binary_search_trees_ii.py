@@ -1,6 +1,6 @@
 """
 https://leetcode.com/problems/unique-binary-search-trees-ii/
-P095 Unique Binary Search Trees II
+LC095 Unique Binary Search Trees II
 Medium
 
 Given an integer n, generate all structurally unique BST's (binary search trees) that store values 1 ... n.

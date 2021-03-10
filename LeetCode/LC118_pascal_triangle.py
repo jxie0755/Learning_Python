@@ -1,4 +1,4 @@
-# p118 Pascal's triangle
+# LC118 Pascal's triangle
 # Easy
 
 # Given a non-negative integer numRows, generate the first numRows of Pascal's triangle.

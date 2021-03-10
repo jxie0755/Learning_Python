@@ -1,6 +1,6 @@
 """
 https://leetcode.com/problems/validate-binary-search-tree/
-P098 Validate Binary Search Tree
+LC098 Validate Binary Search Tree
 Medium
 
 
@@ -20,7 +20,7 @@ from a0_TreeNode import *
 class Solution_A:
     def inorderTraversal(self, root: TreeNode) -> List[int]:
         """
-        Use inorderTraversal to get the list from Leetcode P094
+        Use inorderTraversal to get the list from Leetcode LC094
         Then check if the flateen list is sorted
         """
         if not root:

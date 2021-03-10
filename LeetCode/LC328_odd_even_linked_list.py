@@ -1,4 +1,4 @@
-# P328 Odd Even Linked List
+# LC328 Odd Even Linked List
 # Medium
 
 

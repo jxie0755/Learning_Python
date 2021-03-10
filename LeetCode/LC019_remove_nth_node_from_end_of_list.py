@@ -1,6 +1,6 @@
 """
 https://leetcode.com/problems/remove-nth-node-from-end-of-list/
-P019 Remove Nth Node From End of List
+LC019 Remove Nth Node From End of List
 Medium
 
 Given a linked list, remove the n-th node from the end of list and return its head.

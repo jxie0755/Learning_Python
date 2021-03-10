@@ -1,6 +1,6 @@
 """
 https://leetcode.com/problems/palindrome-number/
-p009 Palindrome Number
+LC009 Palindrome Number
 Easy
 
 Determine whether an integer is a palindrome. Do this without extra space.

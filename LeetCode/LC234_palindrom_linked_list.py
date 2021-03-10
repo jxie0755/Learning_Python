@@ -1,4 +1,4 @@
-# P234 Palindrome Linked List
+# LC234 Palindrome Linked List
 # Easy
 
 # Given a singly linked list, determine if it is a palindrome.

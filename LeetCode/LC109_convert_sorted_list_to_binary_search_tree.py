@@ -1,6 +1,6 @@
 """
 https://leetcode.com/problems/convert-sorted-list-to-binary-search-tree/
-P109 Convert Sorted List to Binary Search Tree
+LC109 Convert Sorted List to Binary Search Tree
 Medium
 
 
@@ -17,7 +17,7 @@ from a0_ListNode import *
 class Solution_A:
     def sortedListToBST(self, head: ListNode) -> TreeNode:
         """
-        Convert linked list to an arrayList then solve the problem like Leetcode P108
+        Convert linked list to an arrayList then solve the problem like Leetcode LC108
         """
 
         if not head:

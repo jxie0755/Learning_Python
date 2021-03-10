@@ -1,6 +1,6 @@
 """
 https://leetcode.com/problems/path-sum-ii/
-P113 Path Sum II
+LC113 Path Sum II
 Medium
 
 

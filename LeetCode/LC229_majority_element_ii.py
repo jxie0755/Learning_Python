@@ -1,4 +1,4 @@
-# P229 Majority Element II
+# LC229 Majority Element II
 # Medium
 
 # Given an integer array of size n, find all elements that appear more than ⌊ n/3 ⌋ times.

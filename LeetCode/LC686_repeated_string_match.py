@@ -1,4 +1,4 @@
-# p686 Repeated String Match
+# LC686 Repeated String Match
 # Easy
 
 # Given two strings A and B, find the minimum number of times A has to be repeated such that B is a substring of it.

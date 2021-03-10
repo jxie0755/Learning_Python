@@ -1,4 +1,4 @@
-# P227 Basic Calculator II
+# LC227 Basic Calculator II
 # Medium
 
 # Implement a basic calculator to evaluate a simple expression string.

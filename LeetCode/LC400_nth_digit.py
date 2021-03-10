@@ -1,4 +1,4 @@
-# P400 Nth Digit
+# LC400 Nth Digit
 # Easy
 
 

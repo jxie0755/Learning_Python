@@ -1,4 +1,4 @@
-# P189 Rotate Array
+# LC189 Rotate Array
 # Easy
 
 # Given an array, rotate the array to the right by k steps, where k is non-negative.

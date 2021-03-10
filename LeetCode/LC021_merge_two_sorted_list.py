@@ -1,6 +1,6 @@
 """
 https://leetcode.com/problems/merge-two-sorted-lists/
-p021 Merge two sorted list
+LC021 Merge two sorted list
 Easy
 
 Merge two sorted linked lists and return it as a new list.

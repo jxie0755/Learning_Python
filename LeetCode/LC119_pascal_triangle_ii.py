@@ -1,4 +1,4 @@
-# p119 Pasical's Trianle II
+# LC119 Pasical's Trianle II
 # Easy
 
 # Given a non-negative index k where k ≤ 33, return the kth index row of the Pascal's triangle.

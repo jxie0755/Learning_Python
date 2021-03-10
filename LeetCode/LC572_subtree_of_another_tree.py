@@ -1,4 +1,4 @@
-# P572 Subtree of Another Tree
+# LC572 Subtree of Another Tree
 # Easy
 
 

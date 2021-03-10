@@ -1,6 +1,6 @@
 """
 https://leetcode.com/problems/next-permutation/
-P031 Next Permutation
+LC031 Next Permutation
 Medium
 
 Implement next permutation, which rearranges numbers into the lexicographically next greater permutation of numbers.

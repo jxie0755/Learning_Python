@@ -1,6 +1,6 @@
 """
 https://leetcode.com/problems/decode-ways/
-P091 Docde Ways
+LC091 Docde Ways
 Medium
 
 A message containing letters from A-Z is being encoded to numbers using the following mapping:

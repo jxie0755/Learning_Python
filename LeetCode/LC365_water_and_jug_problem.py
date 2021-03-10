@@ -1,4 +1,4 @@
-# Water and Jug Problem
+# LC365 Water and Jug Problem
 # Medium
 
 

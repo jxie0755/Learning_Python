@@ -1,6 +1,6 @@
 """
 https://leetcode.com/problems/jump-game-ii/
-P045 Jump Game II
+LC045 Jump Game II
 Hard
 
 Given an array of non-negative integers, you are initially positioned at the first index of the array.

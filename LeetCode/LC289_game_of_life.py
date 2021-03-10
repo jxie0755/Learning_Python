@@ -1,4 +1,4 @@
-# P289 Game of Life
+# LC289 Game of Life
 # Medium
 
 

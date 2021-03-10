@@ -1,4 +1,4 @@
-# P124 Binary Tree Maximum Path Sum
+# LC124 Binary Tree Maximum Path Sum
 # Hard
 
 

@@ -1,6 +1,6 @@
 """
 https://leetcode.com/problems/jump-game/
-P055 Jump Game
+LC055 Jump Game
 Medium
 
 Given an array of non-negative integers, you are initially positioned at the first index of the array.

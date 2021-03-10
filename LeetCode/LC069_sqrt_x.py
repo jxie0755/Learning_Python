@@ -1,6 +1,6 @@
 """
 https://leetcode.com/problems/sqrtx/
-p069 Sqrt(x)
+LC069 Sqrt(x)
 Easy
 
 Implement int sqrt(int x).

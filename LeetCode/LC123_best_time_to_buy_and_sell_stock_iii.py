@@ -1,4 +1,4 @@
-# P123 Best Time to Buy and Sell Stock III
+# LC123 Best Time to Buy and Sell Stock III
 # Hard
 
 #

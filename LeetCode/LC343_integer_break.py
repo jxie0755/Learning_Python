@@ -1,4 +1,4 @@
-# P343 Integer Break
+# LC343 Integer Break
 # Medium
 
 

@@ -1,6 +1,6 @@
 """
 https://leetcode.com/problems/edit-distance/
-P072 Edit Distance
+LC072 Edit Distance
 Hard
 
 Given two words word1 and word2, find the minimum number of operations required to convert word1 to word2.

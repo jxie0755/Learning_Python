@@ -1,4 +1,4 @@
-# p521 Longest Uncommon Subsequence I
+# LC521 Longest Uncommon Subsequence I
 # Easy
 
 # Given a group of two strings, you need to find the longest uncommon subsequence of this group of two strings.

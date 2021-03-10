@@ -1,6 +1,6 @@
 """
 https://leetcode.com/problems/reverse-nodes-in-k-group/
-P025 Reverse Nodes in k-group
+LC025 Reverse Nodes in k-group
 Hard
 
 
@@ -46,7 +46,7 @@ class Solution_A:
     def reverseNodes(self, head: ListNode) -> ListNode:
         """
         Helper for both Solution A and Solution B
-        参见Leetcode P206, reverse the whole linked-list
+        参见Leetcode LC206, reverse the whole linked-list
         """
 
         dummy = ListNode(float("-inf"))
@@ -98,7 +98,7 @@ class Solution_B:
     def reverseNodes(self, head: ListNode) -> ListNode:
         """
         Helper for both Solution A and Solution B
-        参见Leetcode P206, reverse the whole linked-list
+        参见Leetcode LC206, reverse the whole linked-list
         """
 
         dummy = ListNode(float("-inf"))

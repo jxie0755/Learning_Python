@@ -1,6 +1,6 @@
 """
 https://leetcode.com/problems/partition-list/
-P086 Partition List
+LC086 Partition List
 Medium
 
 Given a linked list and a value x, partition it such that all nodes less than x come before nodes greater than or equal to x.

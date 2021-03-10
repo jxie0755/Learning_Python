@@ -1,4 +1,4 @@
-# P167 Two Sum II
+# LC167 Two Sum II
 # Easy
 
 

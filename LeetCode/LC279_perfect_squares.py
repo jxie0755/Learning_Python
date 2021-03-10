@@ -1,4 +1,4 @@
-# P279 Perfect Squares
+# LC279 Perfect Squares
 # Medium
 
 

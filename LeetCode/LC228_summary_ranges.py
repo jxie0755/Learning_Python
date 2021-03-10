@@ -1,4 +1,4 @@
-# P228 Summary Ranges
+# LC228 Summary Ranges
 # Medium
 
 

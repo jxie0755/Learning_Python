@@ -1,6 +1,6 @@
 """
 https://leetcode.com/problems/multiply-strings/
-P043 Multiply Strings
+LC043 Multiply Strings
 Medium
 
 Given two non-negative integers num1 and num2 represented as strings,

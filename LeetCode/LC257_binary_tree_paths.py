@@ -1,4 +1,4 @@
-# P257 Bianry Tree Paths
+# LC257 Bianry Tree Paths
 # Easy
 
 

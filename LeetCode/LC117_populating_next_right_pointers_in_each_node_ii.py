@@ -1,6 +1,6 @@
 """
 https://leetcode.com/problems/populating-next-right-pointers-in-each-node-ii/
-P117 Populating Next Right Pointers in Each Node II
+LC117 Populating Next Right Pointers in Each Node II
 Medium
 
 Different from LC106: You are given a non-perfect binary tree.

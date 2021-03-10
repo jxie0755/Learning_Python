@@ -1,4 +1,4 @@
-# P287 Find the Duplicate Number
+# LC287 Find the Duplicate Number
 # Medium
 
 

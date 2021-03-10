@@ -1,4 +1,4 @@
-# p551 Student Attendance Record I
+# LC551 Student Attendance Record I
 # Easy
 
 # You are given a string representing an attendance record for a student. The record only contains the following three characters:

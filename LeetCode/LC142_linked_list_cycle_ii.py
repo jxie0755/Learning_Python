@@ -1,4 +1,4 @@
-# P142 Linked List Cycle II
+# LC142 Linked List Cycle II
 # Medium
 
 # Given a linked list, return the node where the cycle begins. If there is no cycle, return null.

@@ -1,6 +1,6 @@
 """
 https://leetcode.com/problems/powx-n/
-P050 Pow(x, n)
+LC050 Pow(x, n)
 Medium
 
 Implement pow(x, n), which calculates x raised to the power n (x^n)

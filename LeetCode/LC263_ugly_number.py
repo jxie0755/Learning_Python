@@ -1,4 +1,4 @@
-# P263 Ugly Number
+# LC263 Ugly Number
 # Easy
 
 # Write a program to check whether a given number is an ugly number.

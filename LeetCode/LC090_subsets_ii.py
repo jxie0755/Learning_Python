@@ -1,6 +1,6 @@
 """
 https://leetcode.com/problems/subsets-ii/
-P090 Subsets II
+LC090 Subsets II
 Medium
 
 
@@ -14,7 +14,7 @@ from typing import *
 class Solution_A:
     def subsetsWithDup(self, nums: List[int]) -> List[List[int]]:
         """
-        With the help from the combinationSolo from Leetcode P077
+        With the help from the combinationSolo from Leetcode LC077
         use tuple and set to remove repeat and convert back to list
         """
         result = []
@@ -51,7 +51,7 @@ class Solution_A:
 class Solution_B:
     def subsetsWithDup(self, nums: List[int]) -> List[List[int]]:
         """
-        With the help from the combinationSolo from Leetcode P077
+        With the help from the combinationSolo from Leetcode LC077
         no need to use tuple, direct use list and remove duplicated on the run
         """
         result = []
