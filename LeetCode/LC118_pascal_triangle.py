@@ -11,51 +11,24 @@ from typing import *
 class Solution_A1:
     def generate(self, numRows: int) -> List[List[int]]:
         """
-        a recursion version
-        Time limit exceeded
-        """
-        if numRows == 0:
-            return []
-        elif numRows == 1:
-            return self.generate(0) + [[1]]
-        elif numRows == 2:
-            return self.generate(1) + [[1, 1]]
-        else:
-            previous = self.generate(numRows - 1)[-1]
-            new = [1]
-            for i in range(len(previous) - 1):
-                new.append(previous[i] + previous[i + 1])
-            return self.generate(numRows - 1) + [new + [1]]
-
-
-class Solution_A2:
-    def generate(self, numRows: int) -> List[List[int]]:
-        """
         Iteration method
+        generate next layer based on the current last layer
         """
         if numRows == 0:
             return []
         elif numRows == 1:
             return [[1]]
-        elif numRows == 2:
-            return [[1], [1, 1]]
-
-        current = 2
-        result = [[1], [1, 1]]
-
-        while current != numRows:
-            new = result[-1][:]
-            add_on = [1]
-            for i in range(len(new) - 1):
-                add_on.append(new[i] + new[i + 1])
-            add_on.append(1)
-
-            result.append(add_on)
-            current += 1
-
-        return result
-
-
+        else:
+            result = [[1]]
+            layer = [1, 1]
+            for i in range(numRows - 1):
+                result.append(layer)
+                new_layer = [1]
+                for i in range(len(layer) - 1):
+                    new_layer.append(layer[i] + layer[i + 1])
+                new_layer.append(1)
+                layer = new_layer
+            return result
 
 
 
