@@ -21,11 +21,11 @@ class Solution_A:
         else:
             result = [[1]]
             layer = [1, 1]
-            for _ in range(numRows - 1):
+            for i in range(numRows - 1):
                 result.append(layer)
                 new_layer = [1]
-                for i in range(len(layer) - 1):
-                    new_layer.append(layer[i] + layer[i + 1])
+                for j in range(len(layer) - 1):
+                    new_layer.append(layer[j] + layer[j + 1])
                 new_layer.append(1)
                 layer = new_layer
             return result
