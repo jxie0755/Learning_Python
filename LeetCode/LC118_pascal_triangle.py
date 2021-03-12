@@ -31,7 +31,6 @@ class Solution_A:
             return result
 
 
-
 if __name__ == "__main__":
     testCase = Solution_A()
 
