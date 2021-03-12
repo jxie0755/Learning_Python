@@ -8,7 +8,7 @@ Given a non-negative integer numRows, generate the first numRows of Pascal's tri
 
 from typing import *
 
-class Solution_A1:
+class Solution_A:
     def generate(self, numRows: int) -> List[List[int]]:
         """
         Iteration method
@@ -33,7 +33,7 @@ class Solution_A1:
 
 
 if __name__ == "__main__":
-    testCase = Solution_A1()
+    testCase = Solution_A()
 
     assert testCase.generate(0) == [
     ], "Edge 0"
