@@ -9,24 +9,26 @@ Note that the row index starts from 0.
 Follow up: Could you optimize your algorithm to use only O(k) extra space?
 """
 from typing import *
-from math import factorial
 
 class Solution_A1:
     def getRow(self, rowIndex: int) -> List[int]:
         """
         Quick iteration
         """
-
         if rowIndex == 0:
             return [1]
         elif rowIndex == 1:
             return [1, 1]
 
-        result = [1, 1]
-        for _ in range(1, rowIndex):
-            result = [1] + [result[i] + result[i - 1] for i in range(1, len(result))] + [1]
+        row = [1, 1]
+        for i in range(1, rowIndex):
+            new_row = [1]
+            for j in range(i):
+                new_row.append(row[j] + row[j+1])
+            new_row.append(1)
+            row = new_row
 
-        return result
+        return row
 
 
 if __name__ == "__main__":
