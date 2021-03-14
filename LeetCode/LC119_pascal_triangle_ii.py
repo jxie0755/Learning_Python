@@ -1,21 +1,20 @@
-# LC119 Pasical's Trianle II
-# Easy
+"""
+https://leetcode.com/problems/pascals-triangle-ii/
+LC119 Pasical's Trianle II
+Easy
 
-# Given a non-negative index k where k ≤ 33, return the kth index row of the Pascal's triangle.
-# Note that the row index starts from 0.
+Given a non-negative index k where k ≤ 33, return the kth index row of the Pascal's triangle.
+Note that the row index starts from 0.
 
-# Follow up: Could you optimize your algorithm to use only O(k) extra space?
-
+Follow up: Could you optimize your algorithm to use only O(k) extra space?
+"""
+from typing import *
 from math import factorial
 
-
-class Solution:
-
-    def getRow_old(self, rowIndex):
-        # 方法1, 普通
+class Solution_A1:
+    def getRow(self, rowIndex: int) -> List[int]:
         """
-        :type rowIndex: int
-        :rtype: List[int]
+        Quick iteration
         """
 
         if rowIndex == 0:
@@ -23,74 +22,18 @@ class Solution:
         elif rowIndex == 1:
             return [1, 1]
 
-        current = 1
         result = [1, 1]
-
-        while current < rowIndex:
+        for _ in range(1, rowIndex):
             result = [1] + [result[i] + result[i - 1] for i in range(1, len(result))] + [1]
-            current += 1
 
         return result
-
-    def getRow(self, rowIndex):
-        # 方法二, 利用对称性只做一半的工作
-        """
-        :type rowIndex: int
-        :rtype: List[int]
-        """
-
-        if rowIndex == 0:
-            return [1]
-        elif rowIndex == 1:
-            return [1, 1]
-
-        current = 2
-        result = [1, 2]
-
-        while current < rowIndex:
-            x = result[-1]
-            result = [1] + [result[i] + result[i + 1] for i in range(current // 2)]  # 不如只求一半,另一半用复制法节省时间 # 确实快了一倍
-            if current % 2 != 0:
-                result += [x * 2]
-
-            current += 1
-
-        # 根据奇数或者偶数长度判断怎么对折复制
-        if rowIndex % 2 == 0:
-            return result + result[-2::-1]
-        else:
-            return result + result[::-1]
-
-    def getRow_math(self, rowIndex):
-        # 利用杨辉三角数学性质, 第 n 行的第  k 个数字为组合数 C(k/n)
-
-        result = []
-        for k in range(0, rowIndex + 1):
-            result.append(factorial(rowIndex) // factorial(k) // factorial(rowIndex - k))  # 用阶乘做组合运算
-
-        return result
-
-    def getRow_math2(self, rowIndex):
-        # 就这样还是慢,阶乘算太多次了, 必须结合折半法...
-
-        result = []
-        for k in range(0, rowIndex // 2 + 1):
-            result.append(factorial(rowIndex) // factorial(k) // factorial(rowIndex - k))
-
-        if rowIndex % 2 == 0:
-            return result + result[-2::-1]
-        else:
-            return result + result[::-1]
 
 
 if __name__ == "__main__":
-    assert Solution().getRow(2) == [1, 2, 1]
-    assert Solution().getRow(3) == [1, 3, 3, 1]
-    assert Solution().getRow(4) == [1, 4, 6, 4, 1]
-    print("All passed")
+    testCase = Solution_A1()
 
-    Solution().getRow(10000)
-    # regular:              11k ms
-    # regular-half:          5k ms
-    # combination:          65k ms
-    # combination-half:     33k ms
+    assert testCase.getRow(3) == [1, 3, 3, 1], "Example 1"
+    assert testCase.getRow(0) == [1], "Example 2"
+    assert testCase.getRow(1) == [1, 1], "Example 3"
+
+    print("All passed")
