@@ -34,8 +34,7 @@ class Solution_A:
 if __name__ == "__main__":
     testCase = Solution_A()
 
-    assert testCase.generate(0) == [
-    ], "Edge 0"
+    assert testCase.generate(0) == [], "Edge 0"
 
     assert testCase.generate(5) == [
         [1],
