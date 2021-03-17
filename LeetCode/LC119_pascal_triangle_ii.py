@@ -31,6 +31,7 @@ class Solution_A1:
         return row
 
 
+
 if __name__ == "__main__":
     testCase = Solution_A1()
 
