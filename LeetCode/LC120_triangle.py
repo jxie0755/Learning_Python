@@ -1,17 +1,20 @@
-# LC120 Triangle
-# Medium
+"""
+https://leetcode.com/problems/triangle/
+LC120 Triangle
+Medium
 
-# Given a triangle, find the minimum path sum from top to bottom.
-# Each step you may move to adjacent numbers on the row below.
+Given a triangle, find the minimum path sum from top to bottom.
+Each step you may move to adjacent numbers on the row below.
 
-# Note:
-# Bonus point if you are able to do this using only O(n) extra space, where n is the total number of rows in the triangle.
+Note:
+Bonus point if you are able to do this using only O(n) extra space, where n is the total number of rows in the triangle.
 
+"""
 
 from typing import *
 
 
-class Solution:
+class Solution_A:
     # Recursive method
     # This will pass but exceed max time limit as the recursion grow exponentially
     def minimumTotal(self, triangle: List[List[int]]) -> int:
@@ -28,7 +31,7 @@ class Solution:
         return helper(0, 0)
 
 
-class Solution:
+class Solution_B:
     # a two row iteration method
     # update the first row in triangle from end to begin
     # the second row is the updated minimum value of first row and second row
@@ -66,7 +69,10 @@ class Solution:
 
 
 if __name__ == "__main__":
-    assert Solution().minimumTotal([[1]]) == 1, "Edge 1"
+    testCase = Solution_A()
+
+
+    assert testCase.minimumTotal([[1]]) == 1, "Edge 1"
 
     A = [
         [2],
@@ -75,5 +81,5 @@ if __name__ == "__main__":
         [4, 1, 8, 3]
     ]
 
-    assert Solution().minimumTotal(A) == 11, "Example 1"
+    assert testCase.minimumTotal(A) == 11, "Example 1"
     print("All passed")
