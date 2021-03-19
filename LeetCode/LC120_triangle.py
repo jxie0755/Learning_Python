@@ -15,9 +15,12 @@ from typing import *
 
 
 class Solution_A:
-    # Recursive method
-    # This will pass but exceed max time limit as the recursion grow exponentially
+
     def minimumTotal(self, triangle: List[List[int]]) -> int:
+        """
+        Recursive method
+        This will pass but exceed max time limit as the recursion grow exponentially
+        """
         def helper(depth, idx):
             row = triangle[depth]
 
@@ -31,55 +34,57 @@ class Solution_A:
         return helper(0, 0)
 
 
-class Solution_B:
-    # a two row iteration method
-    # update the first row in triangle from end to begin
-    # the second row is the updated minimum value of first row and second row
-    # passed, very fast method
+class Solution_B1:
     def minimumTotal(self, triangle: List[List[int]]) -> int:
-        if len(triangle) == 1:
-            return triangle[0][0]
+        """
+        This will take O(N) space, but modify the triangle by adding value to next row
+        """
+        for R in range(1, len(triangle)):
+            row = triangle[R]
+            for i in range(len(row)):
+                if i == 0:
+                    row[i] = triangle[R - 1][i] + row[i]
+                elif i == len(row) - 1:
+                    row[i] = triangle[R - 1][i - 1] + row[i]
+                else:
+                    row[i] = min(triangle[R - 1][i - 1], triangle[R - 1][i]) + row[i]
+        return min(triangle[-1])
 
-        N = len(triangle) - 2
 
-        next_row_min = triangle[N + 1]
-        while N >= 0:
-            row = triangle[N]
-            new_min = []
-            for i in range(0, len(row)):
-                new_min.append(row[i] + min(+next_row_min[i], next_row_min[i + 1]))
-            next_row_min = new_min
-            N -= 1
-        return next_row_min[0]
-
-    # do not general now next_row_min, modify in-place, for bonus
+class Solution_B2:
     def minimumTotal(self, triangle: List[List[int]]) -> int:
-        if len(triangle) == 1:
-            return triangle[0][0]
+        """
+        Same idea, but this will take the row externally leave the triangle unmodified
+        """
+        previous_sum = triangle[0]
 
-        N = len(triangle) - 2
-        next_row_min = triangle[N + 1]
+        for R in range(1, len(triangle)):
+            row = triangle[R]
+            sum_path = row[:]
+            for i in range(len(row)):
+                if i == 0:
+                    sum_path[i] = previous_sum[i] + row[i]
+                elif i == len(row) - 1:
+                    sum_path[i] = previous_sum[i - 1] + row[i]
+                else:
+                    sum_path[i] = min(previous_sum[i - 1], previous_sum[i]) + row[i]
+            previous_sum = sum_path[:]
 
-        while N >= 0:
-            row = triangle[N]
-            for i in range(0, len(row)):
-                next_row_min[i] = row[i] + min(next_row_min[i], next_row_min[i + 1])
-            N -= 1
-        return next_row_min[0]
+        return min(previous_sum)
 
 
 if __name__ == "__main__":
-    testCase = Solution_A()
+    testCase = Solution_B2()
 
+    assert testCase.minimumTotal([
+        [1]
+    ]) == 1, "Edge 1"
 
-    assert testCase.minimumTotal([[1]]) == 1, "Edge 1"
-
-    A = [
+    assert testCase.minimumTotal([
         [2],
         [3, 4],
         [6, 5, 7],
         [4, 1, 8, 3]
-    ]
+    ]) == 11, "Example 1"
 
-    assert testCase.minimumTotal(A) == 11, "Example 1"
     print("All passed")
