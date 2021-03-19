@@ -59,15 +59,14 @@ class Solution_B2:
         previous_sum = triangle[0]
 
         for R in range(1, len(triangle)):
-            row = triangle[R]
-            sum_path = row[:]
-            for i in range(len(row)):
+            sum_path = triangle[R][:]
+            for i in range(R+1):
                 if i == 0:
-                    sum_path[i] = previous_sum[i] + row[i]
-                elif i == len(row) - 1:
-                    sum_path[i] = previous_sum[i - 1] + row[i]
+                    sum_path[i] = previous_sum[i] + sum_path[i]
+                elif i == R:
+                    sum_path[i] = previous_sum[i - 1] + sum_path[i]
                 else:
-                    sum_path[i] = min(previous_sum[i - 1], previous_sum[i]) + row[i]
+                    sum_path[i] = min(previous_sum[i - 1], previous_sum[i]) + sum_path[i]
             previous_sum = sum_path[:]
 
         return min(previous_sum)
