@@ -115,12 +115,13 @@ class Solution_E:
 if __name__ == "__main__":
     testCase = Solution_A()
 
-    assert testCase.maxProfit([7, 1, 5, 3, 6, 4]) == 5, "Smart trader"
+    assert testCase.maxProfit([7, 1, 5, 3, 6, 4]) == 5, "Example 1"
     # Buy on day 2 (price = 1) and sell on day 5 (price = 6), profit = 6-1 = 5
 
-    assert testCase.maxProfit([7, 6, 4, 3, 1]) == 0, "No Transaction"
+    assert testCase.maxProfit([7, 6, 4, 3, 1]) == 0, "Example 2"
     # In this case, no transaction is done, i.e. max profit = 0
 
-    assert testCase.maxProfit([100, 5, 25, 1, 20]) == 20, "Tricky"
+    assert testCase.maxProfit([100, 5, 25, 1, 20]) == 20, "Additional 1"
 
     print("All passed")
+
