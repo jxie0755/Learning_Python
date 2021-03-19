@@ -8,7 +8,6 @@ Each step you may move to adjacent numbers on the row below.
 
 Note:
 Bonus point if you are able to do this using only O(n) extra space, where n is the total number of rows in the triangle.
-
 """
 
 from typing import *
@@ -54,7 +53,8 @@ class Solution_B1:
 class Solution_B2:
     def minimumTotal(self, triangle: List[List[int]]) -> int:
         """
-        Same idea, but this will take the row externally leave the triangle unmodified
+        Same idea as B1
+        But this will take the row externally leave the triangle unmodified
         """
         previous_sum = triangle[0]
 
