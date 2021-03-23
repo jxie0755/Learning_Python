@@ -16,31 +16,17 @@ from typing import *
 class Solution_A:
     def maxProfit(self, prices: List[int]) -> int:
         """
-
+        Compare the two adjacent value and capture the profit if later is higher
         """
-        if len(prices) == 0:
+        if len(prices) <= 1:
             return 0
 
-        i, total_profit = 1, 0
-        low = prices[0]
-
-        while i != len(prices):
-            current, prev = prices[i], prices[i - 1]
-            if current < prev:  # 此处如果持续下降则只更新最低点
-                low = current
-            elif current > prev:  # 只要开始涨就卖出, 不过也再买入来更新最低点
-                low = prev
-                total_profit += current - low
-            i += 1
-
-        return total_profit
-
-    def maxProfit_best(self, prices):
-        # 直接计算每一步的收益,只要是正数就要,负数就算0
-        # 逻辑精简但是未必更快
         profit = 0
-        for i in range(len(prices) - 1):
-            profit += max(0, prices[i + 1] - prices[i])
+        for i in range(1, len(prices)):
+            prev = prices[i - 1]
+            cur = prices[i]
+            if cur > prev:
+                profit += cur - prev
         return profit
 
 
