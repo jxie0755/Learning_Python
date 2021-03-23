@@ -49,7 +49,7 @@ if __name__ == "__main__":
     assert testCase.maxProfit([7, 6, 4, 3, 1]) == 0, "Example 3"
     # In this case, no transaction is done, i.e.max profit = 0.
 
-    assert testCase.maxProfit([5, 2, 3, 2, 6, 6, 2, 9, 1, 0, 7, 4, 5, 0]) == 20, "Additional 1"
+    assert testCase.maxProfit([1, 2, 2, 2, 3, 3, 2, 2]) == 2, "Additional 1"
     # 平峰需要注意
 
     assert testCase.maxProfit([2, 1, 4]) == 3, "Additional 2"
