@@ -83,7 +83,7 @@ class Solution_STD2:
         for i in range(len(prices)):
             current = prices[i]
             min_price = min(min_price, current)
-            profit = max(current - min_price, profit)
+            profit = max(profit, current - min_price)
         return profit
 
 
