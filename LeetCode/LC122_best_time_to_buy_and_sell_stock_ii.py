@@ -25,7 +25,7 @@ class Solution_A:
         for i in range(1, len(prices)):
             prev = prices[i - 1]
             cur = prices[i]
-            if cur > prev:
+            if prev < cur:
                 profit += cur - prev
         return profit
 
