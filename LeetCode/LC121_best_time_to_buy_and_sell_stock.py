@@ -95,9 +95,10 @@ if __name__ == "__main__":
     # Buy on day 2 (price = 1) and sell on day 5 (price = 6), profit = 6-1 = 5
 
     assert testCase.maxProfit([7, 6, 4, 3, 1]) == 0, "Example 2"
-    # In this case, no transaction is done, i.e. max profit = 0
+    # Prices keep dropping, max profit = 0
 
     assert testCase.maxProfit([100, 5, 25, 1, 20]) == 20, "Additional 1"
+    # Buy on day 1 (price = 5) and sell on day 2 (price = 25), profit = 25-5 = 20
 
     print("All passed")
 
