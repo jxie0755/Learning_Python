@@ -33,3 +33,4 @@ if __name__ == "__main__":
     assert testCase.maxProfit([5, 6, 1, 4, 2, 6]) == 7, "Additional 2"
 
     print("All passed")
+
