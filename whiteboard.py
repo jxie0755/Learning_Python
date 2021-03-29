@@ -10,7 +10,6 @@ Design an algorithm to find the maximum profit. You may complete at most two tra
 Note: You may not engage in multiple transactions at the same time (i.e., you must sell the stock before you buy again).
 """
 
-
 from typing import *
 
 
