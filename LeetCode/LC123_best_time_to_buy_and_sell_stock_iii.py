@@ -14,122 +14,74 @@ from typing import *
 
 
 class Solution_A:
+    def maxProfit(self, prices: List[int]) -> int:
+        """
+        Use a helper to find out single transaction max profit
+        Then cut the prices into two halfs and find out the best cut point
+        This will exceed max time limit
+        """
 
-    # THis is a complicate method
-    # TO compare single transaction and max profit for every peak
-    # Exceeded max time limit
-
-    def singleMaxProfit(self, prices):
-        # according to the best method, Denis modified for clearer logic
-        min_price = float("inf")
         profit = 0
-        i = 0
-        while i != len(prices):
-            current = prices[i]
-            if current < min_price:
-                min_price = current
-            profit = max(current - min_price, profit)
-            i += 1
+        for i in range(len(prices)):
+            A = prices[:i]
+            B = prices[i:]
+            profit = max(profit, self.maxProfit_Single(A) + self.maxProfit_Single(B))
         return profit
 
-    def profitBreakdown(self, prices):
-        if not prices:
-            return 0
-
-        profits = []
-        lo = 0
-        i = 1
-        foundprofit = False
-        while i != len(prices):
-            cur = prices[i]
-            prev = prices[i - 1]
-            if cur <= prev:
-                if foundprofit:
-                    profits.append(prev - prices[lo])
-                lo = i
-                foundprofit = False
-            else:
-                foundprofit = True
-                if i == len(prices) - 1:
-                    profits.append(cur - prices[lo])
-
-            i += 1
-
-        return profits
-
-    def maxProfit(self, prices: List[int]) -> int:
-        if not prices:
-            return 0
-
-        max_two_so_far = 0
-        i = 0
-        while i != len(prices):
-
-            if i < len(prices) - 1:
-                A = self.singleMaxProfit(prices[0:i + 1]) + self.singleMaxProfit(prices[i + 1:])
-                Later = sorted(self.profitBreakdown(prices[i + 1:]))
-            else:
-                A = self.singleMaxProfit(prices)
-                Later = sorted(self.profitBreakdown(prices))
-
-            if len(Later) <= 1:
-                max_two_so_far = max(max_two_so_far, A)
-            else:
-                B = Later[-1] + Later[-2]
-                max_two_so_far = max(max_two_so_far, A, B)
-
-            i += 1
-
-        return max_two_so_far
+    def maxProfit_Single(self, prices: List[int]) -> int:
+        """
+        Helper function for single transaction max profit
+        Referred from LC121
+        """
+        min_price = float("inf")
+        profit = 0
+        for i in range(len(prices)):
+            current = prices[i]
+            min_price = min(min_price, current)
+            profit = max(profit, current - min_price)
+        return profit
 
 
 class Solution_STD:
-
-    # Modified method, only do comparison at the peak
-    # almost the same way as profit breakdown to find peaks
-    # This will pass time limit but still slow
-
-    def singleMaxProfit(self, prices):
-        # according to the best method, Denis modified for clearer logic
-        min_price = float("inf")
-        profit = 0
-        i = 0
-        while i != len(prices):
-            current = prices[i]
-            if current < min_price:
-                min_price = current
-            profit = max(current - min_price, profit)
-            i += 1
-        return profit
-
     def maxProfit(self, prices: List[int]) -> int:
-        if not prices:
-            return 0
-
-        max_two_so_far = 0
-        i = 0
+        """
+        Modified method, only do comparison at the peak
+        almost the same way as profit breakdown to find peaks
+        This will still exceed max time limit
+        """
+        profit = 0
         foundpeak = False
-        while i != len(prices):
+        for i in range(len(prices)):
             cur = prices[i]
             prev = prices[i - 1]
             if cur <= prev and foundpeak:
-                A = self.singleMaxProfit(prices[0:i]) + self.singleMaxProfit(prices[i:])
-                max_two_so_far = max(max_two_so_far, A)
+                A = self.MaxProfit_Single(prices[:i]) + self.MaxProfit_Single(prices[i:])
+                profit = max(profit, A)
                 foundpeak = False
             elif i == len(prices) - 1:
-                A = self.singleMaxProfit(prices)
-                max_two_so_far = max(max_two_so_far, A)
+                A = self.MaxProfit_Single(prices)
+                profit = max(profit, A)
             elif cur > prev:
                 foundpeak = True
 
-            i += 1
+        return profit
 
-        return max_two_so_far
-    # TODO To be reviewed
+    def MaxProfit_Single(self, prices):
+        """
+        Helper function for single transaction max profit
+        Referred from LC121
+        """
+        min_price = float("inf")
+        profit = 0
+        for i in range(len(prices)):
+            current = prices[i]
+            min_price = min(min_price, current)
+            profit = max(profit, current - min_price)
+        return profit
 
 
 if __name__ == "__main__":
-    testCase = Solution_A()
+    testCase = Solution_STD()
 
     assert testCase.maxProfit([]) == 0, "Edge 0"
     assert testCase.maxProfit([1]) == 0, "Edge 1"

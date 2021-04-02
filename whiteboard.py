@@ -15,9 +15,31 @@ from typing import *
 
 class Solution:
     def maxProfit(self, prices: List[int]) -> int:
-        pass
+        """
+        Use a helper to find out single transaction max profit
+        Then cut the prices into two halfs and find out the best cut point
+        """
+
+        profit = 0
+        for i in range(len(prices)):
+            A = prices[:i]
+            B = prices[i:]
+            profit = max(profit, self.maxProfit_Single(A) + self.maxProfit_Single(B))
+        return profit
 
 
+    def maxProfit_Single(self, prices: List[int]) -> int:
+        """
+        Helper function for single transaction max profit
+        Referred from LC121
+        """
+        min_price = float("inf")
+        profit = 0
+        for i in range(len(prices)):
+            current = prices[i]
+            min_price = min(min_price, current)
+            profit = max(profit, current - min_price)
+        return profit
 
 
 if __name__ == "__main__":
