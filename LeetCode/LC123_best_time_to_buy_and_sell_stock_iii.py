@@ -55,12 +55,10 @@ class Solution_STD:
             cur = prices[i]
             prev = prices[i - 1]
             if cur <= prev and foundpeak:
-                A = self.MaxProfit_Single(prices[:i]) + self.MaxProfit_Single(prices[i:])
-                profit = max(profit, A)
+                profit = max(profit, self.MaxProfit_Single(prices[:i]) + self.MaxProfit_Single(prices[i:]))
                 foundpeak = False
             elif i == len(prices) - 1:
-                A = self.MaxProfit_Single(prices)
-                profit = max(profit, A)
+                profit = max(profit, self.MaxProfit_Single(prices))
             elif cur > prev:
                 foundpeak = True
 
