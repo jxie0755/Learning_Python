@@ -20,7 +20,6 @@ class Solution_A:
         Then cut the prices into two halfs and find out the best cut point
         This will exceed max time limit
         """
-
         profit = 0
         for i in range(len(prices)):
             A = prices[:i]
