@@ -51,7 +51,11 @@ if __name__ == "__main__":
         [1]
     ], "Edge 1"
 
-    T2 = genTree([3, 9, 20, None, None, 15, 7])
+    T2 = genTree([
+        3,
+        9, 20,
+        None, None, 15, 7
+    ])
     assert testCase.levelOrder(T2) == [
         [3],
         [9, 20],
