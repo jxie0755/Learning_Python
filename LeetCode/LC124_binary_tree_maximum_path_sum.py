@@ -1,54 +1,26 @@
-# LC124 Binary Tree Maximum Path Sum
-# Hard
+"""
+https://leetcode.com/problems/binary-tree-maximum-path-sum/
+LC124 Binary Tree Maximum Path Sum
+Hard
 
 
-# Given a non-empty binary tree, find the maximum path sum.
-# For this problem, a path is defined as any sequence of nodes from some starting node to any node in the tree along the parent-child connections. The path must contain at least one node and does not need to go through the root.
+Given a non-empty binary tree, find the maximum path sum.
+For this problem, a path is defined as any sequence of nodes from some starting node to any node in the tree along the parent-child connections. The path must contain at least one node and does not need to go through the root.
+"""
 
 from typing import *
 from A02_TreeNode import *
 
 
 class Solution:
-
-    # Self version, first find all paths leaf to leaf, from left to right
-    # Then find the max value of each paths from all its subsequence, then compare between paths
-    def sumMaxSubs(self, lst):
-        """find the max sum from all subsequences of a list"""
-        max_so_far = -float("inf")
-        for lenth in range(len(lst), 0, -1):
-            for i in range(len(lst) - lenth + 1):
-                cur = sum(lst[i:i + lenth])
-                if cur > max_so_far:
-                    max_so_far = cur
-        return max_so_far
-
-    def showPerfectLayers(self, root):
-        if not root:
-            return []
-        result = [root]
-        layer = [root]
-        while any(layer):
-            new_layer = []
-            for i in layer:
-                if not i:
-                    new_layer.append(None)
-                    new_layer.append(None)
-                else:
-                    new_layer.append(i.left if i.left else None)
-                    new_layer.append(i.right if i.right else None)
-            result += new_layer
-            layer = new_layer
-
-        # add the first one to be None, to move the index starting from 1
-        return [None] + result
-
     def maxPathSum(self, root: TreeNode) -> int:
-
+        """
+        This works but exceeded max time limit
+        """
         if not root.left and not root.right:
             return root.val
 
-        nodelist = self.showPerfectLayers(root)
+        nodelist = self.levelOrderTraversal_AllTreenodes(root)
         right_side = []
         rr = root
         while rr:
@@ -57,7 +29,7 @@ class Solution:
 
         # print([id(i) for i in right_side])
 
-        def helper(idx, prev_location="U", cur_path=[], end=False):
+        def helper(idx, prev_location="U", cur_path=[], end=False) -> None:
             """
             recursive go around the nodes through parent-children link
             node only going from left to right
@@ -68,7 +40,6 @@ class Solution:
             "U" : "Up",   Coming down from parent
             "L" : "Left"  Coming up from left child
             "R" : "Right" Coming up from rgiht child
-
             """
 
             # print("idx", idx, "prev", prev_location, "curpath", cur_path, "end", end)
@@ -125,6 +96,51 @@ class Solution:
             if path_max > max_so_far:
                 max_so_far = path_max
         return max_so_far
+
+
+    def sumMaxSubs(self, lst) -> int:
+        """
+        find the max sum from all subsequences of a list
+        Self version, first find all paths leaf to leaf, from left to right
+        Then find the max value of each paths from all its subsequence, then compare between paths
+        """
+        max_so_far = -float("inf")
+        for lenth in range(len(lst), 0, -1):
+            for i in range(len(lst) - lenth + 1):
+                cur = sum(lst[i:i + lenth])
+                if cur > max_so_far:
+                    max_so_far = cur
+        return max_so_far
+
+
+    def levelOrderTraversal_AllTreenodes(self, root) -> List[TreeNode]:
+        """
+        Helper function modified from LC102
+        Keep None nodes
+        """
+        if root is None:
+            return []
+
+        result, layer = [], [root]
+        while any(layer):
+            next_layer, nodesList = [], []
+
+            for node in layer:
+                nodesList.append(node)
+
+                # omit None by checking left tand right None
+                if node:
+                    next_layer.append(node.left)
+                    next_layer.append(node.right)
+                else:
+                    next_layer.append(None)
+                    next_layer.append(None)
+
+            layer = next_layer
+            result += nodesList
+
+        return [None] + result
+
 
 
 if __name__ == "__main__":

@@ -96,7 +96,7 @@ if __name__ == "__main__":
     print("\nlevelOrderTraversal:")
     print(levelOrderTraversal(A))
     # >>> [[3], [20], [15, 7]]
-    print("showPerfectLayers:")
+    print("levelOrderTraversal_AllTreenodes:")
     print(showPerfectLayers(A))
     # >>> [[3], [None, 20], [None, None, 15, 7]]
 
