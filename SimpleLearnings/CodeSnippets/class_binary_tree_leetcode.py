@@ -1,6 +1,6 @@
 # This is just to summarize some useful functions learn from Leetcode Tree problems
 
-from a0_TreeNode import *
+from A02_TreeNode import *
 
 
 ### Traversal
@@ -96,7 +96,7 @@ if __name__ == "__main__":
     print("\nlevelOrderTraversal:")
     print(levelOrderTraversal(A))
     # >>> [[3], [20], [15, 7]]
-    print("levelOrderTraversal_AllTreenodes:")
+    print("levelOrderTraversal:")
     print(showPerfectLayers(A))
     # >>> [[3], [None, 20], [None, None, 15, 7]]
 
