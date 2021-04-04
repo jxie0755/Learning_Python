@@ -101,7 +101,7 @@ if __name__ == "__main__":
     # >>> [[3], [None, 20], [None, None, 15, 7]]
 
 
-def showPerfectNodeLayers(root):
+def showPerfectNodeLayers(root) -> List[TreeNode]:
     """
     Generate a perfect binary heap in list of nodes (Not Values)
     use None to replace empty Nodes for take index places
