@@ -142,7 +142,6 @@ class Solution:
         return [None] + result
 
 
-
 if __name__ == "__main__":
     A = TreeNode(1)
     assert Solution().maxPathSum(A) == 1, "Edge 1"
