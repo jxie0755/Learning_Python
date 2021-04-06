@@ -121,7 +121,7 @@ class Solution:
         if root is None:
             return []
 
-        result, layer = [], [root]
+        result, layer = [None], [root]
         while any(layer):
             next_layer, nodesList = [], []
 
@@ -139,7 +139,7 @@ class Solution:
             layer = next_layer
             result += nodesList
 
-        return [None] + result
+        return result
 
 
 if __name__ == "__main__":
