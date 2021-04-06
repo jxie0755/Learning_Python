@@ -130,11 +130,9 @@ class Solution:
 
                 # omit None by checking left tand right None
                 if node:
-                    next_layer.append(node.left)
-                    next_layer.append(node.right)
+                    next_layer += [node.left, node.right]
                 else:
-                    next_layer.append(None)
-                    next_layer.append(None)
+                    next_layer += [None, None]
 
             layer = next_layer
             result += nodesList
