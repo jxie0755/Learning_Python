@@ -12,7 +12,7 @@ from typing import *
 from A02_TreeNode import *
 
 
-class Solution:
+class Solution_A:
     def maxPathSum(self, root: TreeNode) -> int:
         """
         This works but exceeded max time limit
@@ -141,21 +141,23 @@ class Solution:
 
 
 if __name__ == "__main__":
+    testCase = Solution_A()
+
     A = TreeNode(1)
-    assert Solution().maxPathSum(A) == 1, "Edge 1"
+    assert testCase.maxPathSum(A) == 1, "Edge 1"
 
     A = genTree([
         1,
         2, 3
     ])
-    assert Solution().maxPathSum(A) == 6, "Example 1, 2+1+3 = 6"
+    assert testCase.maxPathSum(A) == 6, "Example 1, 2+1+3 = 6"
 
     A = genTree([
         -10,
         9, 20,
         None, None, 15, 7
     ])
-    assert Solution().maxPathSum(A) == 42, "Example 2, 15+20+7 = 42"
+    assert testCase.maxPathSum(A) == 42, "Example 2, 15+20+7 = 42"
 
     A = genTree([
         1,
@@ -163,19 +165,19 @@ if __name__ == "__main__":
         4, 5, 6, 7,
         8, 9, 100, 11, 12, 100, 14, 15
     ])
-    assert Solution().maxPathSum(A) == 217, "Additional 1, 100+5+2+1+3+6+100=217"
+    assert testCase.maxPathSum(A) == 217, "Additional 1, 100+5+2+1+3+6+100=217"
 
     A = genTree([
         -1,
         5, 6
     ])
-    assert Solution().maxPathSum(A) == 10, "Additional 2, 5+-1+6=10"
+    assert testCase.maxPathSum(A) == 10, "Additional 2, 5+-1+6=10"
 
     A = genTree([
         -1,
         5, -1
     ])
-    assert Solution().maxPathSum(A) == 5, "Additional 3, just 5"
+    assert testCase.maxPathSum(A) == 5, "Additional 3, just 5"
 
     A = genTree([
         -1,
@@ -183,20 +185,20 @@ if __name__ == "__main__":
         1, 1, -1, -2,
         -1, -1
     ])
-    assert Solution().maxPathSum(A) == 3, "Additional 4, 1+1+1=3"
+    assert testCase.maxPathSum(A) == 3, "Additional 4, 1+1+1=3"
 
     A = genTree([
         -6,
         None, 3,
         None, None, 2, None
     ])
-    assert Solution().maxPathSum(A) == 5, "Additional 4, 2+3=5"
+    assert testCase.maxPathSum(A) == 5, "Additional 4, 2+3=5"
 
     A = genTree([
         7,
         None, 2,
         None, None, 3, -7
     ])
-    assert Solution().maxPathSum(A) == 12, "Additional 4, 7+2+3=12"
+    assert testCase.maxPathSum(A) == 12, "Additional 4, 7+2+3=12"
 
     print("All passed")
