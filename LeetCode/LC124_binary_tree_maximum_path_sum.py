@@ -13,6 +13,7 @@ from A02_TreeNode import *
 
 
 class Solution_A:
+    #TODO to find better algorithm
     def maxPathSum(self, root: TreeNode) -> int:
         """
         This works but exceeded max time limit
