@@ -48,4 +48,5 @@ if __name__ == "__main__":
 
     assert testCase.isPalindrome("A man, a plan, a canal: Panama") == True
     assert testCase.isPalindrome("race a car") == False
+
     print("All passed")
