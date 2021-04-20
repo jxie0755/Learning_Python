@@ -45,7 +45,6 @@ class Solution_B:
 
 if __name__ == "__main__":
     testCase = Solution_B()
-
     assert testCase.isPalindrome("A man, a plan, a canal: Panama") == True
     assert testCase.isPalindrome("race a car") == False
     print("All passed")
