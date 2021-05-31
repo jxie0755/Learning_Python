@@ -1,12 +1,15 @@
-# LC129 Sum Root to Leaf Numbers
-# Medium
+"""
+https://leetcode.com/problems/sum-root-to-leaf-numbers/
+LC129 Sum Root to Leaf Numbers
+Medium
 
 
-# Given a binary tree containing digits from 0-9 only, each root-to-leaf path could represent a number.
-# An example is the root-to-leaf path 1->2->3 which represents the number 123.
+Given a binary tree containing digits from 0-9 only, each root-to-leaf path could represent a number.
+An example is the root-to-leaf path 1->2->3 which represents the number 123.
 
-# Find the total sum of all root-to-leaf numbers.
-# Note: A leaf is a node with no children.
+Find the total sum of all root-to-leaf numbers.
+Note: A leaf is a node with no children.
+"""
 
 from typing import *
 from A02_TreeNode import *
