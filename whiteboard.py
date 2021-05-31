@@ -13,8 +13,33 @@ from A02_TreeNode import *
 
 
 class Solution:
+    all_path_num = []
+
     def sumNumbers(self, root: TreeNode) -> int:
-        pass
+        """
+        Use a helper function to split recursion to collect all paths
+        At the same time, move carried value in the path up by 1 decimal point during the recursion
+        """
+        self.convert_path_to_num(0, root)
+        result = sum(self.all_path_num)
+        self.all_path_num.clear()
+        return result
+
+    def convert_path_to_num(self, cur_num: int, root: TreeNode) -> None:
+        """
+        A helper function to collect all paths and convert the path into numbers at the same time
+        """
+        if not root:
+            pass
+        elif not root.left and not root.right:  # root is leaf
+            cur_num = cur_num * 10 + root.val  # convert numbers up 1 decimal point
+            self.all_path_num.append(cur_num)
+        else:
+            # convert decimal and split left and right
+            if root.left:
+                self.convert_path_to_num(cur_num * 10 + root.val, root.left)
+            if root.right:
+                self.convert_path_to_num(cur_num * 10 + root.val, root.right)
 
 
 if __name__ == "__main__":
@@ -31,6 +56,3 @@ if __name__ == "__main__":
     ])
     assert Solution().sumNumbers(A) == 1026, "Example 2, 495 + 491 + 40 = 1036"
     print("All passed")
-
-
-
