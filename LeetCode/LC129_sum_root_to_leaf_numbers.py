@@ -15,10 +15,18 @@ from typing import *
 from A02_TreeNode import *
 
 
-class Solution:
-    # This is also using the showPaths method from Leetcode LC112
-    def allPath(self, root):
-        """show all the paths in a non-empty root"""
+class Solution_A:
+    def sumNumbers(self, root: TreeNode) -> int:
+        result = 0
+        for path in self.allPath(root):
+            result += self.translate(path)
+        return result
+
+    def allPath(self, root) -> List[List[int]]:
+        """
+        show all the paths in a non-empty root
+        Helper funcion from Leetcode LC112
+        """
         result = []
 
         def helper(root, cur=[]):
@@ -40,7 +48,7 @@ class Solution:
         helper(root)
         return result
 
-    def translate(self, path):
+    def translate(self, path) -> int:
         """
         translate a path into numbers by adding digit up
         example: path [1,2,3] returns number 123
@@ -51,24 +59,50 @@ class Solution:
             result += pow(10, N - 1 - i) * path[i]
         return result
 
+
+class Solution_B:
+    all_path_num = []
+
     def sumNumbers(self, root: TreeNode) -> int:
-        result = 0
-        for path in self.allPath(root):
-            result += self.translate(path)
+        """
+        Use a helper function to split recursion to collect all paths
+        At the same time, move carried value in the path up by 1 decimal point during the recursion
+        """
+        self.convert_all_path(0, root)
+        result = sum(self.all_path_num)
+        self.all_path_num.clear()
         return result
+
+    def convert_all_path(self, cur_num: int, root: TreeNode) -> None:
+        """
+        A helper function to collect all paths and convert the path into numbers at the same time
+        """
+        if not root:
+            pass
+        elif not root.left and not root.right:  # root is leaf
+            cur_num = cur_num * 10 + root.val  # convert numbers up 1 decimal point
+            self.all_path_num.append(cur_num)
+        else:
+            # convert decimal and split left and right
+            if root.left:
+                self.convert_all_path(cur_num * 10 + root.val, root.left)
+            if root.right:
+                self.convert_all_path(cur_num * 10 + root.val, root.right)
 
 
 if __name__ == "__main__":
+    testCase = Solution_B()
+
     A = genTree([
         1,
         2, 3
     ])
-    assert Solution().sumNumbers(A) == 25, "Example 1, 12 + 13 = 25"
+    assert testCase.sumNumbers(A) == 25, "Example 1, 12 + 13 = 25"
 
     A = genTree([
         4,
         9, 0,
         5, 1, None, None
     ])
-    assert Solution().sumNumbers(A) == 1026, "Example 2, 495 + 491 + 40 = 1036"
+    assert testCase.sumNumbers(A) == 1026, "Example 2, 495 + 491 + 40 = 1036"
     print("All passed")
