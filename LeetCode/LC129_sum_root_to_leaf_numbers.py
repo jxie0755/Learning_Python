@@ -104,5 +104,5 @@ if __name__ == "__main__":
         9, 0,
         5, 1, None, None
     ])
-    assert testCase.sumNumbers(A) == 1026, "Example 2, 495 + 491 + 40 = 1036"
+    assert testCase.sumNumbers(A) == 1026, "Example 2, 495 + 491 + 40 = 1026"
     print("All passed")
