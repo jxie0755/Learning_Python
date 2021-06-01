@@ -10,8 +10,8 @@ all brutal force methods: O(n^2), more specifically: O(1/2*n^2 + 1/2*n)
 def subSequence_SL(iterable):
     result = []
     for lenth in range(1, len(iterable) + 1):
-        for i in range(len(iterable) - lenth + 1):
-            result.append(iterable[i:i+lenth])
+        for start_idx in range(len(iterable) - lenth + 1):
+            result.append(iterable[start_idx:start_idx+lenth])
     return result
 
 if __name__ == "__main__":
@@ -26,8 +26,8 @@ if __name__ == "__main__":
 def subSequence_LS(iterable):
     result = []
     for lenth in range(len(iterable), 0, -1):
-        for i in range(len(iterable) - lenth + 1):
-            result.append(iterable[i:i+lenth])
+        for start_idx in range(len(iterable) - lenth + 1):
+            result.append(iterable[start_idx:start_idx+lenth])
     return result
 
 if __name__ == "__main__":
@@ -41,9 +41,9 @@ if __name__ == "__main__":
 # 交换loop的顺序,先确定起始index,再变化长度
 def subSequence_SEQ(iterable):
     result = []
-    for i in range(len(iterable)):
-        for lenth in range(1, len(iterable) - i + 1):
-            result.append(iterable[i:i+lenth])
+    for start_idx in range(len(iterable)):
+        for lenth in range(1, len(iterable) - start_idx + 1):
+            result.append(iterable[start_idx:start_idx+lenth])
     return result
 
 if __name__ == "__main__":
@@ -57,9 +57,9 @@ if __name__ == "__main__":
 def subSequence_C(iterable):
     result = []
     # this part assigns the moving of the center, and define the two sides from it
-    for i in range(len(iterable)):
+    for center in range(len(iterable)):
         for j in range(2):
-            left = i
+            left = center
             right = left + 1
             # this part expand from the center to get all the substrings that share the same center point
             while left >= 0 and right < len(iterable):
@@ -77,26 +77,26 @@ if __name__ == "__main__":
 # generator versions of above
 def gen_subSequence_SL(iterable):
     for lenth in range(1, len(iterable) + 1):
-        for i in range(len(iterable) - lenth + 1):
-            yield iterable[i:i+lenth]
+        for start_idx in range(len(iterable) - lenth + 1):
+            yield iterable[start_idx:start_idx+lenth]
 
 
 def gen_subSequence_LS(iterable):
     for lenth in range(len(iterable), 0, -1):
-        for i in range(len(iterable) - lenth + 1):
-            yield iterable[i:i+lenth]
+        for start_idx in range(len(iterable) - lenth + 1):
+            yield iterable[start_idx:start_idx+lenth]
 
 
 def gen_subSequence(iterable):
-    for i in range(len(iterable)):
-        for lenth in range(1, len(iterable) - i + 1):
-            yield iterable[i:i+lenth]
+    for start_idx in range(len(iterable)):
+        for lenth in range(1, len(iterable) - start_idx + 1):
+            yield iterable[start_idx:start_idx+lenth]
 
 
 def gen_subSequence_C(iterable):
-    for i in range(len(iterable)):
+    for center in range(len(iterable)):
         for j in range(2):
-            left = i
+            left = center
             right = left + j
             while left >= 0 and right < len(iterable):
                 yield iterable[left:right+1]
