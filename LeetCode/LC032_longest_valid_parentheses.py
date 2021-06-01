@@ -8,11 +8,26 @@ Given a string containing just the characters "(" and ")", find the length of th
 
 
 class Solution_A:
+
     def longestValidParentheses(self, s: str) -> int:
         pass
 
+    def ParenisValid(self, s: str) -> bool:
+        """
+        Helper function from LC020
+        Modified with just to evaluate curved parentheses
+        """
+        brackets = 0
+        for i in s:
+            if i == "(":
+                brackets += 1
+            if i == ")":
+                if brackets == 0:
+                    return False
+                else:
+                    brackets -=1
 
-
+        return brackets == 0
 
 
 if __name__ == '__main__':
