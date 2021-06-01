@@ -12,6 +12,7 @@ class Solution_A:
     def longestValidParentheses(self, s: str) -> int:
         """
         Iterate all substring from long to short and find the first valid
+        This will exceed max time
         """
         for lenth in range(len(s), 0, -1):
             for start_idx in range(len(s) - lenth + 1):
@@ -41,24 +42,30 @@ class Solution_A:
 class Solution_B:
 
     def longestValidParentheses(self, s: str) -> int:
-        longest_so_far = 0
         L, R = 0, 0
-
+        add_on = 0
+        cur_section = ""
+        max_string = ""
+        previous = ""
         for i in s:
             if i == "(":
                 L += 1
             elif i == ")":
                 R += 1
+            cur_section += i
 
-            if L >= R:
-                longest_so_far = max(longest_so_far, R*2)
-            else:
+            if L == R:
+                max_string = max(max_string, previous+cur_section, key=len)
+                previous = previous + cur_section
+            elif L < R:
+                previous = ""
                 L, R = 0, 0
+            elif L > R:
+                max_string = max(max_string, cur_section[:], key=len)
 
-        return longest_so_far
 
-
-
+testCase = Solution_B()
+print(testCase.longestValidParentheses("(()(((()"))
 
 if __name__ == '__main__':
     testCase = Solution_A()
@@ -68,6 +75,9 @@ if __name__ == '__main__':
     assert testCase.longestValidParentheses("") == 0, "Example 3, Edge 0"
 
     assert testCase.longestValidParentheses("()(()") == 2, "Additional 1"
+    assert testCase.longestValidParentheses("()(()()") == 4, "Additional 2"
+    assert testCase.longestValidParentheses("(()(((()") == 2, "Additional 3"
+    assert testCase.longestValidParentheses("(()((()))") == 8, "Additional 4"
 
     print("All passed")
 
