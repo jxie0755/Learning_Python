@@ -43,25 +43,11 @@ class Solution_B:
 
     def longestValidParentheses(self, s: str) -> int:
         L, R = 0, 0
-        add_on = 0
-        cur_section = ""
-        max_string = ""
-        previous = ""
-        for i in s:
-            if i == "(":
-                L += 1
-            elif i == ")":
-                R += 1
-            cur_section += i
-
-            if L == R:
-                max_string = max(max_string, previous+cur_section, key=len)
-                previous = previous + cur_section
-            elif L < R:
-                previous = ""
-                L, R = 0, 0
-            elif L > R:
-                max_string = max(max_string, cur_section[:], key=len)
+        lastR = -1
+        i = 0
+        while i < len(s):
+            cur = s[i]
+            pass
 
 
 testCase = Solution_B()
