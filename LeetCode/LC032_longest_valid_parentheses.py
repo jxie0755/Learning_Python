@@ -47,7 +47,7 @@ class Solution_B:
 
         last_L = -1
         last_R = -1
-        last_equality = 0
+        last_equality_length = 0
         last_equality_idx = -1
 
         i = 0
@@ -61,28 +61,27 @@ class Solution_B:
                 last_L = -1
 
             if L == R:
-                global_max = max(global_max, L+R+last_equality)
+                global_max = max(global_max, L+R+last_equality_length)
                 last_equality_idx = i
                 last_L = -1
                 L, R = 0, 0
             elif L < R:
                 last_R = -1
-                last_equality = 0
+                last_equality_length = 0
                 L, R = 0, 0  # reset
             else:
                 if cur == ")":
                     if last_R == i-1:
                         global_max = max(global_max, R*2)
+                        last_equality_length = R*2
                         last_R = i
                     else:
                         global_max = max(global_max, 2)
-                        R = 1
+                        last_equality_length = 2
+                        last_R = i
                 elif cur == "(":
-                    if last_L == i-1:
-                        last_L = i
-                    else:
-                        L = 1
-
+                    L = 1
+                    R = 0
             i += 1
 
         return global_max
