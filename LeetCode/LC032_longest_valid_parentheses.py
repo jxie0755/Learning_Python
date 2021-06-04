@@ -60,9 +60,11 @@ class Solution_B:
                 R += 1
                 last_L = -1
 
+            print("before", cur, "L", L, R, "last", last_L, last_R)
+
             if L == R:
                 global_max = max(global_max, L+R+last_equality_length)
-                last_equality_idx = i
+                last_equality_length = L + R + last_equality_length
                 last_L = -1
                 L, R = 0, 0
             elif L < R:
@@ -80,15 +82,20 @@ class Solution_B:
                         last_equality_length = 2
                         last_R = i
                 elif cur == "(":
-                    L = 1
-                    R = 0
+                    if last_L == i-1:
+                        last_L = i
+                        R = 0
+                    else:
+                        L = 1
+            print("after", cur, "L", L, R, "last", last_L, last_R)
+
             i += 1
 
         return global_max
 
 
 testCase = Solution_B()
-print(testCase.longestValidParentheses(")()())"))
+print(testCase.longestValidParentheses("()(()"))
 
 # if __name__ == '__main__':
 #     testCase = Solution_B()
@@ -104,4 +111,4 @@ print(testCase.longestValidParentheses(")()())"))
 #     assert testCase.longestValidParentheses("(((()())))") == 10, "Additional 5"
 #
 #     print("All passed")
-
+#
