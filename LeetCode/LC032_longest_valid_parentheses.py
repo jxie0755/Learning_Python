@@ -53,25 +53,75 @@ class Solution_B:
         longest string of 0 is length = 10
         """
         # first translate sequence to digits
-        pass
+        trans = []
+        for i in s:
+            if not trans:
+                if i == "(":
+                    trans.append(1)
+                elif i == ")":
+                    trans.append(-1)
+            else:
+                if i == "(":
+                    if trans[-1] > 0:
+                        trans[-1] += 1
+                    else:
+                        trans.append(1)
+                elif i == ")":
+                    if trans[-1] < 0:
+                        trans[-1] -= 1
+                    else:
+                        trans.append(-1)
+
+        trans_data = [[i, abs(i)] for i in trans]
+
+
+        print(trans_data)
+        # keep merging  left pos + right nega
+        merged = True
+        # while merged:
+        new_trans_data = []
+        L = [0, 0]
+        R = [0, 0]
+        for pair in trans_data:
+            if pair[0] < 0 and L[0] == 0: # find a R before finding L, empty heading
+                pass
+            if pair[0] > 0 and L[0] == 0:
+                L = pair
+            if pair[0] < 0 and L[0] != 0 and R[0] == 0: # already found a L before this R
+                R = pair
+            if L[0] != 0 and R[0] != 0: # found a pair
+                print(L, R)
+                L = [0, 0]
+                R = [0, 0]
+        # print(L, R)
+
+
+
+
+
+
+
+
+
+
 
 
 testCase = Solution_B()
-print(testCase.longestValidParentheses("))()((()(())())"))
+print(testCase.longestValidParentheses("))()((()(())())("))
 
-if __name__ == '__main__':
-    testCase = Solution_B()
-
-    assert testCase.longestValidParentheses("(()") == 2, "Example 1, '()'"
-    assert testCase.longestValidParentheses(")()())") == 4, "Example 2, '()()'"
-    assert testCase.longestValidParentheses("") == 0, "Example 3, Edge 0"
-
-    assert testCase.longestValidParentheses("()(()") == 2, "Additional 1"
-    assert testCase.longestValidParentheses("()(()()") == 4, "Additional 2"
-    assert testCase.longestValidParentheses("(()(((()") == 2, "Additional 3"
-    assert testCase.longestValidParentheses("(()((()))") == 8, "Additional 4"
-    assert testCase.longestValidParentheses("(((()())))") == 10, "Additional 5"
-    assert testCase.longestValidParentheses("))()((()(())())") == 10, "Additional 6"
-
-    print("All passed")
+# if __name__ == '__main__':
+#     testCase = Solution_B()
+#
+#     assert testCase.longestValidParentheses("(()") == 2, "Example 1, '()'"
+#     assert testCase.longestValidParentheses(")()())") == 4, "Example 2, '()()'"
+#     assert testCase.longestValidParentheses("") == 0, "Example 3, Edge 0"
+#
+#     assert testCase.longestValidParentheses("()(()") == 2, "Additional 1"
+#     assert testCase.longestValidParentheses("()(()()") == 4, "Additional 2"
+#     assert testCase.longestValidParentheses("(()(((()") == 2, "Additional 3"
+#     assert testCase.longestValidParentheses("(()((()))") == 8, "Additional 4"
+#     assert testCase.longestValidParentheses("(((()())))") == 10, "Additional 5"
+#     assert testCase.longestValidParentheses("))()((()(())())(") == 10, "Additional 6"
+#
+#     print("All passed")
 
