@@ -79,42 +79,41 @@ class Solution_B:
         while merged:
             print(trans_data)
             merged = False
-            new_trans_data = []
-            L = [0, 0]
-            R = [0, 0]
+            L, R = -1, -1
             i = 0
             while i < len(trans_data):
-                if trans_data[i][0] < 0 and L[0] == 0:  # find a R before finding L, empty heading
+                if trans_data[i][0] < 0 and L == -1:  # find a R before finding L, empty heading
                     i += 1
-                elif trans_data[i][0] > 0 and L[0] == 0:
-                    L = trans_data[i]
+                elif trans_data[i][0] > 0 and L == -1:
+                    L = i
                     i += 1
-                elif trans_data[i][0] < 0 and L[0] != 0 and R[0] == 0:  # already found a L before this R
-                    R = trans_data[i]
+                elif trans_data[i][0] < 0 and L != -1 and R == -1:  # already found a L before this R
+                    R = i
                     i += 1
                 elif trans_data[i][0] == 0:  # found a pre-merged 0
-                    if i > 0 and trans_data[i-1][0] == 0:
-                        trans_data[i-1][1] += trans_data[i][1]
-                        trans_data.pop(i)
+                    if i > 0 and trans_data[i - 1][0] == 0:
+                        trans_data[i - 1][1] += trans_data[i][1]
+                        trans_data.pop(i)  # popped,  no need to i+=1
 
-            #     elif L[0] != 0 and R[0] != 0:  # found a pair
-            #         print(L, R)
-            #         merged = True
-            #         if L[1] > R[1]:
-            #             new_trans_data.append([L[0] + R[0], L[1] - R[1]])
-            #             new_trans_data.append([0, R[1] * 2])
-            #         elif L[1] == R[1]:
-            #             new_trans_data.append([0, L[1] + R[1]])
-            #         elif L[1] < R[1]:
-            #             new_trans_data.append([0, L[1] * 2])
-            #             new_trans_data.append([L[0] + R[0], R[1] - L[1]])
-            #         L = [0, 0]
-            #         R = [0, 0]
-            #     i += 1
-            # trans_data = new_trans_data
+                elif L != -1 and R != -1:  # found a pair
+                    print(trans_data[L], trans_data[R])
+                    merged = True
+                    if trans_data[L][1] > trans_data[R][1]:
+                        trans_data[L][0] = trans_data[L][0] + trans_data[R][0]
+                        trans_data[L][1] = trans_data[L][1] - trans_data[R][1]
+                        trans_data[R][0] = 0
+                        trans_data[R][1] = trans_data[R][1] * 2
+                    elif trans_data[L][1] == trans_data[R][1]:
+                        trans_data[L][0] = 0
+                        trans_data[R][0] = 0
+                    elif trans_data[L][1] < trans_data[R][1]:
+                        trans_data[L][0] = 0
+                        trans_data[L][1] = trans_data[L][1] * 2
+                        trans_data[R][0] = trans_data[L][0] + trans_data[R][0]
+                        trans_data[R][1] = trans_data[R][1] - trans_data[L][1]
+                    L, R = -1, -1
 
         print(trans_data)
-
 
 
 testCase = Solution_B()
