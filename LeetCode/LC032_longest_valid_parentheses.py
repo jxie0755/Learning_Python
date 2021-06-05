@@ -34,7 +34,7 @@ class Solution_A:
                 if brackets == 0:
                     return False
                 else:
-                    brackets -=1
+                    brackets -= 1
 
         return brackets == 0
 
@@ -74,35 +74,46 @@ class Solution_B:
 
         trans_data = [[i, abs(i)] for i in trans]
 
-
-        print(trans_data)
         # keep merging  left pos + right nega
         merged = True
-        # while merged:
-        new_trans_data = []
-        L = [0, 0]
-        R = [0, 0]
-        for pair in trans_data:
-            if pair[0] < 0 and L[0] == 0: # find a R before finding L, empty heading
-                pass
-            if pair[0] > 0 and L[0] == 0:
-                L = pair
-            if pair[0] < 0 and L[0] != 0 and R[0] == 0: # already found a L before this R
-                R = pair
-            if L[0] != 0 and R[0] != 0: # found a pair
-                print(L, R)
-                L = [0, 0]
-                R = [0, 0]
-        # print(L, R)
+        while merged:
+            print(trans_data)
+            merged = False
+            new_trans_data = []
+            L = [0, 0]
+            R = [0, 0]
+            i = 0
+            while i < len(trans_data):
+                if trans_data[i][0] < 0 and L[0] == 0:  # find a R before finding L, empty heading
+                    i += 1
+                elif trans_data[i][0] > 0 and L[0] == 0:
+                    L = trans_data[i]
+                    i += 1
+                elif trans_data[i][0] < 0 and L[0] != 0 and R[0] == 0:  # already found a L before this R
+                    R = trans_data[i]
+                    i += 1
+                elif trans_data[i][0] == 0:  # found a pre-merged 0
+                    if i > 0 and trans_data[i-1][0] == 0:
+                        trans_data[i-1][1] += trans_data[i][1]
+                        trans_data.pop(i)
 
+            #     elif L[0] != 0 and R[0] != 0:  # found a pair
+            #         print(L, R)
+            #         merged = True
+            #         if L[1] > R[1]:
+            #             new_trans_data.append([L[0] + R[0], L[1] - R[1]])
+            #             new_trans_data.append([0, R[1] * 2])
+            #         elif L[1] == R[1]:
+            #             new_trans_data.append([0, L[1] + R[1]])
+            #         elif L[1] < R[1]:
+            #             new_trans_data.append([0, L[1] * 2])
+            #             new_trans_data.append([L[0] + R[0], R[1] - L[1]])
+            #         L = [0, 0]
+            #         R = [0, 0]
+            #     i += 1
+            # trans_data = new_trans_data
 
-
-
-
-
-
-
-
+        print(trans_data)
 
 
 
@@ -124,4 +135,3 @@ print(testCase.longestValidParentheses("))()((()(())())("))
 #     assert testCase.longestValidParentheses("))()((()(())())(") == 10, "Additional 6"
 #
 #     print("All passed")
-
