@@ -135,6 +135,8 @@ class Solution_C:
         """
         if not s:
             return 0
+
+        # translate the string into a list of intergers represented by 1 and -1
         trans_data = [1 if i == "(" else -1 for i in s]
 
         merged = True
@@ -165,7 +167,8 @@ class Solution_C:
                         stack[-1] += elem
                     else:
                         stack.append(elem)
-            if stack:
+
+            if stack: # check if there is anything left in the stack with no ending ")"
                 new_trans_data += stack
             trans_data = new_trans_data
 
