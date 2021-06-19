@@ -51,6 +51,7 @@ class Solution_B:
         -1  00 1 000  0000  00  0
 
         longest string of 0 is length = 10
+        TODO not passing the last testCase
         """
         # first translate sequence to digits
         trans = []
@@ -117,20 +118,79 @@ class Solution_B:
         return max_zero
 
 
+class Solution_C:
+
+    def longestValidParentheses(self, s: str) -> int:
+        """
+        O(N) new idea, merge using a stack
+
+         )  ) (  ) ( ( (  ) ( (  )  ) (  )  )  ( convert to
+        -1 -1 1 -1 1 1 1 -1 1 1 -1 -1 1 -1 -1  ( then merge L positive + R negative
+        -1 -1  2   1 1  2   1  2   -1  2   -1  1
+        -1 -1  2   1 1  2      4       2   -1  1
+        -1 -1  2   1 1         8          -1   1
+        -1 -1  2   1           10              1
+        longest string of 0 is length = 10
+        """
+        if not s:
+            return 0
+        trans_data = [1 if i == "(" else -1 for i in s]
+
+        merged = True
+        while merged:
+            merged = False
+            stack = []
+            new_trans_data = []
+            for elem in trans_data:
+                if elem == 1: # find L
+                    if not stack: # no L found
+                        stack.append(elem)
+                    else:
+                        new_trans_data += stack
+                        stack.clear()
+                        stack.append(elem)
+                elif elem == -1: # find R
+                    if stack and stack[0] == 1: # merge the stack
+                        stack.append(elem)
+                        new_trans_data.append(sum(stack) + 2) # existing pairs + newly formed (-1+1)
+                        stack.clear()
+                        merged = True
+                    else:
+                        new_trans_data += stack
+                        stack.clear()
+                        new_trans_data.append(elem)
+                else: # existing pairs
+                    if stack and stack[-1] > 1:
+                        stack[-1] += elem
+                    else:
+                        stack.append(elem)
+            if stack:
+                new_trans_data += stack
+            trans_data = new_trans_data
+
+        ans = max(trans_data)
+        if ans >= 2:
+            return ans
+        else:
+            return 0
+
 
 if __name__ == '__main__':
-    testCase = Solution_B()
+    testCase = Solution_C()
 
-    # assert testCase.longestValidParentheses("(()") == 2, "Example 1, '()'"
-    # assert testCase.longestValidParentheses(")()())") == 4, "Example 2, '()()'"
-    # assert testCase.longestValidParentheses("") == 0, "Example 3, Edge 0"
-    #
-    # assert testCase.longestValidParentheses("()(()") == 2, "Additional 1"
-    # assert testCase.longestValidParentheses("()(()()") == 4, "Additional 2"
-    # assert testCase.longestValidParentheses("(()(((()") == 2, "Additional 3"
-    # assert testCase.longestValidParentheses("(()((()))") == 8, "Additional 4"
-    # assert testCase.longestValidParentheses("(((()())))") == 10, "Additional 5"
-    # assert testCase.longestValidParentheses("))()((()(())())(") == 10, "Additional 6"
+    assert testCase.longestValidParentheses("(()") == 2, "Example 1, '()'"
+    assert testCase.longestValidParentheses(")()())") == 4, "Example 2, '()()'"
+    assert testCase.longestValidParentheses("") == 0, "Example 3, Edge 0"
+    assert testCase.longestValidParentheses("(") == 0, "Example 4, Edge 1"
+    assert testCase.longestValidParentheses(")") == 0, "Example 5, Edge 2"
+
+    assert testCase.longestValidParentheses("()(()") == 2, "Additional 1"
+    assert testCase.longestValidParentheses("()(()()") == 4, "Additional 2"
+    assert testCase.longestValidParentheses("(()(((()") == 2, "Additional 3"
+    assert testCase.longestValidParentheses("(()((()))") == 8, "Additional 4"
+    assert testCase.longestValidParentheses("(((()())))") == 10, "Additional 5"
+    assert testCase.longestValidParentheses("))()((()(())())(") == 10, "Additional 6"
+
 
     long = ")(()(()(((())(((((()()))((((()()(()()())())())()))()()()())(())()()(((()))))()((()))(((())()((()()())((())))(())))())((()())()()((()((())))))((()(((((()((()))(()()(())))((()))()))())"
     assert testCase.longestValidParentheses(long) == 132, "Additional 7, --)(2(2((132((2(36--"
