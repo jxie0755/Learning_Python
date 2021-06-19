@@ -192,7 +192,6 @@ if __name__ == '__main__':
     assert testCase.longestValidParentheses("(((()())))") == 10, "Additional 5"
     assert testCase.longestValidParentheses("))()((()(())())(") == 10, "Additional 6"
 
-
     long = ")(()(()(((())(((((()()))((((()()(()()())())())()))()()()())(())()()(((()))))()((()))(((())()((()()())((())))(())))())((()())()()((()((())))))((()(((((()((()))(()()(())))((()))()))())"
     assert testCase.longestValidParentheses(long) == 132, "Additional 7, --)(2(2((132((2(36--"
 
