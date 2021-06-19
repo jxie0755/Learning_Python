@@ -155,7 +155,10 @@ class Solution_C:
                 elif elem == -1: # find R
                     if stack and stack[0] == 1: # merge the stack
                         stack.append(elem)
-                        new_trans_data.append(sum(stack) + 2) # existing pairs + newly formed (-1+1)
+                        if len(stack) == 2:
+                            new_trans_data.append(2)
+                        else:
+                            new_trans_data.append(2 + stack[1])
                         stack.clear()
                         merged = True
                     else:
