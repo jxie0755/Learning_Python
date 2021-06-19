@@ -77,26 +77,22 @@ class Solution_B:
         # keep merging  left pos + right nega
         merged = True
         while merged:
-            print(trans_data)
             merged = False
             L, R = -1, -1
             i = 0
             while i < len(trans_data):
-                if trans_data[i][0] < 0 and L == -1:  # find a R before finding L, empty heading
+                if trans_data[i][0] == 0:  # found a pre-merged 0
+                    while i + 1 < len(trans_data) and trans_data[i+1][0] == 0:
+                        trans_data[i][1] += trans_data[i+1][1]
+                        trans_data.pop(i+1)
                     i += 1
-                elif trans_data[i][0] > 0 and L == -1:
-                    L = i
+                else:
+                    if trans_data[i][0] < 0 and L != -1 and R == -1:  # already found a L before this R
+                        R = i
+                    elif trans_data[i][0] > 0 and L == -1 and R == -1: # only find the first L
+                        L = i
                     i += 1
-                elif trans_data[i][0] < 0 and L != -1 and R == -1:  # already found a L before this R
-                    R = i
-                    i += 1
-                elif trans_data[i][0] == 0:  # found a pre-merged 0
-                    if i > 0 and trans_data[i - 1][0] == 0:
-                        trans_data[i - 1][1] += trans_data[i][1]
-                        trans_data.pop(i)  # popped,  no need to i+=1
-
-                elif L != -1 and R != -1:  # found a pair
-                    print(trans_data[L], trans_data[R])
+                if L != -1 and R != -1:  # find a pair, merge L and R
                     merged = True
                     if trans_data[L][1] > trans_data[R][1]:
                         trans_data[L][0] = trans_data[L][0] + trans_data[R][0]
@@ -107,30 +103,36 @@ class Solution_B:
                         trans_data[L][0] = 0
                         trans_data[R][0] = 0
                     elif trans_data[L][1] < trans_data[R][1]:
-                        trans_data[L][0] = 0
-                        trans_data[L][1] = trans_data[L][1] * 2
                         trans_data[R][0] = trans_data[L][0] + trans_data[R][0]
+                        trans_data[L][0] = 0
                         trans_data[R][1] = trans_data[R][1] - trans_data[L][1]
+                        trans_data[L][1] = trans_data[L][1] * 2
                     L, R = -1, -1
-
         print(trans_data)
+        # screen out the max_zero to return
+        max_zero = 0
+        for i in trans_data:
+            if i[0] == 0 and i[1] > max_zero:
+                max_zero = i[1]
+        return max_zero
 
 
-testCase = Solution_B()
-print(testCase.longestValidParentheses("))()((()(())())("))
 
-# if __name__ == '__main__':
-#     testCase = Solution_B()
-#
-#     assert testCase.longestValidParentheses("(()") == 2, "Example 1, '()'"
-#     assert testCase.longestValidParentheses(")()())") == 4, "Example 2, '()()'"
-#     assert testCase.longestValidParentheses("") == 0, "Example 3, Edge 0"
-#
-#     assert testCase.longestValidParentheses("()(()") == 2, "Additional 1"
-#     assert testCase.longestValidParentheses("()(()()") == 4, "Additional 2"
-#     assert testCase.longestValidParentheses("(()(((()") == 2, "Additional 3"
-#     assert testCase.longestValidParentheses("(()((()))") == 8, "Additional 4"
-#     assert testCase.longestValidParentheses("(((()())))") == 10, "Additional 5"
-#     assert testCase.longestValidParentheses("))()((()(())())(") == 10, "Additional 6"
-#
-#     print("All passed")
+if __name__ == '__main__':
+    testCase = Solution_B()
+
+    # assert testCase.longestValidParentheses("(()") == 2, "Example 1, '()'"
+    # assert testCase.longestValidParentheses(")()())") == 4, "Example 2, '()()'"
+    # assert testCase.longestValidParentheses("") == 0, "Example 3, Edge 0"
+    #
+    # assert testCase.longestValidParentheses("()(()") == 2, "Additional 1"
+    # assert testCase.longestValidParentheses("()(()()") == 4, "Additional 2"
+    # assert testCase.longestValidParentheses("(()(((()") == 2, "Additional 3"
+    # assert testCase.longestValidParentheses("(()((()))") == 8, "Additional 4"
+    # assert testCase.longestValidParentheses("(((()())))") == 10, "Additional 5"
+    # assert testCase.longestValidParentheses("))()((()(())())(") == 10, "Additional 6"
+
+    long = ")(()(()(((())(((((()()))((((()()(()()())())())()))()()()())(())()()(((()))))()((()))(((())()((()()())((())))(())))())((()())()()((()((())))))((()(((((()((()))(()()(())))((()))()))())"
+    assert testCase.longestValidParentheses(long) == 132, "Additional 7, --)(2(2((132((2(36--"
+
+    print("All passed")
