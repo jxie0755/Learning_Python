@@ -43,7 +43,7 @@ class Solution_B:
 
     def longestValidParentheses(self, s: str) -> int:
         """
-        O(N) new idea, Divide and Conquer
+        O(log(N)*N) new idea, Divide and Conquer
 
         )) (  ) ((( ) (( )) ( )) convert to
         -1 1 -1  3 -1 2 -2  1 -2 then merge L positive + R negative
@@ -122,7 +122,7 @@ class Solution_C:
 
     def longestValidParentheses(self, s: str) -> int:
         """
-        O(N) new idea, merge using a stack
+        O(log(N)*N) new idea, merge using a stack
 
          )  ) (  ) ( ( (  ) ( (  )  ) (  )  )  ( convert to
         -1 -1 1 -1 1 1 1 -1 1 1 -1 -1 1 -1 -1  ( then merge L positive + R negative
@@ -131,6 +131,7 @@ class Solution_C:
         -1 -1  2   1 1         8          -1   1
         -1 -1  2   1           10              1
         longest string of 0 is length = 10
+        passed with slow time
         """
         if not s:
             return 0
