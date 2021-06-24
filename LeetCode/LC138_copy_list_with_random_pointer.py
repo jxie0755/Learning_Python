@@ -35,7 +35,7 @@ class Solution_A:
             """
             if head:
                 if head not in check_list:
-                    new_head = Node(head.val, head.next, head.random)
+                    new_head = Node(head.val, None, None)
                     check_list[head] = new_head # correlate the new node to original node
                     new_head.next = helper(head.next)
                     new_head.random = helper(head.random)
