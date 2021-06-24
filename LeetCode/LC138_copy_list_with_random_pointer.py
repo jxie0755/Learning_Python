@@ -54,8 +54,8 @@ if __name__ == "__main__":
     A = Node(1, B, B)
 
     AA = testCase.copyRandomList(A)
-    assert AA.val == 1, "Val"
-    assert AA.next.val == 2, "next val"
+    assert AA.val == 1, "Val check"
+    assert AA.next.val == 2, "next Val"
     assert AA.random.val == 2, "random val"
     assert AA.next.random.val == 2, "cycling"
     assert AA.next.random == AA.next, "True self poiting"
