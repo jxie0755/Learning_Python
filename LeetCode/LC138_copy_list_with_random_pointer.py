@@ -33,7 +33,6 @@ class Solution_A:
             """
             A helper to use memoization method to avoid repeating the cycling chain
             """
-
             if head:
                 if head not in check_list:
                     new_head = Node(head.val, head.next, head.random)
