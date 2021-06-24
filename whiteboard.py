@@ -23,10 +23,20 @@ class Node:
 
 
 class Solution:
-
-    # Use Hashmap to save the
+    hmp = set()
     def copyRandomList(self, head: Node) -> Node:
-        pass
+        if head:
+            if head not in Solution.hmp:
+                new_head = Node(head.val, None, None)
+                Solution.hmp.add(new_head)
+                new_head.next = self.copyRandomList(head.next)
+                Solution.hmp.add(new_head.next)
+                new_head.random = self.copyRandomList(head.random)
+                Solution.hmp.add(new_head.random)
+                return new_head
+            else:
+                return head
+
 
 
 

@@ -23,20 +23,26 @@ class Node:
 
 class Solution_A:
 
-    # Use Hashmap to save the
     def copyRandomList(self, head: Node) -> Node:
+        """
+        Use Hashmap to correlate the new_node to respective original node
+        """
         check_list = {}
 
-        def helper(node):
-            if node:
-                if node not in check_list:
-                    head = Node(node.val, node.next, node.random)
-                    check_list[node] = head
-                    head.next = helper(node.next)
-                    head.random = helper(node.random)
-                    return head
+        def helper(head):
+            """
+            A helper to use memoization method to avoid repeating the cycling chain
+            """
+
+            if head:
+                if head not in check_list:
+                    new_head = Node(head.val, head.next, head.random)
+                    check_list[head] = new_head # correlate the new node to original node
+                    new_head.next = helper(head.next)
+                    new_head.random = helper(head.random)
+                    return new_head
                 else:
-                    return check_list[node]
+                    return check_list[head] # if cycling, this can help to find the respective cycling in the new node
 
         return helper(head)
 
