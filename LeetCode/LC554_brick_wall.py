@@ -62,7 +62,7 @@ if __name__ == '__main__':
         [100000000],
         [100000000],
         [100000000]
-    ]) == 3, "Additional edge 1"
+    ]) == 3, "Additional edge 2"
 
 
     print("All passed")
