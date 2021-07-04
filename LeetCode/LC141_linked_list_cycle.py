@@ -14,10 +14,12 @@ If pos is -1, then there is no cycle in the linked list.
 from A01_ListNode import *
 
 
-class Solution_A:
+class Solution_A1:
     def hasCycle(self, head: ListNode) -> bool:
         """
         Time O(N^2), Space O(N), Passed, but very slow.
+        Record node in a check-list for checking repeat
+        Takes too much space
         """
         if not head:
             return False
@@ -33,11 +35,11 @@ class Solution_A:
         return False
 
 
-class Solution_B:
+class Solution_A2:
     def hasCycle(self, head: ListNode) -> bool:
         """
         Time O(N), Space O(N), use hashtable to search faster
-        ListNode instance is not hashable, this method search at O(1), and will not break down the original linked list
+        Same idea as A1 but use hashmap to search faster
         """
         if not head:
             return False
@@ -58,6 +60,7 @@ class Solution_C:
         """
         Time O(N), Space O(1)
         The Solution C is better as it only create one additional checknode for every previous node to point to
+        This will break the original node, and force every node point to a single node 'checknode', if cycles, then it will go back to a node that already pointed to 'checknode'
         """
         checkednode = ListNode(99)
         if not head:
@@ -67,34 +70,32 @@ class Solution_C:
                 return True
             checked = head  # mark previous head
             head = head.next  # move to next head
-            checked.next = checkednode  # break down the previous head link to next head, force previous head all to link to the same checknode
-            # if any node cycle back to a previous node, then it will be caught as the next of that previous node is a checknode
+            checked.next = checkednode
 
         return False
 
 
 class Solution_D:
-    def hasCycle(self, head):
+    def hasCycle(self, head: ListNode) -> bool:
         """
-        Time O(N), Space O(N)
-        The Solution Y forces every node pointed to a different node but has the same value.
-        You can not guarantee that the value is not in orignal linked list. And it also uses much more space.
+        The best method, takes O(N) time and O(0) space.
+        Use fast and slow nodes to see if the fast will ever catch up to slow
+        If there is a cycle, fast node will always cycle back and overlap with the slow
+        This will not break the orginal linked list, neither will take any extra space.
         """
-        if not head:
-            return False
-        while head.next:
-            if head.next.val == "X":  # assume "X" will not be in any of the original linked list node value
+        slow = head
+        fast = head
+        while fast and fast.next:
+            fast = fast.next.next
+            slow = slow.next
+            if fast is slow:
                 return True
-            checked = head
-            head = head.next
-            checked.next = ListNode(
-                "X")  # break down the previous head link to next head, force previous head all to link to a ListNode
         return False
 
 
 
 if __name__ == "__main__":
-    testCase = Solution_A()
+    testCase = Solution_C()
 
     assert testCase.hasCycle(None) is False, "Edge 1"
 
