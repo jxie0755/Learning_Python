@@ -1,23 +1,23 @@
-# LC141 Linked List Cycle
-# Easy
+"""
+https://leetcode.com/problems/linked-list-cycle/
+LC141 Linked List Cycle
+Easy
 
 
-# Given a linked list, determine if it has a cycle in it.
+Given a linked list, determine if it has a cycle in it.
 
-# To represent a cycle in the given linked list,
-# we use an integer pos which represents the position (0-indexed) in the linked list where tail connects to.
-# If pos is -1, then there is no cycle in the linked list.
-
+To represent a cycle in the given linked list,
+we use an integer pos which represents the position (0-indexed) in the linked list where tail connects to.
+If pos is -1, then there is no cycle in the linked list.
+"""
 
 from A01_ListNode import *
 
 
-class Solution(object):
-    def hasCycle(self, head):
-        # Time O(N^2), Space O(N), Passed, but very slow.
+class Solution_A:
+    def hasCycle(self, head: ListNode) -> bool:
         """
-        :type head: ListNode
-        :rtype: bool
+        Time O(N^2), Space O(N), Passed, but very slow.
         """
         if not head:
             return False
@@ -33,13 +33,11 @@ class Solution(object):
         return False
 
 
-class Solution(object):
-    def hasCycle(self, head):
-        # Time O(N), Space O(N), use hashtable to search faster
-        # ListNode instance is not hashable, this method search at O(1), and will not break down the original linked list
+class Solution_B:
+    def hasCycle(self, head: ListNode) -> bool:
         """
-        :type head: ListNode
-        :rtype: bool
+        Time O(N), Space O(N), use hashtable to search faster
+        ListNode instance is not hashable, this method search at O(1), and will not break down the original linked list
         """
         if not head:
             return False
@@ -55,12 +53,11 @@ class Solution(object):
         return False  # if no cycle, while loop will end
 
 
-class Solution_X(object):
+class Solution_C:
     def hasCycle(self, head):
-        # Time O(N), Space O(1)
         """
-        :type head: ListNode
-        :rtype: bool
+        Time O(N), Space O(1)
+        The Solution C is better as it only create one additional checknode for every previous node to point to
         """
         checkednode = ListNode(99)
         if not head:
@@ -76,12 +73,12 @@ class Solution_X(object):
         return False
 
 
-class Solution_Y(object):
+class Solution_D:
     def hasCycle(self, head):
-        # Time O(N), Space O(N)
         """
-        :type head: ListNode
-        :rtype: bool
+        Time O(N), Space O(N)
+        The Solution Y forces every node pointed to a different node but has the same value.
+        You can not guarantee that the value is not in orignal linked list. And it also uses much more space.
         """
         if not head:
             return False
@@ -95,36 +92,28 @@ class Solution_Y(object):
         return False
 
 
-# The Solution X is better as it only create one additional checknode for every previous node to point to
-# The Solution Y forces every node pointed to a different node but has the same value. You can not guarantee that the value is not in orignal linked list. And it also uses much more space.
 
 if __name__ == "__main__":
-    assert Solution().hasCycle(None) is False, "Edge"
+    testCase = Solution_A()
+
+    assert testCase.hasCycle(None) is False, "Edge 1"
 
     # Example 1
-    a = ListNode(3)
-    b = ListNode(2)
-    c = ListNode(0)
-    d = ListNode(-4)
+    L1 = genNode([3,2,0,-4])
+    L1.next.next.next.next = L1.next
+    # 3 2 0 -4
+    # a b c  d
+    # d->b cycle
+    assert testCase.hasCycle(L1) is True, "Example 1"
 
-    a.next = b
-    b.next = c
-    c.next = d
-    d.next = b
+    L2 = genNode([1,2])
+    L2.next.next = L2
+    # 1 2
+    # a b
+    # b->a cycle
+    assert testCase.hasCycle(L2) is True, "Example 2"
 
-    assert Solution().hasCycle(a) is True, "Example 1"
-
-    # Example 2
-    a = ListNode(1)
-    b = ListNode(2)
-    a.next = b
-    b.next = a
-
-    # assert Solution().hasCycle(a) is True, "Example 2"
-
-    # Example 3
-    a = ListNode(1)
-
-    # assert Solution().hasCycle(a) is False, "Example 3"
+    L3 = ListNode(1)
+    assert testCase.hasCycle(L3) is False, "Example 3"
 
     print("All passed")
