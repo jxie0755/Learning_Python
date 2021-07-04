@@ -95,11 +95,10 @@ class Solution_D:
 
 
 if __name__ == "__main__":
-    testCase = Solution_C()
+    testCase = Solution_D()
 
     assert testCase.hasCycle(None) is False, "Edge 1"
 
-    # Example 1
     L1 = genNode([3,2,0,-4])
     L1.next.next.next.next = L1.next
     # 3 2 0 -4
@@ -116,5 +115,16 @@ if __name__ == "__main__":
 
     L3 = ListNode(1)
     assert testCase.hasCycle(L3) is False, "Example 3"
+
+    L4 = genNode([1, 1, 1, 1])
+    L4.next.next.next.next = L4.next
+    # 1 1 1 1
+    # a b c d
+    # d->b cycle
+    assert testCase.hasCycle(L4) is True, "Additional 1 same value nodes"
+
+    L4 = genNode([1, 1, 1, 1])
+    assert testCase.hasCycle(L4) is False, "Additional 2 same value nodes"
+
 
     print("All passed")
