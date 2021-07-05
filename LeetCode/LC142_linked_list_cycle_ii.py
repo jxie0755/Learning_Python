@@ -35,21 +35,21 @@ if __name__ == "__main__":
     # Use is instead of == to avoid max recursion when comparing cycling linked list
     testCase = Solution_A()
 
-    A = genNode([3, 2, 0, 4])
-    A.next.next.next.next = A.next
+    L1 = genNode([3, 2, 0, 4])
+    L1.next.next.next.next = L1.next
     # 3 2 0 4
     # a b c d
     # d->b
-    assert testCase.detectCycle(A) is A.next, "Example 1"
+    assert testCase.detectCycle(L1) is L1.next, "Example 1"
 
-    A = genNode([1, 2])
-    A.next.next = A
+    L2 = genNode([1, 2])
+    L2.next.next = L2
     # 1 2
     # a b
     # b->a
-    assert testCase.detectCycle(A) is A, "Example 2"
+    assert testCase.detectCycle(L2) is L2, "Example 2"
 
-    A = genNode([1])
-    assert not testCase.detectCycle(A), "Edge 1, no cycle"
+    L3 = genNode([1])
+    assert not testCase.detectCycle(L3), "Edge 1, no cycle"
 
     print("All passed")
