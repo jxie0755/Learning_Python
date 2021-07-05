@@ -18,24 +18,17 @@ class Solution_A:
 
     def detectCycle(self, head: ListNode) -> ListNode:
         """
-        Time O(N), Space O(N), use hashtable to search faster
+        Time O(N), Space O(N), use set to search existing node
         ListNode instance is hashable, this method search at O(1), and will not break down the original linked list
         """
-        if not head:
-            return None
-
-        val = 0
-        hmp = {}
-        cur = head
-        while cur:
-            if cur not in hmp:
-                hmp[cur] = val
-                val += 1
+        ss = set()
+        while head:
+            if head.next in ss:
+                return head.next
             else:
-                return cur  # cyling will force to return
-            cur = cur.next
-
-        return None  # if no cycle, while loop will end
+                ss.add(head)
+                head = head.next
+        return None
 
 
 if __name__ == "__main__":
