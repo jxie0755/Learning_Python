@@ -71,7 +71,6 @@ class Solution_STD:
 
         # merge first half (head) and reversed second half
         reversed_second_half = dummy.next
-        ans = head
         while head and reversed_second_half:
             head_next = head.next
             second_next = reversed_second_half.next
