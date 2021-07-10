@@ -25,20 +25,19 @@ class Solution_A:
             return None
 
         lst = []
-        cur = head
-        while cur:
-            lst.append(cur)
-            cur = cur.next
+        while head:
+            lst.append(head)
+            head = head.next
 
-        dummy = ListNode("X")
-        for i in range(len(lst)):
+        dummy = ListNode(0)
+        for i in range(len(lst)): # pop head and tail in turn
             if i % 2 == 0:
                 dummy.next = lst.pop(0)
             else:
-                dummy.next = lst.pop()
+                dummy.next = lst.pop(-1)
             dummy = dummy.next
 
-        dummy.next = None  # avoid cycling
+        dummy.next = None  # disconnect the last node to avoid cycling
 
 
 class Solution_STD:

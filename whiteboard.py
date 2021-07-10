@@ -18,8 +18,13 @@ class Solution_A:
         pass
 
 
+
 if __name__ == "__main__":
     testCase = Solution_A()
+
+    A = genNode([1])
+    testCase.reorderList(A)
+    assert A == genNode([1]), "Edge 1"
 
     A = genNode([1, 2, 3, 4])
     testCase.reorderList(A)
