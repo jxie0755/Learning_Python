@@ -1,4 +1,5 @@
 """
+https://leetcode.com/problems/reorder-list/
 LC143 Reorder List
 Medium
 
@@ -14,7 +15,7 @@ from A01_ListNode import *
 
 class Solution_A:
 
-    def reorderList(self, head):
+    def reorderList(self, head: ListNode) -> None:
         """
         Put nodes in a list
         Keep poping the list from head and tail in turn and link them
@@ -42,8 +43,7 @@ class Solution_A:
 
 class Solution_STD:
 
-
-    def reorderList(self, head):
+    def reorderList(self, head: ListNode) -> None:
         """
         STD ans
         """
