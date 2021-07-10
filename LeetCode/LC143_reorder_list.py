@@ -1,25 +1,24 @@
-# LC143 Reorder List
-# Medium
+"""
+LC143 Reorder List
+Medium
 
-# Given a singly linked list L: L0→L1→…→Ln-1→Ln,
-# reorder it to: L0→Ln→L1→Ln-1→L2→Ln-2→…
+Given a singly linked list L: L0→L1→…→Ln-1→Ln,
+reorder it to: L0→Ln→L1→Ln-1→L2→Ln-2→…
 
-# You may not modify the values in the list's nodes, only nodes itself may be changed.
+You may not modify the values in the list's nodes, only nodes itself may be changed.
+"""
 
 from typing import *
-from A02_TreeNode import *
 from A01_ListNode import *
 
 
-class Solution(object):
+class Solution_A:
 
-    # Put nodes in a list
-    # Keep poping the list from head and tail in turn and link them
-    # This will pass but runs slow
     def reorderList(self, head):
         """
-        :type head: ListNode
-        :rtype: None Do not return anything, modify head in-place instead.
+        Put nodes in a list
+        Keep poping the list from head and tail in turn and link them
+        This will pass but runs slow
         """
         if not head:
             return None
@@ -41,12 +40,13 @@ class Solution(object):
         dummy.next = None  # avoid cycling
 
 
-class Solution(object):
+class Solution_STD:
 
-    # STD ans
-    # @param head, a ListNode
-    # @return nothing
+
     def reorderList(self, head):
+        """
+        STD ans
+        """
         if head == None or head.next == None:
             return head
 
@@ -86,12 +86,14 @@ class Solution(object):
 
 
 if __name__ == "__main__":
+    testCase = Solution_A()
+
     A = genNode([1, 2, 3, 4])
-    Solution().reorderList(A)
+    testCase.reorderList(A)
     assert A == genNode([1, 4, 2, 3]), "Example 1"
 
     A = genNode([1, 2, 3, 4, 5])
-    Solution().reorderList(A)
+    testCase.reorderList(A)
     assert A == genNode([1, 5, 2, 4, 3]), "Example 2"
 
     print("All passed")
