@@ -59,6 +59,7 @@ class Solution(object):
     # STD ans 循环链表判断法
     # Time:  O(n)
     # Space: O(1)
+    # 利用fast和slow相遇法,参见LC141
     # 精妙!
     def findDuplicate(self, nums: List[int]) -> int:
         # Treat each (key, value) pair of the array as the (pointer, next) node of the linked list,
