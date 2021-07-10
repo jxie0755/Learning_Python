@@ -66,8 +66,8 @@ class Solution_STD:
             temp = second_half.next
             dummy.next = second_half
             second_half.next = end
-            second_half = temp
             end = dummy.next
+            second_half = temp
 
         # merge first half (head) and reversed second half
         reversed_second_half = dummy.next
