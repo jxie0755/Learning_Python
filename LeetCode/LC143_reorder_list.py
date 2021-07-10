@@ -96,16 +96,16 @@ class Solution_STD:
 if __name__ == "__main__":
     testCase = Solution_A()
 
-    A = genNode([1])
-    testCase.reorderList(A)
-    assert A == genNode([1]), "Edge 1"
+    L1 = genNode([1])
+    testCase.reorderList(L1)
+    assert L1 == genNode([1]), "Edge 1"
 
-    A = genNode([1, 2, 3, 4])
-    testCase.reorderList(A)
-    assert A == genNode([1, 4, 2, 3]), "Example 1"
+    L2 = genNode([1, 2, 3, 4])
+    testCase.reorderList(L2)
+    assert L2 == genNode([1, 4, 2, 3]), "Example 1"
 
-    A = genNode([1, 2, 3, 4, 5])
-    testCase.reorderList(A)
-    assert A == genNode([1, 5, 2, 4, 3]), "Example 2"
+    L3 = genNode([1, 2, 3, 4, 5])
+    testCase.reorderList(L3)
+    assert L3 == genNode([1, 5, 2, 4, 3]), "Example 2"
 
     print("All passed")
