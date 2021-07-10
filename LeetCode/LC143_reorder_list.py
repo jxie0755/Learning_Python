@@ -44,34 +44,43 @@ class Solution_STD:
 
     def reorderList(self, head: ListNode) -> None:
         """
-        STD ans
+        Change in place
+        Find half-way point and break.
+        Then reverse second half
+        Merge two halves node by node
         """
-        if head == None or head.next == None:
-            return head
 
-        # Find the middle point by moving fast by 2 step and slow by 1 step.
-        # when fast gets to the end, slow is at half point as the begining of second half
-        # now second half begin with slow
-        fast, slow, prev = head, head, None
-        while fast != None and fast.next != None:
-            fast, slow, prev = fast.next.next, slow.next, slow
-        current, prev.next, prev = slow, None, None
+        # find out half way linked list
+        slow = fast = head
+        while fast.next and fast.next.next:
+            fast = fast.next.next
+            slow = slow.next
 
-        # Revser the second half (now begin with prev)
-        while current != None:
-            current.next, prev, current = prev, current, current.next
+        second_half = slow.next  # locate
+        slow.next = None  # disconnect
 
-        # Until now: head is the first half, prev is the reversed second half
-        l1, l2 = head, prev
+        # reverse second half (classic method)
         dummy = ListNode(0)
-        current = dummy
+        end = None
+        while second_half:
+            temp = second_half.next
+            dummy.next = second_half
+            second_half.next = end
+            second_half = temp
+            end = dummy.next
 
-        # linked L1 head to L2 head
-        # Move L1 head to next one and L2 head to next one
-        while l1 != None and l2 != None:
-            current.next, current, l1 = l1, l1, l1.next
-            current.next, current, l2 = l2, l2, l2.next
-        return dummy.next
+        # merge first half (head) and reversed second half
+        reversed_second_half = dummy.next
+        ans = head
+        while head and reversed_second_half:
+            head_next = head.next
+            second_next = reversed_second_half.next
+
+            head.next = reversed_second_half
+            reversed_second_half.next = head_next
+
+            head = head_next
+            reversed_second_half = second_next
 
         # Breakdown:
         # 1-2-3-4-5
@@ -86,6 +95,10 @@ class Solution_STD:
 
 if __name__ == "__main__":
     testCase = Solution_A()
+
+    A = genNode([1])
+    testCase.reorderList(A)
+    assert A == genNode([1]), "Edge 1"
 
     A = genNode([1, 2, 3, 4])
     testCase.reorderList(A)
