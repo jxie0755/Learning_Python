@@ -81,16 +81,6 @@ class Solution_STD:
             head = head_next
             reversed_second_half = second_next
 
-        # Breakdown:
-        # 1-2-3-4-5
-        # to
-        # 1-2 and 3-4-5, then reverse 3-4-5 to 5-4-3:
-        # got:
-        # L1:  1-2
-        # L2:  5-4-3
-        # then link the head and move to next
-        # 1-5-2-4-3 (4 naturally linked to 3)
-
 
 if __name__ == "__main__":
     testCase = Solution_A()
