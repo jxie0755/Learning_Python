@@ -35,7 +35,6 @@ import math
 
 
 class Solution(object):
-
     # STD ans, O(1)
     # The number of full squares
     # For every x'th light, start off, if having even number of factors, will still be off after operation
